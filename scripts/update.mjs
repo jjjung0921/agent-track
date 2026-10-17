@@ -57,8 +57,8 @@ async function claudeReleases(previous) {
 
 async function codexReleases() {
   const out = [];
-  for (let page = 1; page <= 10; page++) {
-    const batch = await get(`https://api.github.com/repos/openai/codex/releases?per_page=100&page=${page}`, "json");
+  for (let page = 1; page <= 20; page++) {
+    const batch = await get(`https://api.github.com/repos/openai/codex/releases?per_page=50&page=${page}`, "json");
     for (const r of batch) {
       if (r.draft || !r.published_at) continue;
       out.push({
@@ -71,7 +71,7 @@ async function codexReleases() {
         items: parseCodexBody(r.body ?? ""),
       });
     }
-    if (batch.length < 100 || new Date(batch.at(-1).published_at) < cutoff) break;
+    if (batch.length < 50 || new Date(batch.at(-1).published_at) < cutoff) break;
   }
   return out.filter((r) => new Date(r.date) >= cutoff);
 }
