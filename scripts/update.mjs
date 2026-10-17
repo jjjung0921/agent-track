@@ -12,12 +12,22 @@ const SITE_URL = process.env.SITE_URL ?? "";
 const now = new Date();
 const cutoff = new Date(now - WINDOW_DAYS * 864e5);
 
-async function get(url, as = "text") {
+// Retries network drops and 5xx; large GitHub API pages sometimes close mid-body.
+async function get(url, as = "text", tries = 3) {
   const headers = { "user-agent": "agent-track" };
   if (url.startsWith("https://api.github.com") && process.env.GITHUB_TOKEN) headers.authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  const res = await fetch(url, { headers });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  return as === "json" ? res.json() : res.text();
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const res = await fetch(url, { headers });
+      if (res.status >= 500) throw new Error(`${res.status} ${url}`);
+      if (!res.ok) throw Object.assign(new Error(`${res.status} ${url}`), { final: true });
+      return as === "json" ? await res.json() : await res.text();
+    } catch (err) {
+      if (err.final || attempt >= tries) throw err;
+      console.warn(`retry ${attempt} ${url}: ${err.message}`);
+      await new Promise((r) => setTimeout(r, 2000 * attempt));
+    }
+  }
 }
 
 async function claudeReleases(previous) {
