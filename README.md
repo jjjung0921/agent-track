@@ -12,7 +12,8 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 
 - 분류(새 기능·개선·변경·수정)는 원문에서 정한다. Claude Code는 줄머리 동사(Added, Improved, Fixed, 그 밖은 변경), Codex는 절 제목(New Features, Bug Fixes …). Codex의 `## Changelog` PR 목록은 버린다.
 - 적용 위치(터미널·데스크톱 앱·VS Code·SDK)는 원문 키워드로 붙인다.
-- 한국어 요약·설명·사용 예시는 Anthropic 자격 증명이 있을 때 Claude(`claude-opus-5-5`)가 원문만 보고 쓴다. 없으면 원문을 그대로 보여준다. 한 번 쓴 설명은 원문 항목이 바뀌지 않는 한 다시 쓰지 않는다.
+- 한국어 요약·설명·사용 예시는 Claude가 원문만 보고 쓴다. 기본은 Claude Code 클라우드 예약 작업(Claude Haiku 5.5, 플랜 사용량)이 `prompts/routine.md` 절차대로 쓰고 `data/ko.json`에 커밋한다. CI에 Anthropic 자격 증명이 있으면 API(`claude-opus-5-5`)로도 쓴다. 둘 다 없으면 원문을 보여준다. 한 번 쓴 설명은 원문 항목이 바뀌지 않는 한 다시 쓰지 않는다.
+- 규칙과 출력 형식은 `prompts/ko-notes.md`, `prompts/ko-notes.schema.json` 한곳에 있고, `scripts/apply-ko.mjs`가 형식·인덱스를 검사한 뒤에만 반영한다.
 - 요청은 `fallbacks: "default"`(서버 측 대체 모델)를 켠다. 안전 분류기가 거절하면 Anthropic이 고른 다른 모델이 이어서 답한다.
 
 ## 실행

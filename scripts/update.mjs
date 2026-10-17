@@ -1,11 +1,14 @@
 // Fetch both sources, merge with the previous data, enrich new releases, write site/data + feed.
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { parseClaudeChangelog, parseCodexBody, parseCodexScreenshots, surfaces } from "./parse.mjs";
+import { parseClaudeChangelog, parseCodexBody, parseCodexScreenshots, surfaces, nearbyShots } from "./parse.mjs";
 import { createClient, enrichRelease } from "./enrich.mjs";
 
 const DATA = new URL("../site/data/releases.json", import.meta.url);
 const FEED = new URL("../site/feed.xml", import.meta.url);
+// Korean notes keyed by release id, kept with the hash of the items they were written from.
+// Written by the API path below or by the Claude cloud routine (scripts/apply-ko.mjs).
+const KO = new URL("../data/ko.json", import.meta.url);
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS ?? 90);
 const MAX_ENRICH = Number(process.env.MAX_ENRICH ?? 15);
 const SITE_URL = process.env.SITE_URL ?? "";
@@ -88,23 +91,18 @@ async function codexScreenshots() {
 
 const itemsHash = (items) => createHash("sha1").update(JSON.stringify(items.map((i) => i.text))).digest("hex").slice(0, 12);
 
-function nearbyShots(release, shots) {
-  if (release.tool !== "codex") return [];
-  const t = new Date(release.date);
-  return shots.filter((s) => Math.abs(new Date(s.date) - t) <= 21 * 864e5);
-}
-
 async function main() {
   const prev = JSON.parse(await readFile(DATA, "utf8").catch(() => '{"releases":[]}'));
   const previous = new Map(prev.releases.map((r) => [r.id, r]));
+  const koCache = JSON.parse(await readFile(KO, "utf8").catch(() => "{}"));
 
   const [claude, codex, screenshots] = await Promise.all([claudeReleases(previous), codexReleases(), codexScreenshots()]);
   const releases = [...claude, ...codex]
     .map((r) => {
       const items = r.items.map((it) => ({ ...it, surfaces: surfaces(it.text) }));
       const hash = itemsHash(items);
-      const old = previous.get(r.id);
-      return { ...r, items, hash, ko: old?.hash === hash ? old.ko ?? null : null };
+      const cached = koCache[r.id];
+      return { ...r, items, hash, ko: cached?.hash === hash ? cached.ko : null };
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -117,6 +115,7 @@ async function main() {
     for (const r of todo) {
       try {
         r.ko = await enrichRelease(client, r, nearbyShots(r, screenshots));
+        koCache[r.id] = { hash: r.hash, ko: r.ko };
         console.log(`enriched ${r.id}`);
       } catch (err) {
         console.warn(`enrich failed ${r.id}: ${err.message}`);
@@ -126,6 +125,7 @@ async function main() {
     console.warn(`no Anthropic credentials: ${todo.length} releases left without Korean text`);
   }
 
+  await writeFile(KO, JSON.stringify(koCache, null, 1) + "\n");
   const data = { generatedAt: now.toISOString(), windowDays: WINDOW_DAYS, releases, screenshots };
   await writeFile(DATA, JSON.stringify(data, null, 1) + "\n");
   await writeFile(FEED, feed(releases));

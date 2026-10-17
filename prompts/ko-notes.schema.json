@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "summary",
+    "items",
+    "features"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "ko"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer"
+          },
+          "ko": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "title",
+          "what",
+          "steps",
+          "terminal",
+          "desktop",
+          "screenshot_id",
+          "notable"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "what": {
+            "type": "string"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "terminal": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "title",
+              "lines"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "lines": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "text"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "comment",
+                        "cmd",
+                        "ui",
+                        "hl"
+                      ]
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "desktop": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "steps",
+              "before",
+              "after"
+            ],
+            "properties": {
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "title",
+                    "note",
+                    "changed"
+                  ],
+                  "properties": {
+                    "title": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    },
+                    "changed": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              },
+              "before": {
+                "type": "string"
+              },
+              "after": {
+                "type": "string"
+              }
+            }
+          },
+          "screenshot_id": {
+            "type": "string"
+          },
+          "notable": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

@@ -45,3 +45,16 @@ test("codex screenshots keep light/dark pair and entry context", () => {
   assert.equal(s.dark, "https://developers.openai.com/images/a-dark.webp");
   assert.match(s.context, /in-app browser/);
 });
+
+test("korean notes: schema check and index guard", async () => {
+  const { checkShape, validate } = await import("../scripts/enrich.mjs");
+  const release = { items: [{ cat: "new", text: "Added A", surfaces: ["cli"] }] };
+  const feature = { index: 0, title: "t", what: "w", steps: [], terminal: { title: "", lines: [] }, desktop: { steps: [], before: "", after: "" }, screenshot_id: "x", notable: false };
+  const good = { summary: "s", items: [{ index: 0, ko: "가" }, { index: 5, ko: "범위 밖" }], features: [feature] };
+  assert.deepEqual(checkShape(good), []);
+  const v = validate(good, release, [], "m");
+  assert.deepEqual(v.items, ["가"]);
+  assert.equal(v.features[0].screenshot_id, "");
+  assert.match(checkShape({ summary: 1, items: [], features: [] })[0], /summary/);
+  assert.throws(() => validate({ summary: "s", items: [], features: [{ ...feature, extra: 1 }] }, release, [], "m"), /not allowed/);
+});

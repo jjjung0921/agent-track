@@ -116,3 +116,10 @@ function decode(s) {
     .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&rsquo;|’/g, "’");
 }
+
+// Official Codex screenshots posted within three weeks of a release are its candidates.
+export function nearbyShots(release, shots) {
+  if (release.tool !== "codex") return [];
+  const t = new Date(release.date);
+  return shots.filter((s) => Math.abs(new Date(s.date) - t) <= 21 * 864e5);
+}
