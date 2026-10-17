@@ -1,1 +1,2298 @@
-{}
+{
+ "claude-code@2.1.296": {
+  "hash": "656ab263b939",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "게이트웨이 정책에 `code` 키가 생기고, 워크플로 에이전트의 모델과 서브에이전트별 자동 압축을 지정할 수 있다. Read의 큰 파일 읽기와 mod·Slack·클라우드 세션 문제도 여러 건 고쳐졌다.",
+   "items": [
+    "Claude apps 게이트웨이의 `managed.policies[]`에 `code` 키를 추가했다. `cli`와 같은 설정이며 Claude Desktop의 Code 탭에도 적용된다. `desktop`과 함께 두면 Claude Desktop의 게이트웨이 모드가 켜진다.",
+    "서브에이전트 frontmatter와 `--agents` 정의에 `autoCompactWindow`를 추가했다. 서브에이전트는 메인 대화보다 일찍 자동 압축할 수 있다.",
+    "`CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL`을 추가했다. 모든 워크플로 에이전트를 한 모델에서 실행하고, 다른 서브에이전트는 각자의 모델을 유지한다.",
+    "`CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS`를 추가했다. 과부하(529) 요청을 재시도할 때 백오프의 최대 지연을 더 길게 설정한다.",
+    "`/plugin`에서 같은 이름의 다른 활성 플러그인 때문에 훅이 빠진 플러그인에 대한 안내를 추가했다.",
+    "Read 도구에 `allow_large` 옵션을 추가했다. 전체 파일이 필요하고 컨텍스트에 여유가 있으면 일반 크기 제한을 넘는 텍스트 파일도 한 번에 읽는다.",
+    "관리형 설정의 `PreToolUse` 훅이 `\"continue\": false`로 도구 호출을 거부하거나, 관리형 `prompt` 훅이 호출을 막을 때 호출만 거부하고 턴을 끝내지 않도록 고쳤다.",
+    "일부 세션에서 관리형 설정의 PostToolUse 훅이 `updatedMCPToolOutput`을 적용하지 않던 문제를 고쳤다.",
+    "헤드리스 세션이 디렉터리를 바꾸거나 플러그인을 다시 불러온 뒤, 그 폴더에서 꺼 둔 `.mcp.json`이나 플러그인 MCP 서버를 시작하던 문제를 고쳤다.",
+    "`allowedProviders`에 `\"gateway\"`가 있는 Claude apps 게이트웨이가 사용자 설정에 그 게이트웨이를 적은 노트북을 잠그던 문제를 고쳤다.",
+    "관리형 설정의 `forceLoginMethod`가 `gateway`이고 `forceLoginGatewayUrl`이 없는 기기에서 저장된 Claude apps 게이트웨이 로그인이 무시되던 문제를 고쳤다. 2.1.295의 회귀다.",
+    "세션 기록을 읽을 수 없을 때 `--teleport`가 빈 대화를 열던 문제를 고쳤다.",
+    "Haiku 5.5 등 적응형 thinking만 받는 모델의 토큰 수를 셀 때, 일부 게이트웨이 뒤에서 실패하고 다른 곳에서는 budget thinking으로 세던 문제를 고쳤다.",
+    "세션 종료로 중단된 도구 호출을 사용자가 거부했다고 재개된 서브에이전트에게 알리던 문제를 고쳤다.",
+    "플러그인 힌트 태그와 비슷한 텍스트가 있으면 훅 출력이 바뀌던 문제를 고쳤다.",
+    "공유 기록과 디버그 로그의 비밀 값 가리기가 값이 없는 키 뒤의 일부 값을 놓치던 문제를 고쳤다. 셸 문자열 안에 쓴 JSON도 포함된다.",
+    "MATE Terminal 같은 오래된 VTE 기반 터미널에서 복사 후 화면에 `52;c;…` 이스케이프 시퀀스가 찍히던 문제를 고쳤다.",
+    "`/diff` 패널이나 대화상자가 열려 있는 동안 토스트와 알림이 보이지 않은 채 기다리던 문제를 고쳤다.",
+    "`UserPromptSubmit` 훅이나 mod의 `prompt.submit` 훅이 실행되는 중 Esc나 인터럽트를 누르면 헤드리스 세션이 끝나거나, 입력한 프롬프트가 지워지거나, 확인되지 않은 프롬프트가 통과하던 문제를 고쳤다.",
+    "헤드리스 세션을 시작한 뒤 로드된 플러그인의 SessionStart 훅이, 같은 이름이나 다른 철자의 플러그인이 먼저 실행됐다는 이유로 건너뛰던 문제를 고쳤다.",
+    "`claude self-hosted-runner`가 등록을 거부할 때 오해를 주는 오류를 내던 문제를 고쳤다. 이제 조직 관리자 설정을 밝히거나, 다시 시작한 온디맨드 runner에 새 작업 지시가 필요하다고 알린다.",
+    "`--capacity`가 1보다 큰 runner에서 같은 저장소의 다른 세션이 시작되는 동안 self-hosted runner 세션의 git fetch, pull, push가 실패하던 문제를 고쳤다.",
+    "중첩 깊이가 약 20,000을 넘는 값에서 워크플로 스크립트가 결과와 에이전트 옵션을 조용히 잘라내던 문제와, 깊게 중첩된 결과가 큰 작업 출력 파일을 쓰던 문제를 고쳤다.",
+    "플러그인이 제공하는 `$` 메서드가 메인 세션의 작업 디렉터리에서 실행되고, 호출한 훅이 잡고 있는 턴을 무시하던 문제를 고쳤다. 이제 호출한 에이전트의 디렉터리에서 실행된다.",
+    "mod를 다시 로드하거나 제거한 뒤에도 실행 중이던 mod 훅에서 `$.agent.register`가 성공하던 문제를 고쳤다. 이제 호출이 거부된다.",
+    "mod의 `$.http.fetch`가 `HEAD` 요청에서 응답의 `Content-Length`가 4 MiB 본문 제한을 넘을 때 거부하던 문제를 고쳤다.",
+    "`constructor`라는 이름의 마켓플레이스에서 `claude plugin marketplace add`, `marketplace update`, `plugin install`이 내부 오류로 실패하던 문제를 고쳤다. `add`는 이런 이름을 명확히 거부한다.",
+    "`constructor`나 `prototype`이라는 이름의 플러그인 비밀 값이 그 플러그인 옵션을 다음에 저장할 때 지워지던 문제를 고쳤다.",
+    "기능 플래그가 아직 로드되지 않았을 때, 저장된 권한이 허용하는 Claude in Chrome 작업에 대해 클라우드 세션이 자동 모드 검사를 건너뛰던 문제를 고쳤다.",
+    "재시작 후 MCP 도구 결과가 턴을 끝냈는데도 `CLAUDE_CODE_RESUME_INTERRUPTED_TURN`이 끝난 턴을 다시 실행하던 문제를 고쳤다.",
+    "`BASH_ARGV0` 셸 변수에 값을 대입하고 그것을 쓰는 일부 명령을 Bash 권한 검사가 자동 승인하던 문제를 고쳤다. 이제 승인을 묻는다.",
+    "UTF-8이 아닌 파일(Windows-1252, Shift-JIS, GBK)에서 Edit와 NotebookEdit이 ASCII가 아닌 문자를 모두 바꾸던 문제를 고쳤다. 이런 편집은 이제 거부된다.",
+    "백그라운드 서비스 응답이 느릴 때 `←` 직후에 보낸 프롬프트가 보이지 않게 두 번 실행되던 문제를 고쳤다.",
+    "SessionStart 훅이 아직 실행 중일 때 보낸 프롬프트가 `←`로 세션을 백그라운드로 옮기면 사라지던 문제를 고쳤다. 여전히 보내지지는 않지만 `↑`로 다시 가져올 수 있다.",
+    "헤드리스 세션에서 `/clear` 뒤 나중에 로드된 플러그인의 SessionStart 훅 출력이 새 대화에 들어가던 문제를 고쳤다.",
+    "훅이 `CLAUDE_ENV_FILE`에 쓴 변수가 PowerShell 명령에서 보이지 않던 문제를 고쳤다. 파일에 단순 대입만 있을 때 해당한다.",
+    "MCP 서버가 인증을 요구할 때 Claude가 클라우드 세션을 비대화형이라고 말하고 `/mcp`나 `claude mcp`를 제안하던 문제를 고쳤다.",
+    "`/code-review`가 클라우드 세션, Agent SDK, IDE 통합에서 원시 JSON 배열로 끝나던 문제를 고쳤다. 이제 발견 사항을 번호 목록으로 출력한다.",
+    "자동 모드가 내 artifact의 업데이트 하나를 거부하며 공유 상태가 바뀌었다고 말하던 문제를 고쳤다. 실제로는 바뀌지 않았다.",
+    "여러 세션이 설정 디렉터리를 공유할 때 claude.ai에서 동기화된 skill의 설치가 끝나지 않고, 동기화마다 다시 내려받던 문제를 고쳤다.",
+    "선언한 마켓플레이스 의존성도 claude.ai에서 동기화된 경우, claude.ai에서 동기화된 플러그인이 꺼지던 문제를 고쳤다.",
+    "Linux 기기에서 복사한 플러그인 경로가 `/home` 아래를 가리키면 macOS에서 시작이 멈추던 문제를 고쳤다.",
+    "Windows에서 체크아웃한 파일처럼 CRLF 줄바꿈을 쓰는 스크립트 파일을 Workflow 도구가 거부하던 문제를 고쳤다.",
+    "`git commit -q`나 `git -C <dir> commit` 뒤 OpenTelemetry `tool_result` 이벤트에 `git_commit_id`가 빠지던 문제를 고쳤다.",
+    "`CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`가 텍스트에 유니코드 줄·문단 구분자(U+2028, U+2029)가 있는 메시지를 저장된 기록에서 버리던 문제를 고쳤다.",
+    "`claude purge`가 텍스트에 U+2028, U+2029가 있는 프롬프트를 기록 파일에 남기던 문제를 고쳤다.",
+    "Windows에서 약 1 KB를 넘는 PowerShell 명령이 항상 권한을 묻던 문제를 고쳤다. 이제 32 KB까지 허용 규칙과 읽기 전용 감지가 적용된다.",
+    "Windows에서 stdio MCP 서버가 종료 때 강제로 꺼지던 문제를 고쳤다. 이제 stdin을 먼저 닫고, 300 ms 뒤에도 실행 중이면 프로세스 트리를 종료한다.",
+    "GitHub SSH 키가 없는 Windows 기기에서 GitHub `owner/repo` 플러그인 소스의 `claude plugin install`이 실패하던 문제를 고쳤다. 이제 HTTPS로 clone을 다시 시도한다.",
+    "Windows의 Git Bash에서 `rm -rf /c/Users/<name>`이 bypass permissions 모드에서도 묻지 않던 문제를 고쳤다.",
+    "전체 화면 모드에서 마우스 포인터 아래 링크에 밑줄을 그어 열 수 있음을 보여준다.",
+    "코드가 많은 대화에서 구문 강조된 코드 블록을 캐시해 `ctrl+o` 기록 전환이 빨라졌다.",
+    "게이트웨이 뒤의 Claude Desktop Code 탭에서 세션을 시작할 수 없으면, 그 이유를 답변으로 보여준다. 게이트웨이의 `code` 설정을 준비하지 않은 기기도 포함된다.",
+    "거부된 클라우드 세션의 오류가 조직 정책을 읽지 못한 이유를 말하고, claude.ai 로그인을 덮어쓰는 API 키나 인증 토큰이 있는지 알려준다.",
+    "`--debug` 출력이 사용자 정의 에이전트 파일의 인식되지 않는 frontmatter 필드를 알려주고, 오타일 가능성에 대한 힌트를 준다.",
+    "자동 모드 검사가 쓸 만한 답을 내지 못해 실행되지 않은 도구 호출이 빨간 오류 대신 흐린 “Not run” 행으로 보인다.",
+    "`--debug` 출력이 도구 호출, 프롬프트, SessionStart, Stop의 명령 훅을 끝날 때 명령, 플러그인, 결과, 소요 시간과 함께 기록해 느린 훅을 찾을 수 있다.",
+    "`CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`가 큰 기록 파일을 10% 미만만 줄일 수 있을 때는 그 파일을 다시 쓰지 않는다.",
+    "`/cost`, 상태 줄, `--max-budget-usd`, SDK 비용 수치가 Sonnet 5.5 캐시 읽기를 백만 토큰당 $0.10으로 계산한다. 이전에는 $0.20이었다.",
+    "번들된 dataviz skill을 갱신했다. 라이트 모드에서 일곱 번째 시리즈를 더 밝은 보라색으로, 다크 모드에서 기본 텍스트를 더 부드럽게 바꾸고, y축 라벨은 1K처럼 짧게 표시한다.",
+    "처음부터 보내는 MCP 도구 설명과 MCP 서버 지침의 기본 글자 수 제한을 2,048자에서 4,096자로 늘렸다.",
+    "`←`로 세션을 백그라운드로 옮기는 동안 시작된 턴이나 `!` 명령은 보이지 않은 채 끝나는 대신 중단된다.",
+    "VS Code 확장 설정에 `claudeCode.spinnerVerbs`가 빠져 있던 문제를 고쳤다. 이제 settings.json에서 자동 완성과 검증이 되며, 잘못된 값이 채팅 패널을 깨지 않는다.",
+    "Claude in Chrome은 터미널처럼 모든 세션에서 브라우저 작업 전에 묻는다. `@browser`로 연결한 세션도 포함되며, 세션에서 사이트를 허용하면 반복해서 묻지 않는다.",
+    "`C:\\repo\\file.ts`나 `file:///C:/repo/file.ts`처럼 Windows 전체 경로로 쓴 채팅 링크가 Windows에서 파일을 열지 못하던 문제를 고쳤다.",
+    "OS, VS Code 또는 `prefersReducedMotion` 설정에서 동작 줄이기를 켜도 작업 표시기가 계속 움직이던 문제를 고쳤다.",
+    "패널이 메시지를 늦게 따라잡은 뒤(화면이 꺼졌거나 원격 창이 재연결된 뒤 등) 프롬프트 캐시 시계가 따뜻하게 보이던 문제를 고쳤다.",
+    "[클라우드 세션] 자체 호스팅 환경 관리자 설정의 Activity 탭에 있는 Sessions와 Runners 목록에 상태 필터를 추가했다. 여러 상태를 동시에 고를 수 있다.",
+    "[클라우드 세션] self-hosted runner를 기다리는 클라우드 세션들이 모두 같은 대기 순번을 보이던 문제를 고쳤다. 이제 각 세션 앞에 몇 개의 세션이 있는지 보인다.",
+    "[클라우드 세션] Claude가 답하는 중에 보낸 메시지가 답변이 끝나면 답변 위로 올라가던 문제를 고쳤다. 새로고침 뒤에도 답변 아래에 남는다.",
+    "[Claude Tag] Claude in Slack은 세션 링크, 모델, 비용이 담긴 바닥글을 스레드의 가장 최근 답변에만 표시한다. 그 앞 답변은 바닥글을 뺀다.",
+    "[Claude Tag] 괄호가 들어간 URL 링크가 Slack 답변과 작업 체크리스트에서 깨지고, 이상한 괄호 텍스트가 보이거나 잘못된 페이지가 열리던 문제를 고쳤다.",
+    "[Claude Tag] 여섯 자리 풀 리퀘스트 번호처럼 16진수 색 코드로 보이는 글자 옆에 색상 견본이 그려지던 문제를 고쳤다.",
+    "[Claude Tag] Claude Tag 관리자 권한이 있는 멤버는 Activity 페이지의 Memory 탭에서 워크스페이스와 채널 메모리 파일을 만들고, 편집하고, 삭제할 수 있다.",
+    "[Claude Tag] Slack 채널에 Claude가 올리는 플러그인 확인 카드가 플러그인 ID 대신 이름을 보여주도록 고쳤다.",
+    "[Claude Tag] 채널 설정에 없는 플러그인을 제거하라는 카드를 Claude in Slack이 올리던 문제를 고쳤다. 이제 그 플러그인이 어디서 왔는지 설명한다.",
+    "[Claude Tag] 자체 호스팅 환경의 세션이 작업 중간에 새 runner로 옮겨지면 Claude in Slack이 답변을 잃던 문제를 고쳤다.",
+    "[Code Review] 검토가 끝난 뒤에도 풀 리퀘스트의 Code Review 검사가 “진행 중”에 머무르던 문제를 고쳤다. 이제 검토 결과를 보여준다.",
+    "[Code Review] 관리자 설정을 저장할 수 없을 때, 일반 실패 메시지 대신 정책 제한 등 이유를 보여준다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "게이트웨이 정책의 code 키",
+     "what": "Claude apps 게이트웨이의 `managed.policies[]`에 `code` 키가 생겼다. `cli`와 같은 설정이며 Claude Desktop의 Code 탭에도 적용된다. `desktop`과 함께 두면 Claude Desktop의 게이트웨이 모드가 켜진다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "서브에이전트별 자동 압축 창",
+     "what": "서브에이전트 frontmatter와 `--agents` 정의에 `autoCompactWindow`를 넣을 수 있다. 서브에이전트는 메인 대화의 창보다 일찍 자동 압축할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "워크플로 에이전트 모델 고정",
+     "what": "`CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL`로 모든 워크플로 에이전트를 한 모델에서 실행한다. 다른 서브에이전트는 각자의 모델을 유지한다.",
+     "steps": [
+      "환경 변수에 워크플로 에이전트가 쓸 모델을 지정한다.",
+      "다른 서브에이전트는 기존 모델을 그대로 쓴다."
+     ],
+     "terminal": {
+      "title": "워크플로 모델 지정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "모델 값은 예시다. <모델> 자리에 원하는 모델을 넣는다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL=<모델>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "과부하 재시도의 최대 지연",
+     "what": "과부하(529) 요청을 재시도할 때 백오프의 최대 지연을 더 길게 정하는 `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS`가 추가됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "최대 지연 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "밀리초 값은 예시다. <밀리초> 자리에 원하는 값을 넣는다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS=<밀리초>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "/plugin의 훅 누락 안내",
+     "what": "같은 이름의 다른 활성 플러그인 때문에 훅이 빠진 플러그인이 있으면 `/plugin`에 그 이유가 표시된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "Read의 allow_large 옵션",
+     "what": "Read 도구에 `allow_large` 옵션이 추가됐다. 전체 파일이 필요하고 컨텍스트에 여유가 있으면 일반 크기 제한을 넘는 텍스트 파일도 한 번의 호출로 읽는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 62,
+     "title": "spinnerVerbs 설정 누락 수정",
+     "what": "VS Code 확장 설정에 `claudeCode.spinnerVerbs`가 빠져 있던 문제를 고쳤다. 이제 settings.json에서 자동 완성과 검증이 되며, 잘못된 값이 채팅 패널을 깨지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 63,
+     "title": "브라우저 작업 전 확인",
+     "what": "Claude in Chrome은 이제 모든 세션에서 브라우저 작업 전에 묻는다. 터미널과 같으며, `@browser`로 연결한 세션도 포함된다. 세션에서 사이트를 허용하면 반복해서 묻지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 64,
+     "title": "Windows 전체 경로 채팅 링크",
+     "what": "`C:\\repo\\file.ts`나 `file:///C:/repo/file.ts`처럼 Windows 전체 경로로 쓴 채팅 링크가 이제 Windows에서 파일을 연다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 65,
+     "title": "동작 줄이기 설정 반영",
+     "what": "OS, VS Code 또는 `prefersReducedMotion` 설정에서 동작 줄이기를 켜면 작업 표시기 애니메이션이 멈춘다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 66,
+     "title": "프롬프트 캐시 시계 수정",
+     "what": "패널이 메시지를 늦게 따라잡은 뒤 프롬프트 캐시 시계가 따뜻하게 보이던 문제를 고쳤다. 화면이 꺼졌거나 원격 창이 재연결된 뒤에 해당한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.299": {
+  "hash": "984401e4674a",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "터미널에 유휴 압축이 추가되어 오래 비워 둔 긴 대화의 재처리 비용이 줄고, 파일 멘션을 경로만 넘기도록 설정할 수 있다. mod API 확장과 클라우드·Remote Control·Slack, 샌드박스·권한·MCP 정책 관련 수정이 많다.",
+   "items": [
+    "`CLAUDE_CODE_DISABLE_FILE_MENTIONS` 환경 변수를 추가했다. 설정하면 Claude는 `@` 파일 멘션의 내용 대신 경로를 받아 파일 도구로 직접 읽는다.",
+    "터미널에 유휴 압축을 추가했다. 200K 토큰 이상의 대화를 약 54분 동안 두면, 1시간 프롬프트 캐시가 만료되기 전에 압축해 다음 메시지가 전체를 다시 처리하지 않게 한다.",
+    "`CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS`로 유휴 압축의 최소 20만 토큰 기준을 바꿀 수 있다. settings.json의 `\"idleCompaction\": false`로 끈다. 둘 다 v2.1.290 이상이 필요하다.",
+    "managed 설정으로 설치된 mod의 `prompt.submit` 훅이 `$.prompt.media`로 프롬프트에 첨부된 이미지나 문서의 바이트를 읽을 수 있다.",
+    "managed 설정으로 설치된 mod용 `$.session.identity()`를 추가했다. 세션이 어떻게 로그인됐는지 알려주며, managed `forceLoginOrgUUID`가 그 조직을 나열하면 조직과 이메일도 알려준다.",
+    "mod의 `Text`에 `size`, `weight`, `mono`, `tabular`를 추가하고 `Box`에 이름 붙은 간격 단계(`xs`~`xl`)를 추가했다. `bold`는 `weight`로 대체되어 사용이 권장되지 않는다.",
+    "`claude self-hosted-runner orchestrator`에 `--shutdown-drain-sec`을 추가했다. SIGTERM을 받으면 폴링을 멈추고, 진행 중인 폴링과 실행 중인 spawn 훅이 그 초 안에 끝날 시간을 준다.",
+    "mod의 `skill.prompt` 훅이 받는 값에 skill의 frontmatter, 출처, 플러그인 이름, 파일 경로를 추가했다.",
+    "에이전트 뷰에서 `/effort`와 `/fast`로 새 세션이 시작할 설정을 정한다. 그곳에서 인자 없이 `/model`, `/effort`, `/fast`를 치면 선택기가 열린다.",
+    "`--safe-mode`로 시작한 백그라운드 세션은 에이전트 뷰 미리보기 패널에 “safe mode” 줄이 표시된다.",
+    "bypass permissions를 쓸 수 있을 때 plan 모드가 대부분의 편집이나 명령을 묻지 않으면, 한 번만 그 사실을 알려준다.",
+    "`claude plugin eval`에 `--disallow-tools`와 케이스 필드 `disallowed_tools`를 추가했다. Agent 같은 내장 도구를 eval 실행에서 뺄 수 있다.",
+    "Claude apps 게이트웨이의 `code` 정책 `env`에 `CLAUDE_CODE_ATTRIBUTION_HEADER=0`을 두면 Claude Desktop의 Code 탭에서 attribution 블록을 끌 수 있다.",
+    "Claude apps 게이트웨이 뒤의 Claude Code 세션에서 attribution 블록에 필드가 추가됐다. 블록을 없애려면 `CLAUDE_CODE_ATTRIBUTION_HEADER=0`을 설정한다.",
+    "`session.append` mod 훅에 `queue` 문이 추가됐다. mod는 기록의 큐 레코드를 실제로 보낸 프롬프트와 다르게 만들 수 있다.",
+    "`/plugin`과 `claude plugin validate`가, 조직이 Claude Code를 관리하는 곳에서 건너뛰는 mod 훅의 이름을 알려준다.",
+    "`/usage`에 최대 effort, 워크플로, 항상 켜진 컨텍스트, 큰 도구 결과에 대한 경고를 추가했다.",
+    "거부된 클라우드 세션의 오류가 `apiKeyHelper`의 키를 쓸 때 잘못된 조직을 가리킬 수 있던 문제를 고쳤다.",
+    "사용자 지정 `ANTHROPIC_BASE_URL` 뒤에서 게이트웨이 전용 모델 이름을 쓰는 세션이, 200K 토큰 근처에서 요청을 보내지 못하고 “Prompt is too long · automatic compaction failed”로 끝나던 문제를 고쳤다.",
+    "매 턴 끝에 프롬프트를 보내는 mod가 헤드리스 실행을 `--max-turns`, `--max-budget-usd`, 인터럽트, 호스트 대화의 끝을 넘어 계속 돌리던 문제를 고쳤다.",
+    "클라우드 세션이 도구 그룹의 한 줄 라벨 뒤에 모델의 후속 텍스트를 보여주던 경우를 고쳤다.",
+    "accept-edits 모드에서 설정 디렉터리 경로에 `.claude`가 없으면 Write와 Edit 도구가 묻지 않고 세션의 mods 폴더에 mod를 만들던 문제를 고쳤다.",
+    "원격으로 꺼진 mod가 열린 세션에서 계속 돌던 문제를 고쳤다. 이제 턴 사이에 언로드된다.",
+    "Cowork와 claude.ai 클라우드 세션에서, `UserPromptSubmit`이나 mod의 `prompt.submit` 훅이 아직 실행 중일 때 멈춘 메시지의 Edit와 Retry가 실패하던 문제를 고쳤다. 2.1.296의 회귀다.",
+    "설명 없이 시작된 에이전트 팀원의 작업 설명에 프롬프트 속 자격 증명 일부가 남던 문제를 고쳤다.",
+    "느린 연결에서 많은 이벤트 묶음의 업로드가 끝나지 않으면, Remote Control이나 클라우드 세션의 claude.ai 보기가 멈추던 문제를 고쳤다.",
+    "샌드박스 셸 명령이 `--plugin-dir` 폴더에 쓸 수 있던 문제를 고쳤다. Claude Code는 이 폴더의 코드를 샌드박스 밖에서 다시 불러와 실행한다.",
+    "`--debug`와 `--debug-file`로 디버그 로그를 많이 쓸 때 메모리가 늘던 문제와, 쓰기를 멈춘 디스크나 네트워크 마운트에 디버그 로그가 있을 때 종료가 멈추던 문제를 고쳤다.",
+    "디버그 출력을 stderr로 보내고 부모 프로세스가 읽지 않을 때 메모리가 무한히 늘던 문제를 고쳤다.",
+    "`rm`을 실행하지 않는 셸 `-c` 스크립트에서 rm 프롬프트가 뜨던 문제를 고쳤다. Claude Code가 읽을 수 없는 스크립트에서 실행 시점에 만들어진 rm은 `CLAUDE_CODE_STRICT_INLINE_SHELL_RM_PROMPT=1`을 설정하지 않으면 묻지 않는다.",
+    "전체 화면 모드에서 펼친 기록 행의 단어를 두 번 클릭하면 행이 접히던 문제를 고쳤다. 이제 단어가 선택된다.",
+    "빈 `.mcp.json`을 `claude mcp list`, `claude doctor`, `/status`가 잘못된 것으로 보고하던 문제를 고쳤다.",
+    "전체 화면에서 위로 스크롤한 상태로 `/btw`를 쓰면 기록이 맨 아래로 뛰던 문제를 고쳤다.",
+    "WSL2에서 샌드박스가 Windows 드라이브에 쓸 수 있을 때 샌드박스 명령이 `bwrap: Can't mkdir /mnt/c/Program Files/ClaudeCode`로 실패하던 문제를 고쳤다.",
+    "Agent SDK, IDE, `claude remote-control` 세션에서 백그라운드 작업이 실행 중일 때 예약된 깨우기(ScheduleWakeup)가 실행되지 않던 문제를 고쳤다.",
+    "이미지를 붙여넣었거나 읽을 수 없는 이미지가 있는 일부 프롬프트에서, mod의 `prompt.submit` 재작성이 조용히 버려져 입력한 대로 보내지던 문제를 고쳤다.",
+    "같은 묶음의 다른 대기 프롬프트 하나가 전달되지 않으면 Remote Control 프롬프트가 사라지던 문제를 고쳤다.",
+    "훅을 통과한 Remote Control 프롬프트가, Stop이 다음 대기 프롬프트의 훅을 중단할 때 프롬프트 기록에서 빠지던 문제를 고쳤다.",
+    "샌드박스 명령이 설정 디렉터리에 빈 `.config.json`을 남기면 Linux에서 로그인, MCP 서버, 프로젝트 신뢰가 사라진 것처럼 보이던 문제를 고쳤다.",
+    "프로젝트 폴더에 쓸 수 없어 설정을 저장하지 못했는데도 `/sandbox`가 성공을 보고하던 문제를 고쳤다. 이제 아무것도 바뀌지 않았다는 것과 이유를 알려준다.",
+    "호스트가 auto 모드를 지원하지 않는 모델로 바꾼 뒤에도 SDK와 헤드리스 세션이 auto 모드에 머물던 문제를 고쳤다.",
+    "MCP 설정에서 `constructor`나 `prototype`이라는 이름의 MCP 서버가 연결되지 않던 문제를 고쳤다.",
+    "`constructor`나 `toString`이라는 이름의 MCP 서버 도구가 auto 모드와 bypass permissions 모드에서 권한을 묻던 문제를 고쳤다.",
+    "claude.ai에서 동기화된 플러그인을 다른 Claude Code 프로세스가 막 업데이트했을 때, 시작 시 “synced[0] commands path not found” 플러그인 오류가 잘못 나오던 문제를 고쳤다.",
+    "서버나 프록시가 요청을 거부(HTTP 403)한 Artifact 게시가 커넥터나 다른 접근을 요청할 때, Artifact 도구가 재시도를 권하던 문제를 고쳤다. 이제 그 사실과 사용자에게 전할 내용을 알려준다.",
+    "Cowork 클라우드 세션이 플러그인 재로드 시간 초과나 최근 동기화를 재사용한 재시작 뒤에도 옛 계정 플러그인에 머무르던 문제를 고쳤다.",
+    "Claude가 작업하는 동안 보낸 내 메시지에서 문서 블록이 빠지던 문제를 고쳤다.",
+    "연결된 브라우저가 없는데도 Claude in Chrome이 권한을 묻던 문제를 고쳤다. 이제 확장 프로그램이 연결되지 않았다고 알려준다.",
+    "전체 화면에서 “Update installed” 알림이 유휴 상태의 “/clear to save tokens” 힌트 뒤에 가려지던 문제를 고쳤다. 이제 힌트 옆에 표시된다.",
+    "`.catch`가 있거나 없는 mod 훅이, 호출 밖에서 작업하는 다른 mod의 명사를 기다리는 동안 끝없이 다시 실행되던 문제를 고쳤다.",
+    "정책의 `availableModelsMatch: exact`나 `deniedModels`가 막은 모델을 Claude apps 게이트웨이가 제공하던 문제를 고쳤다. 이제 400으로 응답하고 모델 목록에서 뺀다.",
+    "managed 설정 파일이 `ANTHROPIC_BASE_URL`을 설정하면, Anthropic에 보내는 서버 관리 설정 요청에 서드파티 게이트웨이의 API 키가 실리던 문제를 고쳤다.",
+    "사용자 지정 `ANTHROPIC_BASE_URL`을 거치는 스트림이 데이터 없이 180초가 지나면 중단되던 문제를 고쳤다. 이제 기능 플래그 로드 여부와 관계없이 300초를 기다린다.",
+    "`$.ui.invalidate` 뒤 바뀐 mod의 `tool.describe`나 `prompt.section` 응답이 Claude에 전달되지 않던 문제를 고쳤다. 새 응답은 다음 턴에 보낸다.",
+    "`enabledMcpjsonServers`나 `disabledMcpjsonServers`에 서버 이름 하나를 문자열로 적으면 설정 파일이 무시되던 문제를 고쳤다.",
+    "응답을 마친 뒤에도 `$` 메서드 호출을 계속하면 `claude plugin test`가 훅의 시간 예산을 멈추던 문제를 고쳤다.",
+    "서브에이전트를 많이 실행한 클라우드나 Remote Control 세션을 재개한 뒤 메모리 사용량이 높던 문제를 고쳤다.",
+    "매우 깊게 중첩된 도구 입력이나 메시지를 `next()`로 넘기면 플러그인 훅이 건너뛰어지던 문제를 고쳤다.",
+    "mod 훅이 `next()`에 넘기거나 반환하거나 `$` 메서드에 보낸 값은, getter 하나가 `RangeError`를 던지면 통째로 거부되던 문제를 고쳤다. 이제 그 키만 거부된다.",
+    "`/usage`, 한도 근접 경고(터미널과 VS Code), 상태 줄이 100%를 넘게 보이던 문제를 고쳤다. (anthropics/claude-code#92238)",
+    "CJK나 이모지가 라틴 단어와 섞인 줄 바꿈 텍스트가 일부 터미널 너비에서 마지막 줄을 잃거나 빈 행을 남기던 문제를 고쳤다.",
+    "작업자가 교체되는 동안 권한 프롬프트나 질문에 대한 답을 클라우드 세션이 무시하던 문제를 고쳤다.",
+    "중첩된 굵은체와 기울임 같은 텍스트 스타일이 표 테두리를 넘거나, 줄 바꿈된 행에서 사라지던 문제를 고쳤다.",
+    "다른 기기에서 바뀌거나 삭제되거나 비활성화된 계정 플러그인의 옛 버전을, 세션을 다시 시작하기 전까지 Cowork 클라우드 세션이 계속 실행하던 문제를 고쳤다.",
+    "서버의 정규화된 이름에 밑줄 두 개(`__`)가 있으면 `mcp__<server>` 허용·거부 규칙이 적용되지 않던 문제를 고쳤다.",
+    "긴 대화에서 큰 이미지 하나가 API에 거부된 뒤 새로 첨부한 이미지가 매 턴 사라지던 문제를 고쳤다.",
+    "훅 모듈로 구성된 플러그인의 `plugin_loaded` 텔레메트리 이벤트가 `has_hooks`를 false로 보고하던 문제를 고쳤다. 내장 플러그인도 포함된다.",
+    "Claude가 작업하는 동안 첨부한 이미지(VS Code, 데스크톱 앱, SDK)가 원래 크기로 전송되어 긴 대화에서 이미지 오류가 반복되던 문제를 고쳤다.",
+    "큰 거의 정사각형 이미지에서 최신 모델의 이미지 좌표 힌트가 없거나 약간 틀리던 문제를 고쳤다.",
+    "기능 플래그, 시작, 빠른 모드, 프로필, 피드백 요청에 서드파티 게이트웨이(`ANTHROPIC_BASE_URL`)의 API 키가 실리던 문제를 고쳤다. Anthropic API 키는 여전히 보낸다.",
+    "mod 핫 리로드가 실패한 리로드 직후 저장한 수정을 무시하던 문제를 고쳤다. 내용을 바꾸지 않고 mod 파일을 저장해도 더 이상 다시 로드하지 않는다.",
+    "훅이 mod의 다른 파일에서 가져온 함수 선언에 `$`를 넘기면, 소스 파일로 로드된 mod가 거부되던 문제를 고쳤다.",
+    "2.1.296의 회귀로, 재시작 뒤 세션을 재개하는 순간 새 메시지가 도착하면 클라우드와 헤드리스 세션이 승인된 도구 호출을 두 번 실행할 수 있던 문제를 고쳤다.",
+    "예약된 작업이 잘못된 분에 알려지던 문제를 고쳤다. 예약 도구가 각 작업의 실제 다음 실행 시각을 보고한다.",
+    "mod 훅이 `__proto__` 키가 조용히 제거된 값을 받아, 다른 mod가 한 도구 호출에 건 `tool.check` 가드를 건너뛸 수 있던 문제를 고쳤다.",
+    "설정 파일 검증에 실패하면 `claude -p`가 아무 말도 하지 않던 문제를 고쳤다. 텍스트 출력 실행은 이제 stderr에 파일과 잘못된 항목을 나열한다.",
+    "괄호 없는 붙여넣기를 쓰지 않는 터미널에서, 잘못 디코딩된 곱은따옴표 같은 보이지 않는 제어 문자 뒤의 긴 붙여넣기 텍스트가 모두 사라지던 문제를 고쳤다.",
+    "`forceLoginOrgUUID`가 설정된 기기에서 저장된 로그인의 요금제를 로컬에서 바꾸면 managed 설정과 조직 정책을 가져오지 않던 문제를 고쳤다.",
+    "HTTP 서버가 알림에 대한 응답 본문을 끝내지 않으면 HTTP MCP 연결이 30초 동안 멈추고 실패하던 문제를 고쳤다. (anthropics/claude-code#99014)",
+    "실행 중인 헤드리스나 SDK 세션에 추가된 MCP 서버가 일부 정책 검사보다 먼저 연결되던 문제를 고쳤다. 막힌 서버는 연결하지 않고 실패로 보고한다.",
+    "`claude mcp list`, `claude mcp get`, 서브에이전트 MCP 서버가 정책 검사에 막힌 서버를 시작하던 문제를 고쳤다. 이제 시작하지 않고 막혔다고 보고한다.",
+    "같은 세션에서 방금 다른 터미널로 설치한 플러그인을 `/reload-plugins`가 로드하지 않던 문제를 고쳤다.",
+    "아주 좁은 터미널처럼 한 칸짜리 열에 눌린 CJK·이모지 텍스트 아래 빈 행이 나타나던 문제를 고쳤다.",
+    "넓은 문자 옆에서 잘린 텍스트가 셀을 비워 두거나 두 번 잘리던 문제와, 색이 바뀌는 자리에서 이모지가 사라지던 문제를 고쳤다.",
+    "백그라운드 세션의 bare 모드 안내가 `--bare` 없이 다시 시작하라고 하던 문제를 고쳤다. 이제 safe 모드 안내처럼 `/stop`과 `claude --resume`을 알려준다.",
+    "Remote Control이 켜져 있을 때 대기 메시지 위에서 `←`가 그대로 있는 이유를 알려주지 않던 문제를 고쳤다.",
+    "`$.http.fetch`가 304, 204, 205 응답에 4 MiB 본문 제한을 넘는 `Content-Length`가 있으면 거부하던 문제를 고쳤다.",
+    "`/config`의 푸시 알림 토글이 방금 고른 설정 대신 이전 설정을 계정에 보내던 문제를 고쳤다.",
+    "긴 답변이 출력 토큰 한도에 닿은 직후 작업자가 교체되면 클라우드 세션의 답변이 끝나지 않던 문제를 고쳤다.",
+    "권한 상승 없이 실행되는 Linux 원격 세션에서 Read가 PDF 페이지 범위를 읽지 못하던 문제를 고쳤다.",
+    "보내지 않은 메시지를 입력하는 동안 보류됐던 질문이나 권한 프롬프트에 Enter가 답하던 문제를 고쳤다.",
+    "원격 세션에서 메시지에 첨부한 파일의 다운로드가 중간에 멈추면 파일이 빠지던 문제를 고쳤다. 이제 다시 시도한다.",
+    "`--input-format stream-json`으로 콘텐츠 블록으로 보낸 대기 프롬프트가 하나의 턴으로 합쳐질 때 줄 바꿈 없이 붙던 문제를 고쳤다.",
+    "커넥터가 세션 중에 바뀔 때, self-hosted runner 세션이 `--exec-path` 래퍼의 `--mcp-config`로 추가된 MCP 서버를 종료하던 문제를 고쳤다.",
+    "`claude plugin eval`이 API가 거부한 실행을 통과시키던 문제를 고쳤다. API 오류로 끝난 실행은 채점하지 않고 0점으로 처리하며, 스위트는 종료 코드 1로 끝난다.",
+    "이유 텍스트에 키캡이나 결합 이모지가 있으면 권한 프롬프트가 너무 일찍 잘리거나 줄이 일찍 바뀌던 문제를 고쳤다.",
+    "MDM이나 managed 설정 파일의 `forceLoginOrgUUID`와 `forceLoginMethod`가 서버 관리 설정에 가려지거나 대체되던 문제를 고쳤다.",
+    "`--channels`가 요청한 `constructor`나 `prototype` 이름의 MCP 서버를 `--bare` 세션이 빼던 문제를 고쳤다.",
+    "`/clear` 이전 대화를 재개하면 `/clear` 뒤 대화의 Remote Control 세션에 다시 붙던 문제를 고쳤다.",
+    "Agent SDK의 `verbatimPrompts` 옵션으로 보낸 `/`로 시작하는 프롬프트가, 재시작 뒤 `CLAUDE_CODE_RESUME_INTERRUPTED_TURN`이 다시 실행할 때 슬래시 명령으로 실행되던 문제를 고쳤다.",
+    "`--safe-mode`로 시작한 백그라운드 세션이 깨어나거나 재시작될 때 조용히 safe 모드를 벗어나던 문제를 고쳤다.",
+    "일광 절약 시간이 끝나며 반복되는 시간대에 예약 작업과 루프가 매 턴 다시 실행되거나 너무 일찍 실행되던 문제를 고쳤다.",
+    "앞뒤에 공백이 있는 새 파일 이름이 diff 보기에서 잘못된 이름으로 나열되던 문제를 고쳤다.",
+    "백그라운드 재연결이 MCP 도구 호출이 실행 중인 연결을 닫으면, 헤드리스와 SDK 세션의 호출이 실패하거나 두 번 실행되던 문제를 고쳤다.",
+    "대화형이 아닌 세션의 `/btw` 질문이 세션이 끝나도 취소되지 않고, 같은 요청이 실행 중에 다시 오면 두 번 실행되던 문제를 고쳤다.",
+    "macOS에서 거부된 경로가 심볼릭 링크를 거치면 샌드박스 명령이 실제 위치로 그 경로를 읽거나 쓸 수 있던 문제를 고쳤다.",
+    "폴더 이름에 중괄호, 괄호, 역슬래시가 있는 `denyRead`와 `allowRead` glob을, Claude Code의 설정 검사가 샌드박스와 다르게 해석하던 문제를 고쳤다.",
+    "glob `allowRead`와 `allowWrite` 항목의 시작 디렉터리가 심볼릭 링크로 바뀌면 다시 검사하지 않던 문제를 고쳤다.",
+    "worktree 격리 세션이 격리 가드가 막아야 할 일부 awk 프로그램을 허용하던 문제를 고쳤다.",
+    "`claude mcp add <name> -- <command> --background`가 백그라운드 세션으로 시작되던 문제를 고쳤다.",
+    "`--bg`나 `--background`로 백그라운드 세션에 보낸 프롬프트나 응답이 플래그로 해석되어, 메시지를 전달하지 않고 새 세션을 계속 시작하던 문제를 고쳤다.",
+    "사용자 지정 슬래시 명령의 셸 줄이, 프롬프트를 검사하는 동안 더 새로운 메시지가 명령을 중단하면 두 번 실행되던 문제를 고쳤다.",
+    "reftable ref 저장소에서 `--worktree` 세션이 `.git/worktrees`에 폴더를 남기던 문제를 고쳤다.",
+    "Anthropic이 관리하는 git을 쓰는 self-hosted runner 세션이, 원격이 아직 비어 있는 재사용 클론에서 시작하면 추적 파일을 staged 삭제로 보던 문제를 고쳤다.",
+    "설정에서 `ultracode`를 켜도 예약 작업과 다른 헤드리스 턴에는 Ultracode가 알려지지 않던 문제를 고쳤다.",
+    "MCP OAuth 로그인, 토큰 갱신, 로그아웃이 설정된 `headers`와 `headersHelper` 값을 보내지 않아 인증 프록시 뒤의 서버가 깨지던 문제를 고쳤다.",
+    "줄 바꿈이 있는 큰 페이지를 변경 없이 다시 게시할 때, Artifact 도구가 실제 페이지와 한 줄 차이가 있다고 보고하고 게시를 거부하던 문제를 고쳤다.",
+    "`$.ui.open`이 Claude Code for VS Code나 `claude -p`처럼 mod 창을 그리지 않는 세션에서도 창이 배치되었다고 보고하던 문제를 고쳤다.",
+    "끝난 서브에이전트나 종료된 팀원을 재개할 때 `agent.spawn` mod 훅이 실행되지 않던 문제를 고쳤다. 이제 이벤트에 `resume`이 담기며, mod가 재개를 거부할 수 있다.",
+    "`plugin.json`에 `types` 키가 없고 계약이 `./types/index.d.ts`에 있으면 `claude plugin validate`가 mod의 `$.state` 참조를 거부하던 문제를 고쳤다.",
+    "어두운 ANSI 테마와 16색 터미널에서 mod의 `dimColor` 텍스트가 일반 텍스트와 같아 보이던 문제를 고쳤다.",
+    "plan 모드에서 `PreToolUse` 훅이나 mod의 `tool.check` 훅이 허용한 쓰기(MCP 도구, 파일, 셸 명령)가 실행되던 문제를 고쳤다.",
+    "자동 모드의 백그라운드 서브에이전트가 최종 보고를 결과와 메시지로 두 번 보내던 문제를 고쳤다.",
+    "CLI가 재시작되어 세션을 재개한 뒤 `SendMessage`가 이름으로 서브에이전트를 찾지 못하던 문제를 고쳤다. 마지막 압축 이전에 준 이름은 여전히 에이전트 ID가 필요하다.",
+    "요청이 비스트리밍 모드로 바뀐 뒤 출력 토큰 한도에서 잘린 답변이, 재시도나 오류 없이 턴을 조용히 끝내던 문제를 고쳤다.",
+    "Read가 바이트 순서 표시(BOM)가 있는 UTF-16LE 파일을 깨뜨리고, Write가 BOM을 버리거나 Windows-1252, Shift-JIS, GBK, UTF-16BE 파일을 조용히 UTF-8로 바꾸던 문제를 고쳤다. 이제 이런 쓰기는 거부된다.",
+    "압축 직후 작업자가 교체되면 클라우드 세션이 메시지에 답하지 않던 문제를 고쳤다.",
+    "도구가 턴을 끝내고 같은 단계에서 skill이 로드되면, 클라우드 세션과 `CLAUDE_CODE_RESUME_INTERRUPTED_TURN`이 재시작 뒤 끝난 턴에 다시 답하던 문제를 고쳤다.",
+    "컴퓨터에 복사본을 저장하지 못하면 Remote Control로 보낸 사진이 버려지던 문제를 고쳤다. 이제 Claude는 여전히 사진을 본다.",
+    "장시간 실행되는 세션에서 Remote Control로 보낸 파일이 가끔 도착하지 않던 문제를 고쳤다.",
+    "Remote Control이나 클라우드 세션으로 보낸 30~35 MiB 파일이 도착하지 않던 문제를 고쳤다.",
+    "사용자가 설치한 mod의 `$.env.set`이, managed 설정의 명령 훅이 시작하는 환경이나 셸 접두사를 바꾸던 문제를 고쳤다.",
+    "(Windows) 바쁜 기기에서 프로세스 생존 검사가 고아 PowerShell 프로세스를 메모리가 바닥날 때까지 남기던 문제를 고쳤다.",
+    "(Windows) Git for Windows가 없을 때 셸을 지정하지 않은 PreToolUse와 PermissionRequest 훅이 실패하면 호출을 허용하던 문제를 고쳤다. 이제 실패한 가드는 호출을 막는다.",
+    "(Windows) Git Bash가 시작할 때 PATH를 알려주지 않으면 세션 전체에서 Bash 명령이 “command not found”로 실패하던 문제를 고쳤다.",
+    "self-hosted runner의 `setup`과 `doctor`가, runner 기기에 git 자격 증명이 없을 때 하는 안내를 개선했다.",
+    "첫 턴 전에 출력을 쓴 self-hosted runner 세션에 해제 타이머가 없어 `--retire-at`을 무시하고 종료가 늦어지던 문제를 고쳤다.",
+    "claude.ai 로그인이 거부되었거나 만료되어 클라우드 세션이 거부되면, 이제 `claude auth login`으로 다시 로그인하라고 안내한다.",
+    "사용자가 설치한 mod에 대해 managed 권한 규칙, managed 훅, 조직 MCP 도구 이름의 적용을 강화했다.",
+    "PDF를 @-멘션할 때 메모리와 디스크 사용을 줄였다. PDF 바이트를 세션 기록에 더 이상 보관하지 않는다.",
+    "Linux의 샌드박스 Bash에서, 명령의 와일드카드 읽기 규칙을 펼치는 동안에도 Esc와 Ctrl-C가 작동한다.",
+    "인식되지 않는 모델 ID 경고를 환영 배너 아래 짧은 한 줄과 문서 링크로 바꿨다. 긴 원시 메시지 대신이다.",
+    "플러그인 작성 skill에서 mod를 공유하는 단계를 개선했다. Claude가 공개인지 비공개인지 묻고, GitHub 저장소를 만들기 전에 파일을 확인한다.",
+    "Claude가 `anthropic-skills:` 접두사를 잘못 붙이면, Skill 도구의 “Unknown skill” 오류가 목록에 있는 skill 이름을 제안한다.",
+    "`/reload-skills`가 전체 skill 목록을 Claude에 다시 보낸다고 알려준다. 압축 뒤 skill을 되찾는 방법이다.",
+    "기준 커밋을 찾을 수 없어 worktree를 만들지 못할 때, 조회가 어떻게 끝났는지와 커밋이 없는 저장소 같은 가능한 이유를 알려준다.",
+    "bare 저장소 레이아웃의 루트에 worktree를 만들려 하면, 관련 없는 git 오류 대신 레이아웃을 설명한다.",
+    "로컬 세션이 한 번에 감시할 수 있는 artifact 수가 10개에서 25개로 늘었다.",
+    "백그라운드 에이전트 알림이, 자신의 백그라운드 작업만 기다리는지, 결과에 비해 메시지가 너무 늦었는지, 사용량 한도로 멈췄는지 알려준다.",
+    "플러그인 훅과 워크플로 스크립트가 28,000 단계보다 깊게 중첩된 값을 돌려주면 거부하고 한도를 밝힌 오류를 낸다. 워크플로 스크립트는 이전에 100,000 단계까지 허용했다.",
+    "플러그인 훅이 도구 호출을 막을 때, 그 액션을 훅에 넘기지 못하거나 답을 돌려받지 못하면 통과시키지 않고 거부한다. 이미 실행된 도구의 결과는 보류된다.",
+    "claude.ai 커넥터 프록시와 Anthropic 호스팅 MCP 서버로의 요청이 더 이상 HTTP 리다이렉트를 따르지 않는다. 커넥터 자체 서버의 리다이렉트에는 영향이 없다.",
+    "클라우드와 self-hosted runner 세션의 MCP 요청이, 세션의 MCP 프록시가 보낸 HTTP 리다이렉트를 더 이상 따르지 않는다.",
+    "파일 이름이나 폴더 이름에 숨은 문자, 방향을 바꾸는 문자, 빈 것처럼 보이는 문자, `<`나 `>`가 있는 skill과 명령은 이름을 바꾸기 전까지 제공되지 않는다. 그런 `name:`은 무시된다.",
+    "`claude plugin test`의 `ui.render` 트리에서 각 mod의 Box나 Text 루트가 mod 이름을 담은 `part: { plugin }`을 가진다. 정확한 트리 검사에는 이를 포함해야 한다.",
+    "WebFetch 페이지 읽기가 웹 검색처럼 노력 수준을 고른다. 호출자 모델에서는 호출자의 수준을, 그 밖에는 설정의 작은 모델 수준을 쓴다.",
+    "`claude plugin test`는 mod의 `$` 메서드 호출이 10초 안에 답하지 않으면 실패로 처리한다. 세션과 같다.",
+    "MCP 허용 규칙이 이름을 적은 서버에만 적용된다. `mcp__a`는 `a__b`나 `a_` 서버를 더 이상 허용하지 않으며, 서버의 정규화된 전체 이름으로 `mcp__<server>__*`를 써야 한다.",
+    "에이전트 `tools:` 목록은 이름이 적힌 MCP 서버의 도구만 가져온다. 이름에 `__`가 들어간 서버는 `mcp__<전체 이름>__*`로 적는다.",
+    "자동 모드 밖의 Cowork 클라우드 세션에서, 승인된 사이트의 Claude in Chrome 작업이 안전 분류기에 걸리면 거부 대신 묻는다. managed 설정이 적용되는 경우는 제외다.",
+    "기능 플래그를 가져오지 않는 설치에서 클라우드 세션과 Remote Control MCP 커넥터가 기본으로 MCP 프로토콜 2026-07-28을 협상한다. `MCP_PROTOCOL_NEGOTIATION=legacy`로 끌 수 있다.",
+    "`api.anthropic.com`의 Anthropic 첫 번째 MCP 서버가 주는 도구 설명과 서버 지침은 4,096자에서 잘리지 않고 Claude에 전부 전달된다.",
+    "Cowork 클라우드 세션의 자동 모드에서 `PermissionRequest` 훅은 셸 명령이나 서브에이전트를 승인할 수 없다. 그 프롬프트는 기다리거나 거부된다.",
+    "종료할 때 출력되는 재개 명령이 세션을 이름이 아닌 ID로 지정한다. 세션 이름에 든 내용이 줄을 붙여 넣을 때 실행되지 않게 하기 위해서다.",
+    "worktree 세션을 종료할 때 출력되는 재개 명령은 긴 플래그가 터미널에 맞지 않으면 `-w`와 `-r`을 쓴다. 둘 다 맞지 않으면 남은 worktree 위의 행에 실행 위치를 알려준다.",
+    "대화형이 아닌 세션의 `/btw` 질문이 11분이 지나도 답을 받지 못하면 시간 초과 오류를 반환한다.",
+    "`UserPromptSubmit` 훅이 skill이나 사용자 지정 슬래시 명령이 확장되기 전에 실행된다. 프롬프트를 막는 훅은 그 안의 셸 명령도 막는다.",
+    "skill 자신의 frontmatter에 있는 `UserPromptSubmit` 훅은 skill을 호출한 프롬프트 다음 프롬프트에서 처음 실행된다.",
+    "`turn.start` mod 훅이 메인 루프뿐 아니라 서브에이전트와 팀원의 턴도 듣는다. `e.agentId`(메인 루프에는 없음)로 구분한다.",
+    "`/ultrareview`가 저장소를 올리지 못했을 때 보여주는 오류가 더 이상 `git add .`을 권하지 않는다. 추적되지 않은 `.env` 같은 파일을 스테이징하거나 커밋할 수 있기 때문이다.",
+    "사이버 안전장치 알림이 더 이상 Cyber Verification Program 신청을 요청하지 않는다.",
+    "(VS Code) 다른 세션으로 옮겼다가 돌아오면 보내지 않은 프롬프트와 첨부 파일이 사라지던 문제를 고쳤다.",
+    "(VS Code) 사용하지 않는 빈 채팅이 새 대화를 시작한 뒤에도 백그라운드 Claude 프로세스를 계속 실행하던 문제를 고쳤다.",
+    "(VS Code) claude.ai에 로그아웃된 상태에서 마이크 버튼이 내부 오류 메시지를 보이던 문제를 고쳤다. 이제 로그인을 권한다.",
+    "(VS Code) Python 환경이 없는 워크스페이스에서 Python 확장 프로그램이 로드되는 동안 Claude를 시작해 시작 시간을 줄였다.",
+    "(VS Code) 전에 열었던 폴더를 새 창에서 열면 모델 선택기와 슬래시 명령 메뉴가 바로 채워진다.",
+    "[클라우드 세션] 기존 출력 파일 여러 개가 한꺼번에 다시 전송될 때 메모리가 급증해 세션이 충돌하던 문제를 고쳤다.",
+    "[클라우드 세션] 편집한 루틴을 저장할 때 원래 환경이 삭제됐거나 목록에 없으면 다른 환경으로 옮겨지던 문제를 고쳤다. 이제 루틴이 환경을 유지한다.",
+    "[클라우드 세션] self-hosted 환경 관리자 상세의 세션 검색이, 세션 링크에서 복사한 세션 ID를 붙여 넣으면 아무것도 찾지 못하던 문제를 고쳤다.",
+    "[클라우드 세션] self-hosted 환경 관리자 상세의 Sessions와 Runners 목록이 검색 결과가 없을 때 목록이 비었다고 말하던 문제를 고쳤다.",
+    "[클라우드 세션] self-hosted 환경이나 환경 키를 만들 때 보이는 배포 명령을 전부 보여주고, 인자 사이에서 줄을 바꾸며, 눈에 보이는 복사 버튼을 준다.",
+    "[클라우드 세션] self-hosted 환경을 삭제하면 그 루틴을 바로 끄고 각 루틴에 이유를 표시한다. 이전에는 루틴 실행이 실패하도록 두었다.",
+    "[Remote Control] 컴퓨터에 연결할 수 없는 Remote Control 세션이 여전히 메시지를 보내는 것처럼 보이던 문제를 고쳤다. 이제 입력한 글은 상자에 남고, 다시 연결될 때까지 보내기가 꺼진다.",
+    "[Claude Tag] 요청받으면 Claude in Slack이 채널에 만든 캔버스를 삭제할 수 있다.",
+    "[Claude Tag] 채널의 지침이 답하라고 한 태그 없는 게시물(다른 사람을 태그한 게시물 등)에 Claude in Slack이 침묵하던 문제를 고쳤다. 게스트가 있는 채널에 해당한다.",
+    "[Claude Tag] 다른 채널 스레드에 답장하지 못했는데도 Claude in Slack이 게시됐다고 보고하던 문제를 고쳤다. 이제 답장이 전달되지 않았다고 말하고 해결 방법을 알려준다.",
+    "[Claude Tag] self-hosted runner 이미지에 python3가 없으면 Claude in Slack이 답변을 올리지 않고 턴을 끝내던 문제를 고쳤다.",
+    "[Claude Tag] Claude in Slack이 틀린 메시지를 고칠 때 이전 글에 취소선을 긋는 대신, 메시지를 그 자리에서 고치고 짧은 “Edited” 메모를 붙인다.",
+    "[Claude Tag] Claude in Slack이 100명을 넘는 멤버의 채널에 조용히 참여하며, 소개 메시지를 올리지 않는다.",
+    "[Code Review] 월간 지출 한도 댓글과 체크 카드가 관리자를 Claude Code 설정으로 보내던 것을, 이제 한도를 정하는 사용량 페이지로 연결한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "@ 파일 멘션은 경로만 전달",
+     "what": "`CLAUDE_CODE_DISABLE_FILE_MENTIONS`를 설정하면 Claude는 `@` 파일 멘션의 내용 대신 경로를 받는다. 필요할 때 파일 도구로 직접 읽는다.",
+     "steps": [
+      "환경 변수 `CLAUDE_CODE_DISABLE_FILE_MENTIONS`를 설정한다.",
+      "`@`로 파일을 멘션하면 Claude는 경로를 받고, 필요한 만큼 파일 도구로 읽는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "터미널 유휴 압축",
+     "what": "터미널에서 200K 토큰 이상의 대화를 약 54분 동안 두면, 1시간 프롬프트 캐시가 만료되기 전에 자동으로 압축된다. 그래서 다음 메시지가 대화 전체를 다시 처리하지 않는다.",
+     "steps": [
+      "200K 토큰 이상의 대화를 약 54분 동안 비워 둔다.",
+      "캐시가 만료되기 전에 압축되고, 다음 메시지는 전체를 다시 처리하지 않는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "유휴 압축 기준과 끄기",
+     "what": "`CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS`로 유휴 압축의 최소 20만 토큰 기준을 바꿀 수 있다. settings.json의 `\"idleCompaction\": false`로 끈다. 두 설정 모두 v2.1.290 이상이 필요하다.",
+     "steps": [
+      "기준을 바꾸려면 `CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS`를 설정한다.",
+      "끄려면 settings.json에 `\"idleCompaction\": false`를 넣는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "mod의 프롬프트 미디어 읽기",
+     "what": "managed 설정으로 설치된 mod의 `prompt.submit` 훅이 `$.prompt.media`로 프롬프트에 첨부된 이미지나 문서의 바이트를 읽을 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "$.session.identity()",
+     "what": "managed 설정으로 설치된 mod는 `$.session.identity()`로 세션의 로그인 방식을 확인할 수 있다. managed `forceLoginOrgUUID`가 그 조직을 나열하면 조직과 이메일도 알 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "mod 텍스트와 간격 스타일",
+     "what": "mod의 `Text`에 `size`, `weight`, `mono`, `tabular`가 추가되고, `Box`에 이름 붙은 간격 단계 `xs`~`xl`이 추가됐다. `bold`는 `weight`로 대체되어 사용이 권장되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "orchestrator 종료 대기 시간",
+     "what": "`--shutdown-drain-sec`은 SIGTERM을 받으면 폴링을 멈추고, 진행 중인 폴링과 실행 중인 spawn 훅이 그 초 안에 끝날 시간을 준다.",
+     "steps": [],
+     "terminal": {
+      "title": "종료 대기 시간 지정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "<초> 자리에 원하는 초 단위 값을 넣는다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ claude self-hosted-runner orchestrator --shutdown-drain-sec <초>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "skill.prompt 훅 입력 확장",
+     "what": "mod의 `skill.prompt` 훅이 받는 값에 skill의 frontmatter, 출처, 플러그인 이름, 파일 경로가 추가됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "에이전트 뷰의 새 세션 기본값",
+     "what": "에이전트 뷰에서 `/effort`와 `/fast`로 새 세션이 시작할 설정을 정한다. 그곳에서 인자 없이 `/model`, `/effort`, `/fast`를 치면 선택기가 열린다.",
+     "steps": [
+      "에이전트 뷰에서 `/effort` 또는 `/fast`로 새 세션의 기본값을 정한다.",
+      "인자 없이 `/model`, `/effort`, `/fast`를 치면 선택기가 열린다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /effort"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 9,
+     "title": "에이전트 뷰의 safe 모드 표시",
+     "what": "`--safe-mode`로 시작한 백그라운드 세션은 에이전트 뷰 미리보기 패널에 “safe mode” 줄이 표시된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 10,
+     "title": "plan 모드의 권한 안내",
+     "what": "bypass permissions를 쓸 수 있을 때 plan 모드가 대부분의 편집이나 명령을 묻지 않으면, 이 사실을 한 번만 알려준다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 11,
+     "title": "plugin eval에서 도구 제외",
+     "what": "`claude plugin eval`에 `--disallow-tools`와 케이스 필드 `disallowed_tools`가 추가됐다. Agent 같은 내장 도구를 eval 실행에서 뺄 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 12,
+     "title": "Desktop Code 탭의 attribution 끄기",
+     "what": "Claude apps 게이트웨이의 `code` 정책 `env`에 `CLAUDE_CODE_ATTRIBUTION_HEADER=0`을 두면 Claude Desktop의 Code 탭에서 attribution 블록이 나오지 않는다.",
+     "steps": [
+      "게이트웨이의 `code` 정책을 연다.",
+      "`env`에 `CLAUDE_CODE_ATTRIBUTION_HEADER=0`을 넣는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 13,
+     "title": "게이트웨이 세션의 attribution 블록",
+     "what": "Claude apps 게이트웨이 뒤의 Claude Code 세션에서 attribution 블록에 필드가 추가됐다. 블록을 없애려면 `CLAUDE_CODE_ATTRIBUTION_HEADER=0`을 설정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "attribution 블록 끄기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_ATTRIBUTION_HEADER=0"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 14,
+     "title": "session.append의 queue 문",
+     "what": "`session.append` mod 훅에 `queue` 문이 추가됐다. mod는 기록의 큐 레코드를 실제로 보낸 프롬프트와 다르게 만들 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 15,
+     "title": "관리되는 곳의 mod 훅 안내",
+     "what": "`/plugin`과 `claude plugin validate`가, 조직이 Claude Code를 관리하는 곳에서 건너뛰는 mod 훅의 이름을 알려준다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 16,
+     "title": "/usage 경고 추가",
+     "what": "`/usage`에 최대 effort, 워크플로, 항상 켜진 컨텍스트, 큰 도구 결과에 대한 경고가 추가됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 171,
+     "title": "보내지 않은 프롬프트 유지",
+     "what": "다른 세션으로 옮겼다가 돌아와도 보내지 않은 프롬프트와 첨부 파일이 남아 있다. 이전에는 사라졌다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 172,
+     "title": "빈 채팅의 백그라운드 프로세스",
+     "what": "사용하지 않는 빈 채팅이 새 대화를 시작한 뒤에도 백그라운드 Claude 프로세스를 계속 실행하던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 173,
+     "title": "마이크 버튼의 로그인 안내",
+     "what": "claude.ai에 로그아웃된 상태에서 마이크 버튼이 내부 오류 메시지를 보이던 문제를 고쳤다. 이제 로그인을 권한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 174,
+     "title": "Python 환경 없는 워크스페이스의 시작",
+     "what": "Python 환경이 없는 워크스페이스에서 Python 확장 프로그램이 로드되는 동안 Claude를 시작해 시작 시간을 줄였다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 175,
+     "title": "새 창의 즉시 표시",
+     "what": "전에 열었던 폴더를 새 창에서 열면 모델 선택기와 슬래시 명령 메뉴가 바로 채워진다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.300": {
+  "hash": "4cc947dded53",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "mod에 `prompt.change` 훅과 `virtualText` 같은 새 API가 추가됐고, Claude Platform on AWS에서 `/advisor`를 쓸 수 있다. 클라우드 세션, Slack 연동, worktree와 재개 관련 문제도 많이 고쳐졌다.",
+   "items": [
+    "mod의 프롬프트 장식에 `virtualText`를 추가했다. 입력 상자에 그려지지만 초안이나 제출된 프롬프트에는 들어가지 않는다.",
+    "OpenTelemetry `api_request` 이벤트에 `cache_creation_5m_tokens`와 `cache_creation_1h_tokens`를 추가해 캐시 쓰기를 수명별로 나눠 본다.",
+    "mod용 `$.ui.view({ agentId })`를 추가했다. 요청하면 에이전트의 기록을 메인 화면에 보여주고, `$.ui.view({})`로 돌아간다.",
+    "mod `Text`에 오른쪽에서 왼쪽으로 읽는 텍스트용 `dir` 속성을 추가했다. Windows와 VS Code 터미널에서 행이 그 방향으로 읽히고 오른쪽에 붙는다.",
+    "Claude Platform on AWS에서 `/advisor`를 쓸 수 있다. `/advisor`, `advisorModel`, `--advisor` 중 하나로 고르기 전에는 어드바이저가 실행되지 않으며, `CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1`로 끈다.",
+    "trace span에 OpenTelemetry GenAI 시맨틱 규칙의 속성(`gen_ai.provider.name`, `gen_ai.conversation.id`, `gen_ai.tool.name`, `error.type` 등)을 추가했다.",
+    "`agent.spawn` mod 훅에서 워크플로 에이전트의 `prompt`와 `model`을 고쳐 쓸 수 있다. 이전에는 워크플로 에이전트를 거부만 할 수 있었다.",
+    "`prompt.change` mod 훅을 추가했다. 타이핑으로 편집하지 않았는데 프롬프트 입력 상자의 텍스트가 바뀔 때 호출된다. 기록 불러오기, 지우기, 실행 취소, 플러그인이 채우기가 해당한다.",
+    "세션 자체의 네트워크 설정이 허용하는데도 조직 정책이 호스트를 막는다고 Claude에 알리던 클라우드 세션 문제를 고쳤다.",
+    "더 작은 자동 압축 창을 고를 때 `/autocompact`가 토큰 사용량이 높다고 경고하던 문제를 고쳤다.",
+    "백그라운드 명령이 아직 실행 중일 때 종료하면 SessionEnd 훅이 실행되지 않던 문제를 고쳤다.",
+    "`claude --help`의 `--restricted` 설명에 이제 없는 도구 이름이 나오던 문제를 고쳤다.",
+    "한 PR의 데이터가 불완전하게 돌아오면 `claude agents`가 어떤 PR의 상태도 새로고침하지 않던 문제를 고쳤다.",
+    "클라우드 세션의 컨테이너가 바뀐 뒤, 이미 한 번 재개된 백그라운드 에이전트를 Claude가 잃어버려 재개할 수 없다고 전달받던 문제를 고쳤다.",
+    "메시지를 보낸 서브에이전트가 완료 직후 `/tasks`에서 사라져 대화로 돌아갈 방법이 없어지던 문제를 고쳤다.",
+    "자식 에이전트를 보는 중에 완료된 부모 에이전트가 breadcrumb에서 빠져 자식이 최상위로 올라가던 문제를 고쳤다.",
+    "에이전트 뷰에서 한꺼번에 들어온 입력의 “up”, “down”, “escape” 같은 단어를 키로 처리해, 답변 중에 peek가 움직이거나 초안이 지워지던 문제를 고쳤다.",
+    "`ENABLE_TOOL_SEARCH=auto`가 대화 도중 꺼지던 문제를 고쳤다. 예를 들어 재개 후 MCP 서버가 다시 연결되는 동안이다.",
+    "`forceLoginOrgUUID`가 거부한 로그인의 토큰이 저장되거나 `/login` 뒤에도 살아 있던 문제를 고쳤다.",
+    "reftable 저장소에서 Claude Desktop과 Remote Control 세션의 diff 보기가 충돌한 cherry-pick이나 revert를 알아채지 못하던 문제를 고쳤다.",
+    "입력이 들어오는 동안 Artifact 도구의 상세 줄과 ctrl+o 줄이 `Artifact(\"(unprintable path)\")`로 보이던 문제를 고쳤다. 이제 Bash처럼 “Waiting…”과 “Running…”을 표시한다.",
+    "충돌로 기록의 마지막 줄이 잘린 뒤 세션을 재개하면, 재개 후 처음 쓰는 기록이 사라지던 문제를 고쳤다.",
+    "메시지나 하위 폴더 프로젝트에 유니코드 줄·문단 구분자(U+2028, U+2029)가 있으면 `/branch`가 메시지를 빠뜨리고 `claude purge`가 건너뛰던 문제를 고쳤다.",
+    "`--worktree`로 시작할 때 플러그인의 `WorktreeCreate`와 `WorktreeRemove` 훅이 실행되지 않던 문제를 고쳤다. `--tmux`로는 아직 해당되지 않는다.",
+    "reftable ref 저장소에서 `git commit -q` 뒤 OpenTelemetry `tool_result` 이벤트에 `git_commit_id`가 빠지던 문제를 고쳤다.",
+    "mod의 `prompt.submit` 훅이 고쳐 쓰거나 버린 프롬프트가 여전히 입력한 것으로 기록되던 문제를 고쳤다. OpenTelemetry `user_prompt` 이벤트, interaction span, 세션 제목 요청도 포함된다.",
+    "mod 핫 리로드에 관한 Claude용 안내가 입력한 것처럼 기록에 나타나던 문제를 고쳤다.",
+    "에이전트 훅이 `model`을 무시하던 문제를 고쳤다. `haiku` 같은 별칭을 해석하고, 서브에이전트의 모델이 이를 덮어쓰지 않으며, 쓸 수 없는 모델이면 허용하지 않고 호출자의 모델로 대체한다.",
+    "태그나 브랜치 이름이 커밋 ID처럼 생겼을 때 `--worktree` 세션이 잘못된 커밋에서 시작하고, 시작 시 git status가 새 worktree가 아닌 다른 브랜치를 가리키던 문제를 고쳤다.",
+    "reftable 저장소에서 브랜치가 “.invalid”로 보이고 `--worktree`가 worktree를 다시 열지 못하던 문제를 고쳤다.",
+    "Claude가 세션 scratchpad의 파일을 전체 경로 대신 파일 이름이나 상대 경로로 가리키던 문제를 고쳤다.",
+    "`claude remote-control` 서버가 잠긴 키체인 같은 짧은 로그인 오류 뒤 연결 갱신을 포기하던 문제를 고쳤다. 이제 재시도하며, `claude /login`이 필요하면 경고한다.",
+    "bare 저장소의 worktree에서 origin 기본 브랜치를 가져올 수 없으면 `--worktree`가 실패하던 문제를 고쳤다. 대체 기준은 이제 메인 저장소가 아니라 현재 체크아웃의 HEAD다.",
+    "VS Code, Cursor, Devin Desktop의 통합 터미널에서 Claude Code를 시작할 때 편집기 명령줄 도구가 확장 프로그램 확인을 위해 두 번 실행되던 문제를 고쳤다. 이제 한 번만 실행한다.",
+    "`chat:newline` 단축키(Ctrl+J 또는 바꾼 Enter)로 넣은 줄바꿈에서 mod의 `prompt.edit` 훅이 호출되지 않던 문제를 고쳤다.",
+    "API가 MCP 도구의 입력 스키마를 거부하면 대화의 모든 턴이 400 오류로 실패하던 문제를 고쳤다. 이제 남은 대화 동안 그 도구를 매개변수 없이 보낸다.",
+    "출력 토큰 한도에서 잘린 답변 뒤에 압축이 이뤄지면, 헤드리스나 Agent SDK 세션을 재개할 때 압축이 남긴 최근 메시지가 사라지던 문제를 고쳤다. 이 버전 이후의 압축에 적용된다.",
+    "압축 뒤에 MCP 서버 연결이 끝나면, 다음 도구 호출 전까지 Claude가 그 서버의 도구와 지침을 알지 못하던 문제를 고쳤다.",
+    "여러 세션을 동시에 돌리는 컴퓨터에서 실행 중인 Remote Control 세션이 중지됨으로 표시되던 문제를 고쳤다.",
+    "같은 턴에서 재시도됐거나 끝나지 않은 답변 뒤에 압축이 이뤄지면, 헤드리스나 Agent SDK 세션을 재개할 때 압축 요약이 사라지거나 압축 전 기록이 되살아나던 문제를 고쳤다.",
+    "백그라운드 명령이 도는 동안 Claude가 출력 파일을 폴링하거나 잠들던 문제를 고쳤다.",
+    "OS 인증서 저장소로만 신뢰되는 TLS 검사 프록시 뒤에서 기능 플래그와 단계적 출시가 오래된 상태로 남던 문제를 고쳤다.",
+    "멈춘 백그라운드 서비스가 계속 도는데도 `claude daemon stop --any`가 “stopped”를 출력하던 문제를 고쳤다. 이제 기다린 뒤 강제 종료하고, 남아 있으면 종료 코드 1로 알린다.",
+    "텔레메트리가 꺼져 있으면 `claude daemon stop`이 아무것도 출력하지 않고 끝나며 세션이 계속 실행 중으로 남던 문제를 고쳤다.",
+    "Cowork 클라우드 세션에서 사용자 컴퓨터의 경로에 대한 Write, Edit, NotebookEdit이 파일이 도착하지 않았는데도 성공을 보고하던 문제를 고쳤다.",
+    "기록에 지연 도구 목록이 없는 세션을 재개할 때, 대화 앞부분에서 이미 불러온 지연 도구를 Claude가 다시 찾던 문제를 고쳤다.",
+    "어두운 ANSI 테마와 16색 터미널에서 보조(흐린) 텍스트가 일반 텍스트와 같아 보이던 문제를 고쳤다.",
+    "조직 정책을 읽을 수 없을 때 클라우드 세션이 턴마다 5분씩 멈추던 문제를 고쳤다. 이제 턴이 바로 끝나고 이유를 알려준다.",
+    "긴 답변 중 세션이 재시작된 뒤 이미 답한 메시지를 클라우드 세션이 한 번 더 실행하던 문제를 고쳤다.",
+    "아무도 출력을 읽지 않는 동안 self-hosted runner와 오케스트레이터가 멈추던 문제를 고쳤다. 로그는 최근 256 KiB를 유지하고 빠진 줄 수를 센다. Windows에는 해당하지 않는다.",
+    "Cowork 클라우드 세션의 WebFetch가 방금 실패한 페이지를 다시 가져오지 않고, 몇 초 전에 실패했다고 Claude에 알린다.",
+    "내장 `plugin-authoring` skill에서 mod를 공유할 때 mod 파일을 열기 전에 키를 먼저 검색하고, 프로젝트 밖 폴더를 검색하기 전에는 묻도록 개선했다.",
+    "Claude 3 모델에 @-멘션된 PDF에 대해 주는 안내를 개선해, 읽지 않고 답하는 경우가 줄었다.",
+    "artifact 업데이트가 작은 변경은 한 번의 호출로 적용하고 다시 게시하며, 큰 편집도 하나의 응답 안에서 편집하고 다시 게시한다.",
+    "`CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST` 세션은 `SSL_CERT_FILE` 같은 CA 번들, 도구 프록시, git TLS, git 설정 변수를 설정 파일에서 무시한다. Claude Desktop에서는 프로젝트 설정에서만 무시한다.",
+    "종료할 때 중지를 요청한 뒤 1.5초가 지나도 실행 중인 백그라운드 명령을 강제 종료한다. 전체 화면 모드에서는 이전에 명령이 남을 수 있었다.",
+    "`forceLoginGatewayUrl`이 세션 호스트 이름을 제공하는 Anthropic 운영 게이트웨이를 가리키면 Claude Desktop의 Code 탭이 관리형 설정을 적용한다. 그 게이트웨이는 시작할 때 접근 가능해야 한다.",
+    "게이트웨이에서 Claude Desktop이 쓸 수 없는 `desktop:` 정책 키가 있으면, 이전에는 경고만 하고 시작했지만 이제는 키 이름을 밝히고 시작하지 않는다.",
+    "api.anthropic.com으로 가는 큰 요청은 텔레메트리가 꺼져 있어도 gzip으로 압축한다. `CLAUDE_CODE_GZIP_REQUEST_BODIES=0`으로 끌 수 있다.",
+    "`claude-api` skill은 아카이브나 삭제를 요청하지 않는 한 Managed Agents 세션을 그대로 둔다.",
+    "백그라운드 세션은 인계 파일에서 바로 실행하지 않고, 이어받은 워크플로를 Workflow 도구의 승인을 거쳐 재개한다.",
+    "로컬 세션 기록이 각 API 요청의 시스템 프롬프트, 도구, 매개변수도 저장한다. 공유하기로 한 기록으로 요청을 정확히 재현할 수 있다.",
+    "`/sandbox` 모드 옵션의 이름이 “Sandbox BashTool”에서 “Sandbox commands”로 바뀌었다.",
+    "Cowork 클라우드 세션에서 `PermissionRequest` 훅의 허용에 든 `setMode` 업데이트는 무시한다. 나머지 승인은 그대로 적용된다.",
+    "PreToolUse와 PermissionRequest 훅의 `updatedInput`을 Claude 자체 입력처럼 검증한다. 알 수 없는 키는 버리고, 도구가 거부하는 입력이면 호출을 거부한다.",
+    "효과가 없던 `claude remote-control`의 `--sandbox`와 `--no-sandbox` 플래그를 제거했다. 두 플래그를 주면 이제 오류로 끝난다. 샌드박스를 쓰려면 설정에서 `sandbox.enabled`를 지정한다.",
+    "`claudeCode.attachSelection` 설정을 추가했다. 편집기에서 선택한 텍스트가 메시지에 자동으로 붙지 않게 할 수 있다.",
+    "사용량 크레딧이 떨어진 뒤 빠른 모드가 켜진 채 남아 요청이 거부되고 다시 보내지던 문제를 고쳤다. 이제 빠른 모드가 꺼지며, 다시 켤 때까지 오류 알림이 뜬다.",
+    "항상 생각하는 모델에서 생각 토글이 꺼짐으로 바뀌던 문제를 고쳤다. 해당 모델에서는 토글이 나오지 않는다.",
+    "표시된 메시지의 “Edit prompt”가 복원된 프롬프트 위에 파일이나 명령 메뉴를 열던 문제를 고쳤다. 이제 Enter를 누르면 프롬프트를 원문 그대로 보낸다.",
+    "Windows에서 파일을 Shift+드래그해 프롬프트에 넣을 때 읽을 수 없는 `/c:/…` 경로가 들어가던 문제를 고쳤다. 이제 작업 폴더 기준의 멘션이 들어간다.",
+    "VS Code 채팅 글꼴 크기 설정 변경이 창 리로드를 요구하거나 테마 변경으로 취소되던 문제를 고쳤다. diff와 계획 미리보기도 이 설정을 따른다.",
+    "“Resume session”과 리로드 뒤 복원된 탭이 git worktree로 옮겨진 대화 대신 빈 새 대화를 열던 문제를 고쳤다.",
+    "↑로 불러온 슬래시 명령에서 Enter를 누르면 인자 없이 실행되던 문제를 고쳤다. 불러온 프롬프트를 편집하기 전까지 명령과 파일 메뉴가 그 위에 열리지 않는다.",
+    "WSL, SSH, Dev Container 창에서 탐색기나 편집기 탭의 파일을 Shift+드래그하면 이제 프롬프트에 파일이 들어간다. 이전에는 아무것도 들어가지 않았다.",
+    "Windows와 Linux에서 Ctrl+Alt+F가 탐색기, 다른 트리 보기, 디버그 콘솔에서 찾기를 연다. 이전에는 Focus 보기를 토글했다.",
+    "다른 창이나 터미널에서 열린 세션을 확인할 때 macOS에서 PATH의 `ps`를 찾는 대신 `/bin/ps`를 바로 실행해 확인 때마다 프로세스가 생기는 일을 줄였다.",
+    "Windows에서 충돌이나 정전 뒤 재시작되며 옛 프로세스 ID를 다른 프로그램이 받으면, 대화가 “다른 곳에서 아직 열려 있음”으로 잘못 표시되던 문제를 고쳤다.",
+    "조직이 “Always allow”를 끈 경우 커넥터 도구의 Cowork 승인 창에서 “Allow for this task”가 빠지던 문제를 고쳤다. 2.1.292의 회귀다.",
+    "클라우드 세션에서 두 번째 메시지를 보낸 뒤 / 메뉴 명령 대부분의 설명이 사라지던 문제를 고쳤다.",
+    "claude.ai와 데스크톱 앱의 Remote Control 세션 diff 보기가 삭제되거나 이름이 바뀐 파일을 수정됨으로 보이던 문제를 고쳤다. 로컬 기기에 Claude Code v2.1.296 이상이 필요하다.",
+    "Slack Connect 채널을 지원한다. Owner나 Claude Tag 관리자가 다른 조직과 공유한 채널에서 Slack의 Claude가 답하도록 허용할 수 있으며, 기본값은 꺼짐이다.",
+    "승인이 필요한 커넥터 작업에 대해 Slack 스레드에 개인용 “Allow once” / “Deny” 카드를 추가했다. Claude가 거부하지 않고 묻는다. 다른 사람에게는 응답을 기다린다는 것만 보인다.",
+    "Slack 음성 클립을 지원한다. Slack이 클립의 전사본을 가지고 있으면 Claude가 그 전사본을 읽는다.",
+    "Claude가 채널에 직접 올린 메시지 아래 스레드에서 다른 앱이 Claude를 멘션해도 답하지 않던 문제를 고쳤다.",
+    "관리자가 Slack 채널에 붙인 접근 묶음이 채널이 Slack Connect 채널이 된 뒤에도 계속 적용된다. 제거하고 다시 붙일 필요가 없다.",
+    "GitHub 조직 멤버십이 비공개인 쓰기 권한자의 `@claude review` 댓글을 Code Review가 무시하던 문제를 고쳤다. 이제 그 댓글도 리뷰를 시작한다.",
+    "Code Review의 “paused for this repository” 댓글이 관리자를 Code Review 설정으로 보내던 문제를 고쳤다. 이제 누가 고칠 수 있는지 밝히고 Git 제공자 페이지 링크를 준다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "mod 프롬프트 장식의 virtualText",
+     "what": "mod의 프롬프트 장식에 `virtualText`를 쓸 수 있다. 입력 상자에 그려지지만, 초안이나 제출된 프롬프트에는 들어가지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "수명별 캐시 쓰기 지표",
+     "what": "`api_request` 이벤트에 `cache_creation_5m_tokens`와 `cache_creation_1h_tokens`가 추가돼, 캐시 쓰기를 5분과 1시간 수명별로 나눠 볼 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "mod에서 에이전트 기록 보기",
+     "what": "mod에서 `$.ui.view({ agentId })`를 호출하면 에이전트의 기록을 메인 화면에 보여준다. `$.ui.view({})`를 호출하면 메인 대화로 돌아간다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "오른쪽에서 왼쪽으로 읽는 텍스트",
+     "what": "mod `Text`의 `dir` 속성으로 오른쪽에서 왼쪽으로 읽는 텍스트를 표시한다. Windows와 VS Code 터미널에서는 행이 그 방향으로 읽히고 오른쪽에 붙는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "Claude Platform on AWS의 /advisor",
+     "what": "Claude Platform on AWS에서 `/advisor`를 쓸 수 있다. `/advisor`, `advisorModel`, `--advisor` 중 하나로 고르기 전에는 어드바이저가 실행되지 않으며, `CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1`로 끌 수 있다.",
+     "steps": [
+      "`/advisor`, `advisorModel`, `--advisor` 중 하나로 어드바이저를 고른다.",
+      "끄려면 `CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1`을 설정한다."
+     ],
+     "terminal": {
+      "title": "어드바이저 끄기",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "어드바이저 도구를 끄는 설정 예시다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_DISABLE_ADVISOR_TOOL=1"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "trace span의 GenAI 속성",
+     "what": "trace span에 OpenTelemetry GenAI 시맨틱 규칙의 속성이 추가됐다. `gen_ai.provider.name`, `gen_ai.conversation.id`, `gen_ai.tool.name`, `error.type` 등이 포함된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "agent.spawn 훅의 워크플로 에이전트 수정",
+     "what": "`agent.spawn` mod 훅에서 워크플로 에이전트의 `prompt`와 `model`을 고쳐 쓸 수 있다. 이전에는 워크플로 에이전트를 거부만 할 수 있었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "prompt.change 훅",
+     "what": "`prompt.change` mod 훅은 타이핑으로 편집하지 않았는데 프롬프트 입력 상자의 텍스트가 바뀔 때 호출된다. 기록 불러오기, 지우기, 실행 취소, 플러그인이 채우기가 해당한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 66,
+     "title": "선택 영역 자동 첨부 끄기",
+     "what": "`claudeCode.attachSelection` 설정으로 편집기에서 선택한 텍스트가 메시지에 자동으로 붙지 않도록 할 수 있다.",
+     "steps": [
+      "VS Code 설정에서 `claudeCode.attachSelection`을 찾는다.",
+      "선택 영역이 메시지에 붙지 않도록 설정을 바꾼다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 67,
+     "title": "크레딧 소진 후 빠른 모드",
+     "what": "사용량 크레딧이 떨어지면 빠른 모드가 자동으로 꺼진다. 이전에는 켜진 채 남아 요청이 거부되고 다시 보내졌다. 다시 켤 때까지 꺼진 상태가 유지되며 오류 알림이 뜬다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 68,
+     "title": "항상 생각하는 모델의 생각 토글",
+     "what": "항상 생각하는 모델에서는 생각 토글이 나오지 않는다. 이전에는 토글을 누르면 꺼짐으로 바뀌었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 69,
+     "title": "표시된 메시지의 프롬프트 편집",
+     "what": "표시된 메시지에서 “Edit prompt”를 누르면 복원된 프롬프트 위에 파일이나 명령 메뉴가 열리지 않는다. Enter를 누르면 프롬프트를 원문 그대로 보낸다.",
+     "steps": [
+      "표시된 메시지에서 “Edit prompt”를 누른다.",
+      "Enter를 누르면 프롬프트가 원문 그대로 전송된다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 70,
+     "title": "Windows에서 파일 드래그 멘션",
+     "what": "Windows에서 파일을 Shift+드래그해 프롬프트에 놓으면 작업 폴더 기준의 멘션이 들어간다. 이전에는 읽을 수 없는 `/c:/…` 경로가 들어갔다.",
+     "steps": [
+      "Windows에서 파일을 Shift+드래그해 프롬프트에 놓는다.",
+      "작업 폴더 기준의 멘션이 들어갔는지 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 71,
+     "title": "VS Code 채팅 글꼴 크기 설정",
+     "what": "VS Code의 채팅 글꼴 크기 설정을 바꾸면 창을 리로드하지 않아도 적용되고, 테마 변경으로 취소되지 않는다. diff와 계획 미리보기도 같은 설정을 따른다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 72,
+     "title": "worktree로 옮긴 대화 재개",
+     "what": "“Resume session”과 리로드 뒤 복원된 탭이 git worktree로 옮겨진 대화를 다시 연다. 이전에는 빈 새 대화가 열렸다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 73,
+     "title": "불러온 슬래시 명령 실행 수정",
+     "what": "↑로 불러온 슬래시 명령에서 Enter를 누르면 이제 인자와 함께 실행된다. 불러온 프롬프트를 편집하기 전까지 명령과 파일 메뉴가 그 위에 열리지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 74,
+     "title": "WSL·SSH·Dev Container의 파일 드래그",
+     "what": "WSL, SSH, Dev Container 창에서 탐색기나 편집기 탭의 파일을 Shift+드래그하면 이제 프롬프트에 파일이 들어간다. 이전에는 아무것도 들어가지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 75,
+     "title": "Ctrl+Alt+F 단축키",
+     "what": "Windows와 Linux에서 Ctrl+Alt+F가 탐색기, 다른 트리 보기, 디버그 콘솔에서 찾기를 연다. 이전에는 Focus 보기를 토글했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 76,
+     "title": "macOS 세션 확인 프로세스",
+     "what": "다른 창이나 터미널에서 열린 세션을 확인할 때 macOS에서 `/bin/ps`를 바로 실행한다. 이전에는 확인할 때마다 PATH에서 `ps`를 찾았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 77,
+     "title": "Windows 재시작 뒤 세션 표시 수정",
+     "what": "Windows에서 충돌이나 정전 뒤 재시작되며 옛 프로세스 ID를 다른 프로그램이 받으면, 대화가 “다른 곳에서 아직 열려 있음”으로 잘못 표시되던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 80,
+     "title": "Remote Control diff의 삭제·이름 변경 파일",
+     "what": "claude.ai와 데스크톱 앱의 Remote Control 세션에서 diff 보기가 삭제되거나 이름이 바뀐 파일을 수정된 것으로 보이던 문제를 고쳤다. 로컬 기기에 Claude Code v2.1.296 이상이 필요하다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "Remote Control diff 보기",
+        "note": "claude.ai나 데스크톱 앱의 Remote Control 세션에서 diff를 연다.",
+        "changed": true
+       },
+       {
+        "title": "삭제·이름 변경 파일",
+        "note": "삭제되거나 이름이 바뀐 파일을 수정된 것으로 보지 않는다.",
+        "changed": true
+       }
+      ],
+      "before": "삭제되거나 이름이 바뀐 파일이 수정된 것으로 보였다.",
+      "after": "삭제되거나 이름이 바뀐 파일을 수정된 것으로 보지 않는다."
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.301": {
+  "hash": "3aaf3a527da1",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "LaTeX 수식 렌더링과 vim `%` 이동이 추가됐다. 무인 재시도와 OpenTelemetry 설정이 늘었고, 모델 전환·로그인 갱신·터미널 표시 문제가 여러 건 고쳐졌다.",
+   "items": [
+    "무인 재시도 모드(`CLAUDE_CODE_RETRY_WATCHDOG`)에서 사용량 한도가 너무 멀리 풀리면 기다리지 않도록 `CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS` 환경 변수를 추가했다.",
+    "`claude-api` 스킬에 OpenTelemetry 추적 안내를 추가했다. `ant` CLI로 추적 대상을 설정하는 방법도 포함된다.",
+    "vim 모드에 `%` 모션을 추가했다. 짝이 되는 괄호로 이동하며, `d`, `c`, `y`와 함께 쓸 수 있다.",
+    "mod의 `Input`에 `rows`를 추가했다. 여러 줄 입력에서 Enter는 제출하고, Shift+Enter나 Enter 앞의 백슬래시는 줄을 바꾼다.",
+    "OpenTelemetry `tool_decision` 이벤트에 `classifier_verdict`와 `permission_mode`를 추가했다. 자동 모드 분류기 판단과 권한 규칙을 구분할 수 있다.",
+    "`OTEL_LOG_TOOL_DETAILS=1`일 때 `tool_decision` 이벤트에 `classifier_category`를 추가했다. 분류기 차단이 걸린 내장 규칙 이름을 알 수 있다.",
+    "종료할 때 `WorktreeCreate` 훅이 만든 worktree를 커밋되지 않은 변경이 있을 수 있는데도 묻지 않고 지우던 문제를 고쳤다.",
+    "조직이 최신 Fable 모델을 쓸 수 없을 때 `fable`(및 `best`) 별칭이 Anthropic API에서 오류를 내던 문제를 고쳤다. 이제 이전 Fable 모델로 한 번 재시도한다.",
+    "디스크가 가득 차서 로그인 갱신이 안 될 때 나오던 “Please run /login” 오류 대신, 어느 디스크인지 밝히고 파일을 지우라고 안내한다.",
+    "검색 프로그램이 결과 전에 예기치 않게 실패하면 Grep과 Glob이 일치 없음을 보고하던 문제를 고쳤다. 이제 검색 실패 오류를 반환한다.",
+    "워크플로 에이전트가 작업 텍스트에 사용자 권한이 없다는 하네스 안내를 읽은 뒤 단계를 건너뛰고도 성공으로 보고하던 문제를 고쳤다.",
+    "PreToolUse 훅이 Edit나 Write를 막을 때 artifact 업데이트가 거부되던 문제를 고쳤다. 이제 파일을 편집한 뒤 다시 게시한다.",
+    "인자 이름이 아주 많거나 긴 skill과 명령을 호출할 때 몇 초씩 멈추던 문제를 고쳤다. 앞의 64개 이름, 각 64자까지만 채운다.",
+    "인자가 많은 자리표시자를 채울 때 skill, 명령, 훅이 메모리를 과도하게 쓰던 문제를 고쳤다.",
+    "VTE 0.53 이전 터미널(RHEL 8의 MATE Terminal 등)에서 폴더 신뢰 프롬프트를 가리던 `>0q`와 종료 시 프롬프트 앞의 `>4m` 깨짐을 고쳤다.",
+    "일부 iTerm2 버전에서 시작할 때 프롬프트에 `GOK` 문자가 보이던 문제를 고쳤다.",
+    "이름에 `application-inference-profile`이 들어간 모델로 바꿀 때, Bedrock이 아닌 제공자에서도 `awsAuthRefresh` 명령이 실행되고 전환 훅이 지연되던 문제를 고쳤다.",
+    "`claude auth status`나 `claude plugin list` 같은 짧은 명령이 토큰 갱신 도중 끝나면 로그인 갱신 시간 초과나 예기치 않은 로그아웃이 생기던 문제를 고쳤다.",
+    "권한 확인 중 턴 중간에 보낸 메시지가 도구 호출을 끊으면 그 호출이 사용자 거부로 모델에 전달되던 문제를 고쳤다.",
+    "컨텍스트 창이 더 작은 모델로 바꿀 때, 묻지 않고 사용량 크레딧으로 이전 모델의 요약을 만들던 경우를 고쳤다.",
+    "요청과 다른 모델 이름으로 응답하는 LLM 게이트웨이 뒤에서 선택하지 않은 모델로 대화가 반복 압축되던 문제를 고쳤다.",
+    "느리거나 바쁜 기기에서 Esc를 누른 뒤 vim 모드가 INSERT에 머물던 문제를 고쳤다.",
+    "vim 모드에서 Esc가 AskUserQuestion의 입력 중인 답변을 지우던 문제를 고쳤다. 자유 입력란이 NORMAL 모드를 지원하며, Esc는 NORMAL 모드에서만 취소한다.",
+    "Read 도구가 .xlsm, .parquet, .epub, .heic 같은 바이너리 파일을 텍스트로 읽던 문제를 고쳤다.",
+    "헤더 행만 있는 Markdown 표가 터미널보다 넓으면 아무것도 그리지 않던 문제를 고쳤다. 계획 승인 카드의 계획도 같다.",
+    "`/claude-api` 스킬이 Claude Platform on AWS에서 CMEK 외부 키 엔드포인트를 쓸 수 없다고 말하던 내용을 고쳤다.",
+    "`/rewind` 후 skill이 모델에 더 이상 나열되지 않던 문제를 고쳤다.",
+    "재개한 세션의 압축 행이 불러오지 않은 기록을 ctrl+o로 보라고 안내하던 문제를 고쳤다. 이제 이전 메시지가 저장된 위치를 알려주고 전체 화면에도 표시된다.",
+    "응답을 중단한 직후 “새 작업이면 /clear로 토큰 절약” 힌트가 다시 나타나던 문제를 고쳤다.",
+    "플러그인이나 skill 훅의 `ask` 결정에 대한 권한 프롬프트에 어느 플러그인 또는 skill에서 왔는지 표시한다.",
+    "reftable 저장소에서 git 확인 하나가 시간 초과되거나 실패하면 `/diff`가 충돌한 cherry-pick이나 revert를 놓치던 문제를 고쳤다.",
+    "같은 세션에서 Bash `cd` 후 워크플로 스크립트를 읽거나 편집하거나 다시 실행할 때 권한을 묻거나 거부하던 문제를 고쳤다.",
+    "어두운 ANSI 테마와 16색 터미널에서 흐리게 보이던 텍스트를 고쳤다. 채워진 상자 안은 흐리고, 선택과 검색 강조 아래는 흐리지 않으며, 목록 설명은 다른 보조 텍스트처럼 흐려진다.",
+    "새 Claude Code 프로세스의 첫 응답이 끝나기 전에 mod의 `$.model.fork`를 부르면 `nothing-to-fork`를 반환하던 문제를 고쳤다. `claude -p`와 클라우드 세션도 포함된다.",
+    "전체 화면 모드에서 `/compact`와 자동 압축 때 보이는 기록을 다시 만드는 동안 UI가 잠깐 멈추던 문제를 고쳤다.",
+    "관리형 설정이 MCP 서버를 제한하면 Slack에서 시작한 self-hosted runner 세션이 저장소를 찾거나 붙지 못하던 문제를 고쳤다. 해당 도구를 막으려면 `deniedMcpServers`를 쓴다.",
+    "관련 없는 설정이나 세션 실패 메시지에 git의 ref 없음 문구가 들어가면 세션을 삭제된 원본 브랜치로 잘못 보고하고 재시도하지 않던 문제를 고쳤다.",
+    "종료 중인 세션의 릴리스 재시도 로그가 반복 실패 횟수를 보여주지 않던 문제를 고쳤다. 이제 횟수가 표시된다.",
+    "Windows에서 중지된 백그라운드 PowerShell 명령의 출력 파일에 닫는 `[killed]` 줄이 빠지던 문제를 고쳤다.",
+    "컨텍스트 창이 더 작은 모델로 바꿀 때, 새 모델에 비해 너무 긴 대화는 이전 모델이 먼저 요약하도록 개선했다.",
+    "긴 실행 중인 subagent의 진행 기록이 매 렌더링마다 전체 재처리되지 않고 점진적으로 갱신되어 렌더링이 빨라졌다.",
+    "Claude가 쓴 artifact 페이지가 고정 헤더 위 띠 영역을 칠하게 해서, 모바일 앱에서 스크롤된 텍스트가 그 영역에 보이지 않게 했다.",
+    "VS Code와 데스크톱·모바일 앱에서 질문 대화상자 위에 그리는 mod 트리가 Markdown과 최대 48행을 담을 수 있다. 터미널은 12행의 일반 텍스트를 유지한다.",
+    "mod 훅의 `.catch` 핸들러는 훅이 throw하거나 시간 초과될 때만 실행된다. 훅 자신의 호출 아래에서 발생한 이벤트는 그 훅을 `.catch`에 묻지 않고 건너뛴다.",
+    "mod의 `$.env.set`은 변수를 설정하거나 해제하면 `{}`로 완료되고, 쓰기가 안 되면 이유를 담은 `{ deny }`로 완료된다.",
+    "Claude 응답에 LaTeX 수식을 렌더링한다. `$$`와 여러 줄 `\\[ … \\]` 블록, 인라인 `$…$`와 `\\(…\\)`를 지원한다.",
+    "VS Code와 JetBrains 패널에서 Pro와 Max 요금제의 사용량 한도 배너에 “Get more usage” 링크를 추가했다.",
+    "VS Code 패널에서 충돌하거나 멈추는 대화가 리로드할 때마다 다시 열리던 문제를 고쳤다.",
+    "긴 thinking 중 업데이트마다 전체 thinking 텍스트를 다시 파싱하지 않게 해서 채팅 패널이 느려지던 문제를 고쳤다.",
+    "일부 언어 서버에서 진단 규칙 코드(예: MD013) 대신 “[object Object]”가 보이던 문제를 고쳤다.",
+    "받아쓰기를 제공하지 않는 경우(claude.ai가 아닌 로그인, 원격 창)에는 마이크 권한 확인용 네이티브 받아쓰기 모듈을 불러오지 않는다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "무인 재시도의 사용량 한도 대기 상한",
+     "what": "`CLAUDE_CODE_RETRY_WATCHDOG`로 무인 재시도 모드를 켠 상태에서, 사용량 한도가 너무 멀리 풀리면 기다리지 않고 요청을 끝내도록 상한을 정하는 환경 변수가 추가됐다.",
+     "steps": [
+      "`CLAUDE_CODE_RETRY_WATCHDOG`로 무인 재시도 모드를 켠다.",
+      "`CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS`에 기다릴 최대 시간을 밀리초로 설정한다."
+     ],
+     "terminal": {
+      "title": "대기 상한 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "값은 예시다. <밀리초> 자리에 원하는 값을 넣는다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS=<밀리초>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "claude-api 스킬의 OpenTelemetry 추적 안내",
+     "what": "`claude-api` 스킬에 OpenTelemetry 추적 안내가 추가됐다. `ant` CLI로 추적 대상을 설정하는 방법도 포함된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "vim 모드의 % 모션",
+     "what": "vim 모드에 `%` 모션이 추가됐다. 커서를 짝이 되는 괄호로 옮기며, 단독으로 쓰거나 `d`, `c`, `y`와 함께 쓸 수 있다.",
+     "steps": [
+      "괄호 위에 커서를 둔다.",
+      "`%`를 누르면 짝이 되는 괄호로 이동한다.",
+      "`d`, `c`, `y` 뒤에 `%`를 붙이면 그 범위에 동작을 적용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "mod 입력의 여러 줄 텍스트 필드",
+     "what": "mod의 `Input`에 `rows`를 지정하면 여러 줄 텍스트 필드가 된다. 터미널에서 Enter는 제출하고, Shift+Enter나 Enter 앞의 백슬래시는 새 줄을 시작한다.",
+     "steps": [
+      "`Input`에 `rows`를 지정한다.",
+      "Enter로 제출하고, 줄을 바꿀 때는 Shift+Enter 또는 백슬래시 뒤 Enter를 누른다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "tool_decision의 분류기 판단 필드",
+     "what": "OpenTelemetry `tool_decision` 이벤트에 `classifier_verdict`와 `permission_mode`가 추가됐다. 이 필드로 자동 모드 분류기의 판단과 권한 규칙에 따른 판단을 구분할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "분류기 차단 규칙 이름 기록",
+     "what": "`OTEL_LOG_TOOL_DETAILS=1`이면 `tool_decision` 이벤트에 `classifier_category`가 추가된다. 분류기 차단이 어떤 내장 규칙에 걸렸는지 이름으로 알 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "세부 정보 기록",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "tool_decision 이벤트에 세부 정보를 기록한다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export OTEL_LOG_TOOL_DETAILS=1"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 42,
+     "title": "mod 질문 대화상자의 트리 표시",
+     "what": "VS Code와 데스크톱·모바일 앱에서 질문 대화상자 위에 그려지는 mod 트리에 Markdown과 최대 48행을 담을 수 있다. 터미널은 기존처럼 12행의 일반 텍스트를 유지한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 45,
+     "title": "LaTeX 수식 렌더링",
+     "what": "Claude의 응답에서 LaTeX 수식을 렌더링한다. `$$`와 여러 줄 `\\[ … \\]` 블록, 인라인 `$…$`와 `\\(…\\)`를 모두 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 46,
+     "title": "사용량 한도 배너의 추가 사용량 링크",
+     "what": "Pro와 Max 요금제에서 사용량 한도 배너에 “Get more usage” 링크가 추가됐다. VS Code와 JetBrains 패널에서 보인다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 47,
+     "title": "충돌 대화의 패널 재열림 수정",
+     "what": "VS Code 패널에서 충돌하거나 멈추는 대화가 리로드할 때마다 다시 열리던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 48,
+     "title": "긴 thinking 중 패널 속도 개선",
+     "what": "긴 thinking 중 업데이트마다 전체 thinking 텍스트를 다시 파싱하지 않게 해서, 채팅 패널이 느려지던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 49,
+     "title": "진단 규칙 코드 표시 수정",
+     "what": "일부 언어 서버에서 진단의 규칙 코드(예: MD013) 대신 “[object Object]”가 보이던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 50,
+     "title": "받아쓰기 모듈 로드 축소",
+     "what": "받아쓰기를 제공하지 않는 경우(claude.ai가 아닌 로그인, 원격 창)에는 마이크 권한을 확인하는 네이티브 받아쓰기 모듈을 불러오지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.302": {
+  "hash": "5fac5a2bff9e",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "fork 서브에이전트가 데스크톱 앱과 VS Code에서도 기본으로 켜지고, 자동 모드 분류기 모델을 고를 수 있게 됐다. 클라우드 세션, Slack 연동과 플러그인 관련 문제도 여러 건 고쳐졌다.",
+   "items": [
+    "`CLAUDE_CODE_AUTO_MODE_MODEL`을 추가했다. 클라이언트 쪽 자동 모드 분류기가 쓸 모델을 고르며, 서버 쪽 자동 모드의 모델은 바뀌지 않는다.",
+    "`/config`에 `Idle compaction` 항목을 추가했다. 끄거나 다시 켤 수 있으며, 유휴 압축 후 알림에 끄는 방법이 나온다.",
+    "`/design-sync`와 `/design-login`에 독립형 Claude Design(claude.ai/design)이 2026년 12월 14일에 종료된다는 안내를 추가했다.",
+    "대화를 압축하는 중에 턴을 멈추면 “Prompt is too long” 오류가 나던 문제를 고쳤다.",
+    "세션 중에 Vertex나 Bedrock으로 바꾼 뒤 “diagnostics: Extra inputs are not permitted”로 요청이 실패하던 문제를 고쳤다.",
+    "Read 도구가 이미지 파일을 크기와 상관없이 메모리에 통째로 올리던 문제를 고쳤다. 이제 128 MB를 넘는 이미지 소스는 거부된다.",
+    "게이트웨이가 `anthropic/claude-opus-4-1`처럼 접두사가 붙은 이름으로 Opus 4나 4.1을 부르면, `/autocompact`와 `/effort`가 잘못된 모델에 저장되던 문제를 고쳤다.",
+    "세션 중에 추가된 도구를 ToolSearch로 다시 불러오거나 압축 후에 불러올 때 프롬프트 캐시가 빗나가던 문제를 고쳤다.",
+    "`claude plugin`과 다른 하위 명령이 대기 중인 설정 쓰기를 끝내기 전에 종료해서 변경이 사라지거나 `.tmp` 파일이 남던 문제를 고쳤다.",
+    "git 기본 ref 형식이 reftable일 때 플러그인 마켓플레이스가 새로고침마다 다시 clone되고, 새로 설치한 git 플러그인 버전이 “unknown”으로 나오던 문제를 고쳤다.",
+    "PowerShell 도구가 플러그인 `bin/` 폴더의 명령을 찾지 못하던 문제를 고쳤다. 결과가 없는 검색(rg, grep, findstr, git grep)을 `Select-Object` 같은 cmdlet에 파이프할 때 나오던 오류도 고쳤다.",
+    "데스크톱 앱에서 쓸 수 없는 경우에도 MCP 서버 인증이나 재연결을 claude.ai 설정이나 `/mcp`로 안내하던 문제를 고쳤다.",
+    "Claude가 빈 편집 목록을 보내면 artifact 게시가 실패하던 문제와, 더 새로운 artifact 버전이 업데이트를 거부했을 때 재시도 방식이 잘못되던 문제를 고쳤다.",
+    "대부분의 자동 모드 분류기 차단에서 `tool_decision` 이벤트에 `classifier_category`가 빠지던 문제를 고쳤다. `OTEL_LOGRECORD_ATTRIBUTE_COUNT_LIMIT`이 낮을 때 새 속성이 `tool_use_id`, `tool_source`, `tool_parameters`를 밀어내던 문제도 고쳤다.",
+    "에이전트 뷰에서 긴 목록을 내리거나 섹션을 접은 뒤 행이 빈 채로 남던 문제를 고쳤다.",
+    "로그인하지 않은 상태에서 `claude remote-control --help`가 사용법을 출력하고 끝나지 않던 문제를 고쳤다.",
+    "클라우드 세션에서 `/design consent`와 `/design revoke`가 실패하면 쓸 수 없는 `/design-login`을 안내하던 문제를 고쳤다. 이제 claude.ai/design/settings를 안내한다.",
+    "서버가 프로토콜 2026-07-28을 협상하면서 `resultType`, `ttlMs`, `cacheScope`를 빠뜨리면 MCP 도구가 보이지 않거나 모든 호출이 실패하던 문제를 고쳤다.",
+    "플랜상 크레딧으로만 쓸 수 있는 모델에서 프롬프트 제안이 사용량 크레딧을 쓰던 문제를 고쳤다. 크레딧으로 청구된 답변 뒤에는 제안을 건너뛴다.",
+    "백틱 안의 URL이 줄 바꿈되면 첫 줄만 클릭되던 문제를 고쳤다. 하이퍼링크를 지원하는 터미널에서는 URL 전체가 하나의 링크가 된다.",
+    "찾지 못한 `claude plugin details <name>@builtin`이 안내하던 `claude plugin list`는 내장 플러그인을 보여주지 않으므로, 이제 `/plugin`을 안내한다.",
+    "줄 바꿈되는 열보다 한 칸 넓은 이모지에서 시작하는 링크가 질문 미리보기에서 숨겨지고 표가 목록으로 바뀌던 문제를 고쳤다.",
+    "떠돌던 `.git` 파일이 없는 디렉터리를 가리키면 git 2.56 이상에서 worktree 격리가 worktree 생성이나 재개를 거부하던 문제를 고쳤다.",
+    "클라우드 세션이 새 프로세스에서 재개되면 비용과 사용량이 0부터 다시 세어지던 문제를 고쳤다.",
+    "재사용하는 체크아웃이 reftable 형식일 때 self-hosted runner의 git fetch가 “bad object refs/heads”로 실패하던 문제를 고쳤다.",
+    "Windows에서 exFAT이나 FAT32 드라이브의 프로젝트는 모든 파일 쓰기가 거부되거나 확인을 요청하던 문제를 고쳤다. `--plugin-dir`로 시작한 세션도 포함된다.",
+    "플러그인을 많이 켰을 때 시작 시간을 줄였다. 플러그인 명령과 에이전트 파일을 읽는 파일 시스템 호출이 훨씬 적으며, 특히 Windows에서 효과가 크다.",
+    "서버 쪽 분류기를 쓰는 자동 모드에서, 안전 검사에 비해 너무 긴 대화는 이제 압축된다. 이전에는 검사된 도구 호출이 모두 거부됐다.",
+    "다른 폴더에서 다시 연 백그라운드 세션에 LLM 게이트웨이가 없으면 “Not logged in” 대신 그 이유를 알려준다.",
+    "권한 모드가 없는 `claude -p`와 Agent SDK 세션은 서드파티 제공자에서 `default` 모드로 시작한다. `--permission-mode auto`를 주면 auto 모드를 유지한다.",
+    "fork 서브에이전트(`subagent_type: \"fork\"`)가 `claude -p`, Agent SDK, 데스크톱 앱, VS Code에서 기본으로 켜진다. `CLAUDE_CODE_FORK_SUBAGENT=0`으로 끌 수 있으며, `claude mcp serve`는 이를 제공하지 않는다.",
+    "데스크톱 앱과 VS Code는 메인 대화의 서브에이전트를 항상 백그라운드로 실행한다. 서브에이전트가 호출하는 Agent는 `claude -p`, Agent SDK, 데스크톱 앱, VS Code에서 기본으로 포그라운드로 실행된다.",
+    "`← for agents` 하단 힌트가 세션을 연 뒤 10초 뒤 사라진다. 응답을 기다리는 에이전트 수는 계속 표시된다.",
+    "Claude in Chrome 안내가 시스템 프롬프트에서 놓이는 위치를 바꿔, 새 대화가 공유 프롬프트 캐시에서 읽을 수 있게 했다.",
+    "프롬프트 훅과 에이전트 훅은 같은 이벤트에서 최대 12개까지만 동시에 실행되고, 나머지는 차례를 기다린다.",
+    "조직 정책이 `/feedback`을 끌 때 나오는 안내가 관리자 대신 GitHub 이슈를 가리키도록 바뀌었다.",
+    "VS Code에서 목록 안의 닫히지 않은 코드 블록 뒤 텍스트가 스트리밍 중에는 일반 텍스트로 보였다가 나중에 코드로 바뀌던 문제를 고쳤다.",
+    "서버 URL에 쿼리 문자열이 있으면 패널에서 MCP 서버 로그인이 깨진 인증 페이지를 열던 문제를 고쳤다.",
+    "Claude 확장 프로그램이 있는 브라우저에 연결할 수 없을 때도 `@browser` 배너가 “Browser connected”라고 표시하던 문제를 고쳤다.",
+    "루틴 페이지에 마지막 실행이 시작되지 않은 이유를 알려주는 배너가 추가됐다. 예를 들어 조직의 동시 클라우드 세션 한도에 도달한 경우다.",
+    "클라우드 세션의 “Rewind to here”가 가장 최근 메시지를 뺀 모든 메시지에서 실패하던 문제를 고쳤다. self-hosted runner는 Claude Code v2.1.246 이상이 필요하다.",
+    "클라우드 세션의 PR 상태 막대가 GitHub가 다시 확인하는 동안 병합 충돌이 있는 PR을 준비됨으로 바꾸던 문제를 고쳤다.",
+    "클라우드 세션이 예기치 않게 멈춘 뒤 루틴 실행이 완료로, 시작 전에 보관되면 취소로 표시되던 문제를 고쳤다. 이제 실패로 표시된다.",
+    "클라우드 세션의 GitHub 저장소 이름이 바뀌거나 옮겨진 뒤 diff 보기에서 변경이 빠지거나 로드되지 않던 문제를 고쳤다.",
+    "예약 루틴 실행이 중간에 실패하면 한 시간 이상 뒤 처음부터 다시 실행되어 같은 보고서를 두 번 올리던 문제를 고쳤다.",
+    "열린 클라우드 세션에서 다른 기기가 보낸 메시지가 페이지를 새로고침하거나 다른 곳을 클릭했다 돌아오기 전까지 보이지 않던 문제를 고쳤다.",
+    "클라우드 세션 시작 실패 메시지가 “Something went wrong” 대신 “Connection lost” 또는 “Server error”를 보여준다.",
+    "Remote Control 세션에서 컴퓨터가 오프라인이 된 뒤 서브에이전트 창이 계속 돌던 문제를 고쳤다. 이제 Remote Control 연결이 끊겼다고 표시한다.",
+    "Claude가 이전 메시지를 편집해서 답한 뒤에도 Slack 채널이나 DM의 멘션 아래 “is thinking…”이 남던 문제를 고쳤다.",
+    "Slack 답변의 번호 또는 글머리 기호 단계 아래 코드 블록의 URL이 꺾쇠 괄호로 감싸져 복사한 명령이 깨지던 문제를 고쳤다.",
+    "Slack에서 첨부한 HEIC, SVG, TIFF, BMP 이미지가 Claude에 도달하지 않던 문제를 고쳤다. 이제 다른 파일 형식처럼 작업 파일로 전달된다.",
+    "역할로 Claude Tag를 제한하는 조직에서 새 채널 관리자가 Slack의 Claude를 쓸 수 없던 문제를 고쳤다. 관리자 역할에도 Claude Tag 권한이 부여된다.",
+    "호스트를 공유하는 여러 MCP 서버가 Claude Tag 관리 설정에서 커넥터 하나로 묶이던 문제를 고쳤다. 이제 서버마다 별도의 커넥터로 보인다.",
+    "Slack 조회 하나가 멈추면 Claude가 DM에 “DMs are temporarily unavailable”로 답하고 메시지를 버리던 문제를 고쳤다. 이제 먼저 재시도한다.",
+    "Slack Enterprise Grid에서 DM이 워크스페이스 드롭다운을 무시하던 문제를 고쳤다. 마지막으로 연 워크스페이스에서 실행된다.",
+    "채널의 월간 지출 한도 알림이 채널 관리자가 올릴 수 있다고 말하던 것을 고쳤다. 이제 조직 소유자를 밝히고 사용량 페이지 링크를 준다.",
+    "Slack 답변에서 링크 뒤의 굵은체·기울임 표시나 전각 문장부호가 링크에 붙어 링크와 서식이 깨지던 문제를 고쳤다.",
+    "Claude Tag 관리 설정의 저장소 검색이 연결된 GitHub 계정 100개까지 다루며, GitHub App 설치의 처음 5,000개 이후에 있는 비공개 저장소도 찾는다.",
+    "Claude Tag 관리 설정의 “Add place”에서 채널 목록이 다 불러와지기 전에도 입력하거나 붙여넣은 채널을 바로 추가할 수 있다.",
+    "Claude Tag 관리 설정의 workspace·채널 페이지에서 Add > Domain은 모든 채널이 불러와질 때까지 기다리지 않고 페이지가 로드되면 바로 쓸 수 있다.",
+    "Claude Tag 관리 설정이 Claude의 접근 권한을 Bundles, Connectors, Skills and plugins, Channels 네 개 탭으로 나눈다.",
+    "조직 설정의 Roles 페이지에서 Claude Tag 채널 관리자용으로 만든 역할을 조직 자체 역할 아래 접을 수 있는 섹션으로 묶는다.",
+    "GitHub를 연결하려고 나갔다 돌아오면 Code Review 설정이 이어지지 않던 문제를 고쳤다. 이제 관리자 설정에서 저장소 선택기부터 다시 열린다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "자동 모드 분류기 모델 지정",
+     "what": "`CLAUDE_CODE_AUTO_MODE_MODEL`로 클라이언트 쪽 자동 모드 분류기가 쓸 모델을 고를 수 있다. 서버 쪽 자동 모드의 모델은 이 설정으로 바뀌지 않는다.",
+     "steps": [
+      "환경 변수에 분류기가 쓸 모델을 지정한다.",
+      "서버 쪽 자동 모드는 이 설정의 영향을 받지 않는다는 점을 확인한다."
+     ],
+     "terminal": {
+      "title": "분류기 모델 지정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "모델 ID는 예시다. <모델 ID> 자리에 원하는 모델을 넣는다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_AUTO_MODE_MODEL=<모델 ID>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "/config의 Idle compaction 설정",
+     "what": "`/config`에 `Idle compaction` 항목이 생겨 유휴 압축을 끄거나 다시 켤 수 있다. 유휴 압축 뒤에 나오는 알림에도 끄는 방법이 함께 나온다.",
+     "steps": [
+      "`/config`를 연다.",
+      "`Idle compaction` 항목에서 끄거나 다시 켠다."
+     ],
+     "terminal": {
+      "title": "설정 열기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "독립형 Claude Design 종료 안내",
+     "what": "`/design-sync`와 `/design-login`이 독립형 Claude Design(claude.ai/design)이 2026년 12월 14일에 종료된다는 안내를 보여준다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 30,
+     "title": "fork 서브에이전트 기본 활성화",
+     "what": "`claude -p`, Agent SDK, 데스크톱 앱, VS Code에서 fork 서브에이전트(`subagent_type: \"fork\"`)가 기본으로 켜진다. 터미널에서는 이미 켜져 있었다. `CLAUDE_CODE_FORK_SUBAGENT=0`으로 끌 수 있고, `claude mcp serve`는 fork 서브에이전트를 제공하지 않는다.",
+     "steps": [
+      "`claude -p`, Agent SDK, 데스크톱 앱, VS Code에서는 따로 설정하지 않아도 fork 서브에이전트가 켜진다.",
+      "끄려면 `CLAUDE_CODE_FORK_SUBAGENT=0`을 설정한다."
+     ],
+     "terminal": {
+      "title": "fork 서브에이전트 끄기",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "기본값을 끄는 설정 예시다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ export CLAUDE_CODE_FORK_SUBAGENT=0"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "fork 서브에이전트",
+        "note": "데스크톱 앱에서 기본으로 켜진다.",
+        "changed": true
+       },
+       {
+        "title": "끄기",
+        "note": "CLAUDE_CODE_FORK_SUBAGENT=0으로 끌 수 있다.",
+        "changed": false
+       }
+      ],
+      "before": "터미널에서만 기본으로 켜져 있었다.",
+      "after": "데스크톱 앱에서도 기본으로 켜진다."
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 31,
+     "title": "서브에이전트 실행 방식",
+     "what": "데스크톱 앱과 VS Code는 메인 대화의 서브에이전트를 Claude가 고르게 두지 않고 항상 백그라운드로 실행한다. 서브에이전트가 호출하는 Agent는 `claude -p`, Agent SDK, 데스크톱 앱, VS Code에서 기본으로 포그라운드로 실행된다.",
+     "steps": [
+      "메인 대화의 서브에이전트는 백그라운드에서 실행된다.",
+      "서브에이전트가 호출하는 Agent는 기본으로 포그라운드에서 실행된다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "메인 대화의 서브에이전트",
+        "note": "항상 백그라운드에서 실행된다.",
+        "changed": true
+       },
+       {
+        "title": "서브에이전트의 Agent 호출",
+        "note": "기본으로 포그라운드에서 실행된다.",
+        "changed": true
+       }
+      ],
+      "before": "Claude가 백그라운드 실행 여부를 골랐다.",
+      "after": "메인 대화의 서브에이전트는 항상 백그라운드로 실행된다."
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 36,
+     "title": "목록 속 코드 블록 표시 수정",
+     "what": "VS Code에서 목록 안의 닫히지 않은 코드 블록 뒤 텍스트가 스트리밍 중에는 일반 텍스트로 보였다가 나중에 코드로 바뀌던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 37,
+     "title": "패널 MCP 서버 로그인 수정",
+     "what": "서버 URL에 쿼리 문자열이 있으면 패널에서 MCP 서버 로그인이 깨진 인증 페이지를 열던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 38,
+     "title": "@browser 연결 배너 수정",
+     "what": "Claude 확장 프로그램이 있는 브라우저에 연결할 수 없을 때는 “Browser connected” 배너가 나오지 않도록 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.162.0": {
+  "hash": "b0e05743e993",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "관리형 Git worktree 도구와 Command Center 작업 고정이 추가됐다. 샌드박스, 재시도 처리, Windows 설치 관련 오류도 여러 건 고쳐졌다.",
+   "items": [
+    "기능이 켜져 있으면 신뢰된 로컬 프로젝트에서 관리형 Git worktree를 만들고 목록을 볼 수 있는 도구가 추가됐다.",
+    "Command Center에서 `p`로 작업을 고정하고, 서버가 지원하면 공유 Pinned 그룹에 모아 볼 수 있다.",
+    "`/copy`로 트랜스크립트 블록을 탐색하고 복사하며, `Ctrl+Insert`로 선택 영역을 복사한다. `tui.mouse_scroll_speed`로 마우스 휠 속도를 조정한다.",
+    "승인 헤더, 질문, MCP 프롬프트, 경고, 배너, 검증 프롬프트의 URL을 클릭할 수 있다. 줄 바꿈된 링크도 포함된다.",
+    "Responses 호환 커스텀 모델 제공자에서 실시간 웹 접근과 원격 compaction을 설정할 수 있다.",
+    "스트리밍 Promise 결과를 완료되는 순서대로 받는 JavaScript 헬퍼가 추가됐다. Code Mode에서는 순위 기반 도구 검색을 옵트인으로 켤 수 있다.",
+    "새 TUI 스레드가 서버의 모델과 추론 요약 기본값을 따른다. 실행 시 명시적으로 준 재정의는 그대로 유지된다.",
+    "`apply_patch` 업데이트에서 기존 CRLF 줄바꿈을 옵트인 없이 보존한다.",
+    "거부 파일이 여러 개일 때 Linux 샌드박스가 시작되지 않던 문제를 고쳤다. 쓰기 가능한 샌드박스 구성 실행 파일은 거부되며, ripgrep 설정이 거부 glob 마스크를 약화하지 않는다.",
+    "Windows 10에서 일반 드라이브 문자 파일 접근을 복구했다. Windows 샌드박스 임시 폴더 권한은 자식 프로세스 환경과 맞춰졌다.",
+    "재시도 가능한 Responses와 WebSocket 실패에서 서버의 `Retry-After` 안내를 따른다.",
+    "PowerShell 7 모듈 경로가 있을 때 Windows PowerShell 설치의 아카이브 체크섬 검증이 실패하던 문제를 고쳤다.",
+    "Windows 릴리스와 함께 서명된 PowerShell 설치 프로그램을 배포한다.",
+    "이전 stable 릴리스와 prerelease가 새 stable 다운로드 대상이나 설치 별칭을 덮어쓰지 않는다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "관리형 Git worktree 도구",
+     "what": "worktrees 기능이 켜져 있으면 신뢰된 로컬 프로젝트에서 관리형 Git worktree를 만들고 목록을 볼 수 있는 도구가 추가된다. 기능이 꺼져 있으면 이 도구는 동작하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "Command Center 작업 고정",
+     "what": "Command Center에서 `p`를 누르면 작업을 고정할 수 있다. 고정된 작업은 공유 Pinned 그룹에 모이며, 서버가 지원할 때만 동작한다.",
+     "steps": [
+      "Command Center에서 고정할 작업으로 이동한다.",
+      "`p`를 누르면 작업이 Pinned 그룹에 고정된다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "트랜스크립트 복사와 휠 속도",
+     "what": "`/copy`로 트랜스크립트 블록을 탐색하고 복사할 수 있다. `Ctrl+Insert`로 선택 영역을 복사하고, `tui.mouse_scroll_speed`로 마우스 휠 스크롤 속도를 조정한다.",
+     "steps": [
+      "`/copy`로 트랜스크립트 블록을 탐색한다.",
+      "복사할 블록을 고른다.",
+      "선택 영역은 `Ctrl+Insert`로 복사한다.",
+      "휠 속도가 맞지 않으면 `tui.mouse_scroll_speed`를 조정한다."
+     ],
+     "terminal": {
+      "title": "트랜스크립트 복사",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /copy"
+       },
+       {
+        "kind": "comment",
+        "text": "선택 영역 복사는 Ctrl+Insert"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "클릭 가능한 URL",
+     "what": "승인 헤더, 질문, MCP 프롬프트, 경고, 배너, 검증 프롬프트에 있는 URL을 클릭할 수 있다. 링크가 줄 바꿈으로 나뉘어도 동작한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "커스텀 모델 제공자의 웹 접근과 compaction",
+     "what": "Responses 호환 커스텀 모델 제공자에 실시간 웹 접근 기능과 원격 compaction 기능을 설정할 수 있다. 제공자가 이 기능을 지원하는 경우에 해당한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "JavaScript 헬퍼와 Code Mode 도구 검색",
+     "what": "스트리밍 Promise 결과를 완료되는 순서대로 받는 JavaScript 헬퍼가 추가됐다. Code Mode에서는 순위 기반 도구 검색을 옵트인으로 켤 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.162.1": {
+  "hash": "536cf976167a",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "여러 줄 비동기 질문에서 TUI가 충돌하던 문제와, 백그라운드 서버 기능 설정 차이로 시작에 실패하던 문제를 고쳤다.",
+   "items": [
+    "비동기 질문이 여러 줄일 때 TUI가 충돌하던 문제를 고쳤다. 줄 바꿈과 전체 하이퍼링크 대상은 그대로 보존된다.",
+    "백그라운드 서버의 기능 설정과 CLI 기본값이 다를 때 시작에 실패하던 문제를 고쳤다. 호환성 검사는 명령줄에서 명시적으로 준 기능 재정의에만 적용된다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.163.0": {
+  "hash": "5af6058cb562",
+  "ko": {
+   "model": "claude-haiku-5-5",
+   "summary": "`/config`에서 설정을 검색하고 바로 바꿀 수 있게 됐고, 응답 중 후속 메시지로 방향을 바꿀 수 있다. 샌드박스와 셸 실행기도 정리됐다.",
+   "items": [
+    "`/config`에서 카테고리를 넘나들며 설정을 검색하고, 지원되는 설정은 즉시 바꾼다. 재시작이 필요한 변경도 표시된다.",
+    "응답 중에 후속 메시지를 보내면 즉시 방향을 바꾼다. 턴을 중단하면 활성 Code Mode 셀과 중첩 도구 호출도 멈춘다.",
+    "`/keymap`에서 리더 키를 설정한다. 기본값은 `Ctrl+X`이며, 단축키 힌트는 선택하거나 취소할 때까지 열려 있다. 음성 음소거는 `F9`로 옮겨졌다.",
+    "`/daemon`에서 관리형 백그라운드 서버를 재시작한다. 작업이 중단될 수 있으면 경고가 뜨고, 이후 자동으로 다시 연결된다.",
+    "독립적인 읽기 전용 도구를 병렬로 실행한다. 스킬, 메모리, 대화 기록 조회가 포함된다.",
+    "자격이 되는 계정에서 Daybreak이 기본으로 켜진다. 서버가 허용하면 OpenAI API 키로 `codex exec`에서도 선택할 수 있다.",
+    "저장된 스레드를 재개하면 권한과 네트워크 승인이 복원된다. 명시적 재정의와 현재 관리 정책이 우선한다.",
+    "네트워크 프록시가 DNS 조회 전에 권한을 확인하고, 중복 `Host` 헤더를 거부하며, 자격 증명 별칭으로 검사 훅을 우회하지 못하게 했다.",
+    "스레드를 전환한 뒤 `/side`로 기존 사이드 대화에 돌아갈 수 있다. 대기 중인 프롬프트의 답변도 질문한 스레드로 돌아간다.",
+    "Windows에서 `Ctrl+V`와 `Shift+Insert`가 이미지뿐 아니라 텍스트도 붙여넣는다. WSL에서는 반복 붙여넣기가 클립보드 리더를 재사용하고, 복사 시도는 멈추지 않고 시간 초과된다.",
+    "자식 프로세스가 출력 파이프를 열어 둔 채여도 로컬 명령이 제때 끝난다. 원격 명령은 늦게 도착한 출력을 보존한다.",
+    "`codex exec`가 무관한 명령 뒤에 같은 파일 diff를 다시 출력하지 않는다.",
+    "번들된 OpenAI 문서 지침을 GPT-6 계열 마이그레이션에 맞게 갱신했다. 모델별 추론, 도구 사용, 데이터 거주지 고려 사항을 포함한다.",
+    "Linux 샌드박스가 파일 시스템 격리에는 bubblewrap을, 시스템 호출 필터링에는 seccomp를 쓴다는 점을 명확히 했다.",
+    "표준 셸 실행기를 쓰고, 패치된 `zsh`는 더 이상 번들하지 않는다. 폐지된 셸 플래그를 쓰는 설정에는 마이그레이션 안내가 뜬다.",
+    "패키지된 바이너리의 심볼을 제거해 Linux·macOS 릴리스 패키지 크기를 줄였다. 원본 빌드 산출물에는 심볼이 남는다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "/config 검색과 즉시 적용",
+     "what": "`/config`에서 카테고리를 넘나들며 환경설정을 검색할 수 있다. 지원되는 설정은 바로 바뀌며, 재시작이 필요한 변경은 따로 표시된다.",
+     "steps": [
+      "`/config`를 연다.",
+      "찾는 설정을 검색한다.",
+      "재시작이 필요한지 표시를 확인하고 변경한다."
+     ],
+     "terminal": {
+      "title": "설정 열기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "응답 중 후속 메시지로 방향 전환",
+     "what": "Codex가 응답하는 중에 후속 메시지를 보내면 즉시 방향이 바뀐다. 턴을 중단하면 활성 Code Mode 셀과 그 안의 중첩 도구 호출도 함께 멈춘다.",
+     "steps": [
+      "Codex가 응답하는 중에 후속 메시지를 입력한다.",
+      "Codex가 즉시 방향을 바꾼다.",
+      "턴을 중단하면 Code Mode 셀과 중첩 도구 호출도 멈춘다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "/keymap 리더 키",
+     "what": "`/keymap`에서 리더 키를 설정할 수 있다. 기본 리더 키는 `Ctrl+X`이고, 단축키 힌트는 선택하거나 취소할 때까지 열려 있다. 음성 음소거는 `F9`로 옮겨졌다.",
+     "steps": [
+      "`/keymap`을 연다.",
+      "리더 키를 설정한다. 기본값은 `Ctrl+X`다.",
+      "단축키 힌트에서 항목을 고르거나 취소한다."
+     ],
+     "terminal": {
+      "title": "키맵 설정",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /keymap"
+       },
+       {
+        "kind": "comment",
+        "text": "기본 리더 키는 Ctrl+X, 음성 음소거는 F9"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "/daemon 재시작",
+     "what": "`/daemon`에서 관리형 백그라운드 서버를 재시작할 수 있다. 재시작이 진행 중인 작업을 중단시킬 수 있으면 경고가 뜨고, 이후 자동으로 다시 연결된다.",
+     "steps": [
+      "`/daemon`을 연다.",
+      "중단될 수 있는 작업에 대한 경고를 확인한다.",
+      "재시작하면 자동으로 다시 연결된다."
+     ],
+     "terminal": {
+      "title": "서버 재시작",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /daemon"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "읽기 전용 도구 병렬 실행",
+     "what": "독립적인 읽기 전용 도구는 병렬로 실행된다. 스킬, 메모리, 대화 기록 조회가 여기에 포함된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "Daybreak 기본 활성화",
+     "what": "자격이 되는 계정에서 Daybreak이 기본으로 켜진다. 서버가 접근을 허용하면 OpenAI API 키로 `codex exec`에서도 Daybreak을 선택할 수 있다.",
+     "steps": [
+      "서버가 접근을 허용하는지 확인한다.",
+      "`codex exec`에서 OpenAI API 키로 Daybreak을 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ }
+}
