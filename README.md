@@ -30,7 +30,7 @@ npm test
 
 `.github/workflows/update.yml`이 6시간마다 데이터를 갱신해 커밋하고 `site/`를 GitHub Pages에 올린다. Pages 소스는 GitHub Actions.
 
-CI는 API 키 없이 Workload Identity Federation(GitHub OIDC)으로 Claude API를 부른다.
+CI 인증은 둘 중 하나다. 저장소 시크릿 `ANTHROPIC_API_KEY`가 있으면 그것을 쓰고(우선), 없으면 Workload Identity Federation(GitHub OIDC)을 쓴다.
 
 1. Claude Console → [Workload identity](https://platform.claude.com/settings/workload-identity-federation) → **Connect workload** → **GitHub Actions** (조직 admin·owner 권한 필요).
 2. 규칙 값:
