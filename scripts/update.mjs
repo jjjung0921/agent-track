@@ -109,7 +109,10 @@ async function main() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const todo = releases.filter((r) => !r.ko && r.items.length).slice(0, MAX_ENRICH);
-  if (todo.length && (process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN)) {
+  const env = process.env;
+  const hasCredentials =
+    env.ANTHROPIC_API_KEY || env.ANTHROPIC_AUTH_TOKEN || (env.ANTHROPIC_FEDERATION_RULE_ID && (env.ANTHROPIC_IDENTITY_TOKEN_FILE || env.ANTHROPIC_IDENTITY_TOKEN));
+  if (todo.length && hasCredentials) {
     const client = createClient();
     for (const r of todo) {
       try {

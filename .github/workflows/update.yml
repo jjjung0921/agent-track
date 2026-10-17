@@ -8,18 +8,18 @@ on:
     branches: [main]
     paths-ignore: ["site/data/**", "site/feed.xml"]
 
-permissions:
-  contents: write
-  pages: write
-  id-token: write
-
 concurrency:
   group: update
   cancel-in-progress: false
 
 jobs:
+  # No `environment:` here: it would change the OIDC `sub` claim to
+  # repo:<owner>/<repo>:environment:<name> and stop matching the federation rule.
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -28,14 +28,45 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+
+      # Workload Identity Federation: repository variables hold the IDs from the Claude Console.
+      # Only non-empty values are exported, so an unset variable never reaches the SDK as "".
+      - name: Anthropic federation settings
+        env:
+          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+        run: |
+          for v in ANTHROPIC_FEDERATION_RULE_ID ANTHROPIC_ORGANIZATION_ID ANTHROPIC_SERVICE_ACCOUNT_ID ANTHROPIC_WORKSPACE_ID; do
+            if [ -n "${!v}" ]; then echo "$v=${!v}" >> "$GITHUB_ENV"; fi
+          done
+          if [ -n "$ANTHROPIC_FEDERATION_RULE_ID" ]; then
+            echo "ANTHROPIC_IDENTITY_TOKEN_FILE=$RUNNER_TEMP/gha-jwt" >> "$GITHUB_ENV"
+          fi
+
       # A failed fetch leaves the committed data untouched, so the site still deploys with the last good data.
       - name: Fetch releases and write Korean notes
         continue-on-error: true
-        run: node scripts/update.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: |
+          fetch_jwt() {
+            curl -sS -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://api.anthropic.com" \
+              | jq -r .value > "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" \
+              && mv "$ANTHROPIC_IDENTITY_TOKEN_FILE.tmp" "$ANTHROPIC_IDENTITY_TOKEN_FILE"
+          }
+          if [ -n "$ANTHROPIC_IDENTITY_TOKEN_FILE" ]; then
+            fetch_jwt
+            # GitHub tokens expire after ~5 minutes and each one can be exchanged once,
+            # so keep a fresh token in the file for the SDK's refreshes during a long run.
+            ( while sleep 120; do fetch_jwt; done ) >/dev/null 2>&1 &
+            trap "kill $! 2>/dev/null" EXIT
+          fi
+          node scripts/update.mjs
+
       # The previous data is the cache that keeps written Korean notes between runs.
       - name: Commit data
         run: |
@@ -48,8 +79,16 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - uses: actions/deploy-pages@v4
-        id: deploy
+
+  deploy:
+    needs: update
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deploy
