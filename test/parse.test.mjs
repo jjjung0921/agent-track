@@ -47,7 +47,7 @@ test("codex screenshots keep light/dark pair and entry context", () => {
 });
 
 test("korean notes: schema check and index guard", async () => {
-  const { checkShape, validate } = await import("../scripts/enrich.mjs");
+  const { checkShape, validate, isCurrentNote } = await import("../scripts/ko-notes.mjs");
   const release = { items: [{ cat: "new", text: "Added A", surfaces: ["cli"] }] };
   const feature = { index: 0, title: "t", what: "w", steps: [], terminal: { title: "", lines: [] }, desktop: { steps: [], before: "", after: "" }, screenshot_id: "x", notable: false };
   const good = { summary: "s", items: [{ index: 0, ko: "가" }, { index: 5, ko: "범위 밖" }], features: [feature] };
@@ -57,4 +57,6 @@ test("korean notes: schema check and index guard", async () => {
   assert.equal(v.features[0].screenshot_id, "");
   assert.match(checkShape({ summary: 1, items: [], features: [] })[0], /summary/);
   assert.throws(() => validate({ summary: "s", items: [], features: [{ ...feature, extra: 1 }] }, release, [], "m"), /not allowed/);
+  assert.equal(isCurrentNote({ hash: "h", ko: { model: "claude-haiku-5-5" } }, "h"), false);
+  assert.equal(isCurrentNote({ hash: "h", ko: { model: "codex-cloud" } }, "h"), true);
 });

@@ -1,12 +1,10 @@
-// Korean summaries, per-feature explanations and usage examples, written by Claude
-// from the original release lines only. The rules and output schema live in prompts/
-// so the API path here and the Claude cloud routine (scripts/pending.mjs + apply-ko.mjs) share them.
+// Shared input and validation for Korean notes written by Codex Cloud.
 import { readFileSync } from "node:fs";
-import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = "claude-opus-5-5";
-export const SYSTEM = readFileSync(new URL("../prompts/ko-notes.md", import.meta.url), "utf8");
 export const SCHEMA = JSON.parse(readFileSync(new URL("../prompts/ko-notes.schema.json", import.meta.url), "utf8"));
+export const CODEX_PROVENANCE = "codex-cloud";
+
+export const isCurrentNote = (entry, hash) => entry?.hash === hash && entry.ko?.model === CODEX_PROVENANCE;
 
 // Items that get a full explanation: every new feature, plus changes that touch the desktop app or IDE.
 export function needsDetail(item) {
@@ -20,28 +18,6 @@ export function buildInput(release, screenshots) {
     items: release.items.map((it, index) => ({ index, category: it.cat, surfaces: it.surfaces, needs_detail: needsDetail(it), text: it.text })),
     screenshot_candidates: screenshots.map((s) => ({ id: s.id, date: s.date, title: s.title, section: s.section, context: s.context, alt: s.alt })),
   };
-}
-
-export function createClient() {
-  return new Anthropic();
-}
-
-export async function enrichRelease(client, release, screenshots) {
-  const response = await client.beta.messages.create({
-    model: MODEL,
-    max_tokens: 16000,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
-    output_config: { effort: "medium", format: { type: "json_schema", schema: SCHEMA } },
-    system: SYSTEM,
-    messages: [{ role: "user", content: JSON.stringify(buildInput(release, screenshots)) }],
-  });
-
-  if (response.stop_reason === "refusal") throw new Error(`refused: ${response.stop_details?.category ?? "unknown"}`);
-  if (response.stop_reason === "max_tokens") throw new Error("output cut off at max_tokens");
-  const text = response.content.find((b) => b.type === "text")?.text;
-  if (!text) throw new Error("no text block in response");
-  return validate(JSON.parse(text), release, screenshots, MODEL);
 }
 
 // Minimal JSON Schema check for the subset prompts/ko-notes.schema.json uses.

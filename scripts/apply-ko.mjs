@@ -1,13 +1,12 @@
 // Validates Korean notes in work/out/*.json and merges them into data/ko.json.
 // Each file: {"id": "...", "hash": "...", "output": {summary, items, features}} (see prompts/ko-notes.schema.json).
-//   KO_MODEL=claude-haiku-5-5 node scripts/apply-ko.mjs
+//   node scripts/apply-ko.mjs
 import { readFile, writeFile, readdir } from "node:fs/promises";
-import { validate } from "./enrich.mjs";
+import { CODEX_PROVENANCE, validate } from "./ko-notes.mjs";
 import { nearbyShots } from "./parse.mjs";
 
 const KO = new URL("../data/ko.json", import.meta.url);
 const OUT = new URL("../work/out/", import.meta.url);
-const model = process.env.KO_MODEL ?? "claude-cloud-routine";
 
 const data = JSON.parse(await readFile(new URL("../site/data/releases.json", import.meta.url), "utf8"));
 const byId = new Map(data.releases.map((r) => [r.id, r]));
@@ -21,7 +20,7 @@ for (const name of (await readdir(OUT).catch(() => [])).filter((f) => f.endsWith
     const r = byId.get(id);
     if (!r) throw new Error(`unknown release ${id}`);
     if (r.hash !== hash) throw new Error(`release changed since pending (hash ${hash} ≠ ${r.hash})`);
-    ko[id] = { hash, ko: validate(output, r, nearbyShots(r, data.screenshots), model) };
+    ko[id] = { hash, ko: validate(output, r, nearbyShots(r, data.screenshots), CODEX_PROVENANCE) };
     applied++;
     console.log(`ok   ${name}`);
   } catch (err) {

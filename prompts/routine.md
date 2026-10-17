@@ -1,31 +1,21 @@
-# Korean notes routine
+# Codex Cloud Korean notes routine
 
-Runs in Claude Code cloud on a schedule. It writes Korean notes for releases that don't have them yet, without an API key.
+Run this task in the `jjjung0921/agent-track` Codex Cloud environment. Use only the release data already in the repository; do not browse for additional claims. Write Korean notes for up to eight pending releases per run. Preserve unrelated work.
 
-1. Update and install:
+1. From the latest `main`, install dependencies and list pending releases:
    ```bash
-   git pull --rebase
    npm ci
-   ```
-2. List the work. If it prints `nothing pending`, stop here without committing.
-   ```bash
    node scripts/pending.mjs 8
    ```
-3. For each file in `work/pending/`, read its `input` and write `work/out/<same file name>` containing
-   `{"id": <id from the pending file>, "hash": <hash from the pending file>, "output": {...}}`.
-   - `output` follows the rules in `prompts/ko-notes.md` and must match `prompts/ko-notes.schema.json` exactly (no extra keys).
-   - Use only the text in `input`. Do not look anything up, and do not invent menu names, screens, values or numbers.
-   - `items` has one entry per input item, with the same `index`.
-   - `features` has one entry per input item with `needs_detail: true`.
-4. Validate and merge. Rewrite any file reported as `FAIL` once, then run it again.
+   If it prints `nothing pending`, stop without a commit.
+2. For each file in `work/pending/`, read `input` and write `work/out/<same file name>` containing `{"id": <id>, "hash": <hash>, "output": {...}}`.
+   - Follow [`ko-notes.md`](ko-notes.md) and [`ko-notes.schema.json`](ko-notes.schema.json) exactly. Use only the supplied source text and screenshot candidates.
+   - `items` must cover every input item with the same index. `features` must cover every item with `needs_detail: true`.
+   - Do not invent UI labels, commands, values, screenshots, or claims absent from the input. Leave example fields empty when the source does not support them.
+3. Validate and merge:
    ```bash
-   KO_MODEL=claude-haiku-5-5 node scripts/apply-ko.mjs
+   node scripts/apply-ko.mjs
+   npm test
    ```
-5. Commit only the notes cache and push:
-   ```bash
-   git add data/ko.json
-   git commit -m "data: Korean notes (cloud routine)"
-   git pull --rebase
-   git push
-   ```
-   The push starts the GitHub Actions workflow, which merges the notes into the site and deploys it.
+   Correct any `FAIL` output and rerun validation. Inspect the diff; only `data/ko.json` should change.
+4. Commit only the note cache with `data: Korean notes (Codex Cloud)` and push to `main` if repository write access is available. If direct push is unavailable, open a pull request containing only `data/ko.json` and report that publication waits for its merge. A push to `main` triggers the update and deploy workflow, which copies the notes into the site data.

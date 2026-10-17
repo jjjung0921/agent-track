@@ -1,16 +1,15 @@
-// Fetch both sources, merge with the previous data, enrich new releases, write site/data + feed.
+// Fetch both sources, merge validated Codex notes, write site data and RSS.
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { parseClaudeChangelog, parseCodexBody, parseCodexScreenshots, surfaces, nearbyShots } from "./parse.mjs";
-import { createClient, enrichRelease } from "./enrich.mjs";
+import { parseClaudeChangelog, parseCodexBody, parseCodexScreenshots, surfaces } from "./parse.mjs";
+import { isCurrentNote } from "./ko-notes.mjs";
 
 const DATA = new URL("../site/data/releases.json", import.meta.url);
 const FEED = new URL("../site/feed.xml", import.meta.url);
 // Korean notes keyed by release id, kept with the hash of the items they were written from.
-// Written by the API path below or by the Claude cloud routine (scripts/apply-ko.mjs).
+// Written by the Codex Cloud routine (scripts/apply-ko.mjs).
 const KO = new URL("../data/ko.json", import.meta.url);
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS ?? 90);
-const MAX_ENRICH = Number(process.env.MAX_ENRICH ?? 15);
 const SITE_URL = process.env.SITE_URL ?? "";
 const now = new Date();
 const cutoff = new Date(now - WINDOW_DAYS * 864e5);
@@ -102,30 +101,12 @@ async function main() {
       const items = r.items.map((it) => ({ ...it, surfaces: surfaces(it.text) }));
       const hash = itemsHash(items);
       const cached = koCache[r.id];
-      return { ...r, items, hash, ko: cached?.hash === hash ? cached.ko : null };
+      return { ...r, items, hash, ko: isCurrentNote(cached, hash) ? cached.ko : null };
     })
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  const todo = releases.filter((r) => !r.ko && r.items.length).slice(0, MAX_ENRICH);
-  const env = process.env;
-  const hasCredentials =
-    env.ANTHROPIC_API_KEY || env.ANTHROPIC_AUTH_TOKEN || (env.ANTHROPIC_FEDERATION_RULE_ID && (env.ANTHROPIC_IDENTITY_TOKEN_FILE || env.ANTHROPIC_IDENTITY_TOKEN));
-  if (todo.length && hasCredentials) {
-    const client = createClient();
-    for (const r of todo) {
-      try {
-        r.ko = await enrichRelease(client, r, nearbyShots(r, screenshots));
-        koCache[r.id] = { hash: r.hash, ko: r.ko };
-        console.log(`enriched ${r.id}`);
-      } catch (err) {
-        console.warn(`enrich failed ${r.id}: ${err.message}`);
-      }
-    }
-  } else if (todo.length) {
-    console.warn(`no Anthropic credentials: ${todo.length} releases left without Korean text`);
-  }
-
-  await writeFile(KO, JSON.stringify(koCache, null, 1) + "\n");
+  const missingNotes = releases.filter((r) => !r.ko && r.items.length).length;
+  if (missingNotes) console.log(`${missingNotes} releases await Korean notes`);
   const data = { generatedAt: now.toISOString(), windowDays: WINDOW_DAYS, releases, screenshots };
   await writeFile(DATA, JSON.stringify(data, null, 1) + "\n");
   await writeFile(FEED, feed(releases));

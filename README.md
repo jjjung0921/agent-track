@@ -2,6 +2,18 @@
 
 Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 정적 사이트.
 
+공개 사이트: [jjjung0921.github.io/agent-track](https://jjjung0921.github.io/agent-track/)
+
+배포 상태: [![Update and deploy](https://github.com/jjjung0921/agent-track/actions/workflows/update.yml/badge.svg?branch=main)](https://github.com/jjjung0921/agent-track/actions/workflows/update.yml)
+
+## 현재 구현
+
+- 이번 주 릴리스·새 기능 요약, 날짜별 타임라인과 기능 모아보기, 도구·분류·기간 필터 및 검색, 릴리스 상세 화면을 제공한다.
+- Claude Code와 Codex의 최근 90일 릴리스를 모으고 RSS 피드를 생성한다. 프리릴리스는 화면에서 기본으로 접어 둔다.
+- Codex Cloud가 작성한 한국어 설명을 보여준다. 아직 작성되지 않은 릴리스는 원문을 보여준다. 공식 Codex 스크린샷이 기능에 직접 맞을 때만 사용하고, 없으면 가능한 경우 개략 흐름을 표시한다.
+
+데이터 스냅샷(2026-10-18 00:21 KST): 릴리스 376개(Claude Code 74개, Codex 302개), Codex 작성 한국어 설명 0개, 작성 대기 108개, 수집된 스크린샷 0개. 기존 Claude 작성분 8개는 재사용하지 않고 Codex Cloud의 재작성 대상으로 분류한다. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
+
 ## 데이터
 
 | 도구 | 원문 | 날짜 |
@@ -12,36 +24,27 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 
 - 분류(새 기능·개선·변경·수정)는 원문에서 정한다. Claude Code는 줄머리 동사(Added, Improved, Fixed, 그 밖은 변경), Codex는 절 제목(New Features, Bug Fixes …). Codex의 `## Changelog` PR 목록은 버린다.
 - 적용 위치(터미널·데스크톱 앱·VS Code·SDK)는 원문 키워드로 붙인다.
-- 한국어 요약·설명·사용 예시는 Claude가 원문만 보고 쓴다. 기본은 Claude Code 클라우드 예약 작업(Claude Haiku 5.5, 플랜 사용량)이 `prompts/routine.md` 절차대로 쓰고 `data/ko.json`에 커밋한다. CI에 Anthropic 자격 증명이 있으면 API(`claude-opus-5-5`)로도 쓴다. 둘 다 없으면 원문을 보여준다. 한 번 쓴 설명은 원문 항목이 바뀌지 않는 한 다시 쓰지 않는다.
+- 한국어 요약·설명·사용 예시는 Codex Cloud가 원문을 바탕으로 쓴다. [`prompts/routine.md`](prompts/routine.md)의 절차로 `data/ko.json`에 저장하고, GitHub Actions가 다음 갱신 때 사이트 데이터에 반영한다. Codex 작성분이 없으면 원문을 보여준다. 원문 항목이 바뀌지 않은 Codex 작성분은 재사용한다.
 - 규칙과 출력 형식은 `prompts/ko-notes.md`, `prompts/ko-notes.schema.json` 한곳에 있고, `scripts/apply-ko.mjs`가 형식·인덱스를 검사한 뒤에만 반영한다.
-- 요청은 `fallbacks: "default"`(서버 측 대체 모델)를 켠다. 안전 분류기가 거절하면 Anthropic이 고른 다른 모델이 이어서 답한다.
 
 ## 실행
 
 ```bash
 npm ci
-GITHUB_TOKEN=$(gh auth token) ANTHROPIC_API_KEY=... npm run update   # 로컬은 API 키 또는 `ant auth login` 프로필
 npm run dev   # http://localhost:4173
 npm test
 ```
 
-환경 변수: `WINDOW_DAYS`(기본 90일), `MAX_ENRICH`(한 번에 한국어로 쓸 릴리스 수, 기본 15), `SITE_URL`(RSS 링크).
+데이터를 직접 갱신하려면 `GITHUB_TOKEN="$(gh auth token)" npm run update`를 실행한다. 이 명령은 `site/data/releases.json`과 `site/feed.xml`을 갱신한다. 한국어 설명은 Codex Cloud 작업이 [`prompts/routine.md`](prompts/routine.md)의 절차로 별도 작성한다.
+
+환경 변수: `WINDOW_DAYS`(기본 90일), `SITE_URL`(RSS 링크).
 
 ## 배포
 
-`.github/workflows/update.yml`이 6시간마다 데이터를 갱신해 커밋하고 `site/`를 GitHub Pages에 올린다. Pages 소스는 GitHub Actions.
+`.github/workflows/update.yml`은 6시간마다, `main`에 푸시할 때, 또는 수동으로 실행된다. 데이터를 갱신해 커밋한 뒤 `site/`를 GitHub Pages에 배포한다. Pages 소스는 GitHub Actions.
 
-CI 인증은 둘 중 하나다. 저장소 시크릿 `ANTHROPIC_API_KEY`가 있으면 그것을 쓰고(우선), 없으면 Workload Identity Federation(GitHub OIDC)을 쓴다.
+원문 수집이 실패해도 이전에 커밋된 데이터로 배포를 계속한다. 따라서 배포 상태 배지의 성공은 새 데이터 수집 성공을 뜻하지 않을 수 있다. 갱신 결과는 [Actions 실행 기록](https://github.com/jjjung0921/agent-track/actions/workflows/update.yml)과 사이트의 동기화 시각에서 확인한다.
 
-1. Claude Console → [Workload identity](https://platform.claude.com/settings/workload-identity-federation) → **Connect workload** → **GitHub Actions** (조직 admin·owner 권한 필요).
-2. 규칙 값:
-   - issuer `https://token.actions.githubusercontent.com` (discovery)
-   - `subject_prefix`: `repo:jjjung0921/agent-track:ref:refs/heads/main`
-   - `audience`: `https://api.anthropic.com`
-   - `claims`: `repository_owner = jjjung0921`, `ref = refs/heads/main`
-   - scope `workspace:developer`, lifetime 600
-3. 만들어진 ID를 저장소 **Variables**(시크릿 아님)에 넣는다: `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID`, 규칙이 여러 워크스페이스를 덮으면 `ANTHROPIC_WORKSPACE_ID`.
-
-update 잡에는 `environment:`를 두지 않는다. 두면 OIDC `sub`가 `…:environment:…`로 바뀌어 규칙과 맞지 않는다. 배포는 별도 deploy 잡이 맡는다.
+한국어 설명 생성은 GitHub Actions에서 모델 API를 호출하지 않는다. Codex Cloud 작업이 `data/ko.json`을 `main`에 반영하면 기존 배포 워크플로가 사이트 데이터를 다시 만든다.
 
 디자인: [Figma — Agent Track](https://www.figma.com/design/sW5qex3VKuZPK53vDuEcbY/Agent-Track)
