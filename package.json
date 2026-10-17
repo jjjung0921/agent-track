@@ -1,0 +1,17 @@
+{
+  "name": "agent-track",
+  "private": true,
+  "type": "module",
+  "description": "Tracks Claude Code and Codex releases and shows new features in one timeline.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "update": "node scripts/update.mjs",
+    "test": "node --test test/*.test.mjs",
+    "dev": "python3 -m http.server 4173 -d site"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0"
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent Track</title>
+  <meta name="description" content="Claude Code와 Codex 업데이트를 한곳에서 — 새 기능, 개선, 변경, 수정을 날짜순 타임라인으로.">
+  <link rel="alternate" type="application/rss+xml" title="Agent Track" href="feed.xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">
+      <span class="mark">AT</span>
+      <span class="name">Agent Track</span>
+      <span class="tagline">Claude Code · Codex 업데이트를 한곳에</span>
+    </div>
+    <div class="meta">
+      <span class="synced"><i></i><span id="synced">동기화 —</span></span>
+      <a href="feed.xml">RSS</a>
+      <button class="filter-open" id="filter-open" aria-label="필터 열기" aria-controls="filters" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="summary" aria-labelledby="week-title">
+    <div class="heading">
+      <p class="range" id="week-range"></p>
+      <h1 id="week-title">이번 주에 새로 생긴 것</h1>
+    </div>
+    <div class="summary-row">
+      <div class="stats" id="stats"></div>
+      <div class="highlights">
+        <div class="highlights-head"><h2>주목할 새 기능</h2><span id="highlights-note"></span></div>
+        <ol id="highlights"></ol>
+      </div>
+    </div>
+  </section>
+
+  <main class="body">
+    <aside class="filters" id="filters" aria-label="필터">
+      <div class="filters-head"><strong>필터</strong><button id="filter-close" aria-label="필터 닫기">닫기</button></div>
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="기능 검색  예: mcp, hook" autocomplete="off">
+      </label>
+      <div class="group"><h3>도구</h3><div class="chips" id="f-tool"></div></div>
+      <div class="group"><h3>분류</h3><div class="chips" id="f-cat"></div></div>
+      <div class="group"><h3>기간</h3><div class="chips" id="f-period"></div></div>
+      <label class="toggle"><span>프리릴리스(alpha) 숨기기</span><input type="checkbox" id="f-pre" checked><i aria-hidden="true"></i></label>
+      <p class="note">Claude Code는 CHANGELOG.md와 npm 배포 시각, Codex는 GitHub Releases에서 가져온다. 분류는 원문의 Added·Fixed 접두와 절 제목을 따른다.</p>
+    </aside>
+
+    <section class="feed">
+      <div class="chips mobile-tools" id="f-tool-mobile"></div>
+      <div class="tabs" role="tablist">
+        <button role="tab" data-view="timeline" aria-selected="true">릴리스 순</button>
+        <button role="tab" data-view="features" aria-selected="false">기능 모아보기</button>
+      </div>
+      <div id="timeline"></div>
+      <p class="empty" id="empty" hidden>조건에 맞는 업데이트가 없다.</p>
+    </section>
+  </main>
+
+  <dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+    <div class="drawer-head">
+      <div class="drawer-title">
+        <button class="back" data-close aria-label="닫기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div><h2 id="drawer-title"></h2><p id="drawer-sub"></p></div>
+        <button class="close" data-close aria-label="닫기"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+      </div>
+      <div class="release-tabs" id="release-tabs" role="tablist"></div>
+    </div>
+    <div class="drawer-body" id="drawer-body"></div>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
