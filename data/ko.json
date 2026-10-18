@@ -8270,5 +8270,448 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.281": {
+  "hash": "51c28c4f38ff",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude apps gateway와 MCP, auto mode 및 목록 탐색 기능을 확장하고, 세션 재개·스트리밍·권한 처리와 여러 연동 환경의 문제를 수정한다. VS Code 및 JetBrains 패널에도 auto mode 확인과 세션 오류 안내를 추가한다.",
+   "items": [
+    "Claude apps gateway의 `desktop` 정책 블록에서 `blockReadsOutsideWorkingDirectories`, `disableBypassPermissionsMode` 등 최신 Claude Desktop 키를 지원한다.",
+    "Claude apps gateway의 Bedrock upstream에서 `assume_role`을 지원한다. STS로 IAM 역할을 맡아 Bedrock을 호출하며, 필요하면 다른 AWS 계정과 개발자별 세션을 사용할 수 있다.",
+    "Bedrock upstream에 `guardrail: {id, version}`을 설정해 모든 요청에 Amazon Bedrock guardrail을 적용한다. 모든 Bedrock upstream에 설정하거나 어느 곳에도 설정하지 않아야 한다.",
+    "Claude apps gateway 설정에 `telemetry.resource_attributes`를 추가해 Claude Desktop 및 `/login` 세션 텔레메트리에 고정 레이블을 지정한다.",
+    "`settings.json`에 `\"attribution\": false`를 두면 커밋과 PR의 attribution을 숨긴다. 구형 CLI는 이 설정이 든 파일을 건너뛰므로 여러 버전이 공유하는 파일에는 객체 형식을 유지해야 한다.",
+    "2026-07-28 프로토콜 연결에서 MCP URL-mode elicitation을 지원한다. 서버가 브라우저 흐름을 열도록 요청할 수 있으며, 완료 확인 방법이 없는 서버는 대기 대화상자를 남기지 않는다.",
+    "`claude plugin validate`가 MCP 서버도 검사한다. 로드 시 조용히 제외될 `.mcp.json` 항목, 선언되지 않은 `${user_config.*}` 참조, 안전하지 않은 URL을 보고한다.",
+    "`/insights`에 auto mode 추천을 추가해 최근 세션에서 auto mode가 처리할 수 있었던 권한 프롬프트 수를 추정한다.",
+    "전체 화면의 `/skills`, `/mcp`, `/plugin` Installed 목록에 스크롤바를 추가한다. 목록 위에 마우스를 올리면 나타나며 클릭하거나 끌 수 있다.",
+    "문제를 수정한다: Fixed a crash (\"unrecoverable interface error\") that could end a session while an API request was being retried",
+    "문제를 수정한다: Fixed a turn that could retry indefinitely, ignoring `--max-turns`, when the model alternated unparseable tool calls and output-limit truncation",
+    "문제를 수정한다: Fixed resumed sessions re-sending earlier turns in a changed form (a parallel tool-call turn, an MCP tool call's input or a tool-search result while its server was still reconnecting, or a tool-search result whose loading turn was interrupted), which could make the API drop the conversation's prior reasoning",
+    "문제를 수정한다: Fixed resuming a very large session sometimes restoring only its last few messages",
+    "문제를 수정한다: Fixed a session resumed after a restart during a pending permission prompt sending a different history than before, which broke the prompt cache from that point",
+    "문제를 수정한다: Fixed resuming a session that ended during a tool call: Claude now sees the call and is told its outcome is unknown, and a manual resume no longer adds a hidden \"Continue\" message",
+    "문제를 수정한다: Fixed sessions with an earlier advisor result the API could no longer read failing one request every turn and repeatedly losing earlier reasoning; the history is now repaired once",
+    "문제를 수정한다: Fixed the prompt cache being lost when an MCP server disconnects mid-conversation, or is still connecting after a resume, while tool search is off (for example behind a proxy or gateway)",
+    "문제를 수정한다: Fixed responses cut short by a proxy or gateway that closes the stream cleanly being shown as complete with no warning, and tool calls running twice on duplicated stream events",
+    "문제를 수정한다: Fixed responses failing with \"Content block not found\" when a proxy drops a stream event mid-response; the partial response is now kept, and web search keeps results that already arrived",
+    "문제를 수정한다: Fixed an empty completed response being requested twice when the connection dropped before the stream's final event",
+    "문제를 수정한다: Fixed the stop reason being lost when a proxy sends a trailing usage-only frame",
+    "문제를 수정한다: Fixed `CLAUDE_CODE_RETRY_WATCHDOG` sessions failing on the first 5xx or dropped connection after a run of 429/529 waits, and sleeping uncapped and silently on a long `Retry-After` from a 5xx",
+    "문제를 수정한다: Fixed fast mode retrying rate-limited requests back to back when the server sent `Retry-After: 0`",
+    "문제를 수정한다: Fixed a tool that returned an oversized image leaving sibling tool calls unanswered and still running, or ending the turn with no final message",
+    "문제를 수정한다: Fixed conversations getting permanently stuck on \"tool_use.name: String should have at most 200 characters\" after the model called a tool by an overlong name",
+    "문제를 수정한다: Fixed tool calls failing with \"Failed to get memory usage\", or being reported as failed after they ran, when Claude Code cannot read its own memory usage, for example when it has run out of file descriptors",
+    "문제를 수정한다: Fixed `--input-format stream-json` sessions (Agent SDK, VS Code extension) and scheduled cloud sessions failing every turn with an error when an earlier assistant message had plain-string content",
+    "문제를 수정한다: Fixed non-interactive sessions (`-p`, Agent SDK) failing on the next turn after the directory they were started in was deleted mid-session",
+    "문제를 수정한다: Fixed headless sessions with host-side (SDK) MCP servers stalling on the first message when the host stops responding mid-handshake; remote sessions now wait a few seconds at most",
+    "문제를 수정한다: Fixed interactive startup waiting on the managed-settings network request (about 80 ms, 17+ seconds when the network is unreachable) when no MCP servers or plugins are configured",
+    "문제를 수정한다: Fixed a delay of up to two minutes before responding when reading or @-mentioning a PDF larger than 3 MB",
+    "문제를 수정한다: Fixed an interrupted Read of specific PDF pages leaving its page render running for up to two minutes",
+    "문제를 수정한다: Fixed permission dialogs and attachment checks reading a path under macOS's `/.vol`, `/.nofollow` or `/.resolve` (which can reach a network mount) before approval",
+    "문제를 수정한다: Fixed a recursive `rm` whose target is only command-substitution output, such as `rm -rf \"$(pwd)\"`, running unprompted in auto and `--dangerously-skip-permissions` mode; it now asks even with a Bash allow rule, unless run with `CLAUDE_CODE_DISABLE_SUBSTITUTION_RM_PROMPT=1`",
+    "문제를 수정한다: Fixed a permission rule containing a NUL byte being expanded into a wildcard match; such a rule now matches nothing",
+    "문제를 수정한다: Fixed sandbox `excludedCommands` entries not matching `git rev-parse --git-dir`, programs named like shell builtins, and commit messages containing `[WIP]` or `#` lines",
+    "문제를 수정한다: Fixed sandboxed Bash commands being unable to write to `$TMPDIR` when `CLAUDE_CODE_TMPDIR` is set",
+    "문제를 수정한다: Fixed `claude --bg` starting a background session, and running its project hooks, in a directory that had not passed the workspace trust prompt; it now asks for trust first, or exits when not run interactively",
+    "문제를 수정한다: Fixed `--setting-sources` (and SDK `settingSources`) not being forwarded to spawned sessions: teammates, `/bg`, `claude agents` sessions and `--worktree --tmux` now start with the parent's restriction",
+    "문제를 수정한다: Fixed Read, Write, Edit and NotebookEdit: a file path containing a null byte now fails that tool call with a clear error instead of ending the whole turn",
+    "문제를 수정한다: Fixed Write refusing a call that gives the file path or content twice under two parameter names with identical values",
+    "문제를 수정한다: Fixed CLAUDE.md and rules files from an `--add-dir` directory inside the working directory being sent to the model twice in headless and SDK sessions",
+    "문제를 수정한다: Fixed remote sessions staying on \"needs approval\" with a stale prompt after a permission prompt and a sandbox network-access prompt overlapped and both were answered",
+    "문제를 수정한다: Fixed cloud sessions not telling Claude about background agents that finished just before a worker restart",
+    "문제를 수정한다: Fixed scheduled routine and notification turns in remote sessions not receiving turn-start notices (newly available tools, MCP changes, date, todos) until after the first tool call",
+    "문제를 수정한다: Fixed scheduled tasks and `/loop` wakeups being fired again every second when their delivery failed, which could make Claude Code exit at the end of a turn",
+    "문제를 수정한다: Fixed Remote Control reporting \"disabled by your organization's policy\" when the org policy simply hadn't loaded yet; it now retries the fetch and says it couldn't verify",
+    "문제를 수정한다: Fixed the Artifact tool missing from Remote Control sessions that `claude remote-control` starts for you to open from Claude Desktop, claude.ai or the mobile app",
+    "문제를 수정한다: Fixed macOS credential writes dropping stored MCP OAuth tokens or deleting the keychain entry when the login keychain was locked (e.g. right after wake)",
+    "문제를 수정한다: Fixed `gcpAuthRefresh`/`awsAuthRefresh` login processes being left running (and holding their localhost callback port on Windows) when Claude Code exits or the refresh times out",
+    "문제를 수정한다: Fixed the \"Not logged in · Run /login\" footer and missing claude.ai connectors persisting in a session after logging in from another Claude Code process",
+    "문제를 수정한다: Fixed `mcp_tool` hooks on blocking events (PreToolUse and similar) being skipped while their MCP server was still connecting; they now wait for it, up to the MCP connect timeout",
+    "문제를 수정한다: Fixed the same MCP server being connected twice when a plugin or claude.ai connector and a configured server spell its URL differently (host letter case, default port, trailing slash)",
+    "문제를 수정한다: Fixed `MCP_CONNECTION_NONBLOCKING=0` giving up on claude.ai connectors after 1s instead of honoring `MCP_CONNECT_TIMEOUT_MS`",
+    "문제를 수정한다: Fixed `--channels` plugin entries being checked against the installed plugin's marketplace alone; the installed plugin's name must now match the entry as well",
+    "문제를 수정한다: Fixed `--plugin-dir` on a folder of plugins that also has a `.claude-plugin/marketplace.json` loading one empty plugin instead of the plugins in it",
+    "문제를 수정한다: Fixed `claude plugin uninstall` refusing to remove a project-scope plugin that isn't enabled, saying it is \"enabled at project scope\" while `claude plugin disable` says it is already disabled",
+    "문제를 수정한다: Fixed `claude plugin update` failing for project-scoped plugins when `--scope` is omitted — it now resolves the scope the plugin is installed at instead of assuming user",
+    "문제를 수정한다: Fixed `claude plugin validate` reporting `privacyPolicyUrl`, `supportUrl` and other listing metadata keys in plugin.json as unknown fields",
+    "문제를 수정한다: Fixed `known_marketplaces.json` recording a marketplace as refreshed when its remote could not be reached and `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` kept the existing clone",
+    "문제를 수정한다: Fixed the `/plugin` Errors tab showing no confirmation after its last error is resolved",
+    "문제를 수정한다: Fixed `/plugin` starting a second uninstall or update of the same plugin when Enter was pressed again while the first was still running",
+    "문제를 수정한다: Fixed a `y` held while `/plugin` checks a marketplace source adding the marketplace the instant the \"Add marketplace?\" question appears, before it can be read",
+    "문제를 수정한다: Fixed `1` answering Yes in `/permissions`' delete and remove-directory confirms while the pointer is on No, which let a held `1` remove one workspace directory after another",
+    "문제를 수정한다: Fixed Alt+T and `/config` offering to turn thinking off on models that can't; thinking now stays on there, with a one-line reason in place of the switch",
+    "문제를 수정한다: Fixed `/context` total leaving out messages added since the last response; it now matches its categories and can read higher than the status line",
+    "문제를 수정한다: Fixed `/model` showing the raw API error JSON and request ID when the API refuses the picked model; it now shows the server's message and says the model was not changed",
+    "문제를 수정한다: Fixed API errors from an HTML error page (such as a proxy's 429 or 502 page) printing the page's raw markup or leaving out the HTTP status, and error messages breaking onto a second line when the server's error text ended in a newline",
+    "문제를 수정한다: Fixed /feedback, /bug and /share still sending your report after you cancelled it while it was being sent",
+    "문제를 수정한다: Fixed /feedback, /bug and /share failing every send with \"Couldn't send feedback\" after a Remote Control Stop arrived while the dialog was open",
+    "문제를 수정한다: Fixed `/ide` showing \"No available IDEs detected\" while also listing a running IDE",
+    "문제를 수정한다: Fixed the terminal being left in a broken state (crash or garbled input) when `/setup-bedrock` or `/setup-vertex` restarts Claude Code to apply new settings",
+    "문제를 수정한다: Fixed `/config` exiting when `respectGitignore` or `copyFullResponse` in `~/.claude.json` holds `null`",
+    "문제를 수정한다: Fixed the session name from /rename disappearing while Claude asks a multiple-choice question, so side-by-side sessions stay identifiable",
+    "문제를 수정한다: Fixed one-line pastes showing on their own lines in the sent message for prompts from VS Code or Remote Control and for expanded paste placeholders",
+    "문제를 수정한다: Fixed a message queued while Claude is working losing or changing the IDE selection it was written with, and queued messages not showing their selection",
+    "문제를 수정한다: Fixed pressing Shift+Tab twice quickly landing on the wrong permission mode",
+    "문제를 수정한다: Fixed Ctrl+C or Ctrl+D pressed twice quitting Claude Code instead of closing the dialog in the remaining dialogs and pickers, such as `/memory`, `/hooks`, `/mcp` (including a server's sign-in screen), `/export`, `/copy`, `/theme`, and `/teleport`'s uncommitted-changes and login prompts (where Esc also quit)",
+    "문제를 수정한다: Fixed keys that arrive in one burst of input (e.g. over Remote Control), such as an arrow key followed by Enter, `x` or `s`, acting on the previous selection: a stale effort level in `/effort` and the model picker, and the previously highlighted row in `/skills`, the background task rows under the prompt, MCP server prompts and `/install-github-app`",
+    "문제를 수정한다: Fixed `/install-github-app` updating the workflow after \"Skip workflow update\" was chosen, running setup twice on a repeated Enter, and ↑ on the repository step blocking a typed repository name when no repository was detected",
+    "동작을 변경한다: Fixed vim mode: `dj`/`dk`/`dG`/`dgg` and their `c`/`y` forms acting on part of a line; `1G` going to the last line; `d0`/`c0`/`y0` doing nothing; the cursor being off by one after `.` repeats an insert; and `o`/`p` on a `!`-prefixed line switching to shell mode",
+    "문제를 수정한다: Fixed vim mode `cw` on a space, an empty line, a word's last letter or a one-letter word also changing the next word; word motions stopping inside words in Hindi, Bengali and other scripts; and `.`, `p` or `P` that inserts text starting with `!` switching to shell mode, losing text or editing the wrong character",
+    "문제를 수정한다: Fixed the prompt cursor moving one character too far after an accent typed as its own key",
+    "문제를 수정한다: Fixed an extra blank line above a list item whose text starts on the line after its bullet, in screen-reader mode, quoted lists and long lists",
+    "문제를 수정한다: Fixed bulleted lists of plain numbers (like `- 316.`) showing as letters, roman numerals or the wrong numbers",
+    "문제를 수정한다: Fixed the agent panel's footer hint ignoring keys rebound in `keybindings.json`, and showing a stray ` · ` when the stop-all-agents shortcut is unbound",
+    "문제를 수정한다: Fixed the agent panel footer offering \"Enter to view\" and \"x to stop\" on the agent you are already viewing (where x types into its input), and \"Enter to view\" on the main row when main is already shown",
+    "문제를 수정한다: Fixed a mouse click on an agent-panel row leaving the keyboard cursor on the previously selected row",
+    "문제를 수정한다: Fixed Esc interrupting the running turn instead of deselecting the selected agent-panel row",
+    "문제를 수정한다: Fixed PgUp and PgDn doing nothing in a dialog's list (for example `/skills`) in fullscreen mode",
+    "문제를 수정한다: Fixed `/heapdump` summary saying most memory is native when it is in the JS heap snapshot",
+    "문제를 수정한다: Fixed Bash edit-diff snapshot directories piling up in the temp folder: abandoned ones are now deleted right away and the rest when Claude Code exits",
+    "문제를 수정한다: Fixed /workflows moving the pointer to a different run, and `x` stopping it, when a new run started while the list was open",
+    "문제를 수정한다: Fixed the selected tab in tabbed dialogs (`/config`, `/plugin`, `/permissions`) showing no highlight while the tab bar has focus when color is off (`NO_COLOR`)",
+    "문제를 수정한다: Fixed the mouse wheel over the `/plugin` Installed list scrolling the pane behind it instead of the list",
+    "문제를 수정한다: Fixed the hover highlight lingering on a list row in fullscreen mode after scrolling or filtering moved it away from the mouse",
+    "문제를 수정한다: Fixed long list rows, such as in the /remote-control menu, wrapping onto a second line in narrow terminals; they're now cut with …",
+    "문제를 수정한다: Fixed `/hooks` and `/mcp` detail views printing a long value over the row below it in narrow terminals",
+    "문제를 수정한다: Fixed lists such as a skill's state options in `/plugin` not being answerable by typing a number in screen-reader mode",
+    "Windows에서 문제를 수정한다: Windows: Fixed Bash commands that write to `$TMPDIR/…` failing with \"Permission denied\"",
+    "Windows에서 문제를 수정한다: Windows: Fixed a race in which Claude Code sessions updating at the same moment could delete each other's `claude.exe` backup, which could leave no `claude.exe` behind",
+    "동작을 개선한다: Improved Claude Desktop sign-in and usage-limit error messages to point at the app instead of terminal commands",
+    "동작을 변경한다: Improved startup: managed settings and policy fetches no longer retry requests that can never succeed",
+    "동작을 개선한다: Improved interactive startup time: git reads, startup telemetry and the Bedrock/Vertex model-upgrade checks no longer run before the first frame",
+    "동작을 개선한다: Improved the time to resume long sessions that read many files; the restored file cache now matches the files as they were read",
+    "동작을 개선한다: Improved the time to resume very long sessions that have been compacted, most noticeably through the Agent SDK and Claude Desktop",
+    "동작을 개선한다: Improved \"Prompt is too long\" recovery in sessions dominated by one very large first prompt: that prompt is now summarized on its own instead of being left out of the summary",
+    "동작을 개선한다: Improved auto mode after resuming a session in a new process: the permission classifier can now reuse its earlier prompt cache instead of rewriting it",
+    "동작을 개선한다: Improved the auto mode denial message so Claude treats a denial as covering the outcome, not only the exact command",
+    "동작을 개선한다: Improved the dangerous-rm check to also flag a removal at a shell variable followed by a top-level directory name, at a variable derived from the working directory, or at a backslash-only target",
+    "동작을 개선한다: Improved sandbox guidance on macOS: when a local dev server can't bind a port, Claude now points to `sandbox.network.allowLocalBinding`",
+    "동작을 개선한다: Improved `--agents` to accept the path to a JSON file (with `-p`) as well as inline JSON, and to allow an empty `prompt`",
+    "동작을 개선한다: Improved `/batch` to run where a WorktreeCreate hook provides the agent worktrees, not only inside a git repository",
+    "동작을 개선한다: Improved plugin hook-failure errors to name the offending plugin, and added a `claude plugin validate` warning when a shell-form hook leaves `${CLAUDE_PLUGIN_ROOT}` unquoted (it breaks on plugin paths with spaces)",
+    "동작을 개선한다: Improved the `/` menu, `/skills`, `/context` and the `/plugin` Installed list to show skills synced from claude.ai by their short name when no other command uses it, not `anthropic-skills:<name>`",
+    "동작을 개선한다: Improved `/deep-research` reliability on long research briefs by removing unused required fields from the scope step's output",
+    "동작을 개선한다: Improved the writing in published artifact pages: the bundled artifact-design skill now asks Claude for plain, direct prose",
+    "동작을 개선한다: Improved artifact publishing on slow connections: large page uploads are now sent compressed",
+    "동작을 개선한다: Improved the large CLAUDE.md startup notice to also count instruction files together, so many mid-sized files and @-imports are caught",
+    "동작을 개선한다: Improved debug logs to name settings `env` variables ignored because the session's launch environment already sets them",
+    "동작을 개선한다: Improved keyboard navigation in tabbed dialogs such as `/permissions` and `/usage`: ↑/↓ move focus between the tab row and the content, and a list responds to keys only while it has focus",
+    "동작을 개선한다: Improved `/help` and `/sandbox`: ←/→ and Tab switch tabs from inside a tab's list, and ↓ on an empty Custom commands tab in `/help` no longer leaves the keys stuck until Esc",
+    "동작을 개선한다: Improved `/install-github-app`, `/desktop`, the `/permissions` auto mode environment prompts, and the `/plugin` \"Add marketplace?\" and \"Run this command?\" prompts: they now use the standard dialog frame with key hints, and Ctrl+C or Ctrl+D cancels them on the second press like other dialogs",
+    "동작을 개선한다: Improved the `/workflows` and `/mcp` lists: they page (PgUp/PgDn, Home/End) and take j/k and the mouse like other lists, their arrows follow `select:previous`/`select:next` rebinds, and `x` in `/workflows` stops the run the pointer is on",
+    "동작을 개선한다: Improved the `/plugin` plugin and marketplace details menus and the `/remote-control` already-connected menu: they now support Home/End and clicking a row",
+    "동작을 개선한다: Improved the background workflow row below the prompt: it now shows the name, a progress bar, the agent count on wide terminals, elapsed time, total tokens, and the large-workflow warning",
+    "동작을 개선한다: Improved the /plugin Installed list: rows now line up in columns (status, name, type, details) across every section",
+    "동작을 개선한다: Improved `/skills`: each row now leads with the skill's name, with ✔ or ◯ alone showing on or off, and stays on one line in narrow terminals",
+    "동작을 개선한다: Improved narrow list rows (`/skills`, `/workflows`, `/feedback`): a name keeps 20 columns beside its first detail, and details are shown whole or not at all",
+    "동작을 개선한다: Improved `/diff`: a scrollbar shows where you are in a long list of changed files, and long paths no longer wrap their rows",
+    "동작을 개선한다: Improved `/hooks`: a hook's detail screen now says what kind of hook it is and where to change it, instead of always pointing at settings.json, and the hooks-disabled, safe mode and managed-hooks-only notices each say what is happening in one plain sentence",
+    "동작을 개선한다: Improved screen-reader output in `/mcp`: a disabled server is read as \"off\" instead of \"pending\"",
+    "동작을 개선한다: Improved the Remote Control confirmation: its options are briefly inactive again after the terminal window regains focus, so a key pressed while switching back cannot answer it",
+    "동작을 변경한다: Changed send now (ctrl+enter or ctrl+x ctrl+s) to move running tools to the background instead of cancelling the turn",
+    "동작을 변경한다: Changed auto mode so that, where its classifier review runs server-side, read-only and sandboxed shell commands also wait for that review and are blocked when it flags them",
+    "동작을 변경한다: Changed `CLAUDE_CODE_AUTO_MODE_SERVER` to also apply on a direct Anthropic API connection: `0` opts out of the server-side auto mode classifier (the local classifier then counts toward usage), `1` opts in",
+    "동작을 변경한다: Changed the dangerous `rm` prompt in `--dangerously-skip-permissions` and auto mode to wait 2 minutes for an answer, then deny the command with a rewrite hint so unattended sessions keep going (`CLAUDE_CODE_DISABLE_DANGEROUS_RM_TIMEOUT=1` turns this off)",
+    "동작을 변경한다: Changed AGENTS.md support to also work on Amazon Bedrock, Google Vertex AI, Microsoft Foundry, LLM gateways, and sessions with telemetry disabled",
+    "동작을 변경한다: Changed Claude apps gateway to refuse to start when a `managedMcpServers` entry's `envHelper` path starts with `\\??\\` or `/??/`, a path form current Claude Desktop refuses to run",
+    "동작을 변경한다: Changed self-hosted runners to pass system prompts to Claude Code as private files instead of command-line text, so large prompts no longer fail the launch; a wrapper or `command` hook that appends `--system-prompt` or `--append-system-prompt` must switch to `--system-prompt-file` or `--append-system-prompt-file`",
+    "동작을 변경한다: Changed queued messages to show in the conversation above the spinner instead of under it",
+    "동작을 변경한다: Changed the session artifact links under the prompt into one footer pill (`⧉ name` or `⧉ N`) that opens `/artifacts`, which now lists this session's artifacts first",
+    "동작을 변경한다: Changed the Artifact tool to let Claude load scripts from unpkg.com in artifact pages",
+    "동작을 변경한다: Changed hovering a list row in fullscreen mode, including in `/config`, to tint the row instead of drawing a second ❯ pointer beside the focused row's",
+    "동작을 변경한다: Changed /mcp: each server's row now starts with its status icon and name, says its state once, and in a narrow terminal drops trailing facts like \"managed\" before shortening the name",
+    "동작을 변경한다: Changed /workflows: each run's row leads with its status icon and elapsed time, and a narrow terminal keeps the run's name and time, dropping the agent and token counts first",
+    "동작을 변경한다: Changed Remote Control attachment downloads to reuse connections and to skip files already downloaded in the session",
+    "동작을 변경한다: Changed MCP resource lists (the resource list tool and @-mention suggestions) to skip MCP Apps UI resources; reading one by URI still works",
+    "동작을 변경한다: Changed `claude plugin uninstall --json` and the /plugin dialog to say a plugin's data was kept when its folder stays because another installed plugin uses it or install records cannot be read",
+    "동작을 변경한다: Changed the background tasks list (`/tasks`): pressing `x` on a running `/ultrareview` now asks for confirmation before stopping the review",
+    "동작을 변경한다: Removed the leftover \"(removed)\" `/agents` entry from the command menu and `/help`; typing `/agents` still explains where the wizard went",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Added a Continue/Stop prompt in the VS Code and JetBrains panels when auto mode falls back to billed classifier requests, replacing the unanswerable warning line",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Fixed opening a Web session with no messages saving an empty local copy that could not be resumed; an error now says where to continue it",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Fixed a claude.ai/code session opening empty or with only part of its conversation, with no error, when the server failed to return its history, part of it failed to load, or a network sign-in page answered in its place; it now shows an error and can be opened again",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Fixed conversations in editor tabs hanging silently after the extension host restarts; the tab now tells you to reopen it from the session list",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Fixed Claude attaching option previews to multiple-choice questions in the chat panel, where the question card never shows them",
+    "VS Code 및 JetBrains 패널에서 동작을 변경한다: [VSCode] Fixed the session manager's cost and usage block wrapping mid-text on a narrow side bar, and showing totals from a previous login after an account switch",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Added a Fast mode switch to the composer's model menu in cloud sessions, shown when your plan includes fast mode and the selected model supports it",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Added a settings shortcut on the GitHub setup tip and a \"Troubleshoot GitHub connection\" link in the repository pickers, both opening your GitHub connection page",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Fixed routines with a GitHub trigger for a pull request being converted to draft never firing; they now start a run when the pull request is converted",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Fixed cloud sessions on a repository that isn't hosted on GitHub showing a Create PR button that could never work; the button is now hidden there",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Fixed the GitHub setup tip on claude.ai/code covering the repository picker's search box and rows while the picker is open; it now steps aside until the picker closes",
+    "웹용 Claude Code에서 동작을 변경한다: [Claude Code on the web] Improved the file card shown when a cloud session can't open a file: it now says whether the file no longer exists or the session's permission settings block reading it",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Added a short line in the Slack thread after someone presses Stop, naming who stopped Claude's response and saying to mention @Claude to continue",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Slack channels where Claude could permanently stop responding to replies inside threads; affected channels now recover on their own with the next new message to Claude",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Claude resuming a stopped request after you press Stop in Slack, for example when a check-in fired or a background task ended; messages sent mid-response are now read",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Slack replies arriving many minutes late, or never, after Claude's session crashed mid-task, such as on a failed setup script; it now restarts on its own within minutes",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Claude in Slack promising an automatic restart, then failing generically, when a session's configuration is too large to start; the thread now says why and how to retry",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed very long Slack threads: Claude could silently withhold a reply after judging it against weeks-old messages, and a restart deep into the thread could lose recent context",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Claude answering every mention with \"Couldn't check this channel just now\" in a Slack channel moved from Enterprise Grid org-wide sharing into a single workspace",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed very large Enterprise Grid workspaces reached mostly through channels shared across workspaces getting \"Couldn't check this channel\" again after a quiet hour",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed a Slack request blocked by your organization's inference hook showing a generic retry notice; the thread now shows the hook's deny message and Claude doesn't retry",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed Claude in Slack offering to switch to models your organization can't use; it now lists and offers only models the switch will actually accept",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed requests to DynamoDB and Kinesis account-based endpoints failing to authenticate when sent through an AWS connection in Claude Tag",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Fixed the Plugins sections in Claude Tag admin settings failing to load for organization admins and listing attached plugins as raw IDs; they now load and show each plugin's name",
+    "Claude Tag에서 동작을 변경한다: [Claude Tag] Changed the routine list Claude gives when asked in a Slack thread to show that thread's own scheduled tasks by default instead of every routine in the channel",
+    "Code Review에서 동작을 변경한다: [Code Review] Fixed a pull request getting no review when its reviewed commit was force-pushed away while a failed review was being retried in a repository not set to review every push"
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Claude Desktop 정책 키 지원",
+     "what": "Claude apps gateway의 `desktop` 정책 블록에서 최신 Claude Desktop 키를 처리한다. 지원 키에는 `blockReadsOutsideWorkingDirectories`와 `disableBypassPermissionsMode`가 포함된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "Bedrock IAM 역할 위임",
+     "what": "Bedrock upstream에 `assume_role`을 설정하면 gateway가 STS를 통해 맡은 IAM 역할로 Bedrock을 호출한다. 다른 AWS 계정도 가능하며 개발자마다 별도 세션을 선택적으로 만들 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "Bedrock guardrail 적용",
+     "what": "`guardrail: {id, version}`으로 해당 upstream을 통과하는 모든 요청에 Amazon Bedrock guardrail을 적용한다. 일관성을 위해 모든 Bedrock upstream에 설정하거나 아무 upstream에도 설정하지 않아야 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "텔레메트리 고정 레이블",
+     "what": "`telemetry.resource_attributes`가 Claude Desktop 및 `/login` 세션 텔레메트리에 고정 레이블을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "커밋 및 PR attribution 숨기기",
+     "what": "`settings.json`의 `\"attribution\": false`가 커밋 및 PR attribution을 모두 숨긴다. 구형 CLI는 해당 값이 든 settings 파일을 건너뛰므로 공유 파일에서는 객체 형식을 유지해야 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "MCP 브라우저 기반 elicitation",
+     "what": "2026-07-28 프로토콜 연결에서 MCP 서버가 Claude Code에 브라우저 기반 흐름을 열도록 요청할 수 있다. 서버가 완료 여부를 확인할 수 없으면 대기 대화상자를 화면에 남기지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 6,
+     "title": "플러그인 MCP 구성 검증",
+     "what": "`claude plugin validate`가 `.mcp.json`에서 로드 시 조용히 버려질 항목, 선언되지 않은 `${user_config.*}` 참조, 안전하지 않은 URL을 보고한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "auto mode 사용량 추천",
+     "what": "`/insights`가 최근 세션을 바탕으로 auto mode가 처리할 수 있었을 권한 프롬프트 수를 추정해 추천한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "전체 화면 목록 스크롤바",
+     "what": "전체 화면에서 `/skills`, `/mcp`, `/plugin` Installed 목록을 스크롤할 수 있다. 마우스를 목록 위에 두면 스크롤바가 나타나고 클릭하거나 끌 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 151,
+     "title": "auto mode 비용 요청 확인",
+     "what": "auto mode가 과금되는 classifier 요청으로 대체될 때 VS Code 및 JetBrains 패널에 Continue/Stop 선택을 표시한다. 기존의 응답할 수 없는 경고 행을 대체한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 152,
+     "title": "빈 웹 세션 복구 안내",
+     "what": "메시지가 없는 Web 세션을 열 때 재개 불가능한 빈 로컬 복사본을 저장하던 문제를 수정한다. 오류로 이어서 진행할 위치를 안내한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 153,
+     "title": "웹 세션 기록 로드 오류 안내",
+     "what": "서버 기록 반환/로드 실패 또는 네트워크 로그인 페이지 응답으로 claude.ai/code 세션 기록이 비거나 일부만 열리는 경우 오류를 표시하고 다시 열 수 있게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 154,
+     "title": "확장 호스트 재시작 후 세션 복구 안내",
+     "what": "확장 호스트 재시작 뒤 편집기 탭의 대화가 멈춰 있으면 탭에서 세션 목록을 통해 다시 열라고 안내한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 155,
+     "title": "선택지 미리보기 표시 수정",
+     "what": "채팅 패널의 객관식 질문에서 표시되지 않는 선택지 미리보기를 잘못 첨부하던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 156,
+     "title": "세션 비용 및 사용량 표시 수정",
+     "what": "좁은 사이드바에서 세션 관리자의 비용 및 사용량 텍스트가 중간에 줄바꿈되던 문제와 계정 전환 뒤 이전 로그인 합계가 표시되던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
