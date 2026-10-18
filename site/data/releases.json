@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T11:47:01.648Z",
+ "generatedAt": "2026-10-18T11:47:39.597Z",
  "windowDays": 90,
  "releases": [
   {
@@ -23212,7 +23212,32 @@
     }
    ],
    "hash": "fe2b8de3cf97",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 선택할 수 있다. rate limit 전환 안내는 GPT-6 Luna를 권장한다.",
+    "items": [
+     "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 선택할 수 있다. rate limit 전환 안내는 GPT-6 Luna를 권장한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-6 모델 선택",
+      "what": "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 고를 수 있다. rate limit 전환 안내는 GPT-6 Luna를 추천한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-09-23-mobile",
@@ -23299,7 +23324,95 @@
     }
    ],
    "hash": "466552da16c1",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "홈 화면을 새로 디자인하고 iPad 가로 화면에 작업 목록과 열린 작업을 함께 보여주는 분할 보기를 추가한다. 중첩 Git 저장소 변경 탐색과 새 작업의 컴퓨터·프로젝트 인식도 개선한다.",
+    "items": [
+     "홈 화면을 새로 디자인한다.",
+     "iPad 가로 화면에서 작업 목록과 열린 작업을 나란히 보여주는 분할 보기를 추가한다.",
+     "중첩된 Git 저장소 내부의 변경 사항 탐색을 지원한다.",
+     "사이드 채팅에 첨부 파일, 선택한 텍스트, 리뷰 댓글을 이어 전달한다.",
+     "다음 대기 프롬프트가 시작될 때 답변이 비어 있거나 불완전하게 표시되는 문제를 수정한다.",
+     "새 작업에서 선택한 컴퓨터를 유지하고 프로젝트 체크아웃과 워크트리를 더 잘 인식한다.",
+     "파일 링크의 안정성을 높이고 파일 및 새 작업을 열 때 로딩 피드백을 명확하게 한다.",
+     "작업 기록을 불러오지 못한 이유와 다음 조치를 더 명확히 안내한다.",
+     "카메라 또는 사진 보관함에서 사진을 추가할 때 애니메이션을 부드럽게 한다.",
+     "잘못된 기기 시계로 인한 페어링 실패와 Mac·Linux의 SSH 연결 문제를 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "새 홈 화면",
+      "what": "홈 화면을 새로 디자인한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "iPad 분할 보기",
+      "what": "iPad 가로 화면에서 작업 목록을 열린 작업 옆에 유지하는 분할 보기를 추가한다.",
+      "steps": [
+       "iPad를 가로 방향으로 둔다.",
+       "작업 목록과 열린 작업을 나란히 확인한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "중첩 저장소 변경 탐색",
+      "what": "중첩 Git 저장소 내부의 변경 사항을 탐색할 수 있도록 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 5,
+      "title": "새 작업 환경 유지 및 인식",
+      "what": "새 작업은 선택한 컴퓨터를 유지한다. 프로젝트 체크아웃과 워크트리도 더 잘 인식한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.156.0",
@@ -23417,7 +23530,164 @@
     }
    ],
    "hash": "b07fb08ee592",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "전체 화면 TUI, 음성 대화, 사용량 분석 대시보드를 추가하고 작업 센터와 터미널 표시 기능을 확장한다. 로컬 백그라운드 서버를 `/daemon`으로 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+    "items": [
+     "다음 실행에서 `/tui`로 선택형 전체 화면 UI를 사용할 수 있다. 대화 기록 검색, 마우스 선택, 우클릭 복사를 지원한다.",
+     "음성 대화가 기본 활성화되며 F8 전환, `/voice settings` 선택기, Linux·Windows용 오디오 런타임을 제공한다.",
+     "`/usage` 분석 대시보드에서 계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴볼 수 있다.",
+     "에이전트 커맨드 센터에서 상태별로 작업을 필터링하고 워크트리 세션을 만들 수 있다. 워크트리 지원은 기본 활성화된다.",
+     "새 테마 6종으로 터미널을 꾸미고 응답에서 지원되는 Mermaid 다이어그램과 디스플레이 수식을 볼 수 있다.",
+     "`/daemon`으로 로컬 백그라운드 서버를 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+     "턴 실패·중단·하위 에이전트 완료 이벤트가 발생해도 스트리밍 답변과 계획을 보존한다.",
+     "tmux·SSH 세션의 클립보드 전달을 수정하고, 터미널이 붙여넣은 텍스트를 키 입력 단위로 보낼 때 탭 들여쓰기를 보존한다.",
+     "세션 재개 시 Plan 모드를 복구하고 이전 프롬프트 편집 시 스레드 식별 정보와 설정을 보존한다.",
+     "시스템 프록시 환경에서 로그인을 복구하고 OAuth 검색이 503 오류를 반환하면 MCP 자격 증명을 새로 고친다.",
+     "재생 일시 정지 또는 입력 오디오 급증 중 음성이 누락되는 문제를 방지한다.",
+     "Windows 인바운드 연결, 권한이 높은 Linux/macOS 소켓, macOS 읽기 전용 파일 핸들을 통한 쓰기와 관련된 샌드박스 격리 공백을 막는다.",
+     "폐기된 `friendly` 및 `pragmatic` 성격 설정은 더 이상 응답 스타일을 선택하지 않는다고 명확히 안내한다.",
+     "네트워크 프록시 허용·거부 패턴에서 `?`가 단일 문자와 일치하는 방식을 설명한다.",
+     "Linux musl 빌드의 OpenSSL 3.6.4를 포함해 번들 TLS 종속성을 업데이트한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체 화면 TUI",
+      "what": "다음 실행에 선택형 전체 화면 UI를 켜는 `/tui`를 추가한다. 대화 기록 검색, 마우스 선택, 우클릭 복사를 지원한다.",
+      "steps": [
+       "`/tui`를 입력해 다음 실행의 전체 화면 UI를 선택한다.",
+       "대화 기록을 검색하거나 마우스로 선택하고 우클릭으로 복사한다."
+      ],
+      "terminal": {
+       "title": "TUI 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /tui"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "음성 대화",
+      "what": "음성 대화가 기본 활성화된다. F8 전환과 `/voice settings` 선택기를 제공하며 Linux와 Windows용 오디오 런타임을 번들로 포함한다.",
+      "steps": [
+       "F8로 음성 대화를 전환한다.",
+       "`/voice settings` 선택기에서 설정을 선택한다."
+      ],
+      "terminal": {
+       "title": "음성 설정 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /voice settings"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "사용량 분석",
+      "what": "`/usage` 분석 대시보드에서 계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴볼 수 있다.",
+      "steps": [
+       "`/usage`를 연다.",
+       "계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴본다."
+      ],
+      "terminal": {
+       "title": "사용량 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /usage"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "작업 센터 필터와 워크트리",
+      "what": "에이전트 커맨드 센터에서 작업을 상태별로 필터링하고 워크트리 세션을 만들 수 있다. 워크트리 지원은 기본 활성화된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "터미널 테마와 응답 렌더링",
+      "what": "새 터미널 테마 6종을 추가한다. 응답에서 지원되는 Mermaid 다이어그램과 디스플레이 수식을 볼 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "백그라운드 서버 제어",
+      "what": "`/daemon`으로 로컬 백그라운드 서버를 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "서버 제어",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /daemon"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ codex --no-daemon"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.280",
@@ -24227,7 +24497,543 @@
     }
    ],
    "hash": "f5cfd2f0ef94",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Claude Opus 5.5를 기본 Opus 모델로 추가하고 MCP 설명 길이 제한 및 훅 이벤트 정보를 확장했다. 전체 화면 목록 조작과 VS Code의 상태·샌드박스·Chrome·내보내기·스킬·계획 기능도 보강했다.",
+    "items": [
+     "Claude Opus 5.5(`claude-opus-5-5`)를 추가했으며 기본 Opus 모델이 된다. 컨텍스트는 1M이고 요금은 입력/출력 Mtok당 $4/$20, 캐시 읽기는 $0.20/Mtok이다.",
+     "전체 화면 모드의 `/skills` 목록은 휠로 스크롤하고 `/plugin`의 스킬 상태 옵션은 마우스로 선택할 수 있다.",
+     "세션의 모든 MCP 서버에 대해 도구 설명과 서버 지침의 2,048자 제한을 바꾸는 `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH`를 추가했다.",
+     "`hook_execution_complete` OpenTelemetry 이벤트에 훅 출력 크기와 파일로 저장된 초과 출력 수를 추가했다.",
+     "심볼릭 링크 경로를 통한 쓰기를 실제 대상 경로 기준으로 판단한다. 이제 프롬프트에 실제 쓰기 위치가 표시되고 `acceptEdits`, 허용 규칙, 자동 모드가 트리 밖 대상 쓰기를 승인하지 않는다.",
+     "안전 검사가 검토를 거부한 작업을 자동 모드가 반복 시도하던 문제를 수정했다. 작업은 한 번 거부되고 재시도해도 해결되지 않는다는 안내가 나온다.",
+     "안전 검사가 응답하지 않을 때 자동 모드가 쉬지 않고 거부를 반복하던 문제를 수정했다. 재시도 간격을 늘리고 연속 10회 뒤에는 안내와 함께 턴을 멈춘다.",
+     "모델이 `file_path`와 `content` 대신 `path`, `file_text`, `file_content` 또는 불필요한 `description`을 보내 Write 호출 검증에 실패하던 문제를 수정했다.",
+     "대부분의 대화상자에서 Ctrl+C 또는 Ctrl+D를 두 번 눌렀을 때 대화상자 대신 Claude Code가 종료되던 문제를 수정했다.",
+     "터미널 창을 앞으로 가져오기만 한 클릭이 포인터 아래 항목까지 실행하던 문제를 검색 선택기, 탭, 에이전트/워크플로 행, 슬래시 명령 링크, 제안 메뉴에서 수정했다.",
+     "실수로 입력한 `n`이 대화상자를 닫고 `y`가 확인하던 문제를 수정했다. Enter와 Esc가 확인과 취소를 맡으며 `keybindings.json`에 `y`/`n`을 `confirm:yes`/`confirm:no`로 지정하면 복구할 수 있다.",
+     "대화상자 입력란에서 키 바인딩과 같은 글자·숫자·Space 입력이 사라지던 문제를 수정했다.",
+     "Windows 터미널에서 Enter를 눌러 보이지 않는 문자를 제거한 뒤 프롬프트가 깨져 보이던 문제를 수정했다. 화면을 다시 그려 전송할 문장을 정확히 확인할 수 있다.",
+     "보이지 않는 문자 정리 과정에서 페르시아어와 아랍어가 라틴 문자나 숫자에 접미사를 붙일 때 쓰는 폭 없는 비결합 문자를 제거하던 문제를 수정했다.",
+     "음성 입력 중 Ctrl+C를 눌러도 녹음이 계속되고, 전사 처리 중 Esc가 취소하지 못하며, 전사 화면과 vim NORMAL 모드에서 Space를 누르고 있어도 음성 입력이 시작되던 문제를 수정했다.",
+     "Claude가 작업 중 호스트 앱(Claude Desktop, VS Code, SDK)에서 모델을 바꾸면 다음 프롬프트에서 프롬프트 캐시가 누락되던 문제를 수정했다.",
+     "재개된 포크 서브에이전트가 처음 사용한 도구 목록을 다시 보내는 대신 재구성해 해당 에이전트의 프롬프트 캐시를 깨던 문제를 수정했다.",
+     "상세 모드가 아닐 때 펼친 서브에이전트 전달 메시지에 내부 출처 안내가 보이던 문제를 수정했다.",
+     "브랜치나 태그를 추적하는 GitHub 저장소 또는 git URL에서 플러그인을 업데이트해도 `installed_plugins.json`에 설치 당시 커밋이 남던 문제를 수정했다.",
+     "폴더의 `manifest.json`에 이름이 기록된 스킬이 `~/.claude/skills/.trash/`로 옮겨지던 문제를 수정했다.",
+     "밝은 테마와 ANSI 테마에서 세션 피드백 설문에 마우스를 올려도 강조 표시가 없던 문제를 수정했다.",
+     "실행이 하나뿐일 때 `/workflows`가 잠시 한 줄 목록을 보여준 뒤 열리던 문제를 수정했다.",
+     "전체 화면 모드에서 `/model`, `/permissions`처럼 숨겨진 항목이 있는 선택 목록을 마우스 휠로 스크롤하지 못하던 문제를 수정했다.",
+     "꺼 둔 스킬이 `/plugin`과 `/skills`에서 로드 실패 플러그인과 같은 빨간 ✘로 표시되던 문제를 수정했다. 이제 흐린 ◯로 표시된다.",
+     "다중 선택 항목 설명이 라벨 아래가 아니라 번호 아래 들여쓰기되던 문제를 수정했다.",
+     "전체 화면 모드에서 `/plugin`, `/skills`, `/mcp` 검색창의 오른쪽 테두리가 사라지던 문제를 수정했다.",
+     "`/mcp`의 서버 목록과 상세 화면에서 같은 서버의 경고 기호가 다르던 문제를 수정했다. 목록, 상세 화면, `/plugin` 모두 ⚠를 표시한다.",
+     "`/config` 설정 목록과 `/model`, `/memory`, 권한 요청 같은 선택 목록에서 Home과 End가 작동하지 않던 문제를 수정했다.",
+     "`/skills` 메뉴에서 PgUp/PgDn을 눌렀을 때 첫 스킬이나 마지막 스킬을 넘어 순환하던 문제를 수정했다.",
+     "`/config` 목록에서 Tab이 선택된 설정 값을 조용히 바꾸던 문제를 수정했다. 이제 Tab은 아무 동작도 하지 않는다.",
+     "모든 턴에서 system 역할이 assistant보다 먼저 와야 한다는 API 오류로 대화가 실패하던 문제를 수정했다.",
+     "지원하지 않는 프록시나 게이트웨이에서 advisor 대화가 API Error 400 `Input tag 'advisor_20260301'`로 매번 실패하던 문제를 수정했다. 해당 태그 없이 요청을 다시 시도한다.",
+     "불러오지 못한 MCP 도구에 관한 잘못된 안내가 저장된 기록에 있으면 세션의 모든 턴과 `/compact`가 실패하던 문제를 수정했다.",
+     "저장된 대화 기록에 잘못된 system 메시지나 파일 목록이 빠진 메모리 저장 안내가 있을 때 세션 재개 중 충돌하던 문제를 수정했다.",
+     "오래 실행한 전체 화면 세션이 복구 불가능한 인터페이스 오류로 종료되던 원인 중 하나를 수정했다. 손상된 캐시 메시지 목록을 다시 만든다.",
+     "설정 파일 또는 편집 뒤 다시 읽는 파일이 읽는 도중 named pipe로 바뀌면 Claude Code가 멈추던 문제를 수정했다.",
+     "`settings.json`으로 옮겨진 설정이 `~/.claude.json`에 `null`이나 `\"false\"`로 남아 있을 때 `/config`가 충돌하거나 일부 켜기/끄기 설정을 잘못 읽던 문제를 수정했다.",
+     "백그라운드 에이전트, 셸 또는 워크플로가 끝나지 않은 세션을 재개할 때 사용자가 입력하기 전에 모델 턴이 시작되던 문제를 수정했다.",
+     "서브에이전트가 턴을 마무리하는 중일 때 헤드리스 및 SDK 세션에서 백그라운드 서브에이전트로 보낸 메시지가 사라지던 문제를 수정했다.",
+     "서브에이전트 보고서를 읽기 전에 이를 시작한 대화가 압축되면 완료된 보고서가 사라지던 문제를 수정했다.",
+     "LSP 플러그인이 활성화된 경우 백그라운드 서브에이전트가 LSP 도구를 사용할 수 없던 문제를 수정했다.",
+     "일치 항목이 없는 grep처럼 정상적인 0이 아닌 종료 코드를 백그라운드 셸 작업이 실패로 보고하던 문제를 수정했다.",
+     "세션에 전달된 환경 변수에 NUL 문자가 있으면 백그라운드 세션(`claude --bg`)에서 git, 훅, 플러그인 등 보조 프로그램을 실행하지 못하던 문제를 수정했다.",
+     "백그라운드 서브에이전트가 실행 중일 때 종료에 Ctrl+C를 세 번이나 네 번 눌러야 하던 문제를 수정했다. 이제 두 번 누르면 종료된다.",
+     "Esc로 보낸 프롬프트를 다시 입력란에 가져오거나, 되감거나, 시작 훅 중 Esc를 누를 때 IDE 선택이 사라지던 문제를 수정했다.",
+     "Ctrl+S로 보관한 `!` 셸 모드 프롬프트가 복원 시 일반 프롬프트가 되고, 보관 직후 `/`가 파일 경로를 나열하던 문제를 수정했다.",
+     "임시 디렉터리가 가득 차거나 쓰기 불가하거나 다른 사용자 소유일 때 `claude agents`가 오류 대신 빈 화면에서 응답하지 않던 문제를 수정했다.",
+     "`claude mcp remove` 후 같은 이름으로 다시 추가한 MCP 서버가 재연결되지 않고 인증 필요 상태로 남던 문제를 수정했다.",
+     "백그라운드 플러그인 마켓플레이스 자동 업데이트가 git 자격 증명 도우미를 무시해 비공개 저장소 마켓플레이스를 매번 다시 복제하거나 업데이트하지 않던 문제를 수정했다.",
+     "공식 마켓플레이스의 스냅샷 파일이 링크이거나 너무 크면 `claude plugin update`가 플러그인의 커밋 기록을 지우고 버전을 `unknown`으로 바꾸던 문제를 수정했다.",
+     "조직 정책을 불러올 수 없을 때(예: 웹 프록시 뒤) Artifact 도구가 사라지고 이유를 알 수 없던 문제를 수정했다. 이제 차단 원인을 안내한다.",
+     "아티팩트를 다시 게시할 때 데이터베이스 접근 규칙을 초기화하거나 재전송된 뷰어 프로필 범위를 버리던 문제를 수정했다. 이제 해당 재게시를 거부한다.",
+     "`/ultrareview`가 중단된 클라우드 리뷰를 완료 또는 재시도 오류로 잘못 보고하고, 세션 삭제나 계정 변경 후에도 제한 시간 전체를 기다리던 문제를 수정했다.",
+     "`/compact`나 `/clear` 직후 Remote Control 및 클라우드 세션의 컨텍스트 사용량이 Claude 앱에서 누락되거나 오래된 값으로 보이던 문제를 수정했다.",
+     "Remote Control 및 클라우드 세션에서 커밋된 파일과 미커밋 변경이 함께 있으면 Claude 앱의 diff 화면에서 브랜치의 커밋된 파일이 빠지던 문제를 수정했다.",
+     "세션 접근 토큰이 교체될 정도로 긴 과부하를 기다린 뒤 클라우드 및 자체 호스팅 러너 세션에서 인증 오류가 나던 문제를 수정했다.",
+     "Cowork 세션에서 10,800자를 넘는 메모리 파일의 쓰기 충돌이 나면 일부만 Claude에 보여 재시도 쓰기에서 중간 내용이 빠지던 문제를 수정했다.",
+     "자체 호스팅 러너에서 `--configure-git`을 사용할 때 라이프사이클 훅 커밋 서명에 실패하던 문제를 수정했다.",
+     "Windows에서 백그라운드 정리가 `~/.claude/session-env`, `image-cache` 등 정리 대상 폴더 위치 변경에 쓰인 디렉터리 심볼릭 링크나 junction을 삭제하던 문제를 수정했다.",
+     "자체 호스팅 러너에서 턴이 `--retire-at` 시점에 끝나면 완료 신호가 유실되던 문제를 수정했다. 세션을 멈추기 전에 턴 보고를 잠시 기다린다.",
+     "전체 화면 모드에서 대화 기록을 지우던 `ctrl+l`/`cmd+k` 동작을 되돌렸다(2.1.260에서 추가). 이제 화면을 다시 그린다.",
+     "`/permissions`에서 규칙을 보거나 추가·삭제한 뒤 규칙 목록으로 포커스가 돌아온다. 규칙 삭제와 디렉터리 제거 확인의 기본값은 No다.",
+     "`/permissions` 규칙 목록에서 ←/→ 또는 Tab을 누르면 탭 바로 포커스가 이동하지 않고 탭을 전환한다.",
+     "`/cost`의 캐시 미스 원인에 thinking 모드와 thinking 표시 변경을 명시한다.",
+     "Claude가 전달받은 아티팩트 링크를 읽지 못하면 계속하기 전에 사용자에게 알린다.",
+     "`/install-github-app`의 GitHub CLI 확인 및 저장소 선택 단계에 취소 키 안내가 표시된다.",
+     "`/artifacts`와 `/workflows` 목록 오른쪽에 스크롤바를 표시해 긴 목록에서 숨겨진 분량과 현재 위치를 보여준다.",
+     "워크플로 진행 트리에서 실행 중인 에이전트와 단계는 ⟳ 대신 흐린 점으로 표시한다.",
+     "전체 화면의 `/plugin` 마켓플레이스 추가 양식은 창 안에 상자를 그리지 않고 텍스트와 키 안내를 나머지 `/plugin` 화면에 맞춘다.",
+     "전체 화면의 `/workflows` 상세 화면에서 창 구분선 아래 중복 가로줄을 제거했다.",
+     "언어를 지정하지 않은 코드 블록을 인라인 코드처럼 색칠해 명령이 주변 텍스트와 구분된다.",
+     "도구 실행 중 묻는 `/btw` 보조 질문이 해당 호출을 실패로 오해하지 않고 진행 중임을 안다.",
+     "UserPromptSubmit 훅 시간 초과 알림과 디버그 로그에 시간 초과된 훅 명령을 표시한다.",
+     "`@` 파일 제안에서 이름에 검색어가 포함된 파일을 폴더 이름에만 검색어가 있는 파일보다 우선한다.",
+     "아티팩트 페이지에서 인쇄 버튼, 뷰어가 차단하는 확인 대화상자와 기기 기능을 제거하고 이메일·전화 정보를 텍스트로 표시한다. 어두운 모드는 폼 컨트롤과 스크롤바에도 적용된다.",
+     "`/ultrareview` 업로드에서 `id_rsa copy`, `kubeconfig (1).yaml`처럼 이름을 바꾼 주요 파일 사본도 이제 기기에 남는다.",
+     "세션 간 메시지 기능의 시작 경고에 `--debug-file`이 지정한 경로에 디버그 로그를 쓴다는 설명을 추가했다.",
+     "Pro와 Team Standard 요금제의 기본 모델을 Sonnet에서 Opus로 바꿨다. Max, Team Premium, Enterprise와 동일하다.",
+     "`/effort`가 모델별 설정이 되기 전에 저장한 effort 수준은 Opus 5.5 같은 새 모델에 적용되지 않는다. 새 모델은 수준을 선택할 때까지 기본값으로 시작한다.",
+     "Opus 4.7, Opus 4.8, Fable 5는 `-p`, Agent SDK, 프로젝트/관리형/`--settings`의 `effortLevel`, 모델별 수준이 있어도 출시 기본 effort를 고정 적용하지 않는다.",
+     "`/autocompact` 하단 안내에 순서형 값 조정 키인 ←/→를 표시한다.",
+     "`/fast` 하단 안내에 전환 키 Space를 표시한다.",
+     "자체 호스팅 러너의 라이프사이클 훅에서 git은 러너 공유 git 파일에 지정된 훅 폴더와 프로그램을 무시한다. 해당 파일의 로컬 경로 및 `git://` 원격에는 `GIT_ALLOW_PROTOCOL`이 필요하다.",
+     "예약된 마켓플레이스 이름을 흉내 내는 플러그인 마켓플레이스는 추가할 수 없으며 이미 추가된 경우 로드되지 않는다.",
+     "`PermissionRequest`에서 agent 유형 훅은 실행하지 않는다. 응답으로 요청을 허용하거나 거부할 수 없으므로 command 또는 http 훅을 안내하는 오류를 표시한다.",
+     "[VSCode] 세션 버전, 계정, 모델, 서버 정보를 보여주는 Status 대화상자와 입력형 `/status`를 추가했다.",
+     "[VSCode] 샌드박스 모드, 샌드박스 미적용 대체 동작, 제외 명령을 보여주는 Sandbox 대화상자를 추가했다. 패널 메뉴나 `/sandbox` 입력으로 연다.",
+     "[VSCode] 확장 상태, 설치·재연결·권한 페이지, 기본 활성화 설정을 다루는 Claude in Chrome 대화상자를 추가했다. 패널 메뉴나 `/chrome` 입력으로 연다.",
+     "[VSCode] 대화를 일반 텍스트로 복사하거나 저장하는 대화 내보내기와 입력형 `/export`를 추가했다.",
+     "[VSCode] Slash commands 대화상자에 스킬 출처, 토큰 추정치, 켜짐/꺼짐 상태를 표시하고 클릭으로 상태를 바꾸게 했다. 이를 여는 입력형 `/skills`도 추가했다.",
+     "[VSCode] plan mode로 전환하고 첫 계획 프롬프트를 보내거나 세션 계획을 보여주는 입력형 `/plan`을 추가했다.",
+     "[VSCode] 채팅창에 800자 초과 또는 줄바꿈 2개 초과 텍스트를 붙여넣으면 Claude가 직접 입력과 구분하도록 표시한다.",
+     "[VSCode] 채팅창에 붙여넣은 텍스트의 보이지 않는 유니코드 서식 및 태그 문자를 알림과 함께 제거한다. 그 외 입력도 전송 전에 제거한다.",
+     "[VSCode] “Open in New Tab”을 선택하면 Claude가 마지막 그룹 뒤가 아니라 현재 작업 중인 편집기 그룹 옆에 열린다.",
+     "[VSCode] effort 칩이 세션의 실제 수준 대신 오래된 저장 수준을 표시하던 문제를 수정했다.",
+     "[VSCode] Python 확장 활성화가 멈춰 Claude Code가 시작되지 않던 문제를 수정했다. 60초 동안 Python 환경이 준비되지 않으면 환경 없이 시작한다.",
+     "[VSCode] 자동 모드를 쓸 수 있을 때 계획 승인 카드 첫 선택지에 터미널과 동일하게 “Yes, and use auto mode”를 표시한다.",
+     "[VSCode] 키보드로 세션을 보관하거나 보관 해제한 뒤 세션 목록의 화살표 키 탐색이 멈추던 문제를 수정했다.",
+     "[VSCode] 세션을 다시 열었을 때 붙여넣기 표시 줄이 자신의 메시지에 나타나던 문제를 수정했다.",
+     "[웹] 관리자 Routines 켜기/끄기 설정을 Admin settings → Capabilities → Remote sessions로 옮기고 Claude Code 관리자 페이지에서 연결한다.",
+     "[웹] GitHub Enterprise Server 저장소의 클라우드 세션에서 약 8시간 뒤 `gh` 및 GitHub API 호출이 실패하던 문제를 수정했다. 토큰이 자동 갱신된다.",
+     "[웹] 예약 실행 직전에 수정한 기존 세션을 재개하는 루틴이 이전 프롬프트와 이름으로 실행되던 문제를 수정했다.",
+     "[웹] 세션 작업 디렉터리 밖을 가리키는 대화 기록 파일 링크가 로드되지 않는 카드로 열리던 문제를 수정했다. 링크를 비활성화하고 이유를 표시한다.",
+     "[웹] 응답하지 않아 만료되거나 새 메시지로 대체된 승인 요청을 거부로 기록해 자동 모드가 도구 호출 재시도를 거부하던 문제를 수정했다.",
+     "[웹] Claude 앱에서 보는 클라우드 세션에서 사용자를 위한 파일을 앱으로 열 수 있는 위치에 저장한다.",
+     "[웹] 관리자가 GitHub를 끈 조직의 자체 호스팅 환경에서 세션을 시작할 때 비어 있는 저장소 선택기를 제거했다.",
+     "[Claude Tag] 채널 내 Claude 스레드에 Slack 기본 작업 중 표시, 중지 버튼, 스레드 제목을 추가했다. 표시는 Claude가 끝날 때까지 유지되며 중지 버튼은 작업을 중단한다.",
+     "[Claude Tag] Restrict 또는 Channel only 게스트 설정에서 게스트의 입장이나 마지막 게스트의 퇴장이 Claude의 응답 방식을 바꾸면 Slack 채널에 짧은 안내를 추가한다.",
+     "[Claude Tag] 워크스페이스가 Enterprise Grid에 합류하기 전에 Claude에 연결된 Slack 워크스페이스에서 예약 루틴이 조용히 실패하던 문제를 수정했다.",
+     "[Claude Tag] 파일이 아니라 일시적인 파일 검사 장애가 원인인데도 Slack 파일을 다시 올리라고 하던 문제를 수정했다. 검사를 재시도하고 검사기 장애를 알린다.",
+     "[Claude Tag] Slack 답변에서 +, - 또는 *로 시작하는 글머리 텍스트가 빈 글머리와 중첩 항목으로 표시되던 문제를 수정했다. 해당 문자를 유지한 하나의 글머리로 표시한다.",
+     "[Claude Tag] 클라우드 환경 설정 스크립트 실패 알림이 일반적인 재시도 안내로 나오던 문제를 수정했다. 이제 스크립트 이름과 먼저 수정하라는 안내를 표시한다.",
+     "[Claude Tag] 관리자 설정의 GitHub 배너가 연결되지 않은 이유를 표시한다. 로그인하지 않음, 앱 미연결/미설치, 로그인 만료, SSO 미승인 상태를 안내한다.",
+     "[Code Review] `REVIEW.md` 지침이 크기 제한 때문에 잘리거나 리뷰에서 제외되면 검사 실행 결과에 파일명과 제한 크기를 표시한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Claude Opus 5.5 기본 모델",
+      "what": "Claude Opus 5.5(`claude-opus-5-5`)를 추가했으며 기본 Opus 모델이 된다. 컨텍스트는 1M이고 요금은 입력/출력 Mtok당 $4/$20, 캐시 읽기는 $0.20/Mtok이다.",
+      "steps": [
+       "`claude-opus-5-5` 모델을 사용한다."
+      ],
+      "terminal": {
+       "title": "모델 식별자",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "새 기본 Opus 모델의 식별자다."
+        },
+        {
+         "kind": "ui",
+         "text": "`claude-opus-5-5`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "전체 화면 목록 마우스 지원",
+      "what": "전체 화면 모드의 `/skills` 목록은 휠로 스크롤하고 `/plugin`의 스킬 상태 옵션은 마우스로 선택할 수 있다.",
+      "steps": [
+       "전체 화면에서 `/skills` 목록을 휠로 스크롤한다.",
+       "`/plugin`에서 스킬 상태 옵션을 클릭한다."
+      ],
+      "terminal": {
+       "title": "목록 조작",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /skills"
+        },
+        {
+         "kind": "cmd",
+         "text": "> /plugin"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "MCP 설명 길이 제한 설정",
+      "what": "세션의 모든 MCP 서버에 대해 도구 설명과 서버 지침의 2,048자 제한을 바꾸는 `CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH`를 추가했다.",
+      "steps": [
+       "`CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH`를 설정해 기본 2,048자 제한을 바꾼다."
+      ],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "모든 세션 MCP 서버의 도구 설명과 서버 지침에 적용된다. 원문은 설정값 예시를 제공하지 않는다."
+        },
+        {
+         "kind": "ui",
+         "text": "`CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "훅 완료 이벤트 출력 정보",
+      "what": "`hook_execution_complete` OpenTelemetry 이벤트에 훅 출력 크기와 파일로 저장된 초과 출력 수를 추가했다.",
+      "steps": [],
+      "terminal": {
+       "title": "OpenTelemetry 이벤트",
+       "lines": [
+        {
+         "kind": "ui",
+         "text": "`hook_execution_complete`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 85,
+      "title": "VS Code 상태 대화상자",
+      "what": "[VSCode] 세션 버전, 계정, 모델, 서버 정보를 보여주는 Status 대화상자와 입력형 `/status`를 추가했다.",
+      "steps": [
+       "패널 메뉴에서 Status 대화상자를 연다.",
+       "또는 `/status`를 입력한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /status"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 86,
+      "title": "VS Code 샌드박스 대화상자",
+      "what": "[VSCode] 샌드박스 모드, 샌드박스 미적용 대체 동작, 제외 명령을 보여주는 Sandbox 대화상자를 추가했다. 패널 메뉴나 `/sandbox` 입력으로 연다.",
+      "steps": [
+       "패널 메뉴에서 Sandbox 대화상자를 연다.",
+       "또는 `/sandbox`를 입력한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /sandbox"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 87,
+      "title": "Claude in Chrome 대화상자",
+      "what": "[VSCode] 확장 상태, 설치·재연결·권한 페이지, 기본 활성화 설정을 다루는 Claude in Chrome 대화상자를 추가했다. 패널 메뉴나 `/chrome` 입력으로 연다.",
+      "steps": [
+       "패널 메뉴에서 Claude in Chrome 대화상자를 연다.",
+       "또는 `/chrome`을 입력한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /chrome"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 88,
+      "title": "대화 내보내기",
+      "what": "[VSCode] 대화를 일반 텍스트로 복사하거나 저장하는 대화 내보내기와 입력형 `/export`를 추가했다.",
+      "steps": [
+       "`/export`를 입력한다.",
+       "대화를 일반 텍스트로 복사하거나 저장한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /export"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 89,
+      "title": "Slash commands의 스킬 정보",
+      "what": "[VSCode] Slash commands 대화상자에 스킬 출처, 토큰 추정치, 켜짐/꺼짐 상태를 표시하고 클릭으로 상태를 바꾸게 했다. 이를 여는 입력형 `/skills`도 추가했다.",
+      "steps": [
+       "`/skills`를 입력해 Slash commands 대화상자를 연다.",
+       "스킬의 출처, 토큰 추정치, 상태를 확인한다.",
+       "스킬을 클릭해 켜거나 끈다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /skills"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 90,
+      "title": "VS Code plan 명령",
+      "what": "[VSCode] plan mode로 전환하고 첫 계획 프롬프트를 보내거나 세션 계획을 보여주는 입력형 `/plan`을 추가했다.",
+      "steps": [
+       "`/plan`을 입력한다.",
+       "plan mode로 전환하고 첫 계획 프롬프트를 보내거나 세션 계획을 확인한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /plan"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 91,
+      "title": "붙여넣은 텍스트 표시",
+      "what": "[VSCode] 채팅창에 800자 초과 또는 줄바꿈 2개 초과 텍스트를 붙여넣으면 Claude가 직접 입력과 구분하도록 표시한다.",
+      "steps": [
+       "채팅창에 텍스트를 붙여넣는다.",
+       "800자를 넘거나 줄바꿈이 2개보다 많으면 Claude가 붙여넣기로 구분할 수 있도록 표시된다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 92,
+      "title": "보이지 않는 유니코드 문자 정리",
+      "what": "[VSCode] 채팅창에 붙여넣은 텍스트의 보이지 않는 유니코드 서식 및 태그 문자를 알림과 함께 제거한다. 그 외 입력도 전송 전에 제거한다.",
+      "steps": [
+       "채팅창에 텍스트를 붙여넣는다.",
+       "붙여넣은 텍스트의 보이지 않는 서식 및 태그 문자는 알림과 함께 제거된다.",
+       "나머지 입력도 전송 전에 정리된다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 93,
+      "title": "현재 편집기 그룹 옆에 열기",
+      "what": "[VSCode] “Open in New Tab”을 선택하면 Claude가 마지막 그룹 뒤가 아니라 현재 작업 중인 편집기 그룹 옆에 열린다.",
+      "steps": [
+       "“Open in New Tab”을 선택한다.",
+       "Claude가 현재 작업 중인 편집기 그룹 옆에 열린다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 94,
+      "title": "세션 effort 표시 수정",
+      "what": "[VSCode] effort 칩이 세션의 실제 수준 대신 오래된 저장 수준을 표시하던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 95,
+      "title": "Python 환경 대기 후 시작",
+      "what": "[VSCode] Python 확장 활성화가 멈춰 Claude Code가 시작되지 않던 문제를 수정했다. 60초 동안 Python 환경이 준비되지 않으면 환경 없이 시작한다.",
+      "steps": [
+       "Claude Code를 시작한다.",
+       "Python 확장 활성화가 60초 동안 완료되지 않으면 Python 환경 없이 시작한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 96,
+      "title": "계획 승인 카드 자동 모드 선택지",
+      "what": "[VSCode] 자동 모드를 쓸 수 있을 때 계획 승인 카드 첫 선택지에 터미널과 동일하게 “Yes, and use auto mode”를 표시한다.",
+      "steps": [
+       "자동 모드를 사용할 수 있는 계획 승인 카드에서 첫 선택지를 고른다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 97,
+      "title": "세션 목록 키보드 탐색",
+      "what": "[VSCode] 키보드로 세션을 보관하거나 보관 해제한 뒤 세션 목록의 화살표 키 탐색이 멈추던 문제를 수정했다.",
+      "steps": [
+       "키보드로 세션을 보관하거나 보관 해제한다.",
+       "화살표 키로 세션 목록을 계속 탐색한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 98,
+      "title": "붙여넣기 표시 복원 수정",
+      "what": "[VSCode] 세션을 다시 열었을 때 붙여넣기 표시 줄이 자신의 메시지에 나타나던 문제를 수정했다.",
+      "steps": [
+       "세션을 다시 연다.",
+       "자신의 메시지에 붙여넣기 표시 줄이 나타나지 않는다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-09-22-app",
@@ -24265,7 +25071,101 @@
     }
    ],
    "hash": "8877010054fc",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "작업 완료·권한 요청·질문에 사용할 알림음을 설정할 수 있다. 세션 오류로 앱이 시작되지 않을 때 복구 대화상자가 제공된다.",
+    "items": [
+     "작업 완료, 권한 요청, 질문 알림음을 Default, Classic, None 중에서 선택할 수 있다. macOS에서는 시스템 사운드 선택이나 오디오 파일 가져오기도 지원한다.",
+     "앱 시작을 막는 세션 오류가 발생하면 로그인 복구 대화상자가 표시된다.",
+     "워크트리 설정이 끝난 뒤에도 Rename 대화상자에 채팅 제목을 보존한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "알림음 설정",
+      "what": "작업 완료, 권한 요청, 질문에 대한 알림음 설정을 추가한다. Default, Classic, None을 선택할 수 있으며, macOS에서는 시스템 사운드나 가져온 오디오 파일도 선택할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "알림음 설정",
+         "note": "작업 완료, 권한 요청, 질문 알림음을 선택한다.",
+         "changed": true
+        },
+        {
+         "title": "소리 선택",
+         "note": "Default, Classic, None 중 하나를 고른다. macOS에서는 시스템 사운드 또는 오디오 파일도 선택할 수 있다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "시작 오류 로그인 복구",
+      "what": "앱 시작을 막는 세션 오류를 위한 로그인 복구 대화상자를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "세션 오류",
+         "note": "앱 시작을 막는 세션 오류가 발생한다.",
+         "changed": false
+        },
+        {
+         "title": "로그인 복구",
+         "note": "복구 대화상자를 이용한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "채팅 제목 보존",
+      "what": "워크트리 설정이 완료되면 Rename 대화상자에서 채팅 제목을 보존한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "워크트리 설정 완료",
+         "note": "워크트리 설정이 끝난다.",
+         "changed": false
+        },
+        {
+         "title": "Rename 대화상자",
+         "note": "채팅 제목이 보존된다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-09-22-gpt-6-sol-luna",
@@ -24311,7 +25211,55 @@
     }
    ],
    "hash": "902fe44efc63",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-6 Sol과 GPT-6 Luna가 GPT-5.6 이전 모델보다 낮은 토큰 가격으로 Codex와 ChatGPT Work에 순차 제공된다. 플랜·워크스페이스 설정에 따라 이용 가능 여부가 달라지며 ChatGPT의 Chat에서는 제공되지 않는다.",
+    "items": [
+     "GPT-6 Sol과 GPT-6 Luna가 GPT-5.6 이전 모델보다 낮은 토큰 가격으로 Codex와 ChatGPT Work에 순차 제공된다. Sol은 복잡한 코딩과 에이전트 작업, Luna는 집중적인 대량 작업에 적합하다.",
+     "두 모델은 Plus, Pro, Business, Enterprise, Edu 사용자에게 순차 제공된다. Free와 Go 사용자는 데스크톱 앱에서 Luna를 사용할 수 있다. 제공 여부는 배포와 워크스페이스 설정에 따라 다르며 Enterprise 관리자는 새 모델을 활성화해야 한다. ChatGPT에서는 Work와 Codex에서 제공되고 Chat에서는 제공되지 않는다.",
+     "사용 가능한 경우 모델 선택기에서 선택한다. CLI에서는 `/model`을 사용하거나 `codex --model gpt-6-sol`, `codex --model gpt-6-luna`로 작업을 시작한다.",
+     "모델 선택 및 이전 안내는 Models, 크레딧 요율과 사용량은 Pricing, 관리자 제어는 Workspace model availability를 참조한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "플랜별 모델 제공 범위",
+      "what": "GPT-6 Sol과 GPT-6 Luna는 Plus, Pro, Business, Enterprise, Edu 사용자에게 순차 제공된다. Free와 Go 사용자는 데스크톱 앱에서 Luna를 이용할 수 있으며, 실제 제공 여부는 배포와 워크스페이스 설정에 좌우된다. Enterprise 관리자는 새 모델을 활성화해야 하고 ChatGPT에서는 Work와 Codex에서만 사용할 수 있다.",
+      "steps": [
+       "지원 플랜과 배포 상태를 확인한다.",
+       "Enterprise 워크스페이스에서는 관리자가 새 모델을 활성화한다.",
+       "ChatGPT에서는 Work 또는 Codex에서 모델을 사용한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "모델 이용 가능 여부",
+         "note": "배포 및 워크스페이스 설정에 따라 달라진다.",
+         "changed": true
+        },
+        {
+         "title": "Enterprise 설정",
+         "note": "관리자가 새 모델을 활성화해야 한다.",
+         "changed": true
+        },
+        {
+         "title": "ChatGPT 위치",
+         "note": "Work와 Codex에서 제공되며 Chat에서는 제공되지 않는다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.278",
@@ -24337,7 +25285,41 @@
     }
    ],
    "hash": "a3bee9ba8554",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "자동 모드 분류가 서버 측 분류기를 기본으로 사용한다. `/status`에서 이번 세션의 분류기 실행 위치를 확인할 수 있다.",
+    "items": [
+     "Claude API·Enterprise 사용자와 Bedrock, Vertex, Foundry 및 게이트웨이에서 자동 모드는 서버 측 분류기를 기본 사용하며, 분류 오버헤드 비용은 청구되지 않는다. Bedrock, Vertex, Foundry 및 게이트웨이에서는 `CLAUDE_CODE_AUTO_MODE_SERVER=0`으로 해제할 수 있고, 비용이 청구되는 대체 경로로 전환되면 경고한다.",
+     "`/status`에 자동 모드 분류기가 서버에서 실행되는지 보여주는 `Auto mode server` 행을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "서버 분류기 상태 표시",
+      "what": "`/status`에 `Auto mode server` 행을 추가한다. 이 행은 현재 세션의 자동 모드 분류기가 서버에서 실행되는지 보여준다.",
+      "steps": [
+       "`/status`를 확인한다.",
+       "`Auto mode server` 행에서 분류기 실행 위치를 확인한다."
+      ],
+      "terminal": {
+       "title": "확인 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /status"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.155.1",
@@ -24357,7 +25339,14 @@
     }
    ],
    "hash": "d0135b0a94fc",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "새 로컬 TUI 세션에서 reasoning summary가 기본 비활성화되어, 이를 지원하지 않는 provider의 요청 거부를 방지한다. 명시적으로 설정한 값은 계속 적용된다.",
+    "items": [
+     "새 로컬 TUI 세션은 reasoning summary를 기본 비활성화해 해당 기능을 지원하지 않는 provider의 요청 거부를 방지한다. 명시적으로 설정한 reasoning summary 값은 그대로 적용된다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.277",
