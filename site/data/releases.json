@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T11:54:08.994Z",
+ "generatedAt": "2026-10-18T11:55:15.571Z",
  "windowDays": 90,
  "releases": [
   {
@@ -29033,7 +29033,710 @@
     }
    ],
    "hash": "b6a475acc39a",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "메모리 위험 경고, MCP 대기 시간 제어, 관측 데이터 및 게이트웨이 설정이 추가된다. VS Code에서는 재로드 후 단계 이어하기와 메모리·지침 관리 기능을 제공하고 여러 편집기 및 접근성 문제를 수정한다.",
+    "items": [
+     "메모리 사용량이 위험 수준일 때 이를 알리고, 메모리 확보 또는 안전한 재시작 방법을 안내한다.",
+     "첫 비대화형 턴에서 연결 중인 MCP 서버를 기다리는 시간을 제한하는 환경 변수를 추가한다.",
+     "OpenTelemetry의 `claude_code.llm_request` 추적 구간에 `api_request` 이벤트와 같은 `effort` 속성을 추가한다.",
+     "관리 설정 출처와 정책 헬퍼 상태를 기록하는 OTel 이벤트를 추가하고, 설정과 다이제스트는 지정 환경 변수 사용 시 마스킹해 기록한다.",
+     "게이트웨이의 Postgres 연결 대기 시간을 늘리는 설정을 추가하고, DB 연결 불가 부팅 오류에 관련 설정과 제한 시간을 표시한다.",
+     "Claude apps gateway를 통해 전송되는 Desktop 및 Cowork 텔레메트리에 IdP 주체를 추가한다.",
+     "복제본의 미처리 요청이 동시 상향 전송 한도를 넘으면 경고하고, 시작 로그에 한도를 표시한다.",
+     "전체 화면에서 접힌 팀원 및 에이전트 메시지를 클릭해 펼칠 수 있다.",
+     "`unexpected tool_use_id` 400 오류로 세션이 무한 재시도하던 문제를 수정한다. 손상된 대화 기록은 가능한 경우 복구하고, 불가능하면 `/rewind` 안내가 포함된 오류로 재시도 루프를 끝낸다.",
+     "첫 요청에 422 등 4xx를 반환하는 레거시 HTTP+SSE 전용 `http` MCP 서버가 연결되지 않던 문제를 수정한다.",
+     "서버별 `timeout`을 더 길게 설정해도 Streamable HTTP MCP 호출이 약 5분 뒤 시간 초과되던 문제를 수정한다.",
+     "서버가 `listChanged`를 선언하지 않고 목록 변경 알림을 보낼 때 MCP 프롬프트와 리소스가 갱신되지 않던 문제를 수정한다.",
+     "403 `insufficient_scope` MCP 호출 거부를 로그인 만료로 잘못 표시하던 문제를 수정한다. 오류에 누락 권한을 표시하고 `/mcp` 재인증을 안내한다.",
+     "반응형 압축 뒤 문맥이 다시 넘친 훅 기반 세션이 압축 대신 “Prompt is too long”으로 끝나던 문제를 수정한다.",
+     "압축된 세션을 `--continue` 또는 `--resume`으로 재개할 때 활성 `/goal`이 사라지던 문제를 수정한다.",
+     "자동 업데이트 후 재실행 시 `claude agents`의 여러 옵션이 사라지던 문제를 수정한다.",
+     "언어 서버가 수천 파일의 프로젝트 전체 진단을 게시할 때 턴마다 느려지던 문제를 수정한다.",
+     "Bedrock, Vertex, Foundry에서 모델 계열을 식별할 수 없는 ID를 쓸 때 `opus` 하위 에이전트가 세션 모델을 바꾸던 문제를 수정한다. 지정 기본 모델이 있으면 예외다.",
+     "토큰 갱신이 몇 차례 실패한 자체 호스팅 러너가 다음 정기 갱신까지 매 턴 401을 내던 문제를 수정한다. 이제 재시도하고 401 뒤 새 토큰을 가져온다.",
+     "VS Code 등 `file://` URI가 필요한 터미널에서 로컬 파일 링크가 동작하지 않던 문제를 수정한다.",
+     "대화 기록이 사용자가 입력한 순서 목록 번호를 다시 매기던 문제를 수정해 숫자와 “N)” 표식을 입력 그대로 표시한다.",
+     "AskUserQuestion 미리보기 메모가 강조된 선택지가 아닌 이전 선택 항목에 붙던 문제를 수정한다.",
+     "AskUserQuestion 미리보기에서 Enter로 메모를 제출하면 강조 선택지가 사라지던 문제를 수정한다.",
+     "중단된 도구 묶음 중 하나를 메시지와 함께 승인한 뒤 재개한 백그라운드 에이전트가 묶음 일부를 유지하던 문제를 수정한다.",
+     "중단된 턴 재개 환경 변수와 함께 로컬 `claude -p --resume`을 실행해도 이전 프로세스의 미완료 백그라운드 작업을 보고하지 않던 문제를 수정한다.",
+     "연결 중인 SDK 호스팅 MCP 서버의 도구 없이 클라우드 세션 첫 턴이 시작되던 문제를 수정한다.",
+     "자체 백그라운드 작업을 기다리며 재개될 에이전트에 대해 작업이 없다고 알리던 문제를 수정한다.",
+     "Claude Desktop 세션의 오류 안내가 사용할 수 없는 CLI 옵션 대신 `/usage-credits` 같은 슬래시 명령을 제안하도록 수정한다.",
+     "루틴 목록 형식으로 작성된 프롬프트를 `/schedule`이 저장할 때 메시지 역할을 누락하던 문제를 수정한다.",
+     "오류 배너가 확인하라고 안내한 `apiKeyHelper` 실패가 `/status`에 표시되지 않던 문제를 수정한다.",
+     "조직 관리 정책으로 빠른 모드가 비활성화된 비대화형 세션에서 `/fast on`이 켜졌다고 잘못 보고하던 문제를 수정한다.",
+     "최신 버전을 읽지 않은 세션이 Artifact 업데이트 승인을 요청한 뒤 업데이트를 거부하던 문제를 수정한다.",
+     "네트워크가 켜진 Cowork 및 claude.ai 클라우드 세션이 팀원의 아티팩트 읽기를 네트워크가 꺼진 경우처럼 처리하던 문제를 수정한다.",
+     "자체 Git 저장소가 없는 플러그인 디렉터리가 상위 저장소의 버전을 가져가던 문제를 수정한다.",
+     "빈 `--mcp-config`와 함께 `--strict-mcp-config`를 썼을 때 관련 없는 MCP 서버 때문에 첫 비대화형 턴이 오래 대기하던 문제를 수정한다.",
+     "Stop 프롬프트 훅이 대화의 매 차단마다 전체 프롬프트를 재전송하던 문제를 수정한다. 반복 차단에는 조건을 500자 라벨로 표시한다.",
+     "Linux Wayland에서 Cursor 또는 VS Code 터미널을 사용할 때 시작 시 빈 편집기 창이 추가로 열리던 문제를 수정한다.",
+     "지출 확인 중 Postgres 연결이 끊길 때 Claude apps gateway에서 처리되지 않은 Promise 거부가 발생하던 문제를 수정한다.",
+     "SIGTERM 때 gateway가 열린 스트림을 모두 끊던 문제를 수정한다. 이제 진행 중 요청을 최대 25초간 마친 뒤 종료한다.",
+     "원격 관리 설정의 플러그인 정책 때문에 시작 때마다 `installed_plugins.json`을 다시 써 Desktop이 열린 세션의 플러그인을 재로드하던 문제를 수정한다.",
+     "헤드리스 및 SDK 세션이 완료된 백그라운드 작업마다 별도 모델 호출을 하던 문제를 수정한다. 대기 중 완료 건은 한 번의 호출로 처리한다.",
+     "플러그인 재로드 때마다 Bash 도구가 셸 프로필을 다시 읽어 다음 명령이 느려지던 문제를 수정한다. 이제 플러그인의 `bin/` 디렉터리가 바뀐 경우에만 다시 읽는다.",
+     "`hooks/hooks.json` 최상위 `$schema`가 “unknown key” 안내를 띄우던 문제를 수정한다.",
+     "MCP 연결 오류와 로그인 도구 설명에 설정의 `${VAR}` 자리표시자에서 해석된 비밀 값이 노출되던 문제를 수정한다.",
+     "특정 특수 셸 변수를 반복 처리하거나 대입하는 Bash 명령도 권한을 요청하도록 수정한다.",
+     "worktree 격리 세션에서 특정 중첩 셸 확장 명령을 허용하던 문제를 수정해 이제 거부한다.",
+     "멀티바이트 문자가 있는 파일에서 Edit 권한 미리보기 위치가 승인된 편집 위치와 다를 수 있던 문제를 수정한다.",
+     "약한 메모리 압박에서도 유휴 30분 뒤 백그라운드 명령이 중단되던 문제를 수정한다. 이제 메모리가 위험하게 낮을 때만 중단하고 디버그 로그에 이유를 남긴다.",
+     "재실행 뒤 하위 에이전트가 메인 세션에 보낸 메시지가 Claude Desktop 기록에서 사라지던 문제를 수정한다.",
+     "겹치는 재로드가 여러 번 발생하면 `.zip` 플러그인이 오래된 압축 해제본을 제공하던 문제를 수정한다.",
+     "하위 에이전트의 진행 요약이 장황한 여러 문단 답변으로 바뀌던 문제를 수정한다.",
+     "`--input-format stream-json` 세션의 첫 턴은 검색이 미루는 도구를 가진 MCP 서버 연결을 최대 2초 기다리지 않는다. 해당 도구는 이후 턴에 제공된다.",
+     "Monitor 도구에서 스크립트 최종 출력과 종료 알림을 하나로 합쳐 모델 턴을 줄인다.",
+     "claude.ai에 로그인하지 않았을 때 Artifact 도구의 첫 오류부터 이를 알리고, 거부된 호출을 더 빨리 재시도하지 않도록 한다.",
+     "이전 버전을 기반으로 한 아티팩트 게시를 전송 전에 중단하고 병합할 최신 페이지를 안내한다.",
+     "하위 모듈 체크아웃이 포함된 에이전트 worktree 제거 전 안전 확인을 개선한다.",
+     "원시 API 본문 파일 출력에 응답과 요청 파일 및 대화 메시지를 연결하는 인덱스와 이벤트 속성을 추가한다.",
+     "Claude apps gateway가 첫 Postgres 연결을 최대 세 번 시도한 뒤 종료해, DB 연결이 몇 초 늦어도 부팅을 계속한다.",
+     "부하 중 gateway 지출 한도 확인의 DB 왕복을 네 번에서 한 번으로 줄여 시간 초과를 줄인다.",
+     "로그인 속도 제한 오류에서 `/login`이 거부 이유를 설명하고 로그가 발동한 제한과 변경할 설정을 알려준다.",
+     "Bedrock, Vertex, Foundry 및 텔레메트리 비활성 설치도 직접 HTTP 서버에 기본적으로 MCP v2 클라이언트와 2026-07-28 협상을 사용한다. 지정 환경 변수로 이전 동작을 선택할 수 있다.",
+     "`/code-review`가 자체 튜닝 설정이 없는 모든 모델에 더 간결한 인라인 검토 프롬프트를 사용한다. 다수의 검토 하위 에이전트를 생성하지 않는다.",
+     "`.mcp.json`, 설정, 플러그인 및 에이전트 파일의 SDK 유형 MCP 항목을 경고와 함께 건너뛴다. 인프로세스 서버는 SDK 호스트 앱만 등록할 수 있다.",
+     "로컬 세션에서 다른 곳에 게시된 새 아티팩트 버전이 더 이상 새 턴을 시작하지 않는다. Claude는 이후 Artifact 도구 결과에서 이를 알게 된다.",
+     "플러그인 및 마켓플레이스 복제본은 Git LFS 파일을 다운로드하지 않고 포인터로 둔다. 체크아웃에서 `git lfs pull`로 가져온다.",
+     "접근 확인에서 Git 호스트가 거부한 읽기 전용 저장소를 자체 호스팅 러너가 건너뛰어 세션 시작 실패를 방지한다.",
+     "`/status`의 GitHub 표기를 “Cloud sessions”로 바꾸고 관련 메시지에서 “Claude Code on the web” 대신 “cloud session”을 사용한다.",
+     "창 재로드로 중단된 단계를 이어서 실행하며, 이어 실행된다는 점을 채팅에 표시한다. 설정으로 이 기능을 끌 수 있다.",
+     "Customize 메뉴에 Memory와 Instructions 항목을 추가한다. Memory에서는 자동 메모리 토글, 저장된 메모리와 메모리 폴더를 보고, Instructions에서는 `CLAUDE.md` 파일을 편집한다.",
+     "Claude가 여는 편집기 그룹을 잠그지 않도록 `claudeCode.lockEditorGroups` 설정을 추가한다.",
+     "새 대화 초반의 `/btw` 질문에 다른 세션의 질문 기록이 간혹 보이던 문제를 수정한다.",
+     "확장 프로그램이 전역 gitignore 파일을 처음 찾을 때 잠시 멈추던 문제를 수정한다.",
+     "Claude가 도구를 실행하는 중 보낸 메시지가 창 재로드 뒤 대화에서 사라지던 문제를 수정한다.",
+     "플러그인 관리 활성화 토글과 MCP 서버 대화상자 행을 키보드로 조작할 수 없던 문제를 수정한다.",
+     "환경 변수 설정에서 `CLAUDE_CONFIG_DIR`을 바꾼 뒤 터미널에서 한 로그인 상태 변경이 재로드 전까지 반영되지 않던 문제를 수정한다.",
+     "일부 패널 폭과 긴 줄 바꿈에서 채팅의 Edit diff 하단이 잘리던 문제를 수정해 표시된 행에 맞게 상자 크기를 조정한다.",
+     "확장 프로그램의 설정 동시 쓰기로 `~/.claude/settings.json` 파싱이 깨지거나 설정이 누락되던 문제를 수정한다.",
+     "새 탭에서 메시지 입력란에 초점이 없어 클릭 전까지 입력이 되지 않던 문제를 수정한다.",
+     "닫힌 Claude 탭을 다시 열 때 잠긴 그룹에 다른 Claude 탭과 파일이 있으면 편집기 레이아웃이 분리되던 문제를 수정한다.",
+     "Claude 탭과 파일 탭이 같은 그룹에 있을 때 새 세션이 다른 잠긴 편집기 그룹을 열던 문제를 수정한다.",
+     "검색어 입력 중 세션 선택기 이름이 옆으로 움직이던 문제를 수정한다.",
+     "계획에 의견이 여러 개일 때 검토 카드의 피드백 전송 버튼과 사유 입력란이 잘리던 문제를 수정해 의견 목록을 스크롤할 수 있게 한다.",
+     "고대비 테마에서 채팅 답변의 인라인 코드와 코드 블록을 읽기 어려운 문제를 수정한다.",
+     "스크린 리더가 각 대화 메시지를 “You” 또는 “Claude”로, 도구 단계는 도구 이름과 함께 읽도록 탐색을 개선한다.",
+     "`XDG_CONFIG_HOME`이 절대 경로일 때 기본 전역 gitignore 파일을 `$XDG_CONFIG_HOME/git/ignore`로 변경한다.",
+     "클라우드 세션 diff 보기에서 기준 브랜치뿐 아니라 원하는 브랜치와 비교하는 선택기를 추가한다.",
+     "GitHub 토큰 갱신이 잠시 실패할 때 클라우드 세션의 Git 작업이 서비스 불가 오류를 내던 문제를 수정한다.",
+     "루틴 편집이 간혹 두 번 실행되거나 방금 일시 중지한 루틴을 다시 켜던 문제를 수정한다.",
+     "인증 정보 갱신 뒤 몇 분간 클라우드 세션 커밋이 서명 오류로 실패하던 문제를 수정한다.",
+     "GitHub 트리거를 연결하지 못한 루틴 저장 알림에 저장소별 제한 등 구체적 이유를 표시한다.",
+     "세션을 읽음으로 표시한 직후 다시 읽지 않음으로 바뀌던 문제를 수정한다.",
+     "소유자의 GitHub 연결이 없으면 루틴을 끄는 대신 실행을 건너뛰고 최대 72시간 재시도한다.",
+     "구독이 일시 중지된 루틴 안내가 자동 재개를 약속하지 않고 직접 다시 켜도록 안내한다.",
+     "Claude Tag 관리자 설정의 채널 및 워크스페이스 추가 양식에서 게스트 정책을 미리 선택하는 설정을 추가한다.",
+     "다른 Slack 앱이나 봇이 Claude를 멘션해도 응답하고, 며칠간 추적을 멈춘 채널에서도 다시 깨우도록 수정한다.",
+     "새 Slack 채널 생성 직후 Claude를 멘션한 다른 앱 메시지가 누락되던 문제를 수정해 Claude가 참여한 뒤 전달한다.",
+     "몇 분 뒤 보낸 후속 메시지가 조용한 편집으로 합쳐지던 문제를 수정해 알림이 가는 새 답글로 게시한다.",
+     "단일 채널 검색이 오류를 내던 문제를 수정해 일치하는 메시지를 반환한다.",
+     "안전 필터로 중단될 때 대기자가 없으면 스레드 문맥이 조용히 초기화되던 문제를 수정한다. 이제 이를 알리고 실행 중인 백그라운드 작업을 취소하지 않는다.",
+     "Slack 답변의 이메일 주소에 `mailto:`가 보이던 문제를 수정해 일반 클릭 가능 주소로 표시한다.",
+     "다른 워크스페이스에서 요청해도 조직 전체에 공유된 Enterprise Grid 채널을 추적하도록 수정한다.",
+     "보관되었거나 앱이 만든 환경에서 환경 선택기가 ID 대신 이름을 표시하도록 수정한다.",
+     "Slack의 실시간 진행 체크리스트를 2,000자로 제한하고 바쁜 스레드에서 최대 15분마다 다시 게시한다. 이전 작업 목록 링크도 갱신한다.",
+     "“Channel only” 게스트 설정 채널의 Slack canvas를 수정할 때마다 반복되던 게스트 표시 문구를 제거한다.",
+     "재검토에서 더 낮은 심각도의 메모가 추가되면 이미 해결된 발견 항목의 스레드가 열린 채 남던 문제를 수정한다.",
+     "GitHub 또는 내부 서비스의 일시적 시작 오류로 검토가 실패하던 드문 문제를 수정해 기다렸다가 재시도한다.",
+     "코드 검토 발견 내용을 짧고 평이한 문장으로 바꾸고 영향 대상, 문제 위치, 수정 방법을 앞에 둔다.",
+     "조직 한도 때문에 검토를 건너뛸 때 각 원인에 해결할 관리자 페이지 링크를 표시한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "위험 수준 메모리 경고",
+      "what": "메모리 사용량이 위험 수준에 도달하면 눈에 보이는 경고를 표시한다. 메모리를 확보하거나 안전하게 재시작하는 방법을 안내한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "MCP 시작 대기 시간 제한",
+      "what": "`CLAUDE_CODE_MCP_STARTUP_WAIT_MS`로 첫 비대화형 턴이 연결 중인 MCP 서버를 기다리는 시간을 제한한다. 값 `0`은 기다리지 않는다는 뜻이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "대기 시간을 밀리초 단위로 지정한다. 값 예시는 원문에 정해져 있지 않다."
+        },
+        {
+         "kind": "cmd",
+         "text": "$ CLAUDE_CODE_MCP_STARTUP_WAIT_MS=<milliseconds>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "LLM 요청 추적의 effort 속성",
+      "what": "`claude_code.llm_request` OpenTelemetry trace span에 `effort` 속성을 추가한다. 이 속성은 `api_request` 이벤트와 일치한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "관리 설정 해석 OTel 이벤트",
+      "what": "`claude_code.managed_settings_resolved` 이벤트에 관리 설정 출처와 정책 헬퍼 상태를 기록한다. `OTEL_LOG_MANAGED_SETTINGS=1`일 때 설정과 다이제스트를 마스킹해 기록한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "관리 설정 로그에 마스킹된 설정과 다이제스트를 포함한다."
+        },
+        {
+         "kind": "cmd",
+         "text": "$ OTEL_LOG_MANAGED_SETTINGS=1"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "Postgres 연결 제한 시간 설정",
+      "what": "`store.connect_timeout_seconds`로 Claude apps gateway의 Postgres 연결 제한 시간을 늘릴 수 있으며 기본값은 5초다. 데이터베이스에 연결할 수 없을 때 부팅 오류는 `store.postgres_url`과 설정된 제한 시간을 안내한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 5,
+      "title": "게이트웨이 텔레메트리의 IdP 주체",
+      "what": "Claude apps gateway를 통해 전송하는 Claude Desktop 및 Cowork 텔레메트리에 IdP subject인 `enduser.sub`를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 6,
+      "title": "게이트웨이 동시 요청 한도 경고",
+      "what": "복제본에 열린 요청이 상향 전송 한도인 256개보다 많으면 경고한다. 시작 로그에도 해당 한도를 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 7,
+      "title": "전체 화면 메시지 펼치기",
+      "what": "전체 화면에서 접힌 팀원 및 에이전트 메시지를 클릭해 펼칠 수 있다.",
+      "steps": [
+       "전체 화면으로 전환한다.",
+       "접힌 팀원 또는 에이전트 메시지를 클릭해 펼친다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 67,
+      "title": "재로드 뒤 단계 이어하기",
+      "what": "창 재로드로 중단된 단계를 이어서 실행하며, 채팅에서 이어 실행된 단계라고 표시한다. `Claude Code: Continue After Reload` 설정으로 기능을 끌 수 있다.",
+      "steps": [
+       "창을 다시 불러온 뒤 중단된 단계가 이어 실행되는지 확인한다.",
+       "기능을 끄려면 `Claude Code: Continue After Reload` 설정을 사용한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "창 재로드",
+         "note": "재로드가 단계를 중단하면 이어서 실행한다.",
+         "changed": true
+        },
+        {
+         "title": "채팅 확인",
+         "note": "이어 실행된 단계가 채팅에 표시된다.",
+         "changed": true
+        },
+        {
+         "title": "설정",
+         "note": "`Claude Code: Continue After Reload` 설정으로 끌 수 있다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 68,
+      "title": "Customize의 Memory 및 Instructions",
+      "what": "Customize 메뉴에 Memory와 Instructions 항목을 추가한다. Memory는 자동 메모리 토글, 저장된 메모리와 메모리 폴더를 보여주며 Instructions는 `CLAUDE.md` 파일을 편집한다.",
+      "steps": [
+       "Customize 메뉴를 연다.",
+       "Memory에서 자동 메모리 설정, 저장된 메모리 및 폴더를 확인한다.",
+       "Instructions에서 `CLAUDE.md` 파일을 편집한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "Customize 메뉴",
+         "note": "Memory와 Instructions 항목을 연다.",
+         "changed": true
+        },
+        {
+         "title": "Memory",
+         "note": "토글, 저장된 메모리와 메모리 폴더를 확인한다.",
+         "changed": true
+        },
+        {
+         "title": "Instructions",
+         "note": "`CLAUDE.md` 파일을 편집한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 69,
+      "title": "편집기 그룹 잠금 설정",
+      "what": "`claudeCode.lockEditorGroups` 설정으로 Claude가 여는 편집기 그룹을 잠그지 않도록 할 수 있다.",
+      "steps": [
+       "`claudeCode.lockEditorGroups` 설정을 조정한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 70,
+      "title": "새 대화의 `/btw` 기록 분리",
+      "what": "새 대화 초반에 묻는 `/btw` 질문에 다른 세션의 질문 기록이 간혹 나타나던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "새 대화 초반에 묻는 `/btw` 질문에 다른 세션의 질문 기록이 간혹 나타나던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 71,
+      "title": "전역 gitignore 조회 멈춤 수정",
+      "what": "확장 프로그램이 전역 gitignore 파일을 처음 조회할 때 발생하던 짧은 멈춤을 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "확장 프로그램이 전역 gitignore 파일을 처음 조회할 때 발생하던 짧은 멈춤을 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 72,
+      "title": "재로드 후 메시지 보존",
+      "what": "도구 실행 중 보낸 메시지가 창 재로드 뒤 대화에서 사라지던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "도구 실행 중 보낸 메시지가 창 재로드 뒤 대화에서 사라지던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 73,
+      "title": "키보드 접근성 수정",
+      "what": "플러그인 관리 활성화 토글과 MCP 서버 대화상자 행을 키보드로 조작할 수 없던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "플러그인 관리 활성화 토글과 MCP 서버 대화상자 행을 키보드로 조작할 수 없던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 74,
+      "title": "환경 변수 변경 후 인증 상태 갱신",
+      "what": "Environment Variables 설정에서 `CLAUDE_CONFIG_DIR`을 바꾼 뒤 터미널에서 변경한 로그인 상태가 재로드 전까지 보이지 않던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "Environment Variables 설정에서 `CLAUDE_CONFIG_DIR`을 바꾼 뒤 터미널에서 변경한 로그인 상태가 재로드 전까지 보이지 않던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 75,
+      "title": "채팅 diff 잘림 수정",
+      "what": "일부 패널 폭과 긴 줄 바꿈에서 Edit diff 아래쪽이 잘리던 문제를 수정한다. diff 상자는 표시된 행에 맞게 조정된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "일부 패널 폭과 긴 줄 바꿈에서 Edit diff 아래쪽이 잘리던 문제를 수정한다. diff 상자는 표시된 행에 맞게 조정된다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 76,
+      "title": "설정 동시 쓰기 보호",
+      "what": "확장 프로그램의 겹치는 설정 쓰기로 `~/.claude/settings.json`이 파싱 불가해지거나 설정이 누락되던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "확장 프로그램의 겹치는 설정 쓰기로 `~/.claude/settings.json`이 파싱 불가해지거나 설정이 누락되던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 77,
+      "title": "새 탭 입력란 초점 수정",
+      "what": "Open in New Tab 뒤 입력란에 초점이 없어 클릭 전까지 입력이 되지 않던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "Open in New Tab 뒤 입력란에 초점이 없어 클릭 전까지 입력이 되지 않던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 78,
+      "title": "Claude 탭 재열기 레이아웃 수정",
+      "what": "잠긴 그룹에 다른 Claude 탭과 파일이 있을 때 닫힌 Claude 탭을 다시 열면 편집기 배치가 분리되던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "잠긴 그룹에 다른 Claude 탭과 파일이 있을 때 닫힌 Claude 탭을 다시 열면 편집기 배치가 분리되던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 79,
+      "title": "새 세션 편집기 그룹 수정",
+      "what": "Claude 탭과 파일 탭이 같은 그룹에 있을 때 새 세션이 다른 잠긴 편집기 그룹을 열던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "Claude 탭과 파일 탭이 같은 그룹에 있을 때 새 세션이 다른 잠긴 편집기 그룹을 열던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 80,
+      "title": "세션 선택기 이름 정렬",
+      "what": "검색어 입력 중 세션 선택기 이름이 옆으로 움직이던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "검색어 입력 중 세션 선택기 이름이 옆으로 움직이던 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 81,
+      "title": "계획 검토 카드 스크롤",
+      "what": "의견이 여러 개인 계획에서 피드백 버튼과 사유란이 잘리던 문제를 수정한다. 의견 목록을 스크롤할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "의견이 여러 개인 계획에서 피드백 버튼과 사유란이 잘리던 문제를 수정한다. 의견 목록을 스크롤할 수 있다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 82,
+      "title": "고대비 테마 코드 가독성",
+      "what": "고대비 테마에서 채팅의 인라인 코드와 코드 블록을 읽기 어려운 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "고대비 테마에서 채팅의 인라인 코드와 코드 블록을 읽기 어려운 문제를 수정한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 83,
+      "title": "스크린 리더 대화 탐색",
+      "what": "각 메시지를 “You” 또는 “Claude”로 알리고, 도구 단계에서는 도구 이름도 읽도록 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 84,
+      "title": "XDG 전역 gitignore 경로",
+      "what": "`XDG_CONFIG_HOME`이 절대 경로이면 기본 전역 gitignore 파일을 `$XDG_CONFIG_HOME/git/ignore`로 사용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "VS Code 사용",
+         "note": "`XDG_CONFIG_HOME`이 절대 경로이면 기본 전역 gitignore 파일을 `$XDG_CONFIG_HOME/git/ignore`로 사용한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-09-16-app",
@@ -29071,7 +29774,51 @@
     }
    ],
    "hash": "8b85d68791e3",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "앱 시작과 창을 다시 불러온 뒤에도 설정 경고가 계속 표시된다. Codex 질문의 답변 입력란에서 포커스와 정렬을 개선했다.",
+    "items": [
+     "설정과 채팅 사이에서 뒤로 가기가 멈추는 문제를 수정했다.",
+     "앱 시작과 창 새로고침 후에도 설정 경고가 표시된다.",
+     "Codex 질문의 답변 입력란에서 포커스와 정렬을 개선했다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "설정 경고 표시 유지",
+      "what": "앱 시작 후와 창을 다시 불러온 뒤에도 설정 경고가 계속 표시된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "답변 입력란 포커스와 정렬 개선",
+      "what": "Codex 질문에 대한 답변 입력란에서 포커스와 정렬을 개선했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.273",
