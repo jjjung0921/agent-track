@@ -1,29 +1,7 @@
 {
- "generatedAt": "2026-10-18T04:33:29.087Z",
+ "generatedAt": "2026-10-18T04:40:58.748Z",
  "windowDays": 90,
  "releases": [
-  {
-   "id": "codex@rust-v0.164.0-alpha.3",
-   "tool": "codex",
-   "version": "0.164.0-alpha.3",
-   "date": "2026-10-17T04:03:25Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.164.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.164.0-alpha.2",
-   "tool": "codex",
-   "version": "0.164.0-alpha.2",
-   "date": "2026-10-16T17:37:51Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.164.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
   {
    "id": "claude-code@2.1.302",
    "tool": "claude-code",
@@ -701,23 +679,13 @@
    }
   },
   {
-   "id": "codex@rust-v0.164.0-alpha.1",
-   "tool": "codex",
-   "version": "0.164.0-alpha.1",
-   "date": "2026-10-16T14:49:55Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.164.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.163.0",
    "tool": "codex",
    "version": "0.163.0",
    "date": "2026-10-15T21:30:38Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -993,17 +961,6 @@
      }
     ]
    }
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.10.2",
-   "tool": "codex",
-   "version": "0.163.0-alpha.10.2",
-   "date": "2026-10-15T18:26:31Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.10.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
   },
   {
    "id": "claude-code@2.1.301",
@@ -1664,17 +1621,6 @@
      }
     ]
    }
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.10.1",
-   "tool": "codex",
-   "version": "0.163.0-alpha.10.1",
-   "date": "2026-10-14T20:45:55Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.10.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
   },
   {
    "id": "claude-code@2.1.300",
@@ -2769,17 +2715,6 @@
      }
     ]
    }
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.11",
-   "tool": "codex",
-   "version": "0.163.0-alpha.11",
-   "date": "2026-10-14T03:27:29Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
   },
   {
    "id": "claude-code@2.1.299",
@@ -4721,47 +4656,41 @@
    }
   },
   {
-   "id": "codex@rust-v0.163.0-alpha.10",
+   "id": "codex@changelog:codex-2026-10-14-gpt-55-retirement",
    "tool": "codex",
-   "version": "0.163.0-alpha.10",
-   "date": "2026-10-13T19:04:12Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.9",
-   "tool": "codex",
-   "version": "0.163.0-alpha.9",
-   "date": "2026-10-13T15:47:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.8",
-   "tool": "codex",
-   "version": "0.163.0-alpha.8",
-   "date": "2026-10-13T13:14:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.5",
-   "tool": "codex",
-   "version": "0.163.0-alpha.5",
-   "date": "2026-10-10T00:26:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-5.5 retirement in Codex",
+   "date": "2026-10-14T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-14-gpt-55-retirement",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Effective October 14, 2026, at noon PDT (19:00 UTC), GPT-5.5 retires from Codex for users signed in with ChatGPT. The OpenAI API and Codex sessions authenticated with an API key aren’t affected.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Use GPT-6.1 Sol (gpt-6.1-sol) when available to your plan and client. Update workspace defaults, saved model settings, managed configurations, custom agents, scheduled tasks, and scripts that still select gpt-5.5.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See GPT-5.5 retirement for plan-specific replacements and workspace model availability for administrator guidance.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "68e1aac620f9",
    "ko": null
   },
   {
@@ -4771,6 +4700,7 @@
    "date": "2026-10-09T19:44:51Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -5642,36 +5572,41 @@
    }
   },
   {
-   "id": "codex@rust-v0.163.0-alpha.4",
+   "id": "codex@changelog:codex-2026-10-09-composer-predictions",
    "tool": "codex",
-   "version": "0.163.0-alpha.4",
-   "date": "2026-10-09T13:21:04Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.2",
-   "tool": "codex",
-   "version": "0.163.0-alpha.2",
-   "date": "2026-10-09T01:47:21Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.163.0-alpha.1",
-   "tool": "codex",
-   "version": "0.163.0-alpha.1",
-   "date": "2026-10-08T21:07:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Composer predictions in Codex",
+   "date": "2026-10-09T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-09-composer-predictions",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Composer predictions adds autocomplete-style suggestions for your next message in the Codex desktop app. After Codex responds, it uses the current conversation to suggest a follow-up prompt in the message box. Press Tab to accept the suggestion as an editable draft, or type your own message. Accepting a prediction doesn’t send it for you.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The feature is available in beta to users aged 18 and older with personal ChatGPT Pro plans in supported regions, in local and SSH threads with GPT-6 Astra and GPT-6.1 Sol.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn more about composer predictions.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "176777887ae9",
    "ko": null
   },
   {
@@ -5681,6 +5616,7 @@
    "date": "2026-10-08T18:55:59Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -7438,17 +7374,6 @@
    }
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.17.2",
-   "tool": "codex",
-   "version": "0.162.0-alpha.17.2",
-   "date": "2026-10-08T07:30:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.17.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.294",
    "tool": "claude-code",
    "version": "2.1.294",
@@ -7483,36 +7408,79 @@
    }
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.18.1",
+   "id": "codex@changelog:codex-2026-10-08-app",
    "tool": "codex",
-   "version": "0.162.0-alpha.18.1",
-   "date": "2026-10-08T02:47:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.18.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.1007",
+   "date": "2026-10-08T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-08-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed queued messages getting stuck on Sending and restored Steer in secondary app windows.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved scrolling and navigation between files in the Changes panel.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added clearer recovery guidance when a tool call needs approval but the chat’s permissions prevent approval requests, with a link to those permissions when available.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "c30e8ac94690",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.20",
+   "id": "codex@changelog:codex-2026-10-08-gpt-61-sol-ultrafast",
    "tool": "codex",
-   "version": "0.162.0-alpha.20",
-   "date": "2026-10-08T02:25:14Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.20",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.17.1",
-   "tool": "codex",
-   "version": "0.162.0-alpha.17.1",
-   "date": "2026-10-07T23:56:43Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.17.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-6.1 Sol Ultrafast in Codex and ChatGPT Work",
+   "date": "2026-10-08T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-08-gpt-61-sol-ultrafast",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Ultrafast mode speeds up token generation with GPT-6.1 Sol in Codex and ChatGPT Work.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Ultrafast is available on Pro $500 and eligible Enterprise and Edu plans. Enterprise access is off by default; workspace owners must enable it. GPT-6.1 Sol Ultrafast supports inference residency in the United States and Europe (EEA + Switzerland).",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See Ultrafast mode for plan and workspace requirements, Models for model guidance, and Pricing for usage and credit rates.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "ff220d4aba61",
    "ko": null
   },
   {
@@ -8040,6 +8008,7 @@
    "date": "2026-10-07T15:58:45Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -8285,25 +8254,142 @@
    }
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.18",
+   "id": "codex@changelog:codex-2026-10-07-app",
    "tool": "codex",
-   "version": "0.162.0-alpha.18",
-   "date": "2026-10-07T02:04:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.18",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.1002",
+   "date": "2026-10-07T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-07-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed Windows sandbox refresh failures after app updates.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed worktree creation and chat forking for WSL repositories whose paths conflicted with Windows directories.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Kept the recent chats section collapsed when switching between chats.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Remove from section so it removes a chat from its sidebar section without pinning it.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "89dae0cbb1a3",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.17",
+   "id": "codex@changelog:codex-2026-10-07-mobile",
    "tool": "codex",
-   "version": "0.162.0-alpha.17",
-   "date": "2026-10-06T21:58:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.17",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.272",
+   "date": "2026-10-07T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-07-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Page previews now appear inline in responses.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added support for opening Codex task links directly on iOS.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Redesigned the approval picker with clearer permission choices.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Find plugins from a single Plugins entry in the composer’s plus menu.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Faster streaming in long threads, with fewer freezes.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New tasks keep your selected computer while it reconnects or is offline.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved worktree support so files and changes match the checkout used on desktop.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed task lists remaining empty after connecting.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Smoother keyboard transitions when starting tasks and swiping back.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Status updates no longer appear as questions that need an answer.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Clearer manual pairing code entry, including support for pasting formatted codes.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "ca8cc659cb77",
    "ko": null
   },
   {
@@ -9174,17 +9260,6 @@
    }
   },
   {
-   "id": "codex@rust-v0.161.0-alpha.13.1",
-   "tool": "codex",
-   "version": "0.161.0-alpha.13.1",
-   "date": "2026-10-06T05:27:02Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.13.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.291",
    "tool": "claude-code",
    "version": "2.1.291",
@@ -9219,23 +9294,13 @@
    }
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.16",
-   "tool": "codex",
-   "version": "0.162.0-alpha.16",
-   "date": "2026-10-05T21:37:19Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.16",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.160.1",
    "tool": "codex",
    "version": "0.160.1",
    "date": "2026-10-05T18:29:37Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -11226,50 +11291,6 @@
    }
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.15",
-   "tool": "codex",
-   "version": "0.162.0-alpha.15",
-   "date": "2026-10-05T13:10:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.15",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.14",
-   "tool": "codex",
-   "version": "0.162.0-alpha.14",
-   "date": "2026-10-05T02:05:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.13",
-   "tool": "codex",
-   "version": "0.162.0-alpha.13",
-   "date": "2026-10-04T15:42:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.12",
-   "tool": "codex",
-   "version": "0.162.0-alpha.12",
-   "date": "2026-10-04T05:48:25Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.289",
    "tool": "claude-code",
    "version": "2.1.289",
@@ -11537,50 +11558,6 @@
      }
     ]
    }
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.11",
-   "tool": "codex",
-   "version": "0.162.0-alpha.11",
-   "date": "2026-10-03T20:09:12Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.10",
-   "tool": "codex",
-   "version": "0.162.0-alpha.10",
-   "date": "2026-10-03T09:55:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.9",
-   "tool": "codex",
-   "version": "0.162.0-alpha.9",
-   "date": "2026-10-03T01:24:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.8",
-   "tool": "codex",
-   "version": "0.162.0-alpha.8",
-   "date": "2026-10-02T22:37:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
   },
   {
    "id": "claude-code@2.1.288",
@@ -12220,80 +12197,83 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.162.0-alpha.7",
+   "id": "codex@changelog:codex-2026-10-02-mobile",
    "tool": "codex",
-   "version": "0.162.0-alpha.7",
-   "date": "2026-10-02T13:48:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.6",
-   "tool": "codex",
-   "version": "0.162.0-alpha.6",
-   "date": "2026-10-02T11:45:43Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.5",
-   "tool": "codex",
-   "version": "0.162.0-alpha.5",
-   "date": "2026-10-02T08:11:11Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.4",
-   "tool": "codex",
-   "version": "0.162.0-alpha.4",
-   "date": "2026-10-02T05:44:28Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.3",
-   "tool": "codex",
-   "version": "0.162.0-alpha.3",
-   "date": "2026-10-02T03:38:25Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.2",
-   "tool": "codex",
-   "version": "0.162.0-alpha.2",
-   "date": "2026-10-02T01:44:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.162.0-alpha.1",
-   "tool": "codex",
-   "version": "0.162.0-alpha.1",
-   "date": "2026-10-01T22:57:00Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.267",
+   "date": "2026-10-02T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-02-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "New Home Screen widgets show recent tasks from your selected computers.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Track remaining usage and reset times with Home Screen and Lock Screen widgets.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a setting to keep the keyboard open after sending a message.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Faster task list refresh when returning to the app, with existing task titles preserved.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed missing tasks when loading or scrolling through task lists.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Smoother home screen, send, and keyboard transitions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Canceling a queued prompt returns recoverable text and attachments to the composer.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved transcript stability when selecting text and loading older messages.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Worktree creation now respects your computer’s configured storage location.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "1aaa13587fc7",
    "ko": null
   },
   {
@@ -12303,6 +12283,7 @@
    "date": "2026-10-01T20:19:13Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -12397,17 +12378,6 @@
     }
    ],
    "hash": "21474aa4368c",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.12.1",
-   "tool": "codex",
-   "version": "0.159.0-alpha.12.1",
-   "date": "2026-10-01T19:37:00Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.12.1",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -13165,102 +13135,48 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.161.0-alpha.13",
+   "id": "codex@changelog:codex-2026-10-01-app",
    "tool": "codex",
-   "version": "0.161.0-alpha.13",
-   "date": "2026-10-01T16:35:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.12",
-   "tool": "codex",
-   "version": "0.161.0-alpha.12",
-   "date": "2026-10-01T14:43:50Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.11",
-   "tool": "codex",
-   "version": "0.161.0-alpha.11",
-   "date": "2026-10-01T12:20:46Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.10",
-   "tool": "codex",
-   "version": "0.161.0-alpha.10",
-   "date": "2026-10-01T10:26:38Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.9",
-   "tool": "codex",
-   "version": "0.161.0-alpha.9",
-   "date": "2026-10-01T08:35:22Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.8",
-   "tool": "codex",
-   "version": "0.161.0-alpha.8",
-   "date": "2026-10-01T06:24:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.7",
-   "tool": "codex",
-   "version": "0.161.0-alpha.7",
-   "date": "2026-10-01T03:54:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.6",
-   "tool": "codex",
-   "version": "0.161.0-alpha.6",
-   "date": "2026-10-01T02:34:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.160.0-alpha.6.2",
-   "tool": "codex",
-   "version": "0.160.0-alpha.6.2",
-   "date": "2026-10-01T00:08:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0-alpha.6.2",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.930",
+   "date": "2026-10-01T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-01-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added the option to move selected chats to a project at once.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved recovery when attaching managed worktrees to chats.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed large diffs appearing blank at some zoom levels.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved retries after queued messages fail to send or chats fail to open.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "3cf137a4e905",
    "ko": null
   },
   {
@@ -13270,6 +13186,7 @@
    "date": "2026-09-30T22:57:34Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.3",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -13280,17 +13197,6 @@
     }
    ],
    "hash": "d0cb25318392",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.5",
-   "tool": "codex",
-   "version": "0.161.0-alpha.5",
-   "date": "2026-09-30T19:57:33Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -13922,45 +13828,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.161.0-alpha.4",
-   "tool": "codex",
-   "version": "0.161.0-alpha.4",
-   "date": "2026-09-30T11:49:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.3",
-   "tool": "codex",
-   "version": "0.161.0-alpha.3",
-   "date": "2026-09-30T02:24:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.160.0-alpha.6.1",
-   "tool": "codex",
-   "version": "0.160.0-alpha.6.1",
-   "date": "2026-09-30T01:09:54Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0-alpha.6.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.159.2",
    "tool": "codex",
    "version": "0.159.2",
    "date": "2026-09-29T23:57:16Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.2",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -13980,6 +13854,7 @@
    "date": "2026-09-29T20:32:34Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -13990,17 +13865,6 @@
     }
    ],
    "hash": "d7153b5fde1b",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.161.0-alpha.2",
-   "tool": "codex",
-   "version": "0.161.0-alpha.2",
-   "date": "2026-09-29T18:32:11Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -14968,23 +14832,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.161.0-alpha.1",
-   "tool": "codex",
-   "version": "0.161.0-alpha.1",
-   "date": "2026-09-29T16:22:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.159.0",
    "tool": "codex",
    "version": "0.159.0",
    "date": "2026-09-29T08:05:42Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -15089,36 +14943,79 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.160.0-alpha.6",
+   "id": "codex@changelog:codex-2026-09-29-app",
    "tool": "codex",
-   "version": "0.160.0-alpha.6",
-   "date": "2026-09-29T06:27:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.928",
+   "date": "2026-09-29T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-29-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "Improved terminal startup in attached worktrees and fixed failures caused by unavailable worktree environment settings.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Kept earlier answers visible when you send new instructions during a task.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed automatic scrolling and prevented keyboard navigation through messages from jumping back to the latest response.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved startup recovery when you return to the app window.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "6cea4e2e6305",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.160.0-alpha.3",
+   "id": "codex@changelog:codex-2026-09-29-gpt-61-sol",
    "tool": "codex",
-   "version": "0.160.0-alpha.3",
-   "date": "2026-09-29T01:32:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.160.0-alpha.2",
-   "tool": "codex",
-   "version": "0.160.0-alpha.2",
-   "date": "2026-09-28T19:51:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-6.1 Sol in Codex and ChatGPT Work",
+   "date": "2026-09-29T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-29-gpt-61-sol",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "GPT-6.1 Sol offers near-Astra performance for complex work at a lower cost than Astra. Consider it for repeated, long-running work across code, apps, and documents. Availability depends on your plan, client, and workspace settings.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Use gpt-6.1-sol. See Models for availability and model selection to compare models.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "9c75b0f0acb3",
    "ko": null
   },
   {
@@ -15834,23 +15731,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.159.0-alpha.13",
-   "tool": "codex",
-   "version": "0.159.0-alpha.13",
-   "date": "2026-09-28T15:20:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.158.0",
    "tool": "codex",
    "version": "0.158.0",
    "date": "2026-09-28T05:07:23Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -15934,166 +15821,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.159.0-alpha.12",
-   "tool": "codex",
-   "version": "0.159.0-alpha.12",
-   "date": "2026-09-28T03:18:46Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.15.4",
-   "tool": "codex",
-   "version": "0.158.0-alpha.15.4",
-   "date": "2026-09-28T01:46:24Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.15.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.11",
-   "tool": "codex",
-   "version": "0.159.0-alpha.11",
-   "date": "2026-09-28T00:20:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.10",
-   "tool": "codex",
-   "version": "0.159.0-alpha.10",
-   "date": "2026-09-27T21:09:15Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.15.3",
-   "tool": "codex",
-   "version": "0.158.0-alpha.15.3",
-   "date": "2026-09-27T19:18:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.15.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.9",
-   "tool": "codex",
-   "version": "0.159.0-alpha.9",
-   "date": "2026-09-27T06:37:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.8",
-   "tool": "codex",
-   "version": "0.159.0-alpha.8",
-   "date": "2026-09-27T04:48:42Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.7",
-   "tool": "codex",
-   "version": "0.159.0-alpha.7",
-   "date": "2026-09-27T01:24:11Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.15.2",
-   "tool": "codex",
-   "version": "0.158.0-alpha.15.2",
-   "date": "2026-09-27T00:02:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.15.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.6",
-   "tool": "codex",
-   "version": "0.159.0-alpha.6",
-   "date": "2026-09-26T20:07:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.5",
-   "tool": "codex",
-   "version": "0.159.0-alpha.5",
-   "date": "2026-09-26T17:34:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.4",
-   "tool": "codex",
-   "version": "0.159.0-alpha.4",
-   "date": "2026-09-26T06:21:38Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.2.1",
-   "tool": "codex",
-   "version": "0.158.0-alpha.2.1",
-   "date": "2026-09-26T04:51:49Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.2.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.15.1",
-   "tool": "codex",
-   "version": "0.158.0-alpha.15.1",
-   "date": "2026-09-26T02:58:19Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.15.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.157.1",
    "tool": "codex",
    "version": "0.157.1",
    "date": "2026-09-26T01:02:31Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "changed",
@@ -16104,39 +15838,6 @@
     }
    ],
    "hash": "0d8b70324e04",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.3",
-   "tool": "codex",
-   "version": "0.159.0-alpha.3",
-   "date": "2026-09-25T21:42:44Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.2",
-   "tool": "codex",
-   "version": "0.159.0-alpha.2",
-   "date": "2026-09-25T20:18:01Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.159.0-alpha.1",
-   "tool": "codex",
-   "version": "0.159.0-alpha.1",
-   "date": "2026-09-25T18:48:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -16810,45 +16511,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.158.0-alpha.15",
-   "tool": "codex",
-   "version": "0.158.0-alpha.15",
-   "date": "2026-09-25T17:33:04Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.15",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.14",
-   "tool": "codex",
-   "version": "0.158.0-alpha.14",
-   "date": "2026-09-25T12:51:36Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.13",
-   "tool": "codex",
-   "version": "0.158.0-alpha.13",
-   "date": "2026-09-25T04:29:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.157.0",
    "tool": "codex",
    "version": "0.157.0",
    "date": "2026-09-25T02:31:06Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -16939,58 +16608,27 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.158.0-alpha.12",
+   "id": "codex@changelog:codex-2026-09-25-app",
    "tool": "codex",
-   "version": "0.158.0-alpha.12",
-   "date": "2026-09-25T00:54:29Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.11",
-   "tool": "codex",
-   "version": "0.158.0-alpha.11",
-   "date": "2026-09-24T23:23:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.11.1",
-   "tool": "codex",
-   "version": "0.157.0-alpha.11.1",
-   "date": "2026-09-24T21:50:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.11.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.10",
-   "tool": "codex",
-   "version": "0.158.0-alpha.10",
-   "date": "2026-09-24T20:58:11Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.9",
-   "tool": "codex",
-   "version": "0.158.0-alpha.9",
-   "date": "2026-09-24T17:49:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "macOS security update 26.924",
+   "date": "2026-09-25T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-25-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed CVE-2026-100754 on macOS in version 26.924.20706, with thanks to Patrick Wardle, Objective-See Foundation.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "ecbba09fdebd",
    "ko": null
   },
   {
@@ -17605,83 +17243,6 @@
     }
    ],
    "hash": "a7e0a47d39ea",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.8",
-   "tool": "codex",
-   "version": "0.158.0-alpha.8",
-   "date": "2026-09-24T07:12:02Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.7",
-   "tool": "codex",
-   "version": "0.158.0-alpha.7",
-   "date": "2026-09-24T05:28:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.6",
-   "tool": "codex",
-   "version": "0.158.0-alpha.6",
-   "date": "2026-09-23T23:41:29Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.5",
-   "tool": "codex",
-   "version": "0.158.0-alpha.5",
-   "date": "2026-09-23T22:10:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.16.4",
-   "tool": "codex",
-   "version": "0.155.0-alpha.16.4",
-   "date": "2026-09-23T19:55:18Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.16.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.4",
-   "tool": "codex",
-   "version": "0.158.0-alpha.4",
-   "date": "2026-09-23T18:36:50Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.158.0-alpha.3",
-   "tool": "codex",
-   "version": "0.158.0-alpha.3",
-   "date": "2026-09-23T17:07:22Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -18937,45 +18498,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.158.0-alpha.2",
-   "tool": "codex",
-   "version": "0.158.0-alpha.2",
-   "date": "2026-09-23T13:07:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.11",
-   "tool": "codex",
-   "version": "0.157.0-alpha.11",
-   "date": "2026-09-23T04:50:17Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.16.3",
-   "tool": "codex",
-   "version": "0.155.0-alpha.16.3",
-   "date": "2026-09-23T03:41:37Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.16.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.156.1",
    "tool": "codex",
    "version": "0.156.1",
    "date": "2026-09-23T02:41:36Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -18989,14 +18518,90 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.157.0-alpha.10",
+   "id": "codex@changelog:codex-2026-09-23-mobile",
    "tool": "codex",
-   "version": "0.157.0-alpha.10",
-   "date": "2026-09-22T22:07:05Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.258",
+   "date": "2026-09-23T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-23-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Redesigned home screen.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New iPad split view keeps your task list beside the open task in landscape.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added support for browsing changes inside nested Git repositories.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Side chats now carry over attachments, selected text, and review comments.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed replies appearing blank or incomplete when the next queued prompt starts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New tasks preserve your selected computer and better recognize project checkouts and worktrees.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "More reliable file links, with clearer loading feedback when opening files and new tasks.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Clearer error messages explain why task history could not load and what to try next.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Smoother animations when adding photos from the camera or Photo Library.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed pairing failures caused by an incorrect device clock and SSH connection issues on Mac and Linux.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "466552da16c1",
    "ko": null
   },
   {
@@ -19006,6 +18611,7 @@
    "date": "2026-09-22T19:51:01Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -19114,17 +18720,6 @@
     }
    ],
    "hash": "b07fb08ee592",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.9",
-   "tool": "codex",
-   "version": "0.157.0-alpha.9",
-   "date": "2026-09-22T18:00:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -19938,223 +19533,87 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.157.0-alpha.8",
+   "id": "codex@changelog:codex-2026-09-22-app",
    "tool": "codex",
-   "version": "0.157.0-alpha.8",
-   "date": "2026-09-22T12:34:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.917",
+   "date": "2026-09-22T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-22-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added a notification sound setting for task completions, permission requests, and questions. Choose Default, Classic, or None. On macOS, you can also choose a system sound or import an audio file.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a sign-in recovery dialog for session errors that prevent app startup.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Preserved chat titles in the Rename dialog when worktree setup finishes.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "8877010054fc",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.157.0-alpha.7",
+   "id": "codex@changelog:codex-2026-09-22-gpt-6-sol-luna",
    "tool": "codex",
-   "version": "0.157.0-alpha.7",
-   "date": "2026-09-22T07:00:44Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.6",
-   "tool": "codex",
-   "version": "0.157.0-alpha.6",
-   "date": "2026-09-22T05:50:02Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.5",
-   "tool": "codex",
-   "version": "0.157.0-alpha.5",
-   "date": "2026-09-22T04:26:43Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.4",
-   "tool": "codex",
-   "version": "0.157.0-alpha.4",
-   "date": "2026-09-22T03:01:53Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.3",
-   "tool": "codex",
-   "version": "0.157.0-alpha.3",
-   "date": "2026-09-22T01:38:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.16.1",
-   "tool": "codex",
-   "version": "0.155.0-alpha.16.1",
-   "date": "2026-09-22T00:20:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.16.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.2",
-   "tool": "codex",
-   "version": "0.157.0-alpha.2",
-   "date": "2026-09-21T23:02:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.17",
-   "tool": "codex",
-   "version": "0.156.0-alpha.17",
-   "date": "2026-09-21T21:40:02Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.17",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.157.0-alpha.1",
-   "tool": "codex",
-   "version": "0.157.0-alpha.1",
-   "date": "2026-09-21T18:08:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.16",
-   "tool": "codex",
-   "version": "0.156.0-alpha.16",
-   "date": "2026-09-21T16:51:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.16",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.14",
-   "tool": "codex",
-   "version": "0.156.0-alpha.14",
-   "date": "2026-09-21T04:09:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.13",
-   "tool": "codex",
-   "version": "0.156.0-alpha.13",
-   "date": "2026-09-21T02:15:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.12",
-   "tool": "codex",
-   "version": "0.156.0-alpha.12",
-   "date": "2026-09-21T00:06:46Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.11",
-   "tool": "codex",
-   "version": "0.156.0-alpha.11",
-   "date": "2026-09-20T22:49:40Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.10",
-   "tool": "codex",
-   "version": "0.156.0-alpha.10",
-   "date": "2026-09-20T21:18:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.9",
-   "tool": "codex",
-   "version": "0.156.0-alpha.9",
-   "date": "2026-09-20T00:17:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.8",
-   "tool": "codex",
-   "version": "0.156.0-alpha.8",
-   "date": "2026-09-19T17:20:24Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.7",
-   "tool": "codex",
-   "version": "0.156.0-alpha.7",
-   "date": "2026-09-19T04:08:15Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.6",
-   "tool": "codex",
-   "version": "0.156.0-alpha.6",
-   "date": "2026-09-19T02:18:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-6 Sol and Luna in Codex and ChatGPT Work",
+   "date": "2026-09-22T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-22-gpt-6-sol-luna",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "GPT-6 Sol and GPT-6 Luna are rolling out to Codex and ChatGPT Work at lower token prices than their GPT-5.6 predecessors. Use Sol for complex coding and agentic workflows, and Luna for focused, high-volume tasks.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Both models are rolling out to Plus, Pro, Business, Enterprise, and Edu users. Free and Go users can access Luna in the desktop app. Availability depends on rollout and workspace settings; Enterprise administrators must enable the new models. In ChatGPT, the models are available in Work and Codex, but not Chat.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Choose a model in the picker when available. In the CLI, use /model or start a task with codex --model gpt-6-sol or codex --model gpt-6-luna.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See Models for selection and migration guidance, Pricing for credit rates and usage, and Workspace model availability for administrator controls.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "902fe44efc63",
    "ko": null
   },
   {
@@ -20184,34 +19643,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.156.0-alpha.5",
-   "tool": "codex",
-   "version": "0.156.0-alpha.5",
-   "date": "2026-09-19T00:22:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.4",
-   "tool": "codex",
-   "version": "0.156.0-alpha.4",
-   "date": "2026-09-18T21:18:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.155.1",
    "tool": "codex",
    "version": "0.155.1",
    "date": "2026-09-18T20:03:04Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -20222,17 +19660,6 @@
     }
    ],
    "hash": "d0135b0a94fc",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.156.0-alpha.3",
-   "tool": "codex",
-   "version": "0.156.0-alpha.3",
-   "date": "2026-09-18T18:20:37Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -20857,28 +20284,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.156.0-alpha.2",
-   "tool": "codex",
-   "version": "0.156.0-alpha.2",
-   "date": "2026-09-18T04:56:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.9.2",
-   "tool": "codex",
-   "version": "0.155.0-alpha.9.2",
-   "date": "2026-09-18T03:09:42Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.9.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.276",
    "tool": "claude-code",
    "version": "2.1.276",
@@ -20898,14 +20303,90 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.156.0-alpha.1",
+   "id": "codex@changelog:codex-2026-09-18-mobile",
    "tool": "codex",
-   "version": "0.156.0-alpha.1",
-   "date": "2026-09-18T00:23:01Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.251",
+   "date": "2026-09-18T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-18-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Create folders directly from the file picker.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added support for writing blocks, with draft alternatives and copy actions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New tasks remember your worktree mode and setup environment for each project.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Long queued prompts show a compact preview and expand on tap.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed queued prompts missing or appearing outdated after reopening a task.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Worktree task cards now open correctly after setup completes.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Restored the new-task button for projects containing only worktree tasks.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved voice-call reliability during temporary connection interruptions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Better alignment of project, environment, and Git controls on iPad.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the thinking timer resetting when a new task starts.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "78ee90550fbd",
    "ko": null
   },
   {
@@ -20915,6 +20396,7 @@
    "date": "2026-09-17T23:14:43Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -21009,28 +20491,6 @@
     }
    ],
    "hash": "a87f806c376d",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.18",
-   "tool": "codex",
-   "version": "0.155.0-alpha.18",
-   "date": "2026-09-17T22:37:07Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.18",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.17",
-   "tool": "codex",
-   "version": "0.155.0-alpha.17",
-   "date": "2026-09-17T21:16:29Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.17",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -21711,36 +21171,41 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.16",
+   "id": "codex@changelog:codex-2026-09-17-app",
    "tool": "codex",
-   "version": "0.155.0-alpha.16",
-   "date": "2026-09-17T04:34:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.16",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.15",
-   "tool": "codex",
-   "version": "0.155.0-alpha.15",
-   "date": "2026-09-17T01:21:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.15",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.14",
-   "tool": "codex",
-   "version": "0.155.0-alpha.14",
-   "date": "2026-09-16T23:06:38Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.915",
+   "date": "2026-09-17T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-17-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed WSL terminals opening in the wrong Linux distribution or project folder.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed adding WSL project folders, including folders on mapped drives.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Updated sign-in screens to show only the methods allowed by your organization’s policy.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "2e7dcc5952a4",
    "ko": null
   },
   {
@@ -22512,113 +21977,41 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.13",
+   "id": "codex@changelog:codex-2026-09-16-app",
    "tool": "codex",
-   "version": "0.155.0-alpha.13",
-   "date": "2026-09-16T21:43:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.2.6",
-   "tool": "codex",
-   "version": "0.155.0-alpha.2.6",
-   "date": "2026-09-16T20:03:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.12",
-   "tool": "codex",
-   "version": "0.155.0-alpha.12",
-   "date": "2026-09-16T18:25:35Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.11",
-   "tool": "codex",
-   "version": "0.155.0-alpha.11",
-   "date": "2026-09-16T17:13:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.2.5",
-   "tool": "codex",
-   "version": "0.155.0-alpha.2.5",
-   "date": "2026-09-16T13:17:47Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rusty-v8-v152.2.0",
-   "tool": "codex",
-   "version": "rusty-v8-v152.2.0",
-   "date": "2026-09-16T12:58:44Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rusty-v8-v152.2.0",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.10",
-   "tool": "codex",
-   "version": "0.155.0-alpha.10",
-   "date": "2026-09-16T04:20:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.9",
-   "tool": "codex",
-   "version": "0.155.0-alpha.9",
-   "date": "2026-09-16T01:34:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.8",
-   "tool": "codex",
-   "version": "0.155.0-alpha.8",
-   "date": "2026-09-15T22:26:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.7",
-   "tool": "codex",
-   "version": "0.155.0-alpha.7",
-   "date": "2026-09-15T21:09:02Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.911",
+   "date": "2026-09-16T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-16-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed back navigation getting stuck between settings and a chat.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Kept configuration warnings visible after app startup and window reloads.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved focus and alignment in answer fields for questions from Codex.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "8b85d68791e3",
    "ko": null
   },
   {
@@ -23082,28 +22475,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.6",
-   "tool": "codex",
-   "version": "0.155.0-alpha.6",
-   "date": "2026-09-15T02:00:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.5",
-   "tool": "codex",
-   "version": "0.155.0-alpha.5",
-   "date": "2026-09-15T00:31:51Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.272",
    "tool": "claude-code",
    "version": "2.1.272",
@@ -23120,17 +22491,6 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.2.4",
-   "tool": "codex",
-   "version": "0.155.0-alpha.2.4",
-   "date": "2026-09-14T23:04:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2.4",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -23818,14 +23178,88 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.4",
+   "id": "codex@changelog:codex-2026-09-14-codex-spark-deprecation",
    "tool": "codex",
-   "version": "0.155.0-alpha.4",
-   "date": "2026-09-14T11:48:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-5.3-Codex-Spark deprecated",
+   "date": "2026-09-14T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-14-codex-spark-deprecation",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "GPT-5.3-Codex-Spark was deprecated on September 14, 2026. The research preview is no longer available in the ChatGPT desktop app, Codex CLI, or IDE extension.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Switch to one of the recommended models, and update saved configurations, custom agents, and scripts that select gpt-5.3-codex-spark.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "For faster responses with a supported model, see Fast mode.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "3a885bd0845b",
+   "ko": null
+  },
+  {
+   "id": "codex@changelog:codex-2026-09-14-gpt-55-retirement",
+   "tool": "codex",
+   "version": "GPT-5.5 retires from ChatGPT, ChatGPT Work, and Codex on October 14",
+   "date": "2026-09-14T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-14-gpt-55-retirement",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "On October 14, 2026, GPT-5.5 will retire from ChatGPT, ChatGPT Work, and Codex on all plans, including consumer, Business, Enterprise, and Edu plans. This retirement does not apply to the OpenAI API.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "For Codex with ChatGPT sign-in, choose an available replacement for your plan and client. See GPT-5.5 retirement for migration guidance.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Update workspace defaults, saved model settings, managed configurations, custom agents, scheduled tasks, and scripts that still select gpt-5.5.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See GPT-5.5 retirement and workspace model availability for migration guidance.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "ac622a34fe57",
    "ko": null
   },
   {
@@ -24546,91 +23980,97 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.3.10",
+   "id": "codex@changelog:codex-2026-09-11-app",
    "tool": "codex",
-   "version": "0.155.0-alpha.3.10",
-   "date": "2026-09-11T15:52:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.3.9",
-   "tool": "codex",
-   "version": "0.155.0-alpha.3.9",
-   "date": "2026-09-11T11:51:30Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.3.8",
-   "tool": "codex",
-   "version": "0.155.0-alpha.3.8",
-   "date": "2026-09-11T09:18:04Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.3.7",
-   "tool": "codex",
-   "version": "0.155.0-alpha.3.7",
-   "date": "2026-09-11T07:58:14Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.3",
-   "tool": "codex",
-   "version": "0.155.0-alpha.3",
-   "date": "2026-09-11T02:35:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.154.0-alpha.6.2",
-   "tool": "codex",
-   "version": "0.154.0-alpha.6.2",
-   "date": "2026-09-11T01:25:48Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.6.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.2.3",
-   "tool": "codex",
-   "version": "0.155.0-alpha.2.3",
-   "date": "2026-09-11T00:28:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@voice-cygwin-108b38cf67cbb731",
-   "tool": "codex",
-   "version": "voice-cygwin-108b38cf67cbb731",
-   "date": "2026-09-10T20:19:50Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/voice-cygwin-108b38cf67cbb731",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Quick chats with Pets and Appshots on Windows 26.908",
+   "date": "2026-09-11T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-11-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Keep ChatGPT close while you work in other apps. In the ChatGPT desktop app on macOS and Windows, you can now type a quick chat from the floating Pets controls and press Enter to send it. Use @ to add context and $ to choose a skill. Select the bell icon to follow progress in your threads, then select a thread to open the full conversation.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Choose a companion or show just the controls in Settings > Pets. Press Option+Space on macOS or Windows+Alt+P on Windows to show the controls and focus Quick Chat. Pressing the shortcut again keeps Quick Chat open. You can change Show pet in Settings > Keyboard shortcuts. To hide the controls, select Hide pet in the command menu or Settings > Pets.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "On macOS, you can also send an appshot to the floating controls. Keep the main ChatGPT window in the background and choose Automatic for Appshot destination.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn more about Pets.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Appshots are now available in the ChatGPT desktop app on Windows. Press both Alt keys to share the frontmost app window with ChatGPT, then ask a question or describe what you want to do. An appshot includes a screenshot and available text from that window. You can customize the shortcut and choose which chat receives it in settings.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Open files directly from a conversation’s Sources panel, or download files that ChatGPT can’t preview.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Assign a Codex Micro key to Insert text and add your own reusable text to the active prompt without sending it.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Reset a pet to its default size in settings. Custom pets also stay in place when you refresh their artwork.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Keep unfinished comments on response text when you switch chats and return.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "ChatGPT dictation now respects your saved Main language preference.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Keep tab widths and scroll positions more stable as you close browser tabs in full and split views.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "aade7e91a6a2",
    "ko": null
   },
   {
@@ -24640,6 +24080,7 @@
    "date": "2026-09-10T19:51:43Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/python-v0.154.0",
+   "source": "github-releases",
    "items": [],
    "hash": "97d170e1550e",
    "ko": null
@@ -25329,34 +24770,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.155.0-alpha.2",
-   "tool": "codex",
-   "version": "0.155.0-alpha.2",
-   "date": "2026-09-10T18:02:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.155.0-alpha.1",
-   "tool": "codex",
-   "version": "0.155.0-alpha.1",
-   "date": "2026-09-10T11:53:05Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.154.0",
    "tool": "codex",
    "version": "0.154.0",
    "date": "2026-09-09T22:35:38Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -25844,39 +25264,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.6.1",
-   "tool": "codex",
-   "version": "0.154.0-alpha.6.1",
-   "date": "2026-09-09T11:51:56Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.6.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.154.0-alpha.11",
-   "tool": "codex",
-   "version": "0.154.0-alpha.11",
-   "date": "2026-09-09T09:14:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.154.0-alpha.10.2",
-   "tool": "codex",
-   "version": "0.154.0-alpha.10.2",
-   "date": "2026-09-09T07:55:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.10.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.266",
    "tool": "claude-code",
    "version": "2.1.266",
@@ -25893,17 +25280,6 @@
     }
    ],
    "hash": "1f43108d5bed",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.154.0-alpha.8",
-   "tool": "codex",
-   "version": "0.154.0-alpha.8",
-   "date": "2026-09-08T23:15:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -26269,25 +25645,142 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.7",
+   "id": "codex@changelog:codex-2026-09-08-app",
    "tool": "codex",
-   "version": "0.154.0-alpha.7",
-   "date": "2026-09-08T17:44:04Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.903",
+   "date": "2026-09-08T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-08-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added a configurable shortcut to open web links in your default browser.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added Open with > New tab to file diffs so you can open a source file at the selected line in the app.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved recovery and responsiveness when reopening chats or sending messages while a chat resumes.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed duplicate follow-up messages appearing in restored chat history.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "f84ece7b4304",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.6",
+   "id": "codex@changelog:codex-2026-09-08-mobile",
    "tool": "codex",
-   "version": "0.154.0-alpha.6",
-   "date": "2026-09-07T18:03:36Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.244",
+   "date": "2026-09-08T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-08-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Reference other tasks directly in the composer with @ mentions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Answer live questions while Codex continues working, without losing your draft.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Explore files with Back navigation, recent files, and remembered reading positions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Choose a starting branch for new worktrees, or include your current local changes.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Worktree setup can now continue in the background on iOS 26, with progress shown in a Live Activity.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Voice now respects your selected model and reasoning effort.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Restored missing delegated-task messages and fixed navigation between linked tasks.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Code reviews now complete more reliably, without duplicate activity or stuck running states.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed crashes and stale queued messages when switching from Queue to Steer.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved reconnect reliability and preserved device pairing during temporary service outages.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Resolved duplicate plugin skills in composer suggestions.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "a98123fea18b",
    "ko": null
   },
   {
@@ -26310,12 +25803,52 @@
    "ko": null
   },
   {
+   "id": "codex@changelog:codex-2026-09-05",
+   "tool": "codex",
+   "version": "Codex MCP server removed",
+   "date": "2026-09-05T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-05",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "The codex mcp-server command and standalone codex-mcp-server binary have been removed after their deprecation on August 24, 2026. Update integrations that launch either command before upgrading Codex.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Use the Codex app server for integrations. The app-server command is experimental and isn’t supported for production workloads.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See the migration guidance for details. Codex continues to support connecting to external MCP servers through codex mcp.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "9b423fc12d21",
+   "ko": null
+  },
+  {
    "id": "codex@rust-v0.153.4",
    "tool": "codex",
    "version": "0.153.4",
    "date": "2026-09-04T23:25:48Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.4",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -26342,6 +25875,7 @@
    "date": "2026-09-04T19:01:32Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.3",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -26843,23 +26377,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.3",
-   "tool": "codex",
-   "version": "0.154.0-alpha.3",
-   "date": "2026-09-04T00:57:42Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.153.2",
    "tool": "codex",
    "version": "0.153.2",
    "date": "2026-09-03T23:53:12Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.2",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -27348,23 +26872,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.2",
-   "tool": "codex",
-   "version": "0.154.0-alpha.2",
-   "date": "2026-09-03T21:58:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.153.1",
    "tool": "codex",
    "version": "0.153.1",
    "date": "2026-09-03T21:02:56Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -27378,23 +26892,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.154.0-alpha.1",
-   "tool": "codex",
-   "version": "0.154.0-alpha.1",
-   "date": "2026-09-03T09:29:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.154.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.153.0",
    "tool": "codex",
    "version": "0.153.0",
    "date": "2026-09-03T01:37:38Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -27489,17 +26993,6 @@
     }
    ],
    "hash": "05c1fee85eb9",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.153.0-alpha.5.1",
-   "tool": "codex",
-   "version": "0.153.0-alpha.5.1",
-   "date": "2026-09-03T00:41:36Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.5.1",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -27774,25 +27267,55 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.153.0-alpha.6",
+   "id": "codex@changelog:codex-2026-09-02-app",
    "tool": "codex",
-   "version": "0.153.0-alpha.6",
-   "date": "2026-09-02T11:26:01Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.153.0-alpha.5",
-   "tool": "codex",
-   "version": "0.153.0-alpha.5",
-   "date": "2026-09-02T03:05:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.901",
+   "date": "2026-09-02T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-02-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Includes updates through September 5, 2026.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the model picker closing while settings refresh.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Distinguished successfully submitted feedback from failed diagnostic uploads.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed remote chats getting stuck when reopened after their host changes.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Preserved preferences for automatically connecting to SSH hosts after an app restart.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "73c6e3a9d5a2",
    "ko": null
   },
   {
@@ -27802,6 +27325,7 @@
    "date": "2026-09-01T22:33:02Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -27838,17 +27362,6 @@
     }
    ],
    "hash": "5aa6ad553e15",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.153.0-alpha.4",
-   "tool": "codex",
-   "version": "0.153.0-alpha.4",
-   "date": "2026-09-01T21:02:49Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -28592,34 +28105,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.153.0-alpha.2",
-   "tool": "codex",
-   "version": "0.153.0-alpha.2",
-   "date": "2026-09-01T06:15:12Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.153.0-alpha.1",
-   "tool": "codex",
-   "version": "0.153.0-alpha.1",
-   "date": "2026-09-01T04:40:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.153.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.152.0",
    "tool": "codex",
    "version": "0.152.0",
    "date": "2026-09-01T01:58:32Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -28738,14 +28230,90 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.152.0-alpha.7.2",
+   "id": "codex@changelog:codex-2026-09-02-mobile",
    "tool": "codex",
-   "version": "0.152.0-alpha.7.2",
-   "date": "2026-09-01T00:30:15Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.7.2",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.237",
+   "date": "2026-09-01T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-09-02-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Attachments now work across all connected hosts, including Windows and Linux, and support videos from the Photo Library.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Press and hold the attachment button to attach recent photos.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "A new Priority view brings running tasks, unread updates, and tasks awaiting your response to the top of the task list.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Queued prompts now sync with the connected host, remain editable, and send even when the app is in the background.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Long-running tasks now show their live working time.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Task menus now include an option to copy the thread ID.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Task list loading and organization are faster and more reliable, with simpler date sections and fewer stalls or disappearing projects.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Reconnects are more reliable, resolving stuck Send states, missing approvals, and stale task updates.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Long responses now stream with fewer visual interruptions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Side chat messages remain available until you close them, even after the chat can no longer reconnect.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "77e470d8db5c",
    "ko": null
   },
   {
@@ -28789,69 +28357,41 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.152.0-alpha.7",
+   "id": "codex@changelog:codex-2026-08-31-app",
    "tool": "codex",
-   "version": "0.152.0-alpha.7",
-   "date": "2026-08-31T16:18:27Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.152.0-alpha.6",
-   "tool": "codex",
-   "version": "0.152.0-alpha.6",
-   "date": "2026-08-31T02:12:53Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.152.0-alpha.5",
-   "tool": "codex",
-   "version": "0.152.0-alpha.5",
-   "date": "2026-08-31T01:11:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.152.0-alpha.4",
-   "tool": "codex",
-   "version": "0.152.0-alpha.4",
-   "date": "2026-08-30T13:56:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.7.2",
-   "tool": "codex",
-   "version": "0.151.0-alpha.7.2",
-   "date": "2026-08-29T21:46:50Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.7.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.152.0-alpha.1",
-   "tool": "codex",
-   "version": "0.152.0-alpha.1",
-   "date": "2026-08-29T10:47:53Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.152.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.831",
+   "date": "2026-08-31T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-31-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed new chats getting stuck after pasting a large amount of text.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved startup recovery on Windows and cleared stale startup errors after reconnection.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed response streaming stalls in hidden app windows.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "1c381e239b2f",
    "ko": null
   },
   {
@@ -28861,6 +28401,7 @@
    "date": "2026-08-29T09:55:39Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -28941,50 +28482,6 @@
     }
    ],
    "hash": "5f564b7625eb",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.12",
-   "tool": "codex",
-   "version": "0.151.0-alpha.12",
-   "date": "2026-08-29T01:29:50Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.11",
-   "tool": "codex",
-   "version": "0.151.0-alpha.11",
-   "date": "2026-08-28T21:28:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.7.1",
-   "tool": "codex",
-   "version": "0.151.0-alpha.7.1",
-   "date": "2026-08-28T20:18:38Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.7.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.10",
-   "tool": "codex",
-   "version": "0.151.0-alpha.10",
-   "date": "2026-08-28T16:59:16Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -29497,28 +28994,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.151.0-alpha.9",
-   "tool": "codex",
-   "version": "0.151.0-alpha.9",
-   "date": "2026-08-28T15:32:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.8",
-   "tool": "codex",
-   "version": "0.151.0-alpha.8",
-   "date": "2026-08-28T04:42:54Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.250",
    "tool": "claude-code",
    "version": "2.1.250",
@@ -29535,17 +29010,6 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.7",
-   "tool": "codex",
-   "version": "0.151.0-alpha.7",
-   "date": "2026-08-27T22:15:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -29904,56 +29368,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.151.0-alpha.6",
-   "tool": "codex",
-   "version": "0.151.0-alpha.6",
-   "date": "2026-08-27T12:31:55Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.12.2",
-   "tool": "codex",
-   "version": "0.150.0-alpha.12.2",
-   "date": "2026-08-27T07:22:40Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.12.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.5",
-   "tool": "codex",
-   "version": "0.151.0-alpha.5",
-   "date": "2026-08-27T06:22:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.4",
-   "tool": "codex",
-   "version": "0.151.0-alpha.4",
-   "date": "2026-08-27T02:47:12Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.150.1",
    "tool": "codex",
    "version": "0.150.1",
    "date": "2026-08-27T01:56:54Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -29967,36 +29388,27 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.12.1",
+   "id": "codex@changelog:codex-2026-08-27-app",
    "tool": "codex",
-   "version": "0.150.0-alpha.12.1",
-   "date": "2026-08-27T00:15:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.12.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.3",
-   "tool": "codex",
-   "version": "0.151.0-alpha.3",
-   "date": "2026-08-26T23:07:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.151.0-alpha.2",
-   "tool": "codex",
-   "version": "0.151.0-alpha.2",
-   "date": "2026-08-26T21:27:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.151.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.825",
+   "date": "2026-08-27T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-27-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "Preserved saved chats and projects when renaming an SSH connection.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "d07d9537ab9c",
    "ko": null
   },
   {
@@ -30006,6 +29418,7 @@
    "date": "2026-08-26T19:37:28Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -30339,47 +29752,76 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.13",
+   "id": "codex@changelog:codex-2026-08-25-mobile",
    "tool": "codex",
-   "version": "0.150.0-alpha.13",
-   "date": "2026-08-26T11:18:24Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.12",
-   "tool": "codex",
-   "version": "0.150.0-alpha.12",
-   "date": "2026-08-26T10:06:30Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.11",
-   "tool": "codex",
-   "version": "0.150.0-alpha.11",
-   "date": "2026-08-25T21:30:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.10",
-   "tool": "codex",
-   "version": "0.150.0-alpha.10",
-   "date": "2026-08-25T20:36:48Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.230",
+   "date": "2026-08-26T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-25-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added task search across titles and conversation content on connected hosts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a compact composer gauge for viewing and adjusting reasoning effort.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a full-screen editor for longer prompts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added configurable Home Screen shortcuts for ChatGPT, Work, and Codex Remote.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added optional comments to selected response annotations.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved loading for long threads, with older history fetched as needed.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Refined task list layout, ordering, and pinning to better match desktop.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Inline visualizations now follow iOS appearance and accent settings.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "c219371fbf4e",
    "ko": null
   },
   {
@@ -30822,17 +30264,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.9",
-   "tool": "codex",
-   "version": "0.150.0-alpha.9",
-   "date": "2026-08-25T12:51:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.245",
    "tool": "claude-code",
    "version": "2.1.245",
@@ -30849,6 +30280,129 @@
     }
    ],
    "hash": "7964c607de2f",
+   "ko": null
+  },
+  {
+   "id": "codex@changelog:codex-2026-08-25-browser",
+   "tool": "codex",
+   "version": "Browser extensions, site tools, and cloud sign-in 26.820",
+   "date": "2026-08-25T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general",
+    "codex-app",
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-25-browser",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "More browsers: Use the ChatGPT browser extension in Microsoft Edge, Brave, Opera, and Vivaldi, as well as Chrome. Set up your browser in Settings > Computer Use in the ChatGPT desktop app. All five support tab mentions and browser control; Opera doesn’t support side chat.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Site tools (WebMCP): In the desktop app’s built-in browser, ChatGPT Work and Codex can use tools provided by a website to work with the page. Use GPT-5.6 Sol or GPT-5.6 Terra and update to the latest desktop app. Site tools aren’t available with GPT-5.6 Luna or in Enterprise or Edu workspaces.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Cloud browser sign-in: On eligible plans, ChatGPT Work on the web, iOS, and Android can ask you to sign in to a supported website through the cloud browser. Enter your details in the sign-in flow, not in the chat. Cloud browser sessions stay separate from your local browser. Website sign-in isn’t available for Enterprise or Edu workspaces.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Availability depends on rollout and workspace settings. Website-access and action-confirmation requirements still apply.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed browser tab mentions being lost when starting a chat from Home.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved right-to-left chat titles and Command+Arrow navigation in the composer.",
+     "surfaces": [
+      "general",
+      "desktop",
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "1902b77de664",
+   "ko": null
+  },
+  {
+   "id": "codex@changelog:codex-2026-08-25-event-triggers",
+   "tool": "codex",
+   "version": "Trigger scheduled tasks from Gmail, Slack, and GitHub events",
+   "date": "2026-08-25T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general",
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-25-event-triggers",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "ChatGPT scheduled tasks can now run when supported events occur in Gmail, Slack, or GitHub. Filter Gmail messages by sender or subject, watch selected Slack channels, or respond to pull request activity such as reviews, comments, commit updates, and merges.",
+     "surfaces": [
+      "general",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Event-triggered tasks are available in ChatGPT on the web and mobile for eligible plans. Connect the relevant app and approve its requested access before creating a task. The ChatGPT Slack app must be a member of each watched channel, and the connected GitHub app must have access to each watched repository.",
+     "surfaces": [
+      "general",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "An event-triggered task can’t also use a time-based schedule. When matching events arrive close together, ChatGPT may combine them in one run. Open Scheduled to review pending events or choose Run now.",
+     "surfaces": [
+      "general",
+      "mobile"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn how to trigger scheduled tasks from app events.",
+     "surfaces": [
+      "general",
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "b84452740d82",
    "ko": null
   },
   {
@@ -31284,36 +30838,47 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.8",
-   "tool": "codex",
-   "version": "0.150.0-alpha.8",
-   "date": "2026-08-24T22:11:43Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.149.1",
    "tool": "codex",
    "version": "0.149.1",
    "date": "2026-08-24T00:28:28Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.1",
+   "source": "github-releases",
    "items": [],
    "hash": "97d170e1550e",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.149.0-alpha.4.3",
+   "id": "codex@changelog:codex-2026-08-24",
    "tool": "codex",
-   "version": "0.149.0-alpha.4.3",
-   "date": "2026-08-23T23:29:33Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.4.3",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex MCP server command deprecated",
+   "date": "2026-08-24T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-24",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "The codex mcp-server command is now deprecated. Use the Codex app server instead.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Update, September 5, 2026: The command and standalone codex-mcp-server binary have been removed. See the migration guidance.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "13bf510c91b4",
    "ko": null
   },
   {
@@ -31336,28 +30901,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.7",
-   "tool": "codex",
-   "version": "0.150.0-alpha.7",
-   "date": "2026-08-22T21:26:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.7.2",
-   "tool": "codex",
-   "version": "0.149.0-alpha.7.2",
-   "date": "2026-08-22T19:48:54Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.7.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.240",
    "tool": "claude-code",
    "version": "2.1.240",
@@ -31374,28 +30917,6 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.6",
-   "tool": "codex",
-   "version": "0.150.0-alpha.6",
-   "date": "2026-08-21T22:42:06Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.5",
-   "tool": "codex",
-   "version": "0.150.0-alpha.5",
-   "date": "2026-08-21T18:12:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -31824,67 +31345,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.150.0-alpha.3",
-   "tool": "codex",
-   "version": "0.150.0-alpha.3",
-   "date": "2026-08-21T16:43:40Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.7.1",
-   "tool": "codex",
-   "version": "0.149.0-alpha.7.1",
-   "date": "2026-08-21T05:21:49Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.7.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.2",
-   "tool": "codex",
-   "version": "0.150.0-alpha.2",
-   "date": "2026-08-21T04:24:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.4.1",
-   "tool": "codex",
-   "version": "0.149.0-alpha.4.1",
-   "date": "2026-08-21T02:28:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.4.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.150.0-alpha.1",
-   "tool": "codex",
-   "version": "0.150.0-alpha.1",
-   "date": "2026-08-20T22:06:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.150.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.149.0",
    "tool": "codex",
    "version": "0.149.0",
    "date": "2026-08-20T21:04:55Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -31986,17 +31453,6 @@
     }
    ],
    "hash": "a9b1796662cd",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.7",
-   "tool": "codex",
-   "version": "0.149.0-alpha.7",
-   "date": "2026-08-20T18:29:14Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -32285,25 +31741,69 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.149.0-alpha.4",
+   "id": "codex@changelog:codex-2026-08-20-app",
    "tool": "codex",
-   "version": "0.149.0-alpha.4",
-   "date": "2026-08-20T09:39:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.3",
-   "tool": "codex",
-   "version": "0.149.0-alpha.3",
-   "date": "2026-08-20T02:27:36Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex and ChatGPT updates",
+   "date": "2026-08-20T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general",
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-20-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Apple Messages: Use the Apple Messages plugin to read and search Messages chats on your Mac and prepare or send messages. It’s available on all plans in the ChatGPT desktop app for macOS. You can use the plugin in ChatGPT Work and Codex. By default, ChatGPT sends messages only after you approve the message and its recipients. See the plugin guide for persistent-approval risks, revocation steps, and the known issue with tasks that disable approval prompts.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Site co-editing: Where Site collaboration is available, owners can invite active members of the same workspace as editors. Editors can read the Site’s live database data, update the Site, save versions, and publish changes after the owner publishes the Site for the first time. Owners retain control of the audience, settings, analytics, ownership, version restoration, and editor access.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Editable Site URLs: Where URL editing is available, owners can change an existing Site’s ChatGPT-hosted address without creating another deployment. The previous address redirects to the new URL. Custom domains are a separate, existing feature and aren’t changed by this setting.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Computer History in Europe: Computer History is now available in the EEA, Switzerland, and the United Kingdom for ChatGPT Pro, Business, and Enterprise users in the ChatGPT desktop app on macOS. It’s off by default and requires Memories. Business and Enterprise administrators must enable access before workspace members can choose to turn it on.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Shared thread snapshots: On all Codex plans, share a read-only snapshot of a local Codex thread from the ChatGPT desktop app for macOS. The snapshot doesn’t update when the original thread changes. Personal-account links can be opened by anyone with the link; workspace-account links are limited to members of the originating workspace. Codex redacts known secret patterns, but review the shared content because sensitive content may remain. View or revoke links in ChatGPT data controls, under Shared links.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Unified pinned threads: Keep the same pinned chats across the ChatGPT desktop app and iOS.",
+     "surfaces": [
+      "general",
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "c1127448ac20",
    "ko": null
   },
   {
@@ -32330,17 +31830,6 @@
     }
    ],
    "hash": "6b22c4940364",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.149.0-alpha.2",
-   "tool": "codex",
-   "version": "0.149.0-alpha.2",
-   "date": "2026-08-19T22:36:58Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -32587,14 +32076,93 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.149.0-alpha.1",
+   "id": "codex@changelog:codex-2026-08-19-app",
    "tool": "codex",
-   "version": "0.149.0-alpha.1",
-   "date": "2026-08-19T00:54:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.818",
+   "date": "2026-08-19T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-19-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Includes updates through August 23, 2026.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Eligible local chats interrupted by an app update now resume automatically after the app restarts.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Preserved draft formatting and mentions when switching between chats.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a blue composer background on Windows virtual desktops.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "cccb527eae9f",
+   "ko": null
+  },
+  {
+   "id": "codex@changelog:codex-2026-08-19-gitlab",
+   "tool": "codex",
+   "version": "GitLab support in Codex cloud (Beta)",
+   "date": "2026-08-19T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-19-gitlab",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "GitLab support is available in beta on all ChatGPT plans. Connect a GitLab project to Codex cloud, create an environment for it, start tasks from issues or merge requests with @codex, and request one-off or automatic merge request reviews.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The integration runs in Codex cloud. A managed workspace admin can disable the connector. GitLab-triggered activity requires permission to configure the applicable webhook. For GitLab Self-Managed or GitLab Dedicated, a workspace admin must configure the connection, and webhook activity requires GitLab 19.0 or later.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Codex cannot complete a review when GitLab omits a collapsed or oversize diff.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn how to use Codex with GitLab.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "157096f9771e",
    "ko": null
   },
   {
@@ -32604,6 +32172,7 @@
    "date": "2026-08-18T22:26:03Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -32698,17 +32267,6 @@
     }
    ],
    "hash": "cb00554d7d0c",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.23",
-   "tool": "codex",
-   "version": "0.148.0-alpha.23",
-   "date": "2026-08-18T21:23:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.23",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -32857,25 +32415,104 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.22",
+   "id": "codex@changelog:codex-2026-08-17-mobile",
    "tool": "codex",
-   "version": "0.148.0-alpha.22",
-   "date": "2026-08-18T13:30:36Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.22",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.21",
-   "tool": "codex",
-   "version": "0.148.0-alpha.21",
-   "date": "2026-08-17T19:27:11Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.21",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.223",
+   "date": "2026-08-18T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-17-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added a setting to open ChatGPT directly in Codex Remote on launch.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added support for standard MCP forms and editable message approvals.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Linked folders now open directly in the files sheet.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the New Thread project picker to reflect the selected host’s current projects.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Voice now works directly from existing task composers, connects more reliably, and continues task actions in the background.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved diff review stability and performance, especially in large workspaces.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a Retry action when task messages fail to load.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed large task responses failing to load.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed tasks disappearing or remaining unavailable after being idle, reconnecting, or returning to the task list.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved host pairing reliability and prevented enrollment checks from freezing the app.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved response annotations and preserved streamed activity when tasks complete.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Canceling or editing a steering message now prevents delivery.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "c1340f1c6aa3",
    "ko": null
   },
   {
@@ -33248,47 +32885,65 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.20",
+   "id": "codex@changelog:codex-2026-08-17-admin-csv",
    "tool": "codex",
-   "version": "0.148.0-alpha.20",
-   "date": "2026-08-16T00:21:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.20",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Public plugin catalog CSV export",
+   "date": "2026-08-17T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-17-admin-csv",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Eligible ChatGPT Enterprise workspace owners and admins can download a CSV of the public plugins visible to their workspace. The export includes plugin, app, and Chat skill names and descriptions, along with developer, version, date added in UTC, and OpenAI verification metadata.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Open Admin > Plugins, select Public, and then select the download icon (Export CSV). The export uses a public-catalog snapshot that can be up to 48 hours old and does not include plugins created for the workspace. It isn’t available in FedRAMP workspaces.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn more about plugin controls.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "49c91fa08255",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.19",
+   "id": "codex@changelog:codex-2026-08-17-app",
    "tool": "codex",
-   "version": "0.148.0-alpha.19",
-   "date": "2026-08-15T02:21:24Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.19",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.18",
-   "tool": "codex",
-   "version": "0.148.0-alpha.18",
-   "date": "2026-08-14T21:58:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.18",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.17",
-   "tool": "codex",
-   "version": "0.148.0-alpha.17",
-   "date": "2026-08-14T19:26:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.17",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.814",
+   "date": "2026-08-17T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-17-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "Kept sidebar projects in their saved order as chat activity changes.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "6d1b8c76e2c8",
    "ko": null
   },
   {
@@ -33441,50 +33096,6 @@
     }
    ],
    "hash": "6744f1a1d45e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.16",
-   "tool": "codex",
-   "version": "0.148.0-alpha.16",
-   "date": "2026-08-14T17:18:40Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.16",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.15",
-   "tool": "codex",
-   "version": "0.148.0-alpha.15",
-   "date": "2026-08-14T03:00:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.15",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.14",
-   "tool": "codex",
-   "version": "0.148.0-alpha.14",
-   "date": "2026-08-14T01:37:45Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.13",
-   "tool": "codex",
-   "version": "0.148.0-alpha.13",
-   "date": "2026-08-13T22:37:01Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -33862,25 +33473,48 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.12",
+   "id": "codex@changelog:codex-2026-08-13-app",
    "tool": "codex",
-   "version": "0.148.0-alpha.12",
-   "date": "2026-08-13T06:43:33Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.11",
-   "tool": "codex",
-   "version": "0.148.0-alpha.11",
-   "date": "2026-08-13T04:11:00Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Computer History 26.810",
+   "date": "2026-08-13T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-13-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Computer History is an opt-in feature in the ChatGPT desktop app on macOS that turns activity across apps and websites into memories and a timeline that ChatGPT and Codex can use. Choose which apps and websites contribute, pause collection, and review or delete your history at any time.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Computer History is available to ChatGPT Pro, Business, and Enterprise users. Business and Enterprise administrators must enable access before workspace members can turn it on. Initial availability excludes the European Economic Area (EEA), Switzerland, and the United Kingdom.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Preserved undo and redo history in the Markdown editor when switching chats.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Prevented duplicate pull request comments while comments are refreshing.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "756f0b342953",
    "ko": null
   },
   {
@@ -34120,28 +33754,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.9",
-   "tool": "codex",
-   "version": "0.148.0-alpha.9",
-   "date": "2026-08-12T01:35:53Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.8",
-   "tool": "codex",
-   "version": "0.148.0-alpha.8",
-   "date": "2026-08-11T18:41:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.228",
    "tool": "claude-code",
    "version": "2.1.228",
@@ -34280,25 +33892,45 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.7",
+   "id": "codex@changelog:codex-2026-08-11-app",
    "tool": "codex",
-   "version": "0.148.0-alpha.7",
-   "date": "2026-08-11T15:29:55Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.6.6",
-   "tool": "codex",
-   "version": "0.147.0-alpha.6.6",
-   "date": "2026-08-10T21:52:42Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6.6",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Linux desktop preview and agent imports",
+   "date": "2026-08-11T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app",
+    "codex-cli"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-11-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "The ChatGPT desktop app for Linux is available in preview for supported Ubuntu, Debian, and Fedora desktop distributions on x64 and ARM64 processors. Download the .deb or .rpm package for your distribution, then sign in to work with projects, local files, and Codex.",
+     "surfaces": [
+      "desktop",
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The desktop app supports Claude Code, Claude Cowork, and Cursor. Import instructions, settings, skills, plugins, projects, and recent work, then turn on automatic updates in Settings > Import to keep imported work in sync.",
+     "surfaces": [
+      "desktop",
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Codex CLI can also import supported setup and recent chats from Claude Code and Cursor with /import.",
+     "surfaces": [
+      "desktop",
+      "cli"
+     ]
+    }
+   ],
+   "hash": "91038fd27800",
    "ko": null
   },
   {
@@ -34349,25 +33981,62 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.6",
+   "id": "codex@changelog:codex-2026-08-10-daybreak",
    "tool": "codex",
-   "version": "0.148.0-alpha.6",
-   "date": "2026-08-10T10:17:08Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.5",
-   "tool": "codex",
-   "version": "0.148.0-alpha.5",
-   "date": "2026-08-08T02:26:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Introducing Daybreak Blue and Daybreak Red",
+   "date": "2026-08-10T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-10-daybreak",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Daybreak now offers two access tiers for approved defenders: Daybreak Blue and Daybreak Red. Use them to move from security findings to validated fixes in explicitly authorized engagements.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Start with Daybreak Blue for most defensive security work. It provides access to general-purpose models such as GPT-5.6 Sol for vulnerability discovery, secure code review, detection engineering, incident response, malware analysis, and patch validation.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Daybreak Red provides separately approved access to purpose-trained models such as GPT-5.6 Cyber for authorized vulnerability reproduction, exploit validation, penetration testing, red teaming, and complex system analysis.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Access requires approval through Trusted Access for Cyber and applies only to the approved identity, workspace or API organization and project, model, and product surface. Daybreak Red requires separate approval and provisioning; Daybreak Blue access doesn’t grant access to Daybreak Red.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Work in an isolated environment, define your engagement scope, use least-privilege permission profiles, and configure Auto-review for eligible actions before they cross the sandbox boundary.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn more about Cyber Safety, Codex credit rates, and API token prices.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "e9ccc5fb0da8",
    "ko": null
   },
   {
@@ -34387,17 +34056,6 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.4",
-   "tool": "codex",
-   "version": "0.148.0-alpha.4",
-   "date": "2026-08-08T00:43:56Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -34511,34 +34169,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.148.0-alpha.2",
-   "tool": "codex",
-   "version": "0.148.0-alpha.2",
-   "date": "2026-08-07T09:23:15Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.148.0-alpha.1",
-   "tool": "codex",
-   "version": "0.148.0-alpha.1",
-   "date": "2026-08-07T03:20:28Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.148.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.147.0",
    "tool": "codex",
    "version": "0.147.0",
    "date": "2026-08-07T01:41:49Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -34893,14 +34530,107 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.13",
+   "id": "codex@changelog:codex-2026-08-03-mobile",
    "tool": "codex",
-   "version": "0.147.0-alpha.13",
-   "date": "2026-08-06T01:12:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.209",
+   "date": "2026-08-07T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-03-mobile",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "Improved task reconnection with visible progress while keeping existing tasks usable during connection checks.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New tasks now preserve their first prompt and attachments while starting, preventing empty tasks that could not be reopened.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved editing performance for long prompts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Voice conversations now follow your Background Conversations setting.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Approvals and user-input requests now recover reliably after reconnecting, with cleaner approval details in the transcript.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed follow-up /goal prompts after completing a goal.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed task-list freezes, disappearing task titles, flashing thinking summaries, and transcript crashes.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "08bb5a80a37c",
+   "ko": null
+  },
+  {
+   "id": "codex@changelog:codex-2026-08-06-app",
+   "tool": "codex",
+   "version": "Codex app 26.803",
+   "date": "2026-08-06T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-06-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed an issue where typing in Find could edit the open code file.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Preserved the selected model and thinking level when moving a chat to a worktree.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Made search for @-mentions case-insensitive.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "abab805af8aa",
    "ko": null
   },
   {
@@ -35049,45 +34779,13 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.12",
-   "tool": "codex",
-   "version": "0.147.0-alpha.12",
-   "date": "2026-08-05T20:38:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.6.5",
-   "tool": "codex",
-   "version": "0.147.0-alpha.6.5",
-   "date": "2026-08-05T19:45:48Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.11",
-   "tool": "codex",
-   "version": "0.147.0-alpha.11",
-   "date": "2026-08-05T17:03:09Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.11",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "codex@rust-v0.146.1",
    "tool": "codex",
    "version": "0.146.1",
    "date": "2026-08-05T15:55:06Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.1",
+   "source": "github-releases",
    "items": [
     {
      "cat": "fixed",
@@ -35098,28 +34796,6 @@
     }
    ],
    "hash": "5fa169a20d0d",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.10",
-   "tool": "codex",
-   "version": "0.147.0-alpha.10",
-   "date": "2026-08-05T10:53:31Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.6.4",
-   "tool": "codex",
-   "version": "0.147.0-alpha.6.4",
-   "date": "2026-08-04T21:02:39Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6.4",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -35282,36 +34958,41 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.6.3",
+   "id": "codex@changelog:codex-2026-08-04-app",
    "tool": "codex",
-   "version": "0.147.0-alpha.6.3",
-   "date": "2026-08-04T19:36:48Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.6.1",
-   "tool": "codex",
-   "version": "0.147.0-alpha.6.1",
-   "date": "2026-08-04T13:14:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.7",
-   "tool": "codex",
-   "version": "0.147.0-alpha.7",
-   "date": "2026-08-04T11:50:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Codex app 26.730",
+   "date": "2026-08-04T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-08-04-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added source-folder shortcuts to the terminal for projects with more than one folder.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed duplicate pinned chats in the sidebar.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Kept other project folders available when repairing worktree setup.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "1fa395112341",
    "ko": null
   },
   {
@@ -35600,102 +35281,194 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.6",
+   "id": "codex@changelog:codex-2026-07-31",
    "tool": "codex",
-   "version": "0.147.0-alpha.6",
-   "date": "2026-08-03T21:32:07Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "GPT-5.4 and GPT-5.4 mini retire from Codex on August 31",
+   "date": "2026-07-31T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-31",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "On August 31, 2026, GPT-5.4 and GPT-5.4 mini will no longer be available in Codex for users signed in with ChatGPT. GPT-5.4 and GPT-5.4 mini will remain available on the OpenAI API and Codex sessions authenticated with an API key.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Switch to their recommended replacements:",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Replace gpt-5.4 with gpt-5.6-terra (GPT-5.6 Terra).",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Replace gpt-5.4-mini with gpt-5.6-luna (GPT-5.6 Luna).",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Before the cutoff, update workspace defaults, saved model settings, managed configurations, custom agents, and scheduled tasks that use either model.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See Codex models and workspace model availability for details.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "6879d9bb91cf",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.1.2",
+   "id": "codex@changelog:codex-2026-07-31-app",
    "tool": "codex",
-   "version": "0.147.0-alpha.1.2",
-   "date": "2026-08-03T17:22:05Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.1.2",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Record & Replay expands to the EU, UK, and Switzerland",
+   "date": "2026-07-31T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-31-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Record & Replay is now available in the European Union, the United Kingdom, and Switzerland. On macOS, demonstrate a workflow and turn it into a reusable skill. Computer Use must also be available and enabled.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "8418b0994aeb",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.147.0-alpha.4",
+   "id": "codex@changelog:codex-2026-07-30-app",
    "tool": "codex",
-   "version": "0.147.0-alpha.4",
-   "date": "2026-07-31T17:54:49Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.3",
-   "tool": "codex",
-   "version": "0.147.0-alpha.3",
-   "date": "2026-07-31T15:36:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.1.1",
-   "tool": "codex",
-   "version": "0.147.0-alpha.1.1",
-   "date": "2026-07-31T09:48:25Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.1.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.2",
-   "tool": "codex",
-   "version": "0.147.0-alpha.2",
-   "date": "2026-07-30T01:04:28Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.9.2",
-   "tool": "codex",
-   "version": "0.146.0-alpha.9.2",
-   "date": "2026-07-29T23:53:10Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.9.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.9.1",
-   "tool": "codex",
-   "version": "0.146.0-alpha.9.1",
-   "date": "2026-07-29T22:56:59Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.9.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.147.0-alpha.1",
-   "tool": "codex",
-   "version": "0.147.0-alpha.1",
-   "date": "2026-07-29T09:13:56Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Browser upgrades, multi-repository review, and image editing 26.727",
+   "date": "2026-07-30T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-30-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "The latest ChatGPT desktop app update makes browsing, reviewing code, and editing generated images faster and easier.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Type in the built-in browser’s address bar to revisit pages from your browsing history or search Google when there’s no match.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Manage your browsing history in Settings, and let ChatGPT search that history when a task needs to find a page you visited before.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Use the Chrome extension to mention open tabs or bring highlighted page text into your side chat.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Ask questions about any YouTube video in the Chrome extension and get answers in seconds.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Right-click a webpage and select Ask ChatGPT.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Learn more about the built-in browser and the Chrome extension.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "See all repositories in a multi-folder project and the lines changed in each one. Select Review to inspect diffs across those repositories without switching between separate review views.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Open generated images in an expanded viewer, and switch between Focused view and Canvas view. Add comments across images, choose the ones you want, and send targeted edits without leaving your conversation. Learn more about image generation.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a new “Activity view” in the sidebar to view which chats you engaged with recently and require attention. Click the bell or use Cmd/Ctrl+Opt+U to change to the new view.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Updated browser settings to show only supported browsers.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved Windows installation reliability when package file paths are long.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Other performance and bug fixes.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "d4d4dc42a0c4",
    "ko": null
   },
   {
@@ -35705,6 +35478,7 @@
    "date": "2026-07-29T01:42:51Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -35837,91 +35611,135 @@
    "ko": null
   },
   {
-   "id": "codex@rusty-v8-v150.4.0",
+   "id": "codex@changelog:codex-2026-07-29",
    "tool": "codex",
-   "version": "rusty-v8-v150.4.0",
-   "date": "2026-07-29T00:27:49Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rusty-v8-v150.4.0",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "Sign in with ChatGPT (beta)",
+   "date": "2026-07-29T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-29",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Sign in with ChatGPT is beginning to roll out in beta across select plugins and partner sites, starting with Airtable, GitLab, HubSpot, Notion, Supabase, and Vercel.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "When you connect a supported plugin from the ChatGPT plugin directory, you can use Sign in with ChatGPT to create or link an account with that service in fewer steps. On participating partner sites, you can also select Sign in with ChatGPT to create or access your account.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "This makes it easier to start working with supported tools in ChatGPT and Codex.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "When you sign in, the partner receives only your name, email address, and profile picture, if available. You must still review and approve each plugin’s requested access as a separate step.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "4a35dc841469",
    "ko": null
   },
   {
-   "id": "codex@rust-v0.146.0-alpha.14",
+   "id": "codex@changelog:codex-2026-07-27-mobile",
    "tool": "codex",
-   "version": "0.146.0-alpha.14",
-   "date": "2026-07-28T04:28:19Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.14",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.13",
-   "tool": "codex",
-   "version": "0.146.0-alpha.13",
-   "date": "2026-07-27T16:03:21Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.13",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.12",
-   "tool": "codex",
-   "version": "0.146.0-alpha.12",
-   "date": "2026-07-27T08:25:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.12",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.10.1",
-   "tool": "codex",
-   "version": "0.146.0-alpha.10.1",
-   "date": "2026-07-25T20:29:03Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.10.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.10",
-   "tool": "codex",
-   "version": "0.146.0-alpha.10",
-   "date": "2026-07-25T02:18:34Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.10",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.9",
-   "tool": "codex",
-   "version": "0.146.0-alpha.9",
-   "date": "2026-07-25T00:34:24Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.9",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.8",
-   "tool": "codex",
-   "version": "0.146.0-alpha.8",
-   "date": "2026-07-24T23:23:37Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.8",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT for iOS 1.2026.202",
+   "date": "2026-07-27T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-27-mobile",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "Voice conversations now use your selected ChatGPT voice and show usage-limit warnings.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved task reconnection and continuity when returning to the app or unlocking with Face ID.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Composer autocomplete now matches desktop plugin mentions and includes skills from installed plugins.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Selected-text references remain available after sending so you can preview them again.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved goal controls with clearer progress when pausing or resuming.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Inline visualizations now render tables and visual themes more reliably.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Large workspace diffs are more responsive.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed restored tasks changing the selected model.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Prevented the composer from becoming stuck after a prompt started.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Corrected browser and computer tool labels, icons, and placeholder output.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "cd653675773a",
    "ko": null
   },
   {
@@ -35941,17 +35759,6 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.7",
-   "tool": "codex",
-   "version": "0.146.0-alpha.7",
-   "date": "2026-07-24T18:24:41Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.7",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -36135,58 +35942,83 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.146.0-alpha.6",
+   "id": "codex@changelog:codex-2026-07-23-app",
    "tool": "codex",
-   "version": "0.146.0-alpha.6",
-   "date": "2026-07-24T05:31:18Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.6",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.3.1",
-   "tool": "codex",
-   "version": "0.146.0-alpha.3.1",
-   "date": "2026-07-23T23:26:55Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.3.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.5",
-   "tool": "codex",
-   "version": "0.146.0-alpha.5",
-   "date": "2026-07-23T20:02:57Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.5",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.4",
-   "tool": "codex",
-   "version": "0.146.0-alpha.4",
-   "date": "2026-07-23T00:46:13Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.4",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.3",
-   "tool": "codex",
-   "version": "0.146.0-alpha.3",
-   "date": "2026-07-22T21:51:44Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.3",
-   "items": [],
-   "hash": "97d170e1550e",
+   "version": "ChatGPT Voice and multi-folder projects 26.715",
+   "date": "2026-07-23T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-07-23-app",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Powered by GPT-Live, ChatGPT Voice lets you talk through work and coordinate tasks in Chat, Work, and Codex in the ChatGPT desktop app.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Start a new chat or task in voice mode, then ask ChatGPT to start, check, or steer work in other threads. On macOS, turn on Screen context to share an appshot of your frontmost window.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Voice is available with Plus, Pro, Business, Edu, and Enterprise plans in the desktop app and through Remote on iOS.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Local projects in the ChatGPT desktop app can now include multiple related folders. From a project’s menu, select Edit project to add folders and choose the primary folder. New chats, Git operations, and automatic discovery of AGENTS.md, skills, and config.toml use the primary folder. Secondary folders remain available for file search, reading, and editing.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Get started with ChatGPT Voice and multi-folder local projects.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Also includes fixes from version 26.721.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved screen reader navigation between messages.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Git detection on Windows.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a freeze caused by missing icons in the Open in menu.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "9654b8dc22c0",
    "ko": null
   },
   {
@@ -36454,39 +36286,6 @@
    "ko": null
   },
   {
-   "id": "codex@rust-v0.146.0-alpha.2",
-   "tool": "codex",
-   "version": "0.146.0-alpha.2",
-   "date": "2026-07-22T07:22:20Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.2",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.146.0-alpha.1",
-   "tool": "codex",
-   "version": "0.146.0-alpha.1",
-   "date": "2026-07-22T05:01:23Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.146.0-alpha.1",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.145.0-alpha.30",
-   "tool": "codex",
-   "version": "0.145.0-alpha.30",
-   "date": "2026-07-22T01:18:32Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.30",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
    "id": "claude-code@2.1.217",
    "tool": "claude-code",
    "version": "2.1.217",
@@ -36645,6 +36444,7 @@
    "date": "2026-07-21T18:21:04Z",
    "prerelease": false,
    "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0",
+   "source": "github-releases",
    "items": [
     {
      "cat": "new",
@@ -36760,39 +36560,6 @@
     }
    ],
    "hash": "2d7a6acac068",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.145.0-alpha.29",
-   "tool": "codex",
-   "version": "0.145.0-alpha.29",
-   "date": "2026-07-21T11:49:09Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.29",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.145.0-alpha.28",
-   "tool": "codex",
-   "version": "0.145.0-alpha.28",
-   "date": "2026-07-21T03:01:52Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.28",
-   "items": [],
-   "hash": "97d170e1550e",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.145.0-alpha.27",
-   "tool": "codex",
-   "version": "0.145.0-alpha.27",
-   "date": "2026-07-21T01:59:04Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.27",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   },
   {
@@ -37085,17 +36852,6 @@
     }
    ],
    "hash": "e50187abde7a",
-   "ko": null
-  },
-  {
-   "id": "codex@rust-v0.145.0-alpha.25",
-   "tool": "codex",
-   "version": "0.145.0-alpha.25",
-   "date": "2026-07-20T18:51:26Z",
-   "prerelease": true,
-   "url": "https://github.com/openai/codex/releases/tag/rust-v0.145.0-alpha.25",
-   "items": [],
-   "hash": "97d170e1550e",
    "ko": null
   }
  ],
