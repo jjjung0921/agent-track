@@ -1,17 +1,25 @@
 // Lists releases that still lack Korean notes and writes one input file per release to work/pending/.
 // Used by the Codex CLI routine; Codex writes answers to work/out/ and runs apply-ko.mjs.
-//   node scripts/pending.mjs [limit]
+//   node scripts/pending.mjs [release-limit] [item-limit]
 import { readFile, writeFile, rm, mkdir } from "node:fs/promises";
 import { buildInput, isCurrentNote } from "./ko-notes.mjs";
 import { nearbyShots } from "./parse.mjs";
 
 const limit = Number(process.argv[2] ?? 10);
+const itemLimit = Number(process.argv[3] ?? Infinity);
 const data = JSON.parse(await readFile(new URL("../site/data/releases.json", import.meta.url), "utf8"));
 const ko = JSON.parse(await readFile(new URL("../data/ko.json", import.meta.url), "utf8").catch(() => "{}"));
 const dir = new URL("../work/pending/", import.meta.url);
 const out = new URL("../work/out/", import.meta.url);
 
-const todo = data.releases.filter((r) => r.items.length && !isCurrentNote(ko[r.id], r.hash)).slice(0, limit);
+const todo = [];
+let itemCount = 0;
+for (const release of data.releases) {
+  if (!release.items.length || isCurrentNote(ko[release.id], release.hash)) continue;
+  if (todo.length >= limit || (todo.length && itemCount + release.items.length > itemLimit)) break;
+  todo.push(release);
+  itemCount += release.items.length;
+}
 await rm(dir, { recursive: true, force: true });
 await rm(out, { recursive: true, force: true });
 await mkdir(dir, { recursive: true });

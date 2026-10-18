@@ -52,7 +52,7 @@ node scripts/install-local-routine.mjs --uninstall # 등록 해제
 
 ## 배포
 
-`.github/workflows/update.yml`은 6시간마다, `main`에 푸시할 때, 또는 수동으로 실행된다. 워크플로는 원문 데이터를 수집하고 `site/`를 GitHub Pages에 배포한다. 로컬 작업은 새 데이터나 미작성 노트가 있으면 한 번에 최대 8건을 작성·검증하고, 변경 파일만 푸시한다. 변경이 없으면 푸시하지 않는다. Pages 소스는 GitHub Actions.
+`.github/workflows/update.yml`은 6시간마다, `main`에 푸시할 때, 또는 수동으로 실행된다. 워크플로는 원문 데이터를 수집하고 `site/`를 GitHub Pages에 배포한다. 로컬 작업은 새 데이터나 미작성 노트가 있으면 한 번에 최대 8건, 원문 항목 약 160개 이내로 나눠 작성·검증하고, 변경 파일만 푸시한다. 변경이 없으면 푸시하지 않는다. Pages 소스는 GitHub Actions.
 
 원문 수집이 실패해도 이전에 커밋된 데이터로 배포를 계속한다. 따라서 배포 상태 배지의 성공은 새 데이터 수집 성공을 뜻하지 않을 수 있다. 갱신 결과는 [Actions 실행 기록](https://github.com/jjjung0921/agent-track/actions/workflows/update.yml)과 사이트의 동기화 시각에서 확인한다.
 
