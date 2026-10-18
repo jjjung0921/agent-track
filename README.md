@@ -12,7 +12,7 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 - Claude Code와 Codex의 최근 90일 릴리스를 모으고 RSS 피드를 생성한다. 프리릴리스는 화면에서 기본으로 접어 둔다.
 - Codex Cloud가 작성한 한국어 설명을 보여준다. 아직 작성되지 않은 릴리스는 원문을 보여준다. 공식 Codex 스크린샷이 기능에 직접 맞을 때만 사용하고, 없으면 가능한 경우 개략 흐름을 표시한다.
 
-배포 확인(2026-10-18 00:48 KST): 릴리스 376개(Claude Code 74개, Codex 302개), Codex Cloud 작성 한국어 설명 1개, 작성 대기 107개, 수집된 스크린샷 0개. 기존 Claude 작성분은 사이트에 표시하지 않고 Codex Cloud의 재작성 대상으로 분류한다. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
+배포 확인(2026-10-18 12:44 KST): 릴리스 376개(Claude Code 74개, Codex 302개), Codex Cloud 작성 한국어 설명 9개, 작성 대기 99개, 수집된 스크린샷 0개. `data/ko.json`에 저장된 작성분은 모두 Codex Cloud 작성분이다. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
 
 ## 데이터
 
@@ -45,6 +45,6 @@ npm test
 
 원문 수집이 실패해도 이전에 커밋된 데이터로 배포를 계속한다. 따라서 배포 상태 배지의 성공은 새 데이터 수집 성공을 뜻하지 않을 수 있다. 갱신 결과는 [Actions 실행 기록](https://github.com/jjjung0921/agent-track/actions/workflows/update.yml)과 사이트의 동기화 시각에서 확인한다.
 
-한국어 설명 생성은 GitHub Actions에서 모델 API를 호출하지 않는다. Codex Cloud 작업이 `data/ko.json`을 `main`에 반영하면 기존 배포 워크플로가 사이트 데이터를 다시 만든다. 현재 Codex Cloud의 저장소 쓰기가 GitHub 연결 권한 오류(403)로 막혀 있어 자동 게시 일정은 설정되지 않았다. 첫 작성분은 검증 후 로컬에서 `main`에 반영해 공개 사이트에서 확인했다.
+한국어 설명 생성은 GitHub Actions에서 모델 API를 호출하지 않는다. Codex Cloud 작업이 GitHub Connector로 `data/ko.json`을 `main`에 반영하면 기존 배포 워크플로가 사이트 데이터를 다시 만든다. 저장소 쓰기 권한을 확인하고 Codex Cloud에서 노트 작성·검증·게시를 완료했다. 다만 예약 도구가 이 Cloud 대화를 반복 실행 대상으로 확인하지 못해 주기 실행은 설정되지 않았다.
 
 디자인: [Figma — Agent Track](https://www.figma.com/design/sW5qex3VKuZPK53vDuEcbY/Agent-Track)
