@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T12:12:57.145Z",
+ "generatedAt": "2026-10-18T12:14:41.226Z",
  "windowDays": 90,
  "releases": [
   {
@@ -42347,7 +42347,228 @@
     }
    ],
    "hash": "c725b423c987",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "모델 전환 훅, Remote Control 스트리밍, 사용량 정보를 추가하고 보안·세션·도구 동작을 폭넓게 수정한다.",
+    "items": [
+     "모델 전환을 차단·확인·주석 처리하는 `PreModelSwitch` 및 `PostModelSwitch` 훅 이벤트를 추가한다. `SessionStart` 재개 훅에는 세션의 오래됨 정도와 예상 캐시 재생성 비용을 전달한다.",
+     "포그라운드 하위 에이전트의 도구 호출과 결과를 Remote Control 클라이언트에 실시간 스트리밍한다. 기본값인 백그라운드 하위 에이전트는 상태만 표시한다.",
+     "지출 한도가 있는 Claude 앱 게이트웨이 사용자를 위해 `/usage`에 지출 한도 막대를 추가하고 상태 표시줄에 `rate_limits.spend_limit` 필드를 제공한다.",
+     "`/cost`에 세션별 프롬프트 캐시 적중률, 미스, 재캐시 토큰, warm/cold 상태를 표시하고 상태 표시줄 스크립트에 대응하는 `prompt_cache` 객체를 제공한다.",
+     "`claude --help`에 `attach`, `logs`, `stop`, `respawn`, `rm`을 추가한다. 실행 중인 백그라운드 세션의 `--resume` 안내에는 정확한 `claude attach <id>` 명령을 표시한다.",
+     "심볼릭 링크가 권한 확인 뒤 작업 디렉터리 안에서 바뀌어도 파일 도구가 허용 경로 밖을 읽거나 쓰지 않도록 수정한다.",
+     "마켓플레이스 플러그인 명령이 플러그인 디렉터리 밖을 가리키면 경로 이동 오류로 거부한다.",
+     "프로젝트 설정이 상세 베타 추적이나 원시 API 본문 기록을 켜지 못하게 하고, 낮은 범위의 추적 엔드포인트가 관리된 OTLP 수집기 설정을 우회하지 못하게 수정한다.",
+     "권한 검사 전에 Workflow 도구가 허용 범위 밖 `scriptPath`를 읽거나 오류에 인용하던 문제를 수정한다.",
+     "심볼릭 링크 검색 경로의 파일에도 `Read(...)` 거부 규칙을 적용한다.",
+     "모델이 생각만 생성한 뒤 비어 있는 텍스트 블록 오류로 대화가 멈추던 문제를 수정한다.",
+     "자동 모드가 기본인 계정의 새 설치 첫 실행이 기본 모드로 시작하던 문제를 수정한다.",
+     "생각 기능을 끈 상태에서 Opus 5의 `xhigh`/`max` effort 요청이 실패하면 `high`로 전송한다.",
+     "Claude Desktop이 다른 세션에서 전달한 메시지에 답할 때 `SendMessage`가 해당 세션으로 전달되도록 수정한다.",
+     "병렬 하위 에이전트가 많을 때 초당 진행 표시가 누적되던 문제를 수정해 이전 표시를 교체한다.",
+     "팀원의 최종 답변이 팀 리드의 대기 알림에 전달되도록 수정한다.",
+     "백그라운드 하위 에이전트가 이름 없는 형제·부모 에이전트의 메시지에 답하지 못하던 문제를 수정한다.",
+     "세션 중 관리 설정의 `disableAutoMode`가 적용되면 실행 중 자동 모드도 기본 모드로 돌아가도록 수정한다.",
+     "이미 1M 컨텍스트인 Opus에 컨텍스트 전환 안내가 표시되던 문제를 수정한다.",
+     "Claude 앱 게이트웨이에서 사용되지 않는 저장 Anthropic 프로필을 활성 프로필처럼 표시하거나 재시도에 쓰던 문제를 수정한다.",
+     "호스트가 초기 모델만 설정했는데 클라우드 세션이 모델 변경으로 알리던 문제를 수정한다.",
+     "조직 정책으로 Remote Control이 비활성화됐을 때 실패 대신 조용한 안내 하나를 표시한다.",
+     "원격 제어의 `/mcp reconnect`가 서버가 다른 세션에서 비활성화된 경우 실제 해결 방법을 표시하도록 수정한다.",
+     "`--input-format stream-json`에서 메시지 ID 없는 도구 호출이 합쳐지고 결과가 사라지던 문제를 수정한다.",
+     "디렉터리 변경으로 세션이 같은 ID의 기존 전사 파일 위치로 이동할 때 덮어쓰지 않도록 수정한다.",
+     "백그라운드 세션과 하위 에이전트가 `git worktree add`로 만든 작업 트리의 파일을 편집하지 못하던 문제를 수정한다.",
+     "플러그인 마켓플레이스 갱신이 겹칠 때 백그라운드 세션에 플러그인 스킬이 빠지는 문제를 수정한다.",
+     "SSH tmux의 백그라운드 세션에서 선택한 텍스트가 OSC 52로 빠지지 않고 tmux 버퍼에 복사되도록 수정한다.",
+     "SDK MCP 핸드셰이크 확인 응답이 유실되면 70초 뒤 해당 서버만 실패 처리하도록 수정한다.",
+     "강제 종료된 자체 호스팅 세션의 Bash 프로세스가 남던 문제를 수정한다.",
+     "사용 크레딧 한도가 0인 Team·Enterprise 사용자는 관리자에게 문의하도록 `/usage-credits` 안내를 수정한다.",
+     "GitLab 원격 저장소에서 `--worktree --tmux`가 GitHub 방식 fetch를 먼저 시도하던 문제를 수정한다.",
+     "백그라운드 세션에서 `/dev/tty`를 여는 편집기의 Ctrl+G 종료 오류를 수정한다.",
+     "널 바이트가 포함된 `additionalDirectories` 항목을 건너뛰어 시작·`/add-dir`·설정 갱신 오류를 방지한다.",
+     "MCP 서버 메뉴의 복사 단축키가 로그인 URL 복사 방식을 정확히 안내하도록 수정한다.",
+     "GNU screen과 screen 터미널 유형 tmux에서 기울임꼴이 강조 블록으로 렌더링되던 문제를 수정한다.",
+     "`claude mcp add --header`와 `claude mcp add-json` 도움말의 전송 방식 표기를 수정한다.",
+     "클라우드 세션 시작 실패 시 `claude ultrareview`와 `/ultrareview`가 30분을 기다리지 않고 원인을 알리도록 수정한다.",
+     "산술식을 정수 셸 변수에 대입하는 Bash 명령은 자동 승인되지 않고 승인을 요청한다.",
+     "백그라운드 전환 뒤 Vertex/Bedrock 게이트웨이 환경 변수가 유실되던 문제를 수정한다.",
+     "Max 요금제에서 백그라운드 Fable 사용 시 잘못된 크레딧 확인이 나오던 문제를 수정한다.",
+     "입력 없는 세션에서 자동 모드 기본값 제안이 의도치 않게 수락될 수 있던 문제를 수정한다.",
+     "설정이 바뀌지 않은 동일 게이트웨이 재로그인 때 관리 설정 승인 창이 반복되던 문제를 수정한다.",
+     "조직 정책이나 환경 변수로 보고 기능을 끄면 비활성화된 `/feedback`을 안내하지 않도록 수정한다.",
+     "일시적 GitHub 연결 실패 때 설정을 안내하던 클라우드 세션 메시지를 재시도 안내로 수정한다.",
+     "불필요한 UI 재렌더링을 줄여 대화 중 CPU 사용량을 개선한다.",
+     "네이티브 바이너리 크기를 약 5MB 줄인다.",
+     "Bash 실행 중 네트워크 프록시 연결이 끊기면 호스트와 원인을 결과에 표시한다.",
+     "`/schedule`에서 Claude Code의 MCP 서버를 클라우드 루틴에 연결할 수 없음을 설명한다.",
+     "자체 하위 에이전트 메시지의 발신자를 다른 세션이 아닌 현재 세션 내부 작업자로 설명한다.",
+     "하위 에이전트 또는 분기 전사를 볼 때 입력 안내 문구를 `Message @name…`으로 개선한다.",
+     "오류·메뉴·명령 결과의 MCP 서버 이름 정제를 개선한다.",
+     "호스트 관리 Bedrock 세션은 모델 ID나 ARN이 주어지면 추론 프로필 검색을 기다리지 않는다.",
+     "관리 설정 승인 창에 마지막 승인 이후 변경된 설정만 표시한다.",
+     "잘못된 도구 호출을 재시도할 때 해당 출력을 문맥에서 제거한다.",
+     "`/radio`를 Bedrock, Vertex AI, Foundry, AWS의 Claude Platform 및 텔레메트리 비활성 상태에서도 사용할 수 있다.",
+     "텔레메트리 설정과 관계없이 브라우저 동작이 Claude Code 권한 검사를 거치도록 변경한다.",
+     "`CLAUDE_CODE_SUBAGENT_MODEL`은 기본 모델이 되고 에이전트 정의와 개별 실행 지정이 우선한다.",
+     "인식되지 않은 Claude 모델에서는 기본 커밋 트레일러를 `Co-Authored-By: Claude Code`로 설정한다.",
+     "좌석 기반 Enterprise 구독의 기본 모델을 다른 프리미엄 요금제와 같이 Opus 5로 변경한다.",
+     "`/effort`가 모델별 기본 effort를 저장해 모델 전환 후에도 설정을 유지한다.",
+     "관리 설정이 게이트웨이 로그인을 강제해도 로그인 전 분석이 켜지지 않으며, 로그인 후 또는 `DISABLE_TELEMETRY` 설정 시 꺼진다.",
+     "Bedrock·Vertex·Foundry 및 텔레메트리 비활성 환경의 PR 배지가 `gh auth token`, `GH_TOKEN`, `GITHUB_TOKEN`으로 GitHub API를 직접 호출한다.",
+     "샌드박스 명령이 Bash 출력 파일을 리다이렉션하거나 바꿀 수 없도록 생성·읽기 방식을 변경한다.",
+     "입력 중인 내용을 전송하거나 지운 뒤 플러그인/LSP 설치 제안과 자동 모드 제안을 표시한다.",
+     "샌드박스 TLS 종료, 자체 프록시 라우팅, 자격 증명 주입, 격리 약화 설정은 적용 전 승인을 요구한다.",
+     "`ANTHROPIC_CUSTOM_HEADERS`가 인증·조직·라우팅·API 동작 헤더를 설정하면 승인을 요구한다.",
+     "프로젝트 `.claude/settings.json`의 `env`로 `CLAUDE_CONFIG_DIR`, `CLAUDE_CODE_TMPDIR`, `TMPDIR`/`TMP`/`TEMP`를 설정할 수 없게 한다.",
+     "드물게 쓰이는 여섯 언어의 구문 강조를 제거해 바이너리를 2.5MB 줄인다.",
+     "VSCode 로그인 화면의 Bedrock·Foundry·Vertex 버튼이 문서의 제3자 공급자 설정 절을 열도록 수정한다.",
+     "Remote Control 배너를 푸터 필로 바꾼다. Remote Control이 켜져 있거나 실패한 동안 표시되며 세션을 claude.ai/code에서 열고, `/remote-control`로 켜거나 끈다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "모델 전환 훅",
+      "what": "모델을 바꾸기 전후에 실행되는 `PreModelSwitch`와 `PostModelSwitch` 이벤트를 추가한다. 훅은 전환을 차단하거나 확인을 요구하거나 주석을 남길 수 있다. 재개 시 `SessionStart` 훅에는 세션의 오래됨 정도와 예상 재캐시 비용도 전달한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Remote Control 하위 에이전트 스트리밍",
+      "what": "포그라운드 하위 에이전트의 도구 호출과 결과를 Remote Control 클라이언트로 실시간 전송한다. 기본 설정인 백그라운드 하위 에이전트는 상태만 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "지출 한도 표시",
+      "what": "지출 한도가 설정된 Claude 앱 게이트웨이 사용자에게 `/usage`의 지출 한도 막대를 추가한다. 상태 표시줄 필드 `rate_limits.spend_limit`도 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /usage"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "세션 프롬프트 캐시 정보",
+      "what": "`/cost`에 세션별 적중률, 미스, 재캐시 토큰 수, warm/cold 상태를 표시한다. 상태 표시줄 스크립트에도 대응하는 `prompt_cache` 객체를 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /cost"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "백그라운드 세션 명령 안내",
+      "what": "`claude --help`에 `attach`, `logs`, `stop`, `respawn`, `rm` 명령을 추가한다. 실행 중 세션을 재개할 때 정확한 `claude attach <id>` 명령을 안내한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ claude --help"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ claude attach <id>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 69,
+      "title": "VSCode 공급자 설정 링크 수정",
+      "what": "로그인 화면의 Bedrock, Foundry, Vertex 버튼이 문서 상단 대신 제3자 공급자 설정 절을 열도록 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 70,
+      "title": "Remote Control 푸터 필",
+      "what": "Remote Control 배너를 푸터 필로 바꾼다. Remote Control이 켜져 있거나 실패했을 때 표시되고, claude.ai/code에서 세션을 연다. `/remote-control`로 기능을 켜거나 끈다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /remote-control"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.250",
@@ -42366,7 +42587,14 @@
     }
    ],
    "hash": "c5a5ee9c7fc5",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "버그 수정과 안정성 개선을 포함한다.",
+    "items": [
+     "버그를 수정하고 안정성을 개선한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.248",
@@ -42721,7 +42949,236 @@
     }
    ],
    "hash": "977c0eb21502",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "제한된 도구 실행 모드, 에이전트별 캐시 TTL, 러너 라벨 설정과 서버 설정 진단이 추가된다. 세션 간 메시징 및 사용량 한도 요청 기능도 확장된다.",
+    "items": [
+     "`--restricted` 또는 `CLAUDE_CODE_RESTRICTED=1`을 추가했다. 명령·코드를 실행하는 기본 도구와 `WebFetch`를 제거하고(단, `--tools`로 지정한 경우 제외), 파일 도구를 작업 디렉터리 안으로 제한하며 `bypassPermissions`를 거부하고 사용자·프로젝트·로컬 설정 파일을 무시한다.",
+     "에이전트 frontmatter에 `experimental.cacheTtl`을 추가했다. 하위 에이전트 TTL 설정이 없을 때 적용되는 에이전트별 프롬프트 캐시 TTL이며 값은 `\"5m\"` 또는 `\"1h\"`다.",
+     "`claude self-hosted-runner --client-label <label>` 또는 `SELF_HOSTED_RUNNER_CLIENT_LABEL`로 러너 등록 라벨을 지정할 수 있다. 기본값은 호스트 이름이다.",
+     "서버 관리 설정을 불러오지 못하면 시작 경고를 표시한다. `/doctor`와 `/status`에는 로드 실패 또는 가져오지 않은 이유(예: Bedrock/Vertex/타사 제공자, 사용자 지정 `ANTHROPIC_BASE_URL`)를 표시한다.",
+     "`/web-setup`에서 GitHub CLI 토큰에 `workflow` scope가 없으면 경고한다. 이 scope가 없으면 매우 큰 저장소로 push할 때 거부될 수 있다.",
+     "AWS Marketplace를 통한 Enterprise 과금, 셀프서비스 Enterprise, Enterprise 평가판 조직에 `/usage-credits`를 추가했다. 구성원이 관리자에게 더 높은 사용량 한도를 요청할 수 있다.",
+     "같은 머신의 세션 간 `SendMessage` 및 `ListAgents` 메시징을 추가했다. Bedrock, Vertex, Foundry 및 텔레메트리가 비활성화된 경우에도 사용할 수 있다.",
+     "긴 세션에서 OAuth 토큰 갱신 후 도구 정의가 다시 렌더링되어 대략 한 시간마다 프롬프트 캐시가 누락되고 확장 사고 컨텍스트가 사라지던 문제를 수정했다.",
+     "사용량 초과 상태에서 세션을 `--resume`할 때 `ScheduleWakeup` 도구 정의가 바뀌어 첫 턴의 프롬프트 캐시가 완전히 누락되던 문제를 수정했다.",
+     "Claude Desktop 및 Cowork 세션이 30일 후 사라지던 문제를 수정했다. 앱에 있는 동안 데스크톱 작성 세션을 정리에서 제외하며(조직 정책이 보존 기간을 관리하는 경우 제외), `desktopSessionCleanupPeriodDays` 설정으로 예외 기간을 제한한다.",
+     "다른 Claude Code 프로세스가 토큰 갱신 잠금을 보유한 동안 세션 토큰이 만료되면 로그인 화면으로 이동하던 문제를 수정했다. 이제 재시도 가능한 오류를 반환한다.",
+     "Windows에서 세션 분리 후 또는 win32-input-mode가 남은 터미널 탭에서 실행했을 때 `claude agents` 목록이 키보드 입력에 반응하지 않던 문제를 수정했다.",
+     "사용할 수 없는 머신에서 `/login`의 권장 Console 로그인이 로그인 URL 표시 전에 OAuth 오류로 실패하던 문제를 수정했다. 이제 API 키 로그인으로 대체한다.",
+     "`/model` 및 fast-mode 전환 알림의 모델명이 코드로 렌더링되도록 수정해 `[1m]` 같은 접미사가 링크로 처리되지 않게 했다.",
+     "`CI` 환경 변수 설정 시 `claude agents`가 작업공간 신뢰 확인을 건너뛰던 문제를 수정했다.",
+     "PR 상태 캐시에 잘못된 항목이 있으면 `claude agents`가 시작 시 충돌하던 문제를 수정했다.",
+     "컴퓨터가 꺼져 있던 동안의 오래된 백그라운드 세션이 에이전트 화면에 되살아나던 문제를 수정했다. 실제 종료 시점에 중지 상태로 표시하고, 열 때 저장된 대화를 재개하기 전에 확인을 요청한다.",
+     "새 세션을 시작할 때 에이전트 화면이 이전 대화를 열고 입력한 프롬프트를 버리던 문제를 수정했다.",
+     "다른 터미널에서 이미 재개한 중지 세션을 `claude agents`에서 열어도 같은 대화의 두 번째 프로세스가 시작되지 않는다. 해당 행은 터미널에서 열려 있다고 표시한다.",
+     "작업 트리 브랜치가 기본 브랜치(예: 로컬 `main`)에 병합됐지만 아직 push되지 않은 경우에도 `claude agents`와 `claude rm`이 세션 삭제를 거부하던 문제를 수정했다.",
+     "`PermissionRequest` 또는 `PreToolUse` 훅이 잘못된 응답을 출력해 백그라운드 세션이 조용히 멈추던 문제를 수정했다. `claude agents` 행에 훅 이름과 스키마 오류가 표시된다.",
+     "훅이 유효하지 않은 JSON 객체 `{…}`를 일반 텍스트로 조용히 처리하던 문제를 수정했다. 이제 파싱 메시지와 함께 훅 오류로 보고한다.",
+     "프로젝트 `.mcp.json`에서 claude.ai 커넥터 유형을 선언한 항목이 `/mcp`의 신뢰된 \"claude.ai\" 제목 아래 표시되던 문제를 수정했다. 이제 실제 범위 아래 표시한다.",
+     "`headersHelper`가 `Authorization` 헤더를 제공하는 MCP 서버가 401 응답 뒤 OAuth 탐색으로 넘어가던 문제를 수정했다. 문서에 명시된 대로 helper를 다시 실행하고 호출을 재시도한다.",
+     "관리 설정 보안 승인 대화상자가 필요한 경우 Claude apps 게이트웨이에 대한 `/login`이 멈추던 문제를 수정했다.",
+     "`apiKeyHelper`만 자격 증명으로 설정한 경우 게이트웨이 모델 탐색(`CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY`)이 실행되지 않던 문제를 수정했다.",
+     "`claude logs`가 실행된 터미널에서 마우스 추적, 괄호 붙여넣기, 대체 화면을 켠 채 남기던 문제를 수정했다.",
+     "긴 저장소 권한 규칙이 이모지 중간에서 잘릴 때 신뢰 대화상자에 깨진 문자가 표시되던 문제를 수정했다.",
+     "Ctrl-C 직후 shift+tab을 눌렀을 때 권한 모드 표시기가 종료 안내 뒤에 숨던 문제를 수정했다.",
+     "`/ultrareview` 및 로컬에서 시드된 클라우드 세션이 `prod.env` 형식, `*.tfvars`, 자격 증명 파일의 편집기 스왑·임시·백업 파일의 미커밋 편집 내용을 업로드하던 문제를 수정했다. 해당 파일은 이제 로컬에 남는다.",
+     "CLI가 조용히 재연결된 뒤 Remote Control 세션에서 연결 기기에 권한 요청이나 최신 메시지가 표시되지 않는 경우를 수정했다.",
+     "컨테이너의 세션 자격 증명을 아직 읽을 수 없을 때 클라우드 세션 시작이 실패하던 경우를 수정했다.",
+     "전역 플래그나 래퍼가 주입한 옵션이 하위 명령 앞에 있으면 `claude remote-control`이 `--spawn`, `--name` 같은 자체 플래그를 거부하던 문제를 수정했다.",
+     "\"N MCP servers need authentication\" 같은 시작 경고가 대화 기록보다 한 칸 오른쪽에 표시되던 문제를 수정했다.",
+     "백그라운드 작업 트리 세션이 체크아웃을 잃던 문제를 수정했다. 세션 실행 중 작업 트리 잠금을 유지해 정리 및 `git worktree remove`가 해당 작업 트리를 건드리지 않는다.",
+     "한국어 IME 입력처럼 비라틴 문자가 포함된 이름으로 다른 세션을 @-멘션할 때 일치하지 않던 문제를 수정했다.",
+     "잘못된 `crossSessionInbound` 값이 조용히 무시되던 문제를 수정했다. 이제 경고하고, 사용자 설정에서는 값을 고칠 때까지 세션 간 메시지를 보류하며 관리 설정에서는 메시지를 거부한다.",
+     "조직에서 사용할 수 없는 `/usage-credits`(예: `DISABLE_EXTRA_USAGE_COMMAND`로 숨김)를 실행하라고 제한·사용량·fast-mode 메시지가 안내하던 문제를 수정했다.",
+     "[VSCode] 세션이 저장되지 않아 채팅 탭에 \"No conversation found\"가 고정되던 문제를 수정했다. 이제 새 대화를 시작한다.",
+     "Workflow 도구 설명을 약 5.7k 토큰에서 약 1k 토큰으로 줄였다. 스크립트 작성 참조는 번들 `workflow-authoring` 스킬로 옮겼다.",
+     "pull request가 변경되지 않은 동안 프롬프트 바닥글 PR 배지가 GitHub를 덜 자주 확인한다. push 또는 `gh pr` 명령을 실행하면 즉시 새로 확인한다.",
+     "관리 설정에서 클라이언트 측 시간 초과, MCP 시작 모드, 스트림 watchdog 환경 변수를 사용해도 설정 승인 프롬프트가 뜨지 않도록 개선했다.",
+     "`/ultrareview <PR#>` 실행 전에 Claude 계정에 연결된 GitHub 계정의 저장소 접근 권한을 확인하고 해결 방법을 설명한다. 클라우드 세션 시작 후 실패하던 흐름을 개선했다.",
+     "기본 디렉터리를 사용할 수 없으면 세션 간 메시징이 사용자별 비공개 `/tmp` 디렉터리로 대체된다. 알림과 `/status`에서 수정할 디렉터리를 알려준다.",
+     "에이전트 화면의 dispatch 입력에서 shift+enter는 프롬프트와 같이 줄바꿈을 입력한다. ctrl+enter는 전송하고 첨부한다.",
+     "`/loop`의 자기 속도 조절 동적 모드와 프롬프트 없는 자율 기본 모드를 Bedrock/Vertex/Foundry에서도 항상 사용할 수 있다.",
+     "Anthropic 텔레메트리 내보내기 실패는 `[3P telemetry] OTEL diag error` 대신 `[Anthropic telemetry]`로 debug 수준에 기록해 OTel 수집기 오류로 오인하지 않도록 했다.",
+     "Linux 사용자 네임스페이스의 세션 간 메시징에서 매핑되지 않은 소유자에 대한 root 동등 신뢰 범위를 표준 시스템 디렉터리로 제한했다.",
+     "하위 에이전트가 다른 세션으로 보내는 `SendMessage` 결과에 응답이 하위 에이전트가 아니라 부모 세션의 대화로 전달된다는 설명을 추가했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "제한 모드",
+      "what": "`--restricted` 또는 `CLAUDE_CODE_RESTRICTED=1`로 제한 모드를 켤 수 있다. 명령이나 코드를 실행하는 기본 도구와 `WebFetch`를 제거하지만 `--tools`로 지정한 도구는 예외다. 파일 도구는 작업 디렉터리 안에 제한되고 `bypassPermissions`와 사용자·프로젝트·로컬 설정 파일은 허용되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ claude --restricted"
+        },
+        {
+         "kind": "comment",
+         "text": "또는 환경 변수 `CLAUDE_CODE_RESTRICTED=1`로 활성화한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "에이전트별 프롬프트 캐시 TTL",
+      "what": "에이전트 frontmatter에 `experimental.cacheTtl`을 추가해 에이전트별 프롬프트 캐시 TTL을 설정할 수 있다. 하위 에이전트 TTL 설정이 구성되지 않은 경우에 적용되며, 값은 `\"5m\"` 또는 `\"1h\"`다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "자체 호스팅 러너 라벨",
+      "what": "`claude self-hosted-runner --client-label <label>` 또는 `SELF_HOSTED_RUNNER_CLIENT_LABEL`로 러너가 등록할 라벨을 재정의할 수 있다. 기본 라벨은 호스트 이름이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ claude self-hosted-runner --client-label <label>"
+        },
+        {
+         "kind": "comment",
+         "text": "환경 변수 `SELF_HOSTED_RUNNER_CLIENT_LABEL`로도 라벨을 재정의할 수 있다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "서버 관리 설정 진단",
+      "what": "서버 관리 설정을 불러오지 못하면 시작 시 경고한다. `/doctor`와 `/status`는 설정 로드 실패 또는 설정을 가져오지 않은 이유를 표시하며, 원문은 Bedrock/Vertex/타사 제공자 및 사용자 지정 `ANTHROPIC_BASE_URL`을 예로 든다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /doctor"
+        },
+        {
+         "kind": "cmd",
+         "text": "> /status"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "GitHub 토큰 scope 경고",
+      "what": "`/web-setup`에서 GitHub CLI 토큰에 `workflow` scope가 없으면 경고한다. 이 scope가 없으면 매우 큰 저장소로 push할 때 거부될 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /web-setup"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "사용량 한도 상향 요청",
+      "what": "`/usage-credits`를 통해 구성원이 관리자에게 더 높은 사용량 한도를 요청할 수 있다. AWS Marketplace 과금 Enterprise, 셀프서비스 Enterprise, Enterprise 평가판 조직에 제공된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /usage-credits"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 6,
+      "title": "세션 간 메시징",
+      "what": "같은 머신에서 세션 간 `SendMessage`와 `ListAgents`를 사용할 수 있다. Bedrock, Vertex, Foundry 및 텔레메트리가 비활성화된 경우에도 지원된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 38,
+      "title": "VS Code 채팅 탭 복구",
+      "what": "세션이 저장되지 않아 채팅 탭에 \"No conversation found\"가 표시되며 멈추던 문제를 수정했다. 이제 새 대화를 시작한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.150.1",
@@ -42741,7 +43198,14 @@
     }
    ],
    "hash": "89cda81e217c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "원격 대화 압축에서 유지된 이미지도 기본 토큰 예산에 포함한다.",
+    "items": [
+     "원격 대화 압축은 이제 유지된 이미지를 기본적으로 토큰 예산에 포함하고 필요하면 오래된 이미지를 제거한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@changelog:codex-2026-08-27-app",
@@ -42765,7 +43229,38 @@
     }
    ],
    "hash": "d07d9537ab9c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SSH 연결 이름 변경 시 저장된 채팅과 프로젝트를 보존한다.",
+    "items": [
+     "SSH 연결 이름을 바꿔도 저장된 채팅과 프로젝트를 유지한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "SSH 연결 이름 변경 시 데이터 유지",
+      "what": "SSH 연결 이름을 변경해도 저장된 채팅과 프로젝트가 보존된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "SSH 연결 이름 변경",
+         "note": "연결 이름을 바꿔도 저장된 채팅과 프로젝트가 유지된다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.150.0",
@@ -42862,7 +43357,138 @@
     }
    ],
    "hash": "17a1fe1ee4a7",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "작업 간 참조, 복사 선택기, 인터럽트 훅 등 터미널 기능을 추가하고 보안·호환성 문제를 수정한다.",
+    "items": [
+     "`@` 멘션으로 다른 Codex 작업을 참조하고, 터미널에서 에이전트에게 작업 읽기·생성·메시지 전송을 요청한다.",
+     "`/copy`에서 전체 응답, 개별 코드 블록, 인용문을 선택해 복사한다.",
+     "이름 없는 터미널 작업에 설명형 제목을 자동 지정하고, `/rename`은 대화에 맞는 편집 가능한 제목을 제안한다.",
+     "지원 터미널에서는 Markdown 링크를 클릭 가능한 레이블로 표시하고, 그 외에는 URL을 그대로 표시한다.",
+     "권한 모드를 순환하는 단축키를 지정하고 Vim 모드에서 `.`으로 마지막 편집을 반복한다.",
+     "활성 최상위 턴이 중단될 때 명령이나 MCP 핸들러를 실행하는 `Interrupt` 훅을 추가한다.",
+     "신뢰할 수 없는 프로젝트의 `AGENTS.md` 지침을 적용하지 않으며, 권한 변경 뒤에도 관리자가 설정한 읽기 거부 규칙을 유지한다.",
+     "app-server 진단 로그에서 공급자, 인증 갱신, 증명 관련 자격 증명 마스킹을 개선한다.",
+     "원격 MCP 베어러 토큰 조회와 필수 서버 시작을 수정하고 이전 실행기와의 호환성을 유지한다.",
+     "유니코드 사용자 경로에서 Windows 상향 샌드박스 설정과 실행 별칭을 수정한다.",
+     "분리된 프로세스가 터미널이나 출력 버퍼를 계속 잡아 Unix 종료가 멈추는 문제를 방지한다.",
+     "Amazon Bedrock 모델의 대화 압축 및 다중 에이전트 호환성을 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Codex 작업 간 참조",
+      "what": "`@` 멘션으로 다른 Codex 작업을 참조한다. 터미널에서 에이전트에게 작업을 읽거나 만들고 메시지를 보내도록 요청할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "복사할 응답 요소 선택",
+      "what": "`/copy`는 전체 응답뿐 아니라 개별 코드 블록과 인용문도 선택할 수 있는 선택기를 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /copy"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "작업 제목 자동 제안",
+      "what": "이름 없는 터미널 작업에는 설명형 제목을 자동으로 지정한다. `/rename`은 대화를 바탕으로 편집 가능한 제목을 제안한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /rename"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "터미널의 클릭 가능한 Markdown 링크",
+      "what": "지원 터미널에서는 Markdown 링크를 클릭 가능한 레이블로 표시한다. 지원되지 않는 환경에서는 URL을 계속 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "권한 모드 및 Vim 편집 단축키",
+      "what": "권한 모드를 순환하는 단축키를 지정할 수 있다. Vim 모드에서는 `.`으로 마지막 편집을 반복한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "턴 중단 훅",
+      "what": "활성 최상위 턴이 중단될 때 명령이나 MCP 핸들러를 실행하는 `Interrupt` 훅을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.247",
@@ -43105,7 +43731,125 @@
     }
    ],
    "hash": "7798422de01e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "세션 오류에 대한 피드백 초안 작성과 조직별 spinner 팁 관리가 추가된다. Claude API 비용을 측정하며 최적화하는 명령과 Bash 권한 안내도 제공된다.",
+    "items": [
+     "`SendFeedback` 도구를 추가했다. 세션에서 문제가 생기면 Claude가 피드백 보고서 초안을 만들고, 사용자가 검토한 뒤 `/feedback`에서 보낼 수 있다. `feedbackDrafts` 설정으로 끌 수 있다.",
+     "`spinnerTipsOverride`에 `{id, text, cooldownSessions, priority}` 항목, `tipsFile`, `label`을 추가해 조직이 내장 팁과 함께 자체 팁을 순환 표시할 수 있다.",
+     "Bash 권한 요청에 auto mode를 안내하는 팁과 한 번의 키 입력으로 전환하는 \"Yes, and switch to auto mode\" 선택지를 추가했다.",
+     "기존 프로젝트의 Claude API 지출을 분석하고 비용 절감 요소(캐싱, 토큰 위생, 배치, effort, 모델 선택)를 한 번에 하나씩 측정하며 적용하는 `/claude-api cost-optimize`를 추가했다.",
+     "`/claude-api` 스킬에 Admin API 지원 범위(조직 구성원, 초대, 작업공간, API 키, 속도 제한 보고서, workload identity federation, CMEK)를 추가했다.",
+     "기록 검색, `/config`, `/mcp`, `/skills`, 백그라운드 작업, `/model`에서 빠르게 방향키와 Enter를 입력하면 이동한 행의 위 항목이 선택되던 문제를 수정했다.",
+     "하위 에이전트가 첫 호출에서 모델 404로 종료되던 문제를 수정했다. 이제 세션의 대체 모델 체인을 사용하고, 부모에게 반환하는 오류에 유형, 상태, 요청 ID, 모델을 포함한다.",
+     "훅이나 백그라운드 에이전트가 수 MB의 오류 출력을 내 대화가 넘치고 \"Prompt is too long\"으로 세션이 멈출 수 있던 문제를 수정했다.",
+     "kitty-protocol 터미널에서 비라틴 키보드 레이아웃(예: 키릴 문자)을 사용할 때 Ctrl 단축키가 작동하지 않던 문제를 수정했다.",
+     "마우스 보고서가 이스케이프 접두사 직후 여러 번에 나뉘어 읽히면 `<35;150;7M` 같은 문자열이 프롬프트에 입력되던 문제를 수정했다.",
+     "Bash 샌드박스의 명령 후 정리가 쓰기 가능 영역 밖으로 다시 연결된 dotfile 관리 `~/.claude/settings.json` 심볼릭 링크(nix/home-manager, stow)를 삭제하던 문제를 수정했다.",
+     "`/terminal-setup`이 Zed `keymap.json` 전체를 덮어쓰지 않고 키 바인딩을 병합하도록 수정했다.",
+     "세션 레지스트리를 갱신할 수 없는데도 `/rename`이 성공을 알리던 문제를 수정했다. 이제 다른 세션에 이전 이름이 계속 보일 수 있다고 알린다.",
+     "`--agent`로 시작한 세션의 `/compact` 및 \"Summarize from here\"가 대화 자체의 시스템 프롬프트 대신 기본 시스템 프롬프트로 요약하던 문제를 수정했다.",
+     "터미널 호스트 프로세스가 종료된 뒤 백그라운드 세션이 `claude agents`에서 \"opening…\" 상태로 계속 남던 문제를 수정했다. 이제 몇 초 안에 이유와 함께 실패하고 Enter로 다시 시작할 수 있다.",
+     "훅 또는 백그라운드 작업의 출력 파일을 쓸 수 없을 때 메모리가 계속 증가하던 문제를 수정했다. 이제 출력이 유실된 위치를 파일에 기록한다.",
+     "SSH 환경에서 `/install-github-app`의 복사 바로 가기가 항상 성공했다고 안내하던 문제를 수정했다. URL 복사 방법을 알리고 브라우저를 열 수 없으면 URL을 즉시 표시한다.",
+     "포그라운드에서 넘겨받은 셸 명령이 백그라운드 세션에서 끝날 때 내부 오류를 기록하거나 오해를 부르는 `[exited with code -1]` 행을 표시하던 문제를 수정했다.",
+     "버전 없는 마켓플레이스 플러그인을 두 번째 범위에 설치할 때 실행 중인 세션이 사용하는 라이브 캐시 디렉터리를 삭제하고 다시 만들던 문제를 수정했다.",
+     "`/remote-control`로 시작한 Remote Control 세션이 연결된 클라이언트에 작업 트리 diff를 보고하지 않던 문제를 수정했다.",
+     "Claude Desktop 앱이 Claude Code 시작 전에 자체 호스팅 러너 세션을 `running`으로 보고해 \"Claude is waiting for your input\" 알림을 너무 일찍 보낼 수 있던 문제를 수정했다.",
+     "관리 설정에서 Claude apps 게이트웨이 로그인을 설정하고 Anthropic 엔드포인트에 연결할 수 없으면 첫 실행 설정이 \"Unable to connect to Anthropic services\"와 함께 종료되던 문제를 수정했다.",
+     "메시지를 보낸 직후 권한 모드를 전환하면 클라우드 세션에 이전 권한 모드가 표시되던 문제를 수정했다. Claude Code 웹, 데스크톱, 모바일 앱 세션에 해당한다.",
+     "백그라운드 에이전트, 셸 또는 모니터가 실행 중인 동안 세션 컨테이너가 턴 사이에 재시작되면 클라우드 세션이 응답을 멈추던 문제를 수정했다. 재개된 세션이 유실된 작업을 보고한다.",
+     "플러그인 마켓플레이스 보안을 강화했다. 제어 문자나 보이지 않는 문자가 포함된 이름은 거부하고, `/plugin` 및 `claude plugin` 출력의 마켓플레이스 텍스트는 이스케이프 처리한다.",
+     "Bedrock, Vertex, Foundry 세션 및 텔레메트리가 꺼진 세션에서 구성된 MCP 서버 연결 실패를 Claude에 알린다. 이를 통해 도구가 존재하지 않는다고 잘못 판단하지 않게 한다.",
+     "Sonnet 5의 기본 자동 압축 창을 전체 1M 컨텍스트로 변경했다. 1M 창 세션은 약 934K가 아니라 약 967K 토큰에서 자동 압축한다.",
+     "세션 간 피어 메시지를 기본적으로 한 줄 `Message from @<sender>: <first line>` 미리보기로 접어 표시한다. Ctrl+O로 전체 내용을 펼친다.",
+     "렌더링된 Markdown의 터미널 하이퍼링크에서 네트워크 또는 자동 마운터 경로를 가리키거나, 제어 문자를 포함하거나, 보이지 않는 문자로 시작하는 링크 대상은 일반 텍스트로 표시한다.",
+     "마지막 확인 후 1분이 지나지 않았다면 터미널 포커스를 다시 얻을 때 프롬프트 바닥글 PR 배지가 GitHub를 다시 확인하지 않는다.",
+     "관리 설정이 게이트웨이 로그인을 강제하거나 사용자 지정 OAuth 배포를 구성한 경우 분석 기능이 로그인 후뿐 아니라 시작 시점부터 꺼진다.",
+     "Claude apps 게이트웨이 로그인 요청에 Claude Code 식별 정보를 추가했다. 기기 승인 매개변수 `surface=claude_code`와 `claude-code/<version>` User-Agent를 사용한다.",
+     "관리자가 설정한 관리 설정을 읽을 수 없으면 호스트 제공 또는 사용자별 Windows 레지스트리 설정이 있어도 조직 로그인 강제 정책이 시작 단계에서 종료되도록 변경했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "피드백 보고서 초안",
+      "what": "세션에서 문제가 발생하면 Claude가 피드백 보고서 초안을 작성할 수 있다. 사용자가 초안을 검토한 뒤 `/feedback`에서 보내며, `feedbackDrafts` 설정으로 이 기능을 끌 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /feedback"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "조직별 spinner 팁",
+      "what": "`spinnerTipsOverride`에 `{id, text, cooldownSessions, priority}` 항목과 `tipsFile`, `label`을 설정할 수 있다. 조직은 이 설정으로 자체 팁을 내장 팁과 함께 순환 표시할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "Bash 권한 요청의 auto mode 안내",
+      "what": "Bash 권한 요청에 auto mode를 안내하는 팁이 추가된다. 한 번의 키 입력으로 \"Yes, and switch to auto mode\"를 선택해 전환할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "Claude API 비용 최적화",
+      "what": "`/claude-api cost-optimize`는 기존 프로젝트의 Claude API 지출을 분석하고 비용 절감 요소를 측정한다. 캐싱, 토큰 위생, 배치, effort, 모델 선택을 한 번에 하나씩 검토한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /claude-api cost-optimize"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-08-25-mobile",
@@ -43178,7 +43922,107 @@
     }
    ],
    "hash": "c219371fbf4e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "연결된 호스트의 작업 검색과 추론 강도 조절, 긴 프롬프트 편집 등 모바일 작업 흐름이 확장된다. 홈 화면 바로 가기와 응답 주석 기능도 추가된다.",
+    "items": [
+     "연결된 호스트에서 작업 제목과 대화 내용을 검색할 수 있다.",
+     "작성기에서 추론 강도를 확인하고 조정하는 간결한 게이지가 추가된다.",
+     "긴 프롬프트를 편집하는 전체 화면 편집기가 추가된다.",
+     "ChatGPT, Work, Codex Remote용 홈 화면 바로 가기를 설정할 수 있다.",
+     "선택한 응답 주석에 선택적으로 댓글을 추가할 수 있다.",
+     "긴 대화의 로딩을 개선하고, 이전 기록은 필요할 때 가져온다.",
+     "작업 목록의 레이아웃, 순서, 고정 동작을 데스크톱과 더 비슷하게 다듬었다.",
+     "인라인 시각화가 iOS 모양 및 강조 색 설정을 따른다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "연결된 호스트 작업 검색",
+      "what": "연결된 호스트에서 작업 제목과 대화 내용을 검색할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "추론 강도 게이지",
+      "what": "작성기에 간결한 게이지가 추가되어 추론 강도를 확인하고 조정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "전체 화면 프롬프트 편집기",
+      "what": "긴 프롬프트를 작성하고 편집할 수 있는 전체 화면 편집기가 추가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "홈 화면 바로 가기",
+      "what": "ChatGPT, Work, Codex Remote의 홈 화면 바로 가기를 설정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "응답 주석 댓글",
+      "what": "선택한 응답 주석에 댓글을 선택적으로 추가할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.246",
