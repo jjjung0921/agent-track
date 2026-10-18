@@ -1,12 +1,14 @@
 // Run from launchd or a terminal. All generated work stays in a disposable clone.
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const siteUrl = "https://jjjung0921.github.io/agent-track/";
+const codexModel = "gpt-6-luna";
+const workerCount = 2;
 
 function run(command, args, { cwd = root, env = process.env, input, capture = false } = {}) {
   return new Promise((resolve, reject) => {
@@ -26,6 +28,40 @@ function content(data) {
 
 async function noteFiles(dir) {
   return (await readdir(dir)).filter((name) => name.endsWith(".json")).sort();
+}
+
+async function writeKoreanNotes(checkout, temporary, pending, pendingDir, outDir) {
+  const groups = Array.from({ length: Math.min(workerCount, pending.length) }, () => ({ names: [], items: 0 }));
+  const files = await Promise.all(pending.map(async (name) => {
+    const note = JSON.parse(await readFile(join(pendingDir, name), "utf8"));
+    return { name, items: note.input.items.length };
+  }));
+  for (const file of files.sort((a, b) => b.items - a.items || a.name.localeCompare(b.name))) {
+    const group = groups.reduce((least, next) => next.items < least.items ? next : least);
+    group.names.push(file.name);
+    group.items += file.items;
+  }
+
+  const prompt = await readFile(join(checkout, "prompts/routine.md"), "utf8");
+  const results = await Promise.allSettled(groups.map(async (group, index) => {
+    const workspace = join(temporary, `translator-${index + 1}`);
+    const workerPending = join(workspace, "work/pending");
+    const workerOut = join(workspace, "work/out");
+    const workerPrompts = join(workspace, "prompts");
+    await Promise.all([mkdir(workerPending, { recursive: true }), mkdir(workerOut, { recursive: true }), mkdir(workerPrompts, { recursive: true })]);
+    await Promise.all([
+      ...group.names.map((name) => copyFile(join(pendingDir, name), join(workerPending, name))),
+      copyFile(join(checkout, "prompts/ko-notes.md"), join(workerPrompts, "ko-notes.md")),
+      copyFile(join(checkout, "prompts/ko-notes.schema.json"), join(workerPrompts, "ko-notes.schema.json")),
+    ]);
+    console.log(`Translator ${index + 1}: ${group.names.length} releases, ${group.items} items (${codexModel}).`);
+    await run("codex", ["exec", "--ephemeral", "--skip-git-repo-check", "--sandbox", "workspace-write", "-m", codexModel, "-c", "model_reasoning_effort='medium'", "-C", workspace, "-"], { cwd: workspace, input: prompt });
+    const output = await noteFiles(workerOut);
+    if (JSON.stringify(output) !== JSON.stringify(group.names.sort())) throw new Error(`Translator ${index + 1} output files do not match assigned files`);
+    await Promise.all(group.names.map((name) => copyFile(join(workerOut, name), join(outDir, name))));
+  }));
+  const errors = results.filter((result) => result.status === "rejected");
+  if (errors.length) throw new AggregateError(errors.map((result) => result.reason), `${errors.length} translator(s) failed`);
 }
 
 async function main() {
@@ -48,8 +84,7 @@ async function main() {
     const outDir = join(checkout, "work/out");
     const pending = await noteFiles(pendingDir);
     if (pending.length) {
-      const prompt = await readFile(join(checkout, "prompts/routine.md"), "utf8");
-      await run("codex", ["exec", "--ephemeral", "--sandbox", "workspace-write", "-C", checkout, "-"], { cwd: checkout, input: prompt });
+      await writeKoreanNotes(checkout, temporary, pending, pendingDir, outDir);
       const output = await noteFiles(outDir);
       if (JSON.stringify(output) !== JSON.stringify(pending)) throw new Error("Codex output files do not match pending files");
       for (const name of pending) {
