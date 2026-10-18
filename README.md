@@ -12,7 +12,7 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 - Claude Code 릴리스, Codex 오픈소스/CLI 릴리스, Codex 앱·모바일·일반 변경 기록의 최근 90일 항목을 모으고 RSS 피드를 생성한다. 내용 없는 알파 릴리스는 제외하고, 내용이 있는 프리릴리스는 화면에서 기본으로 접어 둔다.
 - Codex가 작성한 한국어 설명을 보여준다. 기존 캐시는 Codex Cloud가 작성했고, 이후 새 설명은 로컬 Codex CLI가 작성한다. 아직 작성되지 않은 릴리스는 원문을 보여준다. 공식 Codex 스크린샷이 기능에 직접 맞을 때만 사용하고, 없으면 가능한 경우 개략 흐름을 표시한다.
 
-수집 검증(2026-10-18): 최근 90일 항목 159건(Claude Code 74건, Codex GitHub 릴리스 36건, OpenAI 공식 Codex 변경 기록 49건). Codex GitHub 릴리스의 원문 항목 284개와 공식 변경 기록의 원문 항목 254개를 확인했다. 한국어 설명은 17건이며 140건이 작성 대기 중이다. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
+수집 검증(2026-10-18): 최근 90일 항목 159건(Claude Code 74건, Codex GitHub 릴리스 36건, OpenAI 공식 Codex 변경 기록 49건). Codex GitHub 릴리스의 원문 항목 284개와 공식 변경 기록의 원문 항목 254개를 확인했다. 한국어 설명은 로컬 작업이 순차적으로 추가하므로 최신 작성 수와 동기화 시각은 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
 
 ## 데이터
 
