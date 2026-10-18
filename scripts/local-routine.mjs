@@ -1,6 +1,6 @@
 // Run from launchd or a terminal. All generated work stays in a disposable clone.
 import { spawn } from "node:child_process";
-import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
+import { mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -32,6 +32,7 @@ async function main() {
   const remote = await run("git", ["remote", "get-url", "origin"], { capture: true });
   const temporary = await mkdtemp(join(tmpdir(), "agent-track-"));
   const checkout = join(temporary, "repo");
+  let completed = false;
   try {
     await run("git", ["clone", "--quiet", "--depth", "1", "--branch", "main", remote, checkout]);
     await run("npm", ["ci"], { cwd: checkout });
@@ -62,20 +63,52 @@ async function main() {
 
     if (!releasesChanged && !pending.length) {
       console.log("No new release data or Korean notes; nothing to deploy.");
+      completed = true;
       return;
     }
     await run("npm", ["test"], { cwd: checkout });
     const allowed = ["data/ko.json", "site/data/releases.json", "site/feed.xml"];
     const changed = (await run("git", ["diff", "--name-only"], { cwd: checkout, capture: true })).split("\n").filter(Boolean);
     if (changed.some((name) => !allowed.includes(name))) throw new Error(`Unexpected tracked changes: ${changed.join(", ")}`);
-    await run("git", ["add", "--", ...allowed], { cwd: checkout });
-    const staged = await run("git", ["diff", "--cached", "--name-only"], { cwd: checkout, capture: true });
-    if (!staged) return;
-    await run("git", ["-c", "user.name=agent-track-local", "-c", "user.email=agent-track-local@users.noreply.github.com", "commit", "-m", "data: update releases and Korean notes"], { cwd: checkout });
-    await run("git", ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential", "push", "origin", "HEAD:main"], { cwd: checkout });
-    console.log("Pushed data to main; GitHub Actions will deploy the site.");
+    const generated = JSON.parse(await readFile(join(checkout, "data/ko.json"), "utf8"));
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      await run("git", ["fetch", "origin", "main"], { cwd: checkout });
+      const local = await run("git", ["rev-parse", "HEAD"], { cwd: checkout, capture: true });
+      const latest = await run("git", ["rev-parse", "origin/main"], { cwd: checkout, capture: true });
+      if (local !== latest) {
+        // The scheduled GitHub fetch can commit while Codex is writing. Rebuild on its latest data.
+        await run("git", ["reset", "--hard", "origin/main"], { cwd: checkout });
+        await run("node", ["scripts/update.mjs"], { cwd: checkout, env: { ...process.env, GITHUB_TOKEN: token, SITE_URL: siteUrl } });
+        const latestData = JSON.parse(await readFile(dataFile, "utf8"));
+        const latestKo = JSON.parse(await readFile(join(checkout, "data/ko.json"), "utf8"));
+        for (const release of latestData.releases) {
+          const note = generated[release.id];
+          if (note?.hash === release.hash) latestKo[release.id] = note;
+        }
+        await writeFile(join(checkout, "data/ko.json"), JSON.stringify(latestKo, null, 1) + "\n");
+        await run("node", ["scripts/update.mjs", "--notes-only"], { cwd: checkout, env: { ...process.env, SITE_URL: siteUrl } });
+        await run("npm", ["test"], { cwd: checkout });
+      }
+      await run("git", ["add", "--", ...allowed], { cwd: checkout });
+      const staged = await run("git", ["diff", "--cached", "--name-only"], { cwd: checkout, capture: true });
+      if (!staged) {
+        completed = true;
+        return;
+      }
+      await run("git", ["-c", "user.name=agent-track-local", "-c", "user.email=agent-track-local@users.noreply.github.com", "commit", "-m", "data: update releases and Korean notes"], { cwd: checkout });
+      try {
+        await run("git", ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential", "push", "origin", "HEAD:main"], { cwd: checkout });
+        console.log("Pushed data to main; GitHub Actions will deploy the site.");
+        completed = true;
+        return;
+      } catch (error) {
+        if (attempt === 3) throw error;
+        console.warn(`Push failed; retrying with current main (${attempt}/3).`);
+      }
+    }
   } finally {
-    await rm(temporary, { recursive: true, force: true });
+    if (completed) await rm(temporary, { recursive: true, force: true });
+    else console.error(`Preserved generated files at ${checkout}`);
   }
 }
 
