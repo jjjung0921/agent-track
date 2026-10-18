@@ -6417,5 +6417,1037 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.159.0": {
+  "hash": "7cf7214cf31b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "선택 기능 `instant_interrupt`로 응답이나 긴 code-mode 호출 중 새 입력을 반영할 수 있다. 경고 보관, 계획 검토 중 스크롤, Mermaid 렌더링과 여러 플랫폼 오류 수정도 포함됐다.",
+   "items": [
+    "선택 기능 `instant_interrupt`를 켜면 모델 응답이나 오래 실행되는 code-mode 호출 중 새 입력으로 Codex를 조정할 수 있다.",
+    "새 세션에 간결한 환영 화면과 일관된 헤더가 표시되고 턴 중간과 이후에 가끔 팁이 나온다.",
+    "경고 화면을 닫으면 확인한 경고가 해제된다. `k`를 누르면 나중에 볼 수 있도록 보관한다.",
+    "계획 구현 여부를 결정하는 동안에도 대화 기록을 스크롤할 수 있다.",
+    "기본 Mermaid 렌더링이 더 많은 흐름도 연결선·레이블·노드 그룹을 지원한다.",
+    "app-server 클라이언트가 특정 항목부터 스레드 기록을 페이지 단위로 가져올 수 있다.",
+    "Windows에서 MCP 서버·code-mode 호스트·파이프 명령 실행 시 불필요한 콘솔 창을 피한다. 제한적인 실행기에서는 내장 모드로 전환할 수 있다.",
+    "대화 기록 복사 시 Markdown 표·서식·의미 있는 공백을 보존한다. 더 많은 터미널에서 선택 즉시 복사된다.",
+    "빈 세션에서 작업을 전환해도 초안이 남고 첫 턴 전에도 스레드를 보관·조회할 수 있다.",
+    "로컬 ChatGPT 로그인이 브라우저를 안정적으로 열고 온보딩에 로그인 링크 복사 단축키가 제공된다.",
+    "승인된 명령에도 명시적인 파일 시스템 거부가 유지되고 쓰기 가능 루트 아래 `.aws` 디렉터리를 기본 보호한다.",
+    "네트워크를 허용한 macOS 샌드박스의 TLS 접근과 프록시가 필요한 원격 환경 문제를 고쳤다.",
+    "자동 후속 프롬프트 제안과 `tui.prompt_suggestions` 설정을 제거했다.",
+    "내장 `plugin-creator` 스킬을 제거했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "실행 중 입력 반영",
+     "what": "선택 기능 `instant_interrupt`를 켜면 모델 응답 중 새 입력으로 Codex를 조정할 수 있다. 오래 실행되는 code-mode 호출 중에도 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "실행 중 입력 반영",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "선택 기능: `instant_interrupt`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "새 세션 화면",
+     "what": "새 세션에 간결한 환영 화면과 일관된 헤더가 표시된다. 턴 도중과 이후에 가끔 팁이 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "경고 보관",
+     "what": "경고 화면을 닫으면 확인한 경고가 해제된다. 나중에 다시 볼 경고는 `k`를 눌러 보관한다.",
+     "steps": [
+      "경고 화면에서 경고를 확인한다.",
+      "보관할 경고에 `k`를 누른다.",
+      "경고 화면을 닫는다."
+     ],
+     "terminal": {
+      "title": "경고 보관",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "경고 보관 키: `k`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "계획 검토 중 스크롤",
+     "what": "계획 구현 여부를 결정하는 동안 대화 기록을 스크롤할 수 있다. 결정 전에 앞선 대화 내용을 확인할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "Mermaid 흐름도 렌더링",
+     "what": "기본 Mermaid 렌더링이 더 많은 흐름도 연결선을 지원한다. 레이블과 노드 그룹의 지원 범위도 넓어졌다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "스레드 기록 페이지 조회",
+     "what": "app-server 클라이언트가 스레드 기록을 페이지 단위로 가져올 수 있다. 조회 시작 지점을 특정 항목으로 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-09-29-app": {
+  "hash": "6cea4e2e6305",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 앱 26.928은 연결된 worktree의 터미널 시작과 앱 창 복귀 시 복구를 개선했다. 작업 중 새 지시를 보내도 이전 답변이 보이며 스크롤 동작도 수정했다.",
+   "items": [
+    "연결된 worktree에서 터미널 시작을 개선하고 사용할 수 없는 환경 설정으로 인한 실패를 고쳤다.",
+    "작업 중 새 지시를 보내도 이전 답변을 계속 볼 수 있다.",
+    "자동 스크롤과 메시지 키보드 탐색이 최신 응답으로 튀는 문제를 고쳤다.",
+    "앱 창으로 돌아왔을 때 시작 복구를 개선했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "연결된 worktree 터미널 시작",
+     "what": "Codex 앱에서 연결된 worktree의 터미널 시작을 개선했다. 사용할 수 없는 worktree 환경 설정 때문에 시작에 실패하던 문제도 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "연결된 worktree",
+        "note": "연결된 worktree에서 터미널을 시작한다.",
+        "changed": false
+       },
+       {
+        "title": "터미널 시작",
+        "note": "사용할 수 없는 환경 설정으로 인한 실패를 수정했다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "작업 중 이전 답변 유지",
+     "what": "작업 도중 새 지시를 보내도 이전 답변이 계속 보인다. 새 지시 후 답변이 사라지던 표시 동작이 바뀌었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "작업 진행",
+        "note": "진행 중인 작업의 답변을 확인한다.",
+        "changed": false
+       },
+       {
+        "title": "새 지시 전송",
+        "note": "새 지시를 보낸 뒤에도 이전 답변이 보인다.",
+        "changed": true
+       }
+      ],
+      "before": "새 지시를 보내면 이전 답변이 보이지 않을 수 있었다.",
+      "after": "새 지시를 보내도 이전 답변이 보인다."
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "앱 창 복귀 시 시작 복구",
+     "what": "Codex 앱 창으로 돌아왔을 때 시작 복구를 개선했다. 원문은 구체적인 복구 조건이나 화면을 설명하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "앱 창 복귀",
+        "note": "앱 창으로 돌아온다.",
+        "changed": false
+       },
+       {
+        "title": "시작 복구",
+        "note": "앱의 시작 복구 동작이 개선됐다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-09-29-gpt-61-sol": {
+  "hash": "9c75b0f0acb3",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GPT-6.1 Sol은 복잡한 작업에서 Astra에 가까운 성능을 더 낮은 비용으로 제공한다. 이용 가능 여부는 요금제, 클라이언트, 작업공간 설정에 따라 달라진다.",
+   "items": [
+    "GPT-6.1 Sol은 복잡한 작업에서 Astra에 가까운 성능을 더 낮은 비용으로 제공한다. 코드·앱·문서의 반복적이고 긴 작업에 고려할 수 있으며 이용 가능 여부는 요금제·클라이언트·작업공간 설정에 따른다.",
+    "`gpt-6.1-sol`을 사용한다. 이용 가능 여부와 모델 선택 비교는 Models에서 확인한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.284": {
+  "hash": "518cab938d05",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude Sonnet 5.5가 Anthropic API의 기본 Sonnet 모델로 추가됐다. 자동 모드의 외부 읽기 일회 허용과 MCP 서버 일괄 재연결을 비롯해 CLI·VS Code의 여러 오류를 수정했다.",
+   "items": [
+    "Claude Sonnet 5.5(`claude-sonnet-5-5`)가 Anthropic API의 기본 Sonnet 모델로 추가됐다. 컨텍스트는 1M이며 Mtok당 입력 $2, 출력 $10, 캐시 읽기 $0.20이다.",
+    "자동 모드에서 작업 디렉터리 밖의 읽기를 이번만 허용하고 다음에는 다시 묻는 선택지가 추가됐다.",
+    "Claude apps gateway 지출 한도가 `/usage`와 상태 줄에 금액으로 표시된다. 게이트웨이가 이 버전 이상이어야 한다.",
+    "`/effort` 슬라이더의 화살표와 Tab 키를 `keybindings.json`에서 다시 지정할 수 있다.",
+    "claude.ai 구독자를 위해 `/rate-limit-options`가 `/help`와 명령 메뉴에 추가됐다.",
+    "대화형 터미널에서 `/mcp reconnect all`로 연결 실패 또는 인증이 필요한 MCP 서버를 한꺼번에 재시도할 수 있다.",
+    "Claude apps gateway가 관리 정책의 `availableModels`가 비거나 시작 모델이 빠진 경우 경고한다.",
+    "Claude apps gateway의 `telemetry.forward_to` 대상에 `auth: { google: {} }`를 설정해 Google Cloud 자격 증명으로 OTLP 엔드포인트에 보낼 수 있다.",
+    "Claude apps gateway와 ID 제공자 사이에 인증서 기반 클라이언트 인증(`private_key_jwt`)이 추가됐다.",
+    "손상된 응답 스트림의 원시 오류나 `undefined` 출력 대신 재시도하거나 응답 중단으로 알린다.",
+    "사고 블록 직후 과부하나 서버 오류가 나도 턴을 끝내지 않고 재시도한다.",
+    "압축 후에도 요청이 너무 길면 최근 대화를 더 적게 남기고 한 번 더 압축한다.",
+    "대체 모델이 없을 때 모델 사용 불가 안내와 자세히 알아보기 링크가 표시된다.",
+    "Agent SDK에서 잘못된 이미지 `source`나 문서 블록 때문에 세션이 중단되는 문제를 고쳤다. 잘못된 이미지는 설명 문구로 대체된다.",
+    "재개한 세션의 MCP 서버가 연결 중이면 도구 호출이 최대 10초간 기다린다.",
+    "사용량 엔드포인트가 요청 제한이나 로그인 거부를 반환하면 `/usage`, `/extra-usage`, IDE 사용량 화면의 반복 요청을 늦춘다.",
+    "관리 설정이 MCP 서버를 플러그인으로 제한할 때 `claude mcp add`가 저장을 거부하고 조치 방법을 안내한다.",
+    "`/plugin` 설정에서 불리언은 참/거짓으로 고르고 숫자 입력을 검증한다. ←/→는 탭 대신 옵션 필드를 바꾼다.",
+    "`ANTHROPIC_FOUNDRY_RESOURCE`가 단순 리소스 이름이 아니면 Foundry 호스트에 넣지 않고 거부한다.",
+    "Claude apps gateway가 1M 컨텍스트 지원 모델을 Desktop에 자동 표시한다.",
+    "셸 모드에서 ↓가 숨겨진 백그라운드 작업 항목을 선택해 Backspace와 Ctrl+U 편집을 막던 문제를 고쳤다.",
+    "Windows에서 플러그인이 많을 때 Bash 도구가 실패하던 문제를 고쳤다. 없는 `bin/` 경로와 중복 PATH 항목을 추가하지 않는다.",
+    "git 2.39 이전 버전에서 `sparsePaths` 마켓플레이스가 빈 복제로 로컬 사본을 덮어쓰던 문제를 고쳤다.",
+    "macOS·Linux 전체화면에서 `[`로 대화를 스크롤백에 쓸 때 위쪽 터미널 출력이 지워지던 문제를 고쳤다.",
+    "위로 스크롤한 상태에서 응답 스트리밍이 끝나도 전체화면 스크롤 위치가 튀지 않는다.",
+    "좁은 터미널에서 `/config`·`/plugin` 대화상자의 탭 이름이 단어 중간에서 잘리지 않고 다음 줄로 옮겨진다.",
+    "`/model` 목록 끝에서 보이던 잘못된 `+1 model` 표기를 고쳤다.",
+    "`/keybindings`가 동작하지 않는 바닥글 기능의 Backspace·Delete 바인딩을 생성하지 않는다.",
+    "에이전트 패널에서 재지정한 `footer:close` 키가 선택 행에 `x`를 입력하던 문제를 고쳤다.",
+    "vim 모드의 `.` 반복이 빠른 입력이나 괄호 붙여넣기 없는 붙여넣기를 놓치지 않는다. 입력 없는 변경 반복 후에도 INSERT 모드에 남지 않는다.",
+    "vim 모드에서 마지막 줄 `dd`나 프롬프트 끝 `yy` 뒤 이미지 자리표시자 괄호에 커서가 남아 이미지가 손상되던 문제를 고쳤다.",
+    "터미널 포커스 복귀 직후 누른 키가 Remote Control 활성화 질문에 안전 대기 시간 전에 답하던 문제를 고쳤다.",
+    "홈 디렉터리에서 실행했을 때 렌더러 전환이나 업데이트 뒤 작업공간 신뢰 질문이 다시 뜨던 문제를 고쳤다.",
+    "프로젝트 밖에서 `.claude/rules`로 연결한 규칙과 외부 `.claude` 심볼릭 링크에 외부 가져오기 승인을 묻는다.",
+    "관리 설정 `allowManagedPermissionRulesOnly` 아래에서 비공식·미승인 출처 플러그인의 `allowed-tools` 사전 승인을 막는다.",
+    "의존성 버전 범위가 맞지 않아 첫 `claude plugin install`이 실패해도 플러그인이 활성화되거나 기록되지 않는다.",
+    "실패한 훅의 stderr와 상태 코드를 디버그 로그에 남긴다. 출력이 없는 실패도 기록한다.",
+    "Elicitation·ElicitationResult 훅의 `{\"decision\":\"block\"}`가 MCP 정보 요청을 거절하도록 고쳤다.",
+    "`SendMessage` 도구 없이 시작한 세션에 다른 세션으로 메시지를 보내라고 지시하지 않는다.",
+    "Remote Control의 Claude 앱 사진을 터미널 프롬프트로 되돌려 편집해도 사진이 사라지지 않고 캡션 없는 사진의 커서도 이동하지 않는다.",
+    "자동 사용량 제한 대기 중 메시지를 입력해도 재차 제한에 걸린 턴은 자동 계속 설정의 제어를 받는다.",
+    "최상위 Max 요금제의 사용량 제한 안내는 가능할 때 `/upgrade` 대신 `/usage-credits`를 가리킨다.",
+    "인식하지 못하는 모델 ID로 실행하는 세션의 Explore 하위 에이전트가 Opus로 바뀌지 않고 해당 모델을 상속한다.",
+    "자율 속도 모드의 `/loop`가 각 상태 업데이트와 종료 결과를 보이는 텍스트로 출력한다.",
+    "macOS·Linux에서 Claude Desktop이 만든 git worktree의 `/ultrareview` 작업 트리 업로드 실패를 고쳤다.",
+    "쓰기 금지 작업 디렉터리에 읽기 금지 디렉터리가 있어도 Linux 샌드박스 Bash 명령이 시작된다.",
+    "아티팩트 데이터베이스가 개인 `data/users/` 쓰기를 모든 뷰어에게 보이는 것으로 알리던 문제를 고치고 `as_level`에 `view` 수준을 추가했다.",
+    "ID 제공자가 많은 그룹을 반환해도 Claude apps gateway가 최대 256 KiB의 요청 헤더를 받는다.",
+    "사용량 제한 상태와 사용량 크레딧 선택지가 있는 카운트다운을 프롬프트 아래 한 블록에 표시하고 중복 표기를 없앴다.",
+    "접두사 없이 호출한 Claude in Chrome 도구의 오류가 호출해야 할 도구 이름을 알려준다.",
+    "Monitor 이벤트 행이 반복 설명 대신 실제 출력 내용을 표시하고 변화 없는 대기 줄을 반복하지 않는다.",
+    "비동기 스크립트 훅에서 발생한 오류에 대한 Workflow 도구 샌드박스 보호를 개선했다.",
+    "실제로 쓰는 설정 스키마 부분만 구성해 시작 시간과 메모리 사용량을 개선했다.",
+    "`/claude-api`의 `hillclimb`가 평가로 측정할 수 없는 작은 문구 변경에 라운드를 쓰지 않는다. 추가 페이지는 네트워크 로딩이 없는 단일 로컬 파일로 만든다.",
+    "`/tasks`·`/copy`·`/hooks` 같은 목록의 세부 정보를 공간이 있으면 한 열에 맞추고 없으면 오른쪽 끝에 둔다.",
+    "`claude plugin marketplace add`가 같은 이름의 다른 출처 마켓플레이스를 대체할 때와 되돌리는 방법을 알린다.",
+    "강제 로그인 설정과 API 키·토큰·`apiKeyHelper`가 충돌해 시작을 거부할 때 자격 증명의 종류, 위치, 제거 방법을 알린다.",
+    "`MEMORY.md`와 회상한 메모에서 보이지 않는 문자와 Claude Code 마크업을 흉내 낸 태그를 중화한다.",
+    "신뢰하지 않은 폴더에서 `claude remote-control`을 실행하면 종료 대신 터미널에서 신뢰 여부를 묻는다.",
+    "아티팩트 페이지의 설계 계획을 답변 대신 페이지에 쓰고 사용자가 붙인 이름을 제목으로 쓴다.",
+    "Artifact 도구가 잘못된 종류의 링크나 아티팩트 ID만 받으면 중단하지 않고 알맞은 링크나 내용을 요청한다.",
+    "권한 모드를 설정하지 않은 대화형 터미널·VS Code 세션은 요금제와 제공자에 관계없이 자동 모드로 시작한다. `permissions.defaultMode`는 우선 적용된다.",
+    "Ultracode가 `/effort`의 별도 토글이 된다. xhigh 강제 없이 모든 노력 수준에서 켤 수 있다.",
+    "응답 도중 연결이 끊겼을 때의 재시도가 요청 전체의 재시도 예산을 공유해 실패한 요청을 더 빨리 끝낸다.",
+    "Sonnet 보호 장치가 메시지를 표시하면 이유를 설명하고 수정·재시도를 제안한다.",
+    "Opus 모델을 고정한 Anthropic API 세션의 안전 관련 모델 전환은 고정 모델 대신 표시 유형별 API 선택을 따른다.",
+    "비대화형 첫 턴은 `CLAUDE_CODE_MCP_STARTUP_WAIT_MS`가 `0`이어도 지정된 MCP 서버 연결을 최대 2초 기다린다.",
+    "채팅 스레드·루틴·웹훅에서 전달된 `/recap`은 짧은 안내와 함께 거절된다. 터미널·Claude 앱·Remote Control·`-p`·SDK에서는 실행된다.",
+    "`/artifacts`의 All·Mine·Shared 필터 탭이 제목 옆에 한 단어 이름으로 표시된다.",
+    "네트워크 공유 파일의 아티팩트 게시를 거부한다. `--add-dir`로 추가한 매핑 네트워크 드라이브는 예외다.",
+    "[VS Code] 메시지 위의 시간과 날짜 변경 줄을 선택적으로 표시할 수 있다. 기본값은 꺼짐이다.",
+    "[VS Code] Manage plugins 행에 플러그인 로드 오류와 메모를 표시하고 비활성화·제거·오류 복사 팝업을 추가했다.",
+    "[VS Code] Effort 슬라이더 아래에 Ultracode 스위치를 추가했다. 모든 노력 수준의 모델 표시에 `· Ultracode`가 보인다.",
+    "[VS Code] Memory 대화상자의 Reload Claude가 편집 파일 저장 전에 재시작하던 문제를 고쳤다.",
+    "[VS Code] 복원한 탭이 다른 Claude 프로세스에서 열린 대화를 열기 전에 확인을 묻는다.",
+    "[VS Code] 하위 에이전트 작업 중이나 첫 단계가 화면에서 제거돼도 펼친 Focus 구역이 닫히지 않는다.",
+    "[VS Code] `/model`과 Enter를 입력하면 사용법 텍스트 대신 모델 선택기가 열린다.",
+    "[VS Code] Vertex·Bedrock·Foundry에서 `/feedback` 보고서를 전송 거부 대신 이 컴퓨터에 저장한다.",
+    "[VS Code] 창 재로드 후 로그인 시 Python 확장을 최대 1분 기다리던 문제를 고쳤다.",
+    "[VS Code] Restart Extensions 뒤 멈춘 Claude Code 탭이 해당 대화에서 다시 열린다.",
+    "[VS Code] 발신자 정보 없는 다른 에이전트 메시지가 채팅에 원시 XML로 나오지 않는다.",
+    "[VS Code] 재로드 뒤에도 다른 에이전트·세션·채널의 메시지가 남는다.",
+    "[VS Code] 사용자 정의 `/mcp`·`/config`·`/settings` 명령이 확장 대화상자에 가리지 않는다.",
+    "[VS Code] 진행 중인 턴이 없을 때 Escape가 모든 백그라운드 에이전트를 중지하지 않는다.",
+    "[VS Code] 플러그인 설치 링크가 같은 이름의 기존 마켓플레이스를 대체하지 않는다.",
+    "[VS Code] 메시지에 큰 텍스트 파일을 붙인 뒤 압축해도 `Prompt is too long` 오류가 나던 문제를 고쳤다.",
+    "[VS Code] 비ASCII 문자·공백·괄호가 있는 파일 경로의 채팅 링크가 열린다.",
+    "[VS Code] `claudeCode.environmentVariables`의 `CLAUDE_CONFIG_DIR`은 절대 경로일 때만 적용되며 대화를 이어가는 터미널에도 전달된다.",
+    "[Cloud sessions] 오프라인에서 루틴의 Edit·Duplicate가 로딩 중이라고 잘못 알리던 문제를 고쳤다.",
+    "[Claude Tag] 스레드·채널 기본값·DM에서 최신 모델을 따르는 모델 계열을 선택할 수 있다.",
+    "[Claude Tag] 분석 지출 전망 차트에 조직 전체 한도에 반영되는 지출과 사용 비율을 추가했다.",
+    "[Claude Tag] GitHub Enterprise 호스트 이름에 밑줄이 있을 때 저장소와 Create PR 버튼이 빠지던 문제를 고쳤다.",
+    "[Claude Tag] 환경이 실행을 거절하는 채널에 관리자 문의 안내를 한 번 게시하고 @멘션 시 재시도한다.",
+    "[Claude Tag] Claude 계정을 연결하지 않은 사용자의 @멘션마다 비공개 로그인 안내를 게시한다.",
+    "[Claude Tag] Enterprise Grid의 Notify members now 한 번으로 조직이 등록한 모든 작업공간과 더 많은 회원에게 알린다.",
+    "[Claude Tag] 주문형 러너의 대기 안내가 시작 중·재시도 예정·시작 불가 상태를 구분한다.",
+    "[Claude Tag] 채널의 Slack 작업공간이 조직과 연결됐는지 확인할 수 없을 때 관리자 추가 오류를 개선했다.",
+    "[Claude Tag] 채널 접근 목록에 자동 참여 패턴이 붙인 커넥터·저장소·플러그인과 출처를 표시한다.",
+    "[Claude Tag] GitHub 로그인으로 저장소 관리자 권한을 확인할 수 없으면 다시 로그인하도록 요청한다.",
+    "[Code Review] GitHub App의 제출되지 않은 리뷰가 있어도 완료 리뷰 게시를 먼저 재시도한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Claude Sonnet 5.5",
+     "what": "`claude-sonnet-5-5`가 Anthropic API의 기본 Sonnet 모델로 추가됐다. 1M 컨텍스트를 제공하며 가격은 Mtok당 입력 $2, 출력 $10, 캐시 읽기 $0.20이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "외부 읽기 일회 허용",
+     "what": "자동 모드에서 작업 디렉터리 밖을 읽기 전 확인창에 “Yes, but ask again next time”이 추가됐다. 이번 읽기는 허용하고 이후 읽기에는 다시 확인을 받는다.",
+     "steps": [
+      "작업 디렉터리 밖의 읽기 요청을 확인한다.",
+      "“Yes, but ask again next time”을 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "게이트웨이 지출 한도",
+     "what": "Claude apps gateway가 이 버전 이상이면 `/usage`와 상태 줄에 월 지출과 한도를 달러로 표시한다. 상태 줄의 `rate_limits.spend_limit`에도 `used_usd`, `limit_usd`, `period`가 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "게이트웨이 지출 한도",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /usage"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "노력 수준 키 재지정",
+     "what": "`effortSlider:decreaseEffort`, `increaseEffort`, `toggleUltracode` 바인딩 동작이 추가됐다. `keybindings.json`에서 `/effort` 슬라이더의 화살표와 Tab 키를 다시 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "노력 수준 키 재지정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`keybindings.json`: `effortSlider:decreaseEffort`, `increaseEffort`, `toggleUltracode`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "사용량 제한 옵션 명령",
+     "what": "claude.ai 구독자를 위해 `/rate-limit-options`가 `/help`와 명령 메뉴에 표시된다. 사용량 제한 안내에서 언급하는 명령을 찾을 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "사용량 제한 옵션 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /help"
+       },
+       {
+        "kind": "cmd",
+        "text": "> /rate-limit-options"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "MCP 서버 일괄 재연결",
+     "what": "대화형 터미널에서 `/mcp reconnect all`을 실행할 수 있다. 연결 실패 또는 인증이 필요한 모든 MCP 서버를 한 번에 재시도한다.",
+     "steps": [],
+     "terminal": {
+      "title": "MCP 서버 일괄 재연결",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /mcp reconnect all"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 6,
+     "title": "관리 모델 정책 경고",
+     "what": "Claude apps gateway 시작 시 관리 정책의 `availableModels`가 비어 있으면 경고한다. 시작 모델이 빠져 있고 `model` 또는 `enforceAvailableModels`도 설정되지 않은 경우에도 경고한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관리 모델 정책 경고",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "관리 정책: `availableModels`, `model`, `enforceAvailableModels`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "Google Cloud 텔레메트리 인증",
+     "what": "Claude apps gateway의 `telemetry.forward_to` 대상에 `auth: { google: {} }`가 추가됐다. 게이트웨이의 Google Cloud 자격 증명으로 Google Cloud OTLP 엔드포인트에 직접 전송할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "Google Cloud 텔레메트리 인증",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`telemetry.forward_to` 대상: `auth: { google: {} }`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "인증서 기반 클라이언트 인증",
+     "what": "Claude apps gateway와 ID 제공자 사이에 `private_key_jwt` 클라이언트 인증이 추가됐다. 클라이언트 암호 대신 인증서 자격 증명을 발급하는 ID 제공자에 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "인증서 기반 클라이언트 인증",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "인증 방식: `private_key_jwt`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 61,
+     "title": "자동 권한 모드 기본값",
+     "what": "권한 모드를 설정하지 않은 대화형 터미널과 VS Code 세션은 요금제와 제공자에 관계없이 자동 모드로 시작한다. `permissions.defaultMode`가 설정되어 있으면 그 값이 우선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "자동 권한 모드 기본값",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "설정 키: `permissions.defaultMode`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 70,
+     "title": "메시지 시간 표시",
+     "what": "VS Code에서 각 프롬프트와 응답 위에 시간을 선택적으로 표시한다. 날짜가 바뀌면 날짜 줄도 표시하며 `Claude Code: Show Message Timestamps`는 기본적으로 꺼져 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 71,
+     "title": "플러그인 로드 오류 표시",
+     "what": "VS Code의 Manage plugins 행에 로드 오류와 메모를 표시한다. 팝업에서 플러그인을 비활성화·제거하거나 오류를 복사할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 72,
+     "title": "Ultracode 독립 스위치",
+     "what": "VS Code의 Effort 슬라이더 아래에 Ultracode 켜기·끄기 스위치를 추가하고 이전 Ultracode 단계를 대체한다. 켜면 어떤 노력 수준에서도 모델 표시에 `· Ultracode`가 붙는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 73,
+     "title": "메모리 저장 후 재시작",
+     "what": "VS Code의 Memory 대화상자에서 Reload Claude를 사용할 때 편집 파일을 저장한 뒤 재시작한다. 이전에는 저장 전에 재시작했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 74,
+     "title": "복원 탭의 대화 확인",
+     "what": "VS Code에서 복원한 탭이 다른 Claude 프로세스가 열어 둔 대화를 열기 전에 확인을 묻는다. 중복으로 열리는 동작을 막는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 75,
+     "title": "Focus 펼침 상태 유지",
+     "what": "VS Code Focus 보기에서 펼친 구역의 상태를 유지한다. 하위 에이전트가 작업하거나 구역의 첫 단계가 화면에서 제거돼도 닫히지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 76,
+     "title": "모델 선택기 열기",
+     "what": "VS Code 채팅에서 `/model`을 입력하고 Enter를 누르면 모델 선택기가 열린다. 이전의 사용법 텍스트 출력 문제를 고쳤다.",
+     "steps": [
+      "채팅에 `/model`을 입력한다.",
+      "Enter를 눌러 모델 선택기를 연다."
+     ],
+     "terminal": {
+      "title": "모델 선택기 열기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /model"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 77,
+     "title": "피드백 로컬 저장",
+     "what": "VS Code에서 Vertex·Bedrock·Foundry를 쓸 때 `/feedback` 전송을 거부하던 문제를 고쳤다. 보고서를 터미널과 같이 이 컴퓨터에 저장한다.",
+     "steps": [],
+     "terminal": {
+      "title": "피드백 로컬 저장",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /feedback"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 78,
+     "title": "로그인 대기 수정",
+     "what": "VS Code 창을 다시 불러온 뒤 로그인할 때 Python 확장을 최대 1분 기다리던 문제를 고쳤다. 적용 범위는 창 재로드 후 로그인이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 79,
+     "title": "확장 재시작 후 탭 복구",
+     "what": "VS Code의 Restart Extensions 뒤 응답하지 않던 Claude Code 탭을 복구한다. 탭은 기존 대화에서 다시 열린다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 80,
+     "title": "발신자 없는 메시지 표시",
+     "what": "VS Code에서 발신자 기록이 없는 다른 에이전트의 메시지 표시를 고쳤다. 채팅에 원시 XML이 나오지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 81,
+     "title": "재로드 후 메시지 유지",
+     "what": "VS Code를 재로드해도 다른 에이전트·세션·채널의 메시지가 유지된다. 이전에는 해당 메시지가 사라질 수 있었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 82,
+     "title": "사용자 명령 우선",
+     "what": "VS Code에서 사용자가 만든 `/mcp`, `/config`, `/settings` 명령을 사용할 수 있다. 확장의 대화상자가 해당 명령을 가리던 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "사용자 명령 우선",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "사용자 정의 명령: `/mcp`, `/config`, `/settings`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 83,
+     "title": "Escape 동작 수정",
+     "what": "VS Code에서 실행 중인 턴이 없을 때 Escape를 눌러도 모든 백그라운드 에이전트가 멈추지 않는다. 기존의 일괄 중지 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 84,
+     "title": "마켓플레이스 보존",
+     "what": "VS Code의 플러그인 설치 링크가 같은 이름으로 이미 추가된 마켓플레이스를 대체하지 않는다. 기존 마켓플레이스가 유지된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 85,
+     "title": "대용량 첨부 압축 수정",
+     "what": "VS Code에서 메시지에 큰 텍스트 파일을 첨부한 뒤 대화를 압축할 때의 `Prompt is too long` 오류를 고쳤다. 해당 첨부·압축 경로에 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 86,
+     "title": "특수 경로 파일 링크",
+     "what": "VS Code 채팅에서 경로에 비ASCII 문자·공백·괄호가 있어도 파일 링크가 열린다. 해당 문자들이 들어간 경로의 링크 문제를 고쳤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 87,
+     "title": "설정 디렉터리 경로 제한",
+     "what": "VS Code의 `claudeCode.environmentVariables`에서 `CLAUDE_CONFIG_DIR`은 절대 경로일 때만 적용된다. 대화를 이어가는 터미널에도 해당 변수를 전달한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 디렉터리 경로 제한",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`claudeCode.environmentVariables`: `CLAUDE_CONFIG_DIR`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.158.0": {
+  "hash": "dafb47445870",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "전체화면 TUI의 복사·붙여넣기 설정과 OAuth 클라이언트 암호가 필요한 MCP 서버 연결이 추가됐다. WebSocket 인증, 이미지 편집, 샌드박스와 승인 동작도 개선됐다.",
+   "items": [
+    "전체화면 TUI의 선택 시 복사와 우클릭 붙여넣기를 설정할 수 있다. 대화 기록 복사본은 Markdown 서식을 보존한다.",
+    "사전 등록된 OAuth 클라이언트 암호가 필요한 MCP 서버에 `codex mcp add --oauth-client-secret` 등으로 연결할 수 있다.",
+    "직접 exec-server WebSocket 연결과 app-server를 통한 연결을 bearer token으로 보호할 수 있다.",
+    "이미지 생성·편집에서 투명 배경을 명시적으로 요청할 수 있고 파일 기반 대화 이미지로 편집할 수 있다.",
+    "높은 권한으로 실행되는 명령의 터미널 입력 승인이 기본으로 켜진다. 런타임에만 적용되는 허가로 인한 불필요한 검토는 줄었다.",
+    "일반 Windows 10 경로, 저장된 자격 증명 거부, 큰 권한 정책과 관련된 Windows 샌드박스 오류를 고쳤다.",
+    "중첩된 쓰기 가능 루트의 Linux 샌드박스 시작을 고치고 Linux·macOS에서 Git 메타데이터 보호를 유지한다.",
+    "macOS 패치 작업이 기존 권한에 포함된 시스템 경로 별칭을 인식해 불필요한 승인 요청을 피한다.",
+    "새 사용자 입력이 들어오면 승인 검토를 재시도해 상태 질문 때문에 보류 중인 작업이 자동 중단되지 않는다.",
+    "Mermaid 흐름도가 따옴표가 있는 레이블과 앰퍼샌드를 렌더링한다. 지원하지 않는 다이어그램은 원본으로 대체되는 이유를 설명한다.",
+    "명령 완료 이벤트에 초기 출력을 포함하고 프로세스 시작 실패를 클라이언트에 알린다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "전체화면 TUI 복사·붙여넣기",
+     "what": "전체화면 TUI에서 선택 시 복사와 우클릭 붙여넣기를 설정할 수 있다. 대화 기록에서 선택한 텍스트를 복사하면 Markdown 서식이 유지된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "OAuth 클라이언트 암호 MCP 연결",
+     "what": "사전 등록된 OAuth 클라이언트 암호를 요구하는 MCP 서버에 연결할 수 있다. `codex mcp add --oauth-client-secret`을 통한 추가도 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "OAuth 클라이언트 암호 MCP 연결",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "MCP 서버 추가 옵션: `codex mcp add --oauth-client-secret`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "exec-server WebSocket 인증",
+     "what": "직접 exec-server WebSocket 연결을 bearer token으로 보호할 수 있다. app-server를 통해 설정된 연결에도 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "이미지 투명 배경과 파일 편집",
+     "what": "이미지 생성과 편집에서 투명 배경을 명시적으로 요청할 수 있다. 편집에는 파일로 저장된 대화 이미지도 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "높은 권한 명령 입력 승인",
+     "what": "높은 권한으로 실행되는 명령에는 터미널 입력 승인이 기본으로 활성화된다. 런타임에만 적용되는 허가에 대한 불필요한 검토는 줄었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.157.1": {
+  "hash": "0d8b70324e04",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "제공된 PR 목록이 비어 있고 GitHub 태그 비교가 404를 반환해 주요 변경 사항을 확인할 수 없다.",
+   "items": [
+    "제공된 PR 목록이 비어 있고 GitHub 태그 비교가 404여서 주요 변경 사항을 확인할 수 없다."
+   ],
+   "features": []
+  }
  }
 }
