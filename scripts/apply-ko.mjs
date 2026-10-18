@@ -31,4 +31,4 @@ for (const name of (await readdir(OUT).catch(() => [])).filter((f) => f.endsWith
 
 await writeFile(KO, JSON.stringify(ko, null, 1) + "\n");
 console.log(`${applied} applied, ${failed} failed`);
-if (failed && !applied) process.exit(1);
+if (failed) process.exit(1);

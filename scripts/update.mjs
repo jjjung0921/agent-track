@@ -7,7 +7,7 @@ import { isCurrentNote } from "./ko-notes.mjs";
 const DATA = new URL("../site/data/releases.json", import.meta.url);
 const FEED = new URL("../site/feed.xml", import.meta.url);
 // Korean notes keyed by release id, kept with the hash of the items they were written from.
-// Written by the Codex Cloud routine (scripts/apply-ko.mjs).
+// Written by the Codex routine (scripts/apply-ko.mjs).
 const KO = new URL("../data/ko.json", import.meta.url);
 const WINDOW_DAYS = Number(process.env.WINDOW_DAYS ?? 90);
 const SITE_URL = process.env.SITE_URL ?? "";
@@ -113,6 +113,18 @@ async function main() {
   console.log(`${releases.length} releases (${claude.length} Claude Code, ${codex.length} Codex), ${screenshots.length} screenshots`);
 }
 
+async function refreshNotes() {
+  const data = JSON.parse(await readFile(DATA, "utf8"));
+  const koCache = JSON.parse(await readFile(KO, "utf8").catch(() => "{}"));
+  const releases = data.releases.map((release) => {
+    const cached = koCache[release.id];
+    return { ...release, ko: isCurrentNote(cached, release.hash) ? cached.ko : null };
+  });
+  await writeFile(DATA, JSON.stringify({ ...data, releases }, null, 1) + "\n");
+  await writeFile(FEED, feed(releases));
+  console.log(`Refreshed notes for ${releases.filter((release) => release.ko).length} releases`);
+}
+
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 function feed(releases) {
@@ -133,7 +145,7 @@ ${items}
 `;
 }
 
-main().catch((err) => {
+(process.argv.includes("--notes-only") ? refreshNotes() : main()).catch((err) => {
   console.error(err);
   process.exit(1);
 });

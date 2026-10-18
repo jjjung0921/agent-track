@@ -1,5 +1,5 @@
 // Lists releases that still lack Korean notes and writes one input file per release to work/pending/.
-// Used by the Codex Cloud routine; Codex writes answers to work/out/ and runs apply-ko.mjs.
+// Used by the Codex CLI routine; Codex writes answers to work/out/ and runs apply-ko.mjs.
 //   node scripts/pending.mjs [limit]
 import { readFile, writeFile, rm, mkdir } from "node:fs/promises";
 import { buildInput, isCurrentNote } from "./ko-notes.mjs";

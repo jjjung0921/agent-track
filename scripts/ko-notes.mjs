@@ -1,10 +1,11 @@
-// Shared input and validation for Korean notes written by Codex Cloud.
+// Shared input and validation for Korean notes written by Codex.
 import { readFileSync } from "node:fs";
 
 export const SCHEMA = JSON.parse(readFileSync(new URL("../prompts/ko-notes.schema.json", import.meta.url), "utf8"));
-export const CODEX_PROVENANCE = "codex-cloud";
+export const CODEX_PROVENANCE = "codex-cli";
+const SUPPORTED_PROVENANCE = new Set(["codex-cloud", CODEX_PROVENANCE]);
 
-export const isCurrentNote = (entry, hash) => entry?.hash === hash && entry.ko?.model === CODEX_PROVENANCE;
+export const isCurrentNote = (entry, hash) => entry?.hash === hash && SUPPORTED_PROVENANCE.has(entry.ko?.model);
 
 // Items that get a full explanation: every new feature, plus changes that touch the desktop app or IDE.
 export function needsDetail(item) {
@@ -46,8 +47,11 @@ export function validate(out, release, screenshots, model) {
   const ids = new Set(screenshots.map((s) => s.id));
   const items = new Array(n).fill(null);
   for (const it of out.items) if (it.index >= 0 && it.index < n) items[it.index] = it.ko;
+  if (items.some((item) => item === null)) throw new Error("missing Korean item translation");
   const features = out.features
     .filter((f) => f.index >= 0 && f.index < n)
     .map((f) => ({ ...f, screenshot_id: ids.has(f.screenshot_id) ? f.screenshot_id : "" }));
+  const featureIds = new Set(features.map((feature) => feature.index));
+  if (release.items.some((item, index) => needsDetail(item) && !featureIds.has(index))) throw new Error("missing feature detail");
   return { model, summary: out.summary, items, features };
 }

@@ -57,6 +57,8 @@ test("korean notes: schema check and index guard", async () => {
   assert.equal(v.features[0].screenshot_id, "");
   assert.match(checkShape({ summary: 1, items: [], features: [] })[0], /summary/);
   assert.throws(() => validate({ summary: "s", items: [], features: [{ ...feature, extra: 1 }] }, release, [], "m"), /not allowed/);
+  assert.throws(() => validate({ summary: "s", items: [], features: [feature] }, release, [], "m"), /missing Korean item/);
+  assert.throws(() => validate({ summary: "s", items: [{ index: 0, ko: "가" }], features: [] }, release, [], "m"), /missing feature detail/);
   assert.equal(isCurrentNote({ hash: "h", ko: { model: "claude-haiku-5-5" } }, "h"), false);
   assert.equal(isCurrentNote({ hash: "h", ko: { model: "codex-cloud" } }, "h"), true);
 });

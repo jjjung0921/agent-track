@@ -1,0 +1,85 @@
+// Run from launchd or a terminal. All generated work stays in a disposable clone.
+import { spawn } from "node:child_process";
+import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = dirname(dirname(fileURLToPath(import.meta.url)));
+const siteUrl = "https://jjjung0921.github.io/agent-track/";
+
+function run(command, args, { cwd = root, env = process.env, input, capture = false } = {}) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(command, args, { cwd, env, stdio: [input === undefined ? "ignore" : "pipe", capture ? "pipe" : "inherit", "inherit"] });
+    let output = "";
+    if (capture) child.stdout.on("data", (chunk) => { output += chunk; });
+    child.on("error", reject);
+    child.on("close", (code) => code === 0 ? resolve(output.trim()) : reject(new Error(`${command} exited ${code}`)));
+    if (input !== undefined) child.stdin.end(input);
+  });
+}
+
+function content(data) {
+  const { generatedAt, ...meaningful } = data;
+  return JSON.stringify(meaningful);
+}
+
+async function noteFiles(dir) {
+  return (await readdir(dir)).filter((name) => name.endsWith(".json")).sort();
+}
+
+async function main() {
+  const remote = await run("git", ["remote", "get-url", "origin"], { capture: true });
+  const temporary = await mkdtemp(join(tmpdir(), "agent-track-"));
+  const checkout = join(temporary, "repo");
+  try {
+    await run("git", ["clone", "--quiet", "--depth", "1", "--branch", "main", remote, checkout]);
+    await run("npm", ["ci"], { cwd: checkout });
+    const dataFile = join(checkout, "site/data/releases.json");
+    const before = JSON.parse(await readFile(dataFile, "utf8"));
+    const token = await run("gh", ["auth", "token"], { capture: true });
+    await run("node", ["scripts/update.mjs"], { cwd: checkout, env: { ...process.env, GITHUB_TOKEN: token, SITE_URL: siteUrl } });
+    const after = JSON.parse(await readFile(dataFile, "utf8"));
+    const releasesChanged = content(before) !== content(after);
+
+    await run("node", ["scripts/pending.mjs", "8"], { cwd: checkout });
+    const pendingDir = join(checkout, "work/pending");
+    const outDir = join(checkout, "work/out");
+    const pending = await noteFiles(pendingDir);
+    if (pending.length) {
+      const prompt = await readFile(join(checkout, "prompts/routine.md"), "utf8");
+      await run("codex", ["exec", "--ephemeral", "--sandbox", "workspace-write", "-C", checkout, "-"], { cwd: checkout, input: prompt });
+      const output = await noteFiles(outDir);
+      if (JSON.stringify(output) !== JSON.stringify(pending)) throw new Error("Codex output files do not match pending files");
+      for (const name of pending) {
+        const expected = JSON.parse(await readFile(join(pendingDir, name), "utf8"));
+        const actual = JSON.parse(await readFile(join(outDir, name), "utf8"));
+        if (actual.id !== expected.id || actual.hash !== expected.hash) throw new Error(`Codex output does not match ${name}`);
+      }
+      await run("node", ["scripts/apply-ko.mjs"], { cwd: checkout });
+      await run("node", ["scripts/update.mjs", "--notes-only"], { cwd: checkout, env: { ...process.env, SITE_URL: siteUrl } });
+    }
+
+    if (!releasesChanged && !pending.length) {
+      console.log("No new release data or Korean notes; nothing to deploy.");
+      return;
+    }
+    await run("npm", ["test"], { cwd: checkout });
+    const allowed = ["data/ko.json", "site/data/releases.json", "site/feed.xml"];
+    const changed = (await run("git", ["diff", "--name-only"], { cwd: checkout, capture: true })).split("\n").filter(Boolean);
+    if (changed.some((name) => !allowed.includes(name))) throw new Error(`Unexpected tracked changes: ${changed.join(", ")}`);
+    await run("git", ["add", "--", ...allowed], { cwd: checkout });
+    const staged = await run("git", ["diff", "--cached", "--name-only"], { cwd: checkout, capture: true });
+    if (!staged) return;
+    await run("git", ["-c", "user.name=agent-track-local", "-c", "user.email=agent-track-local@users.noreply.github.com", "commit", "-m", "data: update releases and Korean notes"], { cwd: checkout });
+    await run("git", ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential", "push", "origin", "HEAD:main"], { cwd: checkout });
+    console.log("Pushed data to main; GitHub Actions will deploy the site.");
+  } finally {
+    await rm(temporary, { recursive: true, force: true });
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

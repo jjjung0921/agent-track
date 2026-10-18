@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
-  # Every push to main deploys, including the Codex Cloud routine's data/ko.json commits.
+  # Every push to main deploys, including the local Codex CLI routine's data/ko.json commits.
   # The bot's own data commit uses GITHUB_TOKEN, which does not start another run.
   push:
     branches: [main]
