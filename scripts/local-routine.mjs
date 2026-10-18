@@ -79,7 +79,7 @@ async function main() {
     const after = JSON.parse(await readFile(dataFile, "utf8"));
     const releasesChanged = content(before) !== content(after);
 
-    await run("node", ["scripts/pending.mjs", "8", "160"], { cwd: checkout });
+    await run("node", ["scripts/pending.mjs", "8", "240"], { cwd: checkout });
     const pendingDir = join(checkout, "work/pending");
     const outDir = join(checkout, "work/out");
     const pending = await noteFiles(pendingDir);
