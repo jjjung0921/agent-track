@@ -12,7 +12,7 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 - Claude Code와 Codex의 최근 90일 릴리스를 모으고 RSS 피드를 생성한다. 프리릴리스는 화면에서 기본으로 접어 둔다.
 - Codex가 작성한 한국어 설명을 보여준다. 기존 캐시는 Codex Cloud가 작성했고, 이후 새 설명은 로컬 Codex CLI가 작성한다. 아직 작성되지 않은 릴리스는 원문을 보여준다. 공식 Codex 스크린샷이 기능에 직접 맞을 때만 사용하고, 없으면 가능한 경우 개략 흐름을 표시한다.
 
-배포 확인(2026-10-18 12:44 KST): 릴리스 376개(Claude Code 74개, Codex 302개), Codex Cloud 작성 한국어 설명 9개, 작성 대기 99개, 수집된 스크린샷 0개. `data/ko.json`에 저장된 작성분은 모두 Codex Cloud 작성분이다. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
+배포 확인(2026-10-18 13:31 KST): 릴리스 376개(Claude Code 74개, Codex 302개), 한국어 설명 17개(Codex Cloud 9개, 로컬 Codex CLI 8개), 작성 대기 91개, 수집된 스크린샷 0개. 최신 수치는 사이트의 동기화 시각과 [`site/data/releases.json`](site/data/releases.json)에서 확인한다.
 
 ## 데이터
 
