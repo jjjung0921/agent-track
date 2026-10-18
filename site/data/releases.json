@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T11:50:35.909Z",
+ "generatedAt": "2026-10-18T11:52:02.747Z",
  "windowDays": 90,
  "releases": [
   {
@@ -27475,7 +27475,726 @@
     }
    ],
    "hash": "0578be5f8cae",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "로그인 계정 표시, 대기 메시지 즉시 전송, 계정 skills 및 plugins 동기화가 추가된다. VS Code에서는 메모리 관리와 변경 단위 검토 등 편집기 작업 흐름도 개선된다.",
+    "items": [
+     "Claude 앱 게이트웨이 로그인에서 게이트웨이가 계정을 지정하면 자격 증명 저장 전에 확인하며, `/status`에서 계정을 보여준다.",
+     "현재 턴을 중단하고 대기 중인 메시지를 한꺼번에 보내는 키(`ctrl+enter` 또는 `ctrl+x ctrl+s`)를 추가했다. 모델이 받을 때까지 전송 및 대기 메시지는 회색으로 표시된다.",
+     "설정된 `otelHeadersHelper`가 실패하면 시작 시 경고해 텔레메트리가 조용히 내보내지지 않는 세션을 알아차릴 수 있다.",
+     "claude.ai 계정에서 활성화한 skills와 plugins를 해당 계정으로 로그인한 터미널 세션에 동기화한다. `syncClaudeAiSkills: false` 또는 `syncClaudeAiPlugins: false`로 끌 수 있다.",
+     "`/plugin install <plugin> --marketplace <source>`를 추가했다. 플러그인 설치 전에 마켓플레이스 추가를 제안한다.",
+     "압축 또는 재개 후 요청마다 복원된 메모리 파일의 경과 시간 메모가 달라져 프롬프트 캐시가 놓치던 문제를 수정했다.",
+     "`--forward-subagent-text`의 stream-json 및 SDK 출력에서 context: fork 스킬이 만든 하위 에이전트와 중첩된 fork 스킬의 메시지가 빠지던 문제를 수정했다.",
+     "사용자 지정 `fileSuggestion` 명령을 쓰거나 `@.`/`@./` 입력 시 @ 파일 제안이 MCP 리소스 아래에 묻히던 문제를 수정했다.",
+     "전체 화면 모드에서 긴 턴의 접힌 도구 행 아래에 백그라운드 작업 완료 알림이 놓이던 문제를 수정했다. 이제 알림마다 열린 행을 닫는다.",
+     "가져오기에 실패했을 때 저장소 이름으로 된 GitHub 마켓플레이스의 로컬 복사본을 `claude plugin marketplace update`가 삭제하던 문제를 수정했다.",
+     "플러그인 및 마켓플레이스 메시지·로그와 `claude plugin marketplace list`에 git, ssh 또는 마켓플레이스 URL의 암호나 토큰이 표시되던 문제를 수정했다.",
+     "대기 메시지가 대신 처리된 뒤 재개된 클라우드 세션의 대화 기록에 답하지 않은 질문이 남던 문제를 수정했다.",
+     "vim 모드에서 점 반복 `!` 또는 빠르게 입력한 `i!`로 셸 모드에 진입할 때 커서가 한 글자 오른쪽으로 이동하던 문제를 수정했다.",
+     "큰 파일 diff를 위로 스크롤할 때 전체 화면 모드가 몇 초간 멈추거나 빈 화면이 되던 문제를 수정했다.",
+     "응답에 `</ccmemory>` 형태의 불필요한 닫는 태그가 간혹 나타나던 문제를 수정했다.",
+     "일부 git 주소에서 플러그인 메시지·로그와 VS Code 플러그인 대화상자에 잘못된 서버가 표시되던 문제를 수정했다.",
+     "베타 요청 헤더가 거부될 때 네트워크 게이트웨이가 API 오류 응답을 다시 작성하는 환경에서 매 턴 `API Error: 400`이 발생하던 문제를 수정했다.",
+     "Linux의 zsh에서 샌드박스 Bash 명령이 실패했는데 종료 코드 0을 보고하던 문제를 수정했다.",
+     "메모리 압박으로 큰 파일 일부를 디코딩할 수 없을 때 Read 도구가 오류 대신 멈추던 문제를 수정했다.",
+     "저장된 기록에 잘못된 작업 알림 또는 @ 파일 첨부 항목이 있으면 `--resume`, 재개 선택기 미리보기, 재개된 백그라운드 에이전트 및 기록 보기에서 실패하던 문제를 수정했다.",
+     "잘못된 메시지 항목이 있는 대화를 재개할 때 충돌하거나, 위로 스크롤한 전체 화면에 새 메시지가 올 때 충돌하던 문제를 수정했다.",
+     "저장된 대화에 잘못된 메시지 콘텐츠 블록이 있을 때 세션을 시작하거나 재개하지 못하던 문제를 수정했다.",
+     "20MB 출력 제한을 넘는 검색에서 Grep, Glob, @ 파일 제안이 멈추거나 메모리가 부족해지던 문제를 수정했다. 경고가 쏟아진 뒤 시스템 ripgrep이 오류 대신 “일치 항목 없음”을 보고하던 문제도 수정했다.",
+     "파일 기록 백업을 완전히 복사하지 못하면 fork 또는 백그라운드 세션의 `/rewind`가 파일을 0으로 채우거나 잘라내던 문제를 수정했다.",
+     "슬래시 명령 목록을 연 채 빠르게 입력하거나 키를 누르고 있을 때 복구 불가 인터페이스 오류로 전체 화면 세션이 종료되던 문제를 수정했다.",
+     "파일 디스크립터가 소진된 시스템에서 stdin으로 전달한 명령을 실행할 때 백그라운드 세션이 충돌하고 작업자를 재시작하던 문제를 수정했다.",
+     "`~/.claude.json`에 잘못된 `mcpNeedsAuthNoticed` 값이 있을 때 실행 시 충돌하던 문제를 수정했다.",
+     "처음 사용한 내장 도구가 서버 측 플래그로 비활성화된 뒤 `--resume`과 `--continue`가 이전 사고 내용을 누락하던 문제를 수정했다.",
+     "전체 화면 `claude --resume` 세션 선택기에서 마우스로 선택한 텍스트가 클립보드에 복사되지 않던 문제를 수정했다.",
+     "`--plugin-dir` 또는 `--plugin-url` 아카이브에서 불러온 플러그인의 재로드 미리보기가 실행 중 세션의 추출 파일을 덮어쓰던 문제를 수정했다.",
+     "`--drain-wait-sec`를 쓰는 자체 호스팅 실행기가 SIGTERM 종료 중 완료된 턴의 최종 결과를 잃던 문제를 수정했다. 이제 보고를 위해 잠시 기다린다.",
+     "특정 `matcher`가 있는 `SubagentStop` 훅이 에이전트 유형이 빈 모든 하위 에이전트 종료에 실행되던 문제를 수정했다.",
+     "샌드박스 Bash 명령이 `hooks/` 또는 `config/`라는 프로젝트 디렉터리에 쓸 수 없던 문제를 수정했다.",
+     "다른 컴퓨터에서 세션을 재개하거나 스크래치패드를 지운 뒤 Artifact 업데이트가 “File not found”로 실패하던 문제를 수정했다. 페이지의 마지막 게시 버전을 복원한다.",
+     "`/update-config`가 파일 권한 검사에 일치하지 않는 `Write(path)` 대신 `Edit(path)` 권한 규칙을 쓰도록 수정했다.",
+     "내장 claude-api 스킬의 실시간 소스 표에서 Pricing, Computer Use, Skills, CLI 문서의 끊어진 URL 네 개를 수정했다.",
+     "`__SYSTEM_PROMPT_DYNAMIC_BOUNDARY__` 행이 있는 `--system-prompt`에서 그 위 텍스트를 SDK 배열 형식처럼 전역 캐시하도록 프롬프트 캐싱을 개선했다.",
+     "Claude Desktop이 열리지 않을 때 `/desktop` 오류에 이유와 다음 조치를 안내하도록 개선했다.",
+     "Artifact 도구의 게시 및 읽기 결과에 페이지를 열 수 있는 사람과 소유자 Share 메뉴의 기능을 안내하도록 개선했다.",
+     "Artifact 게시 결과에 전송된 탭 아이콘을 표시하고, 페이지의 NUL 바이트를 경고하며, 오래된 게시물 병합을 위해 최신 페이지 가져오기를 재시도하도록 개선했다.",
+     "붙여넣거나 첨부한 이미지를 권한 확인 없이 Claude가 파일로 열 수 있는 위치에 저장한다. Desktop과 VS Code에서도 적용된다.",
+     "공유 Artifact 편집 권한이 있으면 별도 복사본을 게시하는 대신 기존 Artifact를 갱신하도록 Artifact 도구 안내를 개선했다.",
+     "한 컴퓨터의 편집기 창과 비대화형 세션이 지난 1분 안의 사용량 조회를 공유해 plan 사용량 조회를 개선했다.",
+     "`ListPlugins` 도구 설명을 개선해 `/plugin`으로 로컬 설치한 플러그인이 아니라 claude.ai 계정에서 활성화한 플러그인을 나열한다고 알린다.",
+     "터미널이 느리거나 멈췄을 때 따라잡는 동안 출력 지연이 더 커지지 않도록 응답성을 개선했다.",
+     "동기화된 계정 skills 폴더의 파일을 Write 또는 Edit하면 계정에 저장되지 않는다는 점과 저장 방법을 결과에 안내하도록 개선했다.",
+     "Claude 앱 게이트웨이가 토큰 폐기를 제공하면 `/logout`이 게이트웨이의 세션도 종료하도록 변경했다.",
+     "컨테이너 재시작 후에도 호스팅 세션에서 답하지 않은 권한 요청을 유지해 다시 묻지 않도록 변경했다.",
+     "첫 게시 시 Artifact 도구가 이모지 파비콘 대신 한 단어 탭 아이콘을 요청하도록 변경했다.",
+     "자동 모드에서 분류기가 승인한 호출은 우회 모드처럼 사이트별 확장 확인을 건너뛰도록 변경해 리디렉션 후 `browser_batch`의 “Permission denied”를 수정했다.",
+     "npm 소스 플러그인을 `npm pack --ignore-scripts`로 가져와 무결성을 검증한다. 패키지 설치 스크립트는 실행되지 않는다.",
+     "예약 및 Run now 루틴은 묻지 않고 편집 가능한 Artifact에 데이터를 저장하고 페이지를 다시 게시하도록 변경했다. 공개 Artifact, 첫 게시, 삭제는 계속 확인을 요청한다.",
+     "지난 세션 이후 일회성 예약 루틴이 실행됐다는 시작 알림을 제거했다.",
+     "메모리 대화상자에서 저장된 메모리를 보고 편집하거나 삭제할 수 있도록 추가했다.",
+     "텍스트를 입력하지 않고 첨부 이미지만 보낼 수 있도록 추가했다.",
+     "MCP 서버 목록을 불러오지 못하면 대화상자에 Retry 링크를 추가했다.",
+     "제안된 변경 diff 탭의 각 변경 아래에 수락 및 거부 버튼을 추가해 변경 단위로 검토할 수 있다.",
+     "권한 카드가 대기 중이고 콘텐츠가 계속 들어올 때 대화 기록이 조금씩 아래로 밀리던 문제를 수정했다.",
+     "되감거나 분기한 대화가 원래 대화에서 선택한 권한 모드를 유지하지 않던 문제를 수정했다.",
+     "`environmentVariables` 설정의 빈 `CLAUDE_CONFIG_DIR` 항목 때문에 Claude Code 파일이 작업공간에 저장되던 문제를 수정했다.",
+     "링크에 사용할 수 없는 플러그인 이름이나 마켓플레이스 주소의 설치 링크가 플러그인 관리 대화상자를 열던 문제를 수정했다.",
+     "Remote Control 끄기가 실패했다고 Claude Code가 보고한 뒤에도 연결됨으로 표시되던 문제를 수정했다. 이제 꺼짐으로 표시한다.",
+     "응답이 스크롤 중 도착하면 전송 시 맨 아래로 이동하는 스크롤이 응답 앞에서 멈추던 문제를 수정했다.",
+     "세션을 다시 열었을 때 충돌로 끝나지 않은 에이전트가 agent map에서 실패가 아닌 중지로 표시되던 문제를 수정했다.",
+     "백그라운드 작업 실행 중 충돌 후 다시 불러오면 “Continuing the step” 알림이 보이지 않고 계속 진행 한도가 초기화되던 문제를 수정했다.",
+     "세션 목록이 마지막 메시지 시각 대신 창 다시 불러오기 등 마지막으로 다시 연 시각을 보여주던 문제를 수정했다.",
+     "Claude가 작업 중 보낸 메시지 바로 다음 메시지에서 “Fork conversation from here”가 실패하던 문제를 수정했다.",
+     "Claude가 작업 중 보낸 메시지가 있는 세션을 다시 열면 프롬프트 캐시 시계가 분을 너무 적게 표시하던 문제를 수정했다.",
+     "Claude가 도구를 실행하는 동안 끝난 백그라운드 에이전트의 완료 알림과 agent map 결과가 창 다시 불러오기 후 사라지던 문제를 수정했다.",
+     "확장 기능이 몇 초간 응답하지 않는 드문 경우 git 제외 파일에서 선택한 텍스트가 Claude에 전송될 수 있던 문제를 수정했다.",
+     "실행 중인 세션 이름을 바꾸면 생성된 이름으로 되돌아가던 2.1.269 회귀를 수정했다.",
+     "Claude가 응답 중 입력한 슬래시 명령이 텍스트로 전송되고 응답이 끝난 후에도 실행되지 않던 문제를 수정했다.",
+     "High Contrast Light 테마에서 계획 미리보기, Hooks 및 Permission rules 대화상자의 코드를 읽기 어려웠던 문제를 수정했다.",
+     "Remote Control 연결 중 `/remote-control`이 무시되던 문제를 수정했다. 다시 실행하면 즉시 Remote Control을 끈다.",
+     "위로 스크롤한 상태에서 응답이 스트리밍되면 대화가 아래로 끌려가던 문제를 수정했다. 전송 시 자동 이동을 끄는 `claudeCode.scrollToBottomOnSend` 설정도 추가했다.",
+     "Manage plugins 대화상자에 마켓플레이스 URL에 입력한 암호나 토큰이 표시되던 문제를 수정했다.",
+     "agent map pill에 실행 중 에이전트 수를 표시하고 실패 시 빨간색으로 바뀌게 했다. 지도를 스크롤해도 주 에이전트를 계속 보이며, 에이전트를 상태와 종료 시각 순으로 정렬한다.",
+     "Preferred Location이 Sidebar이면 Claude 편집기 탭의 New session이 새 탭 대신 사이드바에서 열리도록 변경했다.",
+     "Claude가 작업 중 보낸 메시지가 Claude가 처리하기 시작할 때까지 대화 아래쪽에서 대기하도록 변경했다.",
+     "[Claude Code on the web] 루틴 링크가 더 이상 연결되지 않을 때 표시되는 페이지에 루틴 목록 링크와 함께 “New routine” 버튼을 추가했다.",
+     "[Claude Code on the web] 루틴 “paused” 및 “on hold” 알림이 문장 중간에서 잘리던 문제를 수정했다. 구독 일시 중지 알림은 루틴을 직접 다시 켜라고 안내한다.",
+     "[Claude Code on the web] 허용 도메인이 매우 긴 클라우드 환경이 저장 후 모든 세션 시작에 실패하던 문제를 수정했다. 이제 저장 단계에서 실패하며 줄일 분량을 안내한다.",
+     "[Claude Code on the web] 개인 계정 클라우드 세션에서 GitHub 접근이 거부될 때 관리자 설정 페이지 대신 claude.ai/connect-github 링크를 안내하도록 수정했다.",
+     "[Claude Code on the web] 자신이 만들지 않은 루틴의 편집·삭제·실행 요청에 해당 루틴 페이지 링크를 안내하도록 개선했다.",
+     "[Claude Tag] 액세스 번들 적용 조건을 추가했다. Owner는 멤버 전용 채널뿐 아니라 게스트가 있는 채널 또는 Slack Connect 채널에도 번들이 적용되게 할 수 있다.",
+     "[Claude Tag] Claude Tag 관리자 설정의 액세스 번들 Credentials 탭에 Amazon CloudWatch, CloudWatch Logs, Amazon SNS, Google Cloud Monitoring 및 Cloud Logging 프리셋을 추가했다.",
+     "[Claude Tag] Datadog US3, AP1, AP2, US1-FED 사이트 프리셋을 추가했다. 새 Datadog 연결은 읽기 및 쿼리 API 경로로 제한된다.",
+     "[Claude Tag] 최신 AWS CLI 및 SDK 버전의 S3 업로드를 AWS 연결로 보낼 때 502 오류가 나던 문제를 수정했다.",
+     "[Claude Tag] 루틴이나 스레드에서 채널에 계속 게시 중인데도 채널을 비활성으로 판단해 태그 없는 메시지를 건너뛰던 문제를 수정했다.",
+     "[Claude Tag] 스레드 세션 새로고침 또는 재시작 후 “Claude [task]” 표시 이름이 “Claude”로 돌아가던 문제를 수정했다.",
+     "[Claude Tag] Slack 스레드에서 바꾼 모델이 해당 스레드 세션 재시작 또는 새로고침 후 채널 기본 모델로 되돌아가던 문제를 수정했다.",
+     "[Claude Tag] 다른 앱이나 봇이 채널 메시지에서 Claude를 멘션했을 때 간혹 두 번 답하던 문제를 수정했다.",
+     "[Claude Tag] 여러 워크스페이스가 공유하는 Enterprise Grid 채널에서 워크스페이스가 아직 설정되지 않았거나 조직 기본값만 적용되는 이유를 알리도록 안내를 개선했다.",
+     "[Code Review] 검토 에이전트가 예상하지 못한 형식으로 결과를 반환하면 리뷰 분석 일부가 빠지던 문제를 수정했다.",
+     "[Code Review] Claude 리뷰가 100개를 넘는 pull request가 base branch의 병합 때마다 전체 재검토를 하던 문제를 수정했다. 이제 병합 중심의 간단한 검토를 한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "게이트웨이 로그인 계정 확인",
+      "what": "Claude 앱 게이트웨이 로그인에서 게이트웨이가 계정을 지정하면 자격 증명 저장 전에 확인하며, `/status`에서 계정을 보여준다.",
+      "steps": [
+       "게이트웨이가 지정한 계정을 확인한다.",
+       "확인 후 자격 증명을 저장한다.",
+       "`/status`에서 계정을 확인한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "대기 메시지 즉시 전송",
+      "what": "현재 턴을 중단하고 대기 중인 메시지를 한꺼번에 보내는 키(`ctrl+enter` 또는 `ctrl+x ctrl+s`)를 추가했다. 모델이 받을 때까지 전송 및 대기 메시지는 회색으로 표시된다.",
+      "steps": [
+       "메시지를 입력해 대기시킨다.",
+       "`ctrl+enter` 또는 `ctrl+x ctrl+s`를 누른다.",
+       "현재 턴이 중단되고 대기 메시지가 함께 전송된다."
+      ],
+      "terminal": {
+       "title": "대기 메시지 즉시 전송",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "현재 턴을 중단하고 대기 메시지를 모두 보낸다."
+        },
+        {
+         "kind": "cmd",
+         "text": "ctrl+enter 또는 ctrl+x ctrl+s"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "텔레메트리 헬퍼 시작 경고",
+      "what": "설정된 `otelHeadersHelper`가 실패하면 시작 시 경고해 텔레메트리가 조용히 내보내지지 않는 세션을 알아차릴 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "계정 skills 및 plugins 동기화",
+      "what": "claude.ai 계정에서 활성화한 skills와 plugins를 해당 계정으로 로그인한 터미널 세션에 동기화한다. `syncClaudeAiSkills: false` 또는 `syncClaudeAiPlugins: false`로 끌 수 있다.",
+      "steps": [
+       "claude.ai 계정으로 로그인한 터미널 세션을 사용한다.",
+       "계정에서 활성화한 skills와 plugins가 동기화된다.",
+       "원하는 동기화를 끄려면 해당 설정을 false로 지정한다."
+      ],
+      "terminal": {
+       "title": "동기화 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "syncClaudeAiSkills: false"
+        },
+        {
+         "kind": "cmd",
+         "text": "syncClaudeAiPlugins: false"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 4,
+      "title": "마켓플레이스 추가 후 플러그인 설치",
+      "what": "`/plugin install <plugin> --marketplace <source>`를 추가했다. 플러그인 설치 전에 마켓플레이스 추가를 제안한다.",
+      "steps": [
+       "`/plugin install <plugin> --marketplace <source>`를 실행한다.",
+       "제안에 따라 마켓플레이스를 추가한다.",
+       "플러그인을 설치한다."
+      ],
+      "terminal": {
+       "title": "마켓플레이스에서 설치",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/plugin install <plugin> --marketplace <source>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 40,
+      "title": "첨부 이미지 파일 저장",
+      "what": "붙여넣거나 첨부한 이미지를 권한 확인 없이 Claude가 파일로 열 수 있는 위치에 저장한다. Desktop과 VS Code에서도 적용된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 53,
+      "title": "저장 메모리 관리",
+      "what": "메모리 대화상자에서 저장된 메모리를 보고 편집하거나 삭제할 수 있도록 추가했다.",
+      "steps": [
+       "Memory 대화상자를 연다.",
+       "저장된 메모리를 확인한다.",
+       "메모리를 편집하거나 삭제한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 54,
+      "title": "이미지만 전송",
+      "what": "텍스트를 입력하지 않고 첨부 이미지만 보낼 수 있도록 추가했다.",
+      "steps": [
+       "이미지를 첨부한다.",
+       "텍스트를 입력하지 않고 전송한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 55,
+      "title": "MCP 서버 재시도",
+      "what": "MCP 서버 목록을 불러오지 못하면 대화상자에 Retry 링크를 추가했다.",
+      "steps": [
+       "MCP servers 대화상자를 연다.",
+       "서버 목록을 불러오지 못하면 Retry를 선택한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 56,
+      "title": "변경 단위 검토",
+      "what": "제안된 변경 diff 탭의 각 변경 아래에 수락 및 거부 버튼을 추가해 변경 단위로 검토할 수 있다.",
+      "steps": [
+       "제안된 변경 diff 탭을 연다.",
+       "각 변경 아래에서 검토한다.",
+       "변경별로 수락 또는 거부한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 57,
+      "title": "권한 카드가 대기 중이고 콘텐츠가 계속 들어올 때 대화 기록이 조금씩 아래로 밀",
+      "what": "권한 카드가 대기 중이고 콘텐츠가 계속 들어올 때 대화 기록이 조금씩 아래로 밀리던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 58,
+      "title": "되감거나 분기한 대화가 원래 대화에서 선택한 권한 모드를 유지하지 않던 문제를",
+      "what": "되감거나 분기한 대화가 원래 대화에서 선택한 권한 모드를 유지하지 않던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 59,
+      "title": "`environmentVariables` 설정의 빈 `CLAUDE_CONFIG_",
+      "what": "`environmentVariables` 설정의 빈 `CLAUDE_CONFIG_DIR` 항목 때문에 Claude Code 파일이 작업공간에 저장되던 문제를 수정했다.",
+      "steps": [
+       "`environmentVariables` 설정에서 `CLAUDE_CONFIG_DIR` 값을 확인한다.",
+       "빈 항목으로 인해 파일이 작업공간에 저장되던 동작이 수정된다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 60,
+      "title": "링크에 사용할 수 없는 플러그인 이름이나 마켓플레이스 주소의 설치 링크가 플러그",
+      "what": "링크에 사용할 수 없는 플러그인 이름이나 마켓플레이스 주소의 설치 링크가 플러그인 관리 대화상자를 열던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 61,
+      "title": "Remote Control 끄기가 실패했다고 Claude Code가 보고한 뒤에",
+      "what": "Remote Control 끄기가 실패했다고 Claude Code가 보고한 뒤에도 연결됨으로 표시되던 문제를 수정했다. 이제 꺼짐으로 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 62,
+      "title": "응답이 스크롤 중 도착하면 전송 시 맨 아래로 이동하는 스크롤이 응답 앞에서 멈",
+      "what": "응답이 스크롤 중 도착하면 전송 시 맨 아래로 이동하는 스크롤이 응답 앞에서 멈추던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 63,
+      "title": "세션을 다시 열었을 때 충돌로 끝나지 않은 에이전트가 agent map에서 실패",
+      "what": "세션을 다시 열었을 때 충돌로 끝나지 않은 에이전트가 agent map에서 실패가 아닌 중지로 표시되던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 64,
+      "title": "백그라운드 작업 실행 중 충돌 후 다시 불러오면 “Continuing the s",
+      "what": "백그라운드 작업 실행 중 충돌 후 다시 불러오면 “Continuing the step” 알림이 보이지 않고 계속 진행 한도가 초기화되던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 65,
+      "title": "세션 목록이 마지막 메시지 시각 대신 창 다시 불러오기 등 마지막으로 다시 연",
+      "what": "세션 목록이 마지막 메시지 시각 대신 창 다시 불러오기 등 마지막으로 다시 연 시각을 보여주던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 66,
+      "title": "Claude가 작업 중 보낸 메시지 바로 다음 메시지에서 “Fork conver",
+      "what": "Claude가 작업 중 보낸 메시지 바로 다음 메시지에서 “Fork conversation from here”가 실패하던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 67,
+      "title": "Claude가 작업 중 보낸 메시지가 있는 세션을 다시 열면 프롬프트 캐시 시계",
+      "what": "Claude가 작업 중 보낸 메시지가 있는 세션을 다시 열면 프롬프트 캐시 시계가 분을 너무 적게 표시하던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 68,
+      "title": "Claude가 도구를 실행하는 동안 끝난 백그라운드 에이전트의 완료 알림과 ag",
+      "what": "Claude가 도구를 실행하는 동안 끝난 백그라운드 에이전트의 완료 알림과 agent map 결과가 창 다시 불러오기 후 사라지던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 69,
+      "title": "확장 기능이 몇 초간 응답하지 않는 드문 경우 git 제외 파일에서 선택한 텍스",
+      "what": "확장 기능이 몇 초간 응답하지 않는 드문 경우 git 제외 파일에서 선택한 텍스트가 Claude에 전송될 수 있던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 70,
+      "title": "실행 중인 세션 이름을 바꾸면 생성된 이름으로 되돌아가던 2.1.269 회귀를",
+      "what": "실행 중인 세션 이름을 바꾸면 생성된 이름으로 되돌아가던 2.1.269 회귀를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 71,
+      "title": "Claude가 응답 중 입력한 슬래시 명령이 텍스트로 전송되고 응답이 끝난 후에",
+      "what": "Claude가 응답 중 입력한 슬래시 명령이 텍스트로 전송되고 응답이 끝난 후에도 실행되지 않던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 72,
+      "title": "High Contrast Light 테마에서 계획 미리보기, Hooks 및 Pe",
+      "what": "High Contrast Light 테마에서 계획 미리보기, Hooks 및 Permission rules 대화상자의 코드를 읽기 어려웠던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 73,
+      "title": "Remote Control 연결 중 `/remote-control`이 무시되던",
+      "what": "Remote Control 연결 중 `/remote-control`이 무시되던 문제를 수정했다. 다시 실행하면 즉시 Remote Control을 끈다.",
+      "steps": [
+       "Remote Control 연결 중 `/remote-control`을 실행한다.",
+       "다시 실행하면 Remote Control이 즉시 꺼진다."
+      ],
+      "terminal": {
+       "title": "Remote Control 끄기",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/remote-control"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 74,
+      "title": "위로 스크롤한 상태에서 응답이 스트리밍되면 대화가 아래로 끌려가던 문제를 수정했",
+      "what": "위로 스크롤한 상태에서 응답이 스트리밍되면 대화가 아래로 끌려가던 문제를 수정했다. 전송 시 자동 이동을 끄는 `claudeCode.scrollToBottomOnSend` 설정도 추가했다.",
+      "steps": [
+       "대화에서 위로 스크롤한다.",
+       "응답 스트리밍 중에도 현재 위치를 유지한다.",
+       "전송 시 맨 아래로 이동하지 않으려면 `claudeCode.scrollToBottomOnSend`를 설정한다."
+      ],
+      "terminal": {
+       "title": "전송 시 스크롤 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "claudeCode.scrollToBottomOnSend"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 75,
+      "title": "Manage plugins 대화상자에 마켓플레이스 URL에 입력한 암호나 토큰이",
+      "what": "Manage plugins 대화상자에 마켓플레이스 URL에 입력한 암호나 토큰이 표시되던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 76,
+      "title": "agent map pill에 실행 중 에이전트 수를 표시하고 실패 시 빨간색으로",
+      "what": "agent map pill에 실행 중 에이전트 수를 표시하고 실패 시 빨간색으로 바뀌게 했다. 지도를 스크롤해도 주 에이전트를 계속 보이며, 에이전트를 상태와 종료 시각 순으로 정렬한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 77,
+      "title": "Preferred Location이 Sidebar이면 Claude 편집기 탭의",
+      "what": "Preferred Location이 Sidebar이면 Claude 편집기 탭의 New session이 새 탭 대신 사이드바에서 열리도록 변경했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 78,
+      "title": "Claude가 작업 중 보낸 메시지가 Claude가 처리하기 시작할 때까지 대화",
+      "what": "Claude가 작업 중 보낸 메시지가 Claude가 처리하기 시작할 때까지 대화 아래쪽에서 대기하도록 변경했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-09-17-app",
@@ -27513,7 +28232,40 @@
     }
    ],
    "hash": "2e7dcc5952a4",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "조직 정책에 허용된 로그인 방식만 표시하도록 로그인 화면을 업데이트한다. WSL 터미널의 배포판·프로젝트 폴더와 WSL 프로젝트 폴더 추가 관련 문제를 수정한다.",
+    "items": [
+     "WSL 터미널이 잘못된 Linux 배포판이나 프로젝트 폴더에서 열리는 문제를 수정한다.",
+     "매핑된 드라이브의 폴더를 포함해 WSL 프로젝트 폴더를 추가하는 문제를 수정한다.",
+     "로그인 화면에 조직 정책이 허용한 로그인 방식만 표시한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "조직 정책에 따른 로그인 방식 표시",
+      "what": "로그인 화면에 조직 정책이 허용한 로그인 방식만 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "로그인 화면",
+         "note": "조직 정책이 허용한 로그인 방식만 표시한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.274",
