@@ -1,7 +1,7 @@
 // Fetch both sources, merge validated Codex notes, write site data and RSS.
 import { readFile, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { parseClaudeChangelog, parseCodexBody, parseCodexScreenshots, surfaces } from "./parse.mjs";
+import { parseClaudeChangelog, parseCodexBody, parseCodexChangelog, parseCodexScreenshots, surfaces } from "./parse.mjs";
 import { isCurrentNote } from "./ko-notes.mjs";
 
 const DATA = new URL("../site/data/releases.json", import.meta.url);
@@ -63,6 +63,9 @@ async function codexReleases() {
     const batch = await get(`https://api.github.com/repos/openai/codex/releases?per_page=50&page=${page}`, "json");
     for (const r of batch) {
       if (r.draft || !r.published_at) continue;
+      const items = parseCodexBody(r.body ?? "");
+      // Alpha tags commonly have a version-only body; they add no update record.
+      if (r.prerelease && !items.length) continue;
       out.push({
         id: `codex@${r.tag_name}`,
         tool: "codex",
@@ -70,7 +73,8 @@ async function codexReleases() {
         date: r.published_at,
         prerelease: r.prerelease,
         url: r.html_url,
-        items: parseCodexBody(r.body ?? ""),
+        source: "github-releases",
+        items,
       });
     }
     if (batch.length < 50 || new Date(batch.at(-1).published_at) < cutoff) break;
@@ -78,14 +82,23 @@ async function codexReleases() {
   return out.filter((r) => new Date(r.date) >= cutoff);
 }
 
-async function codexScreenshots() {
-  try {
-    const html = await get("https://developers.openai.com/codex/changelog");
-    return parseCodexScreenshots(html).filter((s) => s.date && new Date(s.date) >= new Date(cutoff - 30 * 864e5));
-  } catch (err) {
-    console.warn(`screenshots skipped: ${err.message}`);
-    return [];
-  }
+function codexChangelog(html) {
+  const entries = parseCodexChangelog(html);
+  if (!entries.length) throw new Error("Official Codex changelog has no parseable entries");
+  return entries
+    .filter((e) => new Date(`${e.date}T00:00:00Z`) >= cutoff)
+    .map((e) => ({
+      id: `codex@changelog:${e.id}`,
+      tool: "codex",
+      version: e.title,
+      date: `${e.date}T00:00:00Z`,
+      datePrecision: "day",
+      prerelease: false,
+      source: "official-changelog",
+      topics: e.topics,
+      url: `https://developers.openai.com/codex/changelog#${e.id}`,
+      items: e.items,
+    }));
 }
 
 const itemsHash = (items) => createHash("sha1").update(JSON.stringify(items.map((i) => i.text))).digest("hex").slice(0, 12);
@@ -95,10 +108,13 @@ async function main() {
   const previous = new Map(prev.releases.map((r) => [r.id, r]));
   const koCache = JSON.parse(await readFile(KO, "utf8").catch(() => "{}"));
 
-  const [claude, codex, screenshots] = await Promise.all([claudeReleases(previous), codexReleases(), codexScreenshots()]);
-  const releases = [...claude, ...codex]
+  const [claude, codex, html] = await Promise.all([claudeReleases(previous), codexReleases(), get("https://developers.openai.com/codex/changelog")]);
+  const editorial = codexChangelog(html);
+  const screenshots = parseCodexScreenshots(html).filter((s) => s.date && new Date(s.date) >= new Date(cutoff - 30 * 864e5));
+  const releases = [...claude, ...codex, ...editorial]
     .map((r) => {
-      const items = r.items.map((it) => ({ ...it, surfaces: surfaces(it.text) }));
+      const topicSurfaces = r.topics?.flatMap((topic) => ({ "codex-app": ["desktop"], "codex-mobile": ["mobile"], "codex-cli": ["cli"], general: ["general"] })[topic] ?? []) ?? [];
+      const items = r.items.map((it) => ({ ...it, surfaces: topicSurfaces.length ? [...new Set([...topicSurfaces, ...surfaces(it.text).filter((surface) => surface !== "cli")])] : surfaces(it.text) }));
       const hash = itemsHash(items);
       const cached = koCache[r.id];
       return { ...r, items, hash, ko: isCurrentNote(cached, hash) ? cached.ko : null };
@@ -110,7 +126,7 @@ async function main() {
   const data = { generatedAt: now.toISOString(), windowDays: WINDOW_DAYS, releases, screenshots };
   await writeFile(DATA, JSON.stringify(data, null, 1) + "\n");
   await writeFile(FEED, feed(releases));
-  console.log(`${releases.length} releases (${claude.length} Claude Code, ${codex.length} Codex), ${screenshots.length} screenshots`);
+  console.log(`${releases.length} updates (${claude.length} Claude Code, ${codex.length} Codex GitHub releases, ${editorial.length} official Codex changelog), ${screenshots.length} screenshots`);
 }
 
 async function refreshNotes() {
@@ -135,7 +151,8 @@ function feed(releases) {
     .map((r) => {
       const lines = r.items.map((it, i) => `<li>${esc(r.ko?.items?.[i] ?? it.text)}</li>`).join("");
       const desc = `${r.ko?.summary ? `<p>${esc(r.ko.summary)}</p>` : ""}<ul>${lines}</ul>`;
-      return `<item><title>${name[r.tool]} ${esc(r.version)}</title><link>${esc(r.url)}</link><guid isPermaLink="false">${r.id}</guid><pubDate>${new Date(r.date).toUTCString()}</pubDate><description>${esc(desc)}</description></item>`;
+      const title = r.source === "official-changelog" ? r.version : `${name[r.tool]} ${r.version}`;
+      return `<item><title>${esc(title)}</title><link>${esc(r.url)}</link><guid isPermaLink="false">${r.id}</guid><pubDate>${new Date(r.date).toUTCString()}</pubDate><description>${esc(desc)}</description></item>`;
     })
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>

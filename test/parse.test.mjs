@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { claudeCategory, parseClaudeChangelog, parseCodexBody, surfaces, parseCodexScreenshots } from "../scripts/parse.mjs";
+import { claudeCategory, parseClaudeChangelog, parseCodexBody, parseCodexChangelog, surfaces, parseCodexScreenshots } from "../scripts/parse.mjs";
 
 test("claude categories follow the leading verb, past platform prefixes", () => {
   assert.equal(claudeCategory("Added `/foo` command"), "new");
@@ -25,6 +25,20 @@ test("codex body maps sections, drops PR refs and the raw Changelog list", () =>
     { cat: "fixed", text: "Fixed a crash." },
   ]);
   assert.deepEqual(parseCodexBody(""), []);
+});
+
+test("official Codex changelog keeps app and general updates with their source topics", () => {
+  const html = `<div id="codex-changelog-content"><ul>
+    <li id="codex-2026-10-08-app" data-product="codex" data-codex-topics="codex-app"><div><time>2026-10-08</time><h3><span>Codex app <span>26.1007</span></span></h3></div><article><h3>Performance improvements and bug fixes</h3><ul><li>Fixed queued messages.</li><li>Improved file navigation.</li></ul></article></li>
+    <li id="codex-2026-10-14-model" data-product="codex" data-codex-topics="general"><div><time>2026-10-14</time><h3><span>Model change</span></h3></div><article><p>The model changed for ChatGPT users.</p><p>API users are unaffected.</p></article></li>
+  </ul></div>`;
+  const entries = parseCodexChangelog(html);
+  assert.deepEqual(entries.map((entry) => [entry.id, entry.date, entry.items.length]), [
+    ["codex-2026-10-08-app", "2026-10-08", 2],
+    ["codex-2026-10-14-model", "2026-10-14", 2],
+  ]);
+  assert.deepEqual(entries[0].items.map((item) => item.cat), ["fixed", "improved"]);
+  assert.deepEqual(entries[0].topics, ["codex-app"]);
 });
 
 test("surfaces come from keywords, default cli", () => {

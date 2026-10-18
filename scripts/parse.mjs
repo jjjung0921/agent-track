@@ -1,4 +1,5 @@
 // Pure parsing helpers: raw changelog text -> normalized release items.
+import { load } from "cheerio";
 
 const CLAUDE_VERB = [
   [/^(Added|Add|New)\b/i, "new"],
@@ -54,6 +55,43 @@ export function parseCodexBody(body = "") {
     else if (cat && /^\s{2,}\S/.test(raw) && items.length) items.at(-1).text += " " + raw.trim();
   }
   return items;
+}
+
+// Official Codex changelog covers desktop, mobile and general product updates that
+// are not published in the openai/codex GitHub CLI release feed.
+export function parseCodexChangelog(html) {
+  const $ = load(html);
+  const entries = [];
+  $("#codex-changelog-content li[id^='codex-'][data-product='codex'][data-codex-topics]").each((_, element) => {
+    const entry = $(element);
+    const id = entry.attr("id");
+    const date = entry.find("time").first().text().trim();
+    const title = entry.children("div").first().find("h3").first().text().replace(/\s+/g, " ").trim();
+    const topics = (entry.attr("data-codex-topics") ?? "").split(",").filter(Boolean);
+    const items = [];
+    let cat = "changed";
+    entry.children("article").children().each((_, child) => {
+      const tag = child.tagName?.toLowerCase();
+      if (/^h[2-6]$/.test(tag)) {
+        const heading = $(child).text().replace(/\s+/g, " ").trim();
+        cat = CODEX_SECTION.find(([re]) => re.test(heading))?.[1] ?? "changed";
+      } else if (tag === "p" || tag === "ul" || tag === "ol") {
+        const parts = tag === "p" ? [child] : $(child).children("li").toArray();
+        for (const part of parts) {
+          const text = $(part).text().replace(/\s+/g, " ").trim();
+          if (text) {
+            const verb = text.match(/^(Added|New|Improved|Fixed)\b/i)?.[1]?.toLowerCase();
+            const itemCat = verb === "added" || verb === "new" ? "new" : verb === "improved" ? "improved" : verb === "fixed" ? "fixed" : cat;
+            items.push({ cat: itemCat, text });
+          }
+        }
+      }
+    });
+    if (id && /^\d{4}-\d{2}-\d{2}$/.test(date) && title && items.length) {
+      entries.push({ id, date, title, topics, items });
+    }
+  });
+  return entries;
 }
 
 function stripPrRefs(s) {

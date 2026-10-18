@@ -174,7 +174,7 @@ function card(r) {
   const head = items.slice(0, 4);
   const rest = items.length - head.length;
   return `<div class="card" data-id="${r.id}">
-    <div class="card-head">${badge(r.tool)}<span class="version">${esc(r.version)}</span><span class="when">${timeOf(r.date)} 배포</span>
+    <div class="card-head">${badge(r.tool)}<span class="version">${esc(r.version)}</span><span class="when">${r.datePrecision === "day" ? "공식 기록" : `${timeOf(r.date)} 배포`}</span>
       <span class="counts">${counts(r) || "릴리스 노트 없음"}</span><a class="src" href="${esc(r.url)}" target="_blank" rel="noopener">원문 ↗</a></div>
     ${r.ko?.summary ? `<p class="release-summary">${rich(r.ko.summary)}</p>` : ""}
     ${head.length ? `<ul class="items">${head.map(({ it, i }) => itemRow(r, it, i)).join("")}</ul>` : ""}
@@ -276,7 +276,7 @@ function showRelease(id, index) {
   $("#drawer-body").innerHTML = `
     <div class="lead">
       ${r.ko?.summary ? `<p>${rich(r.ko.summary)}</p>` : ""}
-      <p class="src-line">${r.tool === "claude-code" ? "npm 배포" : "GitHub 배포"} ${fmt(r.date, { month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false })} · <a href="${esc(r.url)}" target="_blank" rel="noopener">원문 ↗</a></p>
+      <p class="src-line">${r.source === "official-changelog" ? "OpenAI 공식 변경 기록" : r.tool === "claude-code" ? "npm 배포" : "GitHub 배포"} ${fmt(r.date, r.datePrecision === "day" ? { month: "long", day: "numeric" } : { month: "long", day: "numeric", hour: "2-digit", minute: "2-digit", hour12: false })} · <a href="${esc(r.url)}" target="_blank" rel="noopener">원문 ↗</a></p>
     </div>
     ${!r.items.length ? `<p class="pending">이 릴리스에는 릴리스 노트가 없다.</p>` : ""}
     ${!r.ko && r.items.length ? `<p class="pending">한국어 설명과 사용 예시는 다음 갱신 때 추가된다. 지금은 원문을 보여준다.</p>` : ""}
