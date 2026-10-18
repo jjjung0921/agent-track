@@ -20051,5 +20051,748 @@
    ],
    "features": []
   }
+ },
+ "codex@rust-v0.148.0": {
+  "hash": "cb00554d7d0c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "TUI 대화 내보내기, 세션 포크·보관, 시작 중 프롬프트 작성과 비용 확인 기능을 추가한다. Amazon Bedrock Runtime 및 비동기 명령·MCP 훅도 지원한다.",
+   "items": [
+    "`/export`로 TUI 대화 전체를 Markdown으로 내보낸다. 클립보드로 복사하거나 새 파일로 저장할 수 있다.",
+    "`codex exec fork`로 세션을 포크하고, TUI 재개 선택기에서 세션을 보관하거나 복원한다.",
+    "TUI가 초기화되는 동안 프롬프트를 작성할 수 있으며, 시작 중 재개 및 포크 진행 상황을 표시한다.",
+    "자격 요건을 갖춘 워크스페이스에서 `/status`, 상태 행, 터미널 제목으로 스레드의 예상 크레딧 또는 비용을 확인한다.",
+    "AWS 프로필, 리전, GPT-5.6 라우팅을 지원하는 내장 공급자로 Amazon Bedrock Runtime을 사용한다.",
+    "훅이 이제 명령을 비동기 실행하고 MCP 도구를 호출할 수 있다.",
+    "모델 전환과 설정 업데이트 후 오래된 지침이 남거나 진행 중인 차례가 바뀌던 문제를 수정한다.",
+    "재개한 세션에서 저장된 작업 디렉터리와 승인 정책을 복원하고 대화 기록 미리보기를 더 정확하게 표시한다.",
+    "일시적인 공급자 장애 후 차례가 다시 연결되며, OAuth 재인증 후 MCP 서버가 Codex 재시작 없이 복구된다.",
+    "TUI 시작 때 버퍼에 쌓인 터미널 입력이 실수로 프롬프트를 활성화하지 않도록 수정하고, 인증이 없으면 온보딩을 표시한다.",
+    "작성기와 대화 기록 렌더링이 CRLF 붙여넣기, 줄바꿈된 공백, 긴 URL을 올바르게 처리한다.",
+    "Linux와 Windows에서 거부되었거나 읽을 수 없는 경로에 대한 샌드박스 제한이 안전하게 차단되도록 수정한다.",
+    "내장 skill-creator 안내를 더 집중되게 다듬고, 검증에서 미완료 TODO 자리표시자를 거부한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "TUI 대화 Markdown 내보내기",
+     "what": "`/export`로 TUI 대화 전체를 Markdown으로 내보낸다. 클립보드로 복사하거나 새 파일로 저장할 수 있다.",
+     "steps": [
+      "TUI에서 `/export`를 실행한다.",
+      "클립보드 또는 새 파일로 내보낸다."
+     ],
+     "terminal": {
+      "title": "대화 내보내기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/export"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "세션 포크와 보관",
+     "what": "`codex exec fork`로 세션을 포크한다. TUI 재개 선택기에서 세션을 보관하거나 복원할 수도 있다.",
+     "steps": [
+      "`codex exec fork`로 세션을 포크한다.",
+      "TUI 재개 선택기에서 세션을 보관하거나 복원한다."
+     ],
+     "terminal": {
+      "title": "세션 포크",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex exec fork"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "초기화 중 프롬프트 작성",
+     "what": "TUI가 초기화되는 동안 프롬프트를 작성할 수 있다. 시작 중 세션 재개와 포크 진행 상황도 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "예상 크레딧 및 비용 표시",
+     "what": "자격 요건을 갖춘 워크스페이스에서 스레드 예상 크레딧 또는 비용을 확인할 수 있다. `/status`, 상태 행, 터미널 제목에 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/status"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "Amazon Bedrock Runtime 공급자",
+     "what": "Amazon Bedrock Runtime을 내장 공급자로 사용할 수 있다. AWS 프로필, 리전, GPT-5.6 라우팅을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "비동기 명령 및 MCP 훅",
+     "what": "훅에서 명령을 비동기 실행할 수 있다. 훅이 MCP 도구를 호출하는 기능도 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.235": {
+  "hash": "f317b95b080a",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "입력 중 맞춤법 검사 설정이 추가되고, VS Code에서 여러 Claude 패널을 복원할 때 발생하던 포커스 이동 문제를 수정한다.",
+   "items": [
+    "선택 설정인 `spellcheck`를 추가했다. 설치된 `aspell`, `hunspell` 또는 `ispell`을 사용해 프롬프트 입력 중 오타에 밑줄을 표시한다.",
+    "세션 도중 언어 서버 연결이 끊기거나 다시 연결될 때 전체 프롬프트 캐시가 무효화되던 문제를 수정한다.",
+    "3단계 이상 중첩된 Markdown 목록의 정렬을 수정하고, 터미널 UI에서 줄바꿈된 목록 항목에 내어쓰기를 적용한다.",
+    "일부 여러 줄 프롬프트에서 슬래시 명령, 키워드, 멘션 하이라이트가 어긋나던 문제를 수정한다.",
+    "권한 프롬프트의 설명 입력란에서 `Shift+Tab`을 눌렀을 때 편집을 승인하고 세션 전체 권한을 주던 문제를 수정한다.",
+    "에이전트를 사용할 수 없는 세션에서 `Agent` 도구가 일반 목적 기본값을 안내하던 문제를 수정한다. `subagent_type`을 생략하면 사용 가능한 에이전트 목록을 포함한 오류를 표시한다.",
+    "노트북이나 셀을 읽을 수 없을 때 셀 삭제·교체 승인 창에 기존 내용이 빠지던 문제를 수정하고, 읽을 수 없는 이유를 표시한다.",
+    "Claude 응답 중 실행한 슬래시 명령이 실제 문자 대신 HTML 엔티티로 표시되던 문제를 수정한다.",
+    "백그라운드 자동 업데이트 후 프롬프트 하단에 재시작 안내인 \"Update installed\"가 표시되지 않던 문제를 수정한다.",
+    "열린 작업이 남은 세션을 재개하거나 다시 실행할 때 `ctrl+t` 작업 목록이 항상 접혀 있던 문제를 수정한다.",
+    "`/ultrareview`, `/autofix-pr` 같은 클라우드 세션이 백그라운드에서 실행될 때 이벤트 스트림을 매번 다시 검색하고 렌더링하지 않도록 해 메모리와 CPU 사용을 개선한다.",
+    "권한 창의 표시 내용과 \"다시 묻지 않기\" 옵션이 실제 허용 범위와 일치하도록 개선했다. 내용을 모두 표시할 수 없으면 해당 옵션을 제공하지 않는다.",
+    "네이티브 macOS/Linux 빌드의 내장 `grep`에서 비정상 패턴이 메모리를 고갈시키지 않고 빠르게 실패하도록 개선했다. `-A`/`-C`와 함께 쓰는 `-m N`의 컨텍스트 출력도 수정한다.",
+    "컨텍스트 한도 오류에 자동 압축이 꺼져 있는 경우를 알리고, 다시 켜는 방법으로 `/config`를 안내한다.",
+    "Vim 모드에서 상세 기록(`ctrl+o`)을 전환하거나 패널을 닫아도 NORMAL 모드와 커서 위치를 유지한다.",
+    "대화상자에서 방향키와 Enter를 빠르게 연속 입력해도 이전 선택이 아니라 이동한 옵션을 선택하도록 바꾼다.",
+    "`SendMessage`가 세션 간 전달 한도를 넘는 메시지를 미리 거부한다. 전달되지 않은 채 조용히 버려지던 동작을 수정한다.",
+    "`claude rc`가 대화형 시작과 동일한 엔터프라이즈 게이트웨이 가용성 검사를 적용한다.",
+    "[VS Code] 여러 Claude 패널이 있는 창을 복원하거나 다시 불러올 때 열려 있는 Claude 탭 사이로 포커스가 저절로 이동하던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "프롬프트 맞춤법 검사",
+     "what": "선택 설정 `spellcheck`가 추가된다. 입력 중 설치된 `aspell`, `hunspell` 또는 `ispell`을 사용해 맞춤법 오류에 밑줄을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 18,
+     "title": "VS Code 패널 포커스 수정",
+     "what": "Claude 패널이 여러 개 열린 창을 복원하거나 다시 불러올 때 탭 포커스가 임의로 이동하던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-08-17-mobile": {
+  "hash": "c1340f1c6aa3",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex Remote 실행 설정, MCP 양식과 승인 편집, 링크 폴더 파일 보기 및 실패 메시지 재시도 기능을 추가한다.",
+   "items": [
+    "실행 시 ChatGPT를 Codex Remote에서 바로 여는 설정을 추가했다.",
+    "표준 MCP 양식과 편집 가능한 메시지 승인을 지원한다.",
+    "링크된 폴더를 파일 시트에서 바로 연다.",
+    "새 스레드의 프로젝트 선택기가 선택한 호스트의 최신 프로젝트를 표시하도록 개선한다.",
+    "기존 작업 작성기에서 음성 기능을 바로 쓸 수 있고, 연결 안정성과 백그라운드 작업 처리를 개선한다.",
+    "특히 큰 작업 공간에서 diff 검토의 안정성과 성능을 개선한다.",
+    "작업 메시지를 불러오지 못했을 때 재시도 동작을 추가했다.",
+    "큰 작업 응답을 불러오지 못하던 문제를 수정한다.",
+    "유휴 상태, 재연결 또는 작업 목록 복귀 뒤 작업이 사라지거나 사용할 수 없던 문제를 수정한다.",
+    "호스트 페어링 신뢰성을 높이고 등록 확인 중 앱이 멈추지 않도록 개선한다.",
+    "응답 주석을 개선하고 작업 완료 후에도 스트리밍 활동을 보존한다.",
+    "안내 메시지를 취소하거나 편집하면 더 이상 전달되지 않도록 한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Codex Remote로 바로 열기",
+     "what": "실행 시 ChatGPT를 Codex Remote에서 직접 여는 설정을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "MCP 양식 및 편집 가능한 승인",
+     "what": "표준 MCP 양식을 지원하고 메시지 승인을 편집할 수 있도록 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "링크된 폴더 바로 열기",
+     "what": "링크된 폴더를 파일 시트에서 직접 연다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "작업 메시지 재시도",
+     "what": "작업 메시지를 불러오는 데 실패하면 재시도 동작을 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.234": {
+  "hash": "1c74dcde638f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프로젝트별 기록 디렉터리 이름과 선택 해제 키 바인딩, GitLab MR 상태 표시를 추가한다. Remote Control의 파일 공유와 세션 상태 동기화도 개선한다.",
+   "items": [
+    "세션마다 별도 설정 디렉터리를 쓰는 호스트에서 프로젝트별 기록 디렉터리 이름을 짧게 지정하도록 선택 환경 변수 `CLAUDE_CODE_PROJECT_DIR_NAME`을 추가한다.",
+    "앱 내 텍스트 선택을 지우는 `selection:clear` 키 바인딩 동작을 추가했다. 에이전트 뷰에서도 사용할 수 있다.",
+    "GitLab 원격 저장소와 인증된 `glab` CLI가 있는 경우 푸터와 상태 표시줄에 초안/대기/통과 상태의 MR !N 배지를 표시한다.",
+    "claude.ai 사용 한도가 초기화되면 세션을 자동으로 이어간다. `/config`의 \"Continue automatically at usage limit\"에서 끌 수 있다.",
+    "계정 이메일은 사용자 식별에만 사용하고, 요청하지 않는 한 관련 없는 서비스로 보내지 않도록 Claude에게 지시한다.",
+    "원격 파일 읽기, 세션 복원, CLAUDE.md 포함, 워크플로 스크립트, 파일 업로드에서 Windows NT 네임스페이스(`\\??\\`) 경로를 거부해 사전 승인 파일 접근의 NTLM 자격 증명 유출 위험을 강화했다.",
+    "대화가 압축된 뒤에도 매우 긴 세션의 자동 모드가 샌드박스 명령의 네트워크 접근을 반복 검사하고 거부하던 문제를 수정한다.",
+    "백그라운드 하위 에이전트 도구 권한 프롬프트에 답할 때 거부를 포함한 세션 권한 답변이 누락되던 문제를 수정한다.",
+    "비스트리밍 대체 경로의 API 응답에 필수 필드가 빠진 thinking 또는 text 블록이 포함될 때 충돌하던 문제를 수정한다.",
+    "일부 특이한 유니코드 문자열이 포함된 메시지의 Markdown 렌더링이 매우 느려지던 문제를 수정한다.",
+    "세션 이름이 200자 제한에 걸리거나 이모지가 많은 경우 `ListAgents`에서 복사한 수신자를 `SendMessage`가 거부하던 문제를 수정한다.",
+    "사용자 정보가 특이한 Git 원격 주소에서 호스트를 잘못 판별해 엉뚱한 호스트용 링크와 저장소 동작을 만들던 문제를 수정한다.",
+    "MCP 진단에서 해석된 비밀 값을 출력하지 않도록 수정한다. 범위 충돌 경고에는 설정된 `${VAR}` 형태를, 연결 실패 세부 정보에는 서버 출처만 표시한다.",
+    "`strictKnownMarketplaces` 허용 목록이 Git이 실제 연결할 호스트와 다른 호스트를 지정하는 SCP 형식 Git 마켓플레이스 소스를 허용하던 문제를 수정한다.",
+    "전체 화면에서 `/login` OAuth URL 같은 모달 텍스트를 복사할 때 문자가 빠지던 문제를 수정한다.",
+    "렌더링된 Markdown의 `---` 가로줄이 다음 줄과 붙던 문제를 수정한다.",
+    "할 일 업데이트가 사이에 끼면 연속 셸 명령이 여러 개의 \"Ran 1 shell command\" 행으로 나뉘던 문제를 수정한다.",
+    "`!` 셸 명령 실행 중 연 `/permissions` 등의 대화상자가 명령 종료와 함께 닫히던 문제를 수정한다.",
+    "대기 중인 `!` 셸 명령을 위쪽 화살표로 편집한 뒤 일반 텍스트로 모델에 전송하던 문제를 수정한다.",
+    "대기 중 메시지가 아직 대기 중인데 프롬프트 기록에 다시 나타나던 문제를 수정한다. 대기 메시지 선택 중 Esc는 턴을 중단하지 않으며, 턴 중간 제출 뒤 `!` 모드가 고정되지 않는다.",
+    "새 전체 화면 렌더러 전환을 수락해 세션을 다시 시작할 때 권한 모드, 도구 허용/거부 규칙, 모델 또는 추론 강도 플래그가 빠지던 문제를 수정한다.",
+    "`/tui`가 시작 시 지정한 `--allowed-tools`/`--disallowed-tools` 규칙을 누락하던 문제를 수정한다. 재시작으로 보존할 수 없는 제한이 있으면 이유를 알리고 전환하지 않는다.",
+    "디렉터리를 저장소 생성 전에 처음 확인한 경우 신뢰 프롬프트에서 저장소 전체 범위 경고가 빠지던 문제를 수정한다.",
+    "권한 재요청 중 IDE diff 탭이 닫히면 이전 입력으로 새 요청에 답하던 문제를 수정한다.",
+    "[Remote Control] Claude Code Desktop 또는 VS Code에서 호스팅한 세션 중 사용자에게 보낸 파일이 업로드되어 휴대폰과 웹에서 빈 카드 대신 열리도록 수정한다.",
+    "`CLAUDE_CODE_OAUTH_TOKEN` 설정 상태에서 `/login` 후 오래된 토큰 알림이 자동 재개 턴에 노출되지 않고 사용자에게만 표시된다.",
+    "권한 미리보기는 인바운드 신뢰 검사를 통과한 채널 서버로만 전달하며, 서버가 권한 기능을 명시적으로 끄면 이를 따른다.",
+    "전달되는 권한 미리보기의 자격 증명 마스킹이 승인자에게 명령, 경로, 대상을 숨기지 않도록 수정한다. 지나치게 긴 개인 키 블록은 강한 마스킹으로 가린다.",
+    "권한 미리보기에서 가려지는 공급자 API 토큰이 셸 구분자 바로 앞에 있어도 마스킹되도록 수정한다.",
+    "교차 세션 메시징이 비활성화된 것으로 읽힐 때 Claude Desktop 세션 간 메시지가 조용히 누락되어 보낸 쪽 요청이 오래 대기하던 문제를 수정한다.",
+    "다른 claude.ai 계정이나 조직에 이 컴퓨터를 로그인하면 실행 중인 Remote Control 세션을 몇 초 안에 중지하고 이유를 알린다. 몇 시간 뒤 잘못된 HTTP 404를 표시하던 동작을 바꾼다.",
+    "Claude Code Desktop 또는 VS Code에서 시작한 Remote Control 세션의 권한 모드 변경이 휴대폰과 claude.ai/code에 반영된다. 모델 변경은 claude.ai/code에 반영된다.",
+    "휴대폰 또는 claude.ai/code에서 선택한 추론 강도가 터미널 및 Desktop/VS Code 호스팅 세션에 적용된다. 세션도 연결된 클라이언트에 추론 강도를 알린다.",
+    "계정의 세션 목록을 너무 길어 완전히 확인하지 못했을 때 `SendMessage`와 `ListAgents`가 이를 알린다. 확인되지 않은 세션을 없는 것으로 처리하지 않는다.",
+    "만료된 Anthropic 프로필 자격 증명 오류에서 claude.ai 로그인이 우선하는 경우 `/login`을 안내한다.",
+    "사용자 프롬프트에도 강조 코드 블록, 인라인 코드, 목록 등 답변과 같은 Markdown 렌더링을 적용한다.",
+    "\"API returned an empty or malformed response\" 오류에 반환된 콘텐츠 유형, 본문 종류, 크기, 요청 ID와 원래 스트리밍 요청 실패 이유를 표시한다.",
+    "자동 생성 세션 제목을 요청을 문장으로 반복하는 대신 \"Login button bug\" 같은 짧고 구체적인 이름으로 개선한다.",
+    "참조 문서를 필요할 때 불러오도록 해 내장 `claude-api` 스킬 로딩의 컨텍스트 비용을 약 20만 토큰 이상에서 약 2만 5천 토큰으로 줄인다.",
+    "Claude 작업 중에도 `/permissions`를 열 수 있으며, 규칙 변경은 현재 턴의 나머지에 적용된다.",
+    "Claude 작업 중 `/add-dir <path>`를 사용할 수 있다. 전체 화면 TUI에서 `/add-dir`, `/autocompact`, `/theme`, `/help`, `/config`, `/advisor` 대화상자도 턴 중간에 열린다.",
+    "복구할 수 없는 오류(인증 취소, 크레딧 소진, 컨텍스트 초과 등)로 턴이 끝나면 `/goal`이 알림과 함께 해제되어 계속 활성화된 상태로 남지 않는다.",
+    "백그라운드 작업 때문에 목표가 30분 이상 대기하면 Claude가 작업 상태를 확인한다. `CLAUDE_CODE_GOAL_CHECKIN_MINUTES=0`으로 끌 수 있다.",
+    "`claude setup-token`이 예상하지 않은 추가 인수를 조용히 무시하지 않고 거부한다.",
+    "전체 화면 모드에서 Esc를 눌러도 마우스로 선택한 텍스트를 지우지 않는다. Esc는 평소처럼 중단하거나 닫으며 선택 강조는 유지된다.",
+    "자동 모드가 모든 Agent 도구 호출 아래 표시하던 중복 \"Allowed by auto mode classifier\" 행을 제거한다.",
+    "`/config`에서 \"Default teammate model\" 설정을 제거했다. 에이전트 팀 구성원은 생성 시 별도 모델을 지정하지 않으면 리더의 모델을 사용한다.",
+    "실행 중인 도구 헤더의 경과 시간 표시를 흐리게 해 굵은 수치와 경쟁하지 않도록 바꾼다.",
+    "턴 사이에 전달되는 백그라운드 작업 알림도 턴 중 전달과 동일하게 `<system-reminder>` 태그 안에 모델로 보낸다.",
+    "메인 루프 모델이 이미 선택되어 있으면 시작 시 Mantle의 관리자 PIN 가용성 확인을 건너뛴다.",
+    "Windows에서 `~/.claude.json`이 읽기 전용일 때 반복적인 이름 변경 재시도로 시작이 멈추던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "프로젝트별 기록 디렉터리 이름",
+     "what": "세션마다 설정 디렉터리가 다른 호스트가 프로젝트별 transcript 디렉터리의 짧은 이름을 선택하도록 선택 환경 변수 `CLAUDE_CODE_PROJECT_DIR_NAME`을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "값은 원문에 없어 예시를 제시하지 않는다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "선택 지우기 키 바인딩",
+     "what": "`selection:clear` 동작을 키에 연결해 앱 내 텍스트 선택을 지울 수 있다. 에이전트 뷰에서도 동작한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "GitLab MR 상태 배지",
+     "what": "GitLab 원격 저장소와 인증된 `glab` CLI가 있는 저장소에 푸터와 상태 표시줄의 MR !N 배지를 표시한다. 배지는 초안, 대기, 통과 상태를 나타낸다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 24,
+     "title": "Remote Control 파일 업로드",
+     "what": "Claude Code Desktop 또는 VS Code가 호스팅하는 Remote Control 세션에서 사용자에게 보내는 파일을 업로드한다. 그러면 휴대폰과 웹에서 파일을 열 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 31,
+     "title": "Remote Control 세션 상태 동기화",
+     "what": "Desktop 또는 VS Code에서 시작한 Remote Control 세션의 권한 모드 변경을 휴대폰과 claude.ai/code에 반영한다. 모델 변경은 claude.ai/code에 반영한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 32,
+     "title": "Remote Control 추론 강도 동기화",
+     "what": "휴대폰 또는 claude.ai/code에서 선택한 추론 강도를 터미널 및 Desktop/VS Code 호스팅 세션에 적용한다. 세션의 추론 강도를 연결된 클라이언트에도 게시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-08-17-admin-csv": {
+  "hash": "49c91fa08255",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "자격이 있는 ChatGPT Enterprise 소유자와 관리자가 작업 공간에 표시되는 공개 플러그인 목록을 CSV로 내려받을 수 있다. 내보내기는 최대 48시간 이전 카탈로그를 사용하며 FedRAMP 작업 공간에서는 제공되지 않는다.",
+   "items": [
+    "자격이 있는 ChatGPT Enterprise 작업 공간 소유자와 관리자는 작업 공간에 표시되는 공개 플러그인을 CSV로 내려받을 수 있다. 플러그인·앱·Chat 스킬의 이름과 설명, 개발자, 버전, UTC 추가 날짜, OpenAI 검증 정보를 포함한다.",
+    "Admin > Plugins에서 Public을 선택한 뒤 다운로드 아이콘(Export CSV)을 선택한다. 내보내기는 최대 48시간 이전 공개 카탈로그 스냅샷을 사용하고 작업 공간용 플러그인은 포함하지 않으며, FedRAMP 작업 공간에서는 사용할 수 없다.",
+    "플러그인 제어에 대한 추가 정보를 안내한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2026-08-17-app": {
+  "hash": "6d1b8c76e2c8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "채팅 활동이 바뀌어도 사이드바 프로젝트를 저장된 순서로 유지한다.",
+   "items": [
+    "채팅 활동이 바뀌어도 사이드바 프로젝트를 저장된 순서로 유지한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "사이드바 프로젝트 순서 유지",
+     "what": "채팅 활동이 바뀌어도 사이드바 프로젝트를 저장된 순서로 유지한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.233": {
+  "hash": "6744f1a1d45e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GitLab MR 연결, 게이트웨이 사용자 식별 전달, Linux Bash 메모리 제한, WebFetch 캐시 TTL 설정이 추가된다.",
+   "items": [
+    "`--worktree` 플래그와 `claude agents` 보기에서 GitLab 병합 요청 URL을 지원한다. MR은 `!N` 형식으로 표시한다.",
+    "Anthropic 업스트림에서 선택적으로 `forward_user_identity` 앱 게이트웨이 설정을 사용할 수 있다. 로그인한 사용자의 ID를 헤더로 전달해 게이트웨이 뒤의 프록시가 사용자별 비용을 구분한다.",
+    "Linux에서 Bash 도구 명령에 선택적으로 메모리 cgroup 제한을 적용하는 `CLAUDE_CODE_TOOL_MEMORY_LIMIT` 환경 변수를 추가한다. 폭주한 빌드가 세션을 멈추는 일을 방지한다.",
+    "WebFetch 세션 URL 캐시 TTL을 설정하는 `CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` 환경 변수를 추가한다. 기본값은 기존과 같이 15분이다.",
+    "권한 확인 프롬프트 대기 중 환경이 종료될 때 클라우드 세션이 손실된 것으로 표시되던 문제를 수정한다.",
+    "고정된 시간 제한으로 장시간 스트림을 끝내는 서버에 MCP v2가 구독 스트림을 계속 다시 여는 문제를 수정한다.",
+    "Claude Desktop 또는 VS Code에서 권한 프롬프트의 알림 훅이 실행되지 않던 문제를 수정한다.",
+    "샌드박스를 켠 Linux 유휴 세션이 CPU 코어 하나를 100% 사용하는 문제를 수정한다.",
+    "사용자 또는 프로젝트 스킬이 기본 스킬을 가릴 때 `-p` 모드나 플러그인/MCP 로드 상태에서 `/checkup`, `/review` 같은 별칭이 알 수 없는 명령으로 표시되던 문제를 수정한다.",
+    "스킬/명령 인수 값이 템플릿 표시자로 다시 확장되지 않도록 치환 처리를 수정한다.",
+    "NT `\\??\\` 장치 접두사로 표기한 Windows 경로가 UNC 경로 검증을 우회해 NTLM 자격 증명을 유출할 수 있던 문제를 수정한다.",
+    "`claude self-hosted-runner` 세션 시작을 개선한다. 작업 트리를 다시 쓰지 않고 세션 브랜치를 만들며, 서버 왕복 두 번이 에이전트 실행을 막지 않는다.",
+    "Vertex, Foundry, AWS의 Claude Platform 업스트림에서 전달되는 400/413 오류에 업스트림 메시지를 포함한다. 앱 게이트웨이의 자동 압축 문제도 수정한다.",
+    "`claude plugin validate`가 `.claude/skills` 디렉터리만 있어도 검사하고, frontmatter를 파싱하지 못하는 `SKILL.md` 파일을 보고한다.",
+    "스크린 리더 모드의 `/effort` 선택기를 번호 목록과 숫자 입력 안내로 표시하고, 힌트와 대화상자 텍스트가 잘리지 않도록 개선한다.",
+    "인식하지 못하는 모델 ID로 요청하면 출력 모드에서 `[claude-code:unrecognized_model]` 행을 stderr에 쓴다. `modelOverrides`로 매핑하면 이 메시지를 숨길 수 있다.",
+    "origin 원격이 `gitlab.com` 또는 `bitbucket.org`인 저장소에는 GitHub 앱 설정 팁을 표시하지 않는다. 엔터프라이즈 마켓플레이스 팁이 GitHub 외부의 내부 Git 호스트도 다룬다.",
+    "Opus 4.8, Sonnet 5, Fable 5, Mythos 5 및 이후 모델에서 할 일/작업 추적 도구를 사용할 수 없다. `CLAUDE_CODE_ENABLE_TODO_TOOLS=1`로 다시 활성화할 수 있다.",
+    "Windows 자동 모드에서 일반 `cd <dir> && <command> > file` Bash 명령이 반복해서 수동 승인을 요구하던 문제를 수정한다(2.1.232 회귀).",
+    "Windows의 Cygwin형 심볼릭 링크와 입력 리다이렉션(`< file`)에 대한 2.1.232 Bash 권한 변경을 되돌린다. 더 제한적인 수정은 추후 릴리스에서 돌아온다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "GitLab MR 연결",
+     "what": "`--worktree` 플래그와 `claude agents` 보기에서 GitLab 병합 요청 URL을 지원한다. MR은 `!N` 형식으로 표시된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`--worktree` 플래그"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "게이트웨이 사용자 식별 전달",
+     "what": "Anthropic 업스트림에서 `forward_user_identity` 앱 게이트웨이 설정을 선택적으로 켤 수 있다. 로그인한 사용자의 ID를 헤더로 보내므로 게이트웨이 뒤 프록시가 사용자별 비용을 구분할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "Bash 메모리 제한",
+     "what": "Linux Bash 도구 명령에 메모리 cgroup 제한을 선택적으로 적용해 폭주한 빌드가 세션을 멈추는 일을 방지한다. 설정에는 `CLAUDE_CODE_TOOL_MEMORY_LIMIT` 환경 변수를 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "환경 변수의 구체적인 값 형식은 원문에 제시되지 않는다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "WebFetch 캐시 TTL 설정",
+     "what": "`CLAUDE_CODE_WEBFETCH_CACHE_TTL_MS` 환경 변수로 WebFetch 세션 URL 캐시의 TTL을 설정한다. 기본값은 변경되지 않았으며 15분이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "기본 TTL은 15분이다. 환경 변수 값 형식의 예시는 원문에 없다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.232": {
+  "hash": "6d7cea179b00",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "세션 간 메시지 설정, GitLab 마켓플레이스 지원과 토큰 비식별 처리가 추가된다. 권한·원격 제어·성능 관련 동작도 다수 개선된다.",
+   "items": [
+    "하위 에이전트 포킹이 기본 활성화된다. `subagent_type: \"fork\"`는 대화와 프롬프트 캐시 전체를 상속하며, 대화형 세션의 비팀원 에이전트는 기본적으로 백그라운드에서 실행된다.",
+    "프롬프트에서 `@` 뒤에 다른 Claude 세션 이름을 입력해 언급할 수 있으며, 해당 세션에 `SendMessage`로 직접 전달한다.",
+    "`SendMessage`는 살아 있는 세션 하나와 정확히 일치하는 이름이면 참조 확인 없이 전달한다.",
+    "한 머신의 대화형 세션 이름이 고유하게 유지된다. 이미 사용 중인 이름으로 시작하거나 바꾸면 `name-word-word` 형태의 이름을 부여하고 알린다.",
+    "`/config`에 대화 만료와 다른 세션에서 온 메시지 수신(수락·보류·거부) 설정 행을 추가한다.",
+    "GitLab 토큰 계열을 비식별 처리하고, 라우팅 가능한 `glpat-`/`gldt-` 토큰은 전체 비식별 처리한다. `glab` CLI 설정 저장소에도 `gh`와 같은 샌드박스 및 자격 증명 경로 보호를 적용한다.",
+    "플러그인 마켓플레이스가 GitLab을 지원한다. 하위 그룹을 포함한 `gitlab.com` 저장소 URL을 복제하며, 인증 실패 안내에는 실제 Git 호스트를 표시한다.",
+    "설정에서 `additionalMarketplaces`와 `allowedMarketplaces`를 각각 `extraKnownMarketplaces`, `strictKnownMarketplaces`의 별칭으로 사용할 수 있다.",
+    "엔터프라이즈 정책의 URL형 `blockedMarketplaces` 항목은 CLI가 저장소 URL을 Git 복제로 분류해도 해당 URL을 계속 차단한다.",
+    "Gateway의 `desktop:` 오버레이가 수동 지정된 11개 키 대신 모든 공개 Desktop 설정을 받는다. 부팅 시 Desktop 자체 스키마로 검증하며 알 수 없거나 유효하지 않은 키가 있으면 부팅에 실패한다.",
+    "Gateway에서 빈 `managed.policies[].match.groups`/`admin.admin_groups` 항목과 잘못된 `email_domain` 값은 부팅 단계에서 실패한다. 이전에는 매칭되지 않거나 관리자 권한을 허용할 수 있었다.",
+    "Fable 접근 권한이 있는 조직에 `/advisor`의 Fable 5가 다시 제공된다. 사용 크레딧 동의는 `/model fable`에서 설정한다.",
+    "PowerShell 변수 기록 매개변수가 `$PSDefaultParameterValues`를 덮어써 이후 명령의 파일 접근을 바꿀 수 있던 권한 우회를 수정한다.",
+    "Windows에서 Git Bash가 경로 검증에 일반 파일로 보이는 Cygwin형 심볼릭 링크를 따라가던 권한 우회를 수정한다. 해당 링크를 통한 쓰기에는 권한 승인이 필요하다.",
+    "중첩 Git 저장소가 상위 디렉터리의 신뢰를 상속하던 문제를 수정한다. 각 저장소마다 별도 신뢰 확인이 필요하다.",
+    "서버가 응답하지 않거나 프로토콜 버전 확인에 잘못된 응답을 보내면 MCP 연결이 30초 연결 제한 시간 내내 멈추던 문제를 수정한다.",
+    "클라우드 세션 안의 브리지가 호스팅한 Remote Control 세션이 해당 세션의 대화 기록이나 자격 증명을 상속하던 문제를 수정한다.",
+    "Claude Desktop 또는 IDE에서 시작한 Remote Control 세션을 로컬 세션 재개 때마다 새 claude.ai 세션으로 표시하던 문제를 수정한다. 이제 기존 세션에 다시 연결한다.",
+    "유휴 상태의 Remote Control 세션이 새로 연결된 클라이언트에서 접근 불가로 보이던 문제를 수정한다.",
+    "세션 작업자가 재시작될 때 Remote Control 브리지 세션이 대화 기록을 복원하지 못하던 문제를 수정한다.",
+    "claude.ai 또는 앱에서 세션이 삭제된 대화를 Remote Control로 재개하면 로그인 오류 대신 대체 세션을 시작한다. v2.1.227에서 발생한 회귀를 수정한다.",
+    "관리 설정 로드 실패 시 Cloud gateway `/login`이 조용히 종료되거나 입력 대기 후 응답 없는 터미널을 남기던 문제를 수정한다. 이제 원인을 표시한다.",
+    "네이티브 빌드에서 음성 서비스가 연결을 거부할 때 음성 모드가 ‘듣는 중’에 멈추던 문제를 수정하고 거부 이유를 즉시 표시한다.",
+    "mTLS 클라이언트 인증서 교체에 재시작이 필요하던 문제를 수정한다. 연결 오류가 나면 교체된 인증서와 키를 자동으로 다시 읽는다.",
+    "잘못된 AWS 또는 Vertex 리전 값으로 요청 URL을 만들던 문제를 수정한다. 이제 기본 리전을 사용한다.",
+    "Bedrock, Vertex, gateway 배포에서 스트림 유휴 시간 초과 후 요청에 실패하던 문제를 수정해 복구한다.",
+    "잘린 텍스트가 있는 콘텐츠 크기 오버레이가 한 열 넓게 표시되거나 앞부분이 잘린 텍스트가 말줄임표로 축소되던 문제를 수정한다.",
+    "긴 셸 명령 또는 에이전트 설명 미리보기가 이모지 중간에서 잘릴 때 깨진 문자가 나타나던 문제를 수정한다.",
+    "`known_marketplaces.json` 동시 쓰기로 시작 시 플러그인 마켓플레이스가 조용히 등록 해제되던 경쟁 상태를 수정한다.",
+    "재시작 후에도 이어지는 작업이 실행 중이면 `/update`와 `/tui`가 재시작을 거부하던 문제를 수정한다.",
+    "SDK 및 원격 세션에서 사용할 수 없는 슬래시 명령을 사용량 한도 안내가 제안하던 문제를 수정한다.",
+    "대화형 `--advisor fable` 실행 후 종료된 세션에서 `/model fable`을 실행하라고 안내하던 동의 메시지를 수정한다.",
+    "전체 대화를 매 업데이트마다 다시 정규화하지 않아 전체 화면 스트리밍의 긴 세션 응답성을 개선한다.",
+    "관리 설정 승인 대화상자에 엔드포인트 URL과 더 명확한 원격 측정 변경 설명을 표시하고, 일상적인 OpenTelemetry 옵션은 건너뛴다. 서버 관리 샌드박스 바이너리 재정의(`sandbox.bwrapPath`, `sandbox.socatPath`, `sandbox.ripgrep`)는 승인이 필요하다.",
+    "Claude가 응답 중일 때 `/feedback`과 `/bug`를 실행하면 차례가 끝날 때까지 기다리지 않고 즉시 연다.",
+    "`/plugin install plugin@marketplace`가 먼저 마켓플레이스를 새로 고쳐 수동 업데이트 없이 새 플러그인을 설치한다.",
+    "높음, xhigh, max 추론 수준의 `/code-review`도 다른 수준과 같이 백그라운드 에이전트에서 실행한다.",
+    "붙여넣거나 클립보드에서 가져온 이미지를 이벤트 루프를 막지 않고 읽는다.",
+    "Remote Control이 네트워크 끊김 후 약 30분 동안 재연결을 계속하며, 한 시간에 걸친 여러 번의 끊김으로 연결이 종료되지 않는다.",
+    "대화를 재개해도 같은 머신의 다른 Claude Code에서 Remote Control을 조용히 가져오지 않는다. 이동하려면 해당 세션에서 `/remote-control`을 실행한다.",
+    "에이전트 패널에서 완료된 하위 에이전트를 즉시 숨기고 `/tasks` 안내를 표시한다. ‘↓ N more’ 표시도 더 잘 보이도록 왼쪽으로 옮긴다.",
+    "Remote Control이 다른 기기에서 인계되거나 다른 앱에서 종료되거나 삭제됐는지 터미널에 표시하며, 상태를 되돌릴 수 있는 재연결 안내는 중단한다.",
+    "Bash 입력 리다이렉션(`< file`)을 모든 플랫폼에서 인수 표기와 동일하게 권한 검사한다.",
+    "완료된 백그라운드 에이전트를 재개할 때 표시하는 메시지를 줄인다.",
+    "Cowork 세션이 사용자 범위 메모리 파일의 외부 `@` 가져오기를 본문에 삽입하지 않는다.",
+    "공유 `/tmp`의 자동 생성 세션 간 메시지 소켓 디렉터리를 강화한다. 미리 심은 심볼릭 링크나 다른 사용자의 디렉터리는 사용하지 않고 거부한다.",
+    "Linux 파일시스템 샌드박스의 보호 경로 우회를 방어한다.",
+    "`sandbox.ripgrep`은 사용자·관리자·`--settings` 설정에서만 적용된다. 프로젝트 설정으로 샌드박스 ripgrep 바이너리를 재정의할 수 없다.",
+    "사용자 지정 하위 에이전트 생성을 권하는 시작 팁과 `/powerup` 둘러보기의 관련 안내를 제거한다."
+   ],
+   "features": [
+    {
+     "index": 4,
+     "title": "세션 간 메시지 설정",
+     "what": "`/config`에 대화 만료와 다른 세션에서 온 메시지 처리 설정 행을 추가한다. 수신 메시지를 수락·보류·거부할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "GitLab 토큰 보호",
+     "what": "`glrt-`, `gloas-`, `glptt-`, `glagent-`, `glimt-`, `glsoat-`, `glcbt-`, `glft-`, `glffct-` 토큰 계열을 비식별 처리하고 라우팅 가능한 `glpat-`/`gldt-` 토큰은 전체 비식별 처리한다. `glab` CLI 설정 저장소에도 `gh`와 같은 샌드박스 및 자격 증명 경로 보호를 적용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "GitLab 플러그인 마켓플레이스",
+     "what": "플러그인 마켓플레이스가 bare `gitlab.com` 저장소 URL을 지원하며 중첩 하위 그룹도 복제한다. 복제 인증 실패 안내에는 실제 Git 호스트 이름을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
