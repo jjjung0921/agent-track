@@ -35,7 +35,7 @@ async function main() {
   let completed = false;
   try {
     await run("git", ["clone", "--quiet", "--depth", "1", "--branch", "main", remote, checkout]);
-    await run("npm", ["ci"], { cwd: checkout });
+    await run("npm", ["ci"], { cwd: checkout, env: { ...process.env, npm_config_cache: join(temporary, "npm-cache") } });
     const dataFile = join(checkout, "site/data/releases.json");
     const before = JSON.parse(await readFile(dataFile, "utf8"));
     const token = await run("gh", ["auth", "token"], { capture: true });
