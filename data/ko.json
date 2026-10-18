@@ -9734,5 +9734,642 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.1.277": {
+  "hash": "a09249bac149",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프록시 경계를 지정하는 게이트웨이 설정과 업스트림 정적 헤더 지원이 추가됐다. VSCode에는 작업 관리, 응답 복사, 세션 사용량 확인 등 기능이 더해졌고 CLI·플러그인·세션 처리의 여러 오류가 수정됐다.",
+   "items": [
+    "프로젝트에 `CLAUDE.md`가 없으면 `AGENTS.md`를 읽으며, `/config`의 “Project instructions”에서 변경할 수 있다.",
+    "Claude 앱 게이트웨이의 유일한 외부 통신 경로가 포워드 프록시일 때 `CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1`을 추가한다. 이 설정에서는 외부 요청마다 로컬에서 호스트명을 해석하지 않고 프록시에 전달한다.",
+    "Claude 앱 게이트웨이 업스트림에 선택적 `headers:` 맵을 추가해, 프로바이더 앞에 운영하는 프록시에 정적 헤더를 보낼 수 있다.",
+    "`/tasks` 같은 패널을 연 상태에서 백그라운드 작업이 끝나면 업데이트 대기 메시지를 표시한다.",
+    "내부 오류 뒤 결과 없이 멈출 수 있던 `claude -p`와 Agent SDK 세션이 오류를 보고하고 종료 코드 1로 끝나도록 수정한다.",
+    "이전 assistant 턴에 다른 콘텐츠와 함께 빈 텍스트 블록이 있으면 모든 요청이 실패하던 문제를 수정했다. `--resume` 뒤에도 적용된다.",
+    "같은 컴퓨터에서 이전 Claude Code 빌드(예: IDE 확장에 포함된 CLI)를 실행하면 현재 빌드에서 예기치 않게 로그아웃되던 문제를 수정했다.",
+    "`~/.claude.json`의 `customApiKeyResponses` 값이 잘못된 경우 `ANTHROPIC_API_KEY` 사용자의 대화형 시작이 멈추거나 오류를 표시하던 문제를 수정했다.",
+    "프록시가 잘못된 버전을 반환할 때 업데이트 확인이 30분마다 오류를 내고 버전 제한이 설정된 `claude update`가 멈추던 문제를 수정했다. 잘못된 `minimumVersion`은 이제 무시한다.",
+    "winget 또는 apk로 설치한 경우 버전 조회 실패에도 `claude update`가 “최신 버전”이라고 보고하던 문제를 수정했다.",
+    "세션이나 다른 프로그램이 사용 중인 플러그인 버전을 재설치할 때 `claude plugin install`이 실패하고 설치본을 손상할 수 있던 문제를 수정했다. 변경되지 않은 설치본은 그대로 둔다.",
+    "프로세스·메모리·파일 핸들이 부족해 검색을 시작하지 못한 경우 Grep과 Glob이 검색 결과 없음으로 보고하던 문제를 수정해 오류를 반환한다.",
+    "대상 경로가 기존 디렉터리일 때 Write 도구가 권한 거부로 조용히 턴을 끝내던 문제를 수정해 명확한 오류를 보고한다.",
+    "Edit 도구가 이스케이프된 백슬래시 뒤의 `uXXXX`를 유니코드 이스케이프로 처리해 비ASCII 문자 편집 중 백슬래시 문자열을 다시 쓸 수 있던 문제를 수정했다.",
+    "비ASCII 문자가 포함된 큰 편집 내용이 파일과 일치하지 않을 때 정규식 크기 오류 대신 “파일에서 문자열을 찾을 수 없음”을 표시하도록 수정했다.",
+    "도구 호출의 파일 경로에 이스케이프 표기 `\\u0000`이 있으면 턴이 일찍 끝나던 문제를 수정했다. 이스케이프된 제어 문자는 이제 문자 그대로 유지된다.",
+    "플러그인의 LSP 서버가 종료되거나 표준 입력을 닫으면 백그라운드 세션(`claude --bg`)이 종료되던 문제를 수정했다.",
+    "`~/.claude.json`의 `claudeAiMcpEverConnected` 값이 잘못된 경우 `/mcp` 또는 `/plugin manage`를 열 때 충돌하던 문제를 수정했다.",
+    "`~/.claude.json`의 `theme` 값이 잘못된 경우 시작 시 충돌하던 문제를 수정했다.",
+    "프롬프트에 터미널 색상 코드가 포함되면 “복구할 수 없는 인터페이스 오류”로 충돌하던 문제를 수정했다. 기록에서 불러온 프롬프트나 외부 편집기에서 가져온 텍스트도 해당한다.",
+    "저장된 대화 기록에 일반 문자열로 저장된 assistant 메시지가 있는 세션을 재개할 때 충돌하던 문제를 수정했다.",
+    "느리거나 부하가 큰 컴퓨터에서 첫 스피너가 나타날 때 세션이 복구 불가 인터페이스 오류로 종료될 수 있던 문제를 수정했다.",
+    "내부 렌더링 오류 뒤 세션이 끝날 때까지 화면 갱신이 멈출 수 있던 드문 문제를 수정했다.",
+    "Windows에서 Claude 응답 직후 “메모리 부족” 같은 오류로 턴이 멈춰 응답의 도구 호출이 실행되지 않던 드문 문제를 수정했다.",
+    "`/clear` 뒤 재시작, `--continue`, `--resume`으로 이어진 세션에서 SessionStart 훅이 출력을 내면 첫 메시지 일부가 누락되고 프롬프트 캐시가 완전히 빗나가던 문제를 수정했다.",
+    "턴 중 도착한 다른 에이전트(예: 하위 에이전트의 SendMessage) 메시지가 도착 위치가 아니라 “셸 명령 N개 실행” 행 아래에 표시되던 문제를 수정했다.",
+    "전체 화면 `/resume` 선택기 및 프롬프트 영역을 덮는 패널에서 드래그 선택 후 “복사됨” 알림이 나타나지 않던 문제를 수정했다.",
+    "샌드박스가 활성화된 상태에서 샌드박스 밖에서 실행되는 Bash 명령의 `$TMPDIR`이 빈 값으로 확장되던 문제를 수정했다.",
+    "Cowork 클라우드 세션의 WebFetch와 WebSearch가 요청 거부 이유(예: fetch 예산 소진 또는 관리자 정책)를 Claude에 전달하지 않던 문제를 수정했다.",
+    "프록시 설정 시 Claude 앱 게이트웨이 텔레메트리 릴레이가 `NO_PROXY`에 지정된 수집기 호스트명이나 도메인을 무시하던 문제를 수정했다.",
+    "잘못된 `strictKnownMarketplaces` 또는 `blockedMarketplaces` 항목 하나가 전체 엔터프라이즈 마켓플레이스 정책을 조용히 비활성화하던 문제를 수정했다.",
+    "자동 업데이트 실패 뒤 `~/.cache/claude/staging`에 큰 다운로드 파일이 남던 문제를 수정했다.",
+    "`/plugin`의 Installed 탭 메시지(예: 플러그인 업데이트 실패 오류)에서 터미널 제어 문자를 제거하지 않던 문제를 수정했다.",
+    "스킬이나 기존 명령의 이름이 `constructor`, `toString` 같은 기본 Object 속성과 같으면 `/plugin` → Installed와 `/skills`가 충돌하던 문제를 수정했다.",
+    "다중 선택한 모든 설치가 실패하면 `/plugin`이 메시지 없이 닫히던 문제를 수정했다.",
+    "설치 해제된 플러그인이 `/plugin` Installed에 “로드 실패” 행으로 다시 나타나고 제거해도 지워지지 않던 문제를 수정했다.",
+    "공식 마켓플레이스 플러그인의 커밋이 `installed_plugins.json`에 기록되지 않고, 고정 커밋 플러그인 업데이트 뒤에도 이전 커밋이 남던 문제를 수정했다.",
+    "플러그인 다시 불러오기 미리보기가 종료할 때까지 미리 본 모든 아카이브를 압축 해제 상태로 보관하고, 다운로드 실패 시 대체할 캐시된 `--plugin-url` 아카이브를 덮어쓰던 문제를 수정했다.",
+    "`~/.claude.json`에 잘못된 자리표시자 레코드가 있을 때 Remote Control 세션 기록이 실패하던 문제를 수정했다.",
+    "취소된 claude.ai 로그인의 오류가 만료된 Anthropic 프로필을 탓하던 문제를 수정했다. 이제 `/login`을 먼저 안내한다.",
+    "키 반복 또는 매우 빠른 입력 중 `claude agents` 배포 입력창에 입력하거나 붙여넣은 텍스트가 뒤섞이던 문제를 수정했다.",
+    "저장된 대화 기록에 올바른 훅 목록이 없는 stop 훅 요약이 있을 때 세션 재개 중 충돌하던 문제를 수정했다.",
+    "`keybindings.json`에서 Chat 컨텍스트의 Enter를 다시 지정하면 선택된 에이전트 패널 행에서 Enter가 동작하지 않던 문제를 수정했다.",
+    "작업 폴더 경로가 약 120자 이상일 때 Windows에서 PDF 페이지 읽기가 실패하던 문제를 수정했다.",
+    "헤드리스 재개(`claude -p --resume`, SDK, VS Code 확장 창 다시 로드) 후 비용 및 사용량 합계가 0부터 시작하던 문제를 수정했다. 이제 헤드리스 세션은 종료 시 합계를 저장한다.",
+    "`.claude/skills`가 추적되지 않는 경우 `--worktree` 세션에서 메인 저장소의 프로젝트 스킬이 로드되지 않던 문제를 수정했다.",
+    "`sandbox.excludedCommands` 글로브 하나가 복합 Bash 명령 전체를 샌드박스에서 제외하던 문제를 수정했다. 이제 모든 부분이 글로브와 일치해야 한다.",
+    "재개된 하위 에이전트와 팀원이 불러온 MCP 도구 정의를 다시 렌더링해 해당 에이전트의 프롬프트 캐시를 깨뜨리던 문제를 수정했다.",
+    "요청 제한에 걸린 아티팩트 게시가 재시도 중단을 지시하던 문제를 수정했다. 이제 아무것도 게시되지 않았으며 언제 같은 게시를 다시 보낼지 Claude에 알린다.",
+    "대화 초기에 기록된 첨부 파일이 재개나 재실행 뒤 다시 렌더링되어 확장 사고가 빠지고 프롬프트 캐시가 누락되던 문제를 수정했다.",
+    "서버가 API 키 생성을 거부할 때 Console 로그인이 “상태 코드 400 요청 실패”만 보여주던 문제를 수정해 서버 메시지를 표시한다.",
+    "Claude가 작업 중 입력한 메시지가 모델에서 무시될 수 있던 문제를 수정했다.",
+    "SDK 및 헤드리스(`-p`) 실행의 세션 시작을 개선했다. 첫 턴은 디렉터리별 `CLAUDE.md` 조회가 끝날 때까지 기다리지 않는다.",
+    "Claude 앱 게이트웨이의 루프백 오류 메시지에 `CLAUDE_GATEWAY_ALLOW_LOOPBACK`을 명시한다.",
+    "`/plugin` Installed에서 플러그인과 별도로 표시되는 MCP 서버에 소속 플러그인을 표시한다.",
+    "이미 설치된 플러그인에 `claude plugin install`을 실행하면 마켓플레이스의 최신 버전 제공 여부와 `claude plugin update` 명령을 알린다.",
+    "로고 아래 시작 알림의 넘침 행을 “+N more · /status” 대신 “N more notices hidden”으로 표시한다.",
+    "프롬프트의 보이지 않는 유니코드 서식 및 태그 문자를 제거하고, 전송 전에 정리된 프롬프트를 검토하도록 변경했다.",
+    "검토할 내용이 없는 `/ultrareview` 안내에 해당 상황을 표시하고 최신 커밋 검토 명령을 제공한다. 새 저장소의 첫 커밋은 전체 검토한다.",
+    "Artifact 도구가 사용 가능하면 Claude가 claude.ai 아티팩트 링크를 WebFetch 대신 Artifact 도구로 읽도록 개선했다.",
+    "위험한 `rm` 권한 요청에 차단된 명령을 표시하고 `${VAR:?}` 보호 구문을 제안해 헤드리스 실행에서 복구할 수 있도록 개선했다.",
+    "Artifact 도구 권한 안내를 짧게 하고 제목이나 파일명으로 페이지와 아티팩트를 표시하며, 링크를 텍스트 뒤에 나열한다.",
+    "Anthropic API에서 Fable은 항상 `/model`에 표시된다. 조직 설정에서 비활성화한 경우에만 회색으로 표시된다.",
+    "Bedrock, Vertex, Foundry의 Bash 샌드박스 안내를 작업에 주어진 범위의 경계로 설명하는 퍼스트파티 문구로 변경했다.",
+    "비대화형 세션의 `/ultrareview`는 저장소에 기준 브랜치나 공유 기록이 없으면 거부한다.",
+    "하위 에이전트 결과 앞에 하위 에이전트 출력임을 표시하는 머리말을 붙이고 내용을 들여쓴다. 결과 텍스트가 세션 자체 지시로 오인되지 않게 한다.",
+    "Bedrock, Vertex, Foundry에서 워크플로 스크립트가 계산한 `agent()` 프롬프트를 스크립트 작성 텍스트로 표시해 안전 분류기가 사용자 입력으로 읽지 않게 한다.",
+    "SDK나 IDE 밖에서 실행한 `claude -p`의 백그라운드 Haiku 자동 제목 요청을 제거했다.",
+    "지원 중단된 TaskOutput 도구를 제거했다. Claude는 Read로 백그라운드 작업 출력 파일을 읽으며 `taskOutputMaxChars` 설정과 `TASK_MAX_OUTPUT_LENGTH`는 더 이상 적용되지 않는다.",
+    "[VSCode] 패널 메뉴에 로그아웃 행을 추가하고, 입력 명령 메뉴에 `/logout`을 추가했다.",
+    "[VSCode] 에이전트 맵에 백그라운드 셸 및 기타 실행 중인 작업을 표시하고 각각 중지 기능을 추가했다. 입력한 `/tasks`로 해당 화면을 연다.",
+    "[VSCode] 응답에 복사 버튼을 추가하고 입력 명령 `/copy`를 추가했다.",
+    "[VSCode] 비활성 세션이 자동 보관될 때 한 번 알리고, 보관된 세션 그룹에 “모두 보관 해제” 작업을 추가했다.",
+    "[VSCode] 요금제 한도가 적용되지 않는 경우(Vertex, Bedrock, Foundry, API 키) 계정 및 사용량 대화상자와 세션 관리자에 세션 비용과 토큰 사용량을 추가했다.",
+    "[VSCode] “General config” 메뉴 행이 설정을 열지 않고 `/config` 사용 안내를 보여주던 문제를 수정했다. 입력한 `/mcp`, `/hooks`, `/memory`, `/rewind` 등은 이제 대화상자를 연다.",
+    "[VSCode] `/effort`로 해당 모델의 수준을 이미 저장한 경우 슬라이더 수준이 이후 세션에 유지되지 않던 문제를 수정했다.",
+    "[VSCode] 저장된 모델 별칭의 대소문자가 다른 경우(예: “Sonnet”) 이미 사용한 패널에서 연 대화의 모드 선택기에 Auto가 빠지던 문제를 수정했다.",
+    "[VSCode] `/fast`가 빠른 모드를 기본값으로 저장하지 않아 확장이 Claude Code를 다시 실행할 때 설정이 사라지던 문제를 수정했다.",
+    "[Claude Code 웹] Team 및 Enterprise 요금제의 환경 선택기에 Personal과 Organization 섹션을 추가했다. 관리자는 이제 개인 환경을 조직과 공유할 수 있다.",
+    "[Claude Code 웹] Team 및 Enterprise 요금제에서 조직 환경은 Code 탭에서 읽기 전용 요약으로 열고, 편집은 Admin settings → Cloud environments에서 하도록 변경했다.",
+    "[Claude Code 웹] Custom network access를 선택하고 도메인을 비워 저장한 클라우드 환경이 Trusted로 조용히 바뀌던 문제를 수정했다. 대화상자는 이제 도메인을 하나 이상 입력하도록 요청한다.",
+    "[Claude Code 웹] 관리자 Claude Code 설정의 “Web”을 “Cloud sessions”로 변경하고 중복된 읽기 전용 Mobile 행을 제거했다.",
+    "[Claude Tag] Enterprise Grid 조직 전체 설치의 Slack 채널에서 만든 루틴이 실행 시 작업 공간의 다른 공개 채널을 읽지 못하던 문제를 수정했다.",
+    "[Claude Tag] 자격 증명 프리셋의 “Learn more” 링크가 일반 API 참고 문서가 아닌 각 공급업체의 자격 증명 설정 페이지를 열도록 수정했다.",
+    "[Claude Tag] 관리자가 Pylon의 EU 호스트를 지정할 수 있도록 자격 증명 번들을 변경했다.",
+    "[Claude Tag] Google Cloud 자격 증명 양식에서 거부된 키 파일의 이유를 표시하고 웹사이트와 범위를 잠갔다. 키 교체가 거부되어도 붙여넣은 키를 유지한다.",
+    "[Claude Tag] AWS 서명, 클라이언트 인증서 또는 사용자 지정 CA를 쓰는 연결의 요청에 대해 관리자 네트워크 이벤트 로그에 응답 상태가 표시되지 않던 문제를 수정했다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "포워드 프록시를 외부 통신 경계로 지정",
+     "what": "Claude 앱 게이트웨이의 외부 통신이 포워드 프록시만 거치는 구성에서 `CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1`을 설정할 수 있다. 이때 모든 외부 요청의 호스트명을 로컬에서 해석하지 않고 프록시에 전달한다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "포워드 프록시만 외부 통신 경로인 게이트웨이에서 사용한다."
+       },
+       {
+        "kind": "hl",
+        "text": "CLAUDE_GATEWAY_PROXY_IS_EGRESS_BOUNDARY=1"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "게이트웨이 업스트림 정적 헤더",
+     "what": "Claude 앱 게이트웨이 업스트림에 선택적 `headers:` 맵을 지정할 수 있다. 프로바이더 앞에서 운영하는 프록시로 정적 헤더를 전송한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 키",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "headers:"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "백그라운드 작업 완료 알림",
+     "what": "`/tasks` 같은 패널이 열려 있는 동안 백그라운드 작업이 끝나면 업데이트가 대기 중이라는 한 줄을 표시한다.",
+     "steps": [
+      "`/tasks` 같은 패널을 연다.",
+      "백그라운드 작업이 끝나면 업데이트 대기 메시지를 확인한다."
+     ],
+     "terminal": {
+      "title": "표시 문구",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "백그라운드 작업이 열린 패널 동안 끝나면 업데이트 대기 메시지가 표시된다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 69,
+     "title": "VSCode에서 로그아웃",
+     "what": "패널 메뉴에 Sign out 행을 추가했다. 입력 명령 메뉴에서 `/logout`도 사용할 수 있다.",
+     "steps": [
+      "패널 메뉴에서 Sign out을 선택하거나",
+      "`/logout`을 입력 명령 메뉴에서 선택한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/logout"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 70,
+     "title": "VSCode 에이전트 맵의 실행 작업",
+     "what": "에이전트 맵에 백그라운드 셸과 다른 실행 중 작업이 나타나며, 각 작업에 Stop이 제공된다. `/tasks`를 입력하면 해당 화면을 연다.",
+     "steps": [
+      "에이전트 맵에서 실행 중인 작업을 확인한다.",
+      "중지할 작업의 Stop을 선택한다.",
+      "또는 `/tasks`를 입력해 작업 화면을 연다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/tasks"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 71,
+     "title": "VSCode 응답 복사",
+     "what": "응답에 Copy response 버튼을 추가했다. 입력 명령 `/copy`도 사용할 수 있다.",
+     "steps": [
+      "응답의 Copy response 버튼을 누르거나",
+      "`/copy`를 입력한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/copy"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 72,
+     "title": "VSCode 세션 보관 관리",
+     "what": "비활성 세션이 자동 보관될 때 한 번 알린다. Archived sessions 그룹에서 모든 세션을 보관 해제할 수 있다.",
+     "steps": [
+      "비활성 세션 자동 보관 알림을 확인한다.",
+      "Archived sessions 그룹에서 Unarchive all을 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 73,
+     "title": "VSCode 세션 비용 및 토큰 사용량",
+     "what": "요금제 한도가 적용되지 않는 Vertex, Bedrock, Foundry, API 키 세션의 비용과 토큰 사용량을 Account & usage 대화상자와 세션 관리자에 표시한다.",
+     "steps": [
+      "Vertex, Bedrock, Foundry 또는 API 키 세션을 연다.",
+      "Account & usage 대화상자 또는 세션 관리자에서 비용과 토큰 사용량을 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 74,
+     "title": "VSCode 명령으로 설정 대화상자 열기",
+     "what": "General config 메뉴 행이 `/config` 사용법을 보여주고 설정을 열지 않던 문제를 수정했다. `/mcp`, `/hooks`, `/memory`, `/rewind` 등 입력 명령도 해당 대화상자를 연다.",
+     "steps": [
+      "General config 메뉴 행을 선택해 설정을 연다.",
+      "또는 `/mcp`, `/hooks`, `/memory`, `/rewind` 등의 명령을 입력한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/mcp"
+       },
+       {
+        "kind": "cmd",
+        "text": "/hooks"
+       },
+       {
+        "kind": "cmd",
+        "text": "/memory"
+       },
+       {
+        "kind": "cmd",
+        "text": "/rewind"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 75,
+     "title": "VSCode 노력 수준 유지",
+     "what": "`/effort`로 이미 수준을 저장한 모델에서 슬라이더로 설정한 수준이 이후 세션에도 저장되도록 수정했다.",
+     "steps": [
+      "모델의 노력 수준을 슬라이더로 조정한다.",
+      "이후 세션에서 저장된 수준을 사용한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/effort"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 76,
+     "title": "VSCode 모드 선택기의 Auto 표시",
+     "what": "저장된 모델 설정이 “Sonnet”처럼 대소문자가 다른 별칭일 때 이미 사용한 패널에서 연 대화의 모드 선택기에 Auto가 누락되던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 77,
+     "title": "VSCode 빠른 모드 기본값 저장",
+     "what": "`/fast`로 빠른 모드를 기본값으로 저장하지 못해 확장이 Claude Code를 재실행하면 설정이 사라지던 문제를 수정했다.",
+     "steps": [
+      "`/fast`를 입력해 빠른 모드를 기본값으로 설정한다.",
+      "확장이 Claude Code를 다시 실행한 뒤에도 설정이 유지된다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/fast"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.276": {
+  "hash": "b74930678a49",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`ANTHROPIC_BASE_URL`이 프록시나 게이트웨이를 가리킬 때 모든 요청이 실패하던 회귀를 수정한다.",
+   "items": [
+    "`ANTHROPIC_BASE_URL`이 프록시나 게이트웨이를 가리킬 때 `400 … Input tag 'advisor_20260301'` 오류로 모든 요청이 실패하던 문제를 수정한다. 이 문제는 2.1.275에서 발생했다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2026-09-18-mobile": {
+  "hash": "78ee90550fbd",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "파일 선택기에서 폴더를 만들고, 글쓰기 블록과 초안 대안을 이용할 수 있다. 새 작업은 프로젝트별 worktree 모드와 설정 환경을 기억한다.",
+   "items": [
+    "파일 선택기에서 바로 폴더를 만들 수 있다.",
+    "초안 대안과 복사 동작을 제공하는 글쓰기 블록을 추가한다.",
+    "새 작업에서 프로젝트별 worktree 모드와 설정 환경을 기억한다.",
+    "대기 중인 프롬프트가 길면 간단한 미리보기를 표시하고, 탭하면 펼쳐 보여준다.",
+    "작업을 다시 열었을 때 대기 중인 프롬프트가 누락되거나 오래된 내용으로 보이던 문제를 수정한다.",
+    "설정 완료 뒤 worktree 작업 카드를 올바르게 열 수 있다.",
+    "worktree 작업만 있는 프로젝트에서도 새 작업 버튼을 다시 표시한다.",
+    "일시적인 연결 중단 때 음성 통화의 안정성을 개선한다.",
+    "iPad에서 프로젝트, 환경, Git 제어 요소의 정렬을 개선한다.",
+    "새 작업을 시작할 때 사고 타이머가 초기화되던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "파일 선택기에서 폴더 만들기",
+     "what": "파일 선택기에서 직접 폴더를 만들 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "글쓰기 블록",
+     "what": "글쓰기 블록을 추가한다. 블록에서 초안 대안을 만들고 복사 동작을 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "프로젝트별 새 작업 설정 기억",
+     "what": "새 작업은 프로젝트마다 worktree 모드와 설정 환경을 기억한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.155.0": {
+  "hash": "a87f806c376d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "실험적 음성 대화와 TUI 상태 표시가 추가되고, 에이전트 작업 및 worktree 관리가 확장된다. 데몬 업데이트 예약과 복구, AWS Bedrock 자격 증명 명령 설정도 지원한다.",
+   "items": [
+    "지원되는 빌드에서 `/experimental`을 통해 켤 수 있는 실험적 `/voice` 대화 기능을 추가한다. 실시간 전사와 마이크 제어를 지원한다.",
+    "TUI 상태 행에 실시간 추론 요약을 표시하고, 성공한 턴 뒤에 완료 시각을 표시한다.",
+    "에이전트 개요에서 작업 숨기기·보관·삭제를 지원한다. worktree 소유권 정보를 표시하고, 관리 대상이며 깨끗한 worktree의 삭제를 확인하도록 한다.",
+    "지원되는 Mac의 로컬 TUI 세션에서 MCP 요청에 Touch ID 확인을 추가한다.",
+    "데몬 업데이트 일정을 설정하고 `codex app-server daemon update`를 실행할 수 있다. 데몬 재시작 뒤 저장된 스레드와 활성 목표를 복구할 수 있다.",
+    "Amazon Bedrock이 설정된 명령에서 AWS 자격 증명을 가져올 수 있다. 자격 증명 캐싱, 만료 기반 갱신, 인증 복구를 지원한다.",
+    "턴이 시작되기 전에 압축(compaction)이 실패해도 수락된 프롬프트를 저장한다.",
+    "tmux 크기 변경 누락, 대화 기록 뷰포트 복원, 스레드 전환 뒤 오래된 기록 표시 문제를 수정한다.",
+    "MCP 서버가 만료된 OAuth 자격 증명을 정확히 보고하고, 토큰 갱신 실패 시 다시 연결하는 방법을 안내한다.",
+    "자동 승인 검토에서 작업과 권한 증거를 더 안정적으로 보존하고, 일시적 실패를 재시도하며, 검토 실패와 안전하지 않은 작업 판정을 구분한다.",
+    "계정을 전환하면 이전 사용자 ID에 속한 원격 제어 세션, 캐시된 WebSocket 상태, 모델 카탈로그를 무효화한다.",
+    "제한된 WSL 샌드박스에서 Windows 프로세스로 탈출하는 경로를 차단하고, 브로커를 통한 셸 스냅샷에서 자격 증명이 노출되지 않도록 강화한다.",
+    "Python SDK와 런타임 배포를 안정 버전 CLI 릴리스에 맞춘다. 버전을 일치시키고 SDK를 배포하기 전에 런타임 자산을 확인한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "실험적 음성 대화",
+     "what": "지원되는 빌드에서 실험적 `/voice` 대화를 사용할 수 있다. 실시간 전사와 마이크 제어를 제공하며 `/experimental`을 통해 켠다.",
+     "steps": [
+      "`/experimental`을 실행한다.",
+      "실험적 기능에서 `/voice` 대화를 시작한다.",
+      "실시간 전사를 확인하고 마이크를 제어한다."
+     ],
+     "terminal": {
+      "title": "음성 대화 켜기",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /experimental"
+       },
+       {
+        "kind": "cmd",
+        "text": "> /voice"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "TUI 실시간 상태 표시",
+     "what": "TUI 상태 행에 실시간 추론 요약이 표시된다. 턴이 성공적으로 끝나면 완료 시각도 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "에이전트 작업과 worktree 관리",
+     "what": "에이전트 개요에서 작업을 숨기거나 보관하거나 삭제할 수 있다. worktree 소유권 정보를 제공하며, 깨끗한 관리 대상 worktree를 삭제할 때 확인을 받는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "MCP 요청 Touch ID 확인",
+     "what": "지원되는 Mac의 로컬 TUI 세션에서 MCP 요청에 Touch ID 확인을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "데몬 업데이트 예약과 재시작 복구",
+     "what": "데몬 업데이트 일정을 설정하고 `codex app-server daemon update`로 업데이트할 수 있다. 데몬이 재시작된 뒤 저장된 스레드와 활성 목표를 복구할 수 있다.",
+     "steps": [
+      "데몬 업데이트 일정을 설정한다.",
+      "`codex app-server daemon update`를 실행한다.",
+      "데몬 재시작 뒤 저장된 스레드와 활성 목표를 복구한다."
+     ],
+     "terminal": {
+      "title": "데몬 업데이트",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex app-server daemon update"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "업데이트 일정 설정",
+        "note": "데몬 업데이트 일정을 설정한다.",
+        "changed": true
+       },
+       {
+        "title": "데몬 재시작 뒤 복구",
+        "note": "저장된 스레드와 활성 목표를 복구할 수 있다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "Bedrock AWS 자격 증명 명령",
+     "what": "Amazon Bedrock이 설정된 명령을 통해 AWS 자격 증명을 가져온다. 자격 증명을 캐싱하고 만료를 기준으로 갱신하며 인증 복구를 지원한다.",
+     "steps": [
+      "AWS 자격 증명을 제공하도록 명령을 설정한다.",
+      "Amazon Bedrock 연결에 사용한다.",
+      "만료 기반 갱신과 인증 복구를 이용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
