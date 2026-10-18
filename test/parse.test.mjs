@@ -73,6 +73,11 @@ test("korean notes: schema check and index guard", async () => {
   assert.throws(() => validate({ summary: "s", items: [], features: [{ ...feature, extra: 1 }] }, release, [], "m"), /not allowed/);
   assert.throws(() => validate({ summary: "s", items: [], features: [feature] }, release, [], "m"), /missing Korean item/);
   assert.throws(() => validate({ summary: "s", items: [{ index: 0, ko: "가" }], features: [] }, release, [], "m"), /missing feature detail/);
+  const technicalRelease = { items: [{ cat: "fixed", text: "Added the ability to configure MCP server settings from Codex CLI", surfaces: ["cli"] }] };
+  const copied = { summary: "s", items: [{ index: 0, ko: "추가했다: Added the ability to configure MCP server settings from Codex CLI" }], features: [] };
+  assert.throws(() => validate(copied, technicalRelease, [], "m"), /mostly preserves the English source/);
+  const translated = { ...copied, items: [{ index: 0, ko: "Codex CLI에서 MCP 서버 설정을 구성할 수 있습니다." }] };
+  assert.deepEqual(validate(translated, technicalRelease, [], "m").items, ["Codex CLI에서 MCP 서버 설정을 구성할 수 있습니다."]);
   assert.equal(isCurrentNote({ hash: "h", ko: { model: "claude-haiku-5-5" } }, "h"), false);
   assert.equal(isCurrentNote({ hash: "h", ko: { model: "codex-cloud" } }, "h"), true);
 });

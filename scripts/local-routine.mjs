@@ -4,6 +4,8 @@ import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { validate } from "./ko-notes.mjs";
+import { nearbyShots } from "./parse.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const siteUrl = "https://jjjung0921.github.io/agent-track/";
@@ -43,25 +45,50 @@ async function writeKoreanNotes(checkout, temporary, pending, pendingDir, outDir
   }
 
   const prompt = await readFile(join(checkout, "prompts/routine.md"), "utf8");
-  const results = await Promise.allSettled(groups.map(async (group, index) => {
-    const workspace = join(temporary, `translator-${index + 1}`);
+  async function translate(names, index, model) {
+    const workspace = join(temporary, `translator-${index}`);
     const workerPending = join(workspace, "work/pending");
     const workerOut = join(workspace, "work/out");
     const workerPrompts = join(workspace, "prompts");
     await Promise.all([mkdir(workerPending, { recursive: true }), mkdir(workerOut, { recursive: true }), mkdir(workerPrompts, { recursive: true })]);
     await Promise.all([
-      ...group.names.map((name) => copyFile(join(pendingDir, name), join(workerPending, name))),
+      ...names.map((name) => copyFile(join(pendingDir, name), join(workerPending, name))),
       copyFile(join(checkout, "prompts/ko-notes.md"), join(workerPrompts, "ko-notes.md")),
       copyFile(join(checkout, "prompts/ko-notes.schema.json"), join(workerPrompts, "ko-notes.schema.json")),
     ]);
-    console.log(`Translator ${index + 1}: ${group.names.length} releases, ${group.items} items (${codexModel}).`);
-    await run("codex", ["exec", "--ephemeral", "--skip-git-repo-check", "--sandbox", "workspace-write", "-m", codexModel, "-c", "model_reasoning_effort='medium'", "-C", workspace, "-"], { cwd: workspace, input: prompt });
-    const output = await noteFiles(workerOut);
-    if (JSON.stringify(output) !== JSON.stringify(group.names.sort())) throw new Error(`Translator ${index + 1} output files do not match assigned files`);
-    await Promise.all(group.names.map((name) => copyFile(join(workerOut, name), join(outDir, name))));
-  }));
-  const errors = results.filter((result) => result.status === "rejected");
-  if (errors.length) throw new AggregateError(errors.map((result) => result.reason), `${errors.length} translator(s) failed`);
+    console.log(`Translator ${index}: ${names.length} releases (${model}).`);
+    try {
+      await run("codex", ["exec", "--ephemeral", "--skip-git-repo-check", "--sandbox", "workspace-write", "-m", model, "-c", "model_reasoning_effort='medium'", "-C", workspace, "-"], { cwd: workspace, input: prompt });
+    } finally {
+      const output = await noteFiles(workerOut);
+      await Promise.all(output.filter((name) => names.includes(name)).map((name) => copyFile(join(workerOut, name), join(outDir, name))));
+    }
+  }
+
+  const source = JSON.parse(await readFile(join(checkout, "site/data/releases.json"), "utf8"));
+  const byId = new Map(source.releases.map((release) => [release.id, release]));
+  async function invalid(name) {
+    try {
+      const expected = JSON.parse(await readFile(join(pendingDir, name), "utf8"));
+      const actual = JSON.parse(await readFile(join(outDir, name), "utf8"));
+      if (actual.id !== expected.id || actual.hash !== expected.hash) throw new Error("id or hash mismatch");
+      const release = byId.get(expected.id);
+      validate(actual.output, release, nearbyShots(release, source.screenshots), "codex-cli");
+      return false;
+    } catch (error) {
+      console.warn(`${name}: ${error.message}`);
+      return true;
+    }
+  }
+
+  await Promise.allSettled(groups.map((group, index) => translate(group.names, index + 1, codexModel)));
+  const retry = (await Promise.all(pending.map(async (name) => await invalid(name) ? name : null))).filter(Boolean);
+  if (retry.length) {
+    console.warn(`Retrying ${retry.length} incomplete or invalid releases with gpt-6-sol.`);
+    await Promise.allSettled(retry.map((name, index) => translate([name], `retry-${index + 1}`, "gpt-6-sol")));
+  }
+  const failed = (await Promise.all(pending.map(async (name) => await invalid(name) ? name : null))).filter(Boolean);
+  if (failed.length) throw new Error(`Invalid Korean notes after retry: ${failed.join(", ")}`);
 }
 
 async function main() {

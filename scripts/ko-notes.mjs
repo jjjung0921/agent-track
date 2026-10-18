@@ -21,6 +21,18 @@ export function buildInput(release, screenshots) {
   };
 }
 
+// Catch translations that prepend Korean to a mostly copied English changelog line.
+// Short English tokens are deliberately ignored so product names and identifiers
+// such as MCP, Codex CLI, or VS Code remain usable in Korean prose.
+function mostlyPreservesEnglish(source, translation) {
+  const tokens = (text) => text.toLowerCase().match(/[a-z][a-z0-9]*(?:[._/-][a-z0-9]+)*/g) ?? [];
+  const sourceTokens = tokens(source);
+  if (sourceTokens.length < 4) return false;
+  const translatedTokens = new Set(tokens(translation));
+  const shared = sourceTokens.filter((token) => translatedTokens.has(token)).length;
+  return shared / sourceTokens.length >= 0.8;
+}
+
 // Minimal JSON Schema check for the subset prompts/ko-notes.schema.json uses.
 export function checkShape(value, schema = SCHEMA, path = "$") {
   const errors = [];
@@ -46,7 +58,12 @@ export function validate(out, release, screenshots, model) {
   const n = release.items.length;
   const ids = new Set(screenshots.map((s) => s.id));
   const items = new Array(n).fill(null);
-  for (const it of out.items) if (it.index >= 0 && it.index < n) items[it.index] = it.ko;
+  for (const it of out.items) if (it.index >= 0 && it.index < n) {
+    if (mostlyPreservesEnglish(release.items[it.index].text, it.ko)) {
+      throw new Error(`item ${it.index}: Korean translation mostly preserves the English source`);
+    }
+    items[it.index] = it.ko;
+  }
   if (items.some((item) => item === null)) throw new Error("missing Korean item translation");
   const features = out.features
     .filter((f) => f.index >= 0 && f.index < n)

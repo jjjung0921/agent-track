@@ -25,7 +25,7 @@ Claude Code와 Codex의 업데이트를 한 타임라인에 모아 보여주는 
 
 - 분류(새 기능·개선·변경·수정)는 원문에서 정한다. Claude Code는 줄머리 동사(Added, Improved, Fixed, 그 밖은 변경), Codex는 절 제목(New Features, Bug Fixes …)과 항목의 동사를 사용한다. GitHub 릴리스의 `## Changelog` PR 목록은 사용자 변경 설명과 구분해 제외한다.
 - 적용 위치(터미널·데스크톱 앱·VS Code·SDK)는 원문 키워드로 붙인다.
-- 한국어 요약·설명·사용 예시는 릴리스 원문을 바탕으로 작성한다. Mac 로그인 시와 로그인 상태에서 6시간마다 로컬 작업이 최신 릴리스를 확인하고, 미작성 항목이 있을 때만 Codex CLI의 GPT-6-Luna 모델로 분할된 작업을 병렬 실행해 [`prompts/routine.md`](prompts/routine.md)의 절차로 `data/ko.json`에 저장한다. 변경분을 `main`에 푸시하면 GitHub Actions가 사이트를 배포한다. Codex 작성분이 없으면 원문을 보여준다. 원문 항목이 바뀌지 않은 기존 Codex 작성분은 재사용한다.
+- 한국어 요약·설명·사용 예시는 릴리스 원문을 바탕으로 작성한다. Mac 로그인 시와 로그인 상태에서 6시간마다 로컬 작업이 최신 릴리스를 확인하고, 미작성 항목이 있을 때만 Codex CLI의 GPT-6-Luna 모델로 분할된 작업을 병렬 실행한다. 결과가 누락되거나 검증에 실패한 항목은 GPT-6-Sol로 개별 재시도한 뒤 [`prompts/routine.md`](prompts/routine.md)의 절차로 `data/ko.json`에 저장한다. 변경분을 `main`에 푸시하면 GitHub Actions가 사이트를 배포한다. Codex 작성분이 없으면 원문을 보여준다. 원문 항목이 바뀌지 않은 기존 Codex 작성분은 재사용한다.
 - 규칙과 출력 형식은 `prompts/ko-notes.md`, `prompts/ko-notes.schema.json` 한곳에 있고, `scripts/apply-ko.mjs`가 형식·인덱스를 검사한 뒤에만 반영한다.
 
 ## 실행
