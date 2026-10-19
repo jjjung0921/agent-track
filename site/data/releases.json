@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T06:56:54.032Z",
+ "generatedAt": "2026-10-19T07:02:42.694Z",
  "releases": [
   {
    "id": "claude-code@2.1.303",
@@ -69835,7 +69835,140 @@
     }
    ],
    "hash": "90571389e0ed",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "TUI 조작, 관리자 설정, 원격 제어, 플러그인 목록 기능이 확장된다. 도구 실행과 멀티 에이전트 흐름도 개선된다.",
+    "items": [
+     "TUI에서 F13~F24 키 바인딩, 검색 메뉴 붙여넣기, 간결한 추론 전용 상태·제목 항목을 지원한다.",
+     "기업·관리자 흐름에 월간 크레딧 한도가 표시되고 EDU 워크스페이스를 포함한 클라우드 관리 설정 묶음을 적용할 수 있다.",
+     "원격 제어 클라이언트가 app-server v2 RPC로 페어링을 시작하고 제어 권한을 조회·철회할 수 있다.",
+     "`codex plugin list --json` 출력과 캐시된 원격 카탈로그 추천을 지원한다.",
+     "더 많은 코드 모드 흐름에서 호스팅 웹·이미지 도구를 쓸 수 있고 독립 웹 검색을 병렬 실행할 수 있다.",
+     "멀티 에이전트 v2가 스레드별 런타임 선택을 유지하고 생성된 에이전트의 후속 작업·메타데이터 기본값을 정리한다.",
+     "출력 전에 제출한 프롬프트를 취소하면 초안, 첨부 파일, 협업 모드가 편집 상태로 복원된다.",
+     "슬래시 명령 필터와 푸터 단축키 안내가 현재 UI 상태에 맞게 초기화·표시된다.",
+     "macOS 앱 실행과 Windows SQLite 시작·스레드 재개·샌드박스 설정 갱신의 안정성이 개선된다.",
+     "플러그인 로딩에서 앱 매니페스트 순서를 보존하고 로컬·원격 추천 설치를 중복 제거하며 잘못된 `skills` 필드는 경고로 처리한다.",
+     "권한 요청·승인에 환경 식별 정보가 포함되고 관리형 MITM 프록시가 자식 명령에 읽을 수 있는 CA 묶음을 제공한다.",
+     "압축된 롤아웃, 바뀐 제목, 경로 없는 사이드 채팅 재로드, 스택 사용량이 큰 시작·설정 재구축에서 로컬 세션 기록 처리가 개선된다.",
+     "월간 크레딧 한도, 원격 제어 RPC, 환경별 권한 승인을 위한 app-server 문서와 생성 스키마를 갱신한다.",
+     "저장소 리뷰 규칙과 기여 관례를 Rust 테스트 모듈 배치·Python 3 호환성 지침과 함께 `AGENTS.md`로 옮긴다.",
+     "루트 포매팅과 Justfile 작업 흐름을 보강하고 Windows 환경을 고려한다.",
+     "Rust CI·릴리스에서 간헐적인 libgit2·서브모듈 실패를 피하도록 Cargo 가져오기에 git CLI를 사용한다.",
+     "Python SDK 릴리스가 SDK 작업 흐름에서 런타임 wheel을 게시하고 glibc 호환 런타임 패키지 버전을 고정한다.",
+     "Windows에서 안전한 프로세스 처리와 검증을 갖춘 Bazel CI BuildBuddy 래퍼를 다시 도입한다.",
+     "공유 프롬프트·컨텍스트 조각·스킬 연결 코드를 전용 크레이트와 확장 경로로 옮겨 `codex-core`와의 결합을 줄인다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "TUI 조작 확장",
+      "what": "TUI 조작에서 F13~F24 키 바인딩과 검색 가능한 메뉴에 붙여넣기를 지원한다. 추론 전용 상태·제목 항목도 간결하게 표시된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "기업·관리자 설정",
+      "what": "기업·관리자 흐름에서 월간 크레딧 한도를 표시한다. EDU 워크스페이스를 포함해 클라우드 관리 설정 묶음을 적용할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "원격 제어 권한 관리",
+      "what": "원격 제어 클라이언트가 app-server v2 RPC로 페어링을 시작할 수 있다. 제어 권한 목록을 조회하거나 권한을 철회할 수도 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "플러그인 목록과 추천",
+      "what": "`codex plugin list --json`으로 플러그인 목록을 기계가 읽을 수 있는 형식으로 출력한다. 원격 카탈로그 추천은 캐시된다.",
+      "steps": [],
+      "terminal": {
+       "title": "플러그인 목록",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex plugin list --json"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 4,
+      "title": "코드 모드 도구 확장",
+      "what": "호스팅 웹·이미지 도구를 더 많은 코드 모드 흐름에서 사용할 수 있다. 독립적인 웹 검색은 병렬 실행이 가능하다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "멀티 에이전트 v2",
+      "what": "멀티 에이전트 v2에서는 각 스레드가 자신의 런타임 선택을 유지한다. 생성된 에이전트의 후속 작업과 메타데이터 기본값도 정리된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-04-app",
@@ -69894,7 +70027,88 @@
     }
    ],
    "hash": "0535cd9c0c9f",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex 앱 프로필에 활동 인사이트와 공유 카드가 추가되고 온보딩 역할 선택지가 늘어난다. Computer Use 준비 상태와 앱샷 오류 보고도 개선된다.",
+    "items": [
+     "프로필에서 Codex 사용 하이라이트를 확인하고 프로필 카드를 저장할 수 있다. 공유는 개인 ChatGPT 요금제에서 제공된다.",
+     "Computer Use 시작 준비와 앱샷 오류 보고를 개선한다.",
+     "전체 화면 브라우저 작성기 조작, 16진 색상 견본, 터미널 스크롤바 정렬, 애니메이션 diff 통계 정렬 문제를 수정한다.",
+     "온보딩 역할 선택지를 늘려 첫 실행 제안을 더 정확히 맞춘다.",
+     "플러그인 설치 뒤 설정 파일 쓰기 문제를 수정한다.",
+     "성능을 추가로 개선하고 버그를 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "프로필 활동 인사이트와 공유 카드",
+      "what": "프로필에서 Codex 사용 하이라이트를 확인하고 프로필 카드를 저장할 수 있다. 공유 기능은 개인 ChatGPT 요금제에서 제공된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Computer Use 시작 및 앱샷 오류 보고",
+      "what": "Computer Use의 시작 준비 과정과 앱샷 오류 보고를 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "온보딩 역할 선택",
+      "what": "온보딩에서 선택할 수 있는 역할이 늘어난다. Codex는 이를 바탕으로 첫 실행 제안을 더 정확히 맞춘다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "성능 및 버그 수정",
+      "what": "추가 성능 개선과 버그 수정을 포함한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.162",
@@ -70102,7 +70316,41 @@
     }
    ],
    "hash": "d26ea2d61b54",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "세션 상태 확인, 검색 도구 지정, 슬래시 명령 선택과 시작 안내를 개선한다. 권한 규칙, 읽기 전용 설정 디렉터리, 에이전트 세션 처리 등 여러 문제를 수정한다.",
+    "items": [
+     "`claude agents --json`에 대기 세션의 차단 사유를 나타내는 `waitingFor`를 추가한다(예: 권한 요청).",
+     "네이티브 빌드에서 `--tools`에 Grep/Glob을 명시하면 전용 검색 도구를 제공한다.",
+     "`/effort`는 선택한 수준이 새 세션의 기본값으로 유지되는지 확인해 준다.",
+     "자동 완성 메뉴에서 슬래시 명령을 클릭하면 즉시 실행하지 않고 프롬프트에 채운다. 실행하려면 Enter를 누른다.",
+     "Remote Control을 시작 메시지 대신 세션 링크가 있는 지속적 푸터 표시로 보여준다.",
+     "에디터 브랜드 변경에 따라 `/ide`, `/terminal-setup`, `/scroll-speed` 메뉴의 Windsurf 이름을 Devin Desktop으로 변경한다.",
+     "설정 디렉터리가 읽기 전용이거나 쓸 수 없을 때 시작이 멈추던 문제를 수정한다. 메모리 설정으로 시작하고 시작 오류를 표시한다.",
+     "기본 허용 도메인에 대한 WebFetch 권한 규칙 적용 문제를 수정한다. 명시적 `WebFetch(domain:...)` deny/ask/allow 규칙이 자동 허용보다 우선한다.",
+     "역슬래시 또는 대소문자 차이가 있는 Windows 경로 권한 규칙과 Read deny가 Glob/Grep 결과에 적용되지 않던 문제를 수정한다.",
+     "stream-json/SDK 세션에서 턴 시작 직후 Esc 인터럽트가 무시되고 피드백 없이 실행이 계속되던 문제를 수정한다.",
+     "잘림 경계 부근 이모지가 있는 분류기 사이드 질의 및 MCP 서버 설명에서 API 400 surrogate 오류가 나던 문제를 수정한다.",
+     "MCP 서버별 1000ms 미만 `timeout`이 매 호출을 중단하던 문제를 수정한다. 해당 값은 무시되고 `MCP_TOOL_TIMEOUT` 또는 기본값을 사용하며 `claude mcp get`이 이를 표시한다.",
+     "LSP `workspaceSymbol`이 결과를 반환하지 않던 문제를 수정하고 `query`를 받아 언어 서버에 전달한다.",
+     "넓은 터미널에서 `claude agents` 상태 세부 내용이 잘리던 문제를 수정해 전체 폭을 사용한다.",
+     "`claude agents`가 긴 세션 이름을 40열에서 자르던 문제를 수정해 터미널 너비에 따라 이름 열을 늘린다.",
+     "백그라운드 서비스 재시작 뒤 `claude agents` 연결이 첫 시도에 세션 목록으로 되돌아가던 문제를 수정한다.",
+     "`claude agents` 입력란에서 Ctrl+V 이미지 붙여넣기가 작동하지 않던 문제를 수정하고 이미지 없이 붙일 때 안내를 표시한다.",
+     "백그라운드 서비스를 시작할 수 없어도 왼쪽 화살표로 백그라운드 처리한 세션이 사라지지 않도록 수정한다. 실패 행으로 남아 Enter로 깨울 수 있다.",
+     "에이전트 화면에서 보내지 못한 답변을 잃지 않고 다음 세션 시작 때 전달 대기열에 넣는다.",
+     "`CLAUDE_CODE_TMPDIR` 또는 `$TMPDIR`이 깊은 경로일 때 세션 간 `SendMessage`가 실패하던 문제를 수정한다.",
+     "`claude agents`에서 실행 중인 백그라운드 세션을 열 때 연결 전 5초 멈추던 문제를 수정한다.",
+     "시작 알림을 심각도별로 묶고 세션 정보와 공지를 실행당 한 줄로 표시한다.",
+     "시작 경고를 짧고 명확하게 고치고 각각 구체적인 해결책을 제공한다.",
+     "실행 프롬프트 경고가 조치할 때까지 입력란 아래 고정되도록 변경한다.",
+     "실패한 턴을 여러 줄의 빨간 오류 블록 대신 간결한 경고 한 줄로 표시한다.",
+     "새 바이너리의 엔드포인트 보안 검사가 끝날 때까지 백그라운드 서비스 시작과 `claude update` 검증이 기다리도록 개선한다.",
+     "errno가 없을 때 백그라운드 디스패치 생성 실패에 오류 클래스 이름을 표시한다.",
+     "시작 시 Claude in Chrome 및 마켓플레이스 설치 메시지를 제거한다. 모델 자동 업데이트와 팀 온보딩 팁은 로고 아래 조용한 알림으로 표시한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.161",
@@ -70268,7 +70516,61 @@
     }
    ],
    "hash": "10a2922fc9b8",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "메트릭에 사용자 지정 레이블이 추가되고, 병렬 도구 호출의 실패가 같은 배치의 다른 호출을 취소하지 않게 됐다. MCP 비밀 값 노출과 백그라운드 세션 관련 문제도 수정했다.",
+    "items": [
+     "`OTEL_RESOURCE_ATTRIBUTES` 값이 메트릭 데이터 포인트의 레이블에 포함되어 팀·저장소 같은 사용자 지정 차원으로 사용량을 나눠 볼 수 있다.",
+     "작업을 분산하면 `claude agents` 행에서 상세 내용 앞에 `done/total`이 표시되고, 미리보기에는 가장 오래 실행된 항목이 나온다.",
+     "`/mcp`에서 로그인한 적 없는 claude.ai 커넥터는 \"Show unused connectors\" 행 아래로 접힌다.",
+     "같은 배치의 병렬 도구 호출에서 Bash 명령이 실패해도 다른 호출은 취소되지 않고 각각 결과를 반환한다.",
+     "Linux 전체 화면 모드에서 사용 가능한 `wl-copy`·`xclip`·`xsel`을 사용하고 클립보드와 PRIMARY 선택 영역에 함께 복사한다. 기본 선택 키 안내도 터미널에 맞게 표시된다.",
+     "`/effort` 대화상자, 워크플로 애니메이션, 프롬프트 키워드 효과가 \"Reduce motion\" 설정을 따르지 않던 문제를 수정했다.",
+     "`forceLoginOrgUUID`·`forceLoginMethod` 관리 정책이 조직 고정과 함께 Bedrock·Vertex·Foundry·Mantle 세션까지 차단하던 2.1.146 회귀를 수정했다.",
+     "백그라운드 하위 에이전트 출력이 `--output-format text` 또는 `json`을 쓰는 `claude -p`의 표준 출력을 손상시키던 문제를 수정했다.",
+     "Team·Enterprise 관리자에게 `/usage-credits`가 조직의 사용량 설정 페이지 대신 재로그인을 시작하던 문제를 수정했다.",
+     "git worktree나 다른 저장소 안의 세션에서 `/autofix-pr`이 \"cannot run on the default branch\"라고 잘못 알리던 문제를 수정했다.",
+     "현재 디렉터리가 git worktree가 아닐 때 `--resume` 선택기에 해당 디렉터리의 세션이 표시되지 않던 문제를 수정했다.",
+     "Windows에서 bash를 명시적으로 호출하는 훅이 \"command not found\" 또는 \"cannot execute binary file\"로 실패하던 문제를 수정했다.",
+     "텔레메트리 초기화 전에 발생한 OpenTelemetry 로그 이벤트 `user_prompt`·`api_request`·`tool_result`·`tool_decision`이 누락되던 문제를 수정했다.",
+     "`claude mcp`의 list/get/add 출력에서 비밀 값이 노출되던 문제를 수정했다. `${VAR}` 참조는 확장하지 않고 인증 헤더와 URL 비밀 값은 가린다.",
+     "백그라운드 세션에서 `isolation: \"worktree\"`로 생성된 Workflow 에이전트가 자기 worktree의 파일을 편집하지 못하던 문제를 수정했다.",
+     "`claude agents`에서 시작한 백그라운드 세션이 `settings.json` 대신 데몬 환경의 오래된 모델을 사용하던 문제를 수정했다.",
+     "세션 재개 후 Write 도구 결과를 렌더링할 때 발생할 수 있는 충돌을 수정했다.",
+     "결과 마무리 중 오류가 나면 완료된 하위 에이전트가 실행 중으로 표시되던 문제를 수정했다.",
+     "`CLAUDE_CODE_TMPDIR`가 깊은 경로일 때 `$TMPDIR` 아래 Unix 소켓을 사용하는 도구에서 발생하던 `EADDRINUSE` 오류를 수정했다.",
+     "레이아웃 엔진의 JIT 컴파일 프로필을 안정화해 터미널 렌더링 성능을 개선했다.",
+     "큰 파일을 쓸 때의 렌더링 성능을 개선했다.",
+     "VS Code에서 글리프가 깨지면 터미널 GPU 가속을 끄거나 `/terminal-setup`을 실행하라는 안내를 추가했다."
+    ],
+    "features": [
+     {
+      "index": 21,
+      "title": "VS Code 글리프 깨짐 해결 안내",
+      "what": "VS Code에서 글리프가 깨질 때 해결 방법을 제안하는 안내가 추가됐다. 안내는 터미널 GPU 가속을 끄거나 `/terminal-setup`을 실행하라고 제안한다.",
+      "steps": [
+       "VS Code에서 글리프가 깨지는 경우 안내를 확인한다.",
+       "터미널 GPU 가속을 끄거나 `/terminal-setup`을 실행한다."
+      ],
+      "terminal": {
+       "title": "터미널 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /terminal-setup"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-02",
@@ -70306,7 +70608,79 @@
     }
    ],
    "hash": "6c49b12a1e4c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex 앱 미리보기에서 Sites로 웹 프로젝트를 만들고 저장·배포·검사할 수 있다. 앱 사이드바에서 프로젝트와 호스팅 환경 변수·시크릿을 관리하며 이용 가능 여부는 ChatGPT 플랜과 역할 권한에 따라 달라진다.",
+    "items": [
+     "Sites가 Codex 앱에서 미리보기로 제공된다. Sites 플러그인으로 OpenAI 호스팅 웹사이트, 대시보드, 내부 도구, 웹 앱, 게임을 만들고 저장·배포·검사할 수 있다.",
+     "앱 사이드바에서 Sites를 열어 프로젝트로 돌아가고 호스팅 환경 변수와 시크릿을 관리한다.",
+     "ChatGPT Business 워크스페이스에는 Sites가 기본 포함된다. ChatGPT Enterprise 관리자는 역할 기반 접근 제어(RBAC)로 해당 역할에 Sites를 활성화할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Sites 미리보기",
+      "what": "Sites가 Codex 앱에서 미리보기로 제공된다. Sites 플러그인으로 OpenAI가 호스팅하는 웹사이트, 대시보드, 내부 도구, 웹 앱, 게임을 만들고 저장·배포·검사할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "프로젝트 및 호스팅 설정 관리",
+      "what": "앱 사이드바에서 Sites를 열어 프로젝트로 돌아갈 수 있다. 호스팅 환경 변수와 시크릿도 관리할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "Sites 열기",
+         "note": "앱 사이드바에서 Sites를 연다.",
+         "changed": false
+        },
+        {
+         "title": "프로젝트 관리",
+         "note": "프로젝트로 돌아가 호스팅 환경 변수와 시크릿을 관리한다.",
+         "changed": false
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "플랜별 Sites 제공 및 권한",
+      "what": "ChatGPT Business 워크스페이스에는 Sites가 기본 포함된다. ChatGPT Enterprise 관리자는 역할 기반 접근 제어(RBAC)로 적절한 역할에 Sites를 활성화할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-02-mobile",
@@ -70365,7 +70739,93 @@
     }
    ],
    "hash": "d0f7475c2067",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex 모바일에 Face ID·암호 잠금, 후속 동작 설정, Windows SSH 연결과 사이드 대화가 추가된다. 코드 diff 줄바꿈 설정도 새 설정 화면에서 바꿀 수 있다.",
+    "items": [
+     "Codex에 Face ID 또는 암호 잠금 선택 기능이 추가된다.",
+     "후속 동작 기본값(Queue 또는 Steer)과 코드 diff 줄바꿈을 선택하는 설정 화면이 추가된다.",
+     "Windows 머신에 SSH로 연결할 수 있다.",
+     "초기 질문을 포함해 사이드 대화를 시작하는 `/side <prompt>`를 지원한다.",
+     "후속 프롬프트, Codex 홈 화면, 변경 파일 보기가 개선된다.",
+     "재연결, 스레드 보관, 작업 로딩, 호스트 연결 문제를 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "앱 잠금",
+      "what": "Codex에 Face ID 또는 암호 잠금을 선택적으로 설정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "후속 동작 및 diff 설정",
+      "what": "새 설정 화면에서 후속 동작 기본값으로 Queue 또는 Steer를 선택하고 코드 diff 줄바꿈을 켜거나 끌 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "Windows SSH 연결",
+      "what": "Windows 머신에 SSH로 연결하는 기능을 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "사이드 대화 시작",
+      "what": "`/side <prompt>`에 초기 질문을 지정해 사이드 대화를 시작할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/side <prompt>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.160",
@@ -70566,7 +71026,75 @@
     }
    ],
    "hash": "9714a36d83da",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "셸 시작 파일과 Git 설정 디렉터리 쓰기 전에 확인을 요청한다. 백그라운드 세션 복원과 터미널 입력·표시 관련 오류도 수정한다.",
+    "items": [
+     "`.zshenv`, `.zlogin`, `.bash_login`, `~/.config/git/`에 쓰기 전에 확인을 요청한다.",
+     "`acceptEdits` 모드에서도 코드 실행을 허용하는 `.npmrc`, `.yarnrc*`, `bunfig.toml`, `.bazelrc`, `.pre-commit-config.yaml`, `.devcontainer/` 등의 설정 파일에 쓰기 전에 확인을 요청한다.",
+     "단일 파일에 `grep`, `egrep`, `fgrep`를 실행했다면 별도 Read 없이 Edit의 사전 읽기 검사를 통과한다.",
+     "WSL에서 선택 항목 복사가 Windows 클립보드에 기록되지 않던 문제를 PowerShell 연동으로 수정한다.",
+     "`claude agents`에서 완료된 세션을 복원할 때 대화 기록이 사라지고 최초 프롬프트가 다시 실행되던 문제를 수정한다.",
+     "야간 종료 후 백그라운드 세션에 다시 연결할 때 대화가 사라지고 최초 프롬프트가 다시 실행되던 문제를 수정한다.",
+     "부하가 높은 기기에서 백그라운드 데몬이 시작되는 동안 `claude --bg`가 간혹 ‘socket missing’으로 실패하던 문제를 수정한다.",
+     "Windows에서 `claude rm` 후에도 백그라운드 데몬이 종료될 때까지 세션 시작 디렉터리를 삭제할 수 없던 문제를 수정한다.",
+     "작업을 재개한 백그라운드 에이전트가 에이전트 목록의 Completed에 표시되던 문제를 수정한다.",
+     "자동 업데이트를 종료할 때마다 재검사해 `claude agents`에서 세션 목록으로 돌아가는 데 수초씩 걸리던 문제를 수정한다.",
+     "Windows에서 CPU 부하가 높을 때 백그라운드 세션이나 에이전트 보기에서 Esc, 화살표 키, 입력이 응답하지 않던 문제를 수정한다.",
+     "Apple Terminal과 tmux에서 백그라운드 에이전트의 미지원 터미널 동기화 출력 마커가 표시 오류를 일으키던 문제를 수정한다.",
+     "에이전트 목록에서 세션을 연 직후 마우스 휠이 대화 기록 대신 프롬프트 기록을 스크롤하던 문제를 수정한다.",
+     "`claude agents` 보기에서 CJK 입력기 조합 글자가 입력 커서 대신 화면 왼쪽 아래에 나타나던 문제를 수정한다.",
+     "하이퍼링크를 지원하는 Windows 터미널에서 유효한 `file:///C:/...` 링크가 잘못된 경로로 바뀌던 문제를 수정한다.",
+     "프로젝트 디렉터리나 브랜치 이름에 비 ASCII 문자 또는 특수 문자가 있을 때 음성 모드 연결이 실패하던 문제를 수정한다.",
+     "Bedrock, Vertex, Foundry에서 자동 모드를 쓸 수 없다는 메시지가 모델 대신 `CLAUDE_CODE_ENABLE_AUTO_MODE` 활성화를 안내한다.",
+     "xhigh를 지원하지 않는 모델에서는 `/effort ultracode`를 제공하지 않고, 동적 워크플로 설정을 잘못 탓하던 안내를 수정한다.",
+     "SDK 등 CLI 플래그를 쓸 수 없는 환경에서 모델을 찾지 못했을 때 `--model`을 제안하던 문제를 수정한다.",
+     "brief 모드를 끈 채 brief 모드 세션을 재개하면 Claude의 이전 답변이 스크롤 기록에서 사라지던 문제를 수정한다.",
+     "vim 모드에서 `v$`로 복사한 뒤 `p`를 누르면 커서 위치 대신 아랫줄에 붙여넣던 문제를 수정한다.",
+     "`claude agents`에서 최근 비활성 상태였던 백그라운드 에이전트 세션을 여는 성능을 개선한다.",
+     "일상적인 작업의 추론을 줄여 자동 모드 분류 지연과 ‘could not evaluate this action’ 차단 가능성을 낮춘다.",
+     "`claude rm`, `stop`, 유휴 세션 정리 시 실행 중인 셸 하위 프로세스에 SIGKILL 전에 SIGTERM을 보내 정리 핸들러가 실행되게 한다.",
+     "`CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`를 제거해 환경 변수가 더 이상 작동하지 않는다.",
+     "시작할 때 표시되던 JetBrains 플러그인 설치 제안을 제거한다.",
+     "동적 워크플로 트리거 단어를 `workflow`에서 `ultracode`로 바꾼다. `workflow`는 더 이상 실행을 트리거하지 않고, 입력창에서 트리거 단어를 보라색으로 강조한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "셸 시작 파일과 Git 설정 쓰기 전 확인",
+      "what": "`.zshenv`, `.zlogin`, `.bash_login`, `~/.config/git/`에 쓰기 전에 확인을 요청한다. 이 파일이나 디렉터리에 쓰면 의도하지 않은 명령 실행으로 이어질 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 25,
+      "title": "JetBrains 플러그인 설치 제안 제거",
+      "what": "시작할 때 표시되던 JetBrains 플러그인 설치 제안을 제거한다. 시작 과정에서 해당 제안이 더 이상 표시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.136.0",
@@ -70733,7 +71261,170 @@
     }
    ],
    "hash": "4623f7e4d7ec",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "TUI 링크와 좁은 표 표시를 개선하고 세션 보관 기능을 추가한다. 원격 실행·앱 서버·Windows 샌드박스 설정을 확장하며 인증, 안전성, TUI와 서버 동작을 수정한다.",
+    "items": [
+     "TUI Markdown 웹 링크는 OSC 8 메타데이터로 클릭할 수 있고 좁은 표는 링크 대상을 보존한 키-값 형식으로 표시된다.",
+     "TUI의 `/archive` 또는 CLI의 `codex archive`와 `codex unarchive`로 세션을 보관·복원한다. 보관 세션은 복원 전까지 재개하거나 포크할 수 없다.",
+     "앱 서버 연동은 초기 턴 페이지를 포함해 스레드를 재개하고 더 자세한 MCP 서버 상태를 제공하며 `codex app-server --stdio`를 지원한다.",
+     "승인된 OpenAI 호스트에 `CODEX_API_KEY` 등록을 지원한다. 원격 제어 웹소켓은 ChatGPT 액세스 토큰 대신 단기 서버 토큰을 사용한다.",
+     "Windows 관리자는 알파 단계의 `codex sandbox setup --elevated` 경로와 허용 Windows 샌드박스 구현 요구사항을 사용할 수 있다.",
+     "기능 게이트 적용 독립 이미지 생성 확장이 네이티브 Codex 이미지 아티팩트 완료 파이프라인으로 실행된다.",
+     "ChatGPT 인증은 만료 5분 전 토큰을 갱신하고 재사용 갱신 토큰에는 재로그인 필요 경로를 표시한다.",
+     "`/diff`가 저장소 제공 Git 헬퍼와 훅을 실행하지 않게 하고 비 Windows 호스트의 PowerShell 파서 실행 및 브라우저 출처 exec-server 웹소켓 핸드셰이크를 차단한다.",
+     "중단 또는 거부된 Windows 네트워크 시도 뒤 샌드박스 명령 정리를 개선하고 안전 명령 및 승인 우회에서도 `deny` 읽기 규칙을 적용한다.",
+     "재개된 TUI 세션의 프롬프트 기록, 여러 줄 훅 출력, Vim 일반 모드 편집을 수정한다.",
+     "앱 서버 파일 감시자의 후속 배치 디바운싱과 독립 웹 검색 완료 상태 표시·복원을 수정한다.",
+     "Bedrock 인증이 `AWS_REGION` 또는 `AWS_DEFAULT_REGION`을 대체 경로로 사용하고 미지원 GPT 서비스 등급을 알리거나 보내지 않는다.",
+     "Python SDK 베타 문서와 패키지 메타데이터에 표준 설치 경로, 최신 시작 안내, API 참조, FAQ, 예제를 반영한다.",
+     "Python SDK 예제와 문서에서 `Codex` 및 `AsyncCodex` 설정에 공개 이름 `CodexConfig`를 사용한다.",
+     "내장 OpenAI Docs 스킬에 최신 Codex 매뉴얼 라우팅과 캐시된 매뉴얼 가져오기 도우미를 반영한다.",
+     "내장 도구 스키마 설명에 기본값, 선택 필드, 범위, 열거값을 명확히 한다.",
+     "앱 서버와 exec-server 문서에 API 키 원격 등록, `--stdio`, 런타임 추가 스킬 경로, 원격 제어 서버 토큰 동작을 설명한다.",
+     "Python SDK를 `python-v*` 태그로 런타임과 독립 준비·배포하며 검토된 런타임 의존성 고정을 유지한다.",
+     "MCP 의존성을 `rmcp` 1.7.0으로 업데이트하고 호환성 코드를 갱신한다.",
+     "Bedrock 카탈로그를 갱신해 GPT-5.5를 포함하고 미지원 OSS 항목을 제거하며 GPT 모델은 기본 등급만 사용한다.",
+     "오래된 앱 서버 디버그 클라이언트를 제거하고 작업 공간을 정리한다.",
+     "Bazel Windows 작업을 Codex 러너로 옮기고 libubsan 우회 처리를 제거하며 musl 빌더를 깨뜨린 시작 벤치마크를 되돌린다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "TUI 링크와 표 표시",
+      "what": "웹 링크는 OSC 8 메타데이터로 클릭 가능하게 유지된다. 좁은 표는 링크 대상을 보존하는 키-값 형식으로 표시된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "세션 보관과 복원",
+      "what": "TUI에서는 `/archive`, CLI에서는 `codex archive`로 보관하고 `codex unarchive`로 복원한다. 보관 세션은 복원 전까지 재개하거나 포크할 수 없다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/archive"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ codex archive"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ codex unarchive"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "앱 서버 연동",
+      "what": "초기 턴 페이지를 포함한 스레드 재개와 자세한 MCP 서버 상태를 제공한다. stdio 모드는 다음 명령으로 실행한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex app-server --stdio"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "원격 실행 인증",
+      "what": "승인된 OpenAI 호스트에서 `CODEX_API_KEY` 등록을 지원한다. 원격 제어 웹소켓은 단기 서버 토큰을 사용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "환경 변수 이름만 원문에 있으며 값은 제공되지 않았다."
+        },
+        {
+         "kind": "hl",
+         "text": "CODEX_API_KEY"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "Windows 샌드박스 설정",
+      "what": "Windows 관리자는 알파 단계의 승격 설정 경로를 사용할 수 있고 허용할 Windows 샌드박스 구현을 지정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex sandbox setup --elevated"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "이미지 생성 확장",
+      "what": "기능 게이트가 적용된 독립 이미지 생성 확장이 네이티브 Codex 이미지 아티팩트 완료 파이프라인을 통해 실행된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-01",
