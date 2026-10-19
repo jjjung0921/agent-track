@@ -1,4 +1,4 @@
-// Install or remove the per-user macOS login and six-hour LaunchAgent.
+// Install or remove the per-user macOS login and one-minute LaunchAgent.
 import { execFileSync } from "node:child_process";
 import { mkdir, writeFile, rm } from "node:fs/promises";
 import { homedir } from "node:os";
@@ -27,14 +27,14 @@ if (process.argv.includes("--uninstall")) {
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
   <key>Label</key><string>${xml(label)}</string>
-  <key>ProgramArguments</key><array><string>${xml(node)}</string><string>${xml(join(root, "scripts/local-routine.mjs"))}</string></array>
+  <key>ProgramArguments</key><array><string>${xml(node)}</string><string>${xml(join(root, "scripts/local-routine.mjs"))}</string><string>--scheduled</string></array>
   <key>EnvironmentVariables</key><dict><key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string></dict>
   <key>RunAtLoad</key><true/>
-  <key>StartInterval</key><integer>21600</integer>
+  <key>StartInterval</key><integer>60</integer>
   <key>StandardOutPath</key><string>${xml(join(logDir, "routine.log"))}</string>
   <key>StandardErrorPath</key><string>${xml(join(logDir, "routine-error.log"))}</string>
 </dict></plist>
 `);
   execFileSync("launchctl", ["bootstrap", domain, plist]);
-  console.log(`Installed ${plist}; it runs now and every six hours while logged in.`);
+  console.log(`Installed ${plist}; it checks for new source commits every minute while logged in.`);
 }

@@ -1,16 +1,17 @@
 // Run from launchd or a terminal. All generated work stays in a disposable clone.
 import { spawn } from "node:child_process";
 import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { homedir, tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { validate } from "./ko-notes.mjs";
+import { isCurrentNote, validate } from "./ko-notes.mjs";
 import { nearbyShots } from "./parse.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const siteUrl = "https://jjjung0921.github.io/agent-track/";
 const codexModel = "gpt-6-luna";
 const workerCount = 2;
+const lastProcessed = join(homedir(), "Library/Caches/agent-track/last-processed-head");
 
 function run(command, args, { cwd = root, env = process.env, input, capture = false } = {}) {
   return new Promise((resolve, reject) => {
@@ -93,6 +94,16 @@ async function writeKoreanNotes(checkout, temporary, pending, pendingDir, outDir
 
 async function main() {
   const remote = await run("git", ["remote", "get-url", "origin"], { capture: true });
+  if (process.argv.includes("--scheduled")) {
+    const remoteRef = await run("git", ["ls-remote", remote, "refs/heads/main"], { capture: true });
+    const remoteHead = remoteRef.split(/\s+/)[0];
+    if (!/^[0-9a-f]{40}$/.test(remoteHead)) throw new Error("Cannot read origin/main commit");
+    const previous = (await readFile(lastProcessed, "utf8").catch(() => "")).trim();
+    if (remoteHead === previous) {
+      console.log("Remote main unchanged; no translation check needed.");
+      return;
+    }
+  }
   const temporary = await mkdtemp(join(tmpdir(), "agent-track-"));
   const checkout = join(temporary, "repo");
   let completed = false;
@@ -169,8 +180,21 @@ async function main() {
       }
     }
   } finally {
-    if (completed) await rm(temporary, { recursive: true, force: true });
-    else console.error(`Preserved generated files at ${checkout}`);
+    if (completed) {
+      try {
+        const releases = JSON.parse(await readFile(join(checkout, "site/data/releases.json"), "utf8"));
+        const notes = JSON.parse(await readFile(join(checkout, "data/ko.json"), "utf8"));
+        const hasPending = releases.releases.some((release) => release.items.length && !isCurrentNote(notes[release.id], release.hash));
+        if (!hasPending) {
+          const processedHead = await run("git", ["rev-parse", "HEAD"], { cwd: checkout, capture: true });
+          await mkdir(dirname(lastProcessed), { recursive: true });
+          await writeFile(lastProcessed, `${processedHead}\n`);
+        }
+      } catch (error) {
+        console.warn(`Could not record processed commit: ${error.message}`);
+      }
+      await rm(temporary, { recursive: true, force: true });
+    } else console.error(`Preserved generated files at ${checkout}`);
   }
 }
 
