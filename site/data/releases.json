@@ -1,7 +1,26 @@
 {
- "generatedAt": "2026-10-18T20:52:35.743Z",
+ "generatedAt": "2026-10-19T04:51:21.867Z",
  "windowDays": 90,
  "releases": [
+  {
+   "id": "claude-code@2.1.303",
+   "tool": "claude-code",
+   "version": "2.1.303",
+   "date": "2026-10-18T21:15:23.178Z",
+   "prerelease": false,
+   "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21303",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Bug fixes and reliability improvements",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "c5a5ee9c7fc5",
+   "ko": null
+  },
   {
    "id": "claude-code@2.1.302",
    "tool": "claude-code",
