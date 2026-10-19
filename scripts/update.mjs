@@ -9,10 +9,8 @@ const FEED = new URL("../site/feed.xml", import.meta.url);
 // Korean notes keyed by release id, kept with the hash of the items they were written from.
 // Written by the Codex routine (scripts/apply-ko.mjs).
 const KO = new URL("../data/ko.json", import.meta.url);
-const WINDOW_DAYS = Number(process.env.WINDOW_DAYS ?? 90);
 const SITE_URL = process.env.SITE_URL ?? "";
 const now = new Date();
-const cutoff = new Date(now - WINDOW_DAYS * 864e5);
 
 // Retries network drops and 5xx; large GitHub API pages sometimes close mid-body.
 async function get(url, as = "text", tries = 3) {
@@ -54,12 +52,12 @@ async function claudeReleases(previous) {
         items: r.items,
       };
     })
-    .filter((r) => r && new Date(r.date) >= cutoff);
+    .filter(Boolean);
 }
 
 async function codexReleases() {
   const out = [];
-  for (let page = 1; page <= 20; page++) {
+  for (let page = 1; ; page++) {
     const batch = await get(`https://api.github.com/repos/openai/codex/releases?per_page=50&page=${page}`, "json");
     for (const r of batch) {
       if (r.draft || !r.published_at) continue;
@@ -77,16 +75,15 @@ async function codexReleases() {
         items,
       });
     }
-    if (batch.length < 50 || new Date(batch.at(-1).published_at) < cutoff) break;
+    if (batch.length < 50) break;
   }
-  return out.filter((r) => new Date(r.date) >= cutoff);
+  return out;
 }
 
 function codexChangelog(html) {
   const entries = parseCodexChangelog(html);
   if (!entries.length) throw new Error("Official Codex changelog has no parseable entries");
   return entries
-    .filter((e) => new Date(`${e.date}T00:00:00Z`) >= cutoff)
     .map((e) => ({
       id: `codex@changelog:${e.id}`,
       tool: "codex",
@@ -110,7 +107,7 @@ async function main() {
 
   const [claude, codex, html] = await Promise.all([claudeReleases(previous), codexReleases(), get("https://developers.openai.com/codex/changelog")]);
   const editorial = codexChangelog(html);
-  const screenshots = parseCodexScreenshots(html).filter((s) => s.date && new Date(s.date) >= new Date(cutoff - 30 * 864e5));
+  const screenshots = parseCodexScreenshots(html);
   const releases = [...claude, ...codex, ...editorial]
     .map((r) => {
       const topicSurfaces = r.topics?.flatMap((topic) => ({ "codex-app": ["desktop"], "codex-mobile": ["mobile"], "codex-cli": ["cli"], general: ["general"] })[topic] ?? []) ?? [];
@@ -123,7 +120,7 @@ async function main() {
 
   const missingNotes = releases.filter((r) => !r.ko && r.items.length).length;
   if (missingNotes) console.log(`${missingNotes} releases await Korean notes`);
-  const data = { generatedAt: now.toISOString(), windowDays: WINDOW_DAYS, releases, screenshots };
+  const data = { generatedAt: now.toISOString(), releases, screenshots };
   await writeFile(DATA, JSON.stringify(data, null, 1) + "\n");
   await writeFile(FEED, feed(releases));
   console.log(`${releases.length} updates (${claude.length} Claude Code, ${codex.length} Codex GitHub releases, ${editorial.length} official Codex changelog), ${screenshots.length} screenshots`);
