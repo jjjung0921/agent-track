@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T07:04:13.323Z",
+ "generatedAt": "2026-10-19T07:09:11.424Z",
  "releases": [
   {
    "id": "claude-code@2.1.303",
@@ -71448,7 +71448,14 @@
     }
    ],
    "hash": "756ae568410e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex에서 Amazon Bedrock을 모델 제공자로 설정해 지원되는 OpenAI 모델을 사용할 수 있다. 로컬 실행에 AWS 관리 인증, 계정 제어, 결제가 적용된다.",
+    "items": [
+     "Amazon Bedrock의 지원되는 OpenAI 모델을 AWS 관리 인증, 계정 제어, 결제로 로컬 Codex에서 사용할 수 있다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-01-app",
@@ -71479,7 +71486,50 @@
     }
    ],
    "hash": "60544d59a6af",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "기본 터미널 위치를 설정해 단축키와 환경 작업으로 여는 터미널 탭의 패널을 선택할 수 있다.",
+    "items": [
+     "General 설정에 Default terminal location을 추가한다. 하단 패널이 활성화된 경우 터미널 단축키와 환경 작업으로 여는 탭을 하단 또는 오른쪽 패널 중 선택한다.",
+     "성능을 추가로 개선하고 버그를 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "기본 터미널 위치",
+      "what": "General 설정에서 Default terminal location을 지정할 수 있다. 하단 패널이 활성화된 경우 터미널 단축키와 환경 작업이 여는 터미널 탭을 하단 패널 또는 오른쪽 패널로 선택한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "성능 개선 및 버그 수정",
+      "what": "추가 성능 개선과 버그 수정을 포함한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.159",
@@ -71498,7 +71548,14 @@
     }
    ],
    "hash": "5291d245dc96",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "사용자에게 보이는 변경 없이 내부 인프라를 개선한다.",
+    "items": [
+     "사용자에게 보이는 변경 없이 내부 인프라를 개선한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.158",
@@ -71517,7 +71574,14 @@
     }
    ],
    "hash": "2c9510a58460",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Opus 4.7과 Opus 4.8에서 Bedrock, Vertex, Foundry의 Auto mode를 사용할 수 있다.",
+    "items": [
+     "Bedrock, Vertex, Foundry에서 Opus 4.7과 Opus 4.8용 Auto mode를 지원한다. 사용하려면 `CLAUDE_CODE_ENABLE_AUTO_MODE=1`로 설정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.157",
@@ -71760,7 +71824,164 @@
     }
    ],
    "hash": "9c687fc5d7ce",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`.claude/skills`의 플러그인을 마켓플레이스 없이 자동으로 불러오고, 새 플러그인 생성 명령과 `/plugin` 인수 자동 완성을 추가한다. 여러 에이전트·워크트리·터미널 동작의 오류도 수정한다.",
+    "items": [
+     "`.claude/skills`의 플러그인을 마켓플레이스 없이 자동으로 불러온다.",
+     "`claude plugin init <name>`으로 `.claude/skills`에 새 플러그인을 생성한다.",
+     "`/plugin` 인수에 하위 명령, 설치된 플러그인 이름, 알려진 마켓플레이스의 플러그인 자동 완성을 추가한다.",
+     "`claude agents`가 디스패치 세션에 `settings.json`의 `agent`를 적용하며, `--agent <name>`으로 재정의할 수 있다.",
+     "`EnterWorktree`가 세션 중 Claude 관리 워크트리 사이를 전환할 수 있다.",
+     "`OTEL_LOG_TOOL_DETAILS=1`이면 `tool_decision` 이벤트에 bash 명령과 MCP·스킬 이름 등의 `tool_parameters`가 포함된다.",
+     "에이전트 종료 후 Claude 관리 워크트리의 잠금을 해제해 `git worktree remove`와 `prune`으로 정리할 수 있다.",
+     "붙여넣기·MCP·대화상자로 첨부한 빈 파일이나 손상된 이미지가 요청을 중단시키지 않고 텍스트 자리표시자로 바뀌도록 수정한다.",
+     "데스크톱 앱·IDE 확장·SDK의 자동 및 권한 우회 모드에서 샌드박스 네트워크 권한 요청이 나타나던 문제를 수정한다.",
+     "대기 중인 하위 에이전트나 남은 백그라운드 셸 때문에 완료된 `claude agents` 세션이 종료 처리되지 않던 문제를 수정한다.",
+     "`claude agents`에서 Esc를 눌러도 느린 ‘opening…’이 취소되지 않아 목록이 응답하지 않던 문제를 수정한다.",
+     "30일 작업 보존 기간 정리 후 `.claude/worktrees/`의 백그라운드 에이전트 워크트리가 남던 문제를 수정한다.",
+     "절전·재개 후 다시 연결된 백그라운드 세션이 모델에 잘못된 날짜를 알려주던 문제를 수정한다.",
+     "tmux에서 `set-clipboard on`을 사용할 때 `claude agents`의 선택 복사가 시스템 클립보드에 반영되지 않던 문제를 수정한다.",
+     "`--resume`이 이전 Claude Code 프로세스 종료 당시 실행 중이던 백그라운드 하위 에이전트를 보고하지 않던 문제를 수정한다.",
+     "전체 화면 모드에서 `--resume` 세션 선택기를 종료한 뒤 내용이 터미널에 남던 문제를 수정한다.",
+     "`--worktree`와 `--worktree --tmux`가 현재 연결된 워크트리 대신 원본 저장소 루트로 돌아가던 문제를 수정한다.",
+     "`/model`이 최신 모델에 잘못된 업데이트 안내를 표시하던 문제를 수정하고, 고정 모델 행에 원시 ID 대신 설명을 표시한다.",
+     "전체 화면 모드에서 작성 중인 메시지에 백틱과 별표 같은 마크다운 기호가 그대로 보이던 문제를 수정한다.",
+     "시작 시 관리형 설정 보안 대화상자를 승인한 뒤 터미널이 멈추던 문제를 수정한다.",
+     "터미널 UI를 다시 그린 뒤 스크롤 기록에 행이 드물게 중복되던 문제를 수정한다.",
+     "VS Code·Cursor·Windsurf 통합 터미널에서 우클릭 붙여넣기 시 클립보드 내용이 중복되던 문제를 수정한다.",
+     "WSL에서 `alt+v` 이미지 붙여넣기와 Windows 11 스크린샷 붙여넣기를 수정하고 Windows 탐색기 이미지 끌어놓기를 지원한다.",
+     "불필요한 메시지 렌더링 재계산을 없애 긴 대화와 재개한 대화의 성능을 개선한다.",
+     "`/terminal-setup`이 VS Code·Cursor·Windsurf 통합 터미널의 GPU 가속을 꺼서 텍스트가 깨지는 현상을 방지한다.",
+     "Feature of the Week 크레딧 청구 상태를 프롬프트 위 행 대신 상태 영역 알림으로 표시한다.",
+     "`claude agents` 디스패치 입력의 슬래시 명령 자동 완성이 부분 문자열에도 일치한다.",
+     "시작 시 bash 명령 샌드박스 안내를 제거한다. 상태는 `/status`와 명령 차단 시 계속 표시된다.",
+     "시작 시 `/ide for …` 안내 알림을 제거한다.",
+     "IDE에서 백그라운드 하위 에이전트 실행 중 Stop을 눌러도 실제로 중지되지 않던 문제를 수정한다.",
+     "VS Code에서 Opus 4.8의 빠른 모드 표시가 나타나지 않던 문제를 수정한다.",
+     "워크플로 트리거 단어 직후 백스페이스를 누르면 글자 삭제 대신 `alt+w`처럼 워크플로 요청을 닫는다.",
+     "프롬프트의 ‘workflow’가 동적 워크플로를 트리거하지 않도록 `/config`에 ‘Workflow keyword trigger’ 설정을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "플러그인 생성 명령",
+      "what": "`claude plugin init <name>` 명령이 추가된다. 새 플러그인의 기본 구조를 `.claude/skills`에 생성한다.",
+      "steps": [
+       "생성할 플러그인 이름을 정한다.",
+       "`claude plugin init <name>`을 실행한다."
+      ],
+      "terminal": {
+       "title": "플러그인 생성",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ claude plugin init <name>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "`/plugin` 인수 자동 완성",
+      "what": "`/plugin` 인수에 자동 완성이 추가된다. 하위 명령, 설치된 플러그인 이름, 알려진 마켓플레이스의 플러그인을 대상으로 한다.",
+      "steps": [
+       "`/plugin`을 입력한다.",
+       "하위 명령이나 플러그인 이름을 입력해 자동 완성을 사용한다."
+      ],
+      "terminal": {
+       "title": "플러그인 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /plugin"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 24,
+      "title": "통합 터미널 GPU 가속 설정",
+      "what": "`/terminal-setup`이 VS Code, Cursor, Windsurf의 통합 터미널에서 GPU 가속을 비활성화한다. 텍스트가 깨져 보이는 현상을 방지하기 위한 변경이다.",
+      "steps": [
+       "VS Code, Cursor 또는 Windsurf의 통합 터미널을 사용한다.",
+       "`/terminal-setup`을 실행한다."
+      ],
+      "terminal": {
+       "title": "터미널 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /terminal-setup"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 30,
+      "title": "Opus 4.8 빠른 모드 표시",
+      "what": "VS Code에서 Opus 4.8의 빠른 모드 표시가 나타나지 않던 문제를 수정한다. 이 변경은 해당 모델의 표시 상태에 관한 것이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 32,
+      "title": "워크플로 키워드 트리거 설정",
+      "what": "`/config`에 ‘Workflow keyword trigger’ 설정이 추가된다. 프롬프트의 ‘workflow’라는 단어가 동적 워크플로를 시작하지 않도록 설정할 수 있다.",
+      "steps": [
+       "`/config`를 연다.",
+       "‘Workflow keyword trigger’ 설정을 사용해 키워드 트리거를 끈다."
+      ],
+      "terminal": {
+       "title": "워크플로 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /config"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-05-28-app",
@@ -71840,7 +72061,176 @@
     }
    ],
    "hash": "19115f5f20aa",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Windows에서 컴퓨터 사용과 원격 제어를 지원한다. 스레드 검색, 조정, 프로필 정보 등 앱 기능도 확장한다.",
+    "items": [
+     "Windows 데스크톱 앱을 보며 클릭하고 입력하는 Computer Use를 지원한다.",
+     "iOS·Android의 ChatGPT나 Codex를 실행하는 Mac에서 Windows 기기의 작업을 시작하고 진행 상황을 원격 확인할 수 있다.",
+     "Profile 섹션에서 프로필 정보, 사용 통계, 토큰 활동을 보여준다.",
+     "로컬 프로젝트와 worktree의 스레드 조정을 추가하고, 요청 시 별도의 백그라운드 스레드를 지원한다.",
+     "과거 Codex 앱 스레드 검색 범위에 대화 내용과 Git 브랜치 이름을 추가한다.",
+     "앱 전반의 백그라운드 서브에이전트에 안정적인 identicon을 추가한다.",
+     "키 입력 검색과 전체 초기화 기능으로 키보드 단축키 설정을 개선한다.",
+     "Google Docs, Sheets, Slides 탭의 Chrome 컨텍스트 캡처를 개선한다.",
+     "성능을 추가로 개선하고 버그를 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Windows Computer Use",
+      "what": "Computer Use가 Windows에서 작동한다. Codex는 작업 중 포그라운드의 Windows 데스크톱 앱을 보고 클릭하고 입력할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Windows 기기 원격 제어",
+      "what": "Windows 기기에서 원격 제어를 지원한다. iOS 또는 Android의 ChatGPT, 혹은 Codex를 실행하는 Mac에서 Windows 기기의 Codex 작업을 시작하고 진행 상황을 원격으로 확인할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "프로필 및 사용 정보",
+      "what": "Profile 섹션에서 프로필 세부 정보, 사용 통계, 토큰 활동을 확인할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "스레드 조정",
+      "what": "로컬 프로젝트와 worktree를 위한 스레드 조정 기능을 추가한다. 명시적으로 요청하면 별도의 백그라운드 스레드를 사용할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "과거 스레드 검색 확장",
+      "what": "과거 Codex 앱 스레드의 검색이 대화 내용과 Git 브랜치 이름까지 포함하도록 확장된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "백그라운드 서브에이전트 identicon",
+      "what": "앱 전반의 백그라운드 서브에이전트에 안정적인 identicon을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 6,
+      "title": "키보드 단축키 설정",
+      "what": "키보드 단축키 설정에 키 입력 검색과 전체 초기화 동작을 추가해 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 7,
+      "title": "Chrome 컨텍스트 캡처",
+      "what": "Google Docs, Sheets, Slides 탭에 대한 Chrome 컨텍스트 캡처를 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 8,
+      "title": "성능 개선 및 버그 수정",
+      "what": "추가 성능 개선과 버그 수정을 포함한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.156",
@@ -71859,7 +72249,14 @@
     }
    ],
    "hash": "fe382ce2de52",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Opus 4.8 사용 중 thinking blocks가 수정되어 API 오류가 발생하던 문제를 해결한다.",
+    "items": [
+     "Opus 4.8 사용 중 thinking blocks가 수정되어 API 오류가 발생하던 문제를 해결한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.135.0",
@@ -72005,7 +72402,188 @@
     }
    ],
    "hash": "ef727f6a1f66",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex CLI의 진단, 원격 상태 확인, Vim 편집, 권한 프로필과 설치 흐름을 확장한다. Python SDK에 Sandbox 프리셋을 추가한다.",
+    "items": [
+     "`codex doctor`가 지원 요청을 위해 환경, Git, 터미널, app-server, 스레드 인벤토리 진단을 더 상세히 보고한다.",
+     "원격 전송으로 연결된 TUI에서 `/status`가 원격 연결 정보와 서버 버전을 표시한다.",
+     "Vim 모드에 텍스트 객체 편집, 개선된 단어·줄 끝 동작, 설정 가능한 턴 중단 바인딩을 추가한다.",
+     "`/permissions`가 이름이 지정된 권한 프로필을 인식하고 설정된 사용자 지정 프로필을 표시한다.",
+     "패키지형 Codex 빌드가 지원되는 macOS와 Linux 대상에서 번들된 패치 zsh 도우미를 찾아 사용할 수 있다.",
+     "Python SDK가 스레드 및 턴 API용 `Sandbox` 프리셋을 제공한다.",
+     "`install.sh`와 `install.ps1`에서 `CODEX_NON_INTERACTIVE=1` 설정 시 비대화형 설치를 지원한다.",
+     "TUI에서 Markdown 표와 여러 줄 목록을 더 읽기 쉽게 렌더링하며, 열 크기 조정과 앱 스타일 표 형식을 개선한다.",
+     "macOS와 Zellij에서 stderr·composer 손상 및 원시 출력 겹침을 방지해 TUI 출력을 안정화한다.",
+     "슬래시 명령 자동 완성이 인라인 인수를 받는 명령에서 기존 초안 텍스트를 보존한다.",
+     "오래된 tmux/iTerm 제어 모드 세션에서 지원되지 않는 키보드 향상 설정 때문에 일반 `Ctrl-C` 처리가 사라지지 않도록 수정한다.",
+     "앱 멘션 제안에서 접근할 수 없거나 비활성화된 앱을 제외한다.",
+     "요청 시 재개 흐름이 비대화형 exec 세션을 포함하고, 유휴 캐시 스레드에서 cwd 재정의를 적용한다.",
+     "이미지 보기 도구의 상세도 동작을 명확히 하고 오래된 TUI composer 문서 참조를 제거한다.",
+     "Python SDK 문서, 예제, 노트북을 새 sandbox 프리셋 API에 맞게 갱신한다.",
+     "Rust 도구 체인 고정 버전과 SQLx/SQLite 의존성을 갱신한다.",
+     "메모리 런타임 상태를 전용 SQLite 데이터베이스로 옮긴다.",
+     "남은 레거시 config-profile 사용처를 제거하고 더 많은 TUI 설정·플러그인 상태를 app-server 소유 API로 전달한다.",
+     "중복된 내부 처리를 줄이기 위해 Responses 재시도와 MCP 도구 이름 지정 로직을 중앙화한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "상세한 환경 진단",
+      "what": "`codex doctor`가 지원 요청에 필요한 진단 정보를 더 풍부하게 보고한다. 진단 범위에는 환경, Git, 터미널, app-server, 스레드 인벤토리가 포함된다.",
+      "steps": [
+       "`codex doctor`를 실행한다.",
+       "출력된 환경 및 스레드 진단 정보를 확인한다."
+      ],
+      "terminal": {
+       "title": "환경 진단 실행",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex doctor"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "원격 연결 상태 표시",
+      "what": "TUI가 원격 전송으로 연결된 경우 `/status`에 원격 연결 세부 정보와 서버 버전을 표시한다.",
+      "steps": [
+       "TUI를 원격 전송으로 연결한다.",
+       "`/status`를 확인한다."
+      ],
+      "terminal": {
+       "title": "상태 확인",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /status"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "Vim 모드 편집 개선",
+      "what": "Vim 모드에 텍스트 객체 편집과 개선된 단어 및 줄 끝 동작을 추가한다. 턴 중단 바인딩도 설정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "권한 프로필 지원",
+      "what": "`/permissions`가 이름이 지정된 권한 프로필을 이해한다. 설정된 사용자 지정 프로필도 표시한다.",
+      "steps": [
+       "`/permissions`를 연다.",
+       "표시된 권한 프로필을 확인한다."
+      ],
+      "terminal": {
+       "title": "권한 프로필 확인",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /permissions"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "번들 zsh 도우미 검색",
+      "what": "패키지형 Codex 빌드가 지원되는 macOS 및 Linux 대상에서 번들된 패치 zsh 도우미를 검색하고 사용할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "Python SDK Sandbox 프리셋",
+      "what": "Python SDK가 스레드 및 턴 API에서 사용할 수 있는 친숙한 `Sandbox` 프리셋을 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 6,
+      "title": "비대화형 설치",
+      "what": "`install.sh`와 `install.ps1`이 `CODEX_NON_INTERACTIVE=1`일 때 비대화형 설치 모드를 지원한다.",
+      "steps": [
+       "설치 환경에서 `CODEX_NON_INTERACTIVE`를 `1`로 설정한다.",
+       "`install.sh` 또는 `install.ps1`을 실행한다."
+      ],
+      "terminal": {
+       "title": "비대화형 설치",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "아래는 원문에 나온 설정과 설치 스크립트 이름을 조합한 예시다."
+        },
+        {
+         "kind": "cmd",
+         "text": "$ CODEX_NON_INTERACTIVE=1 ./install.sh"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.154",
