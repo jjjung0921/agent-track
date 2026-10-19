@@ -23582,5 +23582,16 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.303": {
+  "hash": "c5a5ee9c7fc5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "버그 수정과 안정성 개선이 포함된다.",
+   "items": [
+    "버그 수정과 안정성 개선이 이뤄진다."
+   ],
+   "features": []
+  }
  }
 }
