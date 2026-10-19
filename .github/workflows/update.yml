@@ -40,10 +40,21 @@ jobs:
         run: |
           git config user.name "agent-track-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          base=$(git rev-parse HEAD)
           git add site/data/releases.json site/feed.xml data/ko.json
-          git diff --cached --quiet || git commit -m "data: update releases"
-          git pull --rebase
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "data: update releases"
+            if ! git push; then
+              git fetch origin main
+              if [ "$(git rev-parse origin/main)" = "$base" ] || ! git merge-base --is-ancestor "$base" origin/main; then
+                echo "::error::Data push failed without a compatible concurrent update"
+                exit 1
+              fi
+              # A local translation batch advanced main. Deploy that newer data instead.
+              git switch --detach origin/main
+              echo "::warning::Concurrent data update won; deploying latest main"
+            fi
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
