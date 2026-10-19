@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-19T06:30:07.130Z",
+ "generatedAt": "2026-10-19T06:33:28.761Z",
  "releases": [
   {
    "id": "claude-code@2.1.303",
@@ -62348,7 +62348,14 @@
     }
    ],
    "hash": "07fbcbedf1c2",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "이번 릴리스에서 사용자 대상 변경 사항은 확인되지 않았다.",
+    "items": [
+     "이번 릴리스에서 사용자 대상 변경 사항은 확인되지 않았다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.142.3",
@@ -62368,7 +62375,14 @@
     }
    ],
    "hash": "d3f97cfebb33",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "유지 관리 전용 패치 릴리스로, 0.142.2 이후 사용자 대상 변경 사항은 없다.",
+    "items": [
+     "유지 관리 전용 패치 릴리스이며 0.142.2 이후 사용자 대상 변경 사항은 없다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.195",
@@ -62464,7 +62478,52 @@
     }
    ],
    "hash": "499127a8e841",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "전체 화면 모드에서 마우스 클릭·드래그·호버를 끄는 환경 변수를 추가한다. 하이픈이 있는 hook matcher와 음성 입력, 플러그인 및 백그라운드 작업 관련 문제도 수정·개선한다.",
+    "items": [
+     "전체 화면 모드에서 마우스 클릭·드래그·호버를 비활성화하는 `CLAUDE_CODE_DISABLE_MOUSE_CLICKS`를 추가한다. 휠 스크롤은 계속 사용할 수 있다.",
+     "하이픈이 포함된 식별자를 쓰는 hook matcher가 부분 문자열로 잘못 매칭되던 문제를 수정해 정확히 일치시킨다. 하이픈이 포함된 MCP 서버의 모든 도구를 매칭하려면 `mcp__brave-search__.*`를 사용한다.",
+     "macOS에서 기본 입력 장치가 바뀐 뒤 장시간 실행 세션의 음성 입력이 무음을 캡처하던 문제를 수정한다.",
+     "일본어·중국어·태국어처럼 띄어쓰기를 사용하지 않는 언어에서 음성 입력 자동 제출이 실행되지 않던 문제를 수정한다.",
+     "프로젝트 `.claude/settings.json`에서만 활성화된 외부 플러그인이 모든 로더 경로에서 명시적 설치 동의를 요구하지 않던 문제를 수정한다.",
+     "플러그인의 `plugin.json` 이름과 마켓플레이스 항목 이름이 다르면 `/plugin`의 활성화/비활성화가 작동하지 않던 문제를 수정한다.",
+     "최신 Claude Code 버전에서 작성한 백그라운드 작업이 `claude agents`에서 사라지거나 데이터가 유실되던 문제를 수정한다.",
+     "충돌한 백그라운드 작업을 다시 열 때 재시작 화면 대신 최대 5초 동안 빈 화면이 표시되던 문제를 수정한다.",
+     "제어 소켓 시작에 실패하면 백그라운드 에이전트 데몬에 접근할 수 없는 상태로 남아 재시작을 막던 문제를 수정한다.",
+     "Linux 음성 모드에서 SoX가 설치되어 있어도 오디오 캡처 장치가 없을 때 '마이크 없음'과 'SoX 미설치'를 구분하도록 개선한다.",
+     "`claude agents`의 완료 목록이 사용 가능한 세로 공간을 채우도록 개선한다. 터미널 높이가 낮으면 헤더를 압축해 실행 중인 세션을 계속 표시한다.",
+     "컨테이너가 시작되는 동안 진행 상황을 보여주는 프로비저닝 체크리스트를 Remote 세션 시작 과정에 추가한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체 화면 마우스 입력 제어",
+      "what": "`CLAUDE_CODE_DISABLE_MOUSE_CLICKS` 환경 변수를 추가한다. 이 변수를 사용하면 전체 화면 모드에서 마우스 클릭, 드래그, 호버를 비활성화하면서 휠 스크롤은 유지한다.",
+      "steps": [],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "전체 화면 모드의 클릭·드래그·호버 비활성화 환경 변수다. 값은 원문에 제시되지 않았다."
+        },
+        {
+         "kind": "hl",
+         "text": "`CLAUDE_CODE_DISABLE_MOUSE_CLICKS`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.193",
@@ -62581,7 +62640,184 @@
     }
    ],
    "hash": "9b7e1a7fb87d",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "자동 모드 분류 범위와 거부 사유 표시가 확장된다. 응답 로깅, Bash 모드 경로 자동완성, MCP 인증 안내, 백그라운드 셸 메모리 관리도 추가된다.",
+    "items": [
+     "`autoMode.classifyAllShell` 설정을 추가해 임의 코드 실행 패턴뿐 아니라 모든 Bash/PowerShell 명령을 자동 모드 분류기로 보낸다.",
+     "자동 모드 거부 사유를 transcript, 거부 알림, `/permissions`의 최근 거부 목록에 표시한다.",
+     "모델 응답 텍스트를 담는 `claude_code.assistant_response` OpenTelemetry 로그 이벤트를 추가한다. `OTEL_LOG_ASSISTANT_RESPONSES`가 설정되지 않으면 `OTEL_LOG_USER_PROMPTS` 설정을 따르므로, 프롬프트를 이미 기록하는 배포 환경은 업그레이드 후 응답도 기록할 수 있다.",
+     "Bash 모드(`!`)에 실시간 파일 경로 자동완성을 추가한다.",
+     "인증이 필요한 MCP 서버가 있으면 시작 시 알림을 표시하고 `/mcp`를 안내한다.",
+     "유휴 백그라운드 셸 명령을 메모리 압박 시 자동 정리한다. `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1`로 끌 수 있다.",
+     "`/login` 직후 `/model` 등 클라이언트 데이터가 필요한 UI에 오래되거나 비어 있는 상태가 표시되던 문제를 수정한다.",
+     "실행 중인 작업이 모두 새 세션으로 이어질 때 백그라운드 전환(←←)이 작업을 포기한다는 이유로 잘못 취소되던 문제를 수정한다.",
+     "고정된 백그라운드 에이전트가 자동 업데이트 후 매번 이어서 작업하라는 메시지를 다시 받던 문제를 수정한다.",
+     "메인 턴을 백그라운드로 전환할 때 대화를 다시 실행하는 유령 `general-purpose (resumed)` 서브에이전트가 생기던 문제를 수정한다.",
+     "서브에이전트를 볼 때 에이전트 패널에서 형제 에이전트가 숨겨지던 문제를 수정한다.",
+     "백그라운드 에이전트를 시작한 뒤에도 다른 작업을 계속하도록 동작을 개선한다. 시작 결과가 응답을 끝내라고 지시하지 않는다.",
+     "도구 호출이 401/403을 반환하면 MCP `headersHelper` 인증 도우미가 다시 실행되고 자동으로 재연결되도록 개선한다.",
+     "마켓플레이스의 `renames` 맵을 자동으로 적용해 플러그인 이름을 바꾸고 설정도 새 이름으로 갱신한다.",
+     "디렉터리가 이미 작업 디렉터리인 경우 `/add-dir` 메시지를 개선한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체 셸 명령 자동 모드 분류",
+      "what": "`autoMode.classifyAllShell` 설정을 추가한다. 이를 사용하면 임의 코드 실행 패턴에 한정하지 않고 모든 Bash/PowerShell 명령을 자동 모드 분류기로 보낸다.",
+      "steps": [],
+      "terminal": {
+       "title": "설정",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "설정 키 이름만 원문에 있으며 값이나 설정 위치는 제공되지 않는다."
+        },
+        {
+         "kind": "hl",
+         "text": "`autoMode.classifyAllShell`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "자동 모드 거부 사유 표시",
+      "what": "자동 모드에서 거부된 이유를 transcript와 거부 알림에 추가한다. `/permissions`의 최근 거부 목록에서도 사유를 확인할 수 있다.",
+      "steps": [
+       "자동 모드 거부 사유를 transcript에서 확인한다.",
+       "거부 알림에서 사유를 확인한다.",
+       "`/permissions`의 최근 거부 목록에서 사유를 확인한다."
+      ],
+      "terminal": {
+       "title": "최근 거부 확인",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/permissions"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "모델 응답 OpenTelemetry 로깅",
+      "what": "`claude_code.assistant_response` OpenTelemetry 로그 이벤트에 모델 응답 텍스트를 기록한다. 응답은 기본적으로 가려지며, `OTEL_LOG_ASSISTANT_RESPONSES=1`이면 기록을 허용한다. 이 변수가 설정되지 않으면 `OTEL_LOG_USER_PROMPTS`를 따르므로, 이미 프롬프트 내용을 기록하는 배포는 업그레이드 후 응답 내용도 받게 된다. 프롬프트만 기록하려면 `OTEL_LOG_ASSISTANT_RESPONSES=0`으로 설정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "응답 로깅 제어",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "응답 로깅을 허용하려면 환경 변수 값을 1로 설정한다."
+        },
+        {
+         "kind": "hl",
+         "text": "`OTEL_LOG_ASSISTANT_RESPONSES=1`"
+        },
+        {
+         "kind": "comment",
+         "text": "프롬프트만 기록하려면 환경 변수 값을 0으로 설정한다."
+        },
+        {
+         "kind": "hl",
+         "text": "`OTEL_LOG_ASSISTANT_RESPONSES=0`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "Bash 모드 파일 경로 자동완성",
+      "what": "Bash 모드(`!`)에 실시간 파일 경로 자동완성을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "Bash 모드",
+       "lines": [
+        {
+         "kind": "hl",
+         "text": "`!`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "MCP 인증 필요 알림",
+      "what": "시작할 때 인증이 필요한 MCP 서버가 있으면 알림을 표시하고 `/mcp`를 안내한다.",
+      "steps": [
+       "시작 시 MCP 서버 인증 필요 알림을 확인한다.",
+       "`/mcp`에서 관련 내용을 확인한다."
+      ],
+      "terminal": {
+       "title": "MCP 서버 확인",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/mcp"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "유휴 백그라운드 셸 자동 정리",
+      "what": "메모리 압박이 발생하면 유휴 백그라운드 셸 명령을 자동으로 정리한다. `CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1`을 설정하면 이 동작을 비활성화한다.",
+      "steps": [],
+      "terminal": {
+       "title": "자동 정리 비활성화",
+       "lines": [
+        {
+         "kind": "hl",
+         "text": "`CLAUDE_CODE_DISABLE_BG_SHELL_PRESSURE_REAP=1`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.142.2",
@@ -62678,7 +62914,103 @@
     }
    ],
    "hash": "187717d897de",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "MCP 도구가 지원되는 경우 기본적으로 도구 검색을 사용해 도구 탐색을 개선한다. macOS 프록시 설정 반영, 플러그인 다크 모드 로고, 앱의 안전 버퍼링 UI도 추가됐다.",
+    "items": [
+     "지원되는 경우 MCP 도구가 기본적으로 도구 검색을 사용해 도구 탐색을 개선하며, 이전 모델 및 제공자와의 호환성을 유지한다.",
+     "`respect_system_proxy`를 활성화하면 macOS 인증 클라이언트가 시스템 프록시, PAC, WPAD 설정을 따를 수 있다.",
+     "플러그인이 로컬 매니페스트와 원격 카탈로그를 통해 다크 모드 전용 로고를 제공할 수 있다.",
+     "앱이 서버에서 제공하는 표시 여부 및 빠른 모델 메타데이터를 사용해 더 풍부한 안전 버퍼링 UI를 표시할 수 있다.",
+     "원격 플러그인 카탈로그가 선별된 추천 플러그인 순위를 반환한다.",
+     "Amazon Bedrock 자격 증명이 만료되면 일반 권한 오류 대신 복구 방법을 안내한다.",
+     "원격 stdio MCP 서버가 원격 플랫폼 경로 형식의 절대 작업 디렉터리를 허용한다.",
+     "원격 HTTP(S) 이미지 입력에 모델이 확인할 수 있는 명확한 검증 오류를 반환한다. 인라인 data URL과 로컬 이미지는 계속 지원한다.",
+     "안전 분류기가 검사할 수 없는 실행 가능한 AST 영역이 포함된 PowerShell 명령은 이제 승인이 필요하다.",
+     "선택한 모델에 필요한 메타데이터가 없으면 Code Mode가 경고한다.",
+     "번들된 OpenSSL 및 esbuild 의존성을 패치된 릴리스로 업데이트했다.",
+     "포매터 실행이 성공하면 출력하지 않고, 실패할 때는 진단 정보를 계속 표시한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "MCP 도구 검색 기본 사용",
+      "what": "지원되는 경우 MCP 도구가 기본적으로 도구 검색을 사용해 도구 탐색을 개선한다. 이전 모델 및 제공자와의 호환성을 유지한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "macOS 시스템 프록시 설정 반영",
+      "what": "`respect_system_proxy`가 활성화된 경우 macOS 인증 클라이언트가 시스템 프록시 설정을 따른다. PAC 및 WPAD 설정도 반영한다.",
+      "steps": [],
+      "terminal": {
+       "title": "설정 키",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "다음 설정 키가 활성화된 경우 적용된다. 활성화 값은 원문에 제시되지 않았다."
+        },
+        {
+         "kind": "ui",
+         "text": "`respect_system_proxy`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "플러그인 다크 모드 로고",
+      "what": "플러그인이 다크 모드 전용 로고를 제공할 수 있다. 로고는 로컬 매니페스트와 원격 카탈로그를 통해 제공된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "안전 버퍼링 UI 메타데이터",
+      "what": "앱이 더 풍부한 안전 버퍼링 UI를 표시할 수 있다. 이 UI는 서버에서 제공하는 표시 여부 및 빠른 모델 메타데이터를 사용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.142.1",
@@ -62698,7 +63030,32 @@
     }
    ],
    "hash": "d09314bbbcd6",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Windows에서 시스템 프록시를 인증에 선택적으로 사용할 수 있다. PAC, WPAD, 고정 프록시 및 우회 규칙을 지원한다.",
+    "items": [
+     "인증에 Windows 시스템 프록시를 선택적으로 지원하며 PAC, WPAD, 고정 프록시, 우회 규칙을 포함한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Windows 시스템 프록시 인증 지원",
+      "what": "Windows 시스템 프록시를 인증에 선택적으로 사용할 수 있다. PAC, WPAD, 고정 프록시 및 우회 규칙을 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-06-25",
@@ -62780,7 +63137,185 @@
     }
    ],
    "hash": "f63b228cd7cf",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex Remote가 정식 제공되어 ChatGPT 모바일 앱에서 연결된 Mac 또는 Windows 호스트의 작업을 시작·이어가고 진행 상황을 검토하며 작업을 승인할 수 있다. Remote Control은 기기와 호스트 간 인증된 일대일 QR 페어링을 사용한다.",
+    "items": [
+     "Codex Remote를 정식 제공한다. ChatGPT 모바일 앱에서 연결된 Mac 또는 Windows 호스트의 작업을 시작하거나 이어가고, 진행 상황을 검토하고, 휴대폰에서 작업을 승인할 수 있다.",
+     "Remote Control이 iOS 또는 Android 기기와 호스트 간 인증된 일대일 QR 페어링을 사용한다. 연결 전에 ChatGPT 모바일 앱과 Codex App을 최신 버전으로 업데이트해야 한다. 2026년 6월 8일 이후 사용한 연결은 페어링이 유지되며, 그보다 오래전에 비활성화된 연결은 다시 페어링해야 한다.",
+     "새 DigitalOcean 플러그인으로 DigitalOcean Droplet을 프로비저닝하고 SSH 접근을 구성한 뒤 Codex App에 원격 작업 공간으로 연결할 수 있다.",
+     "설정과 문제 해결 방법은 Remote connections를 참고한다.",
+     "원격 연결이 끊겼다가 다시 연결된 뒤 복구 동작을 개선한다.",
+     "앱을 연결한 직후 메시지 작성기를 복원한다.",
+     "Codex가 스크린샷을 찍을 때 브라우저 깜박임을 줄인다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Codex Remote 정식 제공",
+      "what": "Codex Remote가 정식 제공된다. ChatGPT 모바일 앱을 사용해 연결된 Mac 또는 Windows 호스트에서 작업을 시작하거나 이어가고, 진행 상황을 검토하고, 휴대폰에서 작업을 승인할 수 있다.",
+      "steps": [
+       "ChatGPT 모바일 앱을 연다.",
+       "연결된 Mac 또는 Windows 호스트에서 작업을 시작하거나 이어간다.",
+       "진행 상황을 검토하고 휴대폰에서 작업을 승인한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "호스트 연결",
+         "note": "연결된 Mac 또는 Windows 호스트를 사용한다.",
+         "changed": false
+        },
+        {
+         "title": "원격 작업 검토",
+         "note": "진행 상황을 검토하고 휴대폰에서 작업을 승인한다.",
+         "changed": false
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "인증된 QR 페어링",
+      "what": "Remote Control은 각 iOS 또는 Android 기기와 각 호스트를 인증된 일대일 QR 페어링으로 연결한다. 연결 전에 ChatGPT 모바일 앱과 Codex App을 최신 버전으로 업데이트한다. 2026년 6월 8일 이후 사용한 연결은 페어링 상태가 유지되며, 그보다 오래전에 비활성화된 연결은 다시 페어링해야 한다.",
+      "steps": [
+       "ChatGPT 모바일 앱과 Codex App을 최신 버전으로 업데이트한다.",
+       "기기와 호스트를 QR 코드로 페어링한다.",
+       "2026년 6월 8일 이후 사용하지 않은 오래된 연결은 다시 페어링한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "앱 업데이트",
+         "note": "ChatGPT 모바일 앱과 Codex App을 최신 버전으로 업데이트한다.",
+         "changed": false
+        },
+        {
+         "title": "기기 페어링",
+         "note": "각 기기와 호스트를 인증된 일대일 QR 페어링으로 연결한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": "Remote Control은 인증된 일대일 QR 페어링을 사용한다."
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "DigitalOcean 원격 작업 공간",
+      "what": "새 DigitalOcean 플러그인으로 DigitalOcean Droplet을 프로비저닝하고 SSH 접근을 구성할 수 있다. 그런 다음 Droplet을 Codex App에 원격 작업 공간으로 연결한다.",
+      "steps": [
+       "DigitalOcean 플러그인으로 DigitalOcean Droplet을 프로비저닝한다.",
+       "SSH 접근을 구성한다.",
+       "Droplet을 Codex App에 원격 작업 공간으로 연결한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "Droplet 준비",
+         "note": "DigitalOcean Droplet을 프로비저닝하고 SSH 접근을 구성한다.",
+         "changed": true
+        },
+        {
+         "title": "원격 작업 공간 연결",
+         "note": "Droplet을 Codex App에 연결한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": "DigitalOcean 플러그인으로 Droplet을 Codex App에 연결할 수 있다."
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "Remote connections 안내",
+      "what": "설정과 문제 해결 안내는 Remote connections에서 확인할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "원격 연결 복구 개선",
+      "what": "원격 연결이 끊겼다가 다시 연결된 뒤의 복구 동작을 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "메시지 작성기 복원",
+      "what": "앱을 연결한 직후 메시지 작성기를 복원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 6,
+      "title": "스크린샷 촬영 시 깜박임 감소",
+      "what": "Codex가 스크린샷을 찍을 때 브라우저 깜박임을 줄인다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.191",
@@ -62932,7 +63467,56 @@
     }
    ],
    "hash": "bf11327d5219",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`/clear` 실행 전 대화로 돌아갈 수 있도록 `/rewind` 지원을 추가했다. 스트리밍 중 스크롤, 백그라운드 에이전트, MCP 재시도 및 여러 터미널 동작도 개선했다.",
+    "items": [
+     "`/clear`를 실행하기 전 대화로 돌아가 이어서 작업할 수 있도록 `/rewind` 지원을 추가했다.",
+     "스트리밍 응답 중 이전 출력을 읽을 때 스크롤 위치가 맨 아래로 이동하던 문제를 수정했다.",
+     "중지한 백그라운드 에이전트가 다시 실행되던 문제를 수정했다. 작업 패널에서 에이전트를 중지하면 이제 영구적으로 중지된다.",
+     "조직 정책으로 비활성화된 `/voice`가 일반적인 사용 불가 메시지를 표시하던 문제를 수정해 제한 이유를 안내한다.",
+     "Windows Terminal에서 줄바꿈된 `/login` URL이 잘려 열리던 문제를 수정했다.",
+     "ssh/tmux를 사용하는 Ghostty 전체 화면 모드에서 링크를 Cmd+클릭할 때 발생하던 문제를 수정했다.",
+     "`claude agents`가 `/usage` 같은 내장 슬래시 명령을 안내 대신 프롬프트 텍스트로 백그라운드 세션에 보내던 문제를 수정했다.",
+     "`claude agents` 작업 행에서 붙여 넣은 이미지의 전체 파일 경로 대신 `[Image #N]` 자리표시자를 표시하도록 수정했다.",
+     "쉼표로 구분한 매처(예: `\"Bash,PowerShell\"`)가 있는 훅이 실행되지 않던 문제를 수정했다.",
+     "`/permissions`의 최근 거부 탭에서 거부를 승인해도 닫을 때 변경이 버려지던 문제를 수정했다.",
+     "오버플로 한도를 넘는 로스터를 스크롤할 때 에이전트 패널이 한 행씩 어긋나던 문제를 수정했다.",
+     "macOS Terminal 기본 80×24 창에서 환영 스플래시 아트가 넘치던 문제를 수정했다.",
+     "`forceRemoteSettingsRefresh`가 MDM 또는 파일 정책으로 설정될 때 적용되도록 수정했고, 프록시가 오래된 응답을 제공하지 않도록 요청에 `Cache-Control: no-cache`를 보낸다.",
+     "샌드박스 네트워크 권한 대화상자에서 “Yes”로 허용한 호스트를 세션이 끝날 때까지 기억해 매 연결마다 다시 묻지 않도록 개선했다.",
+     "MCP 서버의 기능 검색(`tools/list`, `prompts/list`, `resources/list`)이 일시적 네트워크 오류에 짧은 백오프로 재시도하도록 개선했다.",
+     "MCP OAuth의 검색 및 토큰 요청은 일시적 네트워크 오류 뒤 한 번 재시도한다. 헤드리스 환경에서는 브라우저 팝업을 건너뛰고 URL 붙여넣기 안내로 바로 이동한다.",
+     "MCP HTTP 404 오류 메시지에 URL을 표시하고 MCP 설정을 확인하도록 안내한다.",
+     "vim 모드에서 프롬프트 기록을 검색할 때(NORMAL `/`) 슬래시 명령으로 이동하는 방법을 안내하도록 개선했다.",
+     "스트리밍 중 텍스트 업데이트를 100ms 단위로 모아 CPU 사용량을 약 37% 줄였다.",
+     "터미널 출력 캐시로 인한 장시간 세션의 메모리 증가를 줄였다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "`/clear` 이전 대화로 되돌리기",
+      "what": "`/rewind`를 사용해 `/clear`를 실행하기 전 대화를 이어서 작업할 수 있다. 원문은 재개 동작을 설명하지만 구체적인 사용 단계는 제시하지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "세션 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /rewind"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.190",
