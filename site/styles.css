@@ -21,7 +21,7 @@
   --term-bg: #17161A;
   --term-bar: #24232A;
   --sans: "IBM Plex Sans KR", system-ui, sans-serif;
-  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
