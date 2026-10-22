@@ -50846,5 +50846,538 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.0.61": {
+  "hash": "8038d99e6894",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "응답성 문제로 VSCode의 다중 터미널 클라이언트 지원을 되돌렸다.",
+   "items": [
+    "응답성 문제로 VSCode의 여러 터미널 클라이언트 지원을 되돌렸다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "VSCode 다중 터미널 지원 되돌림",
+     "what": "응답성 문제로 VSCode의 여러 터미널 클라이언트 지원을 되돌렸다. 이번 변경은 해당 지원을 이전 상태로 되돌린다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.62": {
+  "hash": "5ea562c7e8c0",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "선택형 질문에 권장 표시를 추가하고, 커밋 및 PR 작성자 표시를 설정할 수 있게 했다.",
+   "items": [
+    "선택형 질문에서 권장 옵션에 “(Recommended)”를 표시하고 목록 맨 위로 옮겼다.",
+    "커밋과 PR의 작성자 표시를 사용자화하는 `attribution` 설정을 추가했다. `includeCoAuthoredBy`는 더 이상 권장되지 않는다.",
+    "`~/.claude`가 프로젝트 디렉터리의 심볼릭 링크일 때 슬래시 명령이 중복 표시되는 문제를 수정했다.",
+    "이름이 같은 명령이 여러 개일 때 슬래시 명령 선택이 동작하지 않는 문제를 수정했다.",
+    "심볼릭 링크된 스킬 디렉터리 안의 스킬 파일이 순환 심볼릭 링크가 될 수 있는 문제를 수정했다.",
+    "잠금 파일이 잘못 만료된 것으로 판단되어 실행 중인 버전이 제거되는 문제를 수정했다.",
+    "파일 변경을 거부해도 IDE diff 탭이 닫히지 않는 문제를 수정했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "권장 옵션 표시",
+     "what": "선택형 질문에서 권장 옵션에 “(Recommended)” 표시를 추가했다. 권장 옵션은 목록 맨 위에 배치된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "작성자 표시 설정",
+     "what": "커밋과 PR의 작성자 표시를 사용자화하는 `attribution` 설정을 추가했다. 이 설정은 `includeCoAuthoredBy`를 대체하며, 기존 설정은 더 이상 권장되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 키",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "커밋 및 PR 작성자 표시를 사용자화하는 설정 키"
+       },
+       {
+        "kind": "hl",
+        "text": "`attribution`"
+       },
+       {
+        "kind": "comment",
+        "text": "대체되는 기존 설정 키"
+       },
+       {
+        "kind": "hl",
+        "text": "`includeCoAuthoredBy`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.64": {
+  "hash": "250eef05f709",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`.claude/rules/` 지원, 이미지 크기 메타데이터, VSCode 코드 복사 기능 등을 추가했다.",
+   "items": [
+    "자동 압축이 즉시 실행되도록 변경했다.",
+    "에이전트와 bash 명령이 비동기로 실행되고 메인 에이전트를 깨우는 메시지를 보낼 수 있다.",
+    "`/stats`에서 자주 사용하는 모델, 사용량 그래프, 사용 연속 기록 등 통계를 제공한다.",
+    "`/rename`으로 세션에 이름을 붙이고, REPL에서 `/resume <name>` 또는 터미널에서 `claude --resume <name>`으로 다시 열 수 있다.",
+    "`.claude/rules/` 지원을 추가했다. 자세한 내용은 원문에 링크된 문서를 참고한다.",
+    "이미지 크기를 조정할 때 이미지 크기 메타데이터를 추가해 큰 이미지의 좌표를 정확하게 대응할 수 있다.",
+    "네이티브 설치 프로그램에서 `.env`를 자동으로 불러오지 못하는 문제를 수정했다.",
+    "`--continue` 또는 `--resume` 플래그 사용 시 `--system-prompt`가 무시되는 문제를 수정했다.",
+    "`/resume` 화면에서 분기된 세션을 그룹화하고, 미리보기 `P` 및 이름 변경 `R` 키보드 단축키를 추가했다.",
+    "VSCode에서 코드 블록과 bash 도구 입력에 클립보드 복사 버튼을 추가했다.",
+    "Windows ARM64에서 x64 바이너리 에뮬레이션으로 전환해 VSCode 확장이 동작하지 않던 문제를 수정했다.",
+    "Bedrock의 토큰 계산 효율을 개선했다.",
+    "Bedrock에서 `aws login`으로 AWS Management Console 자격 증명을 사용하는 기능을 추가했다.",
+    "`AgentOutputTool`과 `BashOutputTool`을 제공하지 않고 새 통합 `TaskOutputTool`을 사용하도록 변경했다."
+   ],
+   "features": [
+    {
+     "index": 4,
+     "title": "규칙 디렉터리 지원",
+     "what": "`.claude/rules/` 지원을 추가했다. 자세한 내용은 입력에 제공된 문서 링크를 참고한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "이미지 크기 메타데이터",
+     "what": "이미지 크기를 조정할 때 크기 메타데이터를 추가한다. 이를 통해 큰 이미지의 좌표를 정확하게 대응할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 9,
+     "title": "VSCode 코드 복사",
+     "what": "VSCode의 코드 블록과 bash 도구 입력에 클립보드 복사 버튼을 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 12,
+     "title": "Bedrock AWS 로그인 자격 증명",
+     "what": "Bedrock에서 `aws login`으로 AWS Management Console 자격 증명을 사용하는 기능을 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ aws login"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.65": {
+  "hash": "3909a9429152",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프롬프트 작성 중 모델을 바꾸는 기능과 컨텍스트 창 정보, 파일 검색 및 셸 설정을 추가했다.",
+   "items": [
+    "프롬프트를 작성하는 중 `alt+p`(Linux, Windows) 또는 `option+p`(macOS)로 모델을 바꿀 수 있다.",
+    "상태 표시줄 입력에 컨텍스트 창 정보를 추가했다.",
+    "사용자 지정 `@` 파일 검색 명령을 위한 `fileSuggestion` 설정을 추가했다.",
+    "자동 셸 감지를 재정의하는 `CLAUDE_CODE_SHELL` 환경 변수를 추가했다. 로그인 셸과 실제 작업 셸이 다를 때 유용하다.",
+    "Escape로 쿼리를 중단할 때 프롬프트가 기록에 저장되지 않던 문제를 수정했다.",
+    "Read 도구가 파일 확장자가 아닌 바이트를 기준으로 이미지 형식을 판별하도록 수정했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "프롬프트 작성 중 모델 전환",
+     "what": "프롬프트 작성 중 모델을 전환할 수 있다. Linux와 Windows에서는 `alt+p`, macOS에서는 `option+p`를 사용한다.",
+     "steps": [
+      "프롬프트를 작성한다.",
+      "운영체제에 맞는 키 조합을 누른다."
+     ],
+     "terminal": {
+      "title": "키 입력",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "Linux 및 Windows"
+       },
+       {
+        "kind": "cmd",
+        "text": "> alt+p"
+       },
+       {
+        "kind": "comment",
+        "text": "macOS"
+       },
+       {
+        "kind": "cmd",
+        "text": "> option+p"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "상태 표시줄 컨텍스트 정보",
+     "what": "상태 표시줄 입력에 컨텍스트 창 정보를 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "사용자 지정 파일 검색",
+     "what": "`fileSuggestion` 설정으로 사용자 지정 `@` 파일 검색 명령을 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 키",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "`fileSuggestion`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "셸 감지 재정의",
+     "what": "`CLAUDE_CODE_SHELL` 환경 변수로 자동 셸 감지를 재정의할 수 있다. 로그인 셸과 실제 작업 셸이 다른 경우에 유용하다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "자동 셸 감지를 재정의하는 환경 변수. 값은 원문에 없어 예시를 제시하지 않는다."
+       },
+       {
+        "kind": "hl",
+        "text": "`CLAUDE_CODE_SHELL`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.67": {
+  "hash": "1da810ee30e8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Opus 4.5에서 Thinking mode가 기본 활성화되고 설정 위치가 `/config`로 이동한다. `/permissions`에 도구 이름으로 규칙을 검색하는 기능이 추가된다.",
+   "items": [
+    "Opus 4.5에서 Thinking mode가 기본으로 활성화된다.",
+    "Thinking mode 설정이 `/config`로 이동한다.",
+    "`/permissions`에서 `/` 키를 눌러 도구 이름으로 규칙을 검색할 수 있다.",
+    "`/doctor`에서 자동 업데이트가 비활성화된 이유를 표시한다.",
+    "다른 인스턴스가 최신 버전일 때 `claude update`를 실행하면 잘못된 업데이트 중 오류가 표시되던 문제를 수정한다.",
+    "비대화형 모드(`-p` 플래그 또는 파이프 입력)에서 `.mcp.json`의 MCP 서버가 대기 상태에 멈추던 문제를 수정한다.",
+    "`/permissions`에서 권한 규칙을 삭제한 뒤 스크롤 위치가 초기화되던 문제를 수정한다.",
+    "키릴 문자, 그리스 문자, 아랍어, 히브리어, 태국어, 중국어 등 비라틴 문자에서 단어 삭제(`opt+delete`)와 이동(`opt+arrow`)이 제대로 동작하지 않던 문제를 수정한다.",
+    "`claude install --force`가 오래된 잠금 파일을 무시하지 못하던 문제를 수정한다.",
+    "`CLAUDE.md`의 연속된 `@~/` 파일 참조가 Markdown 취소선 처리의 간섭으로 잘못 파싱되던 문제를 수정한다.",
+    "Windows에서 로그 디렉터리 경로의 콜론 때문에 플러그인 MCP 서버가 실패하던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "권한 규칙 검색",
+     "what": "`/permissions` 명령에 검색 기능을 추가한다. `/` 키보드 단축키로 도구 이름을 기준으로 규칙을 필터링할 수 있다.",
+     "steps": [
+      "`/permissions` 명령을 연다.",
+      "`/` 키를 눌러 검색을 시작한다.",
+      "도구 이름을 입력해 규칙을 필터링한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/permissions"
+       },
+       {
+        "kind": "comment",
+        "text": "/ 키로 도구 이름 기준 규칙 검색"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.68": {
+  "hash": "ee43e6db09cc",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "기업용 관리 설정 지원이 추가된다. 이 기능을 활성화하려면 Anthropic 계정 담당자에게 문의해야 한다.",
+   "items": [
+    "중국어, 일본어, 한국어 등의 IME 조합 창이 커서 위치에 표시되도록 지원을 수정한다.",
+    "허용되지 않은 MCP 도구가 모델에 보이던 문제를 수정한다.",
+    "서브 에이전트가 작업하는 동안 조정 메시지가 유실될 수 있던 문제를 수정한다.",
+    "Option+화살표 단어 이동이 CJK 텍스트 전체를 하나의 단어로 취급하던 문제를 수정해 단어 경계 기준으로 이동한다.",
+    "비어 있거나 없는 계획에서 계획 모드를 종료할 때 오류 대신 간단한 예/아니요 대화상자를 표시한다.",
+    "기업용 관리 설정을 지원한다. 기능을 활성화하려면 Anthropic 계정 담당자에게 문의해야 한다."
+   ],
+   "features": [
+    {
+     "index": 5,
+     "title": "기업용 관리 설정",
+     "what": "기업용 관리 설정 지원이 추가된다. 이 기능은 Anthropic 계정 담당자에게 문의해 활성화해야 한다.",
+     "steps": [
+      "Anthropic 계정 담당자에게 문의해 기능 활성화를 요청한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.69": {
+  "hash": "c23600c839f4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "사소한 버그 수정이 포함됐다.",
+   "items": [
+    "사소한 버그를 수정했다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.70": {
+  "hash": "5ccb46dd7f6f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프롬프트 제안 제출, MCP 서버별 도구 권한 와일드카드, 마켓플레이스별 자동 업데이트 제어가 추가된다. 상태 표시줄 입력에 `current_usage` 필드도 제공된다.",
+   "items": [
+    "Enter 키를 눌러 프롬프트 제안을 바로 수락하고 제출할 수 있다. Tab 키는 편집을 위해 제안을 수락한다.",
+    "MCP 도구 권한에 `mcp__server__*` 와일드카드 구문을 추가해 서버의 모든 도구를 허용하거나 거부할 수 있다.",
+    "마켓플레이스별로 플러그인 자동 업데이트를 제어하는 토글을 추가한다.",
+    "컨텍스트 창 비율을 정확히 계산할 수 있도록 상태 표시줄 입력에 `current_usage` 필드를 추가한다.",
+    "사용자가 입력하는 동안 대기 중인 명령을 처리하면 입력 내용이 지워지던 문제를 수정한다.",
+    "Tab 키를 눌렀을 때 프롬프트 제안이 입력 중인 내용을 대체하던 문제를 수정한다.",
+    "터미널 크기를 조정해도 diff 보기가 갱신되지 않던 문제를 수정한다.",
+    "대화가 긴 경우 메모리 사용량을 3배 개선한다.",
+    "클립보드에 복사한 통계 스크린샷(`Ctrl+S`)의 해상도를 높여 더 선명하게 만든다.",
+    "빠른 메모 입력을 위한 `#` 단축키를 제거한다. 대신 Claude에게 `CLAUDE.md`를 편집하도록 요청할 수 있다.",
+    "`/config`의 Thinking mode 토글이 설정을 제대로 유지하지 못하던 문제를 수정한다.",
+    "파일 생성 권한 대화상자 UI를 개선한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "프롬프트 제안 제출",
+     "what": "Enter 키로 프롬프트 제안을 수락하고 바로 제출할 수 있다. Tab 키는 제안을 편집할 수 있도록 수락하는 기존 동작을 유지한다.",
+     "steps": [
+      "프롬프트 제안이 표시되면 Enter 키를 눌러 수락하고 제출한다.",
+      "제안을 먼저 편집하려면 Tab 키를 누른다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "MCP 서버별 도구 권한",
+     "what": "`mcp__server__*` 와일드카드 구문으로 특정 MCP 서버의 모든 도구를 허용하거나 거부할 수 있다.",
+     "steps": [
+      "MCP 도구 권한 규칙에 `mcp__server__*` 구문을 사용한다.",
+      "해당 서버의 모든 도구를 허용하거나 거부한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "MCP 서버의 모든 도구를 대상으로 하는 권한 패턴"
+       },
+       {
+        "kind": "cmd",
+        "text": "mcp__server__*"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "마켓플레이스별 자동 업데이트",
+     "what": "플러그인 마켓플레이스마다 자동 업데이트를 켜거나 끌 수 있는 제어 기능을 추가한다.",
+     "steps": [
+      "플러그인 마켓플레이스의 자동 업데이트 설정을 조정한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "상태 표시줄 사용량 필드",
+     "what": "상태 표시줄 입력에 `current_usage` 필드를 추가한다. 이 필드를 통해 컨텍스트 창 사용 비율을 정확히 계산할 수 있다.",
+     "steps": [
+      "상태 표시줄 입력에서 `current_usage` 필드를 사용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "상태 표시줄 입력에 추가된 필드"
+       },
+       {
+        "kind": "hl",
+        "text": "current_usage"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
