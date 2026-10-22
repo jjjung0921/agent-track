@@ -50335,5 +50335,516 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.0.71": {
+  "hash": "b3ea99c733ba",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프롬프트 제안 토글과 `/settings` 별칭을 추가하고, 네이티브 빌드의 구문 강조 엔진을 새로 도입한다.",
+   "items": [
+    "프롬프트 제안을 켜거나 끄는 `/config` 토글을 추가한다.",
+    "`/config` 명령의 별칭으로 `/settings`를 추가한다.",
+    "커서가 경로 중간에 있을 때 `@` 파일 참조 제안이 잘못 표시되던 문제를 수정한다.",
+    "`--dangerously-skip-permissions` 사용 시 `.mcp.json`의 MCP 서버가 로드되지 않던 문제를 수정한다.",
+    "`ls *.txt`, `for f in *.png`처럼 셸 글롭 패턴을 포함한 유효한 Bash 명령을 권한 규칙이 거부하던 문제를 수정한다.",
+    "Bedrock에서 토큰 계산과 추론 프로필 목록 조회에 `ANTHROPIC_BEDROCK_BASE_URL` 환경 변수를 반영한다.",
+    "네이티브 빌드에 새 구문 강조 엔진을 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "프롬프트 제안 토글",
+     "what": "`/config`에 프롬프트 제안을 켜거나 끄는 토글을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "`/settings` 별칭",
+     "what": "`/settings`를 `/config` 명령의 별칭으로 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/settings"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "새 구문 강조 엔진",
+     "what": "네이티브 빌드에 새로운 구문 강조 엔진을 도입한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.72": {
+  "hash": "da587c455a90",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude Code에서 Chrome 확장 프로그램을 통한 브라우저 제어를 지원한다. 모바일 앱 안내에 QR 코드를 추가하고 대화 재개 중 로딩 표시를 제공한다.",
+   "items": [
+    "Chrome 확장 프로그램과 연동해 Claude Code에서 브라우저를 직접 제어하는 Claude in Chrome(베타)을 추가한다.",
+    "터미널 깜박임을 줄인다.",
+    "모바일 앱 다운로드를 빠르게 할 수 있도록 안내에 스캔 가능한 QR 코드를 추가한다.",
+    "대화 재개 중 진행 상태를 알리는 로딩 표시를 추가한다.",
+    "비대화형 모드에서 `/context` 명령이 사용자 지정 시스템 프롬프트를 반영하지 않던 문제를 수정한다.",
+    "Ctrl+Y로 붙여넣을 때 연속된 Ctrl+K 줄의 순서가 바뀌던 문제를 수정한다.",
+    "Git 저장소에서 `@` 파일 제안 속도를 약 3배 높인다.",
+    "`.ignore` 또는 `.rgignore` 파일이 있는 저장소에서 파일 제안 성능을 개선한다.",
+    "설정 검증 오류가 더 눈에 띄게 표시되도록 개선한다.",
+    "실수로 작동하는 것을 줄이기 위해 thinking 토글 키를 Tab에서 Alt+T로 변경한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Claude in Chrome(베타)",
+     "what": "Chrome 확장 프로그램과 연동해 Claude Code에서 브라우저를 직접 제어할 수 있다. 이 기능은 베타다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "모바일 앱 다운로드 QR 코드",
+     "what": "모바일 앱 안내에 스캔 가능한 QR 코드를 추가해 앱을 빠르게 다운로드할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "대화 재개 로딩 표시",
+     "what": "대화를 재개하는 동안 로딩 표시를 보여 진행 상황을 더 잘 알 수 있게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.73": {
+  "hash": "761f73c05f86",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "첨부 이미지 열기, kill ring 순환, 플러그인 검색 필터, 세션 분기 시 사용자 지정 세션 ID를 지원한다. VS Code에는 대기 중 권한과 읽지 않은 완료 상태를 보여주는 탭 배지를 추가한다.",
+   "items": [
+    "클릭 가능한 `[Image #N]` 링크를 추가해 첨부 이미지를 기본 뷰어에서 연다.",
+    "Ctrl+Y로 붙여넣은 뒤 Alt+Y를 눌러 kill ring 기록을 순환하는 기능을 추가한다.",
+    "플러그인 탐색 화면에서 이름, 설명, 마켓플레이스로 검색 결과를 필터링할 수 있다.",
+    "세션 분기 시 `--fork-session`과 `--session-id`를 `--resume` 또는 `--continue`와 함께 사용해 사용자 지정 세션 ID를 지정할 수 있다.",
+    "입력 기록 순환이 느리고 메시지 제출 뒤 텍스트를 덮어쓸 수 있던 경합 상태를 수정한다.",
+    "`/theme` 명령을 실행하면 테마 선택기가 바로 열린다.",
+    "테마 선택기 UI를 개선한다.",
+    "세션 재개, 권한, 플러그인 화면의 검색 UX를 통합 SearchBox 컴포넌트로 개선한다.",
+    "[VSCode] 대기 중 권한은 파란색, 읽지 않은 완료는 주황색으로 표시하는 탭 아이콘 배지를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "첨부 이미지 링크",
+     "what": "`[Image #N]` 형태의 링크를 클릭하면 첨부 이미지를 기본 뷰어에서 연다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "kill ring 순환",
+     "what": "Ctrl+Y로 내용을 붙여넣은 뒤 Alt+Y를 눌러 kill ring 기록을 순환할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "플러그인 탐색 검색 필터",
+     "what": "플러그인 탐색 화면에 검색 필터를 추가한다. 이름, 설명 또는 마켓플레이스 기준으로 입력해 필터링할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "분기 세션의 사용자 지정 ID",
+     "what": "세션을 분기할 때 `--session-id`로 사용자 지정 세션 ID를 지원한다. `--resume` 또는 `--continue`를 `--fork-session`과 함께 사용하는 경우에 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "사용자 지정 ID 값은 원문에 제시되지 않았다."
+       },
+       {
+        "kind": "cmd",
+        "text": "claude --session-id <ID> --resume --fork-session"
+       },
+       {
+        "kind": "cmd",
+        "text": "claude --session-id <ID> --continue --fork-session"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "VS Code 탭 상태 배지",
+     "what": "탭 아이콘 배지로 대기 중인 권한과 읽지 않은 완료 상태를 보여준다. 대기 중 권한은 파란색, 읽지 않은 완료는 주황색으로 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.74": {
+  "hash": "6c498701466b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "코드 탐색을 돕는 LSP 도구와 여러 터미널의 설정 지원이 추가된다. 테마에서 구문 강조를 전환하고 관련 정보를 확인할 수 있다.",
+   "items": [
+    "정의로 이동, 참조 찾기, 호버 문서 같은 코드 지능 기능을 제공하는 LSP 도구를 추가한다.",
+    "Kitty, Alacritty, Zed, Warp 터미널에서 `/terminal-setup`을 지원한다.",
+    "`/theme`에서 `ctrl+t`로 구문 강조를 켜거나 끌 수 있다.",
+    "테마 선택기에 구문 강조 정보가 표시된다.",
+    "터미널 설정 때문에 Alt 단축키가 작동하지 않을 때 macOS 사용자에게 안내를 제공한다.",
+    "스킬이 호출한 도구에 스킬의 `allowed-tools` 설정이 적용되지 않던 문제를 수정한다.",
+    "이미 Opus를 사용하는 사용자에게 Opus 4.5 팁이 잘못 표시되던 문제를 수정한다.",
+    "구문 강조가 올바르게 초기화되지 않을 때 발생할 수 있는 충돌을 수정한다.",
+    "`/plugins discover`에서 검색창에 포커스가 있을 때 목록 선택 표시가 나타나던 시각적 문제를 수정한다.",
+    "macOS 키보드 단축키 표기를 `alt` 대신 `opt`로 수정한다.",
+    "`/context` 표시에서 출처별 스킬과 에이전트를 그룹화하고, 슬래시 명령과 정렬된 토큰 수를 보여준다.",
+    "[Windows] 렌더링이 올바르지 않던 문제를 수정한다.",
+    "[VSCode] 연말 프로모션 메시지에 선물 태그 그림 문자를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "LSP 코드 지능",
+     "what": "LSP 도구를 추가해 정의로 이동, 참조 찾기, 호버 문서와 같은 코드 지능 기능을 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "터미널 설정",
+     "what": "`/terminal-setup`이 Kitty, Alacritty, Zed, Warp 터미널을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ /terminal-setup"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "테마 구문 강조 전환",
+     "what": "`/theme`에서 `ctrl+t` 단축키로 구문 강조를 켜거나 끌 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ /theme"
+       },
+       {
+        "kind": "comment",
+        "text": "`ctrl+t`를 눌러 구문 강조를 전환한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "테마 강조 정보",
+     "what": "테마 선택기에 구문 강조 정보가 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "macOS Alt 단축키 안내",
+     "what": "터미널 설정으로 Alt 단축키가 작동하지 않는 macOS 사용자에게 안내를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 12,
+     "title": "VSCode 프로모션 표시",
+     "what": "VSCode에 연말 프로모션 메시지를 위한 선물 태그 그림 문자를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.75": {
+  "hash": "c23600c839f4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "사소한 버그 수정이 포함된다.",
+   "items": [
+    "사소한 버그를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.76": {
+  "hash": "22a07e16f4f7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude in Chrome 통합 사용 시 macOS 코드 서명 경고가 나타나던 문제를 수정한다.",
+   "items": [
+    "Claude in Chrome 통합을 사용할 때 macOS 코드 서명 경고가 나타나던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2025-12-18": {
+  "hash": "5a510c2173ae",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GPT-5.2-Codex를 출시한다. ChatGPT 로그인 사용자의 CLI와 IDE 확장 기본 모델로 제공되며, 세션 또는 설정에서 선택할 수 있다.",
+   "items": [
+    "복잡한 실제 소프트웨어 엔지니어링을 위한 고도화된 에이전트 코딩 모델 GPT-5.2-Codex를 출시한다.",
+    "GPT-5.2를 Codex의 에이전트 코딩에 맞게 최적화했다. 컨텍스트 압축을 통한 장기 작업, 대규모 코드 변경, Windows 환경 성능과 사이버 보안 기능을 개선한다.",
+    "ChatGPT에 로그인한 사용자의 CLI와 IDE 확장에서 GPT-5.2-Codex를 기본 모델로 제공한다. API 이용은 추후 제공할 예정이다.",
+    "`config.toml`에 모델이 지정되어 있어도 새 Codex CLI 세션에서 `gpt-5.2-codex`를 사용할 수 있다.",
+    "CLI의 `/model` 명령 또는 Codex IDE 확장의 드롭다운에서 GPT-5.2-Codex를 선택할 수 있다.",
+    "모든 세션의 기본 모델을 바꾸려면 `config.toml`을 수정한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "기본 모델 제공",
+     "what": "ChatGPT에 로그인한 사용자의 CLI와 IDE 확장은 GPT-5.2-Codex를 기본 모델로 사용한다. API 이용은 추후 제공될 예정이다.",
+     "steps": [
+      "ChatGPT에 로그인한다.",
+      "Codex CLI 또는 IDE 확장을 사용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "모델 선택",
+     "what": "CLI에서는 `/model` 슬래시 명령을 사용할 수 있고, IDE 확장에서는 드롭다운 메뉴에서 GPT-5.2-Codex를 선택할 수 있다.",
+     "steps": [
+      "CLI에서 `/model`을 사용하거나 IDE 확장의 드롭다운 메뉴를 연다.",
+      "GPT-5.2-Codex를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ /model"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2025-12-19": {
+  "hash": "4da13d2c23d8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex CLI와 IDE 확장에서 재사용 가능한 에이전트 스킬을 지원한다. 스킬을 직접 호출하거나 프롬프트에 따라 자동 선택하도록 할 수 있다.",
+   "items": [
+    "Codex가 특정 작업을 안정적으로 수행하도록 돕는 지침 묶음인 에이전트 스킬을 지원한다. 스크립트와 리소스는 선택적으로 포함할 수 있다.",
+    "스킬은 Codex CLI와 IDE 확장에서 사용할 수 있다.",
+    "`$skill-name`을 입력해 스킬을 직접 호출하거나 프롬프트에 따라 Codex가 스킬을 자동 선택하게 할 수 있다.",
+    "스킬 문서에서 자세한 내용을 확인할 수 있다.",
+    "공개 에이전트 스킬 사양에 따라 스킬은 필수 `SKILL.md`와 선택적 지원 파일을 포함하는 폴더다.",
+    "개인용 스킬은 `~/.codex/skills`에, 프로젝트 공용 스킬은 저장소의 `.codex/skills`에 둘 수 있다.",
+    "Codex에는 시작을 돕는 기본 시스템 스킬인 `$skill-creator`, `$skill-installer`가 포함된다. `$create-plan`은 실험 기능으로 설치가 필요하다.",
+    "Codex는 OpenAI의 인기 워크플로를 바탕으로 선별한 스킬을 제공한다. `$skill-installer`로 설치할 수 있으며 향후 더 추가될 예정이다."
+   ],
+   "features": []
+  }
  }
 }
