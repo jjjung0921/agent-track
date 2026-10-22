@@ -46781,5 +46781,541 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.31": {
+  "hash": "59ff25734ae5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "세션 종료 시 나중에 대화를 이어갈 방법을 안내한다. 일본어 IME의 전각 공백을 체크박스 선택에 사용할 수 있다.",
+   "items": [
+    "종료 시 나중에 대화를 이어가는 방법을 안내한다.",
+    "체크박스 선택에서 일본어 IME의 전각 공백 입력을 지원한다.",
+    "PDF가 너무 커 세션이 멈추고 새 대화를 시작해야 하던 문제를 수정한다.",
+    "샌드박스 모드에서 bash 명령이 ‘Read-only file system’ 오류로 실패했다고 잘못 보고하던 문제를 수정한다.",
+    "프로젝트 설정의 `~/.claude.json`에 기본 필드가 없을 때 계획 모드 진입 후 세션을 사용할 수 없게 되던 충돌을 수정한다.",
+    "스트리밍 API 경로에서 `temperatureOverride`가 무시되어 설정과 관계없이 기본 온도(1)가 적용되던 문제를 수정한다.",
+    "null 매개변수를 허용하지 않는 엄격한 언어 서버와의 LSP 종료 호환성을 수정한다.",
+    "전용 도구인 Read, Edit, Glob, Grep을 bash 명령인 `cat`, `sed`, `grep`, `find`보다 우선 사용하도록 시스템 프롬프트를 개선해 불필요한 bash 사용을 줄인다.",
+    "PDF 및 요청 크기 오류 메시지에 실제 제한인 100페이지와 20MB를 표시한다.",
+    "스트리밍 중 스피너가 나타나거나 사라질 때 터미널 레이아웃 흔들림을 줄인다.",
+    "Bedrock, Vertex, Foundry 사용자의 모델 선택기에서 혼동을 주는 Anthropic API 가격을 제거한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "세션 이어가기 안내",
+     "what": "세션을 종료할 때 나중에 대화를 계속하는 방법을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "일본어 전각 공백 선택",
+     "what": "체크박스 선택에서 일본어 IME로 입력한 전각(zenkaku) 공백을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.32": {
+  "hash": "b2d73b6ed5ec",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "연구 프리뷰 에이전트 팀 기능으로 여러 에이전트가 협업할 수 있으며, 토큰 사용량이 많고 실험용 환경 변수 설정이 필요하다. 메시지 선택기에서 대화 일부를 요약하는 기능도 추가한다.",
+   "items": [
+    "Claude Opus 4.6을 사용할 수 있다.",
+    "여러 에이전트 협업을 위한 연구 프리뷰 에이전트 팀 기능을 추가한다. 토큰 사용량이 많으며 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1` 설정이 필요하다.",
+    "작업 중 메모리를 자동으로 기록하고 불러온다.",
+    "메시지 선택기에 ‘여기부터 요약’을 추가해 대화 일부를 요약할 수 있다.",
+    "추가 디렉터리(`--add-dir`) 안의 `.claude/skills/`에 정의된 스킬을 자동으로 불러온다.",
+    "하위 디렉터리에서 실행할 때 `@` 파일 자동 완성에 잘못된 상대 경로가 표시되던 문제를 수정한다.",
+    "`--resume`이 이전 대화에서 지정한 `--agent` 값을 기본으로 재사용한다.",
+    "Bash 도구에서 JavaScript 템플릿 리터럴(예: `${index + 1}`)이 포함된 heredoc을 처리할 때 ‘Bad substitution’ 오류로 실행이 중단되던 문제를 수정한다.",
+    "스킬 설명의 문자 예산을 컨텍스트 창 크기의 2%로 조정해 큰 컨텍스트 창에서 더 많은 설명을 표시한다.",
+    "입력 필드에서 태국어·라오어 모음(สระ า, ำ)이 올바르게 렌더링되지 않던 문제를 수정한다.",
+    "VSCode에서 입력 앞부분에 텍스트가 있을 때 Enter를 누르면 슬래시 명령이 잘못 실행되던 문제를 수정한다.",
+    "VSCode에서 이전 대화 목록을 불러오는 동안 스피너를 표시한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "에이전트 팀",
+     "what": "여러 에이전트가 협업하는 연구 프리뷰 기능을 추가한다. 토큰 사용량이 많으며 `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`로 설정해야 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "실험용 환경 변수 설정 예시다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "대화 일부 요약",
+     "what": "메시지 선택기에 ‘여기부터 요약’을 추가한다. 이를 사용해 전체 대화가 아닌 일부 대화를 요약할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 11,
+     "title": "이전 대화 목록 로딩 표시",
+     "what": "VSCode에서 과거 대화 목록을 불러오는 동안 스피너를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.33": {
+  "hash": "6178620ace83",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "멀티 에이전트 워크플로를 위한 훅 이벤트와 서브 에이전트 제한, 에이전트 메모리 범위 설정을 추가한다. VSCode에서는 원격 세션 탐색 및 재개를 지원한다.",
+   "items": [
+    "tmux에서 에이전트 팀원 세션이 메시지를 주고받지 못하던 문제를 수정한다.",
+    "현재 요금제에서 에이전트 팀을 사용할 수 없다는 잘못된 경고를 수정한다.",
+    "멀티 에이전트 워크플로에 `TeammateIdle` 및 `TaskCompleted` 훅 이벤트를 추가한다.",
+    "에이전트 `tools` 프런트매터의 `Task(agent_type)` 구문으로 생성할 수 있는 서브 에이전트를 제한하는 기능을 추가한다.",
+    "에이전트의 `memory` 프런트매터 필드를 지원해 `user`, `project`, `local` 범위의 영구 메모리를 설정할 수 있다.",
+    "검색 편의성을 높이기 위해 스킬 설명과 `/skills` 메뉴에 플러그인 이름을 표시한다.",
+    "모델이 확장 추론 중일 때 새 메시지를 제출하면 추론 단계가 중단되던 문제를 수정한다.",
+    "스트리밍 중단 시 공백 텍스트와 추론 블록의 정규화가 누락되어 잘못된 요청이 발생할 수 있던 API 오류를 수정한다.",
+    "스트리밍 엔드포인트의 404 오류 뒤 비스트리밍 대체 동작이 실행되지 않던 API 프록시 호환성 문제를 수정한다.",
+    "Node.js 빌드에서 `settings.json` 환경 변수로 설정한 프록시가 WebFetch 등 HTTP 요청에 적용되지 않던 문제를 수정한다.",
+    "슬래시 명령으로 시작한 세션의 `/resume` 선택기에 원시 XML 대신 제목이 표시되도록 수정한다.",
+    "API 연결 실패 시 일반적인 연결 오류 대신 `ECONNREFUSED`나 SSL 오류 등 구체적인 원인을 표시한다.",
+    "잘못된 관리형 설정에서 발생한 오류를 표시한다.",
+    "VSCode에서 OAuth 사용자가 claude.ai의 원격 세션을 탐색하고 재개할 수 있도록 지원한다.",
+    "VSCode 세션 선택기에 Git 브랜치와 메시지 수를 표시하고 브랜치 이름 검색을 지원한다.",
+    "VSCode에서 세션을 처음 불러오거나 전환할 때 아래로 스크롤해도 끝까지 이동하지 않던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "멀티 에이전트 훅 이벤트",
+     "what": "멀티 에이전트 워크플로에서 사용할 `TeammateIdle` 및 `TaskCompleted` 훅 이벤트를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "서브 에이전트 생성 제한",
+     "what": "에이전트 `tools` 프런트매터에서 `Task(agent_type)` 구문을 사용해 생성 가능한 서브 에이전트를 제한한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "에이전트 영구 메모리 범위",
+     "what": "에이전트의 `memory` 프런트매터 필드를 지원한다. 영구 메모리 범위로 `user`, `project`, `local`을 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "스킬의 플러그인 이름 표시",
+     "what": "스킬 설명과 `/skills` 메뉴에 플러그인 이름을 추가해 스킬을 더 쉽게 찾도록 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 13,
+     "title": "VSCode 원격 세션",
+     "what": "VSCode에서 OAuth 사용자가 claude.ai의 원격 세션을 탐색하고 재개할 수 있도록 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 14,
+     "title": "VSCode 세션 선택기 정보",
+     "what": "세션 선택기에 Git 브랜치와 메시지 수를 표시한다. 브랜치 이름으로 세션을 검색할 수도 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.34": {
+  "hash": "f722800a11cc",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "에이전트 팀 설정 변경 중 발생하던 충돌을 수정한다. 샌드박스 예외 명령이 Bash 권한 확인 규칙을 우회할 수 있던 문제도 수정한다.",
+   "items": [
+    "렌더링 사이에 에이전트 팀 설정이 바뀔 때 발생하던 충돌을 수정한다.",
+    "`autoAllowBashIfSandboxed`가 활성화된 경우, 샌드박스 제외 명령(`sandbox.excludedCommands` 또는 `dangerouslyDisableSandbox`)이 Bash 확인 권한 규칙을 우회할 수 있던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.36": {
+  "hash": "69aa724d7175",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Opus 4.6에서 Fast mode를 사용할 수 있다.",
+   "items": [
+    "Opus 4.6에서 Fast mode를 사용할 수 있다. 자세한 내용은 https://code.claude.com/docs/en/fast-mode를 참고한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2026-02-05-app": {
+  "hash": "9fb89d65398b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 앱에서 GPT-5.3-Codex를 지원한다. 작업 중 메시지를 보내 동작을 조정하고 모든 파일 형식을 첨부하거나 끌어다 놓을 수 있다.",
+   "items": [
+    "GPT-5.3-Codex를 지원한다.",
+    "Codex가 작업 중일 때 메시지를 보내 동작을 조정할 수 있다.",
+    "모든 파일 형식을 첨부하거나 끌어다 놓을 수 있다.",
+    "앱 깜박임을 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "GPT-5.3-Codex 지원",
+     "what": "Codex 앱에서 GPT-5.3-Codex를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "작업 중 동작 조정",
+     "what": "Codex가 작업 중인 턴에 메시지를 제출해 동작을 안내할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "모든 파일 형식 첨부",
+     "what": "모든 파일 형식을 첨부하거나 대화에 끌어다 놓을 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-02-05": {
+  "hash": "1a6c27412ce1",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GPT-5.3-Codex가 Codex 앱, CLI, IDE 확장, 웹의 Codex Cloud에서 유료 ChatGPT 요금제로 제공된다. API 지원은 추후 제공될 예정이다.",
+   "items": [
+    "복잡한 실제 소프트웨어 엔지니어링을 위한 현재까지 가장 뛰어난 에이전트형 코딩 모델 GPT-5.3-Codex를 출시한다.",
+    "GPT-5.2-Codex의 코딩 성능에 더 강한 추론 및 전문 지식을 결합하고, Codex 사용자에게 25% 더 빠르게 실행된다. 작업 중 더 자주 진행 상황을 알리고 실시간 조정에 응답한다.",
+    "GPT-5.3-Codex는 유료 ChatGPT 요금제에서 Codex 앱, CLI, IDE 확장, 웹의 Codex Cloud로 이용할 수 있으며 API 지원은 추후 제공된다.",
+    "GPT-5.3-Codex로 전환하는 방법을 안내한다.",
+    "CLI에서는 `codex --model gpt-5.3-codex`로 새 스레드를 시작하거나 세션 중 `/model`을 사용한다.",
+    "IDE 확장에서 ChatGPT에 로그인한 뒤 작성기(composer)의 모델 선택기에서 GPT-5.3-Codex를 선택한다.",
+    "Codex 앱에서 ChatGPT에 로그인한 뒤 작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다.",
+    "GPT-5.3-Codex가 보이지 않으면 CLI, IDE 확장 또는 Codex 앱을 최신 버전으로 업데이트한다.",
+    "API 키를 사용하는 경우 API 지원이 제공될 때까지 `gpt-5.2-codex`를 계속 사용한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "GPT-5.3-Codex 제공",
+     "what": "GPT-5.3-Codex는 유료 ChatGPT 요금제에서 Codex 앱, CLI, IDE 확장, 웹의 Codex Cloud로 제공된다. API 접근은 추후 제공될 예정이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "IDE 확장에서 모델 선택",
+     "what": "IDE 확장에서 ChatGPT에 로그인한 뒤 작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다.",
+     "steps": [
+      "ChatGPT에 로그인한다.",
+      "작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "Codex 앱에서 모델 선택",
+     "what": "Codex 앱에서 ChatGPT에 로그인한 뒤 작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다.",
+     "steps": [
+      "ChatGPT에 로그인한다.",
+      "작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "로그인",
+        "note": "ChatGPT에 로그인한다.",
+        "changed": false
+       },
+       {
+        "title": "모델 선택",
+        "note": "작성기의 모델 선택기에서 GPT-5.3-Codex를 선택한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "모델이 보이지 않을 때 업데이트",
+     "what": "GPT-5.3-Codex가 보이지 않으면 CLI, IDE 확장 또는 Codex 앱을 최신 버전으로 업데이트한다.",
+     "steps": [
+      "GPT-5.3-Codex가 보이는지 확인한다.",
+      "보이지 않으면 CLI, IDE 확장 또는 Codex 앱을 최신 버전으로 업데이트한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "앱 업데이트",
+        "note": "GPT-5.3-Codex가 보이지 않으면 Codex 앱을 최신 버전으로 업데이트한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-02-06-app": {
+  "hash": "190c024a3122",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 앱에서 파일을 OS 파일 관리자에서 바로 표시하는 동작을 추가하고, 리뷰 창에서 전체 diff 크기 제한을 제거한다.",
+   "items": [
+    "파일 참조 동작을 추가해 OS 파일 관리자에서 파일을 바로 표시한다.",
+    "리뷰 창에서 전체 diff 크기 제한을 제거해 대규모 리뷰 처리를 개선한다.",
+    "성능을 추가로 개선하고 버그를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "파일 관리자에서 파일 표시",
+     "what": "파일 참조 동작을 추가해 파일을 OS 파일 관리자에서 바로 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "대규모 리뷰 처리",
+     "what": "리뷰 창에서 전체 diff 크기 제한을 제거해 대규모 리뷰 처리를 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "성능 개선 및 버그 수정",
+     "what": "성능을 추가로 개선하고 버그를 수정한다. 구체적인 변경 사항은 원문에 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
