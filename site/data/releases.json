@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-22T16:07:34.988Z",
+ "generatedAt": "2026-10-22T16:08:27.630Z",
  "releases": [
   {
    "id": "claude-code@2.1.308",
@@ -2601,6 +2601,290 @@
       "index": 38,
       "title": "브라우저 연결 상태 표시 수정",
       "what": "VS Code의 `@browser` 배너 상태 표시를 수정한다. 확장 프로그램이 있는 브라우저에 연결할 수 없어도 “Browser connected”라고 표시하던 문제를 해결한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.163.0",
+   "tool": "codex",
+   "version": "0.163.0",
+   "date": "2026-10-15T21:30:38Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.163.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Open `/config` to search preferences across categories, change supported settings immediately, and see which changes require a restart.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Send a follow-up while Codex is responding to steer it immediately. Interrupting a turn also stops active Code Mode cells and their nested tool calls.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Configure a leader key in `/keymap`. The default is `Ctrl+X`, shortcut hints stay open until you choose or cancel, and voice mute moves to `F9`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Restart a managed background server from `/daemon`. Codex warns about work the restart could interrupt, then reconnects automatically.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Codex can run independent read-only tools in parallel, including skill, memory, and conversation-history lookups.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Daybreak is enabled by default for eligible accounts. `codex exec` can also select it with an OpenAI API key when the server offers access.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Resuming a saved thread restores its permissions and network approvals, while respecting explicit overrides and current managed policy.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "The network proxy now checks permission before a DNS lookup, rejects duplicate `Host` headers, and prevents credential aliases from bypassing inspection hooks.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Return to an existing side conversation with `/side` after switching threads. Answers to pending prompts also go back to the thread that asked.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "On Windows, `Ctrl+V` and `Shift+Insert` paste text as well as images. On WSL, repeated pastes reuse the clipboard reader, and copy attempts time out instead of hanging.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Local commands finish promptly when a child keeps an output pipe open. Remote commands preserve late-arriving output so the final poll can still collect it.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "`codex exec` no longer prints the same file diff again after an unrelated command.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Updated the bundled OpenAI Docs guidance for migrations to the GPT-6 family, including model-specific reasoning, tool use, and data residency considerations.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Clarified how the Linux sandbox uses bubblewrap for filesystem isolation and seccomp for syscall filtering.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Codex now uses its standard shell executor and no longer bundles a patched `zsh`. Configurations using the retired shell flags receive a migration notice.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Reduced Linux and macOS release package size by stripping symbols from packaged binaries while preserving them in the original build outputs.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "5af6058cb562",
+   "ko": {
+    "model": "codex-cloud",
+    "summary": "`/config` 검색·즉시 적용과 응답 중 후속 메시지로 방향 전환을 지원한다. 리더 키 설정과 관리형 백그라운드 서버 재시작을 추가한다.",
+    "items": [
+     "`/config`에서 카테고리를 넘나들며 설정을 검색하고, 지원되는 설정은 즉시 바꾼다. 재시작이 필요한 변경도 표시된다.",
+     "응답 중에 후속 메시지를 보내면 즉시 방향을 바꾼다. 턴을 중단하면 활성 Code Mode 셀과 중첩 도구 호출도 멈춘다.",
+     "`/keymap`에서 기본 `Ctrl+X`인 리더 키를 설정한다. 힌트는 선택·취소까지 유지하며 음성 음소거는 `F9`로 옮긴다.",
+     "`/daemon`에서 관리형 백그라운드 서버를 재시작한다. 작업이 중단될 수 있으면 경고가 뜨고, 이후 자동으로 다시 연결된다.",
+     "독립적인 읽기 전용 도구를 병렬로 실행한다. 스킬, 메모리, 대화 기록 조회가 포함된다.",
+     "자격이 되는 계정에서 Daybreak이 기본으로 켜진다. 서버가 허용하면 OpenAI API 키로 `codex exec`에서도 선택할 수 있다.",
+     "저장된 스레드를 재개하면 권한과 네트워크 승인이 복원된다. 명시적 재정의와 현재 관리 정책이 우선한다.",
+     "네트워크 프록시가 DNS 조회 전에 권한을 확인하고, 중복 `Host` 헤더를 거부하며, 자격 증명 별칭으로 검사 훅을 우회하지 못하게 한다.",
+     "스레드를 전환한 뒤 `/side`로 기존 사이드 대화에 돌아갈 수 있다. 대기 중인 프롬프트의 답변도 질문한 스레드로 돌아간다.",
+     "Windows에서 `Ctrl+V`와 `Shift+Insert`가 이미지뿐 아니라 텍스트도 붙여넣는다. WSL에서는 반복 붙여넣기가 클립보드 리더를 재사용하고, 복사 시도는 멈추지 않고 시간 초과된다.",
+     "자식이 출력 파이프를 열어도 로컬 명령은 신속히 끝난다. 원격 명령은 늦은 출력을 보존해 마지막 폴링에서도 수집한다.",
+     "`codex exec`가 무관한 명령 뒤에 같은 파일 diff를 다시 출력하지 않는다.",
+     "번들된 OpenAI 문서 지침을 GPT-6 계열 마이그레이션에 맞게 갱신한다. 모델별 추론, 도구 사용, 데이터 거주지 고려 사항을 포함한다.",
+     "Linux 샌드박스가 파일 시스템 격리에는 bubblewrap을, 시스템 호출 필터링에는 seccomp를 쓴다는 점을 명확히 한다.",
+     "표준 셸 실행기를 쓰고, 패치된 `zsh`는 더 이상 번들하지 않는다. 폐지된 셸 플래그를 쓰는 설정에는 마이그레이션 안내가 뜬다.",
+     "패키지된 바이너리의 심볼을 제거해 Linux·macOS 릴리스 패키지 크기를 줄인다. 원본 빌드 산출물에는 심볼이 남는다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "/config 검색과 즉시 적용",
+      "what": "`/config`에서 카테고리를 넘나들며 환경설정을 검색할 수 있다. 지원되는 설정은 바로 바뀌며, 재시작이 필요한 변경은 따로 표시된다.",
+      "steps": [
+       "`/config`를 연다.",
+       "범주에 걸쳐 설정을 검색한다.",
+       "지원하는 설정을 바꾸고 재시작 필요 여부를 확인한다."
+      ],
+      "terminal": {
+       "title": "설정 검색",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /config"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "응답 중 후속 메시지로 방향 전환",
+      "what": "Codex가 응답하는 중에 후속 메시지를 보내면 즉시 방향이 바뀐다. 턴을 중단하면 활성 Code Mode 셀과 그 안의 중첩 도구 호출도 함께 멈춘다.",
+      "steps": [
+       "Codex가 응답하는 중에 후속 메시지를 보내 방향을 바꾼다.",
+       "턴을 중단하면 활성 Code Mode 셀·중첩 도구 호출도 중지된다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "/keymap 리더 키",
+      "what": "`/keymap`에서 리더 키를 설정할 수 있다. 기본 리더 키는 `Ctrl+X`이고, 단축키 힌트는 선택하거나 취소할 때까지 열려 있다. 음성 음소거는 `F9`로 옮겨진다.",
+      "steps": [
+       "`/keymap`을 연다.",
+       "리더 키를 설정한다.",
+       "단축키 힌트를 선택하거나 취소한다."
+      ],
+      "terminal": {
+       "title": "리더 키 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /keymap"
+        },
+        {
+         "kind": "comment",
+         "text": "기본 리더 키는 Ctrl+X이고 음성 음소거는 F9이다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "/daemon 재시작",
+      "what": "`/daemon`에서 관리형 백그라운드 서버를 재시작할 수 있다. 재시작이 진행 중인 작업을 중단시킬 수 있으면 경고가 뜨고, 이후 자동으로 다시 연결된다.",
+      "steps": [
+       "`/daemon`에서 관리형 백그라운드 서버를 재시작한다.",
+       "중단될 수 있는 작업의 경고를 확인한다.",
+       "자동으로 재연결된다."
+      ],
+      "terminal": {
+       "title": "관리형 서버 재시작",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /daemon"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "읽기 전용 도구 병렬 실행",
+      "what": "독립적인 읽기 전용 도구는 병렬로 실행된다. 스킬, 메모리, 대화 기록 조회가 여기에 포함된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "Daybreak 기본 활성화",
+      "what": "자격이 되는 계정에서 Daybreak이 기본으로 켜진다. 서버가 접근을 허용하면 OpenAI API 키로 `codex exec`에서도 Daybreak을 선택할 수 있다.",
       "steps": [],
       "terminal": {
        "title": "",
@@ -6358,6 +6642,41 @@
    }
   },
   {
+   "id": "codex@rust-v0.162.1",
+   "tool": "codex",
+   "version": "0.162.1",
+   "date": "2026-10-09T19:44:51Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed a TUI crash when asynchronous questions contain multiple lines, preserving line breaks and complete hyperlink destinations.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed startup failures caused by differences between a running background server's feature settings and CLI defaults. Compatibility checks now apply only to explicit command-line feature overrides.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "536cf976167a",
+   "ko": {
+    "model": "codex-cloud",
+    "summary": "여러 줄 비동기 질문의 TUI 충돌과 백그라운드 서버·CLI 간 기능 설정 차이로 인한 시작 실패를 수정한다.",
+    "items": [
+     "여러 줄 비동기 질문의 TUI 충돌을 수정하고 줄 바꿈과 전체 하이퍼링크 대상을 보존한다.",
+     "실행 중인 백그라운드 서버와 CLI 기본값의 기능 설정 차이로 인한 시작 실패를 수정한다. 호환성 검사는 명령줄에서 명시한 기능 재정의에만 적용된다."
+    ],
+    "features": []
+   }
+  },
+  {
    "id": "claude-code@2.1.296",
    "tool": "claude-code",
    "version": "2.1.296",
@@ -7314,6 +7633,256 @@
       "index": 2,
       "title": "composer predictions 안내",
       "what": "composer predictions에 관한 추가 안내가 제공된다. 입력은 자세한 내용의 링크를 안내하지만 별도 동작은 설명하지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.162.0",
+   "tool": "codex",
+   "version": "0.162.0",
+   "date": "2026-10-08T18:55:59Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.162.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Add tools for creating and listing managed Git worktrees from trusted local projects when the worktrees feature is enabled.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Pin tasks in the agent Command Center with `p` and keep them in a shared Pinned group when supported by the server.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Navigate and copy transcript blocks with `/copy`, use `Ctrl+Insert` to copy selections, and tune mouse-wheel scrolling with `tui.mouse_scroll_speed`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Make URLs clickable in approval headers, questions, MCP prompts, warnings, banners, and verification prompts, including when links wrap across lines.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Configure live web access and remote compaction capabilities for custom Responses-compatible model providers.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Add JavaScript helpers for streaming promise results as they settle, plus opt-in ranked tool search in Code Mode.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Respect server model and reasoning-summary defaults for new TUI threads while retaining explicit launch overrides.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserve existing CRLF line endings in `apply_patch` updates without requiring an opt-in.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fix Linux sandbox startup with multiple denied files, reject writable sandbox-construction executables, and keep ripgrep configuration from weakening deny-glob masks.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Restore ordinary drive-letter file access on Windows 10 and match Windows sandbox temp permissions to the child process environment.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Honor server `Retry-After` advice for retryable Responses and WebSocket failures.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fix archive checksum verification when installing through Windows PowerShell with PowerShell 7 module paths present.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Publish a signed PowerShell installer with Windows releases.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Keep older stable releases and prereleases from replacing newer stable download targets or installer aliases.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "b0e05743e993",
+   "ko": {
+    "model": "codex-cloud",
+    "summary": "관리형 Git worktree 도구와 Command Center 작업 고정을 추가한다. 기록 복사·스크롤 설정을 확장하고 샌드박스·Windows 문제를 수정한다.",
+    "items": [
+     "worktrees 기능 활성화 시 신뢰하는 로컬 프로젝트의 관리형 Git worktree 생성·목록 도구를 추가한다.",
+     "Command Center에서 `p`로 작업을 고정하고, 서버가 지원하면 공유 Pinned 그룹에 모아 볼 수 있다.",
+     "`/copy`로 트랜스크립트 블록을 탐색하고 복사하며, `Ctrl+Insert`로 선택 영역을 복사한다. `tui.mouse_scroll_speed`로 마우스 휠 속도를 조정한다.",
+     "승인 헤더, 질문, MCP 프롬프트, 경고, 배너, 검증 프롬프트의 URL을 클릭할 수 있다. 줄 바꿈된 링크도 포함된다.",
+     "Responses 호환 사용자 지정 모델 제공자의 실시간 웹 접근과 원격 압축 기능을 설정할 수 있게 한다.",
+     "Promise가 완료될 때마다 결과를 스트리밍하는 JavaScript 헬퍼와 선택 활성화 방식의 Code Mode 순위 기반 도구 검색을 추가한다.",
+     "새 TUI 스레드가 서버의 모델과 추론 요약 기본값을 따른다. 실행 시 명시적으로 준 재정의는 그대로 유지된다.",
+     "`apply_patch` 업데이트에서 기존 CRLF 줄바꿈을 옵트인 없이 보존한다.",
+     "여러 파일 거부 시 Linux 샌드박스 시작을 수정하고 쓰기 가능한 구성 실행 파일을 거부하며 ripgrep 설정의 거부 glob 약화를 막는다.",
+     "Windows 10의 일반 드라이브 문자 파일 접근을 복구하고 Windows 샌드박스 임시 권한을 자식 프로세스 환경에 맞춘다.",
+     "재시도 가능한 Responses와 WebSocket 실패에서 서버의 `Retry-After` 안내를 따른다.",
+     "PowerShell 7 모듈 경로가 있을 때 Windows PowerShell 설치의 아카이브 체크섬 검증이 실패하던 문제를 수정한다.",
+     "Windows 릴리스와 함께 서명된 PowerShell 설치 프로그램을 배포한다.",
+     "이전 안정·사전 릴리스가 최신 안정판 다운로드 대상·설치 별칭을 대체하지 못하게 한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "관리형 Git worktree 도구",
+      "what": "관리형 Git worktree 생성·목록 도구를 추가한다. worktrees 기능이 켜진 신뢰하는 로컬 프로젝트가 대상이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Command Center 작업 고정",
+      "what": "Command Center에서 `p`를 누르면 작업을 고정할 수 있다. 고정된 작업은 공유 Pinned 그룹에 모이며, 서버가 지원할 때만 동작한다.",
+      "steps": [
+       "에이전트 Command Center에서 `p`로 작업을 고정한다.",
+       "서버가 지원하면 공유 Pinned 그룹에 유지한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "트랜스크립트 복사와 휠 속도",
+      "what": "`/copy`로 트랜스크립트 블록을 탐색하고 복사할 수 있다. `Ctrl+Insert`로 선택 영역을 복사하고, `tui.mouse_scroll_speed`로 마우스 휠 스크롤 속도를 조정한다.",
+      "steps": [
+       "`/copy`로 기록 블록을 탐색하고 복사한다.",
+       "선택 영역은 `Ctrl+Insert`로 복사한다.",
+       "마우스 휠 속도는 `tui.mouse_scroll_speed`로 조절한다."
+      ],
+      "terminal": {
+       "title": "기록 블록 복사",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /copy"
+        },
+        {
+         "kind": "comment",
+         "text": "선택 영역은 Ctrl+Insert로 복사한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "클릭 가능한 URL",
+      "what": "승인 헤더, 질문, MCP 프롬프트, 경고, 배너, 검증 프롬프트에 있는 URL을 클릭할 수 있다. 링크가 줄 바꿈으로 나뉘어도 동작한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "커스텀 모델 제공자의 웹 접근과 compaction",
+      "what": "사용자 지정 Responses 호환 모델 제공자의 기능을 설정할 수 있게 한다. 실시간 웹 접근과 원격 압축이 대상이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "JavaScript 헬퍼와 Code Mode 도구 검색",
+      "what": "Promise가 완료될 때마다 결과를 스트리밍하는 JavaScript 헬퍼를 추가한다. Code Mode의 순위 기반 도구 검색은 선택해서 활성화할 수 있다.",
       "steps": [],
       "terminal": {
        "title": "",
@@ -9548,6 +10117,258 @@
    }
   },
   {
+   "id": "codex@rust-v0.161.0",
+   "tool": "codex",
+   "version": "0.161.0",
+   "date": "2026-10-07T15:58:45Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.161.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "GPT-6.1 Sol is now the default model in the bundled and Amazon Bedrock catalogs.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Amazon Bedrock supports multi-agent V2 and Ultra reasoning on compatible models; Bedrock Mantle also accepts AWS GovCloud regions.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Sign in to MCP servers from an active terminal session with `/mcp login <name>`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Choose your microphone, speaker, and microphone input channels for voice conversations, with preferences saved locally.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Daybreak is opt-in through `--enable cli_daybreak` or `features.cli_daybreak=true`; `daybreak=true` alone is insufficient. By default, controls and indicators are hidden, `/daybreak` is unavailable, and automatic Cyber routing is omitted—even for saved Daybreak threads. Saved preferences remain intact. Opt-in routing requires eligible ChatGPT sign-in, the OpenAI provider, and advertised model/program support.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Select a Cyber access program per turn with `codex exec --cyber-access-program` or the TypeScript SDK’s `cyberAccessProgram` option. The explicit exec override remains available with `cli_daybreak` disabled and leaves the saved choice unchanged.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Approved filesystem escalation can now grant broader write access while preserving denied reads and network restrictions. Background tasks retain their originating turn’s permissions.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Explicit launch permissions survive terminal reconnects and new sessions, while implicit client settings no longer overwrite server or saved-thread web-search settings.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Elevated Windows terminal sessions can start using an embedded server, and sandboxed PowerShell preserves relative paths beneath protected user profiles.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Enter correctly submits buffered input after paste detection expires, including in Vim insert mode.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Thread resume includes the latest committed history. Startup detects recoverable SQLite corruption earlier and preserves damaged databases as backups.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Responses retries and WebSocket-to-HTTP fallback honor server retry guidance, reducing premature failures during overload.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Authentication guidance now accounts for keyring storage instead of implying credentials always reside in `auth.json`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Publishing an older alpha or hotfix no longer moves npm alpha tags backward.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "2b7bd5fe26e0",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-6.1 Sol이 번들·Amazon Bedrock 카탈로그의 기본 모델이 된다. 세션 내 MCP 로그인, 음성 장치 선택, 선택적 Daybreak 및 턴별 Cyber 접근 프로그램 선택을 추가한다.",
+    "items": [
+     "번들 및 Amazon Bedrock 카탈로그의 기본 모델을 GPT-6.1 Sol로 바꾼다.",
+     "호환 모델의 Amazon Bedrock에서 multi-agent V2와 Ultra 추론을 지원하고, Bedrock Mantle에서 AWS GovCloud 리전을 허용한다.",
+     "활성 터미널 세션에서 `/mcp login <name>`으로 MCP 서버에 로그인할 수 있다.",
+     "음성 대화의 마이크·스피커·마이크 입력 채널을 선택하고 선호 설정을 로컬에 저장한다.",
+     "Daybreak는 `--enable cli_daybreak` 또는 `features.cli_daybreak=true`로 켜야 한다. 기본값에서는 컨트롤·표시·`/daybreak`·자동 Cyber 라우팅을 숨긴다.",
+     "`codex exec --cyber-access-program` 또는 TypeScript SDK의 `cyberAccessProgram`으로 턴별 Cyber 접근 프로그램을 선택한다.",
+     "승인된 파일시스템 권한 상승에서 읽기 거부와 네트워크 제한을 유지하며 쓰기 범위를 넓힐 수 있다. 백그라운드 작업은 원래 턴의 권한을 유지한다.",
+     "명시적 실행 권한이 터미널 재연결과 새 세션에도 유지되고, 암묵적 클라이언트 설정이 서버·저장된 스레드의 웹 검색 설정을 덮어쓰지 않는다.",
+     "권한 상승된 Windows 터미널 세션이 내장 서버로 시작되고, 샌드박스 PowerShell이 보호된 사용자 프로필 아래의 상대 경로를 보존한다.",
+     "붙여넣기 감지 기간이 지난 뒤 Enter로 대기 중인 입력을 제출할 수 있으며 Vim 입력 모드에도 적용된다.",
+     "스레드 재개 시 최신 커밋된 기록을 포함한다. 시작 시 복구 가능한 SQLite 손상을 더 일찍 감지하고 손상된 DB를 백업으로 보존한다.",
+     "Responses 재시도와 WebSocket에서 HTTP로의 대체 연결이 서버의 재시도 지침을 따른다.",
+     "인증 안내가 키링 저장을 반영해 자격 증명이 항상 `auth.json`에 있다고 암시하지 않는다.",
+     "이전 알파·핫픽스를 게시해도 npm 알파 태그가 과거 버전으로 이동하지 않는다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-6.1 Sol 기본 모델",
+      "what": "번들 및 Amazon Bedrock 카탈로그의 기본 모델이 GPT-6.1 Sol로 바뀐다. 다른 카탈로그에 관한 변경은 원문에 없다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Bedrock의 멀티 에이전트와 Ultra 추론",
+      "what": "Amazon Bedrock이 호환 모델에서 multi-agent V2와 Ultra 추론을 지원한다. Bedrock Mantle은 AWS GovCloud 리전도 허용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "세션 내 MCP 로그인",
+      "what": "활성 터미널 세션에서 `/mcp login <name>`으로 MCP 서버에 로그인할 수 있다. `<name>`은 로그인할 서버 이름이다.",
+      "steps": [],
+      "terminal": {
+       "title": "MCP 서버 로그인",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /mcp login <name>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "음성 장치 선택",
+      "what": "음성 대화에 사용할 마이크와 스피커, 마이크 입력 채널을 선택할 수 있다. 선택한 선호 설정은 로컬에 저장된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "Daybreak 선택적 활성화",
+      "what": "Daybreak는 `--enable cli_daybreak` 또는 `features.cli_daybreak=true`로 켜야 하며 `daybreak=true`만으로는 켜지지 않는다. 기본값에서는 컨트롤과 표시가 숨겨지고 `/daybreak`와 자동 Cyber 라우팅도 사용할 수 없으며, 저장된 Daybreak 스레드에도 적용된다. 저장된 선호 설정은 유지되며, 라우팅에는 적격 ChatGPT 로그인, OpenAI 제공자, 모델·프로그램 지원 표시가 필요하다.",
+      "steps": [
+       "`--enable cli_daybreak` 또는 `features.cli_daybreak=true`로 기능을 켠다.",
+       "적격 ChatGPT 로그인, OpenAI 제공자와 모델·프로그램 지원 여부를 확인한다."
+      ],
+      "terminal": {
+       "title": "Daybreak 활성화",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "`--enable cli_daybreak` 또는 `features.cli_daybreak=true`로 활성화한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 5,
+      "title": "턴별 Cyber 접근 프로그램",
+      "what": "`codex exec --cyber-access-program` 또는 TypeScript SDK의 `cyberAccessProgram` 옵션으로 턴별 Cyber 접근 프로그램을 선택한다. 명시적 `exec` 재정의는 `cli_daybreak`가 꺼져 있어도 사용할 수 있으며 저장된 선택은 바꾸지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "턴별 Cyber 프로그램",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "`codex exec --cyber-access-program` 옵션을 사용한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
    "id": "codex@changelog:codex-2026-10-07-app",
    "tool": "codex",
    "version": "Codex app 26.1002",
@@ -10694,6 +11515,33 @@
     "items": [
      "2.1.290에서 클라우드 세션의 권한 요청 응답이 누락되던 회귀를 수정한다.",
      "2.1.288에서 종료할 때 세션의 마지막 메시지가 손실되던 회귀를 수정한다."
+    ],
+    "features": []
+   }
+  },
+  {
+   "id": "codex@rust-v0.160.1",
+   "tool": "codex",
+   "version": "0.160.1",
+   "date": "2026-10-05T18:29:37Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Preserve `SYSTEMROOT`, `TEMP`, and `TMP` when launching remote stdio MCP servers with explicitly configured remote environment variables, allowing Unix hosts to retain the Windows executor's startup environment.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "92556c65988f",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "원격 stdio MCP 서버를 실행할 때 Windows 실행기의 시작 환경 변수 보존을 수정한다.",
+    "items": [
+     "원격 환경 변수를 명시한 원격 stdio MCP 서버 실행 시 `SYSTEMROOT`, `TEMP`, `TMP`를 보존해 Unix 호스트가 Windows 실행기의 시작 환경을 유지하게 한다."
     ],
     "features": []
    }
@@ -14058,6 +14906,208 @@
    }
   },
   {
+   "id": "codex@rust-v0.160.0",
+   "tool": "codex",
+   "version": "0.160.0",
+   "date": "2026-10-01T20:19:13Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.160.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Browse older tasks in the agent command center with a keyboard-accessible “Show more” action.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Select transcript text and paste with middle-click in fullscreen mode on supported local Linux X11 terminals.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Start sessions outside a project with workspace defaults when policy permits, and restore saved permissions when resuming.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added opt-in Guardian review capabilities to retrieve earlier user instructions and include context from agent handoffs.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Unsent queued messages now resume after reconnection once uncertain submissions are resolved, avoiding duplicate sends.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "The terminal UI now preserves server provider, reasoning-summary, and verbosity settings and shows the correct sessions in resume and fork history.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Windows sandbox PowerShell fallbacks and long-path permission repairs, and suppressed unwanted console windows from background helpers.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Subagents now retain environments that are still starting and receive their configuration or preparation failure.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Prevented SQLite stalls during connection setup and logging, and surfaced initialization errors instead of masking them as timeouts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Explicit provider model catalogs no longer include unsupported bundled models or reuse stale entries after refresh failures.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Clarified how provider credentials use the configured storage backend and how `env_key` identifies the API-key environment variable.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Reduced repeated plugin-loading work by caching parsed manifests and reusing HTTP connections for remote plugin requests.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Added background reclamation of unused log database space to reduce disk usage.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "21474aa4368c",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "에이전트 명령 센터에서 오래된 작업을 더 찾아볼 수 있다. 프로젝트 밖 세션의 기본값과 재개 권한 복원, 선택형 Guardian 검토도 추가된다.",
+    "items": [
+     "에이전트 명령 센터에서 키보드로 접근 가능한 “Show more”를 통해 오래된 작업을 탐색한다.",
+     "지원되는 로컬 Linux X11 터미널의 전체 화면 모드에서 기록 텍스트를 선택하고 가운데 클릭으로 붙여 넣는다.",
+     "정책이 허용하면 프로젝트 밖에서 워크스페이스 기본값으로 세션을 시작하고, 재개할 때 저장된 권한을 복원한다.",
+     "선택형 Guardian 검토에서 이전 사용자 지시를 가져오고 에이전트 인계 맥락을 포함할 수 있다.",
+     "연결이 복구되면 전송 여부가 불확실한 요청을 확인한 뒤 미전송 대기 메시지를 재개해 중복 전송을 피한다.",
+     "터미널 UI가 서버 제공자·추론 요약·상세도 설정을 유지하고 재개·분기 기록에 올바른 세션을 보여준다.",
+     "Windows 샌드박스 PowerShell 대체 실행과 긴 경로 권한 복구를 수정하고 백그라운드 도우미의 불필요한 콘솔 창을 억제한다.",
+     "하위 에이전트가 시작 중인 환경을 유지하고 구성·준비 실패를 전달받는다.",
+     "연결 설정과 로깅 중 SQLite 지연을 막고 초기화 오류를 시간 초과로 숨기지 않는다.",
+     "명시적 제공자 모델 목록에서 미지원 번들 모델과 새로 고침 실패 후 남은 항목을 제외한다.",
+     "제공자 자격 증명이 설정된 저장소를 사용하는 방식과 `env_key`가 API 키 환경 변수를 지정하는 방식을 명확히 한다.",
+     "파싱한 매니페스트를 캐시하고 원격 플러그인 요청의 HTTP 연결을 재사용해 반복 로딩을 줄인다.",
+     "사용하지 않는 로그 데이터베이스 공간을 백그라운드에서 회수해 디스크 사용량을 줄인다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "오래된 작업 탐색",
+      "what": "에이전트 명령 센터에 오래된 작업을 보는 “Show more” 동작이 추가된다. 키보드로도 접근할 수 있다.",
+      "steps": [
+       "에이전트 명령 센터에서 작업 목록을 본다.",
+       "“Show more”를 사용해 오래된 작업을 본다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "X11 가운데 클릭 붙여 넣기",
+      "what": "전체 화면 모드에서 기록 텍스트를 선택하고 가운데 클릭으로 붙여 넣을 수 있다. 지원되는 로컬 Linux X11 터미널에 적용된다.",
+      "steps": [
+       "지원되는 로컬 Linux X11 터미널에서 전체 화면 모드를 연다.",
+       "기록 텍스트를 선택한다.",
+       "가운데 클릭으로 붙여 넣는다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "프로젝트 밖 세션과 권한 복원",
+      "what": "정책이 허용하면 프로젝트 밖에서도 워크스페이스 기본값으로 세션을 시작할 수 있다. 세션을 재개할 때 저장된 권한을 복원한다.",
+      "steps": [
+       "정책이 허용하는 환경에서 프로젝트 밖 세션을 시작한다.",
+       "세션을 재개하면 저장된 권한이 복원된다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "Guardian 검토 맥락",
+      "what": "선택형 Guardian 검토에서 이전 사용자 지시를 가져올 수 있다. 에이전트 인계 내용도 검토 맥락에 포함할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
    "id": "claude-code@2.1.287",
    "tool": "claude-code",
    "version": "2.1.287",
@@ -15413,6 +16463,51 @@
    }
   },
   {
+   "id": "codex@rust-v0.159.3",
+   "tool": "codex",
+   "version": "0.159.3",
+   "date": "2026-09-30T22:57:34Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.3",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Eligible local sessions signed in with ChatGPT can now show optional reminders to complete account security setup.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "d0cb25318392",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "ChatGPT로 로그인한 일부 로컬 세션에 계정 보안 설정 완료 알림을 선택적으로 표시한다.",
+    "items": [
+     "ChatGPT로 로그인한 대상 로컬 세션에 계정 보안 설정 완료 알림을 선택적으로 표시할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "계정 보안 설정 알림",
+      "what": "ChatGPT로 로그인한 대상 로컬 세션에 계정 보안 설정 완료 알림을 표시할 수 있다. 알림은 선택 사항이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
+  },
+  {
    "id": "claude-code@2.1.286",
    "tool": "claude-code",
    "version": "2.1.286",
@@ -16350,6 +17445,78 @@
       },
       "screenshot_id": "",
       "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.159.2",
+   "tool": "codex",
+   "version": "0.159.2",
+   "date": "2026-09-29T23:57:16Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.2",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Suppressed console windows flashing on Windows when Codex launches background processes and sandboxed commands.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "07a0d1976cd9",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Windows에서 백그라운드 프로세스와 샌드박스 명령 실행 시 콘솔 창 깜박임을 억제한다.",
+    "items": [
+     "Windows에서 Codex가 백그라운드 프로세스와 샌드박스 명령을 실행할 때 콘솔 창 깜박임을 억제한다."
+    ],
+    "features": []
+   }
+  },
+  {
+   "id": "codex@rust-v0.159.1",
+   "tool": "codex",
+   "version": "0.159.1",
+   "date": "2026-09-29T20:32:34Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added GPT-6.1 Sol as the default model in the bundled catalog and Amazon Bedrock Mantle and Runtime catalogs.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "d7153b5fde1b",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-6.1 Sol이 기본 모델로 추가된다.",
+    "items": [
+     "GPT-6.1 Sol을 번들 모델 목록과 Amazon Bedrock Mantle·Runtime 모델 목록의 기본 모델로 추가한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-6.1 Sol 기본 모델",
+      "what": "GPT-6.1 Sol이 번들 모델 목록의 기본 모델이 된다. Amazon Bedrock Mantle 및 Runtime 모델 목록에도 기본 모델로 추가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
      }
     ]
    }
@@ -18049,6 +19216,254 @@
    }
   },
   {
+   "id": "codex@rust-v0.159.0",
+   "tool": "codex",
+   "version": "0.159.0",
+   "date": "2026-09-29T08:05:42Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.159.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Opt-in `instant_interrupt` lets new input steer Codex during model responses or long-running code-mode calls.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "New sessions get a compact welcome screen and consistent headers, with occasional tips during and after turns.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "The warnings viewer dismisses reviewed warnings when closed; press `k` to keep one for later.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "You can scroll the transcript while deciding whether to implement a plan.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Native Mermaid rendering supports more flowchart edges, labels, and node groups.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "App-server clients can paginate thread history from a specific item.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Windows launches avoid stray console windows for MCP servers, code-mode hosts, and piped commands; restrictive launchers can fall back to embedded mode.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Copying transcript selections preserves Markdown tables, formatting, and significant whitespace. More terminals now copy automatically on selection.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Blank sessions retain drafts when switching tasks, and threads can be archived and listed before their first turn.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Local ChatGPT sign-in opens the browser reliably; onboarding also provides a shortcut to copy the login link.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Approved commands retain explicit filesystem denials, and `.aws` directories are protected by default under writable roots.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed macOS TLS access in network-enabled sandboxes and remote environments that require proxy access.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Removed automatic follow-up prompt suggestions and the `tui.prompt_suggestions` setting.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Removed the bundled `plugin-creator` skill.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "7cf7214cf31b",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "선택 기능 `instant_interrupt`로 응답이나 긴 code-mode 호출 중 새 입력을 반영할 수 있다. 경고 보관, 계획 검토 중 스크롤, Mermaid 렌더링과 여러 플랫폼 오류 수정도 포함됐다.",
+    "items": [
+     "선택 기능 `instant_interrupt`를 켜면 모델 응답이나 오래 실행되는 code-mode 호출 중 새 입력으로 Codex를 조정할 수 있다.",
+     "새 세션에 간결한 환영 화면과 일관된 헤더가 표시되고 턴 중간과 이후에 가끔 팁이 나온다.",
+     "경고 화면을 닫으면 확인한 경고가 해제된다. `k`를 누르면 나중에 볼 수 있도록 보관한다.",
+     "계획 구현 여부를 결정하는 동안에도 대화 기록을 스크롤할 수 있다.",
+     "기본 Mermaid 렌더링이 더 많은 흐름도 연결선·레이블·노드 그룹을 지원한다.",
+     "app-server 클라이언트가 특정 항목부터 스레드 기록을 페이지 단위로 가져올 수 있다.",
+     "Windows에서 MCP 서버·code-mode 호스트·파이프 명령 실행 시 불필요한 콘솔 창을 피한다. 제한적인 실행기에서는 내장 모드로 전환할 수 있다.",
+     "대화 기록 복사 시 Markdown 표·서식·의미 있는 공백을 보존한다. 더 많은 터미널에서 선택 즉시 복사된다.",
+     "빈 세션에서 작업을 전환해도 초안이 남고 첫 턴 전에도 스레드를 보관·조회할 수 있다.",
+     "로컬 ChatGPT 로그인이 브라우저를 안정적으로 열고 온보딩에 로그인 링크 복사 단축키가 제공된다.",
+     "승인된 명령에도 명시적인 파일 시스템 거부가 유지되고 쓰기 가능 루트 아래 `.aws` 디렉터리를 기본 보호한다.",
+     "네트워크를 허용한 macOS 샌드박스의 TLS 접근과 프록시가 필요한 원격 환경 문제를 고쳤다.",
+     "자동 후속 프롬프트 제안과 `tui.prompt_suggestions` 설정을 제거했다.",
+     "내장 `plugin-creator` 스킬을 제거했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "실행 중 입력 반영",
+      "what": "선택 기능 `instant_interrupt`를 켜면 모델 응답 중 새 입력으로 Codex를 조정할 수 있다. 오래 실행되는 code-mode 호출 중에도 적용된다.",
+      "steps": [],
+      "terminal": {
+       "title": "실행 중 입력 반영",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "선택 기능: `instant_interrupt`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "새 세션 화면",
+      "what": "새 세션에 간결한 환영 화면과 일관된 헤더가 표시된다. 턴 도중과 이후에 가끔 팁이 제공된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "경고 보관",
+      "what": "경고 화면을 닫으면 확인한 경고가 해제된다. 나중에 다시 볼 경고는 `k`를 눌러 보관한다.",
+      "steps": [
+       "경고 화면에서 경고를 확인한다.",
+       "보관할 경고에 `k`를 누른다.",
+       "경고 화면을 닫는다."
+      ],
+      "terminal": {
+       "title": "경고 보관",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "경고 보관 키: `k`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "계획 검토 중 스크롤",
+      "what": "계획 구현 여부를 결정하는 동안 대화 기록을 스크롤할 수 있다. 결정 전에 앞선 대화 내용을 확인할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "Mermaid 흐름도 렌더링",
+      "what": "기본 Mermaid 렌더링이 더 많은 흐름도 연결선을 지원한다. 레이블과 노드 그룹의 지원 범위도 넓어졌다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "스레드 기록 페이지 조회",
+      "what": "app-server 클라이언트가 스레드 기록을 페이지 단위로 가져올 수 있다. 조회 시작 지점을 특정 항목으로 지정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
    "id": "codex@changelog:codex-2026-09-29-app",
    "tool": "codex",
    "version": "Codex app 26.928",
@@ -19593,6 +21008,231 @@
    }
   },
   {
+   "id": "codex@rust-v0.158.0",
+   "tool": "codex",
+   "version": "0.158.0",
+   "date": "2026-09-28T05:07:23Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.158.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Configure copy-on-select and right-click paste in the fullscreen TUI. Copied transcript selections now preserve Markdown formatting.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Connect to MCP servers that require pre-registered OAuth client secrets, including through `codex mcp add --oauth-client-secret`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Secure direct exec-server WebSocket connections with bearer tokens, including connections configured through app-server.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Image generation and editing can explicitly request transparent backgrounds, and edits now accept file-backed conversation images.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Terminal input approval is enabled by default for commands running with elevated permissions; runtime-only grants no longer cause unnecessary reviews.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Windows sandbox failures involving ordinary Windows 10 paths, rejected stored credentials, and large permission policies.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Linux sandbox startup with nested writable roots and preserved Git metadata protections across writable roots on Linux and macOS.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "macOS patch operations now recognize system path aliases covered by existing permissions, avoiding unnecessary approval prompts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Approval reviews now retry when new user input arrives, so a status question does not automatically abort a pending action.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Mermaid flowcharts now render quoted labels and ampersands; unsupported diagrams explain why they fall back to source.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Command completion events now include early output and report process-launch failures to clients.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "dafb47445870",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "전체화면 TUI의 복사·붙여넣기 설정과 OAuth 클라이언트 암호가 필요한 MCP 서버 연결이 추가됐다. WebSocket 인증, 이미지 편집, 샌드박스와 승인 동작도 개선됐다.",
+    "items": [
+     "전체화면 TUI의 선택 시 복사와 우클릭 붙여넣기를 설정할 수 있다. 대화 기록 복사본은 Markdown 서식을 보존한다.",
+     "사전 등록된 OAuth 클라이언트 암호가 필요한 MCP 서버에 `codex mcp add --oauth-client-secret` 등으로 연결할 수 있다.",
+     "직접 exec-server WebSocket 연결과 app-server를 통한 연결을 bearer token으로 보호할 수 있다.",
+     "이미지 생성·편집에서 투명 배경을 명시적으로 요청할 수 있고 파일 기반 대화 이미지로 편집할 수 있다.",
+     "높은 권한으로 실행되는 명령의 터미널 입력 승인이 기본으로 켜진다. 런타임에만 적용되는 허가로 인한 불필요한 검토는 줄었다.",
+     "일반 Windows 10 경로, 저장된 자격 증명 거부, 큰 권한 정책과 관련된 Windows 샌드박스 오류를 고쳤다.",
+     "중첩된 쓰기 가능 루트의 Linux 샌드박스 시작을 고치고 Linux·macOS에서 Git 메타데이터 보호를 유지한다.",
+     "macOS 패치 작업이 기존 권한에 포함된 시스템 경로 별칭을 인식해 불필요한 승인 요청을 피한다.",
+     "새 사용자 입력이 들어오면 승인 검토를 재시도해 상태 질문 때문에 보류 중인 작업이 자동 중단되지 않는다.",
+     "Mermaid 흐름도가 따옴표가 있는 레이블과 앰퍼샌드를 렌더링한다. 지원하지 않는 다이어그램은 원본으로 대체되는 이유를 설명한다.",
+     "명령 완료 이벤트에 초기 출력을 포함하고 프로세스 시작 실패를 클라이언트에 알린다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체화면 TUI 복사·붙여넣기",
+      "what": "전체화면 TUI에서 선택 시 복사와 우클릭 붙여넣기를 설정할 수 있다. 대화 기록에서 선택한 텍스트를 복사하면 Markdown 서식이 유지된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "OAuth 클라이언트 암호 MCP 연결",
+      "what": "사전 등록된 OAuth 클라이언트 암호를 요구하는 MCP 서버에 연결할 수 있다. `codex mcp add --oauth-client-secret`을 통한 추가도 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "OAuth 클라이언트 암호 MCP 연결",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "MCP 서버 추가 옵션: `codex mcp add --oauth-client-secret`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "exec-server WebSocket 인증",
+      "what": "직접 exec-server WebSocket 연결을 bearer token으로 보호할 수 있다. app-server를 통해 설정된 연결에도 적용된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "이미지 투명 배경과 파일 편집",
+      "what": "이미지 생성과 편집에서 투명 배경을 명시적으로 요청할 수 있다. 편집에는 파일로 저장된 대화 이미지도 사용할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "높은 권한 명령 입력 승인",
+      "what": "높은 권한으로 실행되는 명령에는 터미널 입력 승인이 기본으로 활성화된다. 런타임에만 적용되는 허가에 대한 불필요한 검토는 줄었다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.157.1",
+   "tool": "codex",
+   "version": "0.157.1",
+   "date": "2026-09-26T01:02:31Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "Release highlights could not be determined: the supplied PR index is empty, and the GitHub tag comparison returned 404.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "0d8b70324e04",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "제공된 PR 목록이 비어 있고 GitHub 태그 비교가 404를 반환해 주요 변경 사항을 확인할 수 없다.",
+    "items": [
+     "제공된 PR 목록이 비어 있고 GitHub 태그 비교가 404여서 주요 변경 사항을 확인할 수 없다."
+    ],
+    "features": []
+   }
+  },
+  {
    "id": "claude-code@2.1.283",
    "tool": "claude-code",
    "version": "2.1.283",
@@ -20672,6 +22312,229 @@
       "index": 81,
       "title": "여러 줄 붙여넣기 입력 정렬",
       "what": "긴 프롬프트에 줄바꿈으로 끝나는 여러 줄을 붙여넣은 뒤 VS Code 채팅 입력 텍스트가 커서와 선택 영역보다 아래에 표시되던 문제를 수정한다. 원문에는 추가적인 사용 절차가 없다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.157.0",
+   "tool": "codex",
+   "version": "0.157.0",
+   "date": "2026-09-25T02:31:06Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.157.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added GPT-6 Sol and Luna, including Amazon Bedrock support and migration prompts for older models.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Enabled fullscreen transcripts by default and added Shift-click to extend text selections.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Enabled automatic background-server startup for eligible interactive sessions, with recovery choices when server settings are incompatible.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added an `f` shortcut to fork conversations open in another app, preserving drafts and queued prompts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Made `/import` available in remote sessions and local background-server sessions.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Improved terminal rendering with Unicode bullets, checkboxes, aligned equations, and optimization notation.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserved active voice conversations when switching threads.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Recovered unsent question answers into the composer when turns end, without disrupting active history searches.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Respected tmux mouse settings and restored native scrollback for Terminal.app over SSH in automatic screen mode.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed configured proxy routing for realtime connections and standalone web search, including search redirects.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Added retries for transient file-upload failures and increased the upload timeout to five minutes.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Enforced network restrictions across redirects and ongoing HTTP and WebSocket traffic, including cancellation when policy changes revoke access.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "07a163451737",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-6 Sol과 Luna를 추가하고, 전체 화면 대화 기록을 기본으로 켠다. 대화 분기, 원격·백그라운드 세션의 가져오기, 터미널 표시와 네트워크·파일 업로드 동작도 개선한다.",
+    "items": [
+     "GPT-6 Sol과 Luna를 추가했으며, Amazon Bedrock 지원과 구형 모델의 마이그레이션 안내를 포함한다.",
+     "전체 화면 대화 기록을 기본으로 켜고, Shift-클릭으로 텍스트 선택 범위를 확장할 수 있게 했다.",
+     "대상 인터랙티브 세션에서 백그라운드 서버를 자동으로 시작하며, 서버 설정이 호환되지 않을 때 복구 선택지를 제공한다.",
+     "다른 앱에서 열린 대화를 `f` 키로 분기할 수 있으며, 초안과 대기 중인 프롬프트를 보존한다.",
+     "원격 세션과 로컬 백그라운드 서버 세션에서 `/import`를 사용할 수 있게 했다.",
+     "터미널에서 유니코드 글머리표와 체크박스, 정렬된 방정식 및 최적화 표기를 더 잘 표시한다.",
+     "스레드를 전환할 때 진행 중인 음성 대화를 보존한다.",
+     "턴이 끝날 때 전송되지 않은 질문 답변을 입력창에 복구하며, 진행 중인 기록 검색을 방해하지 않는다.",
+     "tmux 마우스 설정을 따르고, 자동 화면 모드에서 SSH로 연결한 Terminal.app의 기본 스크롤백을 복구한다.",
+     "실시간 연결과 독립 웹 검색 및 검색 리디렉션에서 설정된 프록시 경로를 수정했다.",
+     "일시적인 파일 업로드 실패 시 재시도하고 업로드 제한 시간을 5분으로 늘렸다.",
+     "리디렉션과 진행 중인 HTTP·WebSocket 트래픽에도 네트워크 제한을 적용하며, 정책 변경으로 접근이 취소되면 연결을 취소한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-6 Sol과 Luna",
+      "what": "GPT-6 Sol과 Luna를 추가한다. Amazon Bedrock 지원과 구형 모델 사용자를 위한 마이그레이션 안내도 포함한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "전체 화면 대화 기록과 선택 확장",
+      "what": "전체 화면 대화 기록을 기본으로 활성화한다. Shift-클릭으로 텍스트 선택 범위를 확장할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "백그라운드 서버 자동 시작",
+      "what": "대상 인터랙티브 세션에서 백그라운드 서버가 자동으로 시작된다. 서버 설정이 호환되지 않으면 복구 선택지를 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "다른 앱의 대화 분기",
+      "what": "다른 앱에서 열린 대화를 `f` 키로 분기할 수 있다. 분기할 때 초안과 대기 중인 프롬프트를 보존한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "원격 및 백그라운드 세션에서 가져오기",
+      "what": "`/import`를 원격 세션에서 사용할 수 있다. 로컬 백그라운드 서버 세션에서도 사용할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "세션 입력",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /import"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "터미널 수식 및 기호 표시",
+      "what": "터미널 표시를 개선해 유니코드 글머리표와 체크박스를 지원한다. 방정식 정렬과 최적화 표기도 개선한다.",
       "steps": [],
       "terminal": {
        "title": "",
@@ -23271,6 +25134,51 @@
    }
   },
   {
+   "id": "codex@rust-v0.156.1",
+   "tool": "codex",
+   "version": "0.156.1",
+   "date": "2026-09-23T02:41:36Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Choose GPT-6 Sol or GPT-6 Luna from the model picker. The rate-limit switch prompt now recommends GPT-6 Luna.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "fe2b8de3cf97",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 선택할 수 있다. rate limit 전환 안내는 GPT-6 Luna를 권장한다.",
+    "items": [
+     "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 선택할 수 있다. rate limit 전환 안내는 GPT-6 Luna를 권장한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-6 모델 선택",
+      "what": "모델 선택기에서 GPT-6 Sol 또는 GPT-6 Luna를 고를 수 있다. rate limit 전환 안내는 GPT-6 Luna를 추천한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
+  },
+  {
    "id": "codex@changelog:codex-2026-09-23-mobile",
    "tool": "codex",
    "version": "ChatGPT for iOS 1.2026.258",
@@ -23433,6 +25341,281 @@
       "terminal": {
        "title": "",
        "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.156.0",
+   "tool": "codex",
+   "version": "0.156.0",
+   "date": "2026-09-22T19:51:01Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.156.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Choose an optional fullscreen UI with `/tui` for your next launch, including transcript search, mouse selection, and right-click copying.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Voice conversations are enabled by default, with an F8 toggle, a `/voice settings` picker, and bundled audio runtimes for Linux and Windows.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Explore account usage, token totals, and plugin and skill activity through the `/usage` analytics dashboard.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Filter tasks by status and create worktree sessions from the agent command center; worktree support is now enabled by default.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Customize the terminal with six new themes and view supported Mermaid diagrams and display equations directly in responses.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Update the local background server through `/daemon`, or bypass it with `--no-daemon`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserve streamed answers and plans when turns fail, are interrupted, or receive subagent completion events.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fix clipboard forwarding in tmux and SSH sessions and preserve tab indentation when terminals send pasted text as individual keystrokes.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Restore Plan mode when resuming sessions and preserve thread identity and settings when editing earlier prompts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Recover login through system proxies and refresh MCP credentials when OAuth discovery returns a 503 error.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Prevent speech from being dropped during playback pauses or bursts of incoming audio.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Close sandbox isolation gaps involving inbound Windows connections, privileged Linux/macOS sockets, and writes through read-only macOS file handles.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Clarify that deprecated `friendly` and `pragmatic` personality settings no longer select response styles.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Explain how `?` matches a single character in network proxy allow and deny patterns.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Update bundled TLS dependencies, including OpenSSL 3.6.4 for Linux musl builds.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "b07fb08ee592",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "전체 화면 TUI, 음성 대화, 사용량 분석 대시보드를 추가하고 작업 센터와 터미널 표시 기능을 확장한다. 로컬 백그라운드 서버를 `/daemon`으로 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+    "items": [
+     "다음 실행에서 `/tui`로 선택형 전체 화면 UI를 사용할 수 있다. 대화 기록 검색, 마우스 선택, 우클릭 복사를 지원한다.",
+     "음성 대화가 기본 활성화되며 F8 전환, `/voice settings` 선택기, Linux·Windows용 오디오 런타임을 제공한다.",
+     "`/usage` 분석 대시보드에서 계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴볼 수 있다.",
+     "에이전트 커맨드 센터에서 상태별로 작업을 필터링하고 워크트리 세션을 만들 수 있다. 워크트리 지원은 기본 활성화된다.",
+     "새 테마 6종으로 터미널을 꾸미고 응답에서 지원되는 Mermaid 다이어그램과 디스플레이 수식을 볼 수 있다.",
+     "`/daemon`으로 로컬 백그라운드 서버를 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+     "턴 실패·중단·하위 에이전트 완료 이벤트가 발생해도 스트리밍 답변과 계획을 보존한다.",
+     "tmux·SSH 세션의 클립보드 전달을 수정하고, 터미널이 붙여넣은 텍스트를 키 입력 단위로 보낼 때 탭 들여쓰기를 보존한다.",
+     "세션 재개 시 Plan 모드를 복구하고 이전 프롬프트 편집 시 스레드 식별 정보와 설정을 보존한다.",
+     "시스템 프록시 환경에서 로그인을 복구하고 OAuth 검색이 503 오류를 반환하면 MCP 자격 증명을 새로 고친다.",
+     "재생 일시 정지 또는 입력 오디오 급증 중 음성이 누락되는 문제를 방지한다.",
+     "Windows 인바운드 연결, 권한이 높은 Linux/macOS 소켓, macOS 읽기 전용 파일 핸들을 통한 쓰기와 관련된 샌드박스 격리 공백을 막는다.",
+     "폐기된 `friendly` 및 `pragmatic` 성격 설정은 더 이상 응답 스타일을 선택하지 않는다고 명확히 안내한다.",
+     "네트워크 프록시 허용·거부 패턴에서 `?`가 단일 문자와 일치하는 방식을 설명한다.",
+     "Linux musl 빌드의 OpenSSL 3.6.4를 포함해 번들 TLS 종속성을 업데이트한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체 화면 TUI",
+      "what": "다음 실행에 선택형 전체 화면 UI를 켜는 `/tui`를 추가한다. 대화 기록 검색, 마우스 선택, 우클릭 복사를 지원한다.",
+      "steps": [
+       "`/tui`를 입력해 다음 실행의 전체 화면 UI를 선택한다.",
+       "대화 기록을 검색하거나 마우스로 선택하고 우클릭으로 복사한다."
+      ],
+      "terminal": {
+       "title": "TUI 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /tui"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "음성 대화",
+      "what": "음성 대화가 기본 활성화된다. F8 전환과 `/voice settings` 선택기를 제공하며 Linux와 Windows용 오디오 런타임을 번들로 포함한다.",
+      "steps": [
+       "F8로 음성 대화를 전환한다.",
+       "`/voice settings` 선택기에서 설정을 선택한다."
+      ],
+      "terminal": {
+       "title": "음성 설정 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /voice settings"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "사용량 분석",
+      "what": "`/usage` 분석 대시보드에서 계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴볼 수 있다.",
+      "steps": [
+       "`/usage`를 연다.",
+       "계정 사용량, 토큰 합계, 플러그인 및 스킬 활동을 살펴본다."
+      ],
+      "terminal": {
+       "title": "사용량 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /usage"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "작업 센터 필터와 워크트리",
+      "what": "에이전트 커맨드 센터에서 작업을 상태별로 필터링하고 워크트리 세션을 만들 수 있다. 워크트리 지원은 기본 활성화된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "터미널 테마와 응답 렌더링",
+      "what": "새 터미널 테마 6종을 추가한다. 응답에서 지원되는 Mermaid 다이어그램과 디스플레이 수식을 볼 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "백그라운드 서버 제어",
+      "what": "`/daemon`으로 로컬 백그라운드 서버를 업데이트하거나 `--no-daemon`으로 우회할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "서버 제어",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ /daemon"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ codex --no-daemon"
+        }
+       ]
       },
       "desktop": {
        "steps": [],
@@ -25078,6 +27261,33 @@
    }
   },
   {
+   "id": "codex@rust-v0.155.1",
+   "tool": "codex",
+   "version": "0.155.1",
+   "date": "2026-09-18T20:03:04Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.1",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "New local TUI sessions now leave reasoning summaries disabled by default, fixing request rejection by providers that do not support them. Explicit reasoning-summary settings remain respected.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "d0135b0a94fc",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "새 로컬 TUI 세션에서 reasoning summary가 기본 비활성화되어, 이를 지원하지 않는 provider의 요청 거부를 방지한다. 명시적으로 설정한 값은 계속 적용된다.",
+    "items": [
+     "새 로컬 TUI 세션은 reasoning summary를 기본 비활성화해 해당 기능을 지원하지 않는 provider의 요청 거부를 방지한다. 명시적으로 설정한 reasoning summary 값은 그대로 적용된다."
+    ],
+    "features": []
+   }
+  },
+  {
    "id": "claude-code@2.1.277",
    "tool": "claude-code",
    "version": "2.1.277",
@@ -26251,6 +28461,269 @@
       "title": "프로젝트별 새 작업 설정 기억",
       "what": "새 작업은 프로젝트마다 worktree 모드와 설정 환경을 기억한다.",
       "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "codex@rust-v0.155.0",
+   "tool": "codex",
+   "version": "0.155.0",
+   "date": "2026-09-17T23:14:43Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.155.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added experimental `/voice` conversations with live transcripts and microphone controls on supported builds, enabled through `/experimental`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "The TUI now shows live reasoning summaries in the status row and completion timestamps after successful turns.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added task hiding, archiving, and deletion in the agents overview, plus worktree ownership details and confirmed deletion of clean managed worktrees.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added Touch ID verification for MCP requests in local TUI sessions on supported Macs.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added configurable daemon update schedules and `codex app-server daemon update`; saved threads and active goals can recover after daemon restarts.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Amazon Bedrock can now obtain AWS credentials from configured commands, with caching, expiration-based refresh, and authentication recovery.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Accepted prompts are now saved even when compaction fails before a turn starts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed missed tmux resizes, transcript viewport restoration, and stale history appearing after switching threads.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "MCP servers now report expired OAuth credentials accurately and provide reconnect guidance when token refresh fails.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Automatic approval reviews now preserve complete actions and authorization evidence more reliably, retry transient failures, and distinguish review failures from unsafe-action findings.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Switching accounts now invalidates remote-control sessions, cached WebSocket state, and model catalogs belonging to the previous identity.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Blocked Windows-process escapes from restricted WSL sandboxes and hardened brokered shell snapshots against credential exposure.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Aligned Python SDK and runtime publishing with stable CLI releases, using matching versions and verifying runtime assets before SDK publication.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "a87f806c376d",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "실험적 음성 대화와 TUI 상태 표시가 추가되고, 에이전트 작업 및 worktree 관리가 확장된다. 데몬 업데이트 예약과 복구, AWS Bedrock 자격 증명 명령 설정도 지원한다.",
+    "items": [
+     "지원되는 빌드에서 `/experimental`을 통해 켤 수 있는 실험적 `/voice` 대화 기능을 추가한다. 실시간 전사와 마이크 제어를 지원한다.",
+     "TUI 상태 행에 실시간 추론 요약을 표시하고, 성공한 턴 뒤에 완료 시각을 표시한다.",
+     "에이전트 개요에서 작업 숨기기·보관·삭제를 지원한다. worktree 소유권 정보를 표시하고, 관리 대상이며 깨끗한 worktree의 삭제를 확인하도록 한다.",
+     "지원되는 Mac의 로컬 TUI 세션에서 MCP 요청에 Touch ID 확인을 추가한다.",
+     "데몬 업데이트 일정을 설정하고 `codex app-server daemon update`를 실행할 수 있다. 데몬 재시작 뒤 저장된 스레드와 활성 목표를 복구할 수 있다.",
+     "Amazon Bedrock이 설정된 명령에서 AWS 자격 증명을 가져올 수 있다. 자격 증명 캐싱, 만료 기반 갱신, 인증 복구를 지원한다.",
+     "턴이 시작되기 전에 압축(compaction)이 실패해도 수락된 프롬프트를 저장한다.",
+     "tmux 크기 변경 누락, 대화 기록 뷰포트 복원, 스레드 전환 뒤 오래된 기록 표시 문제를 수정한다.",
+     "MCP 서버가 만료된 OAuth 자격 증명을 정확히 보고하고, 토큰 갱신 실패 시 다시 연결하는 방법을 안내한다.",
+     "자동 승인 검토에서 작업과 권한 증거를 더 안정적으로 보존하고, 일시적 실패를 재시도하며, 검토 실패와 안전하지 않은 작업 판정을 구분한다.",
+     "계정을 전환하면 이전 사용자 ID에 속한 원격 제어 세션, 캐시된 WebSocket 상태, 모델 카탈로그를 무효화한다.",
+     "제한된 WSL 샌드박스에서 Windows 프로세스로 탈출하는 경로를 차단하고, 브로커를 통한 셸 스냅샷에서 자격 증명이 노출되지 않도록 강화한다.",
+     "Python SDK와 런타임 배포를 안정 버전 CLI 릴리스에 맞춘다. 버전을 일치시키고 SDK를 배포하기 전에 런타임 자산을 확인한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "실험적 음성 대화",
+      "what": "지원되는 빌드에서 실험적 `/voice` 대화를 사용할 수 있다. 실시간 전사와 마이크 제어를 제공하며 `/experimental`을 통해 켠다.",
+      "steps": [
+       "`/experimental`을 실행한다.",
+       "실험적 기능에서 `/voice` 대화를 시작한다.",
+       "실시간 전사를 확인하고 마이크를 제어한다."
+      ],
+      "terminal": {
+       "title": "음성 대화 켜기",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /experimental"
+        },
+        {
+         "kind": "cmd",
+         "text": "> /voice"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "TUI 실시간 상태 표시",
+      "what": "TUI 상태 행에 실시간 추론 요약이 표시된다. 턴이 성공적으로 끝나면 완료 시각도 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "에이전트 작업과 worktree 관리",
+      "what": "에이전트 개요에서 작업을 숨기거나 보관하거나 삭제할 수 있다. worktree 소유권 정보를 제공하며, 깨끗한 관리 대상 worktree를 삭제할 때 확인을 받는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "MCP 요청 Touch ID 확인",
+      "what": "지원되는 Mac의 로컬 TUI 세션에서 MCP 요청에 Touch ID 확인을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "데몬 업데이트 예약과 재시작 복구",
+      "what": "데몬 업데이트 일정을 설정하고 `codex app-server daemon update`로 업데이트할 수 있다. 데몬이 재시작된 뒤 저장된 스레드와 활성 목표를 복구할 수 있다.",
+      "steps": [
+       "데몬 업데이트 일정을 설정한다.",
+       "`codex app-server daemon update`를 실행한다.",
+       "데몬 재시작 뒤 저장된 스레드와 활성 목표를 복구한다."
+      ],
+      "terminal": {
+       "title": "데몬 업데이트",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex app-server daemon update"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "업데이트 일정 설정",
+         "note": "데몬 업데이트 일정을 설정한다.",
+         "changed": true
+        },
+        {
+         "title": "데몬 재시작 뒤 복구",
+         "note": "저장된 스레드와 활성 목표를 복구할 수 있다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "Bedrock AWS 자격 증명 명령",
+      "what": "Amazon Bedrock이 설정된 명령을 통해 AWS 자격 증명을 가져온다. 자격 증명을 캐싱하고 만료를 기준으로 갱신하며 인증 복구를 지원한다.",
+      "steps": [
+       "AWS 자격 증명을 제공하도록 명령을 설정한다.",
+       "Amazon Bedrock 연결에 사용한다.",
+       "만료 기반 갱신과 인증 복구를 이용한다."
+      ],
       "terminal": {
        "title": "",
        "lines": []
@@ -81520,7 +83993,14 @@
     }
    ],
    "hash": "05f41745657b",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`AWS_BEARER_TOKEN_BEDROCK` 또는 `CLAUDE_CODE_SKIP_BEDROCK_AUTH` 사용 시 Bedrock 요청이 권한 오류로 실패하는 문제를 수정한다.",
+    "items": [
+     "`AWS_BEARER_TOKEN_BEDROCK` 또는 `CLAUDE_CODE_SKIP_BEDROCK_AUTH`를 사용할 때 Bedrock 요청이 `403 \"Authorization header is missing\"` 오류로 실패하던 문제를 수정한다. 2.1.94에서 발생한 회귀다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.94",
@@ -81707,7 +84187,177 @@
     }
    ],
    "hash": "b7948229d6d7",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Amazon Bedrock Mantle 지원과 Slack 메시지 채널 표시가 추가된다.",
+    "items": [
+     "`CLAUDE_CODE_USE_MANTLE=1`을 설정해 Mantle 기반 Amazon Bedrock을 사용할 수 있다.",
+     "API 키, Bedrock/Vertex/Foundry, Team, Enterprise 사용자의 기본 노력 수준을 medium에서 high로 변경한다. `/effort`로 조정할 수 있다.",
+     "Slack MCP 메시지 전송 도구 호출에 클릭 가능한 채널 링크가 있는 간결한 `Slacked #channel` 헤더를 추가한다.",
+     "플러그인 출력 스타일에서 `keep-coding-instructions` 프런트매터 필드를 지원한다.",
+     "`UserPromptSubmit` 훅에서 세션 제목을 설정할 수 있도록 `hookSpecificOutput.sessionTitle`을 추가한다.",
+     "`\"skills\": [\"./\"]`로 선언한 플러그인 스킬은 디렉터리 이름 대신 스킬 프런트매터 `name`을 호출 이름으로 사용해 설치 방식에 관계없이 이름을 안정적으로 유지한다.",
+     "긴 Retry-After 헤더가 있는 429 응답 뒤 에이전트가 멈춘 것처럼 보이던 문제를 수정한다. 오류를 즉시 표시한다.",
+     "로그인 키체인이 잠겼거나 비밀번호가 동기화되지 않아 macOS Console 로그인이 “Not logged in”으로 조용히 실패하던 문제를 수정한다. 오류를 표시하고 `claude doctor`가 해결 방법을 진단한다.",
+     "YAML 프런트매터에 정의된 플러그인 스킬 훅이 무시되던 문제를 수정한다.",
+     "`CLAUDE_PLUGIN_ROOT`가 설정되지 않았을 때 플러그인 훅이 “No such file or directory”로 실패하는 문제를 수정한다.",
+     "시작 시 로컬 마켓플레이스 플러그인의 `${CLAUDE_PLUGIN_ROOT}`가 설치 캐시가 아닌 마켓플레이스 소스 디렉터리를 가리키던 문제를 수정한다.",
+     "장시간 실행 세션에서 스크롤백에 같은 diff가 반복되고 빈 페이지가 나타나는 문제를 수정한다.",
+     "여러 줄 프롬프트 줄바꿈이 텍스트 아래가 아니라 `❯` 커서 아래에 들여쓰기되던 문제를 수정한다.",
+     "검색 입력에서 Shift+Space가 공백 대신 “space”를 입력하던 문제를 수정한다.",
+     "xterm.js 기반 터미널(VS Code, Hyper, Tabby)의 tmux에서 링크 클릭 시 브라우저 탭이 두 개 열리는 문제를 수정한다.",
+     "전체 화면 스크롤 중 콘텐츠 높이가 바뀌면 잔상이 누적되던 대체 화면 렌더링 문제를 수정한다.",
+     "`settings.json`의 `env`를 통해 설정한 `FORCE_HYPERLINK` 환경 변수가 무시되던 문제를 수정한다.",
+     "대화상자에서 선택한 탭을 네이티브 터미널 커서가 따라가지 않아 화면 읽기 프로그램과 돋보기가 탭 이동을 추적하지 못하던 문제를 수정한다.",
+     "`us.` 추론 프로필 ID를 사용해 Bedrock에서 Sonnet 3.5 v2를 호출하도록 수정한다.",
+     "스트림 도중 중단되면 SDK/print 모드가 부분 어시스턴트 응답을 대화 기록에 보존하지 않던 문제를 수정한다.",
+     "`--resume`으로 같은 저장소의 다른 worktree에서 세션을 바로 재개할 수 있다. `cd` 명령을 출력하던 동작을 개선한다.",
+     "UTF-8 시퀀스가 청크 경계에서 분리될 때 stream-json 입출력의 CJK 및 다른 멀티바이트 문자가 U+FFFD로 손상되던 문제를 수정한다.",
+     "[VSCode] 세션 시작 시 최초 실행에 필요한 하위 프로세스 작업을 줄인다.",
+     "[VSCode] 입력 또는 화살표 키 조작 중 마우스가 목록 위에 있으면 드롭다운이 잘못된 항목을 선택하던 문제를 수정한다.",
+     "[VSCode] `settings.json` 파싱 실패 시 권한 규칙이 적용되지 않는다는 경고 배너를 표시한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Amazon Bedrock Mantle",
+      "what": "Mantle 기반 Amazon Bedrock을 지원한다. 사용하려면 `CLAUDE_CODE_USE_MANTLE=1`을 설정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "원문에 지정된 값이다."
+        },
+        {
+         "kind": "cmd",
+         "text": "$ CLAUDE_CODE_USE_MANTLE=1"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "Slack 채널 헤더",
+      "what": "Slack MCP 메시지 전송 도구 호출에 채널 링크가 포함된 간결한 `Slacked #channel` 헤더를 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "출력 스타일 지침 유지 필드",
+      "what": "플러그인 출력 스타일에서 `keep-coding-instructions` 프런트매터 필드를 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "프런트매터 필드",
+       "lines": [
+        {
+         "kind": "ui",
+         "text": "keep-coding-instructions"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "훅에서 세션 제목 지정",
+      "what": "`UserPromptSubmit` 훅에서 `hookSpecificOutput.sessionTitle`로 세션 제목을 설정할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "훅 필드",
+       "lines": [
+        {
+         "kind": "ui",
+         "text": "hookSpecificOutput.sessionTitle"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 22,
+      "title": "VS Code 세션 시작 작업 감소",
+      "what": "VS Code에서 세션 시작 시 최초 실행에 필요한 하위 프로세스 작업을 줄인다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 23,
+      "title": "VS Code 드롭다운 선택 수정",
+      "what": "입력 또는 화살표 키 조작 중 마우스가 목록 위에 있을 때 드롭다운이 잘못된 항목을 선택하던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 24,
+      "title": "VS Code 설정 파싱 경고",
+      "what": "`settings.json` 파싱 실패 시 경고 배너를 표시한다. 이때 권한 규칙이 적용되지 않는다는 점을 알린다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-04-07",
@@ -81745,7 +84395,16 @@
     }
    ],
    "hash": "5f2fba687fef",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "ChatGPT 로그인 사용자의 모델 선택기에서 일부 모델이 4월 7일부터 숨겨지고 4월 14일에 제거된다. 사용 가능한 모델과 API 모델 이용 방법도 안내한다.",
+    "items": [
+     "ChatGPT 로그인 사용자의 모델 제공 범위를 변경한다. 4월 7일부터 모델 선택기에 `gpt-5.2-codex`, `gpt-5.1-codex-mini`, `gpt-5.1-codex-max`, `gpt-5.1-codex`, `gpt-5.1`, `gpt-5`가 표시되지 않는다. 4월 14일에는 Codex에서 해당 모델을 제거한다.",
+     "계속 `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.3-codex`, `gpt-5.2`를 선택할 수 있다. ChatGPT Pro 사용자는 `gpt-5.3-codex-spark`도 선택할 수 있다.",
+     "Codex에서 다른 API 지원 모델을 사용하려면 API 키로 로그인하거나 모델 제공자를 설정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.1.92",
@@ -81904,7 +84563,101 @@
     }
    ],
    "hash": "b71dc17ab1f8",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "원격 관리 설정을 새로 가져올 때까지 시작을 차단하는 정책과 Bedrock 설정 마법사가 추가된다.",
+    "items": [
+     "`forceRemoteSettingsRefresh` 정책 설정이 추가된다. 켜면 CLI는 원격 관리 설정을 새로 가져올 때까지 시작을 막고, 가져오기에 실패하면 종료한다(실패 시 차단).",
+     "로그인 화면에서 “3rd-party platform”을 선택하면 AWS 인증, 리전 설정, 자격 증명 확인, 모델 고정을 안내하는 대화형 Bedrock 설정 마법사를 사용할 수 있다.",
+     "구독 사용자의 `/cost`에 모델별 및 캐시 적중별 내역이 추가된다.",
+     "`/release-notes`가 버전 선택기가 된다.",
+     "Remote Control 세션 이름의 기본 접두사가 호스트 이름을 사용한다(예: `myhost-graceful-unicorn`). `--remote-control-session-name-prefix`로 바꿀 수 있다.",
+     "프롬프트 캐시가 만료된 뒤 돌아온 Pro 사용자에게 다음 턴에서 캐시 없이 전송될 대략적인 토큰 수를 푸터 힌트로 표시한다.",
+     "장시간 세션 중 tmux 창이 종료되거나 번호가 바뀐 뒤 서브에이전트 생성이 “Could not determine pane count” 오류로 계속 실패하는 문제를 수정한다.",
+     "작은 고속 모델이 `ok:false`를 반환할 때 prompt 유형 Stop 훅이 잘못 실패하는 문제를 수정하고, Stop이 아닌 prompt 유형 훅에서 `preventContinuation:true` 의미를 복원한다.",
+     "스트리밍에서 배열/객체 필드가 JSON 인코딩 문자열로 전달될 때 도구 입력 검증이 실패하는 문제를 수정한다.",
+     "확장 사고가 실제 내용과 함께 공백만 있는 텍스트 블록을 만들 때 발생할 수 있는 API 400 오류를 수정한다.",
+     "자동 조종 키 입력과 연속 프롬프트의 숫자 충돌로 피드백 설문이 실수로 제출되는 문제를 수정한다.",
+     "전체 화면 처리 중 텍스트를 선택했을 때 “esc to clear”와 함께 잘못된 “esc to interrupt” 안내가 표시되는 문제를 수정한다.",
+     "Homebrew 설치 업데이트 안내가 cask 릴리스 채널을 사용하도록 수정한다. `claude-code`는 stable, `claude-code@latest`는 latest를 사용한다.",
+     "여러 줄 프롬프트에서 줄 끝에 있을 때 `ctrl+e`를 누르면 다음 줄 끝으로 이동하던 문제를 수정한다.",
+     "DEC 2026 지원 터미널에서 전체 화면을 위로 스크롤할 때 같은 메시지가 두 위치에 나타나는 문제를 수정한다.",
+     "유휴 상태에서 돌아올 때 “/clear to save X tokens” 안내가 누적 세션 토큰 대신 현재 컨텍스트 크기를 표시하도록 수정한다.",
+     "인증되지 않은 claude.ai 커넥터와 중복되는 플러그인 MCP 서버가 세션 시작 때 “connecting”에 멈추는 문제를 수정한다.",
+     "탭, `&`, `$`가 포함된 큰 파일에서 Write 도구의 diff 계산 속도를 60% 개선한다.",
+     "`/tag` 명령을 제거한다.",
+     "`/vim` 명령을 제거한다. `/config`의 Editor mode에서 vim 모드를 전환할 수 있다.",
+     "Linux 샌드박스의 npm 및 네이티브 빌드 모두 `apply-seccomp` 도우미를 제공해 샌드박스 명령의 Unix 소켓 차단을 복구한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "원격 관리 설정 새로고침 강제",
+      "what": "`forceRemoteSettingsRefresh` 정책 설정을 켜면 CLI는 원격 관리 설정을 새로 가져올 때까지 시작하지 않는다. 가져오기에 실패하면 종료한다.",
+      "steps": [],
+      "terminal": {
+       "title": "정책 설정",
+       "lines": [
+        {
+         "kind": "ui",
+         "text": "forceRemoteSettingsRefresh"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Bedrock 설정 마법사",
+      "what": "로그인 화면에서 “3rd-party platform”을 선택하면 대화형 Bedrock 설정을 시작한다. AWS 인증, 리전 설정, 자격 증명 확인, 모델 고정을 안내한다.",
+      "steps": [
+       "로그인 화면에서 “3rd-party platform”을 선택한다.",
+       "AWS 인증을 진행한다.",
+       "리전을 설정하고 자격 증명을 확인한다.",
+       "모델을 고정한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "비용 내역 세분화",
+      "what": "구독 사용자의 `/cost`에 모델별 및 캐시 적중별 내역을 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "/cost",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/cost"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.91",
@@ -82007,7 +84760,93 @@
     }
    ],
    "hash": "59e0f4e65be4",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "MCP 도구 결과의 보존 크기를 최대 50만 자까지 지정할 수 있고, 스킬·명령의 인라인 셸 실행을 끄는 설정이 추가된다.",
+    "items": [
+     "MCP 주석으로 도구 결과 보존 크기를 최대 50만 자까지 지정해 DB 스키마 같은 큰 결과가 잘리지 않게 할 수 있다.",
+     "스킬, 사용자 지정 슬래시 명령, 플러그인 명령에서 인라인 셸 실행을 끄는 `disableSkillShellExecution` 설정을 추가했다.",
+     "`claude-cli://open?q=` 딥 링크에서 인코딩된 줄바꿈을 허용해 여러 줄 프롬프트를 지원한다.",
+     "플러그인이 `bin/`에 실행 파일을 포함하고 Bash 도구에서 명령 이름만으로 실행할 수 있다.",
+     "비동기 기록 실패가 조용히 발생할 때 `--resume`에서 대화 기록 연결이 끊겨 기록을 잃을 수 있던 문제를 수정했다.",
+     "iTerm2, kitty, WezTerm, Ghostty, Windows Terminal에서 `cmd+delete`가 줄 처음까지 삭제하지 않던 문제를 수정했다.",
+     "컨테이너 재시작 후 원격 세션의 계획 파일을 찾지 못해 편집 권한 요청과 빈 승인 창이 나타나던 문제를 수정했다.",
+     "settings.json의 `permissions.defaultMode: \"auto\"` JSON 스키마 검증을 수정했다.",
+     "Windows 버전 정리 시 활성 버전의 롤백 복사본을 보호하지 않던 문제를 수정했다.",
+     "`/feedback`이 슬래시 메뉴에서 사라지는 대신 사용할 수 없는 이유를 설명한다.",
+     "도구 표면 결정, 컨텍스트 관리, 캐싱 전략을 포함하도록 `/claude-api` 스킬의 에이전트 설계 안내를 개선했다.",
+     "Bun에서 `Bun.stripANSI`를 사용하도록 해 `stripAnsi` 성능을 개선했다.",
+     "Edit 도구가 더 짧은 `old_string` 기준 문자열을 사용해 출력 토큰을 줄인다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "MCP 결과 크기 지정",
+      "what": "`_meta[\"anthropic/maxResultSizeChars\"]` 주석으로 MCP 도구 결과의 보존 크기를 지정한다. 최대 500K까지 허용해 DB 스키마 같은 큰 결과가 잘리지 않고 전달되게 한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "MCP 서버 결과의 _meta[\"anthropic/maxResultSizeChars\"] 주석으로 보존 크기를 지정한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "스킬 셸 실행 비활성화",
+      "what": "`disableSkillShellExecution` 설정으로 스킬, 사용자 지정 슬래시 명령, 플러그인 명령의 인라인 셸 실행을 끌 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "설정 키: disableSkillShellExecution"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "여러 줄 딥 링크 프롬프트",
+      "what": "`claude-cli://open?q=` 딥 링크에 여러 줄 프롬프트를 전달할 수 있다. 인코딩된 줄바꿈 `%0A`가 더는 거부되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "claude-cli://open?q= 딥 링크에서 인코딩된 줄바꿈(%0A)을 지원한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.90",
@@ -82152,7 +84991,98 @@
     }
    ],
    "hash": "8323e394cf4e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`/powerup` 대화형 학습과 플러그인 마켓플레이스 캐시 유지 설정이 추가된다.",
+    "items": [
+     "`/powerup`에 애니메이션 데모와 함께 Claude Code 기능을 배우는 대화형 수업이 추가된다.",
+     "`git pull` 실패 시 기존 마켓플레이스 캐시를 유지하는 `CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` 환경 변수가 추가된다. 오프라인 환경에 유용하다.",
+     "acceptEdits 모드에서 `.husky`가 보호 디렉터리에 추가된다.",
+     "사용량 한도에 도달한 뒤 한도 옵션 대화상자가 반복해서 자동으로 열리고 세션이 충돌하는 무한 루프를 수정한다.",
+     "지연 도구, MCP 서버 또는 사용자 지정 에이전트가 있는 사용자의 첫 요청에서 `--resume`이 프롬프트 캐시를 전부 놓치는 문제를 수정한다. v2.1.69부터 발생한 회귀다.",
+     "연속 편집 사이에 PostToolUse 서식 저장 훅이 파일을 다시 쓰면 `Edit`/`Write`가 “File content has changed” 오류로 실패하던 문제를 수정한다.",
+     "JSON을 stdout으로 내보내고 코드 2로 종료하는 `PreToolUse` 훅이 도구 호출을 차단하지 못하던 문제를 수정한다.",
+     "도구 호출 중 `CLAUDE.md` 파일이 자동 로드될 때 전체 화면 스크롤백에 접힌 검색/읽기 요약 배지가 여러 번 나타나는 문제를 수정한다.",
+     "명시적 사용자 경계(“push하지 마”, “Y 전에 기다려”)를 자동 모드가 지키지 않던 문제를 수정한다.",
+     "밝은 터미널 테마에서 클릭해 펼치는 호버 텍스트가 거의 보이지 않던 문제를 수정한다.",
+     "잘못된 도구 입력이 권한 대화상자에 전달될 때 UI가 충돌하는 문제를 수정한다.",
+     "`/model`, `/config` 등 선택 화면을 스크롤할 때 헤더가 사라지는 문제를 수정한다.",
+     "PowerShell 도구 권한 검사를 강화한다. 후행 `&` 백그라운드 작업 우회, `-ErrorAction Break` 디버거 멈춤, 아카이브 추출 TOCTOU, 파싱 실패 시 폴백 거부 규칙 약화를 수정한다.",
+     "MCP 도구 스키마 캐시 키 조회 때 매 턴 `JSON.stringify`를 실행하던 작업을 없애 성능을 개선한다.",
+     "SSE 전송이 큰 스트리밍 프레임을 처리하는 시간이 이차에서 선형으로 개선된다.",
+     "긴 대화의 SDK 세션에서 대화 기록 쓰기가 이차적으로 느려지던 문제를 개선한다.",
+     "`/resume` 전체 프로젝트 보기에서 프로젝트 세션을 병렬로 불러와 프로젝트가 많은 사용자의 로딩 시간을 개선한다.",
+     "`--resume` 선택기에 `claude -p` 또는 SDK 호출로 만든 세션을 더는 표시하지 않는다.",
+     "DNS 캐시 개인정보 보호를 위해 `Get-DnsClientCache`와 `ipconfig /displaydns`를 자동 허용 목록에서 제거한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "대화형 기능 학습",
+      "what": "`/powerup`에 Claude Code 기능을 가르치는 대화형 수업이 추가된다. 애니메이션 데모를 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "/powerup",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/powerup"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "실패 시 마켓플레이스 캐시 유지",
+      "what": "`CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE` 환경 변수가 추가된다. 설정하면 `git pull`이 실패할 때 기존 마켓플레이스 캐시를 유지한다. 오프라인 환경에 유용하다.",
+      "steps": [],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "원문에는 환경 변수 값이 명시되지 않는다."
+        },
+        {
+         "kind": "ui",
+         "text": "CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "`.husky` 보호",
+      "what": "acceptEdits 모드에서 `.husky` 디렉터리를 보호 디렉터리로 취급한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-04-01-app",
@@ -82239,7 +85169,143 @@
     }
    ],
    "hash": "d2cd56ed8701",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex 앱에 워크스페이스 설정과 사용자 지정 MCP 승인 패널 개선이 추가되고, Windows 업데이트·시스템 트레이 지원과 자동화 작성 기능이 확장된다.",
+    "items": [
+     "앱에 워크스페이스 설정을 추가했다.",
+     "사용자 지정 MCP 승인 패널에 “다시 묻지 않기” 처리와 다듬기를 추가했다.",
+     "MSIX를 포함한 Windows 네이티브 업데이트와 마지막 창을 닫은 뒤에도 Codex를 실행 상태로 유지하는 시스템 트레이 메뉴를 추가했다.",
+     "자동화 작성기에서 앱·파일 @ 멘션과 서브에이전트 diff 통계를 보여주고, 생성 파일 인용용 아티팩트 카드를 추가했다.",
+     "앱 메뉴의 Quick Chat 단축키, 리뷰 파일 트리 열기 메뉴, 스레드의 초기 heartbeat 자동화 기능, 원격 연결 이미지 지원을 추가했다.",
+     "대화가 실행 중일 때 리뷰 패널 스크롤이 튀는 문제와 PR 상태 작업 문제를 수정했다.",
+     "여러 창, @ 멘션 결과, 중복 프로젝트 표시, Windows runGit 동작, 되돌리기·스테이징 해제·모두 스테이징 작업의 문제를 수정했다.",
+     "원격 스레드와 사이드바를 다듬고 Windows 업데이트 복구 및 지원하지 않는 버전 안내를 개선했으며 스레드 검색을 빠르게 했다.",
+     "diff 구간 펼치기, 헤더 겹침, 스레드 보관 중 충돌, 창 확대 시 셸 크기 문제 등 리뷰 관련 문제를 수정했다.",
+     "성능 개선과 버그 수정을 추가했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "워크스페이스 설정",
+      "what": "앱에 워크스페이스 설정이 추가됐다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "사용자 지정 MCP 승인 개선",
+      "what": "사용자 지정 MCP 승인 패널에서 “다시 묻지 않기” 처리를 지원하고 패널을 다듬었다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "Windows 업데이트와 시스템 트레이",
+      "what": "MSIX 지원을 포함한 Windows 네이티브 업데이트 기능을 추가했다. 마지막 창을 닫은 뒤에도 Codex가 실행 상태를 유지할 수 있도록 Windows 시스템 트레이 메뉴를 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "자동화 작성기 정보와 카드",
+      "what": "자동화 작성기에서 앱과 파일을 @ 멘션하고 서브에이전트 diff 통계를 확인할 수 있다. 생성 파일 인용을 위한 아티팩트 카드도 추가했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 4,
+      "title": "앱 메뉴 및 원격 연결 기능",
+      "what": "앱 메뉴에 Quick Chat 단축키와 리뷰 파일 트리 열기 메뉴를 추가했다. 스레드에 초기 heartbeat 자동화 기능을 제공하고 원격 연결에서 이미지를 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 7,
+      "title": "원격 스레드 및 검색 개선",
+      "what": "원격 스레드와 사이드바를 다듬고 Windows 업데이트 복구와 지원하지 않는 버전 안내를 개선했다. 스레드 검색 속도도 개선했다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 9,
+      "title": "성능 개선과 버그 수정",
+      "what": "추가 성능 개선과 버그 수정을 포함한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.89",
@@ -82615,7 +85681,171 @@
     }
    ],
    "hash": "bbe01a7a1570",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "도구 권한을 지연·재평가하는 훅과 비차단 MCP 연결 설정이 추가된다. Windows·장시간 세션·대형 입력의 안정성과 터미널 동작도 다수 수정했다.",
+    "items": [
+     "`PreToolUse` 훅에 `\"defer\"` 권한 결정을 추가했다. 헤드리스 세션은 도구 호출에서 멈춘 뒤 `-p --resume`으로 재개해 훅을 다시 평가할 수 있다.",
+     "`CLAUDE_CODE_NO_FLICKER=1` 환경 변수로 가상화된 스크롤백을 사용하는 깜박임 없는 대체 화면 렌더링을 선택할 수 있다.",
+     "자동 모드 분류기가 거부한 뒤 실행되는 `PermissionDenied` 훅을 추가했다. `{retry: true}`를 반환하면 모델에 재시도 가능함을 알린다.",
+     "`@` 멘션 자동완성 제안에 이름이 지정된 서브에이전트를 추가했다.",
+     "`-p` 모드에서 `MCP_CONNECTION_NONBLOCKING=true`로 MCP 연결 대기를 건너뛸 수 있다. `--mcp-config` 서버 연결은 느린 서버를 기다리며 막히지 않도록 5초로 제한했다.",
+     "자동 모드에서 거부된 명령은 알림으로 표시되고 `/permissions` → Recent 탭에 나타나며 `r`로 재시도할 수 있다.",
+     "`Edit(//path/**)` 및 `Read(//path/**)` 허용 규칙이 요청 경로뿐 아니라 확인된 심볼릭 링크 대상도 검사하도록 수정했다.",
+     "일부 수정자 키 조합의 음성 푸시 투 토크가 작동하지 않던 문제와 Windows 음성 모드의 HTTP 101 WebSocket 업그레이드 거부 문제를 수정했다.",
+     "Windows에서 Edit/Write 도구가 CRLF를 중복 추가하고 Markdown의 강제 줄바꿈(끝 공백 두 칸)을 제거하던 문제를 수정했다.",
+     "여러 스키마를 사용할 때 약 50% 실패를 일으키던 `StructuredOutput` 스키마 캐시 문제를 수정했다.",
+     "장시간 세션에서 큰 JSON 입력이 LRU 캐시 키로 남아 있던 메모리 누수를 수정했다.",
+     "50MB가 넘는 대형 세션 파일에서 메시지를 제거할 때 충돌하던 문제를 수정했다.",
+     "LSP 서버가 충돌한 뒤 좀비 상태에 남던 문제를 수정했다. 이제 세션을 재시작하지 않아도 다음 요청에서 서버를 다시 시작한다.",
+     "CJK 문자나 이모지가 포함된 프롬프트 기록이 `~/.claude/history.jsonl`의 4KB 경계에 걸릴 때 조용히 누락되던 문제를 수정했다.",
+     "서브에이전트 사용량 누락으로 `/stats` 토큰 수가 적게 집계되고 캐시 형식 변경 시 30일 이전 기록이 사라지던 문제를 수정했다.",
+     "지연된 도구 입력이 64KB를 넘거나 지연 표식이 없을 때 `-p --resume`이 멈추고, `-p --continue`가 지연된 도구를 재개하지 못하던 문제를 수정했다.",
+     "macOS에서 `claude-cli://` 딥 링크가 열리지 않던 문제를 수정했다.",
+     "서버가 여러 콘텐츠 블록으로 반환한 MCP 도구 오류에서 첫 블록만 남던 문제를 수정했다.",
+     "SDK로 이미지를 포함한 메시지를 보낼 때 스킬 알림과 기타 시스템 컨텍스트가 누락되던 문제를 수정했다.",
+     "Write/Edit/Read 도구의 `PreToolUse` 및 `PostToolUse` 훅에 문서화된 대로 절대 경로인 `file_path`를 전달하도록 수정했다.",
+     "컨텍스트를 압축한 직후 한계까지 다시 채워지는 상황이 세 번 연속 발생하면, API 호출을 계속 소모하는 대신 실행 가능한 오류를 표시하도록 자동 압축 반복 문제를 수정했다.",
+     "장시간 세션 중 도구 스키마 바이트가 바뀌어 발생하는 프롬프트 캐시 누락을 수정했다.",
+     "많은 파일을 읽는 장시간 세션에서 중첩된 CLAUDE.md 파일이 수십 번 다시 삽입되던 문제를 수정했다.",
+     "오래된 CLI 버전의 도구 결과나 중단된 기록이 포함된 transcript에서 `--resume`이 충돌하던 문제를 수정했다.",
+     "API가 권한 오류를 반환했는데 “Rate limit reached”라고 잘못 표시하던 문제를 수정해 실제 오류와 조치 안내를 보여준다.",
+     "훅의 `if` 조건 필터가 `ls && git push` 같은 복합 명령이나 `FOO=bar git push` 같은 환경 변수 접두 명령을 매칭하지 못하던 문제를 수정했다.",
+     "병렬 도구 사용량이 많을 때 접힌 검색/읽기 그룹 배지가 터미널 스크롤백에 중복되던 문제를 수정했다.",
+     "알림의 `invalidates`가 현재 표시 중인 알림을 즉시 지우지 않던 문제를 수정했다.",
+     "처리 중 백그라운드 메시지가 도착하면 제출 직후 프롬프트가 잠시 사라지던 문제를 수정했다.",
+     "데바나가리 문자 및 기타 결합 부호 텍스트가 어시스턴트 출력에서 잘리던 문제를 수정했다.",
+     "레이아웃 이동 뒤 메인 화면 터미널에 렌더링 흔적이 남던 문제를 수정했다.",
+     "Apple Silicon macOS에서 음성 모드가 마이크 권한 요청을 하지 않던 문제를 수정했다.",
+     "Windows Terminal Preview 1.25에서 Shift+Enter가 줄바꿈 대신 제출하던 문제를 수정했다.",
+     "tmux 안의 iTerm2에서 스트리밍 중 주기적으로 UI가 흔들리던 문제를 수정했다.",
+     "Windows PowerShell 5.1에서 `git push`처럼 stderr에 진행 내용을 쓰는 명령을 PowerShell 도구가 실패로 잘못 보고하던 문제를 수정했다.",
+     "매우 큰 파일(1GiB 초과)에 Edit 도구를 사용할 때 발생할 수 있는 메모리 부족 충돌을 수정했다.",
+     "`ls`/`tree`/`du`의 접힌 도구 요약이 “Read N files” 대신 “Listed N directories”를 표시하도록 개선했다.",
+     "포매터/린터 명령이 이전에 읽은 파일을 수정하면 Bash 도구가 경고해 오래된 편집 오류를 방지하도록 개선했다.",
+     "`@` 멘션 자동완성이 비슷한 이름의 MCP 리소스보다 소스 파일을 우선 표시하도록 개선했다.",
+     "PowerShell 도구 프롬프트에 버전에 맞는 문법 안내(5.1 또는 7 이상)를 추가했다.",
+     "`Bash`의 `sed -n` 또는 `cat`으로 본 파일은 별도의 `Read` 호출 없이도 `Edit`할 수 있다.",
+     "10,000자를 넘는 훅 출력은 컨텍스트에 직접 넣는 대신 파일 경로와 2,000자 미리보기로 저장한다.",
+     "settings.json의 `cleanupPeriodDays: 0`은 이제 검증 오류로 거부한다. 이전에는 transcript 저장이 조용히 비활성화됐다.",
+     "대화형 세션에서 사고 요약을 기본 생성하지 않는다. 다시 켜려면 settings.json에서 `showThinkingSummaries: true`로 설정한다.",
+     "`TaskCreated` 훅 이벤트와 차단 동작을 문서화했다.",
+     "실행 중인 명령을 Ctrl+B로 백그라운드로 전환할 때 작업 알림을 보존한다.",
+     "Windows PowerShell 도구에서 큰따옴표와 공백이 모두 포함된 외부 명령 인수는 자동 허용하지 않고 확인을 요청한다. 이는 PS 5.1 인수 분할을 강화한다.",
+     "`/env`가 Bash뿐 아니라 PowerShell 도구 명령에도 적용된다.",
+     "Pro 및 Enterprise 요금제에서 `/usage`의 중복 “Current week (Sonnet only)” 막대를 숨긴다.",
+     "이미지를 붙여 넣을 때 끝에 공백을 삽입하지 않는다.",
+     "빈 프롬프트에 `!command`를 붙여 넣으면 직접 입력한 `!`와 마찬가지로 Bash 모드로 전환한다.",
+     "4월 1일 한정으로 작은 코딩 관찰 생물을 부화하는 `/buddy`를 추가했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "도구 호출 지연 결정",
+      "what": "`PreToolUse` 훅이 `\"defer\"` 권한 결정을 내릴 수 있다. 헤드리스 세션은 도구 호출에서 일시 중지한 뒤 `-p --resume`으로 재개하면 훅이 다시 평가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "-p --resume으로 세션을 재개하면 훅이 다시 평가된다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "깜박임 없는 대체 화면",
+      "what": "`CLAUDE_CODE_NO_FLICKER=1` 환경 변수로 깜박임 없는 대체 화면 렌더링과 가상화된 스크롤백을 선택할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "예시 환경 변수 값: CLAUDE_CODE_NO_FLICKER=1"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "권한 거부 후크",
+      "what": "자동 모드 분류기가 권한을 거부한 뒤 `PermissionDenied` 훅이 실행된다. 훅에서 `{retry: true}`를 반환하면 모델이 재시도할 수 있다고 알린다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "PermissionDenied 훅에서 {retry: true}를 반환하면 재시도를 허용한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "이름 지정 서브에이전트 자동완성",
+      "what": "`@` 멘션 자동완성 제안에 이름이 지정된 서브에이전트를 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "비차단 MCP 연결",
+      "what": "`-p` 모드에서 `MCP_CONNECTION_NONBLOCKING=true`를 사용하면 MCP 연결 대기를 건너뛴다. `--mcp-config`로 설정한 서버 연결은 최장 5초로 제한된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "예시 환경 변수 값: MCP_CONNECTION_NONBLOCKING=true"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.87",
