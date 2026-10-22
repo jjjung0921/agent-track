@@ -55193,5 +55193,957 @@
    ],
    "features": []
   }
+ },
+ "codex@rust-v0.100.0": {
+  "hash": "4b1123a5416a",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "JavaScript REPL과 복수 rate limit 지원이 추가됐다. app-server WebSocket 전송, 메모리 관리 명령, 샌드박스 정책도 확장됐다.",
+   "items": [
+    "실험적 기능으로 상태를 도구 호출 사이에 유지하는 JavaScript REPL 런타임 `js_repl`과 선택적 런타임 경로 재정의가 추가됐다.",
+    "프로토콜, 백엔드 클라이언트, TUI 상태 화면에서 여러 rate limit을 동시에 지원한다.",
+    "app-server WebSocket 전송이 분리된 인바운드·아웃바운드 구조와 연결 상태를 고려한 스레드 재개 구독을 포함해 다시 도입됐다.",
+    "TUI에 메모리 관리 슬래시 명령 `/m_update`, `/m_drop`이 추가되고 메모리 읽기 및 메트릭 연결이 확장됐다.",
+    "ChatGPT 커넥터 처리에서 Apps SDK 앱을 지원한다.",
+    "Linux와 Windows의 샌드박스 기능이 승격됐고, 읽기 접근을 설정할 수 있는 새 `ReadOnlyAccess` 정책 형태가 도입됐다.",
+    "WebSocket 증분 출력 중복과 `response.completed` 이후 추가, `response.incomplete`의 오류 경로 처리를 수정했다.",
+    "유휴 중에도 ping 처리를 이어 세션 안정성을 높이고 빠른 재연결 시 첫 재시도의 불필요한 오류를 억제했다.",
+    "스레드 목록에서 누락된 rollout 파일을 제외하고 오래된 DB 메타데이터를 정리해 오래된 항목이 남는 문제를 수정했다.",
+    "붙여넣기 버스트 허용 시간을 늘려 Windows 터미널, 특히 VS Code 통합 터미널에서 여러 줄 붙여넣기 안정성을 높였다.",
+    "부분 rate-limit 업데이트를 병합할 때 `limit_name`이 잘못 상속되는 문제를 수정했다.",
+    "파일 감시 디바운스 시간을 1초에서 10초로 늘려 편집 중 반복되는 skill 파싱 오류 메시지를 줄였다.",
+    "JS REPL 기능 활성화 및 설정을 위한 문서와 설정·스키마 안내를 추가했다.",
+    "app-server README의 WebSocket 전송 문서를 갱신했다.",
+    "Rust 워크스페이스 구성요소 사이 의존성 경계를 단순화하도록 `codex-common`을 역할별 `codex-utils-*` 크레이트로 분리했다.",
+    "Windows 병렬 빌드와 musl 링크 수정을 포함해 Rust 릴리스 파이프라인의 처리량과 안정성을 개선했다.",
+    "중복 `cargo-timing.html` 산출물을 제외해 GitHub 릴리스 자산 업로드 충돌을 방지했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "JavaScript REPL 런타임",
+     "what": "상태를 여러 도구 호출에 걸쳐 유지할 수 있는 실험적 JavaScript REPL 런타임 `js_repl`을 추가한다. 런타임 경로를 선택적으로 재정의할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "복수 rate limit 지원",
+     "what": "프로토콜, 백엔드 클라이언트, TUI 상태 표시 영역에서 여러 rate limit을 동시에 지원한다. 각 계층에 걸친 지원이 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "app-server WebSocket 전송 재도입",
+     "what": "app-server의 WebSocket 전송을 다시 도입하고 인바운드와 아웃바운드 처리를 분리한다. 연결 상태를 고려하는 스레드 재개 구독도 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "메모리 관리 명령",
+     "what": "TUI에 `/m_update`와 `/m_drop` 슬래시 명령을 추가한다. 메모리 읽기와 메트릭 연결도 확장한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /m_update"
+       },
+       {
+        "kind": "cmd",
+        "text": "> /m_drop"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "ChatGPT 커넥터의 Apps SDK",
+     "what": "ChatGPT 커넥터 처리에서 Apps SDK 앱을 사용할 수 있게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "샌드박스 기능과 읽기 정책 확장",
+     "what": "Linux와 Windows에서 샌드박스 기능을 승격한다. 읽기 접근을 설정할 수 있도록 `ReadOnlyAccess` 정책 형태를 새로 도입한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.101.0": {
+  "hash": "27f4d5fa8548",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "모델 접두사 선택 시 요청한 모델 식별자를 유지하고, 메모리 입력 및 처리 안정성을 개선했다.",
+   "items": [
+    "접두사로 모델을 선택해도 요청한 모델 slug를 유지해 모델 참조가 다른 값으로 바뀌지 않게 했다.",
+    "메모리 1단계 입력에서 개발자 메시지를 제외해 불필요하거나 관련 없는 내용이 메모리에 들어가는 일을 줄였다.",
+    "부하가 있을 때 메모리 통합 및 스테이징 안정성을 높이도록 메모리 단계 처리 동시성을 낮췄다.",
+    "메모리 1단계 파이프라인의 코드 경로를 정리하고 단순화했다.",
+    "원격 모델 테스트의 포맷과 테스트 스위트 관리를 소폭 정비했다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.102.0": {
+  "hash": "675c49efd99f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "권한 승인 흐름과 네트워크 승인 정보가 개선되고, 설정으로 다중 에이전트 역할을 사용자화할 수 있다. app-server는 파일 검색 완료와 모델 재라우팅 같은 상태를 클라이언트에 더 명확히 전달한다.",
+   "items": [
+    "TUI에서 권한 기록을 더 명확히 보여주는 통합 권한 흐름을 도입하고, 차단된 디렉터리에 샌드박스 읽기 권한을 부여하는 슬래시 명령을 추가한다.",
+    "네트워크 승인 요청에 호스트·프로토콜 정보를 더 풍부하게 표시한다.",
+    "app-server의 퍼지 파일 검색에 세션 완료 신호를 추가해 클라이언트가 로딩 표시를 안정적으로 종료할 수 있다.",
+    "설정으로 다중 에이전트 역할을 사용자화하고 새 다중 에이전트 이름·설정 체계로의 이전을 지원한다.",
+    "클라이언트가 모델 재라우팅 이벤트를 명시적으로 감지하고 표시하도록 `model/rerouted` 알림을 추가한다.",
+    "원격 이미지 첨부가 TUI의 재개·되돌리기와 기록 재생 과정에서도 유지되도록 수정한다.",
+    "화면 읽기 사용자를 위한 애니메이션 제한 설정이 일관되게 지켜지지 않던 TUI 접근성 회귀를 수정한다.",
+    "app-server 스레드 재개가 메모리 내 활성 스레드에 올바르게 다시 연결되고 잘못된 재개 사례를 더 엄격히 처리한다.",
+    "`model/list`가 서버에서 불필요하게 필터링되지 않도록 전체 모델 데이터와 표시 메타데이터를 반환하게 수정한다.",
+    "`js_repl`의 초기화 멈춤, 실행 중 도구 호출 경합, `view_image` 패닉 경로 등 안정성 문제를 수정한다.",
+    "멘션 파싱과 앱 목록 로드·필터링의 앱 통합 경계 사례를 수정한다.",
+    "사용자가 보는 TUI 변경에는 스냅샷 테스트 범위를 요구하도록 기여자 지침을 갱신한다.",
+    "Codex 앱과 MCP 명령 사용에 관한 문서·도움말을 갱신한다.",
+    "개발자 로그 도구에 `just log --search`와 `just log --compact` 모드를 추가한다.",
+    "내장 `rg`를 업데이트하고 Bazel/Cargo 잠금 파일 동기화 검사를 강화해 의존성 차이를 줄인다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "통합 권한 승인 흐름",
+     "what": "TUI에서 권한 기록을 더 명확히 확인할 수 있도록 권한 흐름을 통합한다. 디렉터리 접근이 차단되면 슬래시 명령으로 샌드박스 읽기 권한을 부여할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "차단된 디렉터리의 샌드박스 읽기 권한을 슬래시 명령으로 부여한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "상세 네트워크 승인 요청",
+     "what": "네트워크 접근 승인 프롬프트에 호스트와 프로토콜 정보가 더 풍부하게 표시된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "승인 프롬프트에 호스트·프로토콜 맥락을 표시한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "파일 검색 완료 신호",
+     "what": "app-server 퍼지 파일 검색이 세션 완료 신호를 제공한다. 클라이언트는 이 신호를 받아 로딩 표시를 안정적으로 종료할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "검색 완료 신호로 클라이언트 로딩 표시를 종료한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "사용자화 가능한 에이전트 역할",
+     "what": "설정으로 다중 에이전트 역할을 사용자화할 수 있다. 새 다중 에이전트 명명·설정 체계로의 이전도 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "역할 사용자화와 새 명명·설정 체계 이전을 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 4,
+     "title": "모델 재라우팅 알림",
+     "what": "`model/rerouted` 알림을 추가해 클라이언트가 모델 재라우팅 이벤트를 명시적으로 감지하고 표시할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "클라이언트용 알림: `model/rerouted`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 12,
+     "title": "Codex 앱·MCP 도움말 갱신",
+     "what": "Codex 앱과 MCP 명령 사용에 관한 문서와 도움말 텍스트를 갱신한다. 입력에는 이전·이후의 구체적인 문구나 앱 화면 흐름이 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "도움말·문서 참조",
+        "note": "Codex 앱과 MCP 명령 사용에 관한 텍스트를 갱신한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.103.0": {
+  "hash": "7aba9f3b3bdf",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "앱 목록에 카드 렌더링에 필요한 상세 정보를 포함하고, 커밋 공동 작성자 표기를 관리하는 훅을 추가했다.",
+   "items": [
+    "앱 목록 응답에 `app_metadata`, 브랜딩, 라벨 등 상세 정보를 포함해 추가 요청 없이 더 완전한 앱 카드를 렌더링할 수 있다.",
+    "커밋 공동 작성자 표기에 Codex 관리 `prepare-commit-msg` 훅을 사용하며, 기본 라벨·사용자 지정 라벨·비활성화를 지정하는 `command_attribution` 재정의를 지원한다.",
+    "비활성 상태에서 대체 모델 메타데이터가 사용되는 일을 막고 모델 선택 안정성과 성능을 높이기 위해 `remote_models` 기능 플래그를 제거했다.",
+    "일상적인 유지보수로 Rust 의존성 `clap`, `env_logger`, `arc-swap`을 갱신하고 Bazel 잠금 상태를 새로 고쳤다.",
+    "CI 문제 이후 Rust 도구체인을 `1.93.1`로 올린 변경을 되돌렸다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "앱 목록 상세 정보",
+     "what": "앱 목록 응답에 `app_metadata`, 브랜딩, 라벨을 포함한다. 클라이언트는 추가 요청 없이 더 완전한 앱 카드를 렌더링할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "커밋 공동 작성자 표기 훅",
+     "what": "커밋 공동 작성자 표기에 Codex가 관리하는 `prepare-commit-msg` 훅을 사용한다. `command_attribution`으로 기본 라벨, 사용자 지정 라벨 또는 기능 비활성화를 선택할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.104.0": {
+  "hash": "2ee6e1473e18",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "WebSocket 프록시 환경 변수 지원과 스레드 보관 상태 알림이 추가됐다. 명령 승인마다 별도 ID를 전달하도록 프로토콜과 코어가 확장됐다.",
+   "items": [
+    "네트워크 프록시에서 WebSocket 프록시에 `WS_PROXY`·`WSS_PROXY` 환경 변수와 소문자 변형을 지원한다.",
+    "app-server v2가 스레드 보관 및 보관 해제 알림을 보내 폴링 없이 클라이언트가 변경에 반응할 수 있다.",
+    "단일 셸 명령 실행 흐름에서 여러 승인을 지원하도록 프로토콜과 코어에 명령 승인별 ID를 추가했다.",
+    "재개·포크 중 현재 작업 디렉터리 변경 프롬프트에서 `Ctrl+C`·`Ctrl+D`를 누르면 선택지를 암묵적으로 고르지 않고 정상 종료한다.",
+    "응답 본문의 모델 slug 대신 응답 헤더 모델과 WebSocket 최상위 이벤트를 사용해 안전 검사 강등의 오탐을 줄였다.",
+    "WebSocket 프록시 설정, 스레드 보관·보관 해제 알림, 명령 승인 ID 연결을 문서와 스키마에 반영했다.",
+    "이미 게시된 버전에 대한 `npm publish` 시도에도 Rust 릴리스 워크플로가 계속 진행되도록 했다.",
+    "원격 압축 테스트의 모킹을 표준화하고 기본 운영 형태에 맞춰 관련 스냅샷을 갱신했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "WebSocket 프록시 환경 변수",
+     "what": "네트워크 프록시의 WebSocket 연결에서 `WS_PROXY`와 `WSS_PROXY` 환경 변수를 지원한다. 소문자 변형도 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "지원 환경 변수: 대문자 및 소문자 변형"
+       },
+       {
+        "kind": "hl",
+        "text": "WS_PROXY"
+       },
+       {
+        "kind": "hl",
+        "text": "WSS_PROXY"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "스레드 보관 상태 알림",
+     "what": "app-server v2가 스레드가 보관되거나 보관 해제될 때 알림을 보낸다. 클라이언트는 상태를 확인하기 위해 폴링하지 않고 변경에 반응할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "명령 승인별 ID",
+     "what": "프로토콜과 코어가 명령 승인마다 구별되는 ID를 전달한다. 이로써 단일 셸 명령 실행 흐름 안에서 여러 승인을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.105.0": {
+  "hash": "71831b1eb650",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "TUI에 코드·diff 강조 표시, 테마 미리보기, 음성 입력과 편리한 대화 명령이 추가된다. 다중 에이전트 실행 추적과 app-server 스레드 검색·상태 조회도 강화된다.",
+   "items": [
+    "TUI가 코드 펜스와 diff를 구문 강조하고 실시간 미리보기가 있는 `/theme` 선택기를 제공하며, 밝고 어두운 터미널에 맞는 diff 색상을 사용한다.",
+    "스페이스바를 누르고 녹음해 프롬프트를 음성 입력·전사할 수 있다. 개발 중 기능이며 설정에서 `features.voice_transcription = true`로 활성화한다.",
+    "다중 에이전트 작업 추적을 개선한다. `spawn_agents_on_csv`가 CSV 작업을 분산하고 진행률·예상 시간을 보여주며, 별칭·개선된 선택기·하위 스레드 승인 프롬프트 표시로 하위 에이전트를 쉽게 따라간다.",
+    "`/copy`는 마지막으로 완성된 어시스턴트 답변을 복사한다. `/clear`와 `Ctrl-L`은 스레드 맥락을 유지하며 화면을 지우고, `/clear`는 새 대화도 시작할 수 있다.",
+    "명령에 추가 샌드박스 권한을 요청하고, 승인을 전부 끄지 않은 채 특정 승인 프롬프트 유형을 자동 거부할 수 있다.",
+    "app-server 클라이언트에서 `thread/list` 제목 검색, 읽기·목록 응답과 알림의 스레드 상태 확인, 최신 턴을 인라인으로 반환하는 `thread/resume`를 지원한다.",
+    "TUI에서 줄바꿈된 긴 링크도 클릭할 수 있으며 관련 클리핑과 여러 화면의 레이아웃 문제를 수정한다.",
+    "여러 터미널에서 대기 메시지 편집을 지원하고, 최종 답변 스트리밍 중 Enter로 후속 입력이 멈추는 문제와 승인 대화상자의 잘못된 요청 ID를 수정한다.",
+    "채팅 작성기의 `@` 파싱을 개선해 `npx -y @scope/pkg@latest` 같은 명령이 파일 선택기를 열거나 제출을 막지 않는다.",
+    "app-server 웹소켓 연결 해제 후에도 스레드 리스너가 유지된다. 재시작 시 Ctrl-C는 진행 중인 턴을 기다리며, `permessage-deflate`를 보내는 웹소켓 클라이언트의 연결을 지원한다.",
+    "Linux 샌드박스 명령에 최소 `/dev`를 제공해 엔트로피나 표준 장치 노드가 필요한 도구의 실패를 수정한다.",
+    "`js_repl`이 처리되지 않은 커널 실패를 더 명확히 보고하고 이후 정상 복구하며, 중첩 도구 호출의 `view_image` 결과를 올바르게 첨부한다.",
+    "Bugcrowd 신고 지침이 포함된 공개 보안 정책을 추가한다.",
+    "설치·로컬 작업 흐름 문서는 `cargo install --locked cargo-nextest`를 사용하고 전체 기능 범위가 필요한 경우가 아니면 일상적인 `--all-features` 빌드를 피하도록 갱신한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "TUI 코드 강조와 테마 선택",
+     "what": "TUI에서 코드 펜스와 diff를 구문 강조한다. `/theme` 선택기에서 테마를 실시간 미리보기할 수 있고 밝고 어두운 터미널에 맞춘 diff 색상을 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/theme"
+       },
+       {
+        "kind": "comment",
+        "text": "테마를 선택하며 실시간 미리보기를 확인한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "TUI 음성 프롬프트 입력",
+     "what": "스페이스바를 누르고 있으면 음성을 녹음해 프롬프트로 전사한다. 개발 중 기능이며 설정에서 `features.voice_transcription = true`로 활성화해야 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "개발 중 기능을 설정에서 활성화한다."
+       },
+       {
+        "kind": "hl",
+        "text": "features.voice_transcription = true"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "다중 에이전트 작업 추적",
+     "what": "`spawn_agents_on_csv`로 CSV의 작업을 분산 실행하고 내장 진행률·예상 시간을 확인할 수 있다. 별칭, 개선된 선택기, 표시되는 하위 스레드 승인 프롬프트로 하위 에이전트를 따라가기 쉽다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "CSV 기반 작업 분산: `spawn_agents_on_csv`"
+       },
+       {
+        "kind": "comment",
+        "text": "진행률·예상 시간과 하위 에이전트 추적 정보를 제공한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "대화 복사·화면 지우기",
+     "what": "`/copy`는 마지막으로 완성된 어시스턴트 답변을 복사한다. `/clear`와 `Ctrl-L`은 스레드 맥락을 유지하며 화면을 지우고, `/clear`로 새 대화를 시작할 수도 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/copy"
+       },
+       {
+        "kind": "cmd",
+        "text": "/clear"
+       },
+       {
+        "kind": "comment",
+        "text": "Ctrl-L은 스레드 맥락을 유지하며 화면을 지운다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "유연한 승인 제어",
+     "what": "Codex가 명령 실행에 필요한 추가 샌드박스 권한을 요청할 수 있다. 승인을 완전히 비활성화하지 않고 특정 승인 프롬프트 유형을 자동 거부하도록 설정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "명령별 추가 샌드박스 권한 요청과 프롬프트 유형별 자동 거부를 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "app-server 스레드 조회·재개",
+     "what": "`thread/list`에서 제목으로 검색할 수 있고 읽기·목록 응답과 알림에서 스레드 상태를 확인할 수 있다. `thread/resume`은 재접속 중 최신 턴이 누락되지 않도록 이를 인라인으로 반환한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`thread/list`: 제목 검색 및 상태 제공"
+       },
+       {
+        "kind": "comment",
+        "text": "`thread/resume`: 최신 턴을 인라인으로 반환"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.106.0": {
+  "hash": "ab64a069ee22",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "macOS·Linux용 직접 설치 스크립트와 실험적 기능 및 스레드 실시간 API가 확장됐다. 메모리 선택·망각 동작과 입력 한도 처리도 개선됐다.",
+   "items": [
+    "macOS와 Linux용 직접 설치 스크립트를 추가해 기존 플랫폼 페이로드(`codex`, `rg` 포함)를 GitHub 릴리스 자산으로 게시한다.",
+    "app-server v2 스레드 API에 실험적 스레드 단위 실시간 엔드포인트·알림과, 보관하지 않고 활성 스레드를 해제하는 `thread/unsubscribe` 흐름을 추가했다.",
+    "`js_repl`을 `/experimental`로 승격하고 시작 시 호환성 검사 및 사용자 표시 경고를 추가했으며, 검증된 최소 Node 버전을 `22.22.0`으로 낮췄다.",
+    "Default 협업 모드에서도 `request_user_input`을 활성화해 Plan 모드에만 한정하지 않는다.",
+    "API 사용자를 위해 CLI 모델 목록에 `5.3-codex`를 표시한다.",
+    "차이 기반 망각과 사용량을 고려한 메모리 선택으로 메모리 동작을 개선했다.",
+    "시간 초과 관련 HTTP 400 핸드셰이크 실패를 재시도하고 선택한 모델이 지원하면 WebSocket v2를 우선해 실시간 WebSocket 신뢰성을 높였다.",
+    "zsh 포크 셸 실행 경로에서 샌드박스 래퍼가 누락되어 예상된 파일 시스템 제한을 우회할 수 있던 문제를 수정했다.",
+    "TUI와 app-server에 약 100만 자의 공통 입력 크기 상한을 두어 대형 붙여넣기로 인한 멈춤·충돌을 막고 명시적 오류 응답을 제공한다.",
+    "TUI의 로컬 파일 링크에서 절대 경로는 숨기고 줄·열 위치 표시는 유지하도록 수정했다.",
+    "TUI의 하위 에이전트에 대한 `Ctrl-C` 처리를 수정했다.",
+    "인증 및 온보딩 흐름에서 오래된 로그인 성공 링크를 수정했다.",
+    "원격 또는 기기 인증 로그인 상황에 대한 CLI 로그인 안내를 명확히 했다.",
+    "내장 `codex-network-proxy`의 정책 결정과 차단을 위한 구조화된 OTEL 감사 로그를 추가했다.",
+    "`steer` 기능 플래그를 제거하고 TUI 작성기에서 항상 활성화되는 steer 경로로 통일했다.",
+    "하위 에이전트 실행 시 비용이 큰 이력 메타데이터 탐색을 건너뛰어 시작 오버헤드를 줄였다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "macOS·Linux 직접 설치 스크립트",
+     "what": "macOS와 Linux용 직접 설치 스크립트를 추가한다. 기존 플랫폼 페이로드를 사용하며 `codex`와 `rg`를 포함한 스크립트를 GitHub 릴리스 자산으로 게시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "스레드 실시간 API 및 구독 해제",
+     "what": "app-server v2 스레드 API에 실험적 스레드 단위 실시간 엔드포인트와 알림을 추가한다. `thread/unsubscribe`는 스레드를 보관하지 않고 실시간 활성 상태에서 해제한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "thread/unsubscribe"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "`js_repl` 실험 기능 승격",
+     "what": "`js_repl`을 `/experimental`에서 사용할 수 있도록 승격한다. 시작 시 호환성을 확인하고 사용자에게 경고하며, 검증된 최소 Node 버전을 `22.22.0`으로 낮춘다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "/experimental"
+       },
+       {
+        "kind": "comment",
+        "text": "최소 Node 버전: 22.22.0"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "Default 모드의 `request_user_input`",
+     "what": "`request_user_input`을 Default 협업 모드에서 사용할 수 있게 한다. 이전에는 Plan 모드에만 제공되던 기능이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "CLI 모델 목록의 `5.3-codex`",
+     "what": "API 사용자가 CLI 모델 목록에서 `5.3-codex`를 볼 수 있게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "사용량 기반 메모리 관리",
+     "what": "차이를 기준으로 메모리를 잊고 사용량을 고려해 메모리를 선택하도록 동작을 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.99.0": {
+  "hash": "e6e0d7cf4170",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "직접 셸 명령을 진행 중인 턴과 함께 실행할 수 있고, TUI와 app-server의 제어 기능이 확장된다. GIF/WebP 이미지 첨부와 관리자가 설정하는 검색·네트워크 제한도 지원한다.",
+   "items": [
+    "진행 중인 턴을 중단하지 않고 직접 셸 명령을 실행하며, 턴이 활성 상태일 때 명령을 동시에 실행할 수 있다.",
+    "`/statusline`으로 TUI 바닥글에 표시할 메타데이터를 대화형으로 설정한다.",
+    "TUI 재개 선택기에서 생성 시각과 마지막 업데이트 시각 기준으로 정렬을 전환하며, 선택기 안에 현재 모드를 표시한다.",
+    "app-server 클라이언트에 활성 턴 조정, 실험 기능 조회, 에이전트 재개, 특정 알림 제외를 위한 전용 API를 추가한다.",
+    "관리자는 `requirements.toml`에서 웹 검색 모드와 네트워크 제약을 설정할 수 있다.",
+    "기존 형식에 더해 GIF와 WebP 이미지 첨부를 지원한다.",
+    "셸 환경과 `rc` 파일의 스냅샷 기능을 활성화할 수 있다.",
+    "Windows에서 버퍼에 남은 키 입력 때문에 TUI 로그인 흐름이 즉시 종료되던 문제를 수정한다.",
+    "필수 MCP 서버가 시작·재개 중 실패하면 오류 상태로 계속 진행하지 않고 즉시 실패한다.",
+    "파일 감시자가 불필요한 skills 재로드 이벤트와 과도한 로그 파일을 만들던 문제를 수정한다.",
+    "TUI에서 긴 옵션 레이블 줄바꿈, 유휴 steer 모드의 Tab 제출, 일관된 커서 위치의 기록 탐색, 임시 저장 초안의 이미지 자리표시자 복원을 개선한다.",
+    "텍스트 전용 모델의 `view_image` 오류를 더 명확히 하고 모델 전환 시 지원되지 않는 이미지 기록을 제거한다.",
+    "래핑·heredoc 셸 명령의 잘못된 승인 불일치를 줄이고 실행 정책 평가에서 빈 명령 목록을 처리한다.",
+    "`turn/steer`, 실험 기능 탐색, `resume_agent`, 알림 제외, null `developer_instructions` 정규화에 관한 app-server 문서와 프로토콜 참조를 확장한다.",
+    "초안·이미지 복원, steer 모드의 Tab 제출, 기록 탐색 커서 동작을 반영해 TUI 작성기 문서를 갱신한다.",
+    "플랫폼별 바이너리를 `@openai/codex` dist-tags로 배포하도록 npm 패키징을 변경해 패키지 크기 부담을 줄이면서 플랫폼별 설치와 `@alpha`를 유지한다.",
+    "보안에 따른 `time` 의존성 업데이트(RUSTSEC-2026-0009)를 반영한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "진행 중 턴과 셸 명령 병행",
+     "what": "직접 셸 명령을 실행해도 진행 중인 턴이 중단되지 않는다. 턴이 활성 상태인 동안 명령을 동시에 실행할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "진행 중인 턴과 셸 명령을 함께 실행할 수 있다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "대화형 상태 표시줄 설정",
+     "what": "`/statusline`으로 TUI 바닥글에 표시할 메타데이터를 대화형으로 설정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/statusline"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "재개 목록 정렬 전환",
+     "what": "TUI 재개 선택기에서 생성 시각 또는 마지막 업데이트 시각 기준으로 정렬할 수 있다. 선택기 안에 현재 정렬 모드가 표시된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "정렬 기준을 생성 시각과 마지막 업데이트 시각 사이에서 전환한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "app-server 턴 및 에이전트 API",
+     "what": "app-server 클라이언트가 활성 턴을 조정하고 실험 기능을 조회하며 에이전트를 재개할 수 있다. 특정 알림을 받지 않도록 설정하는 API도 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "추가 API: 턴 조정, 실험 기능 조회, 에이전트 재개, 알림 제외"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "관리자 검색·네트워크 제한",
+     "what": "관리자는 `requirements.toml`을 통해 웹 검색 모드를 제한하고 네트워크 제약을 정의할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "관리자 설정 파일: `requirements.toml`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "GIF·WebP 첨부",
+     "what": "이미지 첨부가 기존 형식에 더해 GIF와 WebP 입력을 받는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "지원 입력 형식에 GIF와 WebP를 추가한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "셸 환경 스냅샷",
+     "what": "셸 환경과 `rc` 파일의 스냅샷 기능을 활성화할 수 있다. 원문에는 설정 방법이 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "스냅샷 대상: 셸 환경과 `rc` 파일"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
