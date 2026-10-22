@@ -53131,5 +53131,252 @@
    ],
    "features": []
   }
+ },
+ "claude-code@1.0.124": {
+  "hash": "dd013de3923c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Bash 도구에서 로그인 셸을 건너뛰도록 환경 변수를 설정할 수 있다. 대형 파일에서 VSCode 확장 성능을 개선하고 Bash 도구 권한 검사 취약점을 수정한다.",
+   "items": [
+    "`CLAUDE_BASH_NO_LOGIN` 환경 변수를 `1` 또는 `true`로 설정하면 BashTool에서 로그인 셸을 건너뛴다.",
+    "Bedrock 및 Vertex 환경 변수가 모든 문자열을 참으로 평가하던 문제를 수정한다.",
+    "권한이 거부되었을 때 허용된 도구 목록을 Claude에 더 이상 알리지 않는다.",
+    "Bash 도구 권한 검사에서 보안 취약점을 수정한다.",
+    "대형 파일에서 VSCode 확장 성능을 개선한다."
+   ],
+   "features": [
+    {
+     "index": 4,
+     "title": "대형 파일 성능 개선",
+     "what": "대형 파일에서 VSCode 확장의 성능을 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.126": {
+  "hash": "eee68f7e7b44",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Bedrock과 Vertex에서 `/context` 명령을 사용할 수 있고, HTTP 기반 OpenTelemetry 내보내기 도구에 mTLS 지원을 추가한다.",
+   "items": [
+    "Bedrock과 Vertex에서 `/context` 명령을 사용할 수 있다.",
+    "HTTP 기반 OpenTelemetry 내보내기 도구에 mTLS 지원을 추가한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "HTTP OpenTelemetry 내보내기의 mTLS 지원",
+     "what": "HTTP 기반 OpenTelemetry 내보내기 도구에서 mTLS를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.0": {
+  "hash": "563dc5538574",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "새로운 네이티브 VS Code 확장과 동적으로 서브에이전트를 추가하는 기능이 도입된다.",
+   "items": [
+    "새로운 네이티브 VS Code 확장을 제공한다.",
+    "앱 전반의 디자인을 새롭게 바꾼다.",
+    "`/rewind`로 대화를 되돌려 코드 변경을 취소할 수 있다.",
+    "`/usage` 명령으로 요금제 한도를 확인할 수 있다.",
+    "`Tab`으로 사고 모드를 전환하며, 설정은 세션 간 유지된다.",
+    "`Ctrl-R`로 기록을 검색할 수 있다.",
+    "출시되지 않은 `claude config` 명령을 제공한다.",
+    "Hooks에서 `tool_result` 블록 없이 발견되는 `PostToolUse`의 `tool_use` ID 오류를 줄인다.",
+    "Claude Code SDK의 이름을 Claude Agent SDK로 변경한다.",
+    "`--agents` 플래그로 서브에이전트를 동적으로 추가할 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "네이티브 VS Code 확장",
+     "what": "새로운 네이티브 VS Code 확장을 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 9,
+     "title": "동적 서브에이전트 추가",
+     "what": "`--agents` 플래그로 서브에이전트를 동적으로 추가할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "플래그",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에는 플래그만 제시되며 사용 명령이나 값은 안내되지 않는다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.1": {
+  "hash": "fb0f7f756bb2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Bedrock 및 Vertex의 Sonnet 4.5 기본 모델 설정 변경을 건너뛴다. 여러 버그를 수정하고 표시를 개선한다.",
+   "items": [
+    "Bedrock과 Vertex에서 Sonnet 4.5 기본 모델 설정 변경을 건너뛴다.",
+    "여러 버그를 수정하고 표시를 개선한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.5": {
+  "hash": "13284651e9e6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "로그인 화면에서 터미널을 여는 링크가 추가되고, SDK 메시지 재생 여부를 확인해 중복 메시지를 막을 수 있다.",
+   "items": [
+    "IDE에서 Enter와 Tab을 눌렀을 때 IME 입력 중 의도치 않게 메시지가 전송되는 문제를 수정한다.",
+    "로그인 화면에 “Open in Terminal” 링크를 추가한다.",
+    "OAuth 만료로 발생하는 처리되지 않은 401 API 오류를 수정한다.",
+    "중복 메시지를 방지하도록 `SDKUserMessageReplay.isReplay`를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "로그인 화면에서 터미널 열기",
+     "what": "로그인 화면에 “Open in Terminal” 링크가 추가된다.",
+     "steps": [
+      "로그인 화면에서 “Open in Terminal” 링크를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "SDK 메시지 재생 여부",
+     "what": "`SDKUserMessageReplay.isReplay`로 메시지가 재생된 것인지 확인해 중복 메시지를 방지한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.8": {
+  "hash": "74df55b705ee",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "IDE 채팅에서 파일과 폴더를 드래그 앤 드롭할 수 있다. Bedrock의 기본 Sonnet 모델이 변경되고, 일부 설정을 `settings.json`에서 구성하도록 바뀐다.",
+   "items": [
+    "Bedrock의 기본 Sonnet 모델을 `global.anthropic.claude-sonnet-4-5-20250929-v1:0`으로 변경한다.",
+    "IDE 채팅에서 파일과 폴더의 드래그 앤 드롭을 지원한다.",
+    "`/context`에서 thinking 블록을 세는 방식을 수정한다.",
+    "어두운 터미널에서 밝은 테마를 사용하는 경우 메시지 렌더링을 개선한다.",
+    "사용 중단된 `.claude.json`의 `allowedTools`, `ignorePatterns`, `env`, `todoFeatureEnabled` 옵션을 제거한다. 해당 설정은 `settings.json`에서 구성한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "채팅에 파일과 폴더 드롭",
+     "what": "IDE 채팅에서 파일과 폴더를 드래그 앤 드롭할 수 있다.",
+     "steps": [
+      "파일 또는 폴더를 IDE 채팅으로 드래그 앤 드롭한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.9": {
+  "hash": "7cea14cd607b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Bash 백그라운드 실행이 중단되던 회귀 문제를 수정한다.",
+   "items": [
+    "Bash에서 백그라운드 실행이 동작하지 않던 회귀 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2025-10-06": {
+  "hash": "c310c2fa51c5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex가 정식 출시되며 Slack 연동, Codex SDK, 관리자 도구가 추가된다. 이용 가능한 요금제와 Codex Cloud 사용량 산정 시점도 안내한다.",
+   "items": [
+    "Codex가 정식 출시되며 Slack의 @Codex, Codex SDK, 새 관리자 도구가 추가된다.",
+    "Slack에서 Codex에 질문하고 작업을 바로 할당할 수 있다.",
+    "Codex CLI와 같은 에이전트를 TypeScript용 Codex SDK로 도구와 워크플로에 통합할 수 있다. Codex GitHub Action으로 CI/CD 워크플로에도 Codex를 추가할 수 있다.",
+    "ChatGPT 워크스페이스 관리자는 Codex Cloud 환경을 편집하거나 삭제할 수 있다. 관리형 설정 파일로 CLI 및 IDE 사용의 안전한 기본값을 정하고 Codex의 로컬 명령 사용을 모니터링할 수 있으며, 분석 대시보드에서 사용량과 코드 검토 피드백을 추적할 수 있다.",
+    "Slack 연동과 Codex SDK는 ChatGPT Plus, Pro, Business, Edu, Enterprise 요금제 개발자에게 제공된다. 새 관리자 기능은 Business, Edu, Enterprise에 제공되며, 10월 20일부터 Codex Cloud 작업은 Codex 사용량에 포함된다."
+   ],
+   "features": []
+  }
  }
 }
