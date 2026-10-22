@@ -34398,5 +34398,1014 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.121": {
+  "hash": "764608e551d8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MCP 서버 설정에 `alwaysLoad` 옵션을 추가했다. `true`이면 해당 서버의 모든 도구가 도구 검색 지연 없이 항상 제공된다.",
+   "items": [
+    "MCP 서버 설정에 `alwaysLoad` 옵션을 추가했다. `true`이면 해당 서버의 모든 도구가 도구 검색 지연 없이 항상 제공된다.",
+    "자동 설치된 고아 플러그인 의존성을 제거하는 `claude plugin prune`을 추가했다. `plugin uninstall --prune`은 연쇄 정리한다.",
+    "`/skills`에 입력해 목록을 필터링하는 검색창을 추가했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "OpenTelemetry의 LLM 요청 span에 `stop_reason`, `gen_ai.response.finish_reasons`를 추가했다. `user_system_prompt`는 `OTEL_LOG_USER_PROMPTS` 설정으로 제한된다.",
+    "[VSCode] Claude Code 언어가 설정되지 않았을 때 음성 받아쓰기가 `accessibility.voice.speechLanguage` 설정을 따른다.",
+    "[VSCode] `/context`가 기본 토큰 사용량 대화상자를 연다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "해당 동작을 개선했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "MCP 서버 설정에 `alwaysLoad` 옵션을 추가했다",
+     "what": "MCP 서버 설정에 `alwaysLoad` 옵션을 추가했다. `true`이면 해당 서버의 모든 도구가 도구 검색 지연 없이 항상 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "MCP 서버 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "alwaysLoad=true로 설정하면 해당 서버의 모든 도구를 항상 사용할 수 있다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "자동 설치된 고아 플러그인 의존성을 제거하는 `claude plugin prune`을 추가했다",
+     "what": "자동 설치된 고아 플러그인 의존성을 제거하는 `claude plugin prune`을 추가했다. `plugin uninstall --prune`은 연쇄 정리한다.",
+     "steps": [],
+     "terminal": {
+      "title": "플러그인 정리",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ claude plugin prune"
+       },
+       {
+        "kind": "cmd",
+        "text": "$ claude plugin uninstall --prune"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "`/skills`에 입력해 목록을 필터링하는 검색창을 추가했다",
+     "what": "`/skills`에 입력해 목록을 필터링하는 검색창을 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "스킬 검색",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /skills"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 17,
+     "title": "OpenTelemetry의 LLM 요청 span에 `stop_reason`, `gen_ai",
+     "what": "OpenTelemetry의 LLM 요청 span에 `stop_reason`, `gen_ai.response.finish_reasons`를 추가했다. `user_system_prompt`는 `OTEL_LOG_USER_PROMPTS` 설정으로 제한된다.",
+     "steps": [],
+     "terminal": {
+      "title": "OpenTelemetry",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "user_system_prompt는 OTEL_LOG_USER_PROMPTS 설정이 켜진 경우에만 기록된다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 18,
+     "title": "[VSCode] Claude Code 언어가 설정되지 않았을 때 음성 받아쓰기가 `accessibility",
+     "what": "[VSCode] Claude Code 언어가 설정되지 않았을 때 음성 받아쓰기가 `accessibility.voice.speechLanguage` 설정을 따른다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 19,
+     "title": "[VSCode] `/context`가 기본 토큰 사용량 대화상자를 연다",
+     "what": "[VSCode] `/context`가 기본 토큰 사용량 대화상자를 연다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.122": {
+  "hash": "696b1d4ce88b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Bedrock 서비스 등급을 선택하는 `ANTHROPIC_BEDROCK_SERVICE_TIER` 환경 변수를 추가했다. 값은 `default`, `flex`, `priority`이며 `X-Amzn-Bedrock-Service-Tier` 헤더로 전송된다.",
+   "items": [
+    "Bedrock 서비스 등급을 선택하는 `ANTHROPIC_BEDROCK_SERVICE_TIER` 환경 변수를 추가했다. 값은 `default`, `flex`, `priority`이며 `X-Amzn-Bedrock-Service-Tier` 헤더로 전송된다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "OpenTelemetry에 `@` 멘션 해석을 기록하는 `claude_code.at_mention` 이벤트를 추가했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "해당 동작을 변경했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Bedrock 서비스 등급을 선택하는 `ANTHROPIC_BEDROCK_SERVICE_TIER` 환경 변수를 추가했다",
+     "what": "Bedrock 서비스 등급을 선택하는 `ANTHROPIC_BEDROCK_SERVICE_TIER` 환경 변수를 추가했다. 값은 `default`, `flex`, `priority`이며 `X-Amzn-Bedrock-Service-Tier` 헤더로 전송된다.",
+     "steps": [],
+     "terminal": {
+      "title": "Bedrock 서비스 등급",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "환경 변수 예시: ANTHROPIC_BEDROCK_SERVICE_TIER=default (지원 값: default, flex, priority)"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "OpenTelemetry에 `@` 멘션 해석을 기록하는 `claude_code",
+     "what": "OpenTelemetry에 `@` 멘션 해석을 기록하는 `claude_code.at_mention` 이벤트를 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.123": {
+  "hash": "6a78022d261b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "관련 오류를 수정했다.",
+   "items": [
+    "관련 오류를 수정했다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.304": {
+  "hash": "b1ebaf88e4c2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "모드와 권한 확인 기능을 보강하고, 자동 모드 설정 및 보안 점검 명령을 추가했다. VS Code 채팅 패널의 모드 그림과 하위 에이전트 상태 표시도 개선했다.",
+   "items": [
+    "먼저 실행되는 플러그인이 모드 훅을 건너뛰면 트랜스크립트에 이벤트와 플러그인 이름을 표시한다.",
+    "모드의 `tool.check` 응답에 `decider: \"person\"`을 추가했다. 권한 대화상자나 호스트 콜백만 요청을 승인할 수 있으며, 요청할 사람이 없으면 모드의 사유와 함께 거부된다.",
+    "도구 호출이 읽기 전용일 때 모드의 `tool.check` 이벤트에 `e.isReadOnly`를 설정한다.",
+    "`/auto-mode-setup`을 추가했다. 프로젝트와 최근 세션을 읽어 자동 모드가 환경을 파악하도록 안내하며, Bedrock, Vertex, Foundry, Claude 앱 게이트웨이 및 텔레메트리 비활성 세션에서도 사용할 수 있다.",
+    "`/claude-api managed-agents-secure`를 추가했다. Managed Agents 에이전트 설정을 Anthropic의 공개 보안 가이드와 비교하며 설정을 변경하지 않는다.",
+    "트랜스크립트 보기(`Ctrl+O`)의 압축 요약에 이전에 호출한 도구 이름을 포함한다.",
+    "Pro 및 Max 요금제에서 비활성 대화를 재개하면 5시간 사용 한도의 상당 부분을 쓸 수 있을 때 경고한다. 계속 재개하거나 새 대화에서 이전 대화를 언급해 Claude가 찾아보게 할 수 있다.",
+    "시작 시 `ANTHROPIC_API_KEY`를 승인하거나 `/config`에서 사용자 지정 API 키를 바꿔도 조직 정책이 다음 시간별 확인까지 갱신되지 않던 문제를 수정했다.",
+    "`sandbox.filesystem.denyRead` 글롭에 문자 클래스가 아닌 대괄호(예: `[user-id]`)가 있으면 Linux에서 샌드박스 명령이 시작되지 않던 문제를 수정했다.",
+    "마운트 드라이브나 최상위 폴더(`/Volumes`, `/media`, WSL의 `/mnt/c`)에서 `rm -r`를 실행할 때 안전 확인이 표시되지 않던 문제를 수정했다.",
+    "파일을 다듬는 중 디스크가 가득 차면 `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC`가 저장된 트랜스크립트 메시지를 삭제하던 문제를 수정했다.",
+    "플러그인이 하위 에이전트를 시작하거나 완료된 에이전트를 다시 실행해 `--max-turns`, 중지 또는 입력 종료 뒤에도 헤드리스 실행을 계속하던 문제를 수정했다.",
+    "모드 재로드 실패 시 현재 로드된 버전의 도구와 명령이 사라지고, 이전 버전 유지 여부 메시지가 부정확하거나 누락되던 문제를 수정했다.",
+    "같은 레이블에 `key`가 없는 모드 버튼을 변경 없이 다시 그릴 때 클릭이 유실되던 문제를 수정했다.",
+    "관리 설정이 있는 장치와 Team 및 Enterprise 요금제에서 내장 `plugin-authoring` 스킬의 모드 공유가 비밀 검사 단계에서 멈추던 문제를 수정했다.",
+    "예약된 Cowork 클라우드 세션에서 URL 승인이 필요한 WebFetch를 하위 에이전트가 요청하면 매번 5분씩 대기하던 문제를 수정했다.",
+    "작업 디렉터리 밖 파일의 쓰기 결과와 거부된 편집 경로가 `../../…`로 표시되던 문제를 수정해 `~/…` 또는 전체 경로를 표시한다.",
+    "Cowork 클라우드 세션에서 메뉴로 선택한 claude.ai Directory 플러그인 스킬이 명령으로 실행되지 않던 문제를 수정했다.",
+    "터미널에서 다른 계정으로 로그인하면 Remote Control이 데스크톱 대화 기록을 계속 제공하지 않던 문제를 수정했다.",
+    "유료 요금제에서 `DISABLE_TELEMETRY` 또는 `DO_NOT_TRACK`이 설정된 경우 Claude Desktop의 Remote Control이 시작되지 않던 문제를 수정했다.",
+    "SDK 및 데스크톱 세션에서 모델 전환, 메시지, 중단 요청이 컨텍스트 사용량 확인 뒤에 지연되던 문제를 수정했다.",
+    "LLM 게이트웨이에서 `context_management: Extra inputs are not permitted` 오류가 발생하면 해당 필드 없이 요청을 다시 보내도록 수정했다.",
+    "첫 설정 중 또는 `/logout` 뒤 첫 시작에 로그인하면 서버 관리 OpenTelemetry 설정이 세션 내내 무시되던 문제를 수정했다.",
+    "macOS 및 Linux의 Claude Desktop Code 탭에서 샌드박스되지 않은 Bash 명령이 `~/.zshrc` 같은 셸 시작 파일의 환경 변수를 받지 못하던 문제를 수정했다.",
+    "서버 오류 뒤 소비자 약관 안내가 하루 이상 건너뛰어지던 문제를 수정했다.",
+    "네트워크 또는 서버 오류 뒤 `/privacy-settings`에서 적용되지 않을 수 있는 선택지를 제공하던 문제를 수정했다.",
+    "API가 너무 길다고 거부한 대화를 압축하는 중 턴을 중지하면 컨텍스트 한도 오류가 발생하던 문제를 수정했다.",
+    "완료 직후 메시지를 받거나 재개한 하위 에이전트가 최근 작업을 잊는 경우를 수정했다.",
+    "`claude --help`의 여러 옵션 및 `claude update` 설명이 실제 동작과 다르던 문제를 수정했다.",
+    "HEAD가 분리됐거나 다른 브랜치에 있을 때 `claude --worktree`가 종료 시 확인 없이 워크트리와 브랜치를 삭제해 커밋이 유실될 수 있던 문제를 수정했다.",
+    "플러그인이 시작 시 다시 로드될 때 재개 및 클라우드 세션이 전체 스킬 목록을 매번 Claude에 보내던 문제를 수정했다.",
+    "이미지처럼 보이는 이름의 유휴 파이프나 장치를 기다리는 Read가 중단 신호로 끝나지 않던 문제를 수정했다.",
+    "`CLAUDE_CODE_EFFORT_LEVEL`이 `auto` 또는 미설정이고 수준이 전달되지 않았는데 `/effort`와 표시기가 추측한 수준을 보여주던 문제를 수정했다.",
+    "같은 도구 호출의 Agent SDK 콜백 훅 시간 초과가 PreToolUse 훅의 거부 사유를 덮어쓰던 문제를 수정했다.",
+    "큰 명령 출력 파일을 도구 결과 폴더로 복사하지 못할 때 디스크가 가득 찬 경우 외에도 Bash와 PowerShell이 원본을 삭제하던 문제를 수정했다.",
+    "폭이 약 100열 미만인 터미널에서 미리보기가 있는 객관식 질문의 입력 메모가 잘려 보이던 문제를 수정했다.",
+    "자체 조절 `/loop`가 1시간 캐시 만료 직후 실행돼 대화를 캐시 없이 다시 읽던 문제를 수정했다.",
+    "에이전트 팀에서 메인 세션의 종료 요청을 승인해도 CLI 전체가 종료되지 않도록 수정했다.",
+    "한 스킬의 `once` 훅이 실행된 뒤 다른 스킬의 동일한 훅까지 제거하던 문제를 수정했다.",
+    "트랜스크립트 모드에서 `{`와 `}`를 누르면 프롬프트가 트랜스크립트 첫 행이 아닌 엉뚱한 행이나 화면 밖에 놓이던 문제를 수정했다.",
+    "`CLAUDE_CODE_AUTO_COMPACT_WINDOW=200k`가 조용히 100K 창을 설정하던 문제를 수정했다. 이제 `--autocompact`처럼 `k`, `M` 접미사를 받고 범위를 벗어나거나 무시된 값에 경고한다.",
+    "마우스 버튼을 놓기 전에 에이전트 보기에서 Ctrl+C를 누르면 선택 텍스트를 복사하지 않고 선택만 해제하던 문제를 수정했다.",
+    "사용량 데이터의 제한이 풀리는 시각을 `/usage`에서 안내한다.",
+    "세션 중 작성한 모드의 로드, 재로드, 실패 메시지에 표시되는 행을 개선했다.",
+    "여러 보기가 있는 아티팩트의 링크를 요청하면 각 보기 링크를 제공하고, 보기 전환 중에도 주소 표시줄이 그대로임을 설명한다.",
+    "클라우드 대화의 첫 턴은 `alwaysLoad: true`인 서버를 제외하고 claude.ai에서 동기화한 플러그인의 로컬(stdio) MCP 서버를 기다리지 않는다.",
+    "서버가 다른 세션 데이터와 함께 보낸 상태 업데이트를 거부할 때 원격 세션 상태 복구를 개선했다.",
+    "자동 모드에서 안전 분류기의 컨텍스트를 요청마다 저장하지 않아 세션 파일 크기를 줄였다.",
+    "`claude -p`의 잘못된 설정 경고는 로드에 실패한 파일에서 원인이 된 항목만 표시하며 파일별 긴 목록을 제한한다.",
+    "SDK 및 헤드리스 모드에서 큰 압축 세션을 재개한 뒤 첫 요청을 더 빨리 보낸다.",
+    "하위 에이전트가 많이 동시에 실행될 때 응답성과 처리량을 개선했다.",
+    "긴 대화나 재개된 대화에서 요청을 보낼 때 메모리 사용을 개선했다.",
+    "자체 호스팅 실행기에서 저장소를 찾을 수 없다는 오류에 저장소 이름과 문의 대상을 표시한다.",
+    "Windows에서 표준 Git for Windows 설치를 사용할 때 cmd 실행기를 거치지 않고 `git.exe`를 직접 실행해 Git 시작을 개선했다.",
+    "모드의 `settings.read` 훅이 각 설정 계층을 받고 병합 설정을 다시 쓰도록 변경했다. 관리 모드는 보존 정리에서 사용하는 `cleanupPeriodDays`를 포함해 조직 설정을 상한으로 둘 수 있다.",
+    "`/artifacts` 삭제 확인에 번호 선택을 적용했다. 1 또는 Enter는 유지, 2는 삭제이며 y, n, Esc도 계속 작동한다.",
+    "세션 중 Claude가 작성한 모드를 켜는 질문을 링크나 세션 ID 없는 일반 텍스트로 바꿨다. 새 턴이 시작돼도 질문이 유지되며, 활성화하면 로드된 항목을 Claude가 알려준다.",
+    "사용자 지정 `ANTHROPIC_BASE_URL`에서 도구 검색을 기본 활성화한다. 게이트웨이가 400 또는 422를 반환하면 검색 없이 다시 시도한다.",
+    "압축 뒤 Claude에 스킬 목록을 다시 전달하도록 변경했다. `/reload-skills`는 새 스킬이나 변경된 스킬만 보낸다.",
+    "스킬 훅은 세션당 출처(저장소, 사용자 폴더, 플러그인)별 최대 1,024개이며 매처 문자는 16,384자로 제한된다.",
+    "플러그인 훅만 허용하는 정책에서 훅이 제외된 메인 대화 스킬에는 `allowed-tools`를 더 이상 부여하지 않는다.",
+    "/claude-api 스킬이 Claude Platform on AWS에서 SDK나 curl 대신 `ant` CLI를 사용하도록 업데이트했다.",
+    "`claude plugin validate`에서 모드 훅 실행 위치를 예측하던 안내를 제거했다.",
+    "Opus 5.5의 `/fast` 대화상자 제목에서 \"(research preview)\" 레이블을 제거했다.",
+    "[VSCode] Amazon Bedrock, Google Vertex AI, Microsoft Foundry, LLM 게이트웨이 및 텔레메트리 비활성 세션에서 채팅 패널에 모드가 그린 내용을 표시한다.",
+    "[VSCode] 세션 시작 실패 원인 중 하나를 수정했다. SessionStart 명령 훅 실행 시간은 최대 총 10분까지 60초 제한에 포함되지 않는다.",
+    "[VSCode] 시작 중 닫은 세션이 시작 작업이 끝날 때까지 Claude Code 프로세스를 유지하던 문제를 수정했다.",
+    "[VSCode] 구버전 Claude Code도 실행 중인 장치에서 오래 열린 패널의 모드 그림이 다음 턴까지 사라지던 문제를 수정했다.",
+    "[VSCode] `claudeCode.claudeProcessWrapper`가 설정되면 Past conversations에서 세션이 숨겨지던 문제를 수정했다.",
+    "[VSCode] 백그라운드 하위 에이전트는 채팅에 모든 단계를 스트리밍하지 않고 Agent 카드 아래 상태 한 줄로 표시한다. 전체 트랜스크립트는 `/tasks`에 남는다.",
+    "[Cloud sessions] 작성기의 @ 목록에서 폴더 이름이 비어 선택해도 멘션 대신 공백만 추가되던 문제를 수정했다.",
+    "[Claude Tag] 작업 중 Enterprise Grid 워크스페이스 간 채널 공유가 시작되면 Claude가 응답을 멈추던 문제를 수정했다. 새 스레드에서 다시 @멘션하라는 안내를 한 번 게시한다.",
+    "[Claude Tag] 스레드 밖에서 `@Claude !fork`를 입력해도 응답이 보이지 않던 문제를 수정했다. 이제 스레드 안에서 실행하라는 비공개 안내를 표시한다.",
+    "[Code Review] 조직 소유자는 Quick, Standard(기본값), Deep 검토 수준을 선택하고 저장소별 수준도 지정할 수 있다.",
+    "[Code Review] 관리 설정에서 GitHub 조직의 모든 저장소와 이후 추가되는 저장소를 하나씩 고르지 않고 검토하도록 설정할 수 있다.",
+    "[Code Review] 관리자가 Code Review를 켠 직후 1~2분 안에 열린 PR이 누락되던 문제를 수정해 재시도 후 검토한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "먼저 실행되는 플러그인이 모드 훅을 건너뛰면 트랜스크립트에 이벤트와 플러그인 이름을 표시한다",
+     "what": "먼저 실행되는 플러그인이 모드 훅을 건너뛰면 트랜스크립트에 이벤트와 플러그인 이름을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "모드의 `tool",
+     "what": "모드의 `tool.check` 응답에 `decider: \"person\"`을 추가했다. 권한 대화상자나 호스트 콜백만 요청을 승인할 수 있으며, 요청할 사람이 없으면 모드의 사유와 함께 거부된다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "모드 응답 키: `decider: \"person\"`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "도구 호출이 읽기 전용일 때 모드의 `tool",
+     "what": "도구 호출이 읽기 전용일 때 모드의 `tool.check` 이벤트에 `e.isReadOnly`를 설정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "`/auto-mode-setup`을 추가했다",
+     "what": "`/auto-mode-setup`을 추가했다. 프로젝트와 최근 세션을 읽어 자동 모드가 환경을 파악하도록 안내하며, Bedrock, Vertex, Foundry, Claude 앱 게이트웨이 및 텔레메트리 비활성 세션에서도 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /auto-mode-setup"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "`/claude-api managed-agents-secure`를 추가했다",
+     "what": "`/claude-api managed-agents-secure`를 추가했다. Managed Agents 에이전트 설정을 Anthropic의 공개 보안 가이드와 비교하며 설정을 변경하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /claude-api managed-agents-secure"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "트랜스크립트 보기(`Ctrl+O`)의 압축 요약에 이전에 호출한 도구 이름을 포함한다",
+     "what": "트랜스크립트 보기(`Ctrl+O`)의 압축 요약에 이전에 호출한 도구 이름을 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "트랜스크립트 보기: Ctrl+O"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "Pro 및 Max 요금제에서 비활성 대화를 재개하면 5시간 사용 한도의 상당 부분을 쓸 수 있을 때 경고한다",
+     "what": "Pro 및 Max 요금제에서 비활성 대화를 재개하면 5시간 사용 한도의 상당 부분을 쓸 수 있을 때 경고한다. 계속 재개하거나 새 대화에서 이전 대화를 언급해 Claude가 찾아보게 할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 64,
+     "title": "[VSCode] Amazon Bedrock, Google Vertex AI, Microsoft Foundry, LLM 게이트웨",
+     "what": "[VSCode] Amazon Bedrock, Google Vertex AI, Microsoft Foundry, LLM 게이트웨이 및 텔레메트리 비활성 세션에서 채팅 패널에 모드가 그린 내용을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 65,
+     "title": "[VSCode] 세션 시작 실패 원인 중 하나를 수정했다",
+     "what": "[VSCode] 세션 시작 실패 원인 중 하나를 수정했다. SessionStart 명령 훅 실행 시간은 최대 총 10분까지 60초 제한에 포함되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 66,
+     "title": "[VSCode] 시작 중 닫은 세션이 시작 작업이 끝날 때까지 Claude Code 프로세스를 유지하던 문제를 수정했다",
+     "what": "[VSCode] 시작 중 닫은 세션이 시작 작업이 끝날 때까지 Claude Code 프로세스를 유지하던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 67,
+     "title": "[VSCode] 구버전 Claude Code도 실행 중인 장치에서 오래 열린 패널의 모드 그림이 다음 턴까지 사라지던 문제를 ",
+     "what": "[VSCode] 구버전 Claude Code도 실행 중인 장치에서 오래 열린 패널의 모드 그림이 다음 턴까지 사라지던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 68,
+     "title": "[VSCode] `claudeCode",
+     "what": "[VSCode] `claudeCode.claudeProcessWrapper`가 설정되면 Past conversations에서 세션이 숨겨지던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 69,
+     "title": "[VSCode] 백그라운드 하위 에이전트는 채팅에 모든 단계를 스트리밍하지 않고 Agent 카드 아래 상태 한 줄로 표시한다",
+     "what": "[VSCode] 백그라운드 하위 에이전트는 채팅에 모든 단계를 스트리밍하지 않고 Agent 카드 아래 상태 한 줄로 표시한다. 전체 트랜스크립트는 `/tasks`에 남는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.305": {
+  "hash": "f31a98b01d44",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Linux 샌드박스 사용자 네임스페이스와 재시도 중 사용량 한도 재확인 설정을 추가했다. 사용량 경고 안내와 VS Code 시작 상태 표시도 개선했다.",
+   "items": [
+    "`sandbox.allowNestedUserNamespaces`를 추가해 Linux 샌드박스 명령이 사용자 네임스페이스를 만들 수 있다. Chromium 및 rootless podman 사용을 지원하지만 샌드박스의 파일 보호를 우회할 수 있다.",
+    "`CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS`를 추가했다. 비대화형 재시도 모드(`CLAUDE_CODE_RETRY_WATCHDOG`)가 재설정 전에 해제된 사용량 한도를 감지하게 한다.",
+    "2.1.304 회귀로 Vertex, Bedrock 및 다른 제공자에서 도구 검색을 거부하는 엔드포인트나 게이트웨이에서 요청이 실패하던 문제를 수정했다. ToolSearch가 금지되거나 `--tools`에서 빠진 게이트웨이도 검색 없이 재시도한다.",
+    "모델 이름의 대소문자나 `[1m]` 태그가 `modelOverrides` 값과 다르면 `/effort`, `/autocompact` 설정이 적용되지 않던 문제를 수정했다.",
+    "베어 저장소의 새 워크트리가 기본 브랜치 대신 로컬 HEAD에서 시작되거나 변경되지 않은 하위 에이전트 워크트리가 정리되지 않던 문제를 수정했다.",
+    "디스크가 가득 차 Bash 명령이 원시 `ENOSPC` 경로를 표시하던 문제를 수정했다. 이제 디스크가 가득 찼고 명령은 실행되지 않았음을 알린다.",
+    "클라우드 세션 또는 SDK의 `setMcpServers`로 전달한 MCP 서버가 세션 중 사용자 설정의 같은 이름 서버로 대체되던 문제를 수정했다.",
+    "하위 에이전트가 대체 모델로 전환한 뒤 작업에 잘못된 모델 이름을 표시하던 문제를 수정했다.",
+    "압축 요약에 오래된 메시지를 모두 포함할 수 없을 때 클라우드 세션과 팀원이 Claude에 그 사실을 알리지 않던 문제를 수정했다.",
+    "예약된 Cowork 클라우드 세션에서 URL 승인이 필요한 WebFetch를 요청한 하위 에이전트마다 5분 대기하던 사례를 추가로 수정했다.",
+    "Workflow 재개 시 완료된 `pipeline()` 및 `parallel()` 에이전트를 실행 기록에서 재사용하지 않고 다시 실행하던 문제를 수정했다.",
+    "`/resume`으로 대화를 전환한 뒤 빈 \"(session)\" 항목이 남던 Remote Control 문제를 수정했다.",
+    "좁은 터미널에서 `/usage` 행이 잘리던 문제를 수정했다.",
+    "시작 경고가 로고 위에 원시 텍스트로 출력되던 문제를 수정했다. 이제 디버그 로그에 기록하며 아무 제한도 하지 않는 권한 규칙은 배너 아래 경고 행으로 표시한다.",
+    "스크린 리더 모드의 검색 상자는 VoiceOver가 전화기 녹음기로 읽던 기호 대신 \"Search:\"라고 말한다. 강조된 프롬프트 글자 사이에 공백이 삽입되지 않는다.",
+    "`TERM`이 설정되고 시작 스크립트가 stdout만 실행기나 오케스트레이터에 공유할 때 `Resource temporarily unavailable` 오류가 나던 자체 호스팅 실행기 문제를 수정했다.",
+    "Git 자격 증명 도우미나 askpass 프로그램이 `GIT_CONFIG`로 설정을 읽을 때 2.1.296부터 저장소 접근이 실패하던 문제를 수정했다.",
+    "백그라운드 실행기가 출력을 열어 둔 경우 오케스트레이터가 실행기 시작 훅을 시간 초과로 보고하던 문제를 수정했다.",
+    "`/usage`의 각 경고를 출처와 해결 방법을 담은 한 줄로 개선하고, `f`로 수정 사항을 적용할 수 있게 했다. 같은 수정 사항을 VS Code와 `/doctor`에서도 제공한다.",
+    "프롬프트에 입력한 Enter가 MCP 동의 대화상자의 수락으로 처리될 가능성을 낮췄다.",
+    "iTerm2 3.5 이상에서 전체 화면 렌더링을 쓸 때 모드의 `Image`가 대체 텍스트만 보이던 문제를 개선해 이미지를 그린다.",
+    "Remote Control 모드 메시지를 개선했다. `w`를 누르면 새 모드가 폴더에 저장됐다고 알리고, 저장된 모드로 `claude remote-control`을 시작하면 출처 폴더를 알려준다.",
+    "`allowedMcpServers`가 `env` 안에서만 `${VAR}`를 쓰는 `managed-mcp.json` stdio 서버를 필터링하지 않도록 변경했다. 업데이트 후 허용 목록에 없던 서버도 로드되므로 차단하려면 `deniedMcpServers`를 사용한다.",
+    "조직의 관리 설정에서 `allowManagedPermissionRulesOnly`를 설정하면 경로로 마운트한 Claude Desktop 플러그인이 `allowed-tools`를 유지하지 않도록 변경했다.",
+    "`/artifacts` 삭제 확인은 1 또는 Enter로 유지, 2로 삭제, Esc로 취소한다. `y`, `n`은 더 이상 응답으로 받지 않는다.",
+    "모드의 도킹 패널 너비가 더 넓은 터미널에서 저장된 너비를 포함해 터미널 너비의 45% 이내에 머문다.",
+    "[VSCode] SessionStart 또는 Setup 훅 실행 중 \"Running start-up hooks\" 회전 상태와 스크린 리더 안내를 표시한다.",
+    "[VSCode] `spinnerVerbs` 설정에서 짧은 동사를 지정했을 때 회전 표시기가 \"Compacting...\"을 잘라내던 문제를 수정했다.",
+    "[VSCode] 훅이 실행 중이 아닌 상태에서 세션이 제때 시작되지 않으면 출력 로그를 먼저 안내하고 원인을 나열하도록 메시지를 변경했다.",
+    "[Cloud sessions] Cloud environments 관리 페이지가 기존 환경을 저장할 때 \"installs packages\" 오류로 잘못 거부하던 문제를 수정했다.",
+    "[Cloud sessions] 자체 호스팅 환경 삭제 대화상자와 오류 메시지에 삭제를 막는 원인과 영향 범위를 명확히 표시한다.",
+    "[Claude Tag] 관리자가 Claude Tag 관리자 화면의 장소 추가 검색에서 아직 Claude가 참여하지 않은 공개 Slack 채널도 찾아 설정할 수 있다.",
+    "[Claude Tag] 다른 GitHub 계정으로 이동한 저장소를 액세스 번들에 다시 추가할 수 없던 문제를 수정했다.",
+    "[Claude Tag] Slack DM 스레드에서 만든 루틴이 같은 스레드의 다른 루틴이 대화를 재시작한 뒤 게시되지 않던 문제를 수정해 두 루틴 모두 게시한다.",
+    "[Claude Tag] 대화가 끝난 Slack 스레드의 루틴이 게시하지 않고 성공으로 보고하던 문제를 수정했다. 이제 실행을 건너뛰고 만든 사람에게 알린다.",
+    "[Claude Tag] 대규모 조직에서 채널 목록 로딩 중에도 관리자 페이지의 플러그인, 스킬, 번들 편집이 가능하도록 개선했다.",
+    "[Code Review] 검토 중 PR에 여러 푸시가 들어오면 최신 커밋을 검토하지 않는 경우를 수정했다.",
+    "[Code Review] 이전 차단 지적이 열린 상태에서 재검토가 LGTM으로 시작하지 않도록 변경했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`sandbox",
+     "what": "`sandbox.allowNestedUserNamespaces`를 추가해 Linux 샌드박스 명령이 사용자 네임스페이스를 만들 수 있다. Chromium 및 rootless podman 사용을 지원하지만 샌드박스의 파일 보호를 우회할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "설정 키: `sandbox.allowNestedUserNamespaces`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "`CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS`를 추가했다",
+     "what": "`CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS`를 추가했다. 비대화형 재시도 모드(`CLAUDE_CODE_RETRY_WATCHDOG`)가 재설정 전에 해제된 사용량 한도를 감지하게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "설정 키: `CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS` 및 `CLAUDE_CODE_RETRY_WATCHDOG`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 18,
+     "title": "`/usage`의 각 경고를 출처와 해결 방법을 담은 한 줄로 개선하고, `f`로 수정 사항을 적용할 수 있게 했다",
+     "what": "`/usage`의 각 경고를 출처와 해결 방법을 담은 한 줄로 개선하고, `f`로 수정 사항을 적용할 수 있게 했다. 같은 수정 사항을 VS Code와 `/doctor`에서도 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령 및 설정",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /usage"
+       },
+       {
+        "kind": "comment",
+        "text": "f를 눌러 제안된 수정을 적용한다."
+       },
+       {
+        "kind": "comment",
+        "text": "수정 사항은 `/doctor`와 VS Code에서도 제공된다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 26,
+     "title": "[VSCode] SessionStart 또는 Setup 훅 실행 중 \"Running start-up hooks\" 회전 상태와 ",
+     "what": "[VSCode] SessionStart 또는 Setup 훅 실행 중 \"Running start-up hooks\" 회전 상태와 스크린 리더 안내를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 27,
+     "title": "[VSCode] `spinnerVerbs` 설정에서 짧은 동사를 지정했을 때 회전 표시기가 \"Compacting",
+     "what": "[VSCode] `spinnerVerbs` 설정에서 짧은 동사를 지정했을 때 회전 표시기가 \"Compacting...\"을 잘라내던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 28,
+     "title": "[VSCode] 훅이 실행 중이 아닌 상태에서 세션이 제때 시작되지 않으면 출력 로그를 먼저 안내하고 원인을 나열하도록 메시지",
+     "what": "[VSCode] 훅이 실행 중이 아닌 상태에서 세션이 제때 시작되지 않으면 출력 로그를 먼저 안내하고 원인을 나열하도록 메시지를 변경했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.306": {
+  "hash": "cbadcf66a223",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "관련 오류를 수정했다.",
+   "items": [
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.307": {
+  "hash": "f71c09fb9c9c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude API 코드를 API 버전 `2026-10-21`로 전환하는 `/claude-api api-version`을 추가했다.",
+   "items": [
+    "Claude API 코드를 API 버전 `2026-10-21`로 전환하는 `/claude-api api-version`을 추가했다.",
+    "권한 규칙, 자동 모드, 안전 검사, 훅 또는 샌드박스가 도구 호출을 차단·확인 요청·반환할 때마다 기록하는 OpenTelemetry 이벤트 `claude_code.safety_event`를 추가했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "관련 오류를 수정했다.",
+    "해당 동작을 개선했다.",
+    "해당 동작을 개선했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 개선했다.",
+    "데스크톱 앱의 MCP 서버 하나가 연결되지 않아도 클라우드 세션에서 첫 응답까지 걸리는 시간을 개선했다.",
+    "해당 동작을 개선했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "[VSCode] 음성 받아쓰기가 인식된 말 없이 15초가 지나거나 2분 제한으로 자동 종료되면 마이크 버튼에 이유와 지금까지의 텍스트가 보존된다는 안내를 표시한다.",
+    "[VSCode] Show more로 확장한 긴 프롬프트가 채팅 패널 전체를 덮던 문제를 수정했다. 고정된 프롬프트는 패널의 40%로 제한되고 내부에서 스크롤된다.",
+    "[VSCode] 서식 있는 텍스트 편집기에서 LaTeX 수식이 포함된 목록 항목 일부나 표 셀을 붙여넣을 때 새 목록이나 표로 바뀌던 문제를 수정했다.",
+    "[VSCode] `NODE_EXTRA_CA_CERTS`가 `~/.claude/settings.json`에만 설정된 TLS 검사 프록시 환경에서 받아쓰기가 실패하던 문제를 수정했다. 이제 `CLAUDE_CODE_CERT_STORE`도 따른다.",
+    "[VSCode] 확장 재시작 후 남은 Claude 프로세스도 ‘다른 곳에서 열려 있음’ 안내에 포함한다. 이 프로세스는 보통 약 10분 안에 종료된다.",
+    "[VSCode] 음성 받아쓰기도 CLI처럼 신뢰 인증서를 필터링한다.",
+    "[VSCode] 확장 자체 요청도 CLI처럼 신뢰 인증서를 필터링하고, 환경 또는 사용자 설정의 `NODE_EXTRA_CA_CERTS` 파일을 신뢰한다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다.",
+    "해당 동작을 변경했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Claude API 코드를 API 버전 `2026-10-21`로 전환하는 `/claude-api api-version`을 추가했다",
+     "what": "Claude API 코드를 API 버전 `2026-10-21`로 전환하는 `/claude-api api-version`을 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "API 버전 변경",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /claude-api api-version"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "권한 규칙, 자동 모드, 안전 검사, 훅 또는 샌드박스가 도구 호출을 차단·확인 요청·반환할 때마다 기록하는 OpenTelemetry 이벤트 `claude_code",
+     "what": "권한 규칙, 자동 모드, 안전 검사, 훅 또는 샌드박스가 도구 호출을 차단·확인 요청·반환할 때마다 기록하는 OpenTelemetry 이벤트 `claude_code.safety_event`를 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 27,
+     "title": "데스크톱 앱의 MCP 서버 하나가 연결되지 않아도 클라우드 세션에서 첫 응답까지 걸리는 시간을 개선했다",
+     "what": "데스크톱 앱의 MCP 서버 하나가 연결되지 않아도 클라우드 세션에서 첫 응답까지 걸리는 시간을 개선했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 33,
+     "title": "[VSCode] 음성 받아쓰기가 인식된 말 없이 15초가 지나거나 2분 제한으로 자동 종료되면 마이크 버튼에 이유와 지금까지의 텍스트가 보존된다는 안내를 표시한다",
+     "what": "[VSCode] 음성 받아쓰기가 인식된 말 없이 15초가 지나거나 2분 제한으로 자동 종료되면 마이크 버튼에 이유와 지금까지의 텍스트가 보존된다는 안내를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 34,
+     "title": "[VSCode] Show more로 확장한 긴 프롬프트가 채팅 패널 전체를 덮던 문제를 수정했다",
+     "what": "[VSCode] Show more로 확장한 긴 프롬프트가 채팅 패널 전체를 덮던 문제를 수정했다. 고정된 프롬프트는 패널의 40%로 제한되고 내부에서 스크롤된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 35,
+     "title": "[VSCode] 서식 있는 텍스트 편집기에서 LaTeX 수식이 포함된 목록 항목 일부나 표 셀을 붙여넣을 때 새 목록이나 표로 바뀌던 문제를 수정했다",
+     "what": "[VSCode] 서식 있는 텍스트 편집기에서 LaTeX 수식이 포함된 목록 항목 일부나 표 셀을 붙여넣을 때 새 목록이나 표로 바뀌던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 36,
+     "title": "[VSCode] `NODE_EXTRA_CA_CERTS`가 `~/",
+     "what": "[VSCode] `NODE_EXTRA_CA_CERTS`가 `~/.claude/settings.json`에만 설정된 TLS 검사 프록시 환경에서 받아쓰기가 실패하던 문제를 수정했다. 이제 `CLAUDE_CODE_CERT_STORE`도 따른다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 37,
+     "title": "[VSCode] 확장 재시작 후 남은 Claude 프로세스도 ‘다른 곳에서 열려 있음’ 안내에 포함한다",
+     "what": "[VSCode] 확장 재시작 후 남은 Claude 프로세스도 ‘다른 곳에서 열려 있음’ 안내에 포함한다. 이 프로세스는 보통 약 10분 안에 종료된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 38,
+     "title": "[VSCode] 음성 받아쓰기도 CLI처럼 신뢰 인증서를 필터링한다",
+     "what": "[VSCode] 음성 받아쓰기도 CLI처럼 신뢰 인증서를 필터링한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 39,
+     "title": "[VSCode] 확장 자체 요청도 CLI처럼 신뢰 인증서를 필터링하고, 환경 또는 사용자 설정의 `NODE_EXTRA_CA_CERTS` 파일을 신뢰한다",
+     "what": "[VSCode] 확장 자체 요청도 CLI처럼 신뢰 인증서를 필터링하고, 환경 또는 사용자 설정의 `NODE_EXTRA_CA_CERTS` 파일을 신뢰한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.308": {
+  "hash": "c5a5ee9c7fc5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "해당 동작을 변경했다.",
+   "items": [
+    "해당 동작을 변경했다."
+   ],
+   "features": []
+  }
  }
 }
