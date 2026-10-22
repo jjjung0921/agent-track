@@ -52642,5 +52642,339 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.0.20": {
+  "hash": "de774be6feee",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude Code에서 Claude Skills를 지원한다.",
+   "items": [
+    "Claude Skills 지원을 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Claude Skills 지원",
+     "what": "Claude Code에서 Claude Skills를 사용할 수 있도록 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.21": {
+  "hash": "520d2f034571",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "도구 응답의 MCP `structuredContent` 필드를 지원하고 대화형 질문 도구를 추가한다. Pro 사용자는 Haiku 4.5를 모델 옵션으로 선택할 수 있다.",
+   "items": [
+    "도구 응답에서 MCP `structuredContent` 필드를 지원한다.",
+    "대화형 질문 도구를 추가한다.",
+    "Plan 모드에서 Claude가 더 자주 질문한다.",
+    "Pro 사용자를 위한 모델 옵션으로 Haiku 4.5를 추가한다.",
+    "대기 중인 명령이 이전 메시지 출력에 접근하지 못하던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "대화형 질문 도구",
+     "what": "대화형 질문 도구를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "Haiku 4.5 모델 옵션",
+     "what": "Pro 사용자가 선택할 수 있는 모델 옵션으로 Haiku 4.5를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.22": {
+  "hash": "149fadfdaee5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "IDE에서 thinking을 켜고 끄는 토글을 추가하고, 엔터프라이즈 MCP 허용 목록과 차단 목록을 지원한다.",
+   "items": [
+    "슬래시 명령을 스크롤할 때 콘텐츠 레이아웃이 이동하는 문제를 수정한다.",
+    "IDE에서 thinking을 켜고 끄는 토글을 추가한다.",
+    "도구를 병렬 호출할 때 권한 프롬프트가 중복되는 버그를 수정한다.",
+    "엔터프라이즈에서 관리하는 MCP 허용 목록과 차단 목록을 지원한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "Thinking 토글",
+     "what": "IDE에서 thinking을 활성화하거나 비활성화하는 토글을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "엔터프라이즈 MCP 목록 관리",
+     "what": "엔터프라이즈 관리형 MCP 허용 목록과 차단 목록을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.24": {
+  "hash": "269e5362c369",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프로젝트 설정에서 스킬이 로드되지 않던 문제를 수정하고, Claude Code Web에서 CLI로 이동하는 기능을 지원한다.",
+   "items": [
+    "`--setting-sources 'project'` 지정 시 프로젝트 수준 스킬이 로드되지 않던 문제를 수정한다.",
+    "Claude Code Web에서 CLI로 이동하는 기능을 지원한다.",
+    "Linux와 Mac에서 BashTool용 샌드박스 모드를 출시한다.",
+    "인증이 필요할 때 Bedrock의 `awsAuthRefresh` 출력을 표시한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.25": {
+  "hash": "93ddef70b7f0",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "레거시 SDK 진입점을 제거하고, 이후 SDK 업데이트를 위해 새 패키지로 마이그레이션하도록 안내한다.",
+   "items": [
+    "레거시 SDK 진입점을 제거한다. 이후 SDK 업데이트를 받으려면 `@anthropic-ai/claude-agent-sdk`로 마이그레이션해야 한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.27": {
+  "hash": "f37a2ad7750d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "권한 요청 UI를 새롭게 구성하고 세션 재개 화면에 현재 브랜치 필터와 검색을 추가한다. VS Code 확장에서는 파일 검색 설정과 안정성 수정이 포함된다.",
+   "items": [
+    "권한 요청 UI를 새롭게 구성한다.",
+    "더 쉽게 탐색할 수 있도록 세션 재개 화면에 현재 브랜치 필터와 검색을 추가한다.",
+    "디렉터리 `@` 멘션으로 인해 발생하던 \"No assistant message found\" 오류를 수정한다.",
+    "VS Code 확장에서 `.gitignored` 파일을 파일 검색에 포함하는 설정을 추가한다.",
+    "VS Code 확장에서 관련 없는 'Warmup' 대화가 발생하던 문제와 설정이 기본값으로 초기화되던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "권한 요청 UI",
+     "what": "권한 요청 UI를 새롭게 구성한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "세션 재개 필터와 검색",
+     "what": "세션 재개 화면에 현재 브랜치 필터와 검색을 추가한다. 이를 통해 세션을 더 쉽게 탐색할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "무시된 파일 검색 설정",
+     "what": "VS Code 확장에서 `.gitignored` 파일을 파일 검색에 포함하는 설정을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "VS Code 확장 안정성 수정",
+     "what": "관련 없는 'Warmup' 대화가 발생하던 문제를 수정한다. 설정이 때때로 기본값으로 초기화되던 문제도 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.28": {
+  "hash": "0a8395936559",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "SDK에 `--max-budget-usd` 플래그를 추가하고, git 기반 플러그인과 마켓플레이스에서 브랜치 및 태그를 지정할 수 있게 한다.",
+   "items": [
+    "Plan 모드에 새 Plan 서브에이전트를 도입한다.",
+    "Claude가 서브에이전트를 재개할지 선택할 수 있다.",
+    "Claude가 서브에이전트에 사용할 모델을 동적으로 선택할 수 있다.",
+    "SDK에 `--max-budget-usd` 플래그를 추가한다.",
+    "사용자 정의 슬래시 명령, 서브에이전트, 출력 스타일 검색 시 `.gitignore`를 더 이상 따르지 않는다.",
+    "VS Code에서 `/terminal-setup` 실행 시 `Shift + Enter`에 백슬래시가 추가되는 문제를 막는다.",
+    "프래그먼트 문법(예: `owner/repo#branch`)으로 git 기반 플러그인과 마켓플레이스의 브랜치 및 태그 지정을 지원한다.",
+    "홈 디렉터리에서 실행할 때 최초 실행 시 macOS 권한 프롬프트가 표시되는 버그를 수정한다.",
+    "그 밖의 여러 버그를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 3,
+     "title": "SDK 최대 예산 플래그",
+     "what": "SDK에 `--max-budget-usd` 플래그를 추가한다. 입력에는 플래그의 동작이나 값 지정 방식이 더 설명되어 있지 않다.",
+     "steps": [],
+     "terminal": {
+      "title": "SDK 플래그",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "SDK에 추가된 플래그: `--max-budget-usd`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "VS Code 터미널 설정 수정",
+     "what": "VS Code에서 `/terminal-setup`을 실행할 때 `Shift + Enter`에 백슬래시가 추가되는 문제를 막는다.",
+     "steps": [],
+     "terminal": {
+      "title": "VS Code 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /terminal-setup"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "Git 플러그인의 브랜치·태그 지정",
+     "what": "git 기반 플러그인과 마켓플레이스에서 브랜치와 태그 지정을 지원한다. 예시 문법은 `owner/repo#branch`이다.",
+     "steps": [],
+     "terminal": {
+      "title": "프래그먼트 문법 예시",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "예시: `owner/repo#branch`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2025-10-22": {
+  "hash": "f07a86cd3f8b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GitHub 이슈와 동료의 PR에서 `@codex`를 호출해 질문, 후속 작업 요청, 변경 요청을 할 수 있다.",
+   "items": [
+    "동료의 PR에서 `@codex`를 태그해 확인 질문, 후속 작업, 변경을 요청할 수 있다. GitHub 이슈에서도 `@codex` 멘션으로 워크플로를 벗어나지 않고 작업을 시작할 수 있다."
+   ],
+   "features": []
+  }
  }
 }
