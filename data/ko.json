@@ -44099,5 +44099,294 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.51": {
+  "hash": "ae59930fed77",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "원격 제어 하위 명령과 npm 플러그인 설치 옵션을 추가한다. SDK 호출자는 환경 변수로 계정 정보를 제공할 수 있다.",
+   "items": [
+    "외부 빌드에서 사용할 수 있는 `claude remote-control` 하위 명령을 추가해 모든 사용자에게 로컬 환경 제공을 지원한다.",
+    "플러그인 마켓플레이스의 기본 Git 시간 제한을 30초에서 120초로 늘리고, `CLAUDE_CODE_PLUGIN_GIT_TIMEOUT_MS`로 설정할 수 있게 한다.",
+    "npm 소스에서 플러그인을 설치할 때 사용자 지정 npm 레지스트리와 특정 버전 고정을 지원한다.",
+    "셸 스냅샷이 있으면 BashTool이 기본적으로 로그인 셸(`-l` 플래그)을 건너뛴다. 이전에는 `CLAUDE_BASH_NO_LOGIN=true` 설정이 필요했다.",
+    "대화형 모드에서 작업 공간 신뢰를 승인하기 전에 `statusLine` 및 `fileSuggestion` 훅 명령이 실행될 수 있던 보안 문제를 수정한다.",
+    "50K자를 초과하는 도구 결과를 디스크에 저장한다(이전 기준은 100K자). 이에 따라 컨텍스트 창 사용량을 줄이고 대화를 더 오래 이어갈 수 있다.",
+    "중복 `control_response` 메시지가 대화에 중복된 assistant 메시지를 추가해 API 400 오류를 일으킬 수 있던 버그를 수정한다.",
+    "SDK 호출자가 `CLAUDE_CODE_ACCOUNT_UUID`, `CLAUDE_CODE_USER_EMAIL`, `CLAUDE_CODE_ORGANIZATION_UUID` 환경 변수로 계정 정보를 동기식으로 제공할 수 있게 한다. 초기 텔레메트리 이벤트에 계정 메타데이터가 누락되던 경쟁 상태를 없앤다.",
+    "플러그인의 `SKILL.md` 설명이 YAML 배열 등 문자열이 아닌 형식일 때 슬래시 명령 자동완성이 충돌하던 문제를 수정한다.",
+    "`/model` 선택기에 고정 모델 버전의 원시 모델 ID 대신 사람이 읽을 수 있는 레이블(예: \"Sonnet 4.5\")을 표시하고, 최신 버전이 있으면 업그레이드 안내를 표시한다.",
+    "macOS plist 또는 Windows 레지스트리를 통해 관리 설정을 지정할 수 있게 한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "원격 제어 명령",
+     "what": "외부 빌드에서 사용할 `claude remote-control` 하위 명령을 추가한다. 모든 사용자를 대상으로 로컬 환경 제공을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ claude remote-control"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "npm 플러그인 설치 옵션",
+     "what": "npm 소스에서 플러그인을 설치할 때 사용자 지정 npm 레지스트리를 지원한다. 특정 버전을 고정해 설치할 수도 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "SDK 계정 정보 환경 변수",
+     "what": "SDK 호출자가 계정 정보를 동기식으로 전달할 수 있는 환경 변수를 추가한다. 초기 텔레메트리 이벤트에서 계정 메타데이터가 누락되는 경쟁 상태를 없앤다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "SDK 호출자가 계정 정보를 제공할 때 사용하는 환경 변수"
+       },
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_ACCOUNT_UUID`"
+       },
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_USER_EMAIL`"
+       },
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_ORGANIZATION_UUID`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.52": {
+  "hash": "5d06a54d9058",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Windows에서 VS Code 확장 프로그램이 충돌하던 문제를 수정한다.",
+   "items": [
+    "Windows에서 `command 'claude-vscode.editor.openLast' not found` 오류로 VS Code 확장 프로그램이 충돌하던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.53": {
+  "hash": "3a0a42ea44d6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "입력 깜박임, 에이전트 일괄 종료, Remote Control 종료 처리와 Windows·WebAssembly 관련 충돌을 수정한다. 첫 실행에서 `--worktree`가 무시되던 문제도 해결한다.",
+   "items": [
+    "메시지를 제출한 뒤 렌더링되기 전에 입력 내용이 잠시 사라지던 UI 깜박임을 수정한다.",
+    "에이전트 일괄 종료(`ctrl+f`) 시 에이전트별 알림 대신 통합 알림을 한 번 보내고 명령 대기열을 올바르게 비우도록 수정한다.",
+    "Remote Control 사용 시 정상 종료 과정에서 오래된 세션이 남을 수 있던 문제를 네트워크 종료 호출을 병렬화해 수정한다.",
+    "첫 실행에서 `--worktree` 옵션이 무시될 수 있던 문제를 수정한다.",
+    "Windows에서 \"switch on corrupted value\" 패닉이 발생하던 문제를 수정한다.",
+    "Windows에서 많은 프로세스를 생성할 때 발생할 수 있던 충돌을 수정한다.",
+    "Linux x64 및 Windows x64의 WebAssembly 인터프리터 충돌을 수정한다.",
+    "Windows ARM64에서 간혹 2분 후 발생하던 충돌을 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.55": {
+  "hash": "84aea9b86080",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Windows에서 BashTool이 EINVAL 오류로 실패하던 문제를 수정한다.",
+   "items": [
+    "Windows에서 BashTool이 EINVAL 오류로 실패하던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.56": {
+  "hash": "bbd538a1e655",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "VS Code에서 `command 'claude-vscode.editor.openLast' not found` 오류로 충돌하던 또 다른 원인을 수정한다.",
+   "items": [
+    "VS Code에서 `command 'claude-vscode.editor.openLast' not found` 오류로 충돌하던 또 다른 원인을 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.58": {
+  "hash": "41e6150d1132",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Remote Control을 더 많은 사용자에게 확대한다.",
+   "items": [
+    "Remote Control을 더 많은 사용자에게 확대한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.1.59": {
+  "hash": "b97e969fafc6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "코드 블록을 개별 또는 전체 응답 단위로 복사할 수 있는 `/copy` 대화형 선택기를 추가한다. 자동 메모리 관리와 명령 권한 제안, 작업 목록 정렬, 멀티 에이전트 메모리 사용도 개선한다.",
+   "items": [
+    "Claude가 유용한 맥락을 자동 메모리에 저장하며, `/memory`로 관리할 수 있다.",
+    "코드 블록이 있으면 `/copy` 명령이 대화형 선택기를 표시해 개별 코드 블록이나 전체 응답을 선택할 수 있다.",
+    "복합 Bash 명령의 \"always allow\" 접두어 제안이 전체 명령을 하나로 취급하지 않고 하위 명령별로 더 적절한 접두어를 계산한다.",
+    "짧은 작업 목록의 정렬을 개선한다.",
+    "완료된 하위 에이전트 작업 상태를 해제해 멀티 에이전트 세션의 메모리 사용을 개선한다.",
+    "Claude Code 여러 인스턴스를 동시에 실행할 때 발생하던 MCP OAuth 토큰 갱신 경쟁 상태를 수정한다.",
+    "작업 디렉터리가 삭제된 경우 셸 명령에서 명확한 오류 메시지가 표시되지 않던 문제를 수정한다.",
+    "Claude Code 여러 인스턴스를 동시에 실행할 때 인증 정보가 사라질 수 있던 설정 파일 손상을 수정한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "코드 블록 선택 복사",
+     "what": "`/copy` 명령에 대화형 선택기를 추가한다. 코드 블록이 있는 경우 개별 코드 블록이나 전체 응답을 선택할 수 있다.",
+     "steps": [
+      "`/copy` 명령을 입력한다.",
+      "표시되는 선택기에서 복사할 코드 블록 또는 전체 응답을 선택한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /copy"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-02-24-app": {
+  "hash": "b7f6633e2a26",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "자동화를 전용 worktree 또는 프로젝트 폴더에서 실행하도록 선택할 수 있다. 설정 경고를 설정으로 옮기고, 프롬프트 기록 탐색과 초안의 줄바꿈 보존을 개선한다.",
+   "items": [
+    "자동화를 전용 worktree 또는 프로젝트 폴더에서 실행하는 옵션을 추가한다.",
+    "설정 경고를 해당 파일 링크와 함께 설정으로 옮긴다.",
+    "프롬프트 기록 탐색을 개선하고 초안 메시지의 줄바꿈을 보존한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "자동화 실행 위치 선택",
+     "what": "자동화를 전용 worktree 또는 프로젝트 폴더에서 실행하는 옵션을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "자동화 실행 위치",
+        "note": "전용 worktree 또는 프로젝트 폴더에서 실행하도록 선택한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "codex-2026-03-12-app#2",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "설정 경고와 파일 링크",
+     "what": "설정 경고를 설정으로 옮기고 영향을 받는 파일로 연결되는 링크를 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "설정 경고",
+        "note": "영향을 받는 파일 링크와 함께 설정에서 확인한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "프롬프트 기록과 줄바꿈",
+     "what": "프롬프트 기록 탐색을 개선한다. 초안 메시지의 줄바꿈도 보존한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "프롬프트 기록 탐색",
+        "note": "프롬프트 기록을 탐색한다.",
+        "changed": true
+       },
+       {
+        "title": "초안 메시지",
+        "note": "메시지의 줄바꿈이 보존된다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
