@@ -51676,5 +51676,194 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.0.45": {
+  "hash": "4c8c5aa32845",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Microsoft Foundry 지원과 사용자 지정 로직으로 도구 권한 요청을 자동 승인하거나 거부하는 `PermissionRequest` 훅이 추가된다.",
+   "items": [
+    "Microsoft Foundry 지원이 추가된다.",
+    "사용자 지정 로직으로 도구 권한 요청을 자동 승인하거나 거부하는 `PermissionRequest` 훅이 추가된다.",
+    "메시지를 `&`로 시작해 Claude Code 웹에 백그라운드 작업을 보낼 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Microsoft Foundry 지원",
+     "what": "Microsoft Foundry 지원이 추가된다. 자세한 내용은 안내 문서를 참고한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "PermissionRequest 훅",
+     "what": "도구 권한 요청에 대응하는 `PermissionRequest` 훅이 추가된다. 사용자 지정 로직으로 요청을 자동 승인하거나 거부할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.46": {
+  "hash": "578ddebf2995",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "메타데이터에서 형식을 판별할 수 없는 이미지 파일의 미디어 유형을 잘못 보고하던 문제가 수정된다.",
+   "items": [
+    "메타데이터로 형식을 판별할 수 없는 이미지 파일의 미디어 유형이 잘못 보고되던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.47": {
+  "hash": "6f8cc3566411",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`claude --teleport`와 `/usage`의 오류 처리를 개선하고, 종료 시 기록과 Vertex AI 설정 적용 문제를 수정한다.",
+   "items": [
+    "`claude --teleport`의 오류 메시지와 유효성 검사를 개선한다.",
+    "`/usage`의 오류 처리를 개선한다.",
+    "종료 시 기록 항목이 저장되지 않을 수 있던 경쟁 상태를 수정한다.",
+    "`settings.json`의 Vertex AI 설정이 적용되지 않던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.49": {
+  "hash": "22d03733eb5f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "삭제한 텍스트를 붙여넣는 `ctrl-y` 단축키를 추가한다.",
+   "items": [
+    "삭제한 텍스트를 붙여넣는 readline 방식의 `ctrl-y`를 추가한다.",
+    "사용량 한도 경고 메시지를 더 명확하게 개선한다.",
+    "하위 에이전트 권한 처리를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "삭제한 텍스트 붙여넣기",
+     "what": "readline 방식의 `ctrl-y`를 추가해 삭제한 텍스트를 붙여넣을 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "삭제한 텍스트를 붙여넣으려면 `ctrl-y`를 입력한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.50": {
+  "hash": "a45b56b8d9c4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "중첩 참조가 있는 입력 스키마의 MCP 도구를 호출하지 못하던 문제가 수정되고, 여러 메시지 표시가 개선된다.",
+   "items": [
+    "입력 스키마에 중첩 참조가 있는 MCP 도구를 호출하지 못하던 문제를 수정한다.",
+    "업그레이드 중 발생하던 무해하지만 불필요한 오류 메시지를 표시하지 않도록 한다.",
+    "ultrathink 텍스트 표시를 개선한다.",
+    "5시간 세션 한도 경고 메시지를 더 명확하게 개선한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.51": {
+  "hash": "a226d6378153",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Opus 4.5가 추가되고 Claude Code 데스크톱 앱이 소개된다. 사용량 한도와 알림, Plan Mode 동작도 변경된다.",
+   "items": [
+    "Opus 4.5가 추가된다.",
+    "Claude Code 데스크톱 앱을 소개한다.",
+    "새 모델을 사용할 수 있도록 Claude Code 사용자의 사용량 한도를 업데이트한다. 자세한 내용은 Claude Opus 4.5 블로그를 참고한다.",
+    "Pro 사용자는 Claude Code에서 Opus 4.5를 이용하기 위한 추가 사용량을 구매할 수 있다.",
+    "Plan Mode가 더 정확한 계획을 세우고 더 철저히 실행한다.",
+    "사용량 한도 알림을 더 쉽게 이해할 수 있도록 개선한다.",
+    "`/usage` 표시를 다시 ‘사용률 %’로 변경한다.",
+    "thinking 오류 처리를 수정한다.",
+    "성능 저하 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Opus 4.5 추가",
+     "what": "Opus 4.5가 Claude Code에 추가된다. 해당 모델에 관한 자세한 내용은 Claude Opus 4.5 블로그를 참고한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.52": {
+  "hash": "9f4d5806c171",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`/usage` 진행 막대가 사용량 증가에 따라 채워지도록 수정하고, Wayland에서 이미지 붙여넣기가 동작하지 않을 때 대체 도구를 사용한다.",
+   "items": [
+    "명령줄 인수로 Claude를 시작할 때 메시지가 중복 표시되는 문제를 수정한다.",
+    "`/usage` 진행 막대가 사용량이 늘수록 채워지고, 남은 비율을 표시하던 문제를 수정한다.",
+    "Wayland를 사용하는 Linux에서 이미지 붙여넣기가 동작하지 않던 문제를 수정하고, `xclip`을 사용할 수 없으면 `wl-paste`로 대체한다.",
+    "bash 명령에서 일부 `$!` 사용을 허용한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2025-11-24": {
+  "hash": "a4988cfd07de",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 사용량과 크레딧 관련 문제를 수정한다. 사용량 대시보드의 표기를 통일하고, CLI 사용량 정보 갱신과 하루 중 사용량 분배를 개선한다.",
+   "items": [
+    "Codex 사용량과 크레딧 관련 몇 가지 문제를 해결하기 위해 소폭 업데이트한다.",
+    "모든 사용량 대시보드가 일관되게 남은 한도를 표시하도록 조정한다. CLI가 이전에 사용한 한도를 표시하던 문제도 바뀐다.",
+    "ChatGPT 구독을 iOS 또는 Google Play에서 구매한 사용자가 크레딧을 구매할 수 없던 문제를 수정한다.",
+    "CLI에 오래된 사용량 정보가 표시될 수 있던 문제를 수정한다. 이제 먼저 메시지를 보내지 않아도 사용량 정보가 갱신된다.",
+    "전체 Codex 부하나 트래픽 경로와 관계없이 하루 동안 사용량이 더 고르게 분배되도록 백엔드를 최적화한다. 이전에는 캐시 미스가 연속으로 발생하면 사용량이 크게 줄어들 수 있었다."
+   ],
+   "features": []
+  }
  }
 }
