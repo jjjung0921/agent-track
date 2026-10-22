@@ -52294,5 +52294,353 @@
     }
    ]
   }
+ },
+ "claude-code@2.0.30": {
+  "hash": "fbada5664f42",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "CLI에 권한 정책, 사용자 정의 에이전트 도구 차단, 프롬프트 기반 중지 훅을 추가한다. VSCode에서는 무시된 파일 검색 설정과 입력 푸터의 선택 상태 표시를 제공한다.",
+   "items": [
+    "macOS에서 키체인이 잠겨 API 키 오류가 발생하면 `security unlock-keychain` 실행을 안내한다.",
+    "정책 수준에서 `dangerouslyDisableSandbox` 우회 기능을 비활성화하는 `allowUnsandboxedCommands` 샌드박스 설정을 추가한다.",
+    "사용자 정의 에이전트 정의에 도구를 명시적으로 차단하는 `disallowedTools` 필드를 추가한다.",
+    "프롬프트 기반 중지 훅을 추가한다.",
+    "VSCode에서 기본값이 `true`인 `respectGitIgnore` 설정을 추가해 `.gitignore` 대상 파일을 파일 검색에 포함할 수 있다.",
+    "네이티브 빌드에서 SSE MCP 서버를 활성화한다.",
+    "출력 스타일을 폐기한다. `/output-style`에서 선택지를 확인하고 `--system-prompt-file`, `--system-prompt`, `--append-system-prompt`, `CLAUDE.md` 또는 플러그인을 사용하도록 안내한다.",
+    "검색 결과가 나오지 않거나 설정 탐색이 실패하는 문제를 해결하기 위해 사용자 정의 ripgrep 설정 지원을 제거한다.",
+    "코드베이스 탐색 중 Explore 에이전트가 원치 않는 조사용 `.md` 파일을 생성하던 문제를 수정한다.",
+    "`/context`에서 간혹 발생하던 `max_tokens must be greater than thinking.budget_tokens` 오류를 수정한다.",
+    "`--mcp-config` 플래그가 파일 기반 MCP 설정을 올바르게 덮어쓰도록 수정한다.",
+    "세션 권한이 로컬 설정에 저장되던 문제를 수정한다.",
+    "하위 에이전트에서 MCP 도구를 사용할 수 없던 문제를 수정한다.",
+    "`--dangerously-skip-permissions` 플래그 사용 시 훅과 플러그인이 실행되지 않던 문제를 수정한다.",
+    "방향키로 입력 자동완성 제안을 이동할 때 발생하던 지연을 수정한다.",
+    "VSCode 입력 푸터에 현재 파일 또는 코드 선택 상태를 보여주는 표시를 복원한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "잠긴 키체인 오류 안내",
+     "what": "macOS에서 키체인이 잠겨 API 키 오류가 발생할 때 `security unlock-keychain` 실행 안내를 추가한다. 구체적인 안내 위치나 추가 절차는 원문에 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "키체인 잠금 해제 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ security unlock-keychain"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "샌드박스 우회 정책 설정",
+     "what": "정책 수준에서 `dangerouslyDisableSandbox` 우회 기능을 비활성화할 수 있는 `allowUnsandboxedCommands` 샌드박스 설정을 추가한다. 설정값이나 사용 방법은 원문에 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "사용자 정의 에이전트의 도구 차단",
+     "what": "사용자 정의 에이전트 정의에 `disallowedTools` 필드를 추가한다. 이 필드로 도구를 명시적으로 차단할 수 있으며, 형식이나 설정 예시는 원문에 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "프롬프트 기반 중지 훅",
+     "what": "프롬프트 기반 중지 훅을 추가한다. 설정 방법이나 실행 흐름에 대한 구체적인 설명은 원문에 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "VSCode에서 무시된 파일 검색",
+     "what": "VSCode의 `respectGitIgnore` 설정으로 `.gitignore` 대상 파일을 파일 검색에 포함할 수 있다. 기본값은 `true`다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 15,
+     "title": "입력 푸터의 선택 상태 표시 복원",
+     "what": "VSCode 입력 푸터에 현재 파일 또는 코드 선택 상태를 보여주는 표시를 복원한다. 각 상태의 구체적인 표시 방식은 원문에 설명되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "입력 푸터",
+        "note": "현재 파일 또는 코드 선택 상태 표시를 복원한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.31": {
+  "hash": "356b51da451c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Vertex 지원 모델에서 Web Search를 사용할 수 있게 된다. VS Code 파일 검색은 기본 설정에서 `.gitignore` 대상 파일을 포함하도록 동작을 제어할 수 있다.",
+   "items": [
+    "Windows 네이티브 설치에서 모드 전환 단축키가 `alt+m`에서 `shift+tab`으로 바뀐다.",
+    "Vertex의 지원 모델에 Web Search 지원을 추가한다.",
+    "VS Code에 `respectGitIgnore` 설정을 추가해 파일 검색에 `.gitignore` 대상 파일을 포함하며, 기본값은 `true`다.",
+    "서브에이전트와 MCP 서버에서 ‘Tool names must be unique’ 오류가 발생하던 버그를 수정한다.",
+    "기존 압축 경계를 존중하도록 수정해 `/compact`가 `prompt_too_long` 오류로 실패하던 문제를 해결한다.",
+    "플러그인을 제거해도 삭제되지 않던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "Vertex Web Search 지원",
+     "what": "Vertex의 지원 모델에서 Web Search를 사용할 수 있게 된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "VS Code 파일 검색 설정",
+     "what": "VS Code에 `respectGitIgnore` 설정을 추가한다. 이 설정을 통해 파일 검색에서 `.gitignore` 대상 파일을 포함하며, 기본값은 `true`다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.32": {
+  "hash": "243c7b0589a2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "시작할 때 공지사항 표시를 제어하는 `companyAnnouncements` 설정을 추가한다.",
+   "items": [
+    "커뮤니티 의견을 반영해 출력 스타일의 사용 중단을 철회한다.",
+    "시작할 때 공지사항을 표시하는 `companyAnnouncements` 설정을 추가한다.",
+    "PostToolUse 훅 실행 중 진행 메시지가 올바르게 갱신되지 않던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "시작 공지사항 설정",
+     "what": "`companyAnnouncements` 설정을 추가한다. 이 설정은 시작할 때 공지사항을 표시하는 데 사용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.33": {
+  "hash": "ddb762ff499d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "네이티브 바이너리 설치의 실행 속도를 개선하고, 설치 유형 감지와 MCP 도구 출력 스키마 관련 문제를 수정한다.",
+   "items": [
+    "네이티브 바이너리 설치가 더 빠르게 실행된다.",
+    "심볼릭 링크를 올바르게 해석해 `claude doctor`가 Homebrew 설치와 npm 전역 설치를 잘못 판별하던 문제를 수정한다.",
+    "`claude mcp serve`가 호환되지 않는 `outputSchemas`를 가진 도구를 노출하던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.34": {
+  "hash": "8939dd34601a",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "VSCode 확장에서 새 대화의 초기 권한 모드를 설정할 수 있다. CLI의 파일 경로 제안 속도를 개선하고, OAuth MCP 연결 중 멈춤과 대용량 파일 처리 시 메모리 충돌을 수정한다.",
+   "items": [
+    "VSCode 확장에서 새 대화의 초기 권한 모드를 설정하는 항목을 추가한다.",
+    "Rust 기반 네이티브 퍼지 검색기로 파일 경로 제안 성능을 개선한다.",
+    "Slack 등 OAuth를 사용하는 MCP 서버 연결 중 발생하던 무한 토큰 갱신으로 인한 멈춤을 수정한다.",
+    "대용량 파일, 특히 Base64 인코딩 이미지 읽기·쓰기에서 발생하던 메모리 충돌을 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "새 대화의 초기 권한 모드 설정",
+     "what": "VSCode 확장에 새 대화의 초기 권한 모드를 설정하는 항목을 추가한다. 구체적인 설정 이름이나 선택지는 원문에 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.35": {
+  "hash": "7d95a3454368",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "VS Code 확장 프로그램이 글꼴 설정 변경을 UI 전체에 즉시 반영한다. SDK 모드에서는 지정한 유휴 시간 후 자동 종료하도록 환경 변수를 설정할 수 있다.",
+   "items": [
+    "명령어 검색의 퍼지 검색 결과를 개선한다.",
+    "VS Code 확장 프로그램이 UI 전체에서 `chat.fontSize`와 `chat.fontFamily` 설정을 따르며, 다시 불러오지 않아도 글꼴 변경을 즉시 적용한다.",
+    "지정한 유휴 시간이 지나면 SDK 모드를 자동 종료하는 `CLAUDE_CODE_EXIT_AFTER_STOP_DELAY` 환경 변수를 추가한다. 자동화 워크플로와 스크립트에 유용하다.",
+    "`ignorePatterns`를 프로젝트 설정에서 `localSettings`의 거부 권한 설정으로 옮긴다.",
+    "`/hooks` 메뉴 등에서 빈 문자열이나 다른 falsy 값이 있는 항목을 탐색할 때 메뉴 이동이 멈추던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "VS Code 글꼴 설정 적용",
+     "what": "VS Code 확장 프로그램이 `chat.fontSize`와 `chat.fontFamily` 설정을 UI 전체에서 따른다. 글꼴 변경은 다시 불러오지 않아도 즉시 적용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "SDK 모드 유휴 시간 종료",
+     "what": "`CLAUDE_CODE_EXIT_AFTER_STOP_DELAY` 환경 변수를 추가해 지정한 유휴 시간이 지난 뒤 SDK 모드를 자동 종료한다. 자동화 워크플로와 스크립트에 유용하다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_EXIT_AFTER_STOP_DELAY`로 SDK 모드 종료까지의 유휴 시간을 지정한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2025-10-30": {
+  "hash": "2627d2064814",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "ChatGPT Plus 및 Pro 사용자는 요금제에 포함된 사용량을 넘어 Codex를 더 이용할 때 온디맨드 크레딧을 사용할 수 있다.",
+   "items": [
+    "ChatGPT Plus 및 Pro의 Codex 사용자는 요금제 포함량을 초과하는 Codex 사용에 온디맨드 크레딧을 사용할 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2025-11-06": {
+  "hash": "cf61b7c1530e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GPT-5-Codex를 소폭 업데이트했다. 파일 수정 신뢰성과 사용자 파일 편집 대응을 개선하고, `git reset` 같은 파괴적 작업을 줄였다.",
+   "items": [
+    "GPT-5-Codex를 소폭 업데이트했다.",
+    "`apply_patch`를 사용한 파일 수정의 신뢰성을 높였다.",
+    "`git reset` 같은 파괴적 작업을 줄였다.",
+    "파일에서 사용자 편집을 만났을 때 더 협력적으로 동작한다.",
+    "시간과 사용량 효율을 3% 높였다."
+   ],
+   "features": []
+  }
  }
 }
