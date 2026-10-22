@@ -40300,5 +40300,984 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.78": {
+  "hash": "8e51d6e9f6b4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "API 오류로 턴이 끝날 때 실행되는 `StopFailure` 훅과 플러그인 데이터·에이전트 설정 지원이 추가된다. 사용자 지정 모델 선택 항목도 `/model`에 추가할 수 있다.",
+   "items": [
+    "API 오류(요금 제한, 인증 실패 등)로 턴이 끝날 때 실행되는 `StopFailure` 훅 이벤트를 추가한다.",
+    "플러그인 업데이트 후에도 유지되는 상태용 `${CLAUDE_PLUGIN_DATA}` 변수를 추가하며, `/plugin uninstall`은 데이터 삭제 전에 확인한다.",
+    "플러그인이 제공하는 에이전트의 frontmatter에서 `effort`, `maxTurns`, `disallowedTools`를 지원한다.",
+    "`set -g allow-passthrough on`일 때 tmux 안에서 실행해도 터미널 알림이 바깥 터미널에 전달된다.",
+    "응답 텍스트를 생성되는 대로 줄 단위로 스트리밍한다.",
+    "Linux 샌드박스 Bash에서 `git log HEAD`가 실패하고 작업 디렉터리의 스텁 파일이 `git status`를 오염시키던 문제를 수정한다.",
+    "하위 에이전트를 사용한 5MB 초과 대화에서 `cc log`와 `--resume`이 기록을 조용히 잘라내던 문제를 수정한다.",
+    "API 오류로 실행된 stop 훅이 차단 오류를 모델에 다시 전달해 무한 반복하던 문제를 수정한다.",
+    "`deny: [\"mcp__servername\"]` 규칙이 MCP 도구를 모델에 보내지 못하게 하지 않아 모델이 차단된 도구를 볼 수 있던 문제를 수정한다.",
+    "`sandbox.filesystem.allowWrite`가 절대 경로에서 동작하지 않던 문제를 수정한다.",
+    "macOS에서 `/sandbox`의 Dependencies 탭에 Linux 대신 macOS 요구사항을 표시한다.",
+    "`sandbox.enabled: true`인데 의존성이 없어 샌드박스가 꺼지는 경우 시작 시 경고를 표시한다.",
+    "`bypassPermissions` 모드에서 `.git`, `.claude` 등 보호 디렉터리에 확인 없이 쓸 수 있던 문제를 수정한다.",
+    "일반 모드에서 `ctrl+u`가 readline의 줄 삭제 대신 스크롤하던 문제를 수정하고, `ctrl+u`/`ctrl+d` 페이지 스크롤은 transcript 모드로 옮긴다.",
+    "음성 모드에서 `ctrl+k` 같은 조합 키 누름-말하기 단축키가 즉시 활성화되지 않고 길게 눌러야 하던 문제를 수정한다.",
+    "Windows 11의 WSLg에서 음성 모드가 작동하지 않던 문제를 수정하고, WSL1/Windows 10 사용자에게 명확한 오류를 표시한다.",
+    "`--worktree` 실행 시 worktree 디렉터리의 skills와 hooks를 불러오지 않던 문제를 수정한다.",
+    "`CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS`와 `includeGitInstructions` 설정이 시스템 프롬프트의 git 상태 섹션을 숨기지 않던 문제를 수정한다.",
+    "Dock/Spotlight에서 실행한 VS Code에서 Bash 도구가 Homebrew 등 PATH 기반 바이너리를 찾지 못하던 문제를 수정한다.",
+    "truecolor를 알리지 않는 VS Code/Cursor/code-server 터미널에서 Claude 주황색이 흐리게 보이던 문제를 수정한다.",
+    "`ANTHROPIC_CUSTOM_MODEL_OPTION` 환경 변수로 `/model` 선택기에 사용자 지정 항목을 추가할 수 있다.",
+    "Haiku 모델 사용 시 `ANTHROPIC_BETAS` 환경 변수가 무시되던 문제를 수정한다.",
+    "대기 중인 프롬프트가 줄바꿈 없이 이어 붙던 문제를 수정한다.",
+    "대형 세션 재개 시 메모리 사용량과 시작 시간을 개선한다.",
+    "[VSCode] 이미 인증된 상태에서 사이드바를 열 때 로그인 화면이 잠깐 표시되던 문제를 수정한다.",
+    "[VSCode] 요금제가 확인되지 않은 구독자에게 모델 드롭다운에서 Opus 1M 컨텍스트 옵션을 제공하지 않아 요금 제한 오류를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`StopFailure` 훅",
+     "what": "API 오류(요금 제한이나 인증 실패 등)로 턴이 끝날 때 발생하는 `StopFailure` 이벤트를 추가한다. 해당 상황에서 훅을 실행할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "플러그인 영구 데이터",
+     "what": "`${CLAUDE_PLUGIN_DATA}`를 플러그인 상태 저장에 사용할 수 있으며, 플러그인 업데이트 후에도 유지된다. `/plugin uninstall`은 이 데이터를 삭제하기 전에 확인한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /plugin uninstall"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "플러그인 에이전트 frontmatter",
+     "what": "플러그인이 제공하는 에이전트에서 `effort`, `maxTurns`, `disallowedTools` frontmatter 필드를 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 20,
+     "title": "사용자 지정 모델 항목",
+     "what": "`ANTHROPIC_CUSTOM_MODEL_OPTION` 환경 변수로 `/model` 선택기에 사용자 지정 항목을 추가한다. 표시 이름과 설명은 선택적으로 `_NAME`, `_DESCRIPTION` 접미사 환경 변수로 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "선택적 표시 이름과 설명에는 각각 `_NAME`, `_DESCRIPTION` 접미사 환경 변수를 사용한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 24,
+     "title": "VS Code 인증 화면 깜박임 수정",
+     "what": "이미 인증된 상태에서 사이드바를 열 때 로그인 화면이 잠깐 나타나던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 25,
+     "title": "VS Code Opus 옵션 표시 수정",
+     "what": "요금제가 확인되지 않은 구독자에게 모델 드롭다운에서 Opus 1M 컨텍스트 옵션을 제공하지 않도록 수정해, 해당 옵션 선택에 따른 요금 제한 오류를 막는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.79": {
+  "hash": "dfb5552cafdd",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Anthropic Console 인증을 위한 `claude auth login --console` 옵션과 턴 소요 시간 표시 설정이 추가된다. VS Code에는 브라우저나 휴대폰에서 세션을 이어가는 원격 제어 기능이 추가된다.",
+   "items": [
+    "Anthropic Console(API 결제) 인증을 위한 `claude auth login`의 `--console` 옵션을 추가한다.",
+    "`/config` 메뉴에 턴 소요 시간 표시 설정을 추가한다.",
+    "명시적 stdin 없이 하위 프로세스로 실행된 `claude -p`가 멈추던 문제를 수정한다.",
+    "`-p`(print) 모드에서 Ctrl+C가 작동하지 않던 문제를 수정한다.",
+    "스트리밍 중 `/btw`가 곁가지 질문 대신 메인 에이전트의 출력을 반환하던 문제를 수정한다.",
+    "`voiceEnabled: true` 설정 시 시작할 때 음성 모드가 올바르게 활성화되지 않던 문제를 수정한다.",
+    "`/permissions`에서 좌우 화살표로 탭을 이동하는 기능을 수정한다.",
+    "`CLAUDE_CODE_DISABLE_TERMINAL_TITLE` 설정이 시작 시 터미널 제목 설정을 막지 못하던 문제를 수정한다.",
+    "작업 공간 신뢰가 사용자 지정 상태 표시줄을 차단할 때 아무것도 표시되지 않던 문제를 수정한다.",
+    "엔터프라이즈 사용자가 요금 제한(429) 오류에서 재시도할 수 없던 문제를 수정한다.",
+    "대화형 `/resume`으로 세션을 전환할 때 `SessionEnd` 훅이 실행되지 않던 문제를 수정한다.",
+    "모든 상황에서 시작 시 메모리 사용량을 약 18MB 줄인다.",
+    "비스트리밍 API 대체 경로에 시도별 2분 제한 시간을 두어 세션이 무기한 멈추지 않게 한다.",
+    "`CLAUDE_CODE_PLUGIN_SEED_DIR`에서 플랫폼 경로 구분자(`:`는 Unix, `;`는 Windows)로 여러 seed 디렉터리를 지정할 수 있다.",
+    "[VSCode] `/remote-control`로 세션을 claude.ai/code에 연결해 브라우저나 휴대폰에서 이어갈 수 있다.",
+    "[VSCode] 세션 탭 제목을 첫 메시지를 바탕으로 AI가 생성한다.",
+    "[VSCode] 응답 완료 후 thinking pill에 \"Thinking\" 대신 \"Thought for Ns\"가 표시되지 않던 문제를 수정한다.",
+    "[VSCode] 왼쪽 사이드바에서 연 세션에 diff 버튼이 없던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Anthropic Console 로그인",
+     "what": "`claude auth login`에 `--console` 플래그를 추가해 Anthropic Console(API 결제) 인증을 지원한다.",
+     "steps": [
+      "Anthropic Console 인증에 `--console` 옵션을 사용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ claude auth login --console"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "턴 소요 시간 표시",
+     "what": "`/config` 메뉴에 턴 소요 시간 표시 토글을 추가한다.",
+     "steps": [
+      "`/config` 메뉴를 연다.",
+      "턴 소요 시간 표시 설정을 전환한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 14,
+     "title": "VS Code 원격 제어",
+     "what": "VS Code에서 `/remote-control`을 추가한다. 이를 사용해 세션을 claude.ai/code에 연결하고 브라우저나 휴대폰에서 이어갈 수 있다.",
+     "steps": [
+      "VS Code에서 `/remote-control`을 실행한다.",
+      "세션을 claude.ai/code에 연결한다.",
+      "브라우저나 휴대폰에서 세션을 이어간다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /remote-control"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 15,
+     "title": "AI 생성 세션 탭 제목",
+     "what": "VS Code 세션 탭에 첫 메시지를 바탕으로 AI가 생성한 제목을 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 16,
+     "title": "완료된 응답의 생각 시간 표시",
+     "what": "응답이 끝난 뒤 thinking pill에 \"Thinking\" 대신 \"Thought for Ns\"가 표시되도록 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 17,
+     "title": "세션 diff 버튼",
+     "what": "왼쪽 사이드바에서 연 세션에 누락되던 diff 버튼을 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.80": {
+  "hash": "2295d5af73b6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "상태 표시줄 스크립트에 사용량 제한 정보가 추가되고, 플러그인·스킬·MCP 채널 설정과 모델 노력 수준을 지정하는 기능이 확장된다.",
+   "items": [
+    "상태 표시줄 스크립트에서 Claude.ai의 5시간 및 7일 사용량 제한을 표시하도록 `rate_limits` 필드를 추가한다. `used_percentage`와 `resets_at` 값을 포함한다.",
+    "`settings.json`에 플러그인 항목을 인라인으로 선언할 수 있도록 플러그인 마켓플레이스 소스 `source: 'settings'`를 추가한다.",
+    "플러그인 팁이 파일 패턴뿐 아니라 CLI 도구 사용도 감지하도록 추가한다.",
+    "호출 시 모델의 노력 수준을 재정의할 수 있도록 스킬과 슬래시 명령의 프런트매터에서 `effort`를 지원한다.",
+    "MCP 서버가 세션에 메시지를 보낼 수 있도록 연구 프리뷰 기능 `--channels`를 추가한다.",
+    "`--resume`이 병렬 도구 호출 세션의 도구 결과를 누락하던 문제를 수정한다. 이제 모든 tool_use/tool_result 쌍을 복원한다.",
+    "브라우저가 아닌 TLS 지문에 대한 Cloudflare 봇 감지로 음성 모드 WebSocket 오류가 발생하던 문제를 수정한다.",
+    "API 프록시, Bedrock 또는 Vertex에서 세밀한 도구 스트리밍을 사용할 때 발생하던 400 오류를 수정한다.",
+    "작동하지 않는 게이트웨이 및 타사 제공자 배포 환경에서 `/remote-control`이 표시되던 문제를 수정한다.",
+    "`/sandbox`의 탭 전환이 Tab 또는 화살표 키에 반응하지 않던 문제를 수정한다.",
+    "대형 Git 저장소에서 `@` 파일 자동 완성의 반응성을 개선한다.",
+    "`/effort`가 상태 표시줄과 일치하도록 현재 `auto`가 해석되는 값을 표시한다.",
+    "`/permissions` 목록 안에서도 Tab 및 화살표 키로 탭을 전환할 수 있도록 개선한다.",
+    "백그라운드 작업 목록 화면에서 왼쪽 화살표로 패널을 닫을 수 있도록 개선한다.",
+    "플러그인 설치 팁을 두 단계 흐름 대신 단일 `/plugin install` 명령을 사용하도록 단순화한다.",
+    "대형 저장소(파일 25만 개) 시작 시 메모리 사용량을 약 80 MB 줄였다.",
+    "이전 세션의 `remote-settings.json`이 캐시된 경우 관리 설정(`enabledPlugins`, `permissions.defaultMode`, 정책 설정 환경 변수)이 시작 시 적용되지 않던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "상태 표시줄 사용량 제한",
+     "what": "상태 표시줄 스크립트에 Claude.ai 사용량 제한을 나타내는 `rate_limits` 필드를 추가한다. 5시간 및 7일 기간의 `used_percentage`와 `resets_at` 정보를 제공한다.",
+     "steps": [
+      "상태 표시줄 스크립트에서 `rate_limits` 필드를 사용한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "설정에서 플러그인 소스 선언",
+     "what": "플러그인 마켓플레이스 소스에 `source: 'settings'`를 추가한다. 이를 통해 `settings.json` 안에 플러그인 항목을 인라인으로 선언할 수 있다.",
+     "steps": [
+      "`settings.json`에 플러그인 항목을 인라인으로 선언한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "CLI 도구 사용 감지",
+     "what": "플러그인 팁이 기존 파일 패턴 매칭에 더해 CLI 도구 사용도 감지한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "스킬·슬래시 명령의 `effort` 설정",
+     "what": "스킬과 슬래시 명령의 프런트매터에 `effort`를 지정할 수 있다. 해당 항목을 호출할 때 모델 노력 수준을 재정의한다.",
+     "steps": [
+      "스킬 또는 슬래시 명령의 프런트매터에 `effort`를 지정한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "MCP 채널 메시지 수신",
+     "what": "연구 프리뷰인 `--channels`를 통해 MCP 서버가 세션에 메시지를 보낼 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "채널 옵션",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`--channels`는 MCP 서버가 세션에 메시지를 보내도록 허용하는 연구 프리뷰 기능이다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.1.81": {
+  "hash": "cd2ede575269",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`--bare`를 통한 스크립트 실행과 `--channels` 권한 전달 기능이 추가된다. VS Code에서는 Git Bash 사용 시 Bash 도구의 Windows PATH 상속 오류를 수정한다.",
+   "items": [
+    "스크립트용 `-p` 호출에 `--bare` 플래그를 추가한다. 이 플래그는 훅, LSP, 플러그인 동기화, 스킬 디렉터리 탐색을 건너뛰며, `ANTHROPIC_API_KEY` 또는 `--settings`로 지정한 `apiKeyHelper`가 필요하다. OAuth와 키체인 인증은 비활성화되고 자동 메모리도 완전히 비활성화된다.",
+    "권한 기능을 선언한 채널 서버가 도구 승인 요청을 휴대전화로 전달할 수 있도록 `--channels` 권한 중계 기능을 추가한다.",
+    "여러 Claude Code 세션 중 한 세션이 OAuth 토큰을 갱신하면 다른 세션에서 반복적으로 재인증해야 하던 문제를 수정한다.",
+    "음성 모드에서 재시도 실패를 조용히 무시하고 실제 오류 대신 네트워크 확인 메시지를 표시하던 문제를 수정한다.",
+    "서버가 WebSocket 연결을 조용히 끊었을 때 음성 모드 오디오가 복구되지 않던 문제를 수정한다.",
+    "`CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`가 구조화 출력 베타 헤더를 억제하지 못해 Vertex 또는 Bedrock으로 전달하는 프록시 게이트웨이에서 400 오류가 발생하던 문제를 수정한다.",
+    "다른 관리 설정이 없는 Team/Enterprise 조직에서 `--channels` 우회가 가능하던 문제를 수정한다.",
+    "Node.js 18에서 충돌하던 문제를 수정한다.",
+    "문자열 안에 대시가 포함된 Bash 명령에 불필요한 권한 확인이 뜨던 문제를 수정한다.",
+    "세션 도중 플러그인 디렉터리가 삭제되면 플러그인 훅이 프롬프트 제출을 막던 문제를 수정한다.",
+    "폴링 간격 사이에 백그라운드 에이전트 작업이 끝날 때 출력이 무기한 멈출 수 있던 경쟁 상태를 수정한다.",
+    "worktree에서 시작한 세션을 재개하면 해당 worktree로 다시 전환한다.",
+    "응답 중 `/btw`를 사용할 때 붙여넣은 텍스트가 포함되지 않던 문제를 수정한다.",
+    "tmux에서 빠르게 Cmd+Tab을 누른 뒤 붙여넣을 때 클립보드 복사가 늦게 완료되는 경쟁 상태를 수정한다.",
+    "자동 생성된 세션 설명이 터미널 탭 제목에 반영되지 않던 문제를 수정한다.",
+    "전사 모드에서 보이지 않는 훅 첨부 파일이 메시지 수를 늘리던 문제를 수정한다.",
+    "Remote Control 세션이 첫 프롬프트를 바탕으로 제목을 정하지 않고 일반 제목을 표시하던 문제를 수정한다.",
+    "`/rename`이 Remote Control 세션 제목과 동기화되지 않던 문제를 수정한다.",
+    "Remote Control의 `/exit`가 세션을 안정적으로 보관 처리하지 못하던 문제를 수정한다.",
+    "MCP 읽기/검색 도구 호출을 단일 `Queried {server}` 행으로 접어 표시하고 `Ctrl+O`로 펼치도록 개선한다.",
+    "대화형 명령 실행이 필요할 때 Claude가 `!` Bash 모드를 제안하도록 검색 가능성을 개선한다.",
+    "ref 추적 플러그인이 로드될 때마다 다시 복제되어 업스트림 변경 사항을 가져오도록 개선한다.",
+    "Remote Control 세션 제목이 세 번째 메시지 이후 갱신되도록 개선한다.",
+    "동적 클라이언트 등록을 지원하지 않는 서버를 위해 MCP OAuth에서 Client ID Metadata Document(CIMD / SEP-991)를 지원한다.",
+    "계획 모드에서 기본적으로 “clear context” 옵션을 숨긴다. `\"showClearContextOnPlanAccept\": true`로 다시 표시할 수 있다.",
+    "렌더링 문제로 Windows(Windows Terminal의 WSL 포함)에서 줄 단위 응답 스트리밍을 비활성화한다.",
+    "[VS Code] v2.1.78 회귀로 발생한 Git Bash 사용 시 Bash 도구의 Windows PATH 상속 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "스크립트용 `--bare` 실행",
+     "what": "스크립트의 `-p` 호출에서 `--bare`를 사용하면 훅, LSP, 플러그인 동기화, 스킬 디렉터리 탐색을 건너뛴다. `ANTHROPIC_API_KEY` 또는 `--settings`를 통한 `apiKeyHelper`가 필요하며 OAuth와 키체인 인증은 사용할 수 없다. 자동 메모리도 완전히 비활성화된다.",
+     "steps": [],
+     "terminal": {
+      "title": "스크립트 호출",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ claude -p --bare"
+       },
+       {
+        "kind": "comment",
+        "text": "인증에는 `ANTHROPIC_API_KEY` 또는 `--settings`를 통한 `apiKeyHelper`가 필요하다. 이 명령은 입력에 나온 플래그를 보여주는 예시다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "채널을 통한 권한 요청 전달",
+     "what": "권한 기능을 선언한 채널 서버는 도구 승인 요청을 휴대전화로 전달할 수 있다. 이 기능은 `--channels` 권한 중계를 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "권한 중계",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "채널 서버가 permission capability를 선언하면 도구 승인 요청을 휴대전화로 전달할 수 있다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 26,
+     "title": "VS Code의 Git Bash PATH 수정",
+     "what": "Git Bash를 사용할 때 Bash 도구가 Windows PATH를 상속하도록 수정한다. v2.1.78에서 발생한 회귀를 해결한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-03-17": {
+  "hash": "76885429f5df",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex에 가벼운 코딩 작업과 하위 에이전트용 모델 GPT-5.4 mini가 추가된다. GPT-5.4 대비 포함 사용 한도의 30%를 사용하며, Codex 앱·CLI·IDE 확장·웹과 API에서 이용할 수 있다.",
+   "items": [
+    "GPT-5.4 mini를 Codex의 가벼운 코딩 작업과 하위 에이전트에 사용할 수 있다.",
+    "GPT-5 mini보다 코딩·추론·이미지 이해·도구 사용이 개선되고 2배 넘게 빠르며, GPT-5.4 대비 포함 사용 한도의 30%를 쓴다.",
+    "GPT-5.4 mini를 Codex 앱·CLI·IDE 확장·웹과 API에서 사용할 수 있다.",
+    "코드베이스 탐색·큰 파일 검토·보조 문서 처리 등에는 GPT-5.4 mini를, 복잡한 계획·조율·최종 판단에는 GPT-5.4를 권장한다.",
+    "GPT-5.4 mini로 전환하는 방법을 안내한다.",
+    "CLI에서 `codex --model gpt-5.4-mini`로 새 스레드를 시작하거나 세션 중 `/model`을 사용한다.",
+    "IDE 확장의 작성 영역에 있는 모델 선택기에서 GPT-5.4 mini를 선택한다.",
+    "Codex 앱의 작성 영역에 있는 모델 선택기에서 GPT-5.4 mini를 선택한다.",
+    "GPT-5.4 mini가 보이지 않으면 CLI·IDE 확장·Codex 앱을 최신 버전으로 업데이트한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "GPT-5.4 mini 제공 범위",
+     "what": "GPT-5.4 mini를 Codex 앱, CLI, IDE 확장, Codex 웹에서 사용할 수 있다. API에서도 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 6,
+     "title": "IDE 확장에서 모델 선택",
+     "what": "IDE 확장의 작성 영역에 있는 모델 선택기에서 GPT-5.4 mini를 고를 수 있다. 선택 위치는 작성 영역의 모델 선택기다.",
+     "steps": [
+      "IDE 확장의 작성 영역에서 모델 선택기를 연다.",
+      "GPT-5.4 mini를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "Codex 앱에서 모델 선택",
+     "what": "Codex 앱의 작성 영역에서 GPT-5.4 mini를 선택할 수 있다. 작성 영역의 모델 선택기를 사용한다.",
+     "steps": [
+      "Codex 앱의 작성 영역에서 모델 선택기를 연다.",
+      "GPT-5.4 mini를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "작성 영역의 모델 선택기",
+        "note": "Codex 앱의 작성 영역에서 모델 선택기를 연다.",
+        "changed": false
+       },
+       {
+        "title": "GPT-5.4 mini 선택",
+        "note": "모델 선택기에서 GPT-5.4 mini를 선택한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "모델이 보이지 않을 때 업데이트",
+     "what": "GPT-5.4 mini가 아직 보이지 않을 수 있다. 이 경우 CLI, IDE 확장 또는 Codex 앱을 최신 버전으로 업데이트한다.",
+     "steps": [
+      "GPT-5.4 mini가 보이는지 확인한다.",
+      "보이지 않으면 사용하는 CLI, IDE 확장 또는 Codex 앱을 최신 버전으로 업데이트한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "모델 표시 확인",
+        "note": "Codex 앱에서 GPT-5.4 mini가 보이는지 확인한다.",
+        "changed": false
+       },
+       {
+        "title": "앱 업데이트",
+        "note": "보이지 않으면 Codex 앱을 최신 버전으로 업데이트한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-03-18-app": {
+  "hash": "5f35c79e9aad",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 앱에서 이전 메시지부터 대화를 분기할 수 있다. 모델·추론 수준을 바꾸는 슬래시 명령과 계획 모드 질문 알림도 추가됐다.",
+   "items": [
+    "이제 최신 턴뿐 아니라 이전 메시지에서도 대화를 분기할 수 있다.",
+    "모델·추론 수준 전환용 슬래시 명령이 추가되고, 프롬프트 초안 중간에서도 슬래시 명령이 작동한다.",
+    "계획 모드 질문에 알림이 추가돼 Codex가 입력을 요청할 때 알아보기 쉬워졌다.",
+    "워크트리와 VS Code 확장 프로그램의 스레드 인계 및 서브에이전트 탐색 문제가 수정됐다.",
+    "성능이 추가로 개선되고 버그가 수정됐다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "이전 메시지에서 대화 분기",
+     "what": "이제 이전 메시지에서 대화를 분기할 수 있다. 분기 시작점이 최신 턴으로 제한되지 않는다.",
+     "steps": [
+      "분기할 이전 메시지를 선택한다.",
+      "그 메시지에서 대화를 분기한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "이전 메시지 선택",
+        "note": "분기할 메시지를 고른다.",
+        "changed": false
+       },
+       {
+        "title": "대화 분기",
+        "note": "선택한 이전 메시지에서 분기한다.",
+        "changed": true
+       }
+      ],
+      "before": "최신 턴에서만 대화를 분기할 수 있었다.",
+      "after": "이전 메시지에서도 대화를 분기할 수 있다."
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "모델·추론 수준 전환 슬래시 명령",
+     "what": "모델과 추론 수준을 전환하는 슬래시 명령이 추가됐다. 프롬프트 초안을 작성하는 중간에도 슬래시 명령이 작동한다.",
+     "steps": [
+      "프롬프트 초안을 작성한다.",
+      "작성 중에 슬래시 명령으로 모델 또는 추론 수준을 전환한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "프롬프트 초안 작성",
+        "note": "초안을 작성한다.",
+        "changed": false
+       },
+       {
+        "title": "슬래시 명령 사용",
+        "note": "작성 중 모델 또는 추론 수준을 전환한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "계획 모드 질문 알림",
+     "what": "계획 모드의 질문에 알림이 추가됐다. Codex가 입력을 필요로 할 때 더 쉽게 알아챌 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "성능 개선과 버그 수정",
+     "what": "성능이 추가로 개선됐다. 버그도 수정됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-03-19-app": {
+  "hash": "3a064ad3390d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "작성기에서 `@` 메뉴로 스킬을 삽입할 수 있게 되고, 리뷰와 diff 탐색에서 검색 및 파일 트리 조작이 개선된다. 앱 시작 시 브랜드 로딩 shimmer도 표시된다.",
+   "items": [
+    "작성기에서 다른 멘션과 함께 `@` 메뉴로 스킬을 삽입할 수 있다.",
+    "Cmd/Ctrl+F 검색이 현재 텍스트 선택에서 시작하며, 리뷰 탐색의 파일 트리를 새롭게 하고 크기를 비율로 조절할 수 있다.",
+    "앱 시작 중 브랜드 로딩 shimmer를 추가한다.",
+    "리뷰에서 접힌 diff 요약을 개선한다.",
+    "슬래시 명령 포커스와 작성기 정렬 문제를 수정하고 플러그인 카드와 단계 세부 정보를 다듬는다.",
+    "성능을 추가로 개선하고 버그를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`@` 메뉴의 스킬 삽입",
+     "what": "작성기에서 다른 멘션과 함께 `@` 메뉴를 사용해 스킬을 삽입할 수 있다.",
+     "steps": [
+      "작성기에서 `@` 메뉴를 연다.",
+      "멘션 항목 중 스킬을 삽입한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "작성기",
+        "note": "`@` 메뉴에서 스킬을 다른 멘션과 함께 삽입한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "리뷰 검색 및 파일 트리",
+     "what": "Cmd/Ctrl+F 검색은 현재 텍스트 선택을 시작점으로 사용해 리뷰와 diff 검색을 빠르게 한다. 리뷰 탐색에는 새로워진 파일 트리와 비율 기반 크기 조절도 포함된다.",
+     "steps": [
+      "리뷰 또는 diff에서 텍스트를 선택한다.",
+      "Cmd/Ctrl+F를 눌러 선택한 텍스트를 시작점으로 검색한다.",
+      "새 파일 트리를 탐색하고 파일 트리 크기를 비율로 조절한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "리뷰 또는 diff",
+        "note": "선택한 텍스트를 시작점으로 검색한다.",
+        "changed": true
+       },
+       {
+        "title": "파일 트리",
+        "note": "새 파일 트리를 탐색하고 크기를 비율로 조절한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "브랜드 로딩 표시",
+     "what": "앱이 시작되는 동안 브랜드 로딩 shimmer를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "앱 시작",
+        "note": "브랜드 로딩 shimmer가 표시된다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "접힌 diff 요약",
+     "what": "리뷰에서 접힌 diff의 요약 표시를 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "추가 성능 개선과 수정",
+     "what": "추가 성능 개선과 버그 수정을 포함한다. 원문은 구체적인 변경 사항을 명시하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-03-20-app": {
+  "hash": "2125b64dc626",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Floating Composer v2와 터미널에서 단어·줄 단위로 이동하는 단축키가 추가된다. 플러그인 탐색 화면과 저장 이미지의 파일 경로 표시도 개선된다.",
+   "items": [
+    "Floating Composer v2를 추가한다.",
+    "터미널에서 단어와 줄 단위로 이동하는 단축키를 추가한다.",
+    "플러그인 탐색 화면과 저장된 이미지의 파일 경로 표시를 개선한다.",
+    "하위 에이전트 턴 항목이 없을 때 사이드바가 충돌하던 문제를 수정한다.",
+    "팝아웃 스레드 라우팅 문제를 수정하고 작성기 이미지 첨부의 로컬 경로를 보존한다.",
+    "성능을 추가로 개선하고 버그를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Floating Composer v2",
+     "what": "Floating Composer v2를 추가한다. 원문은 동작이나 사용 방법을 더 설명하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "터미널 이동 단축키",
+     "what": "터미널에서 단어 단위와 줄 단위로 이동하는 단축키를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "플러그인 탐색과 이미지 경로",
+     "what": "플러그인 탐색 화면과 저장 이미지에 표시되는 파일 경로를 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "추가 성능 개선과 수정",
+     "what": "추가 성능 개선과 버그 수정을 포함한다. 원문은 구체적인 변경 사항을 명시하지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
