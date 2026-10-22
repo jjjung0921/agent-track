@@ -56145,5 +56145,892 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.91.0": {
+  "hash": "39fee43de1b6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "하위 에이전트 최대 수를 6개로 줄여 자원 사용과 에이전트 분기 동작의 안전장치를 강화한다.",
+   "items": [
+    "자원 사용과 에이전트 분기 동작의 안전장치를 강화하기 위해 하위 에이전트 최대 수를 6개로 줄인다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.92.0": {
+  "hash": "0d826500249b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "API v2 동적 도구, 스레드 복원, MCP OAuth 범위 설정을 추가한다. 협업 기능과 기본 웹 검색 동작도 개선한다.",
+   "items": [
+    "API v2 스레드가 시작 시 동적 도구를 주입하고 서버와 핵심 도구 파이프라인을 통해 호출과 응답을 전달한다.",
+    "앱 서버의 스레드 목록에 필터링을 추가해 많은 스레드를 쉽게 탐색한다.",
+    "보관된 실행 기록을 활성 세션으로 복원하는 `thread/unarchive` RPC를 추가한다.",
+    "MCP 서버가 `config.toml`에서 OAuth 범위를 정의할 수 있어 로그인 때마다 `--scopes`를 전달할 필요를 줄인다.",
+    "탐색기 역할, 개선된 협업 이벤트 매핑, 최대 깊이 제한으로 멀티 에이전트 협업을 강화하고 안전성을 높인다.",
+    "캐시된 `web_search`를 기본 클라이언트 동작으로 설정한다.",
+    "스트리밍 처리량이 높을 때 메인 Tokio 스레드의 차단 전송을 피하도록 해 TUI 정지 문제를 수정한다.",
+    "`web_search`가 모든 동작 유형을 처리하고 표시하며, 진행 중 활동도 보여 주도록 수정한다.",
+    "하위 에이전트의 바쁜 대기를 제거해 협업 중 높은 CPU 사용량을 줄인다.",
+    "`codex resume --last --json`에서 프롬프트가 인자 충돌 없이 올바르게 파싱되도록 수정한다.",
+    "Windows 샌드박스 로그의 UTF-8 처리를 개선해 다중 바이트 내용을 자를 때 발생하는 오류를 막는다.",
+    "잘못된 도구 호출을 막기 위해 Plan/Pair 모드 밖의 `request_user_input` 요청을 거부한다.",
+    "기여 지침을 업데이트해 온보딩과 작업 흐름 기대사항을 명확히 한다.",
+    "`thread/unarchive`와 변경된 `request_user_input` 질문 형식에 맞춰 프로토콜 및 MCP 문서를 갱신한다.",
+    "경고와 모호성을 줄이기 위해 Homebrew 자체 업데이트에서 명시적인 cask 업그레이드 명령을 사용한다.",
+    "릴리스 패키징에서 번들 ZIP을 일관되게 `dist/`에 기록한다.",
+    "Rust 워크스페이스의 `axum`, `tracing`, `globset`, `tokio-test` 등 주요 의존성을 업데이트한다.",
+    "기능 단계 이름을 공개 성숙도 단계에 맞추고 개발 초기 기능에 더 명확한 경고를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "API v2 동적 도구",
+     "what": "API v2 스레드는 시작 시 동적 도구를 주입할 수 있다. 도구 호출과 응답은 서버와 핵심 도구 파이프라인을 거쳐 전달된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "스레드 목록 필터",
+     "what": "앱 서버의 스레드 목록에 필터링 기능을 추가한다. 많은 스레드가 있을 때 탐색하기 쉽도록 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "보관된 스레드 복원",
+     "what": "`thread/unarchive` RPC로 보관된 실행 기록을 활성 세션으로 복원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "보관된 실행 기록 복원 RPC"
+       },
+       {
+        "kind": "cmd",
+        "text": "> thread/unarchive"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "MCP OAuth 범위 설정",
+     "what": "MCP 서버가 `config.toml`에서 OAuth 범위를 정의할 수 있다. 이에 따라 로그인마다 `--scopes`를 전달할 필요가 줄어든다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "MCP 서버 OAuth 범위를 설정 파일에 정의한다."
+       },
+       {
+        "kind": "hl",
+        "text": "`config.toml`"
+       },
+       {
+        "kind": "comment",
+        "text": "로그인 때마다 `--scopes`를 전달할 필요를 줄인다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "멀티 에이전트 협업 개선",
+     "what": "협업에 탐색기 역할과 개선된 협업 이벤트 매핑을 추가한다. 최대 깊이 제한을 두어 협업을 더 안전하게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "캐시된 웹 검색 기본값",
+     "what": "캐시된 `web_search`를 기본 클라이언트 동작으로 설정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.93.0": {
+  "hash": "94bb9bffb4d7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "계획 모드의 전용 TUI 보기와 앱 연결 기능 탐색, 외부 인증 모드를 추가한다. 승인 기본값과 로그 저장·조회 기능도 개선한다.",
+   "items": [
+    "정책을 적용하고 설정으로 활성화 여부를 제어할 수 있는 선택적 SOCKS5 프록시 리스너를 추가한다.",
+    "계획 모드가 제안된 계획을 전용 TUI 화면에 스트리밍한다. 빠르게 모드를 전환하는 기능 플래그 기반 `/plan` 단축 명령도 추가한다.",
+    "TUI에서 `/apps`로 커넥터를 탐색하고 앱 프롬프트에 `$`를 삽입할 수 있다.",
+    "app-server가 외부 인증 모드에서 호스트 앱의 ChatGPT 인증 토큰을 받고 필요할 때 갱신을 요청할 수 있다.",
+    "스마트 승인을 기본 활성화하고 MCP 도구 호출에는 명시적인 승인 프롬프트를 표시한다.",
+    "SQLite 기반 로그 데이터베이스와 개선된 로그 클라이언트를 도입한다. 스레드 ID 필터링, 보존 기간 관리, 휴리스틱 색상 표시를 지원한다.",
+    "MCP 도구의 이미지 블록이 첫 번째가 아니거나 일부 형식이 잘못된 경우에도 이미지 출력을 안정적으로 렌더링한다.",
+    "입력 기록을 불러올 때 로컬 이미지 첨부 파일과 서식 있는 텍스트 요소도 복원한다.",
+    "파일 검색이 세션의 작업 디렉터리 변경을 추적하고 여러 루트를 더 빠르게 탐색한다.",
+    "스레드를 재개해도 첫 턴이 실제로 시작되기 전까지 `updated_at`을 갱신하지 않는다.",
+    "셸 스냅샷이 표준 입력을 상속하지 않게 해 시작 스크립트로 인한 멈춤을 방지한다.",
+    "WebSocket 프록시 연결에 실패하면 HTTP 연결로 대체한다.",
+    "app-server의 AuthMode 사용법과 동작을 문서화한다.",
+    "Rust 도구체인을 1.93으로 업그레이드한다.",
+    "저장소에서 사용하는 pnpm 버전을 업데이트한다.",
+    "원격 캐시 압축을 포함해 Bazel 빌드와 runfiles 처리를 개선한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "선택적 SOCKS5 프록시 리스너",
+     "what": "정책 적용 기능이 있는 SOCKS5 프록시 리스너를 선택적으로 사용할 수 있다. 설정으로 활성화 여부를 제어한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "계획 모드 전용 TUI 보기",
+     "what": "계획 모드에서 제안된 계획을 전용 TUI 화면으로 스트리밍한다. 모드 전환을 빠르게 하는 `/plan` 단축 명령은 기능 플래그로 제어된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "기능 플래그 이름과 활성화 방법은 원문에 제시되지 않았다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "앱 커넥터 탐색",
+     "what": "TUI에서 `/apps`를 사용해 커넥터를 탐색할 수 있다. 앱 프롬프트에는 `$` 삽입 기능이 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/apps"
+       },
+       {
+        "kind": "comment",
+        "text": "앱 프롬프트에서 `$` 삽입을 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "app-server 외부 인증 모드",
+     "what": "app-server가 외부 인증 모드로 실행될 수 있다. 호스트 앱에서 ChatGPT 인증 토큰을 받고 필요할 때 토큰 갱신을 요청한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "스마트 승인 기본 활성화",
+     "what": "스마트 승인이 기본으로 활성화된다. MCP 도구 호출에는 명시적인 승인 프롬프트를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 5,
+     "title": "SQLite 로그 데이터베이스",
+     "what": "SQLite 기반 로그 데이터베이스와 개선된 로그 클라이언트를 추가한다. 스레드 ID 필터링, 로그 보존, 휴리스틱 색상 표시를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.94.0": {
+  "hash": "bf47318fb8fe",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Plan 모드를 기본으로 켜고, 성격 설정과 스킬 로딩을 안정화한다. 콘솔 출력에 런타임 지표를 포함한다.",
+   "items": [
+    "Plan 모드를 기본으로 활성화하고 Plan 프롬프트의 상호작용 안내를 갱신한다.",
+    "성격 설정을 안정화하고 기본값을 친근함으로 정한다. 설정 키는 `personality`이며 기존 설정은 이어서 마이그레이션된다.",
+    "`.agents/skills`에서 스킬을 불러올 수 있으며 상대 경로 안내를 명확히 하고 중첩 폴더 표식을 지원한다.",
+    "진단을 돕도록 콘솔 출력에 런타임 지표를 포함한다.",
+    "스레드 보관 해제 시 타임스탬프를 갱신해 사이드바 정렬이 새로고침되도록 수정한다.",
+    "대화 규칙 출력에 상한을 두고 접두 규칙을 중복 제거해 반복 출력을 막는다.",
+    "턴 컨텍스트 재정의 시 항목이 추가로 붙지 않도록 수정한다.",
+    "npm README의 깨진 이미지 링크를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Plan 모드 기본 활성화",
+     "what": "Plan 모드를 기본으로 활성화한다. Plan 프롬프트의 상호작용 안내도 함께 갱신한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "안정화된 성격 설정",
+     "what": "성격 설정이 안정화되며 기본값은 친근함이다. 설정 키는 `personality`이고 기존 설정은 새 형식으로 마이그레이션된다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 키",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "`personality`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "`.agents/skills`에서 스킬 로드",
+     "what": "`.agents/skills` 경로에서 스킬을 불러올 수 있다. 상대 경로 안내를 명확히 하고 중첩 폴더 표식을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "스킬 경로",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "`.agents/skills`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "콘솔 런타임 지표",
+     "what": "콘솔 출력에 런타임 지표를 추가해 진단을 쉽게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.95.0": {
+  "hash": "63ca42846fb7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "CLI에서 macOS 데스크톱 앱을 실행하는 명령을 추가하고 개인 스킬 로딩을 확장한다. 계획 명령과 셸 실행 기능도 개선한다.",
+   "items": [
+    "macOS에서 `codex app <path>`로 Codex Desktop을 실행할 수 있다. 앱이 없으면 DMG를 자동으로 다운로드한다.",
+    "`~/.agents/skills`에서 개인 스킬을 불러오며 `~/.codex/skills`도 호환 경로로 지원한다. app-server API와 이벤트를 통해 공개 원격 스킬을 나열하고 다운로드할 수 있다.",
+    "`/plan`에서 인라인 프롬프트 인수와 붙여넣은 이미지를 지원하며 TUI의 슬래시 명령 편집과 강조 표시를 다듬는다.",
+    "셸 관련 도구를 병렬 실행해 여러 명령의 실행 처리량을 높인다.",
+    "셸 실행에 `CODEX_THREAD_ID`를 전달해 스크립트와 스킬이 활성 스레드/세션을 감지할 수 있다.",
+    "향후 런타임 통합을 위한 기반으로 Linux 샌드박스에 벤더링된 Bubblewrap과 FFI 연결을 추가한다.",
+    "파괴적이거나 쓰기 가능한 Git 명령이 승인 검사를 우회하지 못하도록 명령 안전성을 강화한다.",
+    "재개 및 스레드 탐색에서 저장된 스레드 이름을 올바르게 표시하고 스레드 목록 동작을 수정한다.",
+    "최초 실행 시 신뢰 모드에 따라 샌드박스 모드를 일관되게 보고한다. `$PWD/.agents`도 `$PWD/.codex`처럼 읽기 전용으로 처리한다.",
+    "websocket/streaming 흐름에서 중단 후 `codex exec`가 멈추던 문제를 수정해 중단된 턴이 정상 종료된다.",
+    "검토 모드의 승인 이벤트 연결을 수정해 `requestApproval` ID가 해당 명령 실행 항목과 일치한다.",
+    "401 오류 진단에 서버 메시지와 본문 세부 정보, `cf-ray`, `requestId`를 포함한다.",
+    "TUI 채팅 입력기 문서에 슬래시 명령 인수와 계획/검토 흐름의 첨부 파일 처리를 추가한다.",
+    "CLI/앱 버그 신고와 기능 요청을 더 잘 구분하도록 이슈 템플릿과 라벨러 프롬프트를 갱신한다.",
+    "폐기 예정인 `mcp-types` 크레이트에서 `rmcp` 기반 프로토콜 타입과 어댑터로의 이전을 마치고 기존 크레이트를 제거한다.",
+    "보안 권고에 대응해 `bytes` 의존성을 업데이트하고 해결된 권고 설정을 정리한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "CLI에서 Codex Desktop 실행",
+     "what": "macOS에서 `codex app <path>` 명령으로 Codex Desktop을 실행할 수 있다. 앱이 설치되어 있지 않으면 DMG를 자동으로 다운로드한다.",
+     "steps": [
+      "터미널에서 `codex app <path>`를 실행한다.",
+      "앱이 없으면 DMG가 자동으로 다운로드된다."
+     ],
+     "terminal": {
+      "title": "터미널",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex app <path>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "Codex Desktop 실행",
+        "note": "CLI 명령으로 macOS 데스크톱 앱을 실행한다.",
+        "changed": true
+       }
+      ],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "개인 및 공개 원격 스킬",
+     "what": "개인 스킬을 `~/.agents/skills`에서 불러오며 `~/.codex/skills` 경로도 호환된다. app-server API와 이벤트를 통해 공개 원격 스킬을 나열하고 다운로드할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "개인 스킬 경로: `~/.agents/skills`, 호환 경로: `~/.codex/skills`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "인라인 인수를 받는 `/plan`",
+     "what": "`/plan`이 인라인 프롬프트 인수와 붙여넣은 이미지를 지원한다. TUI의 슬래시 명령 편집과 강조 표시도 다듬는다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`/plan`은 인라인 프롬프트 인수와 붙여넣은 이미지를 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "셸 관련 도구 병렬 실행",
+     "what": "셸 관련 도구를 병렬로 실행할 수 있다. 이를 통해 여러 명령의 실행 처리량을 높인다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "셸 실행의 스레드 ID",
+     "what": "셸 실행에 `CODEX_THREAD_ID` 환경 변수를 전달한다. 스크립트와 스킬은 이 값을 사용해 활성 스레드 또는 세션을 감지할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "셸 실행 환경에 `CODEX_THREAD_ID`가 전달된다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "Linux 샌드박스 기반 작업",
+     "what": "Linux 샌드박스에 벤더링된 Bubblewrap과 FFI 연결을 추가한다. 이는 향후 런타임 통합을 위한 기반이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.96.0": {
+  "hash": "8f51f705b07b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "app-server API에 비동기 대화 압축 트리거를 추가하고 WebSocket의 사용량 제한 신호를 확장한다. 비Windows 플랫폼에서 `unified_exec`를 활성화한다.",
+   "items": [
+    "v2 app-server API에 비동기 트리거 RPC인 `thread/compact`를 추가한다. 클라이언트는 압축을 즉시 시작하고 완료를 별도로 추적할 수 있다.",
+    "새 `codex.rate_limits` 이벤트로 WebSocket에서 사용량 제한을 알린다. ETag와 reasoning 메타데이터 처리도 WebSocket에서 동일하게 지원한다.",
+    "모든 비Windows 플랫폼에서 `unified_exec`를 활성화한다.",
+    "제약 조건 값에 출처 정보를 포함해 `/debug-config` 같은 UI 흐름에서 출처를 기준으로 설정을 디버깅할 수 있게 한다.",
+    "TUI `request_user_input` 오버레이에서 노트를 열었을 때 `Esc`를 누르면 세션을 중단하는 대신 노트 모드를 종료한다.",
+    "스레드 목록을 먼저 상태 DB에서 조회해 보관된 스레드도 포함하고, 필요할 때만 파일 시스템 탐색으로 대체해 정확성과 복원력을 높인다.",
+    "스레드 경로 조회 시 확인된 파일이 실제로 존재해야 하도록 수정해 잘못된 스레드 ID 해석을 방지한다.",
+    "동적 도구 주입을 단일 트랜잭션으로 실행해 부분적인 상태 갱신을 방지한다.",
+    "승인 정책 프롬프트에서 사용하는 `request_rule` 안내를 다듬어 규칙 동작을 바로잡는다.",
+    "비동기 동작과 스레드 사용 중 상태의 수명 주기를 명확히 하도록 `thread/compact` app-server 문서를 갱신한다.",
+    "`request_user_input`의 모드별 `Esc` 동작에 맞춰 TUI 문서를 갱신한다.",
+    "상태 DB 헬퍼를 버전이 지정된 SQLite 파일 이름 체계로 옮기고 런타임 초기화 중 기존 상태 파일을 정리한다.",
+    "WebSocket 타이밍 지표를 추가하고 핵심 클라이언트 연결부의 내부 메타데이터 흐름을 단순화해 런타임 텔레메트리를 확장한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "비동기 `thread/compact` RPC",
+     "what": "v2 app-server API에 비동기 트리거 RPC인 `thread/compact`를 추가한다. 클라이언트는 압축을 즉시 시작하고 완료 여부는 별도로 추적할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "app-server v2 RPC: `thread/compact`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "WebSocket 사용량 제한 신호",
+     "what": "새 `codex.rate_limits` 이벤트를 통해 WebSocket에서 사용량 제한 신호를 전달한다. ETag와 reasoning 메타데이터 처리도 WebSocket에서 동일하게 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "새 WebSocket 이벤트: `codex.rate_limits`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "비Windows 플랫폼의 `unified_exec`",
+     "what": "모든 비Windows 플랫폼에서 `unified_exec`를 활성화한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "활성화 대상: 모든 비Windows 플랫폼."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "설정 제약 조건의 출처 정보",
+     "what": "제약 조건 값에 출처 정보를 포함한다. 이를 통해 `/debug-config` 같은 UI 흐름에서 설정 출처를 기준으로 디버깅할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "예시 UI 흐름: `/debug-config`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.97.0": {
+  "hash": "1ca6bf1372c8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "세션 동안 도구 승인을 기억하고, 실행 중 스킬 변경을 감지한다. TUI에 설정 확인 명령과 로그 디렉터리 설정을 추가한다.",
+   "items": [
+    "MCP/App 도구 승인에 세션 범위의 ‘허용하고 기억’ 옵션을 추가해 같은 도구의 반복 호출을 세션 중 자동 승인한다.",
+    "실행 중 스킬 파일 변경을 감지해 재시작 없이 반영한다.",
+    "앱 서버 통합의 동적 도구 출력에서 텍스트와 이미지가 섞인 콘텐츠를 지원한다.",
+    "유효 설정을 확인하는 `/debug-config` 슬래시 명령을 TUI에 추가한다.",
+    "스레드 메모리 요약을 지원하기 위한 초기 메모리 연결 기능(API 클라이언트 및 로컬 저장)을 도입한다.",
+    "로그를 쉽게 다른 위치로 보낼 수 있도록 `log_dir` 설정을 추가하고 `-c` 재정의를 지원한다.",
+    "설명 열 렌더링을 안정화해 TUI 앱/커넥터 선택기의 흔들림을 수정한다.",
+    "프리앰블 및 초기 실행 흐름에서 TUI의 작업 중 상태 표시와 반짝임을 복구하고 안정화한다.",
+    "클라우드 요구사항의 시간 제한과 재시도를 높이고 MDM 설정에 대한 우선순위를 바로잡아 안정성을 개선한다.",
+    "턴 중간에 주입된 입력을 처리할 때 대기 중인 사용자 입력 이벤트를 더 일관되게 저장한다.",
+    "실험적 앱 서버 API를 활성화하는 방법을 문서화한다.",
+    "새 `log_dir` 설정 동작에 맞게 문서와 스키마 범위를 갱신한다.",
+    "파일 시스템 격리 선택지를 넓히기 위해 제한적으로 활성화되는 Bubblewrap (`bwrap`) Linux 샌드박스 경로를 추가한다.",
+    "모델 클라이언트 수명 주기를 세션 범위로 바꾸고 암묵적 클라이언트 상태를 줄인다.",
+    "앱에서 제공하는 MCP 동작을 캐시해 설치된 앱이 많은 사용자의 반복 로드 지연을 줄인다.",
+    "프로토콜 및 설정 표면에 `none` 성격 옵션을 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "세션 동안 도구 승인 기억",
+     "what": "MCP/App 도구 승인에 세션 범위의 ‘허용하고 기억’ 옵션을 추가한다. 이 옵션을 사용하면 같은 도구의 반복 호출을 해당 세션 동안 자동 승인한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "실시간 스킬 변경 감지",
+     "what": "스킬 파일 변경을 실행 중 감지해 재시작 없이 변경 내용을 반영한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "동적 도구의 혼합 콘텐츠 출력",
+     "what": "앱 서버 통합에서 동적 도구 출력에 텍스트와 이미지가 함께 포함될 수 있도록 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "유효 설정 확인 명령",
+     "what": "TUI에서 유효 설정을 확인하는 `/debug-config` 슬래시 명령을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 확인",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /debug-config"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "초기 메모리 연결 기능",
+     "what": "스레드 메모리 요약을 지원하기 위한 초기 메모리 연결 기능을 도입한다. API 클라이언트와 로컬 저장 기능이 포함된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "로그 디렉터리 설정",
+     "what": "`log_dir`로 로그 저장 위치를 지정할 수 있다. `-c` 재정의도 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 설정",
+      "lines": [
+       {
+        "kind": "hl",
+        "text": "`log_dir`"
+       },
+       {
+        "kind": "comment",
+        "text": "`-c` 재정의로도 설정할 수 있다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.98.0": {
+  "hash": "86fd3ee0b65f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "GPT-5.3-Codex를 소개하고 Steer 모드를 기본 활성화한다. 작업 실행 중 입력을 즉시 보내거나 후속 입력으로 대기시키는 키 동작을 안정화한다.",
+   "items": [
+    "GPT-5.3-Codex를 소개한다.",
+    "Steer 모드를 안정화하고 기본 활성화해 작업 실행 중 `Enter`는 입력을 즉시 보내고 `Tab`은 후속 입력을 대기열에 넣는다.",
+    "TypeScript SDK의 `resumeThread()` 인자 순서를 수정해 로컬 이미지와 함께 재개할 때 의도치 않은 새 세션이 시작되지 않도록 한다.",
+    "대화 중 모델을 바꾸거나 다른 모델로 재개할 때 올바른 개발자 지침을 적용하도록 모델 지침 처리를 수정한다.",
+    "원격 압축에서 토큰 사전 추정과 압축 페이로드 생성에 서로 다른 기본 지침이 쓰이던 불일치를 수정해 잘림 정확도를 높이고 컨텍스트 초과를 방지한다.",
+    "로그인 직후 클라우드 요구사항을 다시 불러와 별도 새로고침 없이 적용되도록 한다.",
+    "설정과 관련 테스트/UI 스냅샷에서 기본 어시스턴트 성격을 Pragmatic으로 복구한다.",
+    "프롬프트, 도구, 프로토콜 형식, TUI 레이블에서 협업 모드 이름과 메타데이터를 통일해 모드 동작과 안내의 일관성을 높인다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "GPT-5.3-Codex",
+     "what": "GPT-5.3-Codex를 소개한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "기본 활성화된 Steer 모드",
+     "what": "Steer 모드를 안정화하고 기본으로 활성화한다. 작업 실행 중 `Enter`를 누르면 입력이 즉시 전송되고, `Tab`을 누르면 후속 입력으로 대기열에 들어간다.",
+     "steps": [
+      "작업이 실행 중일 때 입력한다.",
+      "즉시 보내려면 `Enter`를 누른다.",
+      "후속 입력으로 대기시키려면 `Tab`을 누른다."
+     ],
+     "terminal": {
+      "title": "키 입력",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "작업 실행 중 입력 동작"
+       },
+       {
+        "kind": "hl",
+        "text": "`Enter`: 입력을 즉시 전송"
+       },
+       {
+        "kind": "hl",
+        "text": "`Tab`: 후속 입력을 대기열에 추가"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
