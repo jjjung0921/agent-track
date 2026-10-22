@@ -52976,5 +52976,160 @@
    ],
    "features": []
   }
+ },
+ "claude-code@2.0.10": {
+  "hash": "2cb08daeefe2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "bash 모드에서 셸 명령 자동 완성을 지원한다. 터미널 렌더러를 다시 작성하고 MCP 서버 전환과 프롬프트 편집 기능을 개선한다.",
+   "items": [
+    "터미널 렌더러를 다시 작성해 UI를 더 부드럽게 표시한다.",
+    "@mention 또는 `/mcp`로 MCP 서버를 활성화하거나 비활성화한다.",
+    "bash 모드에서 셸 명령 탭 자동 완성을 지원한다.",
+    "PreToolUse 훅이 이제 도구 입력을 수정할 수 있다.",
+    "Ctrl-G를 눌러 시스템에 설정된 텍스트 편집기에서 프롬프트를 편집한다.",
+    "명령에 환경 변수가 포함된 경우의 bash 권한 확인 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "bash 모드 셸 명령 자동 완성",
+     "what": "bash 모드에서 셸 명령의 탭 자동 완성을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.11": {
+  "hash": "7faf68a23603",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "시스템 프롬프트 크기를 1.4k 토큰 줄였다. IDE의 키보드 단축키와 포커스 문제를 수정했다.",
+   "items": [
+    "시스템 프롬프트 크기를 1.4k 토큰 줄였다.",
+    "IDE의 키보드 단축키와 포커스 문제를 수정해 상호작용을 개선했다.",
+    "Opus 대체 사용 시 잘못 표시되던 속도 제한 오류를 수정했다.",
+    "`/add-dir` 명령이 잘못된 기본 탭을 선택하던 문제를 수정했다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.12": {
+  "hash": "cc6da123b7ed",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "마켓플레이스의 플러그인으로 Claude Code를 확장하는 시스템을 도입한다. 플러그인 관리 명령과 진단 기능도 추가한다.",
+   "items": [
+    "마켓플레이스에서 사용자 지정 명령, 에이전트, 훅, MCP 서버를 추가할 수 있는 플러그인 시스템을 공개한다.",
+    "플러그인 관리를 위한 `/plugin install`, `/plugin enable/disable`, `/plugin marketplace` 명령을 추가한다.",
+    "팀 협업을 위해 `extraKnownMarketplaces`를 통한 저장소 수준의 플러그인 설정을 지원한다.",
+    "플러그인 구조와 설정을 검사하는 `/plugin validate` 명령을 추가한다.",
+    "플러그인 발표 블로그 글을 공개한다.",
+    "플러그인 문서를 제공한다.",
+    "`/doctor` 명령으로 상세한 오류 메시지와 진단을 제공한다.",
+    "`/model` 선택기의 깜박임을 방지한다.",
+    "`/help`를 개선한다.",
+    "`/resume` 요약에서 훅을 언급하지 않도록 한다.",
+    "`/config`의 verbose 설정 변경이 세션 간 유지된다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.13": {
+  "hash": "517696447318",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "네이티브 빌드에서 `/plugin`이 동작하지 않던 문제를 수정한다.",
+   "items": [
+    "네이티브 빌드에서 `/plugin`이 동작하지 않던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.14": {
+  "hash": "250b0fd422c5",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MCP 서버 @mention 전환과 bash 인라인 환경 변수의 권한 확인을 개선했다. 렌더링과 플러그인 UI도 다듬었다.",
+   "items": [
+    "@mention으로 MCP 서버를 켜거나 끄는 기능을 수정했다.",
+    "인라인 환경 변수가 있는 bash 명령의 권한 확인을 개선했다.",
+    "ultrathink와 thinking 전환 문제를 수정했다.",
+    "불필요한 로그인을 줄였다.",
+    "`--system-prompt`를 문서화했다.",
+    "렌더링을 여러 부분 개선했다.",
+    "플러그인 UI를 다듬었다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.15": {
+  "hash": "e2c90a73f753",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "재개 및 `-p` 모드에서 파일을 다시 읽어야만 쓸 수 있던 문제를 수정한다.",
+   "items": [
+    "재개할 때 이전에 만든 파일을 다시 읽어야만 쓸 수 있던 문제를 수정한다.",
+    "`-p` 모드에서 `@`로 지정한 파일을 다시 읽어야만 쓸 수 있던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@2.0.17": {
+  "hash": "1c1e6fc79184",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "모델 선택기에 Haiku 4.5를 추가하고, Explore 하위 에이전트를 도입한다.",
+   "items": [
+    "모델 선택기에 Haiku 4.5를 추가한다.",
+    "Haiku 4.5는 계획 모드에서 자동으로 Sonnet을 사용하고 실행에는 Haiku를 사용한다. 기본 설정은 SonnetPlan이다.",
+    "Bedrock과 Vertex 같은 3P는 아직 자동 업그레이드되지 않는다. `ANTHROPIC_DEFAULT_HAIKU_MODEL` 설정으로 수동 업그레이드할 수 있다.",
+    "Haiku 기반 Explore 하위 에이전트를 도입한다. 코드베이스를 효율적으로 검색해 컨텍스트를 절약한다.",
+    "OTEL에서 `HTTP_PROXY`와 `HTTPS_PROXY`를 지원한다.",
+    "`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`가 이제 릴리스 노트 가져오기도 비활성화한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Haiku 4.5 모델",
+     "what": "모델 선택기에 Haiku 4.5를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@2.0.19": {
+  "hash": "3e040956f890",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "오래 실행되는 bash 명령을 종료하는 대신 백그라운드로 자동 전환한다. `BASH_DEFAULT_TIMEOUT_MS`로 이 동작을 조정할 수 있다.",
+   "items": [
+    "오래 실행되는 bash 명령을 종료하는 대신 백그라운드로 자동 전환한다. `BASH_DEFAULT_TIMEOUT_MS`로 설정할 수 있다.",
+    "print 모드에서 Haiku를 불필요하게 호출하던 버그를 수정했다."
+   ],
+   "features": []
+  }
  }
 }
