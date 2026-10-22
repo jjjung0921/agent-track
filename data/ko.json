@@ -55004,5 +55004,194 @@
     }
    ]
   }
+ },
+ "claude-code@1.0.84": {
+  "hash": "ace60e62a399",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "네트워크 불안정 시 도구 결과 ID 불일치 오류와 작업 마무리 중 실시간 지시를 무시하는 문제를 수정한다. @-mention 제안에 `~/.claude/` 파일을 추가하고, 기본 검색 도구를 내장 ripgrep으로 변경한다.",
+   "items": [
+    "네트워크가 불안정할 때 발생하는 `tool_use`/`tool_result` ID 불일치 오류를 수정한다.",
+    "작업을 마무리할 때 Claude가 실시간 지시를 무시하는 문제를 수정한다.",
+    "에이전트, 출력 스타일, 슬래시 명령을 쉽게 편집하도록 @-mention 제안에 `~/.claude/` 파일을 추가한다.",
+    "기본 검색 도구로 내장 ripgrep을 사용한다. `USE_BUILTIN_RIPGREP=0`으로 이 동작을 끌 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.85": {
+  "hash": "74be67c926d1",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "상태 표시줄 입력에 세션 비용 정보가 포함된다. `SessionEnd` 훅을 추가한다.",
+   "items": [
+    "상태 표시줄 입력에 세션 비용 정보가 포함된다.",
+    "`SessionEnd` 훅을 도입한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.86": {
+  "hash": "f60e3f3812e6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "컨텍스트 문제를 직접 진단하는 `/context` 명령이 추가됐다. SDK 메시지의 UUID 지원과 사용자 메시지를 stdout으로 재생하는 `--replay-user-messages` 옵션도 추가됐다.",
+   "items": [
+    "컨텍스트 문제를 직접 진단할 수 있는 `/context` 명령이 추가됐다.",
+    "SDK의 모든 메시지에 UUID 지원이 추가됐다.",
+    "SDK에서 `--replay-user-messages`를 사용해 사용자 메시지를 stdout으로 재생할 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "컨텍스트 문제 진단",
+     "what": "`/context` 명령을 추가해 사용자가 컨텍스트 문제를 직접 진단할 수 있다.",
+     "steps": [
+      "`/context`를 입력해 컨텍스트 문제를 진단한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/context"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "SDK 메시지 UUID 지원",
+     "what": "SDK의 모든 메시지에 UUID 지원이 추가됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "사용자 메시지 재생 옵션",
+     "what": "SDK에 `--replay-user-messages` 옵션이 추가됐다. 이 옵션은 사용자 메시지를 stdout으로 재생한다.",
+     "steps": [],
+     "terminal": {
+      "title": "옵션",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "SDK 옵션: `--replay-user-messages`"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.88": {
+  "hash": "e4a3d2ad2beb",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "OAuth 인증 오류와 `/cost` 사용량 추적 문제가 수정됐다. 모델 별칭을 제어하는 환경 변수가 추가되고 Bedrock 기본 Sonnet 모델이 Sonnet 4로 업데이트됐다.",
+   "items": [
+    "“OAuth authentication is currently not supported” 오류가 발생하던 문제가 수정됐다.",
+    "상태 표시줄 입력에 `exceeds_200k_tokens`가 포함된다.",
+    "`/cost`의 사용량 추적 오류가 수정됐다.",
+    "`ANTHROPIC_DEFAULT_SONNET_MODEL`과 `ANTHROPIC_DEFAULT_OPUS_MODEL`로 opusplan, opus, sonnet 모델 별칭을 제어할 수 있다.",
+    "Bedrock의 기본 Sonnet 모델이 Sonnet 4로 업데이트됐다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.90": {
+  "hash": "f166fe075c3e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "설정 파일 변경 사항이 재시작 없이 즉시 적용된다.",
+   "items": [
+    "설정 파일 변경 사항이 재시작 없이 즉시 적용된다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.93": {
+  "hash": "14ef8c28f066",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Windows에서 `alt + v` 단축키로 클립보드 이미지를 붙여넣을 수 있다. `NO_PROXY` 환경 변수로 지정한 호스트 이름과 IP 주소를 프록시에서 제외할 수 있다.",
+   "items": [
+    "Windows에서 `alt + v` 단축키로 클립보드의 이미지를 붙여넣을 수 있다.",
+    "지정한 호스트 이름과 IP 주소에 프록시를 우회하도록 `NO_PROXY` 환경 변수를 지원한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "클립보드 이미지 붙여넣기",
+     "what": "Windows에서 `alt + v` 단축키로 클립보드 이미지를 붙여넣을 수 있다.",
+     "steps": [
+      "Windows에서 클립보드에 이미지를 복사한다.",
+      "`alt + v`를 눌러 이미지를 붙여넣는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2025-08-21": {
+  "hash": "b7be6e5b9f50",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 웹 프롬프트에 이미지를 첨부해 프런트엔드 변경을 요청하거나 화이트보드 세션을 이어갈 수 있다. 컨테이너 캐싱으로 새 작업과 후속 작업 시작 시간이 단축된다.",
+   "items": [
+    "Codex 웹 프롬프트에 이미지를 첨부해 프런트엔드 변경을 요청하거나 화이트보드 세션을 이어갈 수 있다.",
+    "컨테이너를 캐시해 새 작업과 후속 작업의 중앙값 시작 시간을 48초에서 5초로 줄이며, 유지 관리 스크립트로 새 작업 전에 캐시 환경을 업데이트할 수 있다.",
+    "수동 설정 스크립트가 없는 환경에서는 yarn, pnpm, npm, go mod, Gradle, pip, poetry, uv, cargo의 표준 설치 명령을 실행해 새 환경의 테스트 실패를 줄인다."
+   ],
+   "features": []
+  }
+ },
+ "codex@changelog:codex-2025-08-27": {
+  "hash": "3145b4249a54",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex가 대화형 UI를 갖춘 IDE 환경에서 실행되며 모드와 추론 수준을 전환할 수 있다. IDE에서 Codex 웹으로 작업을 넘기고 변경 사항을 로컬에 적용할 수 있으며, 코드베이스와 의존성을 살펴 PR 의도 및 변경 동작을 검토한다.",
+   "items": [
+    "Codex가 빠른 로컬 반복을 위한 대화형 UI와 함께 IDE에서 실행되며, 모드와 추론 수준을 전환할 수 있다.",
+    "API 키 없이 한 번의 클릭으로 인증하고 ChatGPT Enterprise 크레딧을 사용한다.",
+    "편집기를 떠나지 않고 IDE에서 Codex 웹으로 작업을 넘긴 뒤 변경 사항을 로컬에 적용할 수 있다.",
+    "정적 분석을 넘어 PR의 의도를 확인하고 코드베이스와 의존성 전반을 추론하며, 변경 동작을 검증하기 위해 코드를 실행할 수 있다."
+   ],
+   "features": []
+  }
  }
 }
