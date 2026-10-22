@@ -54054,5 +54054,955 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.107.0": {
+  "hash": "b87e38d77530",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "스레드 분기, 실시간 음성 장치 선택, 멀티모달 도구 출력 등 CLI 기능이 확장된다. 메모리를 설정할 수 있고 저장된 메모리를 완전히 초기화하는 명령이 추가된다.",
+   "items": [
+    "하위 에이전트로 스레드를 분기해 현재 대화를 벗어나지 않고 작업을 나눌 수 있다.",
+    "실시간 음성 세션에서 마이크와 스피커를 선택하고 선택을 저장하며, 전사에 더 적합한 형식으로 오디오를 보낼 수 있다.",
+    "사용자 지정 도구가 일반 텍스트뿐 아니라 이미지 같은 구조화된 콘텐츠를 포함한 멀티모달 출력을 반환할 수 있다.",
+    "앱 서버가 모델 이용 가능 여부와 업그레이드 정보를 더 자세히 제공하며, TUI는 제한된 횟수로 사용할 수 있는 플랜 제한 모델을 툴팁으로 설명한다.",
+    "메모리를 설정할 수 있으며, 저장된 메모리 상태를 완전히 초기화하는 `codex debug clear-memories` 명령이 추가된다.",
+    "`thread/resume`으로 다시 연결하면 대기 중인 승인 및 입력 요청이 복원된다.",
+    "`thread/start`가 느린 시작 경로에서 다른 앱 서버 요청을 막지 않아 대기 현상이 줄어든다.",
+    "대화형 터미널 세션에서 최종 어시스턴트 응답이 두 번 출력되지 않는다.",
+    "큰 붙여넣기 콘텐츠의 자리표시자가 파일 자동 완성 중에도 유지된다. `0.106.0`에서 발생한 회귀를 수정한다.",
+    "플랜 정보 없이 접속한 ChatGPT 계정도 계정 조회를 올바르게 처리해 반복 로그인 문제를 방지한다.",
+    "TUI의 diff 렌더링이 테마 색상을 더 잘 따르며 Windows Terminal 등 제한된 색상 환경에서 더 깔끔하게 표시된다.",
+    "`oauth_resource` 설정값이 `resource` 매개변수를 요구하는 MCP 서버의 OAuth 로그인에 올바르게 전달된다.",
+    "샌드박스 네트워크 접근으로 의존성 설치가 실패하면 권한 상향 검토 대상으로 더 명확히 안내한다.",
+    "Linux의 읽기 전용 제한 처리를 개선하고 Windows에서 `~/.ssh` 같은 민감한 디렉터리를 피하도록 파일 시스템 샌드박스를 강화한다.",
+    "권한 상향된 셸 명령을 다시 실행할 때 샌드박스 설정을 유지해 승인 후에도 의도한 제한이 적용된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "하위 에이전트로 스레드 분기",
+     "what": "현재 대화를 떠나지 않고 스레드를 하위 에이전트로 분기할 수 있다. 이를 통해 작업을 별도로 진행하기 쉬워진다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "실시간 음성 장치 선택",
+     "what": "실시간 음성 세션에서 마이크와 스피커 장치를 선택할 수 있다. 선택한 장치는 저장되며 오디오는 전사에 더 적합한 형식으로 전송된다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "멀티모달 사용자 지정 도구 출력",
+     "what": "사용자 지정 도구가 일반 텍스트에 한정되지 않고 멀티모달 결과를 반환할 수 있다. 이미지 같은 구조화된 콘텐츠도 결과에 포함할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "모델 이용 및 업그레이드 정보",
+     "what": "앱 서버가 모델 이용 가능 여부와 업그레이드 메타데이터를 더 풍부하게 제공한다. TUI는 플랜 제한 모델의 제한된 사용 횟수를 툴팁으로 설명한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "메모리 설정 및 초기화",
+     "what": "메모리를 설정할 수 있다. 저장된 메모리 상태를 완전히 초기화해야 할 때 `codex debug clear-memories`를 실행한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex debug clear-memories"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.110.0": {
+  "hash": "e85b45a01589",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "플러그인 시스템과 TUI 다중 에이전트 흐름이 확장된다. `/fast` 전환 기능과 작업 공간별 메모리 개선, Windows 설치 스크립트가 추가된다.",
+   "items": [
+    "설정 또는 로컬 마켓플레이스에서 스킬, MCP 항목, 앱 커넥터를 불러오는 플러그인 시스템을 추가하고 앱 서버에 플러그인 설치 엔드포인트를 제공한다.",
+    "TUI 다중 에이전트 흐름에 승인 요청, `/agent`를 통한 활성화, 명확한 프롬프트, 순서형 별칭, 역할이 표시된 인계 문맥을 추가한다.",
+    "TUI에 저장되는 `/fast` 전환 기능과 `fast`, `flex` 서비스 등급을 위한 앱 서버 지원을 추가한다.",
+    "작업 공간별 메모리 쓰기, 이름이 변경된 메모리 설정, 오래되거나 오염된 사실의 저장을 막는 보호 장치를 추가한다.",
+    "배포 릴리스 산출물에 Windows 직접 설치 스크립트를 추가한다.",
+    "`@` 파일 멘션에서 상위 디렉터리의 `.gitignore` 규칙 때문에 유효한 저장소 파일이 숨겨지지 않도록 수정한다.",
+    "셸 상태 재사용, `/status`, `Esc`, 대기 메시지 처리, 시작 및 프로필 경쟁 상태를 수정해 하위 에이전트의 속도와 안정성을 개선한다.",
+    "CLI 재정의가 신뢰된 프로젝트 로컬 MCP 전송에 올바르게 적용되도록 프로젝트 신뢰 설정 파싱을 수정한다.",
+    "네트워크 접근을 명시적으로 허용한 읽기 전용 샌드박스 정책에서 네트워크 접근이 유지되도록 수정한다.",
+    "세션 상태에서 여러 줄 환경 변수 내보내기 캡처와 Windows 상태 DB 경로 처리를 수정한다.",
+    "ANSI/base16 구문 강조 색상이 TUI에서 올바르게 표시되도록 수정한다.",
+    "서비스 등급, 플러그인 설치, 로드되지 않은 스레드 이름 변경, `skills/changed` 알림에 대한 앱 서버 문서를 확장한다.",
+    "현재 프로토콜로 대체된 레거시 앱 서버 v1 WebSocket/RPC 인터페이스를 제거한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "플러그인 시스템",
+     "what": "설정이나 로컬 마켓플레이스에서 스킬, MCP 항목, 앱 커넥터를 불러올 수 있다. 앱 서버에는 플러그인을 활성화하는 설치 엔드포인트가 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "TUI 다중 에이전트 흐름",
+     "what": "다중 에이전트 흐름에서 승인 요청과 더 명확한 프롬프트를 지원한다. `/agent`로 활성화하고 순서형 별칭과 역할이 표시된 인계 문맥을 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /agent"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "Fast 전환 및 서비스 등급",
+     "what": "TUI에 상태가 저장되는 `/fast` 전환 기능이 추가된다. 앱 서버는 `fast`와 `flex` 서비스 등급을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /fast"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "작업 공간별 메모리 쓰기",
+     "what": "메모리를 작업 공간 범위로 기록하도록 개선하고 메모리 설정 이름을 변경한다. 오래되었거나 오염된 사실을 저장하지 않도록 보호 장치도 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "Windows 직접 설치 스크립트",
+     "what": "Windows용 직접 설치 스크립트를 공개 릴리스 산출물에 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.111.0": {
+  "hash": "847704eb5215",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Fast 모드가 기본 활성화되고 TUI 헤더에서 현재 모드를 확인할 수 있다. `js_repl`의 로컬 파일 가져오기와 플러그인 탐색, 앱 서버 v2의 구조화된 MCP 입력 요청도 확장된다.",
+   "items": [
+    "Fast 모드가 기본 활성화되며 TUI 헤더에서 세션의 Fast 또는 Standard 모드를 보여준다.",
+    "`js_repl`에서 로컬 `.js` 및 `.mjs` 파일을 동적으로 가져와 REPL에서 작업 공간 스크립트를 재사용할 수 있다.",
+    "세션 시작 시 활성화된 플러그인을 모델에 알려 설치된 MCP, 앱, 스킬을 더 쉽게 찾도록 한다.",
+    "앱 서버 v2가 MCP 입력 요청을 원시 이벤트 대신 구조화된 요청/응답 흐름으로 제공해 클라이언트 통합을 단순화한다.",
+    "이미지 생성 이벤트의 클라이언트 처리와 이미지 기능을 지원하는 웹 검색의 모델 메타데이터 등 클라이언트용 이미지 작업 흐름 지원을 확장한다.",
+    "스레드를 다시 열 때 저장된 Git 문맥과 앱 활성화 상태를 보존해 `codex resume` 이후 상태가 깨지지 않도록 수정한다.",
+    "슬라이드 자료와 스프레드시트 예시를 포함한 아티팩트 작업 흐름용 샘플 스킬 문서를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "기본 Fast 모드",
+     "what": "Fast 모드가 기본으로 활성화된다. TUI 헤더에서 세션이 Fast 모드인지 Standard 모드인지 확인할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "`js_repl`의 로컬 파일 가져오기",
+     "what": "`js_repl`에서 로컬 `.js` 및 `.mjs` 파일을 동적으로 가져올 수 있다. 이를 통해 REPL에서 작업 공간 스크립트를 재사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "세션 시작 시 플러그인 정보 제공",
+     "what": "세션이 시작될 때 활성화된 플러그인 정보를 모델에 전달한다. 설치된 MCP, 앱, 스킬을 더 쉽게 탐색할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "앱 서버 v2의 MCP 입력 요청",
+     "what": "앱 서버 v2가 MCP 입력 요청을 원시 이벤트가 아닌 구조화된 요청/응답 흐름으로 노출한다. 이 방식은 클라이언트 통합을 단순화한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "클라이언트 이미지 작업 흐름",
+     "what": "클라이언트가 이미지 생성 이벤트를 처리하도록 지원을 확장한다. 이미지 기능을 지원하는 웹 검색을 위한 모델 메타데이터도 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.112.0": {
+  "hash": "43bd79528f26",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "플러그인을 채팅에서 직접 참조하고 관련 컨텍스트를 자동 포함할 수 있다. 모델 선택기와 실행별 샌드박스 권한 처리도 개선된다.",
+   "items": [
+    "`@plugin` 멘션으로 채팅에서 플러그인을 참조하고 관련 MCP·앱·스킬 컨텍스트를 자동 포함한다.",
+    "TUI 모델 선택 흐름에 최신 모델 목록 변경을 표시한다.",
+    "zsh-fork 스킬 실행에서 실행 파일 권한 프로필을 턴별 샌드박스 정책에 통합해 권한을 안전하게 추가 처리한다.",
+    "JS REPL 셀 실패 뒤에도 이미 초기화한 바인딩을 유지해 반복 세션의 재시작 필요성을 줄인다.",
+    "`SIGTERM`을 Ctrl-C처럼 처리해 app-server 웹소켓을 갑작스럽지 않게 종료한다.",
+    "`js_repl` 이미지 출력은 `data:` URL만 허용해 `emitImage`를 통한 외부 URL 전달을 막는다.",
+    "Linux bubblewrap 샌드박스가 root 소유 실행에서도 항상 사용자 네임스페이스를 분리하도록 한다.",
+    "macOS Seatbelt의 네트워크 및 Unix 소켓 처리를 개선해 제한된 하위 프로세스 환경의 안정성을 높인다.",
+    "연결 및 진단 정보를 이후 단계보다 앞서 표시한다.",
+    "`js_repl` 이미지 출력·인코딩 안내와 반복 `emitImage` 사용법을 명확히 한다.",
+    "TUI 테마 선택 경로의 codespell 경고를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "플러그인 멘션",
+     "what": "채팅에서 `@plugin` 멘션으로 플러그인을 직접 참조할 수 있다. 해당 플러그인과 연결된 MCP·앱·스킬 컨텍스트도 자동으로 포함된다.",
+     "steps": [
+      "채팅에서 `@plugin` 멘션으로 플러그인을 참조한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "채팅에서 플러그인을 직접 참조한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "모델 선택기 최신화",
+     "what": "TUI 모델 선택 흐름에 최신 모델 카탈로그 변경 사항이 표시된다. 구체적인 조작 방법은 원문에 제시되지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "턴별 샌드박스 권한 통합",
+     "what": "실행 파일 권한 프로필을 턴별 샌드박스 정책에 통합한다. 이를 통해 zsh-fork 스킬 실행에서 권한을 더 안전하게 추가 처리한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.113.0": {
+  "hash": "d481e5e176e7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "실행 중 권한 요청, 확장된 플러그인 작업 흐름, 스트리밍 명령 실행이 추가된다. 웹 검색 구성과 권한 프로필 정책도 더 세밀하게 설정할 수 있다.",
+   "items": [
+    "`request_permissions` 도구로 실행 중인 턴이 추가 권한을 요청할 수 있으며, TUI에 승인 요청 표시가 추가된다.",
+    "큐레이션 마켓플레이스 검색, 상세한 `plugin/list` 메타데이터, 설치 시 인증 확인, `plugin/uninstall` 엔드포인트를 포함해 플러그인 흐름을 확장한다.",
+    "app-server 명령 실행이 stdin·stdout·stderr 스트리밍과 TTY/PTY를 지원하고, `exec`를 새 인프로세스 app-server 경로에 연결한다.",
+    "웹 검색 설정에서 켜기/끄기뿐 아니라 필터와 위치 등 전체 도구 구성을 지원한다.",
+    "새 권한 프로필 설정 언어를 추가하고 파일 시스템·네트워크 샌드박스 정책 연결을 분리해 정책을 세밀하게 제어한다.",
+    "이미지 생성 결과를 현재 작업 디렉터리에 저장한다.",
+    "클라우드 요구사항 조회에서 401 응답이 일반 작업 공간 설정 오류가 아닌 표준 인증 복구 안내를 표시하도록 수정한다.",
+    "프로젝트 신뢰가 설정되기 전에 `git` 명령을 실행하지 않도록 수정한다.",
+    "Windows 실행 시 PTY `TerminateProcess` 성공 판정과 샌드박스 시작 시 작업 디렉터리 검증을 수정한다.",
+    "TUI 세션에서 큐레이션 플러그인이 예상대로 로드되도록 수정한다.",
+    "네트워크 프록시 정책에서 전역 와일드카드 도메인(`*`)은 거부하고 범위가 지정된 와일드카드는 허용한다.",
+    "macOS 자동화 권한 승인 payload가 지원되는 두 입력 형태를 모두 받도록 수정한다.",
+    "`js_repl`의 바인딩 지속성과 재선언 복구 안내를 명확히 해 불필요한 REPL 오류를 줄인다.",
+    "로그를 전용 SQLite DB로 옮기고 피드백 로그 타임스탬프, 오래된 데이터 정리, 보존 기간·행 제한 조정을 적용해 로그·저장소 부담을 줄인다.",
+    "Windows 배포 자동화에서 CLI 릴리스를 winget에 게시한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "실행 중 권한 요청",
+     "what": "새 `request_permissions` 도구를 사용해 실행 중인 턴이 런타임에 추가 권한을 요청할 수 있다. TUI에는 해당 승인 요청을 표시하는 기능이 추가된다.",
+     "steps": [
+      "실행 중 권한이 더 필요하면 `request_permissions` 도구로 요청한다.",
+      "TUI에서 승인 요청을 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "실행 중 추가 권한을 요청하는 도구: `request_permissions`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "플러그인 마켓플레이스 및 관리",
+     "what": "플러그인 작업 흐름에 큐레이션 마켓플레이스 검색과 상세한 `plugin/list` 메타데이터가 추가된다. 설치 시 인증을 확인하며 `plugin/uninstall` 엔드포인트도 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "플러그인 목록·제거 API: `plugin/list`, `plugin/uninstall`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "스트리밍 명령 실행",
+     "what": "app-server 명령 실행이 stdin·stdout·stderr 스트리밍과 TTY/PTY를 지원한다. `exec`는 새 인프로세스 app-server 경로를 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "명령 실행은 stdin·stdout·stderr 스트리밍과 TTY/PTY를 지원한다."
+       },
+       {
+        "kind": "cmd",
+        "text": "$ exec"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "웹 검색 도구 구성",
+     "what": "웹 검색 설정에서 활성화 여부만이 아니라 필터와 위치를 포함한 전체 도구 구성을 설정할 수 있다. 원문에는 설정 단계나 구체적인 키가 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "권한 프로필 및 샌드박스 정책",
+     "what": "새 권한 프로필 설정 언어가 추가된다. 파일 시스템 정책과 네트워크 샌드박스 정책 연결을 분리해 정책 제어를 더 세밀하게 한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "이미지 생성 결과 저장",
+     "what": "이미지 생성 결과를 현재 작업 디렉터리에 저장한다. 원문에는 별도 설정이나 조작 방법이 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.114.0": {
+  "hash": "ecac9b7f767f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "격리된 코딩 흐름을 위한 실험적 코드 모드와 훅 엔진이 추가된다. WebSocket 앱 서버 배포는 같은 리스너에서 상태 확인 엔드포인트를 제공한다.",
+   "items": [
+    "더 격리된 코딩 작업 흐름을 위한 실험적 코드 모드를 추가한다.",
+    "`SessionStart`, `Stop` 훅 이벤트를 지원하는 실험적 훅 엔진을 추가한다.",
+    "WebSocket 앱 서버 배포에서 상태 확인이 편하도록 같은 리스너에 `GET /readyz`, `GET /healthz`를 노출한다.",
+    "번들 시스템 스킬을 완전히 비활성화하는 설정 전환을 추가한다.",
+    "인계 시 실시간 전사 문맥을 전달해 턴 간 작업 연속성을 개선한다.",
+    "`$` 멘션 선택기에서 Skills, Apps, Plugins를 명확히 구분하고 플러그인을 먼저 표시한다.",
+    "사용자 셸을 동시에 조회할 때 발생하던 Linux `tmux` 충돌을 수정한다.",
+    "지원되지 않는 세션에서 앱이 활성화되던 문제를 활성화 검사 강화로 수정한다.",
+    "실행 중 종료한 뒤 나중에 재개한 스레드가 진행 중 상태에 멈추던 문제를 수정한다.",
+    "기존 `workspace-write` 동작을 보존하고 새 권한 프로필은 이전 빌드에서 더 안전하게 하위 호환되도록 수정한다.",
+    "승인된 권한이 턴 간 유지되고 거부 방식 설정 및 `apply_patch`에서도 적용되도록 승인 흐름을 수정한다.",
+    "Python SDK의 생성된 v2 스키마 타입과 플랫폼별 런타임 바이너리 고정 작업의 기반을 마련한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "실험적 코드 모드",
+     "what": "더 격리된 코딩 작업 흐름을 위한 실험적 코드 모드를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "실험적 훅 엔진",
+     "what": "실험적 훅 엔진에서 `SessionStart`와 `Stop` 이벤트를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "앱 서버 상태 확인 엔드포인트",
+     "what": "WebSocket 앱 서버 배포가 같은 리스너에서 `GET /readyz`와 `GET /healthz`를 노출한다. 이를 통해 상태 확인을 수행할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "번들 시스템 스킬 비활성화",
+     "what": "번들 시스템 스킬을 완전히 비활성화하는 설정 전환을 추가한다. 원문에는 설정 키가 제시되지 않는다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "인계 시 전사 문맥 전달",
+     "what": "작업 인계에 실시간 전사 문맥을 포함한다. 턴 사이에 작업을 넘길 때 연속성을 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "`$` 멘션 선택기 개선",
+     "what": "`$` 멘션 선택기에서 Skills, Apps, Plugins를 명확히 표시하고 플러그인을 먼저 보여준다.",
+     "steps": [],
+     "terminal": {
+      "title": "관련 명령 및 입력",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.115.0": {
+  "hash": "68c55c60f623",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "지원 모델이 원본 해상도 이미지 검사를 요청할 수 있고, `js_repl`에 작업 디렉터리·홈 경로와 셀 간 지속 참조 기능이 추가된다. 실시간 세션과 app-server 파일 시스템 API도 확장된다.",
+   "items": [
+    "지원 모델이 `view_image` 및 `codex.emitImage(..., detail: \"original\")`로 원본 해상도 이미지 검사를 요청할 수 있어 정밀한 시각 작업에 도움이 된다.",
+    "`js_repl`에 `codex.cwd`와 `codex.homeDir`가 추가되고 저장한 `codex.tool(...)`·`codex.emitImage(...)` 참조를 셀 간 유지한다.",
+    "실시간 웹소켓 세션에 전용 전사 모드와 `codex` 도구를 통한 v2 핸드오프를 추가하고 `[realtime]` 세션 설정을 통합한다.",
+    "v2 app-server가 파일 읽기·쓰기·복사, 디렉터리 작업, 경로 감시용 파일 시스템 RPC와 이를 연동하는 Python SDK를 제공한다.",
+    "Smart Approvals가 core·app-server·TUI에서 guardian 하위 에이전트로 검토 요청을 전달해 후속 승인 때 반복 설정을 줄인다.",
+    "앱 통합이 Responses API 도구 검색 흐름을 사용하고 누락 도구를 제안하며, 활성 모델이 검색 기반 조회를 지원하지 않으면 자연스럽게 대체 경로를 사용한다.",
+    "하위 에이전트가 프로젝트 프로필 계층, 저장된 호스트 승인, 심볼릭 링크된 쓰기 가능 루트를 포함해 샌드박스·네트워크 규칙을 더 안정적으로 상속한다.",
+    "동적 도구 응답에 리터럴 U+2028 또는 U+2029 문자가 있을 때 `js_repl`이 멈추는 문제를 수정한다.",
+    "하위 에이전트 생성 후 TUI 종료가 멈추지 않으며, 턴 중단 시 백그라운드 터미널을 기본적으로 종료하지 않는다.",
+    "`codex exec --profile`이 스레드 시작·재개 시 프로필별 설정을 유지하도록 수정한다.",
+    "MCP 및 elicitation 흐름의 도구 이름 정규화를 안전하게 하고 승인 요청에서 `tool_params`를 보존한다.",
+    "로컬 네트워크 프록시가 CONNECT 트래픽을 명시적 HTTP/1로 제공해 HTTP 프록시 클라이언트 호환성을 높인다.",
+    "하위 에이전트 대기 도구 이름을 `wait_agent`로 통일해 `spawn_agent`, `send_input`과 맞춘다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "원본 해상도 이미지 검사",
+     "what": "지원 모델이 `view_image` 또는 `codex.emitImage(..., detail: \"original\")`로 원본 해상도 이미지 검사를 요청할 수 있다. 이는 정밀한 시각 작업에 도움이 된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에 나온 이미지 검사 인터페이스: `view_image`, `codex.emitImage(..., detail: \"original\")`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "`js_repl` 경로와 셀 간 참조",
+     "what": "`js_repl`에서 `codex.cwd`와 `codex.homeDir`로 작업 디렉터리와 홈 디렉터리를 확인할 수 있다. 저장한 `codex.tool(...)` 및 `codex.emitImage(...)` 참조도 셀 사이에서 계속 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`js_repl`에서 제공하는 경로와 저장 가능한 참조: `codex.cwd`, `codex.homeDir`, `codex.tool(...)`, `codex.emitImage(...)`."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "실시간 전사와 핸드오프",
+     "what": "실시간 웹소켓 세션에 전용 전사 모드와 `codex` 도구를 통한 v2 핸드오프가 추가된다. 세션 설정은 `[realtime]`로 통합된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "실시간 세션 설정은 `[realtime]` 섹션을 사용하고 v2 핸드오프는 `codex` 도구를 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "app-server 파일 시스템 API와 Python SDK",
+     "what": "v2 app-server가 파일 읽기·쓰기·복사, 디렉터리 작업, 경로 감시를 위한 파일 시스템 RPC를 제공한다. 해당 API 통합을 위한 Python SDK도 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "v2 app-server 파일 시스템 RPC와 Python SDK를 제공한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 4,
+     "title": "guardian 기반 Smart Approvals",
+     "what": "Smart Approvals가 core, app-server, TUI에서 검토 요청을 guardian 하위 에이전트로 전달할 수 있다. 이를 통해 후속 승인 요청에서 반복 설정 작업을 줄인다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "앱 통합 도구 검색",
+     "what": "앱 통합이 Responses API 도구 검색 흐름을 사용하고 누락된 도구를 제안할 수 있다. 활성 모델이 검색 기반 조회를 지원하지 않는 경우에는 대체 경로로 전환한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.116.0": {
+  "hash": "ae7bd3163947",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "app-server TUI 온보딩에서 ChatGPT 기기 코드 로그인을 지원하고 기존 토큰을 갱신할 수 있다. 플러그인 설치 제안과 실행 전 프롬프트를 차단·보강하는 `userpromptsubmit` 훅이 추가된다.",
+   "items": [
+    "app-server TUI 온보딩에서 기기 코드 방식 ChatGPT 로그인을 지원하고 기존 ChatGPT 토큰을 갱신할 수 있다.",
+    "누락된 플러그인·커넥터 설치를 제안하고 설정된 제안 허용 목록을 따르며 설치·제거 상태를 원격 동기화한다.",
+    "`userpromptsubmit` 훅을 추가해 프롬프트가 실행되고 기록에 들어가기 전에 차단하거나 보강할 수 있다.",
+    "실시간 세션이 최근 스레드 컨텍스트로 시작하고 오디오 재생 중 스스로 중단할 가능성을 낮춘다.",
+    "웹소켓 사전 준비가 `turn/start`를 지연시키던 첫 턴 정체를 수정해 시작이 시간 초과되면 대체 경로로 진행한다.",
+    "app-server TUI의 원격 재개·분기에서 대화 기록을 복원하고 이전 스트림 이벤트의 중복 실시간 전사 출력을 막는다.",
+    "심볼릭 링크 체크아웃, 쓰기 가능 루트 누락, Ubuntu/AppArmor 호스트에서 Linux 샌드박스 시작을 개선하고 시스템 `bwrap`이 있으면 우선 사용한다.",
+    "에이전트 작업 완료 경쟁 상태를 수정하고 작업자 스레드의 상태 폴링 반복을 줄인다.",
+    "생성된 app-server 모델에 맞춰 Python SDK 공개 API 문서, 예제, 안내를 갱신한다.",
+    "재현성 높은 CI를 위해 `setup-zig` GitHub Action을 변경 불가능한 SHA에 고정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "기기 코드 로그인 및 토큰 갱신",
+     "what": "app-server TUI의 온보딩에서 기기 코드 방식 ChatGPT 로그인을 지원한다. 기존 ChatGPT 토큰 갱신도 지원한다.",
+     "steps": [
+      "app-server TUI 온보딩에서 기기 코드 방식 로그인을 진행한다.",
+      "필요하면 기존 ChatGPT 토큰을 갱신한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "app-server TUI 온보딩에서 ChatGPT 인증을 진행한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "플러그인·커넥터 설치 제안",
+     "what": "Codex가 누락된 플러그인이나 커넥터의 설치를 제안할 수 있다. 설정된 제안 허용 목록을 따르며 설치·제거 상태를 원격으로 동기화한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "누락된 플러그인·커넥터 설치와 원격 상태 동기화를 지원한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "프롬프트 제출 훅",
+     "what": "`userpromptsubmit` 훅을 추가한다. 이 훅은 프롬프트가 실행되고 대화 기록에 들어가기 전에 내용을 차단하거나 보강할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "프롬프트 실행·기록 전에 동작하는 훅"
+       },
+       {
+        "kind": "cmd",
+        "text": "userpromptsubmit"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "실시간 세션 컨텍스트 개선",
+     "what": "실시간 세션이 최근 스레드 컨텍스트를 포함해 시작된다. 오디오 재생 도중 세션이 스스로 중단될 가능성도 낮아진다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
