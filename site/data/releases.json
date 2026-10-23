@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T06:09:45.593Z",
+ "generatedAt": "2026-10-23T06:13:14.414Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -128716,7 +128716,164 @@
     }
    ],
    "hash": "7c38d365e079",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex Max를 기본 모델로 설정하고 작업 재개, TUI, 기록 관리 기능을 개선한다.",
+    "items": [
+     "Codex Max가 기본 모델이 되며, async-in-sync 코드와 관련된 TUI 패닉도 수정한다.",
+     "`/resume` 슬래시 명령을 추가하고 재개 성능을 개선해 작업 복귀가 빨라진다.",
+     "팁과 툴팁을 굵은 “Tip” 레이블이 있는 마크다운으로 렌더링하고 앱 전반의 Codex 툴팁을 보강한다.",
+     "TUI에 Ctrl-P/N 탐색, 화면 줄 수 제한 셸 출력, Windows 클립보드 이미지 붙여넣기 복구를 적용하고 레이아웃을 정리한다.",
+     "`history.max_bytes`에 따라 `history.jsonl`을 정리하고 `__pycache__`를 포함한 흔한 불필요 디렉터리를 기본 제외하며, 붙여넣기 자리표시자의 구분을 유지한다.",
+     "팁 렌더링에 마크다운을 사용한다.",
+     "Codex Max로 이전한다.",
+     "가치가 낮은 테스트를 제거한다.",
+     "app-server에서 `file_path` 설정을 선택 사항으로 변경한다.",
+     "모델 계열을 models manager로 이전한다.",
+     "`tui`가 models manager를 사용하도록 이전한다.",
+     "`ModelsManager`를 도입하고 `app-server`를 이전한다.",
+     "전사 오버레이에서 긴 exec 행을 줄바꿈한다.",
+     "세션 또는 스레드 동안 Features를 불변으로 유지한다.",
+     "$ 또는 `/skills`로 스킬을 나열하고 선택하는 기능을 지원한다.",
+     "app-server의 turn/plan/updated에 `thread_id`를 추가한다.",
+     "TUI 텍스트 영역에서 Ctrl-P/N을 화살표 탐색에 연결한다.",
+     "사용자 셸 출력을 화면 줄 수로 제한한다.",
+     "모델 프리셋을 이전한다.",
+     "main을 수정한다.",
+     "제외 디렉터리에 pycache를 추가한다.",
+     "unified exec 샌드박스 감지를 갱신한다.",
+     "슬래시 명령 `/resume`을 추가한다.",
+     "app-server 피드백 업로드의 `conversation_id`를 `thread_id`로 변경한다.",
+     "app-server에서 사용하지 않는 TodoList 항목을 삭제한다.",
+     "app-server README를 갱신한다.",
+     "bun 환경 변수 감지를 제거한다.",
+     "app-server에서 MCP 서버 목록을 지원한다.",
+     "seatbelt에서 `openpty()`를 허용한다.",
+     "Codex 도구 팁을 추가한다.",
+     "이미지 자리표시자를 사후 삽입해 poisoning을 방지한다.",
+     "`apply_patch` 상황에서 모델 경고를 추가한다.",
+     "기본 Windows에서 클립보드 이미지 붙여넣기를 지원한다.",
+     "unified_exec 셸 사용 시 플랫폼 기본 셸을 사용하도록 수정한다.",
+     "장치 코드 인증 문자열을 갱신한다.",
+     "사용되지 않는 코드로 표시된 인라인 함수를 수정한다.",
+     "재개 성능을 개선한다.",
+     "npx의 경로 해석 버그를 수정한다.",
+     "길이가 같은 붙여넣기 자리표시자가 서로 구분되도록 한다.",
+     "@openai/codex-shell-tool-mcp의 `--version` 플래그를 지원한다.",
+     "`tui.rs`의 여러 부분을 추출해 리팩터링한다.",
+     "`create_approval_requirement_for_command`를 비동기 함수로 변경한다.",
+     "`history.max_bytes`가 설정되면 `history.jsonl`을 잘라낸다.",
+     "`TurnError`의 serde(flatten) 어노테이션을 제거한다.",
+     "새 스냅샷에 크레딧 정보가 없으면 기존 크레딧을 보존한다.",
+     "더 이상 필요하지 않은 잠금을 해제한다.",
+     "execpolicy 헬퍼를 추가한다.",
+     "컨텍스트 창을 알 수 없을 때 사용 토큰을 표시한다.",
+     "비차단 뮤텍스를 사용한다.",
+     "ghost 스냅샷에서 추적 대상을 미추적 경로로 제한한다.",
+     "표준 디렉터리를 제외한다.",
+     "app-server v2 타입에 TypeScript 숫자 어노테이션을 추가한다.",
+     "unified_exec에서 `apply_patch`를 가로챈다.",
+     "app-server README에서 experimental/unstable 언급을 제거한다.",
+     "요청 로깅을 다시 추가한다.",
+     "app-server v2에 일회성 명령을 추가한다.",
+     "모델 경고 메시지를 추가한다.",
+     "모든 곳에서 검토를 수행하도록 변경한다.",
+     "압축 별칭을 추가한다.",
+     "`skills.md` 실험 지원을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Codex Max 기본 모델",
+      "what": "Codex Max가 기본 모델이 된다. async-in-sync 코드와 관련된 TUI 패닉도 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "작업 재개 개선",
+      "what": "`/resume` 슬래시 명령을 추가한다. 작업 재개 성능도 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /resume"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "팁과 툴팁 렌더링",
+      "what": "팁과 툴팁을 마크다운으로 렌더링하며 굵은 “Tip” 레이블을 표시한다. 앱 전반의 Codex 툴팁도 보강한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "TUI 사용성 개선",
+      "what": "TUI 텍스트 영역에서 Ctrl-P/N으로 탐색하고, 셸 출력은 화면 줄 수로 제한한다. 기본 Windows의 클립보드 이미지 붙여넣기를 복구하고 레이아웃을 정리한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "기록과 컨텍스트 정리",
+      "what": "`history.max_bytes` 설정에 따라 `history.jsonl`을 정리하고 흔한 불필요 디렉터리를 기본 제외한다. 붙여넣기 자리표시자는 서로 구분되도록 유지한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2025-12-04",
@@ -129302,7 +129459,17 @@
     }
    ],
    "hash": "ff30a368b023",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "웹 검색 활성화 시 발생할 수 있는 값 오류를 수정하고 app-server 및 릴리스 항목을 정리한다.",
+    "items": [
+     "웹 검색을 켰을 때 `Invalid value: 'other'.` 오류가 발생하는 문제를 수정한다.",
+     "app-server에서 명령 실행 상태로 Declined를 추가한다.",
+     "`model_max_output_tokens`를 제거한다.",
+     "GitHub 릴리스의 중복 `bash` 항목을 정리한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@2.0.50",
@@ -129542,7 +129709,103 @@
     }
    ],
    "hash": "9ba17cf0a29e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "ExecPolicy2 통합과 셸·경고 동작 개선, 오류 정보 및 CLI 표시 수정이 포함된다.",
+    "items": [
+     "ExecPolicy2를 exec-server에 통합하고, 새 정책 엔진 도입을 돕는 빠른 시작 문서를 추가한다.",
+     "잘라내기를 한 번에 처리해 중복 작업을 줄이며, 오류 이벤트에 선택적 상태 코드를 담아 관측 정보를 명확히 한다.",
+     "대체 셸 선택을 강화하고, world-writable 디렉터리 경고를 줄이며 Windows 메시지를 개선한다.",
+     "추론 표시를 바로잡고 `/review` 뒤 검토 푸터의 맥락을 보존하며, 모델 이전 화면은 한 번만 표시한다.",
+     "Windows world-writable 경고 위치를 수정한다.",
+     "오류 이벤트에 선택적 `status_code`를 추가한다.",
+     "ExecPolicy2 전환을 위해 exec-server에서 ExecPolicy 준비를 수정한다.",
+     "world-writable 디렉터리의 과도한 경고를 줄인다.",
+     "`/review` 뒤 검토 푸터 맥락을 수정한다.",
+     "추론 표시를 수정한다.",
+     "exec-server를 독립 MCP 사용에 대비해 리팩터링한다.",
+     "대체 셸 처리를 수정한다.",
+     "core에 ExecPolicy2 통합을 추가한다.",
+     "잘라내기를 단일 패스로 처리한다.",
+     "ExecPolicy 빠른 시작 README를 갱신한다.",
+     "모델 이전 화면을 최초 한 번만 표시한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "ExecPolicy2 통합",
+      "what": "core가 exec-server 리팩터링 및 전환 준비 작업과 함께 ExecPolicy2를 통합한다. 팀이 새 정책 엔진을 도입하도록 빠른 시작 문서도 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "잘라내기와 오류 정보 개선",
+      "what": "잘라내기 작업을 단일 패스로 수행해 중복 작업을 줄인다. 오류 이벤트에는 선택적 상태 코드를 담을 수 있어 관측이 명확해진다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "셸 안정성과 샌드박스 경고",
+      "what": "대체 셸 선택을 강화하고 world-writable 디렉터리 경고의 과다 보고를 줄인다. Windows에서 경고 메시지도 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "CLI 표시 동작 수정",
+      "what": "추론 표시를 바로잡고 `/review` 뒤 검토 푸터의 맥락을 보존한다. 모델 이전 화면은 최초 한 번만 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /review"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.0.47",
@@ -129612,7 +129875,14 @@
     }
    ],
    "hash": "0b304cd4a4c3",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "API 사용자의 기본 모델이 `gpt-5.1-codex`로 바뀐다.",
+    "items": [
+     "API 사용자의 기본 모델이 `gpt-5.1-codex`로 변경된다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.59.0",
@@ -130451,7 +130721,234 @@
     }
    ],
    "hash": "04247971f220",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-5.1-Codex-Max와 Windows Agent 모드를 도입하고, 장시간 세션의 Compaction 및 도구 출력 한도를 개선한다. TUI의 재개·상태 표시와 이미지 처리도 보완한다.",
+    "items": [
+     "GPT-5.1-Codex-Max를 새 코딩 에이전트 모델로 도입한다. 신뢰성, 반복 속도, 장시간 프로젝트 단위 작업 지원을 개선한다.",
+     "확장된 코딩 세션의 성능을 높이는 네이티브 Compaction 지원을 추가한다.",
+     "Codex 모델의 도구 출력 토큰 한도를 최대 10,000개로 확장한다. `config.toml`의 `tool_output_token_limit`으로 설정한다.",
+     "Windows 네이티브 Agent 모드를 도입한다. 실험적 Windows 샌드박스로 파일 시스템과 네트워크 접근을 제한한다.",
+     "여러 TUI/UX 개선을 적용한다. Git 저장소가 없을 때의 유령 스냅샷 알림을 제거하고, Resume의 브랜치 표시와 현재 작업 디렉터리 필터링, 이미지 자리표시자, `/status` 크레딧 표시를 추가한다.",
+     "줄바꿈에서 내용이 잘리지 않도록 수정한다.",
+     "arcticfox 관련 변경을 반영한다.",
+     "`thread/resume`에서 thread > turns > items를 채운다.",
+     "디버깅용 불필요한 로그를 제거한다.",
+     "대화 시작 전에 `/approvals` 변경을 지원한다.",
+     "Compaction 토큰 사용량 집계를 통합한다.",
+     "world-writable Windows 알림을 추가한다.",
+     "병렬 도구 호출의 지침 주입 문제를 수정한다.",
+     "안정 상태를 정리한다.",
+     "대규모 커밋 경고를 추가한다.",
+     "레이블을 수정한다.",
+     "셸에서 `truncate_text`를 사용하도록 변경한다.",
+     "원격 자동 Compaction을 실행한다.",
+     "대용량 출력 요약 테스트의 불안정 문제를 다룬다.",
+     "`shell_command`가 자유 형식 출력을 반환하도록 변경한다.",
+     "arcticfox 관련 core 변경을 반영한다.",
+     "유령 스냅샷 알림을 수정한다.",
+     "모델 선택기의 오타를 수정한다.",
+     "Windows 문서 URL을 갱신한다.",
+     "Windows 샌드박스 문구를 조정한다.",
+     "ThreadStartResponse와 ThreadResumeResponse 필드를 추가한다.",
+     "Windows 샌드박스 문서를 갱신한다.",
+     "원격 Compaction을 기본 활성화한다.",
+     "`turn/completed` v2 이벤트를 도입한다.",
+     "크레딧 상태 세부 정보를 갱신한다.",
+     "`codex resume`에 브랜치를 표시하고 현재 작업 디렉터리로 필터링한다.",
+     "브라우저 취약점 스모크 테스트와 Windows 보안 문서 초안을 추가한다.",
+     "Windows 샌드박스에서 여러 작업공간 루트를 지원한다.",
+     "Codex 백엔드 모델을 갱신한다.",
+     "exec-server를 추가한다.",
+     "테스트가 소스 트리에 불필요한 `config.toml`을 만들지 않도록 수정한다.",
+     "app-server 테스트 클라이언트에 명령 자동 승인 기능을 추가한다.",
+     "`generated_ts_has_no_optional_nullable_fields` 테스트 실행 시간을 개선한다.",
+     "로컬 Compaction을 수정한다.",
+     "MCP 서버용 `config.md` 오타를 수정한다.",
+     "Codex OpenTelemetry에 mTLS 설정을 지원한다.",
+     "app server에 review 기능을 추가한다.",
+     "설정에서 `shell_command`를 활성화한다.",
+     "자동 모드 선택 시 Windows 샌드박스 활성화를 안내한다.",
+     "토큰 기준으로 자르는 유틸리티를 추가한다.",
+     "지원 모델 FAQ를 갱신한다.",
+     "로컬 셸 도구 호출을 수정한다.",
+     "병렬 도구 호출을 활성화한다.",
+     "원격 Compaction 기능을 추가한다.",
+     "app server를 소폭 정리한다.",
+     "유령 커밋을 안정 상태로 표시한다.",
+     "Git 브랜치 도구를 추가한다.",
+     "만료 시각 `expires_at`을 사용해 OAuth 토큰을 갱신한다.",
+     "Windows의 `shell_command`와 일부 파싱을 수정한다.",
+     "`shell_serialization` 테스트 범위를 추가한다.",
+     "기본 모델을 gpt-5.1로 갱신한다.",
+     "함수 호출 페이로드 로그를 debug 수준으로 낮춰 stderr의 error 로그를 줄인다.",
+     "execpolicy2 확장을 추가한다.",
+     "app-server에 v2 명령 실행 승인 흐름을 추가한다.",
+     "백그라운드에서 사용량 제한 정보를 가져온다.",
+     "샌드박스가 덮어쓸 수 없도록 cap_sid 파일을 `~/.codex`로 옮긴다.",
+     "Windows에서 Alt-Gr 관련 TUI 문제를 수정한다.",
+     "셸 도구를 비활성화하는 기능을 추가한다.",
+     "셸 지침을 갱신한다.",
+     "app server v2 타입을 camelCase로 직렬화하도록 표시한다.",
+     "LM Studio OSS 지원을 추가한다.",
+     "app-server 이벤트를 README에 추가한다.",
+     "MCP 시작을 비동기 처리한다.",
+     "바이너리 크기 transcript snapshot TUI 테스트를 삭제한다.",
+     "execpolicy v2를 추가한다.",
+     "개인 Git ignore 설정을 추가한다.",
+     "Windows에서 sccache를 제거하는 임시 변경을 적용한다.",
+     "디코딩할 수 없는 이미지에 자리표시자를 추가해 400 오류를 방지한다.",
+     "`shell_command` 직렬화를 수정한다.",
+     "대상별 keyring 기능과 BSD 보안 강화를 적용해 FreeBSD/OpenBSD 빌드를 수정한다.",
+     "`codex` GitHub 사용자를 CLA 서명 대상에서 제외한다.",
+     "actions/github-script를 7에서 8로 올린다.",
+     "빈 finish_reason 처리로 Claude 모델 응답이 불완전해지는 문제를 수정한다.",
+     "Windows Codex 터미널의 AltGr/백슬래시 입력을 수정한다.",
+     "Windows에서 sccache를 제거한 임시 변경을 되돌린다.",
+     "스크립트 기반 도구의 Windows MCP 서버 실행을 수정한다.",
+     "Custom Prompts의 명명된 인자 문서를 수정하고 표준 예제를 추가한다.",
+     "이중 자르기 상황의 panic을 강화한다.",
+     "compact 동작을 개선한다.",
+     "자르기 헬퍼를 별도 파일로 분리한다.",
+     "winget 패키지 검증/제출 템플릿과 빌드 단계를 되돌린다.",
+     "OpenAI 조직 저장소에서만 CLA assistant를 실행한다.",
+     "온보딩에서 ‘Don't Trust’ 디렉터리 선택을 처리한다.",
+     "`unified_exec_respects_workdir_override`를 무시하도록 변경한다.",
+     "입력보다 출력을 먼저 배치한다.",
+     "internal 용도의 app-server-test-client crate를 추가한다.",
+     "Codex 감지를 수정하고 보안 중심 스모크 테스트를 추가한다.",
+     "TypeScript SDK에서 CLI 환경을 재정의할 수 있게 한다.",
+     "winget 패키지 검증/제출 템플릿과 빌드 단계를 추가한다.",
+     "테스트 시간 제한을 추가한다.",
+     "TUI 알림을 기본 활성화한다.",
+     "Windows에서 sccache를 임시로 제거한다.",
+     "app server에 MCP 도구 호출 시작/완료 이벤트를 추가한다.",
+     "tokenizer를 캐시한다.",
+     "`unified_exec` UI를 개선한다.",
+     "`/new` 실행 시 재개 로그를 추가한다.",
+     "SSE 모킹에서 `mount_sse_once_match`를 `mount_sse_once`로 교체한다.",
+     "테스트 스위트용 공통 헬퍼를 승격한다.",
+     "채팅 완료 테스트에서 공통 네트워크 게이팅 헬퍼를 사용한다.",
+     "이중 자르기를 방지한다.",
+     "unified exec 셸 감지 및 명령 생성 중앙화 변경을 다시 적용한다.",
+     "app-server JSON 스키마 내보내기와 one-of 타입을 소폭 수정한다.",
+     "app-server에 `item/reasoning/delta`, `item/agentMessage/delta`, `item/reasoning/summaryPartAdded` v2 이벤트를 추가한다.",
+     "`apply_patch` 테스트를 통합한다.",
+     "실패한 테스트만 나열한다.",
+     "`exec` 및 TypeScript SDK에 `--add-dir` 지원을 추가한다.",
+     "TypeScript SDK에 AbortSignal 지원을 추가한다.",
+     "기여자 PR 자동 종료 워크플로를 활성화한다.",
+     "기본 yield 시간을 갱신한다.",
+     "오래된 PR을 닫는 워크플로를 추가한다.",
+     "프롬프트 캐싱 테스트를 `test_codex`로 옮긴다.",
+     "unified exec 셸 감지 및 명령 생성 중앙화 변경을 되돌린다.",
+     "전반적인 셸 감지를 개편하고 unified exec 명령 생성을 중앙화한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "GPT-5.1-Codex-Max",
+      "what": "새로운 프런티어 코딩 에이전트 모델을 도입한다. 신뢰성을 높이고 반복 작업을 빠르게 하며, 장시간 실행되는 프로젝트 단위 작업을 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "네이티브 Compaction",
+      "what": "Compaction을 일급 기능으로 지원한다. 이를 통해 장시간 코딩 세션 전반의 성능을 높인다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "도구 출력 토큰 한도 확대",
+      "what": "Codex 모델이 도구 출력 토큰을 최대 10,000개까지 지원한다. `config.toml`의 `tool_output_token_limit`에서 한도를 설정한다.",
+      "steps": [
+       "`config.toml`을 연다.",
+       "`tool_output_token_limit` 값을 설정한다."
+      ],
+      "terminal": {
+       "title": "설정 예시",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "설정 키만 원문에 제시되어 값은 예시다."
+        },
+        {
+         "kind": "hl",
+         "text": "tool_output_token_limit = <원하는 값>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "Windows Agent 모드",
+      "what": "Windows 네이티브 환경에 Agent 모드를 도입한다. Codex는 작업 폴더에서 파일을 읽고 쓰며 명령을 실행하고, 승인 횟수를 줄인다. 실험적인 Windows 샌드박스가 파일 시스템과 네트워크 접근을 제한한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "TUI 및 UX 개선",
+      "what": "Git 저장소가 없을 때 나타나던 유령 스냅샷 알림을 제거한다. Codex Resume에 브랜치를 표시하고 현재 작업 디렉터리로 필터링하며, 이미지 자리표시자와 `/status`의 크레딧 표시를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "슬래시 명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "/status"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.0.46",
