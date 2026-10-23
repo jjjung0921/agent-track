@@ -63963,5 +63963,186 @@
     }
    ]
   }
+ },
+ "claude-code@0.2.37": {
+  "hash": "d69518bb616f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`/release-notes` 명령으로 언제든 릴리스 노트를 확인할 수 있다. `claude config add/remove` 명령은 쉼표나 공백으로 구분한 여러 값을 받는다.",
+   "items": [
+    "새 `/release-notes` 명령으로 언제든 릴리스 노트를 확인한다.",
+    "`claude config add/remove` 명령에서 쉼표나 공백으로 구분해 여러 값을 지정할 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "릴리스 노트 명령",
+     "what": "새 `/release-notes` 명령으로 원하는 때에 릴리스 노트를 확인할 수 있다.",
+     "steps": [
+      "Claude Code에서 `/release-notes`를 입력한다.",
+      "표시되는 릴리스 노트를 확인한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /release-notes"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@0.2.41": {
+  "hash": "fb9ca45f9ea6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`MCP_TIMEOUT` 환경 변수로 MCP 서버 시작 시간 제한을 설정할 수 있다. MCP 서버 시작이 앱 시작을 더 이상 막지 않는다.",
+   "items": [
+    "`MCP_TIMEOUT` 환경 변수로 MCP 서버 시작 시간 제한을 설정할 수 있다.",
+    "MCP 서버 시작이 앱 시작을 더 이상 막지 않는다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.44": {
+  "hash": "2d4e1257257a",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "생각 모드를 사용해 계획을 요청할 수 있다.",
+   "items": [
+    "'think', 'think harder' 또는 'ultrathink'라고 말해 계획을 요청할 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.47": {
+  "hash": "1f9a5e664b21",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Tab으로 파일과 폴더 이름을 자동 완성하고, Shift + Tab으로 파일 편집 자동 수락을 전환한다. 대화 자동 압축으로 대화를 계속 이어갈 수 있으며 `/config`에서 이를 전환한다.",
+   "items": [
+    "Tab을 눌러 파일과 폴더 이름을 자동 완성한다.",
+    "Shift + Tab을 눌러 파일 편집 자동 수락을 전환한다.",
+    "대화 자동 압축으로 대화를 계속 이어갈 수 있으며 `/config`에서 전환할 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.49": {
+  "hash": "9a1462c6d63e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "기존 MCP 서버 범위 이름이 변경된다.",
+   "items": [
+    "기존 'project' 범위는 'local'로, 'global' 범위는 'user'로 이름이 변경된다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.50": {
+  "hash": "93b864fd0e4f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "새 MCP `project` 범위로 `.mcp.json` 파일에 MCP 서버를 추가하고 저장소에 커밋할 수 있다.",
+   "items": [
+    "새 MCP `project` 범위에서 `.mcp.json` 파일에 MCP 서버를 추가하고 저장소에 커밋할 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "MCP project 범위",
+     "what": "새 MCP `project` 범위를 사용하면 `.mcp.json` 파일에 MCP 서버를 추가할 수 있다. 해당 파일을 저장소에 커밋할 수 있다.",
+     "steps": [
+      "`.mcp.json` 파일에 MCP 서버를 추가한다.",
+      "파일을 저장소에 커밋한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@0.2.53": {
+  "hash": "cd05a76b75e6",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "새 웹 가져오기 도구로 붙여 넣은 URL을 Claude가 확인할 수 있다. JPEG 감지 버그를 수정했다.",
+   "items": [
+    "새 웹 가져오기 도구로 붙여 넣은 URL을 Claude가 확인할 수 있다.",
+    "JPEG 감지 버그를 수정했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "웹 가져오기 도구",
+     "what": "새 웹 가져오기 도구를 사용하면 사용자가 붙여 넣은 URL을 Claude가 확인할 수 있다.",
+     "steps": [
+      "URL을 붙여 넣는다.",
+      "Claude가 해당 URL을 확인하도록 한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@0.2.54": {
+  "hash": "97f9ff44944f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "메모리에 빠르게 추가하는 방법과 긴 도구 결과의 전체 출력을 확인하는 방법이 추가된다. MCP SSE 전송을 지원한다.",
+   "items": [
+    "메시지를 '#'으로 시작해 메모리에 빠르게 추가할 수 있다.",
+    "`ctrl+r`을 눌러 긴 도구 결과의 전체 출력을 확인할 수 있다.",
+    "MCP SSE 전송 지원이 추가된다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "MCP SSE 전송 지원",
+     "what": "MCP SSE 전송을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
