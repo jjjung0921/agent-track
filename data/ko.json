@@ -60669,5 +60669,378 @@
    ],
    "features": []
   }
+ },
+ "codex@rust-v0.36.0": {
+  "hash": "2b3e4fa3dc19",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "로그인 및 인증 흐름을 다듬고, 여러 인증 상태 처리 오류를 수정한다.",
+   "items": [
+    "로그인 흐름을 다듬고, ChatGPT 로그인과 API 키 동시 사용 및 잘못된 로그인 URL 문자 문제를 수정한다. 사용자 지정 공급자의 `get_auth_status`도 수정한다.",
+    "`MIN_ANIMATION_HEIGHT`를 변경해 `show_animation` 계산을 바로잡는다.",
+    "온보딩 문구를 조정한다.",
+    "로그인 과정에서 남는 로그인 URL 문자를 수정한다.",
+    "gpt-5 프롬프트에 파일 참조 지침을 추가한다.",
+    "터미널이 작을 때 애니메이션을 생략한다.",
+    "이름을 변경한다.",
+    "참조를 추가한다.",
+    "당분간 `prerelease:true`로 설정한다.",
+    "통합 실행의 경쟁 상태를 수정한다.",
+    "시작 화면을 갱신한다.",
+    "`tracing-subscriber`를 0.3.19에서 0.3.20으로 올린다.",
+    "`slab`을 0.4.10에서 0.4.11로 올린다.",
+    "로그인 흐름을 다듬는다.",
+    "`codex resume`에서 `cd`, `model`, `search` 등의 플래그가 계속 동작하도록 수정한다.",
+    "프리셋 필터를 강화하고 저장소 로드 로그를 조정하며 rollout 프롬프트를 기본 활성화한다.",
+    "재개 화면에 중단 상태를 표시한다.",
+    "애니메이션 프레임을 변경한다.",
+    "초기 MCP 추가 인터페이스를 마련한다.",
+    "gpt-5-code용 프롬프트를 갱신한다.",
+    "헤더에 reasoning 수준을 표시한다.",
+    "`HistoryCells` 처리를 위한 transcript view 리팩터링을 되돌린다.",
+    "대화를 재개할 때 헤더를 표시한다.",
+    "ChatGPT로 로그인할 때 API 키를 덮어쓰도록 한다.",
+    "API 키 인증에서는 모델을 표시하지 않는다.",
+    "사용자 지정 공급자에서 `get_auth_status` 응답을 수정한다.",
+    "모델 계열과 `apply_patch` 간 일관성을 수정한다.",
+    "TUI의 기본 프리셋을 `full-auto`로 수정한다.",
+    "`completed_commands_do_not_persist_sessions` 테스트의 불안정성을 수정한다.",
+    "codespell 검사에서 frames 파일을 제외한다.",
+    "채팅 위젯에 세션 헤더를 추가한다.",
+    "원본 reasoning 이벤트 텍스트 전체를 덧붙인다.",
+    "UI 애니메이션을 추가한다.",
+    "EventMsg의 Optional 처리를 수정한다.",
+    "gpt-5-code의 분기를 하나로 통합한다.",
+    "재개 기능을 활성화한다.",
+    "모델 저장을 갱신한다.",
+    "불안정한 Windows 테스트를 수정한다.",
+    "gpt-5-code 모델 선택기를 수정한다.",
+    "모델 계열별 프롬프트를 추가한다.",
+    "시간 초과를 모델에 전달할 때 명령 출력을 포함한다.",
+    "사용자 기록 메시지의 접두사 너비를 맞춘다.",
+    "모델 업그레이드 안내를 ChatGPT 인증 사용으로 제한한다.",
+    "`output_lines()`가 bool 대신 구조체를 받도록 변경한다.",
+    "대기열 상태 표시 메시지 앞에 간격을 추가한다.",
+    "압축 후 재개와 분기를 처리한다.",
+    "`HistoryCells`를 처리하도록 transcript view를 리팩터링한다.",
+    "gpt-5-code 모델에서 실험적 reasoning summary를 기본 사용한다.",
+    "Azure에서 더 많은 항목 유형의 ID를 보존한다.",
+    "암호화된 cot를 항상 요청한다.",
+    "Review Mode(Core)를 추가한다.",
+    "reasoning effort가 None인 경우의 사소한 문제를 수정한다.",
+    "NUX UI를 수정한다.",
+    "기본 샌드박스를 확장한다.",
+    "Azure Responses API 우회 처리를 추가한다.",
+    "패치로 파싱되는 명령은 실행하지 않도록 한다.",
+    "중단 오류 메시지의 스타일을 갱신한다.",
+    "컨텍스트 압축 기능을 추가한다.",
+    "작성기 하단 안내 앞에 간격을 추가한다.",
+    "드롭다운 제목과 항목 사이에 간격을 추가한다.",
+    "reasoning effort를 선택 사항으로 변경한다.",
+    "`SetDefaultModel` RPC에서 None을 전달하면 값을 지우도록 변경한다.",
+    "셸 설명을 표준화한다.",
+    "모델 저장 문제를 수정한다.",
+    "타이머 지속 시간 형식에 간격을 추가한다.",
+    "코드 리뷰에서 요청된 MCP 문서 변경을 반영한다.",
+    "`cargo nextest`를 실행하는 `just test`를 추가한다.",
+    "JSON-RPC 서버에 `SetDefaultModel`을 추가한다.",
+    "`NewConversationResponse`에 `reasoning_effort`를 포함한다.",
+    "README에 IDE 관련 내용을 추가한다.",
+    "클라이언트 추적 로그에 cf-ray 헤더를 기록한다.",
+    "기본값을 이미지로 설정한다.",
+    "TUI 온보딩을 추가한다.",
+    "사용량 제한 CTA를 표시할 때 `PlanType` enum을 사용한다.",
+    "MCP 서버 사용 문서를 더 상세히 작성한다.",
+    "`handle_sandbox_error`의 시간 초과 처리를 개선한다.",
+    "`clippy::redundant_clone`을 활성화한다.",
+    "gpt-5 모델 계열 전체에 동일한 특성을 지정한다.",
+    "분기할 때 작성기 내용을 지운다.",
+    "`force=true`인 gh 호출에서 `-f` 대신 `-F`를 사용하도록 수정한다.",
+    "Compact와 Turn Context를 rollout 항목에 추가한다.",
+    "통합 실행을 소폭 정리한다.",
+    "인증 흐름을 단순화하고 ChatGPT와 API 키 인증 간 차이를 조정한다.",
+    "`apply-patch` 대체 항목을 정렬하고 회귀 테스트를 추가한다.",
+    "`rust-release.yml`이 `latest-alpha-cli` 브랜치를 갱신하도록 한다.",
+    "`generate_mcp_types.py` 출력이 `codex-rs/mcp-types/src/lib.rs`와 일치하는지 확인하도록 수정한다.",
+    "분기 시 rollout을 파일에서 읽도록 변경한다.",
+    "통합 실행을 추가한다.",
+    "JSON-RPC 서버에 UserInfo 요청을 추가한다.",
+    "`codex-rs/mcp-types/generate_mcp_types.py` 출력이 `codex-rs/mcp-types/src/lib.rs`와 일치하도록 수정한다.",
+    "신뢰 디렉터리 승인 시 projects 테이블이 덮어써지는 문제를 수정한다.",
+    "작업공간 루트를 환경 컨텍스트에 넣는다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "로그인 및 인증 흐름 개선",
+     "what": "로그인 흐름을 다듬고, 동시에 로그인 상태와 API 키를 사용하는 문제 및 잘못된 로그인 URL 문자를 수정한다. 사용자 지정 공급자에서 `get_auth_status`가 올바르게 동작하도록 고친다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.34.0": {
+  "hash": "28b5186dfd85",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "모델 및 reasoning 변경 사항을 저장하며 `user_agent`를 선택 사항으로 바꾼다.",
+   "items": [
+    "모델 및 reasoning 변경 사항을 저장한다.",
+    "`user_agent`를 선택 사항으로 바꾼다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.33.0": {
+  "hash": "1027c3ff01c7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "새 Markdown 렌더러를 시험할 수 있으며, 입력과 프로토콜 처리도 일부 개선한다.",
+   "items": [
+    "새 Markdown 렌더러를 사용해 볼 수 있다.",
+    "`alt+delete`가 커서 오른쪽 단어를 삭제한다(`delete_forward_word`).",
+    "rollout 항목을 도입한다.",
+    "MCP 서버로 사용될 때 User-Agent 접미사를 설정한다.",
+    "불필요한 `#[allow(dead_code)]` 주석을 제거한다.",
+    "초기 기록을 프로토콜로 옮긴다.",
+    "`UserMessageEvent`에 이미지를 추가한다.",
+    "빈 `chatwidget_stream_tests.rs` 파일을 제거한다.",
+    "`codex exec` 문서의 제목 오타를 수정한다.",
+    "`docs/getting-started.md`에서 깨진 `prompting_guide.md` 링크를 제거한다.",
+    "인증 관련 테스트 두 개의 복원력을 개선한다.",
+    "`tui_markdown`을 자체 Markdown 렌더러로 교체한다.",
+    "POSIX 통합 및 스냅샷 세션 변경을 되돌린다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.32.0": {
+  "hash": "db6870381386",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "롤아웃 응답에 경로를 포함하고 관련 기반 기능을 추가한다. TUI 편집, `apply_patch` 호환성, MCP와 프로토콜 형식도 개선한다.",
+   "items": [
+    "MCP 서버로 동작할 때 User-Agent 접미사를 추가하고 안정성·호환성을 일부 개선한다.",
+    "`apply_patch`의 오픈소스 모델 호환 범위를 넓힌다.",
+    "롤아웃 기반 작업을 시작하고 응답에 `rollout_path`를 포함한다.",
+    "TUI에서 Alt+Delete로 커서 오른쪽의 다음 단어를 삭제한다.",
+    "`ArchiveConversation` 요청과 일부 내보내기 및 TypeScript 타입 개선을 추가한다.",
+    "`nextest`로 테스트 속도를 높이고 `shear`를 추가하며 macOS 권한을 일부 조정한다.",
+    "설정에서 셸 따옴표 처리 설명을 명확히 한다.",
+    "MCP 서버로 사용될 때 User-Agent 접미사를 설정한다.",
+    "Alt+Delete(`delete_forward_word`)로 커서 오른쪽 단어를 삭제한다.",
+    "reasoning 항목 ID를 보내지 않는다.",
+    "`config.responses_originator_header_internal_override`를 `CODEX_INTERNAL_ORIGINATOR_OVERRIDE_ENV_VAR`로 바꾼다.",
+    "빠른 실패 동작을 하지 않도록 수정한다.",
+    "롤아웃 항목을 도입한다.",
+    "`apply_patch`에서 예상 줄을 찾지 못했을 때의 메시지를 다듬는다.",
+    "불필요한 `#[allow(dead_code)]` 주석을 제거한다.",
+    "`ClientRequest`에 `ArchiveConversation`을 추가한다.",
+    "`NewConversationResponse`에 `rollout_path`를 포함한다.",
+    "CI에서 `cargo shear`를 실행한다.",
+    "`com.apple.system.opendirectoryd.libinfo`에 `mach-lookup`을 허용한다.",
+    "CI 빌드 속도를 높이기 위해 `cargo nextest` 전환을 시도한다.",
+    "`LoginChatGptCompleteNotification`을 `protocol-ts`에 명시적으로 나열할 필요가 없도록 수정한다.",
+    "`conversation_manager`에서 `InitialHistory`를 다시 내보낸다.",
+    "TypeScript 타입을 추가 생성하고 `ConversationSummary`에 대화 ID를 반환한다.",
+    "POSIX 통합과 스냅샷 세션을 추가한다.",
+    "config 문서에서 셸의 따옴표 처리 방식을 더 명확히 설명한다.",
+    "`openai/gpt-oss-*`처럼 이름 규칙이 다른 제공자의 gpt-oss 모델에 `apply_patch` 도구를 포함한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.31.0": {
+  "hash": "502f674723be",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MCP 서버별 시작 제한 시간과 초기화 오류 처리를 개선한다. macOS 붙여넣기, 세션 정보 표시, 프롬프트 편집 기능도 손봤다.",
+   "items": [
+    "MCP 서버 선언에 `startup_timeout_ms` 옵션 지원을 추가한다. 특히 Windows 사용자의 요청이 많았던 기능이다.",
+    "MCP 시작의 오류 허용성을 높인다.",
+    "macOS에서 Finder 이미지 붙여넣기에 `ctrl+v`를 사용할 때의 문제를 수정한다.",
+    "대기 중인 OAuth 로그인을 취소해 localhost 포트를 반환하는 로직을 추가한다.",
+    "생각 중 타이머에 분과 시간을 표시한다.",
+    "`/status` 출력에 CLI 버전을 추가한다.",
+    "TOML 파일의 모델 계열 설정 재정의를 적용한다.",
+    "GitHub 릴리스 생성 스크립트를 Python으로 다시 작성한다.",
+    "릴리스 생성 시 임시 디렉터리에 새 복제본을 만든다.",
+    "로컬 복제본 작업의 오버헤드를 피하기 위해 `git` 대신 `gh`를 사용한다.",
+    "`create_github_release`가 `--publish-alpha` 또는 `--publish-release`를 받도록 수정한다.",
+    "토큰 사용량과 컨텍스트 정보를 세션 수준으로 옮긴다.",
+    "`ctrl+c`로 비어 있지 않은 프롬프트를 지운다.",
+    "원시 UUID 대신 ConversationId를 사용한다.",
+    "README의 “Memory with AGENTS.md” 절 링크를 수정한다.",
+    "MCP 서버별 시작 시간 제한 기능을 추가한다.",
+    "`insta` 의존성을 1.43.1에서 1.43.2로 올린다.",
+    "`tree-sitter` 의존성을 0.25.8에서 0.25.9로 올린다.",
+    "`clap` 의존성을 4.5.45에서 4.5.47로 올린다.",
+    "`image` 의존성을 0.25.6에서 0.25.8로 올린다.",
+    "MCP 서버 초기화 오류 처리를 개선한다.",
+    "붙여넣기에서 파일 목록을 확인하도록 해 `ctrl+v` 동작을 수정한다.",
+    "`actions/setup-node`를 v5로 올린다.",
+    "MCP `getUserAgent` 메서드를 추가한다.",
+    "제안된 명령 미리보기를 강조한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.30.0": {
+  "hash": "6e046510f734",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프로젝트 `.env` 파일을 자동으로 읽지 않도록 바뀌며, OAuth 로그인 취소와 세션 재개 기능이 개선된다. VS Code 권장 확장 목록과 MCP·TUI 동작도 다듬었다.",
+   "items": [
+    "호환성을 깨는 변경: 프로젝트 `.env` 파일을 자동으로 불러오지 않는다.",
+    "요청을 저장하지 않으며, 대기 중인 OAuth 로그인을 취소해 포트를 반환한다.",
+    "롤아웃 정책, 공용 HTTP 클라이언트, 남은 컨텍스트 크기 계산, reasoning 요약 처리와 서버 알림 직렬화를 개선한다. 샌드박스 셸 도구 설명도 바로잡는다.",
+    "큰 명령의 승인 창, 모달 중 상태 타이머, 페이지 스크롤, Bash 구문 강조, macOS 키 기호, 0 높이 패닉, 숨김 디렉터리의 `@` 파일 검색을 개선한다.",
+    "VS Code 권장 확장, `AGENTS.md` 안내, API 키 지침과 CI를 개선한다.",
+    "`uuid`와 `wiremock` 의존성을 올린다.",
+    "Windows Full Access 모드에서 더 이상 승인을 요청하지 않는다.",
+    "재개가 완료될 때까지 재개 기능을 숨긴다.",
+    "대기 중인 OAuth 로그인을 취소해 localhost 포트를 반환하는 로직을 추가한다.",
+    "요청을 저장하지 않는다.",
+    "`ServerNotification` 직렬화를 개선한다.",
+    "`AttachImage` TUI 이벤트를 제거한다.",
+    "남은 컨텍스트 크기를 올바르게 계산한다.",
+    "UNIX에서 ZSH를 더 잘 탐지한다.",
+    "MCP에 세션 재개와 기록 목록 기능을 추가한다.",
+    "호환성을 깨는 변경: 프로젝트 `.env` 파일을 불러오지 않는다.",
+    "`rust-lang.rust-analyzer`와 `vadimcn.vscode-lldb`를 권장 확장 목록에 추가한다.",
+    "모델 계열 설정 형식으로 reasoning 요약 설정을 옮긴다.",
+    "`serde_as` 주석을 수정하고 테스트로 확인한다.",
+    "페이지가 아래쪽에 고정되도록 수정한다.",
+    "`ExecCommandOutputDeltaEvent.chunk`에 더 효율적인 와이어 형식을 사용한다.",
+    "요청 전 콜백을 맵에 등록해 경쟁 상태를 수정한다.",
+    "macOS 키 힌트에 `⌥⇧⌃` 기호를 사용한다.",
+    "Bash 줄에 구문 강조를 적용한다.",
+    "reasoning 요약 처리를 개선한다.",
+    "세션 재개 선택기(`--resume`)와 빠른 재개(`--continue`)를 추가한다.",
+    "`/mcp` 출력을 갱신한다.",
+    "실행 영역 높이가 0일 때 패닉을 방지한다.",
+    "codex-rs의 테스트 승인 안내를 `AGENTS.md`에서 명확히 한다.",
+    "모달이 열린 동안 상태 타이머를 멈춘다.",
+    "실패하는 CI를 수정한다.",
+    "MCP 샌드박스 호출을 추가한다.",
+    "사용자 메시지를 TUI로 돌려보낼 때 범주별로 나눈다.",
+    "기록이 있는 세션을 재개할 때 응답 항목에서 이벤트 메시지를 재생한다.",
+    "`AGENTS.md` 파일을 읽도록 안내한다.",
+    "프롬프트에서 키워드의 굵은 표시를 제거한다.",
+    "`use_experimental_reasoning_summary` TOML 설정 키를 문서화한다.",
+    "인증 URL 매개변수에 originator를 포함한다.",
+    "롤아웃 정책을 도입한다.",
+    "API 키 권한 안내를 갱신한다.",
+    "공통 HTTP 클라이언트 생성 방식을 추가한다.",
+    "MCP 서버의 설정 읽기 인터페이스를 갱신한다.",
+    "큰 명령의 승인 창을 수정한다.",
+    "샌드박스 셸 도구 설명에서 어디서나 읽기가 허용됨을 바로잡는다.",
+    "verbosity 설정을 정리한다.",
+    "샌드박스가 없는 플랫폼에서 `DangerFullAccess` 패치를 자동 승인한다.",
+    "`.github`, `.gitlab` 등 지정된 숨김 디렉터리를 `@` 파일 검색에 포함한다.",
+    "`wiremock` 의존성을 0.6.4에서 0.6.5로 올린다.",
+    "`uuid` 의존성을 1.17.0에서 1.18.0으로 올린다."
+   ],
+   "features": [
+    {
+     "index": 4,
+     "title": "VS Code 개발 환경 안내",
+     "what": "VS Code 권장 확장 목록과 `AGENTS.md` 안내를 보강한다. API 키 안내와 CI도 갱신한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 16,
+     "title": "Rust 및 LLDB 확장 권장",
+     "what": "VS Code 권장 확장 목록에 `rust-lang.rust-analyzer`와 `vadimcn.vscode-lldb`를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.29.0": {
+  "hash": "e045926f11b4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "검색 도구와 기록 처리, 플랫폼 지원 및 인증·실행 안정성을 개선한다.",
+   "items": [
+    "새 검색 도구를 사용한다.",
+    "rollout 모듈을 분리하고 목록 API와 파일 헤드를 반환하도록 한다.",
+    "`arboard` 의존성을 조건부로 적용해 Android/Termux를 지원한다.",
+    "`std::fs` API를 사용해 안정적인 파일 잠금을 추가한다.",
+    "`CodexAuth`와 `AuthManager`를 core 크레이트로 옮긴다.",
+    "API 키 사용 시 rate-limit 오류 처리를 복구한다.",
+    "`exec`와 `apply_patch`에서 `cd foo && ...` 형식을 파싱한다.",
+    "줄과 span 구성에 `ratatui Stylize` 사용을 우선한다.",
+    "TUI의 간헐적 깜박임을 수정한다.",
+    "`@` 검색 결과를 기다리는 동안 로딩 상태를 표시한다.",
+    "`empty_mcp_output`의 MCP 문서 하이퍼링크를 수정한다.",
+    "npm 모듈에 arm64 Windows 실행 파일을 포함한다.",
+    "기록 로딩을 통합한다.",
+    "실험적 reasoning summary를 사용한다.",
+    "gpt-oss 호환성을 개선한다.",
+    "`apply-patch`의 lark 문법을 수정한다.",
+    "문서의 링크를 `https://agents.md/`로 갱신한다.",
+    "`config.md`의 오타를 수정한다.",
+    "codex-rs의 `thiserror`를 2.0.12에서 2.0.16으로 올린다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.28.0": {
+  "hash": "affbe00c2a3c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "이 릴리스는 Windows ARM 릴리스 빌드와 TUI 입력·출력 문제를 수정한다. 설정 문서와 메시지 표시도 다듬었다.",
+   "items": [
+    "릴리스용 Windows 11 ARM 이미지에 zstd 설치를 추가한다.",
+    "스트리밍 에이전트 메시지의 불필요한 빈 줄을 수정한다.",
+    "설정 참조 표를 수정한다.",
+    "Windows ARM 빌드에 Windows 11 ARM을 사용하도록 수정한다.",
+    "사용자가 모델을 변경할 때 로그를 남긴다.",
+    "빈 입력에서 Enter를 눌러 빈 메시지가 대기열에 들어가는 문제를 수정한다.",
+    "`AGENTS.md`가 있으면 `/init` 제안을 숨긴다.",
+    "비활성화된 명령 안내의 불필요한 따옴표를 제거한다.",
+    "`regex-lite` 의존성을 0.1.6에서 0.1.7로 올린다.",
+    "문서 개편에 맞춰 PR 템플릿 링크를 수정한다.",
+    "TUI 입력 지연을 수정한다.",
+    "검토 요청된 PR의 릴리스 빌드에서 Windows 캐시를 채우도록 시도한다.",
+    "메시지 스타일을 개편한다.",
+    "`get_cursor_position` 오류를 처리한다."
+   ],
+   "features": []
+  }
  }
 }
