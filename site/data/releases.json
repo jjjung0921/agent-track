@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T06:34:05.065Z",
+ "generatedAt": "2026-10-23T06:36:57.369Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -142680,7 +142680,21 @@
     }
    ],
    "hash": "b83914f1e806",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "문서 안내와 동시성 처리, CI 빌드 관련 수정을 포함한다.",
+    "items": [
+     "agents.md에서 `just fix -p`를 제안한다.",
+     "MCP 서버에서 뮤텍스를 더 일찍 해제한다.",
+     "`tx_approve.send()` 호출 전에 뮤텍스를 해제한다.",
+     "무제한 채널로 전환한다.",
+     "불필요한 `flush()` 호출을 제거한다.",
+     "CI에서 `cargo clippy`에 `--profile`을 지정한다.",
+     "주석 속 `brew install codex`가 실행되지 않도록 수정한다.",
+     "CI 릴리스 빌드를 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.26.0",
@@ -142910,7 +142924,135 @@
     }
    ],
    "hash": "88c8d999a404",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "사용자 지정 `/prompts`, 로컬 이미지 보기 도구, MCP 설정 조회 엔드포인트를 추가한다.",
+    "items": [
+     "`~/.codex/prompts`에서 사용자 지정 `/prompts`를 불러온다.",
+     "Codex 에이전트가 로컬 이미지를 직접 볼 수 있는 새로운 ‘View Image’ 도구를 추가한다.",
+     "확정된 설정을 확인하는 MCP `GetConfig` 엔드포인트를 추가한다.",
+     "Windows에서 이미지 붙여넣기를 수정하고 연속 붙여넣기 처리를 개선한다.",
+     "작업 중에는 슬래시 명령을 실행하지 못하게 한다.",
+     "일시 중지(`^Z`) 후 커서 위치를 수정한다.",
+     "중복된 줄과 끝나지 않는 목록 표식을 줄인다.",
+     "README와 문서를 크게 재구성하고 탐색을 개선한다.",
+     "CHANGELOG가 Releases 페이지를 가리키도록 변경한다.",
+     "VS Code Extension용 이슈 템플릿을 추가한다.",
+     "CI 릴리스 빌드를 수정한다.",
+     "수신 `incoming_tx`를 복제할 때 발생할 수 있는 교착 상태를 수정한다.",
+     "커밋 후 피드백을 개선한다.",
+     "사용자 지정 `/prompts`를 추가한다.",
+     "환영 메시지에서 슬래시 명령을 굵게 표시한다.",
+     "OAuth 성공 화면에서 ‘Codex CLI’ 대신 ‘Codex’를 표시한다.",
+     "VS Code Extension용 이슈 템플릿을 추가한다.",
+     "연속 붙여넣기 경계 사례를 수정한다.",
+     "compact의 경쟁 상태를 수정한다.",
+     "테스트 출력에 MCP 서버의 stderr를 `eprintln!`로 출력한다.",
+     "`test_shell_command_approval_triggers_elicitation`의 불안정한 동작을 더 쉽게 디버깅하도록 개선한다.",
+     "clippy에서 `uninlined_format_args`를 요구한다.",
+     "작업 중 일부 슬래시 명령을 허용하지 않는다.",
+     "‘View Image’ 도구를 추가한다.",
+     "일시 중지 후 커서 위치를 수정한다.",
+     "대부분의 중복된 줄과 끝나지 않는 목록 표식을 수정한다.",
+     "CHANGELOG가 Releases 페이지를 가리키도록 변경한다.",
+     "새 위치를 연결하도록 `codex-rs/config.md`를 다시 추가한다.",
+     "README와 문서를 재구성한다.",
+     "UI에 보내는 변경분 수를 당분간 제한한다.",
+     "MCP 서버에 `GetConfig` 엔드포인트를 추가한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "사용자 지정 프롬프트",
+      "what": "`~/.codex/prompts`에서 사용자 지정 `/prompts`를 불러온다.",
+      "steps": [],
+      "terminal": {
+       "title": "사용자 지정 프롬프트 경로",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "`~/.codex/prompts`에 저장된 프롬프트를 불러온다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "로컬 이미지 보기",
+      "what": "Codex 에이전트가 로컬 이미지를 직접 볼 수 있는 ‘View Image’ 도구를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "MCP 설정 조회",
+      "what": "확정된 설정을 확인할 수 있는 MCP `GetConfig` 엔드포인트를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 9,
+      "title": "VS Code Extension 이슈 템플릿",
+      "what": "VS Code Extension용 이슈 템플릿을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 16,
+      "title": "VS Code Extension 이슈 템플릿",
+      "what": "VS Code Extension용 이슈 템플릿을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.94",
@@ -143128,7 +143270,107 @@
     }
    ],
    "hash": "4b2479b94192",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "장기 실행 서버에서 대화를 수동으로 정리하는 API와 transcript·diff 보기의 마우스 스크롤을 추가한다. 작업 시작 이벤트에 컨텍스트 창 정보를 포함하며, 모델은 턴마다 달라질 수 있다.",
+    "items": [
+     "장기 실행 서버에서 수동 정리에 사용할 `remove_conversation` API를 추가한다.",
+     "transcript와 diff 보기에서 마우스 휠로 대체 스크롤하는 기능을 추가한다.",
+     "`Alt+Ctrl+H`로 이전 단어를 삭제한다. `Alt+Backspace`와 동작을 맞췄다.",
+     "`task_started` 이벤트에 컨텍스트 창 정보를 포함한다. 모델은 턴마다 달라질 수 있다.",
+     "긴 transcript의 응답성을 유지하도록 줄바꿈 결과를 캐시한다.",
+     "턴 실행 중 transcript 줄이 diff에 추가되는 문제를 수정한다.",
+     "이모지를 올바르게 간격 조정해 렌더링하고 ⌨️ 이모지 변형을 추가한다.",
+     "메시지가 대기열에 있을 때 ESC를 누르면 작성기로 돌려보낸다.",
+     "멀티바이트 텍스트 근처의 플레이스홀더를 백스페이스로 지울 때 발생하는 충돌을 방지한다.",
+     "`apply_patch`에서 Exec 델타를 보내지 않는다.",
+     "`git_diff_against_sha`를 더 견고하게 만들었다. 사용자 지정 드라이버를 무시하고 대시로 시작하는 파일을 처리한다.",
+     "대화형 실행 시 테스트 부하를 줄인다.",
+     "기록에서 중복된 assistant 메시지를 제거한다.",
+     "Codex GitHub Action을 당분간 제거한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "대화 수동 정리 API",
+      "what": "장기 실행 서버에서 대화를 수동으로 정리하는 `remove_conversation` API를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "transcript와 diff의 마우스 휠 스크롤",
+      "what": "transcript와 diff 보기에서 마우스 휠을 이용한 대체 스크롤을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "이전 단어 삭제 단축키",
+      "what": "`Alt+Ctrl+H`로 이전 단어를 삭제한다. 동작은 `Alt+Backspace`와 맞춘다.",
+      "steps": [
+       "`Alt+Ctrl+H`를 눌러 이전 단어를 삭제한다."
+      ],
+      "terminal": {
+       "title": "단축키",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "이전 단어 삭제"
+        },
+        {
+         "kind": "cmd",
+         "text": "Alt+Ctrl+H"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "작업 시작 이벤트의 컨텍스트 창 정보",
+      "what": "`task_started` 이벤트에 컨텍스트 창 정보를 포함한다. 모델은 턴마다 달라질 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2025-08-27",
@@ -143377,7 +143619,145 @@
     }
    ],
    "hash": "595ef29247f6",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "메시지 대기열, 이미지 붙여넣기·드래그 앤 드롭, 스크롤 가능한 대화 기록 등 CLI 상호작용 기능을 추가한다. `--search` 옵션을 명시하면 웹 검색을 사용할 수 있다.",
+    "items": [
+     "메시지 대기열을 추가한다.",
+     "이미지 파일 복사·붙여넣기와 드래그 앤 드롭을 지원한다.",
+     "스크롤할 수 있는 대화 기록 모드를 추가한다. `Ctrl+T`로 사용한다.",
+     "이전 메시지에서 대화를 편집하거나 재개하는 기능을 추가한다. `esc-esc`를 사용한다.",
+     "`--search` 옵션을 명시하면 웹 검색을 사용할 수 있다.",
+     "기본적으로 CoT를 숨기고 상태 표시기에 헤더를 표시한다.",
+     "diff 출력을 pager에 표시하고 hunk 헤더를 추가한다.",
+     "명령 승인 UI를 간소화한다.",
+     "Esc와 Ctrl+C의 중단 처리를 통합한다.",
+     "Windows PowerShell에서 붙여넣기 문제를 수정한다.",
+     "장시간 실행되는 셸 명령을 지원한다: `exec_command`와 `write_stdin`.",
+     "`apply_patch`의 안정성을 개선한다.",
+     "재시도 횟수에 상한을 둔다.",
+     "MCP 도구를 결정적으로 정렬해 캐시 적중률을 개선한다.",
+     "GPT-5용 `model_verbosity` 설정을 추가한다.",
+     "Git 루트까지의 모든 `AGENTS.md` 파일을 읽는다.",
+     "worktree에서 Git 루트 확인을 수정한다.",
+     "오류 메시지와 처리를 개선한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "메시지 대기열",
+      "what": "메시지 대기열을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "이미지 파일 붙여넣기와 드래그 앤 드롭",
+      "what": "이미지 파일을 복사해 붙여넣거나 드래그 앤 드롭할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "대화 기록 모드",
+      "what": "`Ctrl+T`로 대화 기록 모드를 열 수 있다. 대화 기록을 스크롤할 수 있다.",
+      "steps": [
+       "`Ctrl+T`를 눌러 대화 기록 모드를 연다.",
+       "대화 기록을 스크롤한다."
+      ],
+      "terminal": {
+       "title": "단축키",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "대화 기록 모드 전환"
+        },
+        {
+         "kind": "cmd",
+         "text": "Ctrl+T"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "이전 대화 편집 또는 재개",
+      "what": "이전 메시지에서 대화를 편집하거나 재개할 수 있다. `esc-esc` 입력으로 이 기능을 사용한다.",
+      "steps": [
+       "`esc-esc`를 입력한다.",
+       "이전 메시지에서 대화를 편집하거나 재개한다."
+      ],
+      "terminal": {
+       "title": "세션 입력",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> esc-esc"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "명시적 옵션을 통한 웹 검색",
+      "what": "`--search` 옵션을 명시할 때 웹 검색을 사용할 수 있다.",
+      "steps": [
+       "`--search` 옵션을 명시한다.",
+       "웹 검색을 사용한다."
+      ],
+      "terminal": {
+       "title": "옵션",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "웹 검색을 사용할 때 명시하는 옵션: `--search`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.90",
@@ -143736,7 +144116,33 @@
     }
    ],
    "hash": "f1238c042f72",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "새로운 반짝이는 스피너를 추가한다.",
+    "items": [
+     "@멘션에서 경로에 공백이 있는 파일을 지원한다.",
+     "새로운 반짝이는 스피너를 추가한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "반짝이는 스피너",
+      "what": "새로운 반짝이는 스피너를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.82",
@@ -143783,7 +144189,53 @@
     }
    ],
    "hash": "22dbcc90581c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SDK에 요청 취소와 사용자 지정 경로 검색 옵션을 추가하고 슬래시 명령 처리를 개선한다.",
+    "items": [
+     "SDK에 요청 취소 지원을 추가한다.",
+     "SDK에 사용자 지정 경로를 검색하는 `additionalDirectories` 옵션을 추가하고 슬래시 명령 처리를 개선한다.",
+     "`.claude/settings.json` 파일의 잘못된 필드를 검증으로 차단한다.",
+     "MCP 도구 이름의 일관성을 개선한다.",
+     "Claude가 큰 파일을 자동으로 읽으려 할 때 발생하는 Bash 충돌을 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "SDK 요청 취소",
+      "what": "SDK에 요청 취소 지원을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "SDK 사용자 지정 경로 검색",
+      "what": "SDK에 사용자 지정 경로를 검색하는 `additionalDirectories` 옵션을 추가한다. 슬래시 명령 처리도 개선한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.22.0",
@@ -143821,7 +144273,15 @@
     }
    ],
    "hash": "c9638d58fa50",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "새로운 교육용 출력 스타일인 Explanatory와 Learning을 포함해 출력 스타일을 공개한다.",
+    "items": [
+     "Explanatory와 Learning이라는 내장 교육용 출력 스타일을 포함해 출력 스타일을 공개한다.",
+     "에이전트 파일을 파싱할 수 없을 때 사용자 지정 에이전트가 로드되지 않는 문제를 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.80",
@@ -143840,7 +144300,14 @@
     }
    ],
    "hash": "7a72f1a032dd",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "사용자 지정 서브에이전트 색상의 텍스트 대비와 스피너 렌더링 문제를 개선한다.",
+    "items": [
+     "사용자 지정 서브에이전트 색상의 텍스트 대비와 스피너 렌더링 문제를 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.77",
