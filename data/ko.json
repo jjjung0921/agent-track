@@ -57730,5 +57730,1050 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.309": {
+  "hash": "09b2ba47b31b",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "macOS·Linux 샌드박스와 Bash 권한 검사, 세션·훅 처리의 여러 문제를 수정한다. Desktop 및 VS Code에서는 우회 권한 모드의 위험 명령 처리를 바꾸고, VS Code 채팅 패널과 인증서 오류 안내도 개선한다.",
+   "items": [
+    "macOS와 Linux에서 샌드박스 Bash 명령을 실행하기 전에 셸 시작 파일이 샌드박스 밖에서 실행되던 문제를 수정한다.",
+    "심볼릭 링크를 거친 폴더의 실제 경로에 macOS 샌드박스 `denyWrite` 글롭 패턴이 적용되지 않던 문제를 수정한다.",
+    "샌드박스 명령과 자동 승인 편집이 `--mcp-config`로 지정한 MCP 설정 파일을 수정할 수 있던 문제를 수정한다.",
+    "print 및 SDK 세션에서 권한 프롬프트 후 비활성화된 MCP 서버가 다시 연결되던 문제를 수정한다.",
+    "리다이렉션 열기에 실패할 수 있는 명령이 설정한 변수를 Bash 권한 검사가 신뢰하던 문제를 수정한다.",
+    "`cd`를 감싸거나 앞에 붙여 디렉터리 변경 후 git을 실행하는 일부 복합 명령에서 Bash 권한 확인 프롬프트가 누락되던 문제를 수정한다.",
+    "일부 서브셸을 포함한 명령에서 `Edit(path)` 거부 규칙이 해당 경로로의 Bash 리다이렉션을 막지 못하던 문제를 수정한다.",
+    "worktree 격리 세션에서 격리 가드가 거부해야 할 일부 로캘 접두 명령을 허용하던 문제를 수정한다.",
+    "zsh worktree 격리 세션에서 격리 가드가 거부해야 할 일부 산술 명령을 허용하던 문제를 수정한다.",
+    "Claude Code가 만든 worktree와 브랜치 체크아웃에서 다른 git 작업과 마찬가지로 git replace refs를 무시하도록 수정한다.",
+    "설정 디렉터리가 심볼릭 링크를 통해 접근될 때 프로필 저장소 쓰기 보호가 적용되지 않던 문제를 수정한다.",
+    "매우 큰 중첩 `CLAUDE.md`를 읽은 뒤 세션이 반복 압축되던 문제를 수정한다. 크기 제한을 넘는 중첩 파일은 이제 시작 부분만 불러온다.",
+    "응답 시작 전에 누른 ctrl+enter가 메시지를 대기열에만 넣거나, 훅 실행 중 누르면 대기 메시지를 남긴 채 프롬프트 훅을 다시 시작하던 문제를 수정한다.",
+    "`!` 모드의 셸에서 키 바인딩된 슬래시 명령이 실행되던 문제를 수정한다.",
+    "ctrl+o에서 전달 대기 중인 다른 에이전트 및 세션의 메시지가 보이지 않던 문제를 수정한다. 이제 대화 기록 아래에 전체 내용과 대기 표시가 나온다.",
+    "긴 도구 출력 미리보기가 이모지 중간에서 잘려 `jq`로 파싱할 수 없는 세션 기록을 만들던 문제를 수정한다.",
+    "부모의 `/proc`을 공유하는 Linux 샌드박스에서 PDF 페이지 범위에 대해 Read가 파일 없음 오류를 내던 문제를 수정한다.",
+    "연결이 새로 고쳐질 때 Claude Desktop 호스팅 세션의 메시지가 간혹 유실되던 문제를 수정한다.",
+    "같은 컴퓨터의 터미널이 다른 계정이나 조직에 로그인되어 있으면 Claude 데스크톱 앱의 Claude Code 세션에서 기능이 누락되던 문제를 수정한다.",
+    "git 저장소가 아닌 폴더에서 `claude remote-control` 상태 표시줄이 브랜치를 `HEAD`로 표시하던 문제를 수정한다.",
+    "분할 창 에이전트 팀원이 리더 명령줄의 도구 거부 및 `--tools` 규칙을 상속하지 않던 문제를 수정한다.",
+    "`/rename`으로 이름을 바꾼 세션이 VS Code 창을 다시 불러오거나 비대화형 `--resume`을 실행하면 다른 세션에 생성 이름으로 보이던 문제를 수정한다.",
+    "`/code-review --fix`, 하위 에이전트 또는 셸 명령이 체크포인트 파일을 바꾼 차례에 `/rewind` 목록이 코드 변경 없다고 표시하던 문제를 수정한다.",
+    "`/privacy-settings`가 오래된 “AI 모델 개선에 도움” 값을 표시하던 문제를 수정한다. 설정을 가져올 수 없을 때도 이제 이를 알린다.",
+    "조직에서 피드백을 받지 않을 때 “나중에 다시 시도”라고 표시하던 문제를 수정한다. 이제 서버 사유와 버그 신고 위치를 보여준다.",
+    "크기가 너무 큰 `/feedback` 보고서가 실패하는 대신 대화 기록 없이 다시 전송되도록 수정한다.",
+    "이름이 같은 다른 스킬이 있어 `--add-dir` 폴더의 스킬을 사용할 수 없던 문제를 수정한다. 이제 `<folder>:<name>`으로 제공한다.",
+    "셸에서 파일을 변경한 중첩 패키지의 자체 스킬을 `/verify`와 `/code-review`가 찾지 못하던 문제를 수정한다.",
+    "`/claude-api` 스킬이 `ant beta:worker poll --on-work`가 명령에 추적 컨텍스트를 전달한다고 잘못 설명하던 내용을 수정한다.",
+    "`/claude-api` 스킬의 C# 추적 설정에서 클라우드 플랫폼 클라이언트의 스팬이 누락되던 문제를 수정한다.",
+    "`/claude-api` 스킬이 AWS의 Claude Platform 요청 API 스팬은 호출자 추적에 연결될 수 없다고 잘못 설명하던 내용을 수정한다.",
+    "PowerShell 훅 프로그램이 종료 코드 2로 끝나도 차단하지 않던 문제와, Git for Windows가 없을 때 Windows `PreToolUse` 및 `PermissionRequest` 훅이 허용 처리되던 문제를 수정한다.",
+    "별칭(예: `haiku`)으로 모델을 지정한 모드의 `turn.step` 훅이 매 요청 모델 오류를 내던 문제를 수정한다. 이제 별칭을 모델로 해석한다.",
+    "디스크 읽기 오류 후 claude.ai에서 동기화한 플러그인과 스킬이 세션 중간에 제거되던 문제를 수정한다.",
+    "일부 축소 스크립트가 있는 페이지나 Claude가 먼저 읽지 못한 아티팩트 등 일반 페이지의 게시 및 업데이트가 거부되던 문제를 수정한다.",
+    "대화가 압축된 차례가 끝날 때까지 아티팩트 업데이트마다 권한을 묻던 문제를 수정한다.",
+    "`ANTHROPIC_BEDROCK_BASE_URL`이 기본 `bedrock-runtime.<region>.amazonaws.com` 엔드포인트일 때 Amazon Bedrock에서 세밀한 도구 스트리밍이 꺼져 있던 문제를 수정한다.",
+    "keepalive ping만 보내는 게이트웨이 뒤에서 “API 응답 대기” 안내가 깜박이던 문제를 수정한다. Anthropic 백엔드 외 경로는 이제 45초 대기한다.",
+    "PR, 이슈, 댓글에서 역할 이름과 자리표시자를 멘션으로 작성해 관계없는 GitHub 사용자를 알리던 문제를 수정한다.",
+    "백그라운드 명령이 세션보다 오래 실행될 때 Linux 샌드박스 쓰기 거부가 해제되던 문제를 수정한다.",
+    "현재 디렉터리를 대상으로 추가 인수가 붙은 `Set-Location` 또는 `cd` 명령을 Windows PowerShell 권한 검사가 자동 승인하던 문제를 수정한다. 이제 승인을 요청한다.",
+    "Xcode나 Command Line Tools가 없는 Mac에서 Claude Code를 시작할 때마다 “명령줄 개발자 도구 설치” 대화상자가 열리던 문제를 수정한다.",
+    "첫 프롬프트(예: `/code-review`)가 하위 에이전트에서 진행 중일 때 `--startup-timeout-min`이 세션을 종료하던 문제를 수정한다. 멈춘 프로세스는 계속 종료한다.",
+    "Windows에서 Claude Code가 실행하는 여러 git 명령을 빠르게 했다. 모든 플랫폼에서 git 언어 설정과 관계없이 오류를 영어로 표시한다.",
+    "훅 모듈이 너무 깊이 중첩되어 불러올 수 없을 때 스택 오버플로만 표시하던 오류에 파일 이름을 포함한다.",
+    "디스크가 가득 차 Bash 명령이 중단되면 이를 알리고 공간을 비울 폴더를 표시한다. 임시 볼륨이 가득 찬 상태로 시작할 때도 원시 ENOSPC 대신 명확한 메시지를 표시한다.",
+    "OpenTelemetry 추가 요청 시 `/claude-api` 스킬이 SDK 추적과 함께 API 추적도 제안한다.",
+    "기능을 지원하지 않는다고 말하기 전에 `/claude-api` 스킬이 실제 문서를 확인한다.",
+    "새 runner로 이동한 세션에서 중단된 도구 호출을 Claude가 결과 불명으로 표시해 볼 수 있게 한다.",
+    "내장 dataviz 스킬이 텍스트 대비 측정에 APCA를 허용한다. AA 적합성이 필요한 경우 WCAG 2 비율을 유지하고, 팔레트 검증 스크립트에 `apca(text, background)`를 추가하며 색상 차트 채움 안의 레이블에 흰색 또는 거의 검은색 중 무엇이 적절한지 안내한다.",
+    "`/claude-api` 스킬에서 서비스 계정 키와 Workload Identity Federation 토큰으로 OpenTelemetry 대상을 관리할 수 있다.",
+    "`sed -i`는 이제 모의 파일 편집 미리보기 대신 표준 Bash 프롬프트를 받고 입력한 대로 실행한다. 다른 Bash 편집처럼 `/rewind`로 되돌릴 수 없다.",
+    "`claude ultrareview`에 작업공간 신뢰를 요구한다. 터미널에서는 확인하고, 그 외에는 거부한다. 스크립트는 값이 필요 없는 `--trust-workspace`를 전달하며 PR 번호나 기준 브랜치는 그 앞에 둔다. 또는 `CLAUDE_CODE_DISABLE_ULTRAREVIEW_TRUST_CHECK=1`을 설정한다.",
+    "우회 권한 모드의 Desktop 앱과 VS Code에서 위험한 `rm`, `rmdir` 프롬프트를 즉시 거부하고 다시 쓸 방법을 안내한다. 무인 세션은 계속 진행된다.",
+    "인증서 확인이 실패할 때(예: TLS 검사 프록시 환경) 딕테이션 또는 확장 자체 요청에 대한 로그 경고와 조치 안내를 추가한다.",
+    "편집기가 불완전한 파일 사본을 캐시해 Claude 패널이 비어 있던 문제를 수정한다. 이제 자동으로 복구하거나 원인과 해결 방법을 알린다.",
+    "메시지를 보내지 않고 새 세션을 시작할 때마다 세션 기록에 빈 “Untitled” 세션이 쌓이던 문제를 수정한다.",
+    "`/goal` 같은 긴 슬래시 명령 메시지가 채팅 패널을 채우던 문제를 수정한다. 이제 다른 프롬프트처럼 Show more 뒤에 접힌다.",
+    "채팅 패널을 좁힌 뒤 긴 메시지가 Show more 뒤에 접히지 않던 문제를 수정한다.",
+    "`~/.claude/keybindings.json`의 Chat 컨텍스트에서 `\"ctrl+j\"`가 null이면 채팅 입력의 Ctrl+J를 VS Code와 운영체제에 맡긴다. 항상 줄바꿈을 삽입하던 동작을 수정한다.",
+    "프롬프트 위의 플러그인 표시가 슬래시 명령 및 @ 멘션 메뉴 위에 겹쳐 그려지던 문제를 수정한다.",
+    "복사한 LaTeX 수식을 붙여넣을 때 빈 목록 항목·문단·코드 블록이 생기거나 목록 번호가 1부터 다시 매겨지던 문제를 수정한다.",
+    "조직에서 피드백을 받지 않을 때 VS Code 피드백 오류가 HTTP 상태만 표시하던 문제를 수정한다.",
+    "채팅 패널의 Edit 및 Write 속도를 개선한다. 대부분의 경우 편집 후 새 문제를 기다리는 시간이 1~1.5초에서 0.75초로 줄었다.",
+    "샌드박스 제외 설정된 명령이 샌드박스를 사용할 수 없을 때 쓰기 허용 경로에 쓰려면 확인을 요청한다. 샌드박스 없는 대체 실행은 해당 경로에서 거부한다.",
+    "일반 및 Bash 샌드박스가 설정된 부분 클론에서 worktree 생성·재사용 중 git이 객체를 필요할 때 가져오지 않도록 바꾼다. 부분 클론은 먼저 객체를 가져온다.",
+    "`/claude-api` 스킬이 기본 동적 워크플로를 사용하는 `multiagent_20261001`에서 Managed Agents 하위 에이전트 팀을 만들도록 바꾸고, `coordinator` 사용을 대체한다.",
+    "[VSCode] 프롬프트 위 플러그인 출처 레이블이 슬래시 명령 및 @ 멘션 메뉴 위에 겹쳐 보이던 문제를 수정한다.",
+    "[VSCode] LaTeX 수식을 붙여넣을 때 빈 목록 항목·문단·코드 블록이 생기거나 목록 번호가 1부터 다시 매겨지던 문제를 수정한다.",
+    "[VSCode] 조직에서 피드백을 받지 않을 때 피드백 오류가 HTTP 상태만 표시하던 문제를 수정한다.",
+    "[Cloud sessions] 루틴 양식의 연결기를 아직 불러오는 중인데도 사용할 수 없다고 표시하던 문제를 수정한다.",
+    "[Cloud sessions] 클라우드 환경 편집기가 환경 변수를 재정렬하고 따옴표 두 종류가 함께 든 값에 백슬래시를 추가하던 문제를 수정한다.",
+    "[Cloud sessions] 관리자 설정의 자체 호스팅 환경 세부 정보 대화상자에서 콘텐츠만 스크롤되고 제목·탭·버튼은 보이도록 수정한다.",
+    "[Cloud sessions] 클라우드 세션의 “문서 읽기” 도구 행이 이스케이프된 JSON 대신 읽을 수 있는 페이지를 표시하도록 수정한다.",
+    "[Cloud sessions] 변경 사항 창에서 푸시된 커밋만 또는 Claude 편집만 나열하는 경우 이를 표시한다.",
+    "[Claude Tag] Slack에서 채널용으로 승인한 초안을 DM에 잘못 게시하던 문제를 수정한다. 채널이 없으면 게시를 거부해 승인된 채널로 보낸다.",
+    "[Claude Tag] 세션이 멈춘 뒤 Slack 승인 카드의 허용 및 거부가 작동하지 않던 문제를 수정한다. 이제 답변이 세션을 다시 시작한다.",
+    "[Claude Tag] 워크스페이스가 다른 Claude 조직으로 이동한 뒤 Slack 채널의 태그 없는 메시지를 무시하던 문제를 수정한다. Enterprise Grid의 공유되지 않은 채널도 포함한다.",
+    "[Claude Tag] Slack 채널 스레드에서 새 메시지를 읽기 전에 답글을 게시하던 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 53,
+     "title": "우회 권한 모드의 Desktop 앱과 VS Code에서 위험한 `rm`, `rmdir` 프롬프트를 즉시 거부하고 다시 쓸 방법을 안내한다",
+     "what": "우회 권한 모드의 Desktop 앱과 VS Code에서 위험한 `rm`, `rmdir` 프롬프트를 즉시 거부하고 다시 쓸 방법을 안내한다. 무인 세션은 계속 진행된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [
+       {
+        "title": "위험한 명령 감지",
+        "note": "우회 권한 모드에서 `rm` 또는 `rmdir` 명령이 감지된다.",
+        "changed": true
+       },
+       {
+        "title": "명령 거부 및 안내",
+        "note": "명령을 즉시 거부하고 다시 쓸 방법을 안내한다.",
+        "changed": true
+       }
+      ],
+      "before": "위험한 명령에 대한 프롬프트가 표시된다.",
+      "after": "명령을 즉시 거부하고 다시 쓸 방법을 안내한다."
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 57,
+     "title": "`/goal` 같은 긴 슬래시 명령 메시지가 채팅 패널을 채우던 문제를 수정한다",
+     "what": "`/goal` 같은 긴 슬래시 명령 메시지가 채팅 패널을 채우던 문제를 수정한다. 이제 다른 프롬프트처럼 Show more 뒤에 접힌다.",
+     "steps": [],
+     "terminal": {
+      "title": "로그 안내",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에는 실행 명령이나 화면 행이 제시되지 않았다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 58,
+     "title": "채팅 패널을 좁힌 뒤 긴 메시지가 Show more 뒤에 접히지 않던 문제를 수정한다",
+     "what": "채팅 패널을 좁힌 뒤 긴 메시지가 Show more 뒤에 접히지 않던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 59,
+     "title": "`~/",
+     "what": "`~/.claude/keybindings.json`의 Chat 컨텍스트에서 `\"ctrl+j\"`가 null이면 채팅 입력의 Ctrl+J를 VS Code와 운영체제에 맡긴다. 항상 줄바꿈을 삽입하던 동작을 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 60,
+     "title": "프롬프트 위의 플러그인 표시가 슬래시 명령 및 @ 멘션 메뉴 위에 겹쳐 그려지던 문제를 수정한다",
+     "what": "프롬프트 위의 플러그인 표시가 슬래시 명령 및 @ 멘션 메뉴 위에 겹쳐 그려지던 문제를 수정한다.",
+     "steps": [
+      "Show more를 통해 긴 메시지를 펼쳐 본다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 61,
+     "title": "복사한 LaTeX 수식을 붙여넣을 때 빈 목록 항목·문단·코드 블록이 생기거나 목록 번호가 1부터 다시 매겨지던 문제를 수정한다",
+     "what": "복사한 LaTeX 수식을 붙여넣을 때 빈 목록 항목·문단·코드 블록이 생기거나 목록 번호가 1부터 다시 매겨지던 문제를 수정한다.",
+     "steps": [
+      "Show more를 통해 긴 메시지를 펼쳐 본다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 62,
+     "title": "조직에서 피드백을 받지 않을 때 VS Code 피드백 오류가 HTTP 상태만 표시하던 문제를 수정한다",
+     "what": "조직에서 피드백을 받지 않을 때 VS Code 피드백 오류가 HTTP 상태만 표시하던 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "키 바인딩 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`~/.claude/keybindings.json`의 Chat 컨텍스트에서 `\"ctrl+j\"`가 null인 경우에 적용된다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 63,
+     "title": "채팅 패널의 Edit 및 Write 속도를 개선한다",
+     "what": "채팅 패널의 Edit 및 Write 속도를 개선한다. 대부분의 경우 편집 후 새 문제를 기다리는 시간이 1~1.5초에서 0.75초로 줄었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 64,
+     "title": "샌드박스 제외 설정된 명령이 샌드박스를 사용할 수 없을 때 쓰기 허용 경로에 쓰려면 확인을 요청한다",
+     "what": "샌드박스 제외 설정된 명령이 샌드박스를 사용할 수 없을 때 쓰기 허용 경로에 쓰려면 확인을 요청한다. 샌드박스 없는 대체 실행은 해당 경로에서 거부한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 65,
+     "title": "일반 및 Bash 샌드박스가 설정된 부분 클론에서 worktree 생성·재사용 중 git이 객체를 필요할 때 가져오지 않도록 바꾼다",
+     "what": "일반 및 Bash 샌드박스가 설정된 부분 클론에서 worktree 생성·재사용 중 git이 객체를 필요할 때 가져오지 않도록 바꾼다. 부분 클론은 먼저 객체를 가져온다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 66,
+     "title": "`/claude-api` 스킬이 기본 동적 워크플로를 사용하는 `multiagent_20261001`에서 Managed Agents 하위 에이전트 팀을 만들도록 바꾸고, `coordinator` 사용을 대체한다",
+     "what": "`/claude-api` 스킬이 기본 동적 워크플로를 사용하는 `multiagent_20261001`에서 Managed Agents 하위 에이전트 팀을 만들도록 바꾸고, `coordinator` 사용을 대체한다.",
+     "steps": [
+      "채팅 패널에서 Edit 또는 Write를 사용한다.",
+      "대부분의 경우 새 문제를 기다리는 시간은 0.75초다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.164.0": {
+  "hash": "4aa19390019d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "재사용 프롬프트 슬롯과 인라인 모델·권한 설정을 도입하고, 지원 터미널의 대화 기록에서 이미지를 미리 볼 수 있게 한다. 엔터프라이즈 MCP 인증, 원격 명령의 자격 증명 마스킹, Bedrock 설정 흐름도 개선한다.",
+   "items": [
+    "재사용 프롬프트와 슬래시 명령을 번호가 붙은 `/presets` 슬롯 10개에 저장하고 키보드 메뉴로 빠르게 불러온다.",
+    "인라인 `/model` 및 `/permissions` 인수로 모델, 추론 노력, 속도, 권한 프로필을 직접 설정한다.",
+    "Kitty 또는 Sixel 그래픽을 지원하는 터미널의 전체 화면 대화 기록에서 열람하거나 생성한 이미지를 미리 본다.",
+    "적격 Codex 계정 권한 또는 전용 로그인을 사용해 엔터프라이즈 MCP 연결을 인증한다. 비밀 키가 필요한 OAuth 클라이언트도 지원한다.",
+    "지원되는 원격 Bash 명령과 Zsh 스냅샷 세션에서 사용자 지정 제공자의 자격 증명을 포함해 인증 정보를 가린다.",
+    "Amazon Bedrock 설정 마법사를 기본 활성화한다. 자격 증명이 감지되면 API 키 입력을 다른 AWS 로그인 방식과 함께 표시한다.",
+    "압축에 실패해도 대화 기록에 부분 요약을 남기지 않는다. 백그라운드 압축 실패는 패닉 없이 대체 경로를 사용한다.",
+    "세션 재개 시 압축된 기록을 찾고 저장된 스레드 설정을 복원해 전역 기본값으로 덮어쓰지 않는다.",
+    "Windows HTTPS 및 WebSocket 연결이 로그인 사용자 계정의 Negotiate 또는 NTLM 자격 증명으로 프록시 인증 요구에 응답한다.",
+    "여러 하위 명령 수준에 `-c` 또는 `--config`가 나타나도 CLI 설정 재정의를 보존한다.",
+    "대기 중인 권한 선택이 해결될 때까지 대기열의 프롬프트가 진행하지 않도록 한다.",
+    "macOS의 대소문자 변형 메타데이터 경로 및 실행 파일을 찾는 데 쓰이는 교체 가능한 심볼릭 링크에 대한 샌드박스 검사를 강화한다.",
+    "사용하지 않는 설치를 정리하고, 방치된 마켓플레이스 체크아웃을 삭제하며, 데몬 로그 크기를 제한해 디스크 사용량을 줄인다.",
+    "내장 JavaScript 런타임을 업데이트하고 최적화된 `Array.sort` 작업에 안전성 검사를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "저장 프롬프트 슬롯",
+     "what": "재사용 프롬프트와 슬래시 명령을 번호가 붙은 `/presets` 슬롯 10개에 저장한다. 키보드 메뉴에서 빠르게 접근할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에 `/presets` 명령이 직접 나온다. 저장·불러오기 명령 형식은 제시되지 않았다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "인라인 모델 및 권한 설정",
+     "what": "인라인 `/model`과 `/permissions` 인수로 모델, 추론 노력, 속도, 권한 프로필을 직접 설정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에 `/model`, `/permissions` 명령이 직접 나온다. 인수 값 예시는 없다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "대화 기록 이미지 미리보기",
+     "what": "열람하거나 생성한 이미지를 전체 화면 대화 기록에서 미리 볼 수 있다. Kitty 또는 Sixel 그래픽을 지원하는 터미널에서 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "엔터프라이즈 MCP 인증",
+     "what": "적격 Codex 계정 권한 또는 전용 로그인을 통해 엔터프라이즈 MCP 연결을 인증한다. 비밀 키가 필요한 OAuth 클라이언트도 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "원격 명령 자격 증명 마스킹",
+     "what": "지원되는 원격 Bash 명령과 Zsh 스냅샷 세션에서 인증 정보를 마스킹한다. 사용자 지정 제공자에서 온 자격 증명도 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "Bedrock 기본 설정 마법사",
+     "what": "Amazon Bedrock 설정 마법사를 기본 활성화한다. 자격 증명이 감지되면 API 키 입력을 다른 AWS 로그인 방식과 함께 묶어 제공한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.71.0": {
+  "hash": "512c335807e4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "지식, 추론, 코딩 성능을 개선한 최신 프런티어 모델 `gpt-5.2`가 소개된다.",
+   "items": [
+    "지식, 추론, 코딩을 개선한 최신 프런티어 모델 `gpt-5.2`가 소개된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`gpt-5.2` 소개",
+     "what": "최신 프런티어 모델 `gpt-5.2`가 소개된다. 지식, 추론, 코딩 전반이 개선됐다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.74.0": {
+  "hash": "86200f22e403",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`gpt-5.2-codex`를 소개하고 실험 기능용 `/experimental` 명령을 추가한다. 고스트 스냅샷 경고 토글과 CLI 화면 정리도 포함된다.",
+   "items": [
+    "지식·추론·코딩 성능을 개선한 최신 프런티어 모델 `gpt-5.2-codex`를 소개한다.",
+    "실험 기능을 시도하는 슬래시 명령 `/experimental`을 추가한다.",
+    "고스트 스냅샷 경고를 끄는 토글을 추가한다.",
+    "배경 터미널과 선택기 UI를 다듬는다.",
+    "베타 기능에 이름을 추가한다.",
+    "`caribou` 관련 변경을 반영한다.",
+    "`codex resume --all`의 CWD 열과 필터링을 문서에서 명확히 한다.",
+    "배경 터미널 UI를 다듬는다.",
+    "`&Path`보다 `AsRef<Path>`를 우선 사용한다.",
+    "`config_loader`에서 Mac 전용 로직의 로딩을 단순화한다.",
+    "스킬 기능 플래그를 다시 도입한다.",
+    "형식이 잘못된 스킬의 로딩 실패가 전체 로딩을 막지 않도록 한다.",
+    "`ConfigBuilder`를 도입한다.",
+    "선택기를 정리한다.",
+    "마이그레이션 링크를 표시한다.",
+    "`Config` 생성 코드 경로를 정리한다.",
+    "`Team`을 `Buisness`로 바꾸고 `Education`을 추가한다.",
+    "`SYSTEM` 스킬을 지원한다.",
+    "설정 읽기 ACL의 속도와 안정성을 개선한다.",
+    "모델 선택기를 추가한다.",
+    "`ConfigToml` 구조체에서 `PathBuf`를 `AbsolutePathBuf`로 바꾼다.",
+    "`npm` 패키지 준비 시 새 Windows 바이너리를 다운로드한다.",
+    "베타 기능을 추가한다.",
+    "일부 기능을 베타 프로그램 밖으로 옮긴다.",
+    "`list_models`를 비차단 방식으로 바꾼다.",
+    "세션 다운그레이드 문제를 수정한다.",
+    "스킬 디렉터리 정리 문제를 수정한다.",
+    "문서를 소폭 수정한다.",
+    "`unified_exec` 도구 관련 사용되지 않는 분기를 제거한다.",
+    "이벤트 렌더링의 경합을 방지한다.",
+    "고스트 스냅샷 경고를 끄는 설정을 추가한다.",
+    "불안정한 테스트를 수정한다.",
+    "모델 스크립트를 수정한다.",
+    "정적 파일에서 모델을 불러온다.",
+    "`app-server`에 새 `RawResponseItem` v2 이벤트를 추가한다.",
+    "`listMcpServerStatus`를 비차단 방식으로 바꾼다.",
+    "`user_agent` 헤더를 추가한다.",
+    "`apply-patch`의 유니코드 사례를 다룬다.",
+    "새 Windows 바이너리를 `npm` 패키지에 포함한다.",
+    "읽기 전용 리뷰 변경을 되돌린다.",
+    "`tui2` 컴파일 오류를 수정한다.",
+    "`tui2` 뷰포트 로드맵 문서를 다듬는다.",
+    "모델의 하드코딩 버전을 위한 워크플로를 추가한다.",
+    "`unified exec` 푸터를 추가한다.",
+    "`listMcpServers`를 `listMcpServerStatus`로 바꾼다.",
+    "`apply-patch` 호출 테스트를 옮긴다.",
+    "`unified exec` 푸터 추가를 되돌린다.",
+    "TypeScript SDK에 `xhigh` 추론 수준 지원을 추가한다.",
+    "Node 24와 호환되도록 GitHub Actions를 업그레이드한다.",
+    "공개 스킬을 추가하고 저장소 스킬 탐색과 오류 UX를 개선한다.",
+    "`ConfigLayerName`을 단순 열거형에서 서로 구분되는 유니온으로 바꾼다.",
+    "승격된 샌드박스 설정의 버그와 성능을 개선한다.",
+    "`tui2`에서 대화 기록 줄 메타데이터를 명시적으로 만든다.",
+    "`.codex`가 쓰기 가능 루트의 하위 폴더이면 샌드박스에서 읽기 전용으로 만든다.",
+    "`app-server`의 임시 `thread/compact` API를 제거한다.",
+    "Mac 코드 서명 코드를 리팩터링한다.",
+    "macOS 러너용 Homebrew `origin/main` 우회책을 제거한다.",
+    "`config.md`의 `gpt-5.2` 오타를 수정한다.",
+    "Windows 샌드박스 기능의 이름을 개선한다.",
+    "`unified_exec`에서 `shell_command`로 대체 실행하도록 한다.",
+    "실험 기능 메뉴를 추가한다.",
+    "`unified exec` 푸터를 추가한다.",
+    "마지막 사용자 턴에서는 압축하지 않는다.",
+    "리뷰 결과의 중복을 제거한다.",
+    "일반 작업의 추적 구간을 추가한다.",
+    "턴이 끝나면 `unified_exec`를 닫는다.",
+    "로컬에서 실패하던 MCP 정보 요청 테스트를 수정한다.",
+    "경로 검사로 Bun 전역 설치를 감지한다.",
+    "WSL 마운트 지점에서 대소문자를 구분하지 않고 재개 대상을 일치시킨다.",
+    "원격 모델을 기존 모델과 병합한다.",
+    "잘못된 Windows 파일명을 피하도록 `Option<()>` 스키마 생성을 건너뛴다.",
+    "`crossterm` 이벤트 스트림을 버리고 다시 만들 수 있도록 TUI 이벤트 루프를 리팩터링한다.",
+    "병렬 도구 호출 문제를 수정한다.",
+    "`exec-server` 오류에 추가 맥락을 담는다.",
+    "편집 시 주석을 유지한다.",
+    "`shell_command`의 자유 형식 타임아웃 출력을 수정한다.",
+    "`approval_policy` 값을 제한한다.",
+    "TUI 뷰포트, 기록 출력, 선택·복사 방식을 재작업 중이다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`gpt-5.2-codex` 소개",
+     "what": "최신 프런티어 모델 `gpt-5.2-codex`를 소개한다. 지식, 추론, 코딩 전반을 개선한 모델이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "실험 기능 명령",
+     "what": "새 슬래시 명령 `/experimental`을 추가한다. 이 명령으로 `experimental` 기능을 시도할 수 있다.",
+     "steps": [
+      "Codex CLI에서 `/experimental`을 입력한다.",
+      "실험 기능을 시도한다."
+     ],
+     "terminal": {
+      "title": "실험 기능 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /experimental"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "고스트 스냅샷 경고 토글",
+     "what": "고스트 스냅샷 경고를 끄는 토글을 추가한다. 경고 표시 여부를 조절할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "터미널·선택기 UI 정리",
+     "what": "배경 터미널 UI를 다듬는다. 선택기 UI도 정리한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.78.0": {
+  "hash": "5b7159537d86",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "외부 편집기 연동, 프로젝트별 설정 계층, macOS 관리형 설정, TUI 탐색과 실행 정책 기능을 추가한다. Windows PowerShell 세션은 UTF-8 모드로 시작한다.",
+   "items": [
+    "`Ctrl+G`로 현재 프롬프트를 설정된 외부 편집기(`$VISUAL`/`$EDITOR`)에서 열고, 수정 내용을 TUI에 동기화한다.",
+    "프로젝트별 설정 계층을 지원한다. 저장소의 `.codex/config.toml`과 설정 가능한 `project_root_markers`를 읽고 `/etc/codex/config.toml` 같은 시스템 설정과 병합한다.",
+    "macOS에서 MDM이 제공하는 TOML 페이로드를 통한 기업 관리형 설정 요구사항을 지원한다.",
+    "`tui2` 대화 기록 탐색에 다중 클릭 선택, 복사 단축키/기능, 드래그할 수 있는 자동 숨김 스크롤바를 추가한다.",
+    "인코딩으로 인한 프롬프트와 출력 문제를 줄이기 위해 Windows PowerShell 세션을 UTF-8 모드로 시작한다.",
+    "실행 정책 규칙에 사람이 읽을 수 있는 근거를 포함할 수 있으며, 정책을 통합 설정 계층에 따라 불러온다.",
+    "한 차례에 모델이 여러 도구 호출을 반환할 때 Chat Completions API가 기대하는 형식으로 출력해 실패를 수정한다.",
+    "런타임 작업 디렉터리 재정의에서도 기준 브랜치를 올바르게 감지하도록 `/review`가 세션 작업 디렉터리에서 diff를 계산한다.",
+    "불필요한 SSE 파싱 오류를 피하도록 이전 Chat Completions 스트리밍 종료자를 처리한다.",
+    "`tui2`의 화면 손상, 스크롤 고정, 선택 및 복사 정확성 문제를 수정한다.",
+    "CLI 패키징 중 `ripgrep` 다운로드가 실패하면 진단 정보를 개선한다.",
+    "alpha/stable 버전 문자열을 파싱할 때 발생하는 패닉을 방지한다.",
+    "사용자 문서를 개발자 문서 사이트 링크로 교체하고 중복을 제거한다. 스킬 문서도 포함한다.",
+    "`developer_instructions` 옵션을 포함해 설정 문서를 명확하게 한다.",
+    "깨진 README 링크를 수정한다.",
+    "TUI 다시 그리기 예약을 제한하고 스트리밍 중 불필요한 재렌더링을 줄여 CPU 사용량을 낮추도록 성능을 조정한다.",
+    "`codex-rs` 전반의 Rust 의존성을 업데이트한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "외부 편집기에서 프롬프트 편집",
+     "what": "`Ctrl+G`를 누르면 현재 프롬프트를 설정된 외부 편집기에서 연다. 편집한 내용은 TUI로 다시 동기화된다.",
+     "steps": [
+      "현재 프롬프트에서 `Ctrl+G`를 누른다.",
+      "설정된 `$VISUAL` 또는 `$EDITOR` 편집기에서 내용을 수정한다.",
+      "편집 내용을 TUI에 반영한다."
+     ],
+     "terminal": {
+      "title": "편집기 설정",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "원문에 설정 값이나 명령 예시는 없다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "프로젝트별 설정 계층",
+     "what": "저장소의 `.codex/config.toml`을 불러오고 설정 가능한 `project_root_markers`를 따른다. 이 설정을 `/etc/codex/config.toml` 같은 시스템 설정과 병합한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 파일",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "설정 파일 경로: `.codex/config.toml`, `/etc/codex/config.toml`; 원문에 설정 내용 예시는 없다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "macOS MDM 관리형 설정",
+     "what": "macOS에서 MDM이 제공하는 TOML 페이로드로 기업 관리형 설정 요구사항을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "TUI 대화 기록 탐색 개선",
+     "what": "`tui2`에서 다중 클릭으로 선택하고 복사 단축키나 기능을 사용할 수 있다. 스크롤바는 드래그할 수 있으며 자동으로 숨겨진다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "PowerShell UTF-8 모드",
+     "what": "Windows PowerShell 세션을 UTF-8 모드로 시작한다. 이를 통해 인코딩과 관련된 프롬프트 및 출력 문제를 줄인다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "실행 정책 규칙 근거",
+     "what": "실행 정책 규칙에 사람이 읽을 수 있는 근거를 포함할 수 있다. 정책 로딩은 통합 설정 계층을 따른다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.79.0": {
+  "hash": "1f9688c97d3c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "세션에서 다른 대화를 생성하거나 메시지를 보내는 에이전트 제어 기능과 IDE 클라이언트의 대화 롤백 기능이 추가된다. 캐시된 웹 검색만 사용하도록 선택할 수 있으며, TUI와 설정 처리의 여러 오류가 수정된다.",
+   "items": [
+    "세션에서 다른 대화를 프로그래밍 방식으로 생성하거나 메시지를 보내는 에이전트 제어 기능이 추가된다.",
+    "IDE 클라이언트가 기록을 다시 쓰지 않고 마지막 N개 턴을 되돌릴 수 있도록 app-server에 `thread/rollback`이 추가된다.",
+    "실시간 요청 대신 캐시된 웹 검색 결과만 사용하는 `web_search_cached`가 추가된다.",
+    "`codex exec resume` 뒤에도 모델·JSON·샌드박스 등의 전역 실행 플래그를 전달할 수 있다.",
+    "저장소의 TOML 파일을 바탕으로 시간과 버전을 지정한 안내 문구가 TUI에 표시된다.",
+    "분석 동작을 제어하는 `[analytics] enabled=...` 설정이 추가된다.",
+    "TUI2 대화 기록이 창 크기 변경에 맞춰 스트리밍 마크다운을 다시 배치하고, 복사·붙여넣기에서 자동 줄바꿈을 보존한다.",
+    "`apply_patch`가 공백이 붙은 `*** Begin Patch`와 `*** End Patch` 표시를 허용한다.",
+    "Git 루트를 확인하기 전에 현재 작업 디렉터리를 기준으로 경로를 표시해 비Git 작업 공간의 출력이 개선된다.",
+    "프로덕션에서 `CODEX_MANAGED_CONFIG_PATH`가 관리형 설정을 덮어쓰지 못하도록 정책 우회가 차단된다.",
+    "app-server 대화에 클라이언트가 전달한 설정이 적용된다.",
+    "입력 기록 탐색 중 팝업 표시, 복사 표시 렌더링, 중단 시 백그라운드 터미널 정리가 수정된다.",
+    "화면 없는 환경과 원격 환경의 시작·로그인 안내에서 `codex login --device-auth` 사용을 안내한다.",
+    "도구와 설정의 모델 예시가 현재 `gpt-5.2` 이름으로 갱신된다.",
+    "스킬 탐색이 설정 계층을 사용해 구성된 모든 스킬 폴더를 고려한다.",
+    "GitHub 릴리스 생성 시 릴리스 노트가 자동으로 채워진다.",
+    "`apply_patch` 테스트 시나리오가 추가된다.",
+    "통합 실행 이벤트의 `begin`은 PTY가 있을 때만 전송된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "다중 대화 에이전트 제어",
+     "what": "세션이 다른 대화를 프로그래밍 방식으로 생성하거나 메시지를 보낼 수 있다. 여러 대화를 제어하는 기능이다.",
+     "steps": [
+      "세션에서 다른 대화를 생성한다.",
+      "다른 대화에 메시지를 보낸다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "대화 턴 롤백",
+     "what": "app-server에 `thread/rollback`이 추가된다. IDE 클라이언트가 기록을 다시 쓰지 않고 마지막 N개 턴을 되돌릴 수 있다.",
+     "steps": [
+      "IDE 클라이언트에서 `thread/rollback`을 호출한다.",
+      "되돌릴 마지막 턴의 개수 N을 지정한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "캐시 전용 웹 검색",
+     "what": "`web_search_cached`가 추가된다. 실시간 요청 대신 캐시된 웹 검색 결과만 사용할 수 있는 더 안전한 선택지다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "재개 명령 뒤 전역 플래그",
+     "what": "`codex exec resume` 뒤에 전역 실행 플래그를 전달할 수 있다. 대상에는 모델·JSON·샌드박스 토글 등이 포함된다.",
+     "steps": [
+      "`codex exec resume`를 입력한다.",
+      "그 뒤에 필요한 전역 실행 플래그를 전달한다."
+     ],
+     "terminal": {
+      "title": "재개 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex exec resume"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "TUI 안내 문구",
+     "what": "TUI에 시간과 버전을 대상으로 한 안내 문구가 표시된다. 문구는 저장소의 TOML 파일을 바탕으로 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "분석 동작 설정",
+     "what": "`[analytics] enabled=...` 설정 항목이 추가된다. 이 설정으로 분석 동작을 제어할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.80.0": {
+  "hash": "02a29c06ccca",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "세션을 새 스레드로 분기하는 엔드포인트와 권한이 강화된 샌드박스 온보딩이 추가된다. 클라이언트의 요구 사항 조회와 v2 API를 통한 명시적 스킬 호출도 지원한다.",
+   "items": [
+    "프로토콜과 앱 서버에 대화·스레드 분기 엔드포인트가 추가되어 세션을 새 스레드로 분기할 수 있다.",
+    "클라이언트가 `requirement/list`로 `requirements.toml`을 읽고 에이전트 모드 UX를 조정할 수 있다.",
+    "관측성을 위한 메트릭 기능과 추가 카운터가 도입된다.",
+    "권한이 강화된 샌드박스 온보딩에 업그레이드·제한 모드 안내와 `/elevate-sandbox` 명령이 추가된다.",
+    "v2 API 사용자 입력으로 스킬을 명시적으로 호출할 수 있다.",
+    "Codex CLI 하위 프로세스가 `LD_LIBRARY_PATH`·`DYLD_LIBRARY_PATH` 같은 환경 변수를 다시 상속한다.",
+    "TUI와 TUI2에서 `/review <instructions>`가 일반 텍스트 전송 대신 리뷰 흐름을 시작한다.",
+    "패치 승인 시 ‘이 세션에서 허용’ 선택이 이전에 승인된 파일에도 유지된다.",
+    "현재 모델이 선택기에서 숨겨져 있어도 모델 업그레이드 안내가 표시된다.",
+    "Windows에서 비 ASCII 여러 줄 입력을 안정적으로 붙여넣을 수 있다.",
+    "Git apply 경로 파싱이 따옴표·이스케이프된 경로와 `/dev/null`을 올바르게 처리한다.",
+    "앱 서버 README에 스킬 지원과 사용법이 문서화된다.",
+    "Skill-creator 문서에 YAML frontmatter 형식과 따옴표 규칙이 명확해진다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "대화·스레드 분기",
+     "what": "프로토콜과 앱 서버에 대화·스레드 분기 엔드포인트가 추가된다. 클라이언트는 기존 세션을 새 스레드로 분기할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "요구 사항 조회",
+     "what": "클라이언트가 `requirement/list`로 `requirements.toml`을 읽을 수 있다. 읽은 요구 사항에 맞춰 에이전트 모드 UX를 조정할 수 있다.",
+     "steps": [
+      "클라이언트에서 `requirement/list`로 요구 사항을 조회한다.",
+      "조회한 `requirements.toml` 내용을 바탕으로 에이전트 모드 UX를 조정한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "메트릭 기능",
+     "what": "메트릭 기능이 도입된다. 관측성을 위한 카운터가 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "샌드박스 권한 강화 온보딩",
+     "what": "권한이 강화된 샌드박스 온보딩이 추가된다. 업그레이드와 제한 모드를 위한 안내가 제공되며 `/elevate-sandbox` 명령을 사용할 수 있다.",
+     "steps": [
+      "권한이 강화된 샌드박스 온보딩의 안내를 확인한다.",
+      "`/elevate-sandbox` 명령을 입력한다."
+     ],
+     "terminal": {
+      "title": "샌드박스 권한 강화 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /elevate-sandbox"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 4,
+     "title": "명시적 스킬 호출",
+     "what": "v2 API 사용자 입력에서 명시적 스킬 호출이 가능해진다. 적용 범위는 v2 API 사용자 입력이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
