@@ -61786,5 +61786,372 @@
    ],
    "features": []
   }
+ },
+ "claude-code@1.0.64": {
+  "hash": "d5ef3a1f249d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "에이전트별 모델 지정과 훅 경고·컨텍스트 출력을 지원한다. 파일 검색과 `@` 멘션 제안에 숨김 파일을 포함한다.",
+   "items": [
+    "에이전트가 사용할 모델을 지정할 수 있다.",
+    "재귀 에이전트 도구에 의도치 않게 접근할 수 있던 문제를 수정한다.",
+    "훅 JSON 출력에 경고와 컨텍스트 표시를 위한 `systemMessage` 필드를 추가한다.",
+    "SDK에서 여러 턴 대화의 사용자 입력 추적 문제를 수정한다.",
+    "파일 검색과 `@` 멘션 제안에 숨김 파일을 포함한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "에이전트별 모델 지정",
+     "what": "에이전트가 사용할 모델을 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "훅의 시스템 메시지",
+     "what": "훅 JSON 출력에 `systemMessage` 필드를 추가한다. 이 필드로 경고와 컨텍스트를 표시할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "숨김 파일 검색 및 멘션 제안",
+     "what": "파일 검색과 `@` 멘션 제안에 숨김 파일을 포함한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.63": {
+  "hash": "29e551b4c5bd",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Windows에서 파일 검색, `@agent` 멘션, 사용자 지정 슬래시 명령의 기능 문제를 수정한다.",
+   "items": [
+    "Windows에서 파일 검색, `@agent` 멘션, 사용자 지정 슬래시 명령 기능을 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.62": {
+  "hash": "f81c861b961f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "사용자 지정 에이전트를 `@` 멘션과 자동 완성으로 호출할 수 있다. 새 세션 초기화를 위한 `SessionStart` 훅을 추가한다.",
+   "items": [
+    "자동 완성이 포함된 `@` 멘션으로 사용자 지정 에이전트를 호출할 수 있다. `@<your-custom-agent>` 형식으로 입력한다.",
+    "새 세션 초기화를 위한 `SessionStart` 훅을 추가한다.",
+    "`/add-dir` 명령에서 디렉터리 경로 자동 완성을 지원한다.",
+    "네트워크 연결 확인의 안정성을 개선한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "사용자 지정 에이전트 멘션",
+     "what": "자동 완성이 포함된 `@` 멘션으로 사용자 지정 에이전트를 호출할 수 있다. 입력 형식은 `@<your-custom-agent>`이다.",
+     "steps": [
+      "`@`를 입력해 사용자 지정 에이전트 자동 완성을 사용한다.",
+      "`@<your-custom-agent>` 형식으로 에이전트를 호출한다."
+     ],
+     "terminal": {
+      "title": "에이전트 멘션",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> @<your-custom-agent>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "SessionStart 훅",
+     "what": "새 세션 초기화를 위한 `SessionStart` 훅을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.61": {
+  "hash": "cf9990f1499e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "JSON 파일에서 설정을 불러오는 `--settings` 플래그를 추가한다. VSCode macOS에서 `⌘+V`로 이미지를 붙여넣을 수 있다.",
+   "items": [
+    "대화 기록 모드(`Ctrl+R`)에서 `Esc`를 누르면 중단하지 않고 모드를 종료한다.",
+    "JSON 파일에서 설정을 불러오는 `--settings` 플래그를 추가한다.",
+    "심볼릭 링크인 설정 파일의 경로 해석을 수정한다.",
+    "인증 변경 뒤 조직 정보가 잘못 보고되던 문제를 수정한다.",
+    "Bash를 사용하는 허용 도구의 슬래시 명령 권한 검사를 수정한다.",
+    "macOS용 VSCode에서 `⌘+V`로 이미지를 붙여넣는 기능을 추가한다.",
+    "IDE 자동 연결을 비활성화하는 `CLAUDE_CODE_AUTO_CONNECT_IDE=false` 설정을 추가한다.",
+    "Claude Code가 실행하는 셸 명령과 사용자가 제공한 셸 명령을 감싸는 `CLAUDE_CODE_SHELL_PREFIX`를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "파일에서 설정 불러오기",
+     "what": "`--settings` 플래그를 추가한다. 이 플래그로 JSON 파일에서 설정을 불러올 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 플래그",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`--settings` 플래그로 JSON 파일에서 설정을 불러온다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "VSCode에서 이미지 붙여넣기",
+     "what": "macOS용 VSCode에서 `⌘+V`로 이미지를 붙여넣는 기능을 추가한다.",
+     "steps": [
+      "macOS용 VSCode에서 `⌘+V`를 눌러 이미지를 붙여넣는다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 6,
+     "title": "IDE 자동 연결 비활성화",
+     "what": "`CLAUDE_CODE_AUTO_CONNECT_IDE=false`를 추가해 IDE 자동 연결을 비활성화할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_AUTO_CONNECT_IDE=false`로 IDE 자동 연결을 비활성화한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "셸 명령 접두사",
+     "what": "`CLAUDE_CODE_SHELL_PREFIX`를 추가한다. 이 변수는 Claude Code가 실행하는 셸 명령과 사용자가 제공한 셸 명령을 감싸는 데 사용된다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`CLAUDE_CODE_SHELL_PREFIX`가 Claude Code 실행 명령과 사용자 제공 명령을 감싼다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.60": {
+  "hash": "98307b267fee",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "전문 작업을 위한 사용자 지정 하위 에이전트를 만들 수 있다.",
+   "items": [
+    "전문 작업을 위한 사용자 지정 하위 에이전트를 만들 수 있으며, 시작 명령은 `/agents`다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.59": {
+  "hash": "a3ae2ddffc06",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "SDK에 `canUseTool` 콜백을 통한 도구 확인 지원이 추가된다. 프로세스 환경 설정과 훅의 권한 결정 및 추가 컨텍스트 출력 기능도 변경된다.",
+   "items": [
+    "SDK에 `canUseTool` 콜백을 통한 도구 확인 지원을 추가한다.",
+    "SDK에서 생성 프로세스의 환경을 지정할 수 있다.",
+    "훅에 `ask`를 포함한 `PermissionDecision`을 제공한다.",
+    "`UserPromptSubmit`이 고급 JSON 출력에서 `additionalContext`를 지원한다.",
+    "Opus를 지정한 일부 Max 사용자가 Sonnet으로 대체되는 문제를 수정한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "SDK 도구 확인 콜백",
+     "what": "SDK에 도구 확인 지원을 추가한다. 확인 처리는 `canUseTool` 콜백으로 제공된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.58": {
+  "hash": "17fbe2e53883",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "PDF 읽기를 지원한다. 훅 명령에서 프로젝트 디렉터리 경로를 환경 변수로 제공한다.",
+   "items": [
+    "PDF를 읽는 기능을 추가한다.",
+    "`claude mcp list`에서 MCP 서버 상태 표시를 개선한다.",
+    "훅 명령에 `CLAUDE_PROJECT_DIR` 환경 변수를 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "PDF 읽기",
+     "what": "PDF를 읽는 기능을 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "훅의 프로젝트 경로 환경 변수",
+     "what": "훅 명령에서 `CLAUDE_PROJECT_DIR` 환경 변수를 사용할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "환경 변수",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "훅 명령에서 `CLAUDE_PROJECT_DIR` 환경 변수를 제공한다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.57": {
+  "hash": "b563ecb6a1b8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "슬래시 명령에서 모델을 지정할 수 있다. 권한 메시지가 개선되고 터미널 줄바꿈 시 bash 출력의 끝 개행이 제거된다.",
+   "items": [
+    "슬래시 명령에서 모델을 지정할 수 있다.",
+    "Claude가 허용된 도구를 이해하도록 권한 메시지를 개선한다.",
+    "터미널 줄바꿈 시 bash 출력의 끝 개행을 제거한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "슬래시 명령의 모델 지정",
+     "what": "슬래시 명령에서 사용할 모델을 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
