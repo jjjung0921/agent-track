@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T07:00:09.057Z",
+ "generatedAt": "2026-10-23T07:03:36.442Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -147122,7 +147122,58 @@
     }
    ],
    "hash": "103d87617d5f",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "설정 디렉터리에 `XDG_CONFIG_HOME` 지원이 추가되고 OpenTelemetry 로깅에 `terminal.type`과 `language` 속성이 추가된다. 이미지 업로드와 메모리 사용도 개선된다.",
+    "items": [
+     "기록 탐색 중 슬래시 명령 선택기 표시 오류를 수정한다.",
+     "API 크기 제한 오류를 막도록 업로드 전에 이미지 크기를 조정한다.",
+     "설정 디렉터리에 `XDG_CONFIG_HOME` 지원을 추가한다.",
+     "메모리 사용 성능을 최적화한다.",
+     "OpenTelemetry 로깅에 `terminal.type`과 `language` 속성을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "`XDG_CONFIG_HOME` 지원",
+      "what": "설정 디렉터리에 `XDG_CONFIG_HOME` 지원이 추가된다. 원문에는 구체적인 설정 절차가 제시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "설정 디렉터리에 `XDG_CONFIG_HOME`을 지원한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "OpenTelemetry 로깅 속성",
+      "what": "OpenTelemetry 로깅에 `terminal.type`과 `language` 속성이 추가된다. 원문에는 속성 값이나 사용 절차가 제시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.27",
@@ -147162,7 +147213,17 @@
     }
    ],
    "hash": "1bb222f7fca2",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "MCP 서버 및 리소스 지원을 확장하고 대화 전환 명령을 추가한다.",
+    "items": [
+     "스트리밍 가능한 HTTP MCP 서버를 지원한다.",
+     "원격 MCP 서버(SSE 및 HTTP)에서 OAuth를 지원한다.",
+     "MCP 리소스를 `@`로 언급할 수 있다.",
+     "Claude Code 안에서 대화를 전환하는 `/resume` 슬래시 명령을 추가한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.25",
@@ -147202,7 +147263,17 @@
     }
    ],
    "hash": "b3a07a4d98c4",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "슬래시 명령 검색과 Ghostty 및 웹 검색 지원을 개선한다.",
+    "items": [
+     "슬래시 명령의 `project` 및 `user` 접두사를 설명으로 옮긴다.",
+     "슬래시 명령 검색의 안정성을 개선한다.",
+     "Ghostty 지원을 개선한다.",
+     "웹 검색 안정성을 개선한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.24",
@@ -147228,7 +147299,15 @@
     }
    ],
    "hash": "19aa8332f0bf",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`/mcp` 출력을 개선하고 설정 배열이 병합되지 않고 덮어써지던 버그를 수정한다.",
+    "items": [
+     "`/mcp` 출력을 개선한다.",
+     "설정 배열이 병합되지 않고 덮어써지던 버그를 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.23",
@@ -147254,7 +147333,15 @@
     }
    ],
    "hash": "362ccfef6f6b",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "TypeScript와 Python SDK를 공개한다.",
+    "items": [
+     "TypeScript SDK를 공개한다. 시작하려면 `@anthropic-ai/claude-code`를 가져온다.",
+     "Python SDK를 공개한다. 시작하려면 `pip install claude-code-sdk`를 실행한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@changelog:codex-2025-06-13",
@@ -147348,7 +147435,97 @@
     }
    ],
    "hash": "8e542db76b4c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Codex가 한 작업에 대해 여러 응답을 동시에 생성해 해결책을 비교할 수 있게 된다. 작업 취소, 키보드 단축키 안내, 브랜치 쿼리 매개변수도 추가된다.",
+    "items": [
+     "한 작업에 대해 여러 응답을 동시에 생성해 해결책을 빠르게 살펴보고 가장 적합한 방식을 고를 수 있다.",
+     "키보드 단축키와 단축키를 살펴보는 페이지를 추가한다. macOS에서는 ⌘-/, 다른 플랫폼에서는 Ctrl+/를 눌러 연다.",
+     "기존 `environment`, `prompt`, `tab=archived` 매개변수에 더해 `branch` 쿼리 매개변수를 추가한다.",
+     "컨테이너 설정 중 저장소를 다운로드할 때 로딩 표시기를 추가한다.",
+     "작업 취소를 지원한다.",
+     "설정 중 작업이 실패하게 하던 문제를 수정한다.",
+     "설정 스크립트가 Git에서 무시되는 파일을 변경하는 환경에서 후속 작업이 실행되지 않던 문제를 수정한다.",
+     "네트워크 접근 제한을 이해하고 대응하는 방식을 개선한다.",
+     "Codex가 수행 중인 작업을 설명하는 텍스트의 갱신 빈도를 높인다.",
+     "Pro 및 Business 사용자의 설정 스크립트 실행 시간 제한을 20분으로 늘린다.",
+     "코드 diff 헤더를 Option-클릭하면 모든 diff를 한꺼번에 펼치거나 접을 수 있다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "키보드 단축키 안내",
+      "what": "키보드 단축키와 단축키를 살펴보는 페이지를 추가한다. macOS에서는 ⌘-/, 다른 플랫폼에서는 Ctrl+/를 눌러 페이지를 연다.",
+      "steps": [
+       "macOS에서는 ⌘-/를 누른다.",
+       "다른 플랫폼에서는 Ctrl+/를 누른다.",
+       "열린 페이지에서 키보드 단축키를 살펴본다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "브랜치 쿼리 매개변수",
+      "what": "기존 `environment`, `prompt`, `tab=archived` 쿼리 매개변수에 더해 `branch` 매개변수를 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "저장소 다운로드 표시기",
+      "what": "컨테이너 설정 중 저장소를 다운로드할 때 로딩 표시기를 보여준다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "작업 취소",
+      "what": "작업 취소를 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.22",
@@ -147367,7 +147544,14 @@
     }
    ],
    "hash": "d9ba8037296b",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SDK의 비용 필드 이름을 변경한다.",
+    "items": [
+     "SDK의 `total_cost` 이름을 `total_cost_usd`로 변경한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.21",
@@ -147400,7 +147584,16 @@
     }
    ],
    "hash": "b2538f0d3299",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "탭 기반 들여쓰기가 적용된 파일 편집을 개선하고, 도구 호출 결과 누락 오류와 종료 후 남아 있던 stdio MCP 서버 프로세스 문제를 수정한다.",
+    "items": [
+     "탭 기반 들여쓰기가 적용된 파일의 편집을 개선한다.",
+     "일치하는 `tool_result`가 없는 `tool_use` 오류를 수정한다.",
+     "Claude Code를 종료한 뒤 stdio MCP 서버 프로세스가 남아 있던 버그를 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.18",
