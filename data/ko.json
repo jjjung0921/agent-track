@@ -60146,5 +60146,528 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.44.0": {
+  "hash": "3f7d3eb0b8f9",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "채팅 입력창·모델 선택기 등 터미널 UI를 새로 단장하고, 사용자 지정 프롬프트 인수와 스트리밍 HTTP MCP 서버를 지원한다. Windows 읽기 전용 명령 승인 완화와 `codex cloud`는 실험적 기능이다.",
+   "items": [
+    "채팅 입력창, 하단 패널, 모델 선택기, 업그레이드 안내의 UI를 새로 단장했다.",
+    "사용자 지정 프롬프트에서 이름 지정 인수와 위치 인수를 지원한다.",
+    "스트리밍 HTTP MCP 서버를 지원한다.",
+    "Windows에서 읽기 전용 명령에 대한 반복 승인을 줄이는 실험적 기능을 추가했다.",
+    "`codex cloud`로 클라우드 작업을 관리하는 초기 실험 기능을 추가했다.",
+    "`Esc`를 누르면 모델 추론 강도 선택기를 표시한다.",
+    "모델 목록에서 `gpt-5-codex`를 맨 위로 옮겼다.",
+    "슬래시 명령에서 Tab과 Enter를 연이어 누를 때의 회귀 오류를 수정했다.",
+    "퍼지 검색 응답에 파일 이름을 추가했다.",
+    "터미널 UI에서 작업 표시의 점과 100% 컨텍스트 표시를 흐리게 표현한다.",
+    "`codex exec`에서 색상 지원 여부를 적용한다.",
+    "Codex 워크플로를 활성화했다.",
+    "`issue-deduplicator.yml`을 업데이트했다.",
+    "서버 정보에 포트와 함께 프로세스 ID를 기록한다.",
+    "이슈 중복 제거 기능을 수정했다.",
+    "에이전트 메시지 중 작업이 완료된 것으로 잘못 표시되는 문제를 수정했다.",
+    "Actions에서 사용하는 Codex 버전을 최신으로 올렸다.",
+    "`assistant message`를 `agent message`로 바꾸고 항목 유형 필드 이름을 수정했다.",
+    "현재 이슈를 가져올 때 GitHub CLI를 사용한다.",
+    "터미널 UI의 대화상자 표시를 조정했다.",
+    "이슈 중복 제거 워크플로를 추가했다.",
+    "`codex exec` 출력을 소폭 정리했다.",
+    "샌드박스 분리 변경을 되돌렸다.",
+    "이슈 라벨 지정 워크플로를 추가했다.",
+    "`exec` 문서를 별도로 추가했다.",
+    "대화형 세션과 비대화형 세션을 분리했다.",
+    "모델 전환을 두 단계로 변경했다.",
+    "모델이 이미지를 보면 `Viewed Image`를 표시한다.",
+    "키 안내 표시를 통일했다.",
+    "상태 화면의 사용량 비율을 수정했다.",
+    "MCP 도구의 `additionalProperties`에 있는 JSON Schema 처리를 수정했다.",
+    "`codex exec`에서 `CODEX_API_KEY`를 지원한다.",
+    "`gpt-5-codex` 프롬프트에서 코드 블록 언어 태그 사용 지침을 더 명확히 했다.",
+    "설정을 턴 대신 스레드에 저장한다.",
+    "오류 메시지에 요청 ID를 포함한다.",
+    "Windows에서 `AGENTS.md` 경로 표시를 정규화했다.",
+    "패치 및 실행 승인 UI를 다시 구성했다.",
+    "SDK에 문서 주석을 처음 추가했다.",
+    "`apply_patch` 사용법을 강제하는 프롬프트 변경을 되돌렸다.",
+    "Node 가져오기를 명시적으로 변경했다.",
+    "두 번째 OAuth 로그인 시 멈추는 문제를 수정했다.",
+    "생성된 TypeScript의 `RequestId`에 `bigint` 대신 `number`를 사용한다.",
+    "`Ctrl-N` 안내를 수정했다.",
+    "`create_github_release` 스크립트에 `--emergency-version-override` 옵션을 추가했다.",
+    "SDK에서 작업 디렉터리와 `skipGitRepoCheck` 옵션을 지원한다.",
+    "`AGENTS.md`가 없으면 설정된 지침 파일을 사용한다.",
+    "작업 중 컨텍스트 창 사용량을 표시한다.",
+    "출력이 없는 명령에 자리 표시자를 보여준다.",
+    "재개 선택기에 업데이트 시각을 추가했다.",
+    "끝의 백슬래시를 올바르게 처리한다.",
+    "PowerShell 명령의 안전성 검사를 구현했다.",
+    "`pnpm/action-setup@v4`를 `actions/setup-node@v5`보다 먼저 실행한다.",
+    "`@openai/codex-sdk` 게시 로직을 도입했다.",
+    "샌드박스 분리 작업을 도입했다.",
+    "스테이징 및 운영 환경의 콜백 URL을 수정했다.",
+    "앱 서버 프로토콜에서 `mcp-types`를 제거했다.",
+    "SDK에 실행 파일 감지 기능을 추가하고 `Codex`를 내보낸다.",
+    "매크로로 요청과 응답의 대칭성을 보장한다.",
+    "기존 `codex exec --json` 형식을 제거했다.",
+    "마크다운을 렌더링할 때 줄바꿈한다.",
+    "`codex proto`를 삭제했다.",
+    "릴리스 빌드의 Codex CLI에서 프로세스 강화 기능을 활성화했다.",
+    "TypeScript 내보내기를 정리했다.",
+    "모든 `ClientRequest` 변형에 `params` 필드가 있도록 수정했다.",
+    "웹 검색 항목을 연결했다.",
+    "SDK에서 추가 매개변수로 스레드를 이어가는 테스트를 추가했다.",
+    "`apply_patch` 사용법을 강제하도록 프롬프트를 업데이트했다.",
+    "사용자 지정 프롬프트에 이름 지정 인수를 추가했다.",
+    "SDK에서 모델과 샌드박스 모드를 지원한다.",
+    "클라우드 작업을 추가했다.",
+    "`codex mcp`를 `codex mcp-server`와 `codex app-server`로 분리했다.",
+    "MCP 문서가 실험적 RMCP 클라이언트를 참조하도록 업데이트했다.",
+    "PR 방식 리뷰를 목록 맨 위로 옮겼다.",
+    "SDK CI를 추가했다.",
+    "`codex exec`에 시작 주체 정보를 설정한다.",
+    "`codex exec`에서 `conversation` 명칭을 `thread`로 바꿨다.",
+    "`codex exec`에 MCP 도구 호출 항목을 추가했다.",
+    "SDK에 일부 타입과 기본 테스트를 추가했다.",
+    "기기 인증을 지원한다.",
+    "`turn.failed`를 추가하고 세션 생성 이벤트를 스레드 시작으로 이름을 바꿨다.",
+    "사용자 지정 프롬프트는 `/prompts:`로 시작한다.",
+    "수정 사항을 적용했다.",
+    "`? for shortcuts` 안내를 다시 추가했다.",
+    "사용자 지정 프롬프트에 숫자 위치 인수를 추가했다.",
+    "`/command` 및 `@file` 팝업의 배경을 제거했다.",
+    "점(`•`)을 흐리게 렌더링한다.",
+    "롤아웃 데이터에 마지막 부분을 추가했다.",
+    "TypeScript SDK의 기본 구조를 추가했다.",
+    "사용자 지정 프롬프트의 frontmatter를 파싱한다.",
+    "MCP 서버에서 퍼지 파일 검색을 제공한다.",
+    "OpenTelemetry 이벤트를 추가했다.",
+    "행 끝에서 화면 끝 지우기 코드가 출력되는 문제를 수정했다.",
+    "iTerm에서 선택 텍스트를 복사할 때 마침표가 붙는 문제를 수정했다.",
+    "`codex-responses-api-proxy`용 npm 모듈을 도입했다.",
+    "`/review`를 기본 명령에 추가했다.",
+    "`.github/workflows/ci.yml`의 사소한 문제를 정리했다.",
+    "GitHub 릴리스에서 모든 플랫폼용 `codex-responses-api-proxy`를 빌드한다.",
+    "멀티툴에서 `responses-api-proxy`를 제거했다.",
+    "MCP 시작 로그 수준을 오류에서 정보로 낮췄다.",
+    "`pre_main_hardening()` 유틸리티를 별도 크레이트로 옮겼다.",
+    "업데이트 안내를 개선했다.",
+    "모델 업그레이드 팝업을 제거했다.",
+    "터미널 UI에서 `?` 키가 다시 작동하도록 수정했다.",
+    "프록시의 기본 30초 시간 제한을 제거했다.",
+    "단축키 표시의 간격을 수정했다.",
+    "최종 에이전트 메시지 위에 구분선을 추가했다.",
+    "`gpt-5-codex`의 기본 추론 강도를 medium으로 설정했다.",
+    "`codex-rs`의 README를 갱신했다.",
+    "`? for shortcuts` 안내를 추가했다.",
+    "스트리밍 HTTP MCP 서버 지원을 추가했다.",
+    "입력창과 사용자 메시지 스타일을 업데이트했다.",
+    "턴 시작·완료 이벤트를 추가하고 오류 시 종료 코드를 수정했다.",
+    "`AskForApproval::Never`에서 위험한 명령을 거부한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "터미널 UI 새 단장",
+     "what": "채팅 입력창과 하단 패널의 UI를 업데이트했다. 모델 선택기와 업그레이드 안내도 새로 단장했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "사용자 지정 프롬프트 인수",
+     "what": "사용자 지정 프롬프트에서 이름 지정 인수와 위치 인수를 지원한다. 프롬프트는 `/prompts:`로 시작한다.",
+     "steps": [
+      "`/prompts:`로 시작하는 사용자 지정 프롬프트를 선택한다.",
+      "이름 지정 인수 또는 위치 인수를 전달한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "스트리밍 HTTP MCP 서버",
+     "what": "스트리밍 HTTP 방식의 MCP 서버를 지원한다. 서버 설정 방법은 입력 원문에 나와 있지 않다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "Windows 읽기 전용 명령 승인",
+     "what": "Windows에서 읽기 전용 명령에 대한 반복 승인을 줄이는 기능을 추가했다. 실험적 기능이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "클라우드 작업 관리",
+     "what": "`codex cloud`로 클라우드 작업을 관리할 수 있다. 매우 초기 단계의 실험 기능이다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex cloud"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 70,
+     "title": "MCP 명령 분리",
+     "what": "기존 `codex mcp`를 `codex mcp-server`와 `codex app-server`로 분리했다. 두 명령의 세부 사용법은 원문에 나와 있지 않다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ codex mcp-server"
+       },
+       {
+        "kind": "cmd",
+        "text": "$ codex app-server"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.42.0": {
+  "hash": "3930c69d900a",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 0.42.0은 실험적 Rust SDK 기반 MCP 클라이언트와 안전 모드를 추가하고, 실행 이벤트 및 상태 표시와 명령 안전성 검사를 개선했다. IDE 확장에서는 `.codex` 디렉터리가 없는 경우의 API 키 로그인을 수정했다.",
+   "items": [
+    "실험적인 Rust SDK 기반 MCP 클라이언트를 도입한다.",
+    "응답 처리와 프록시를 단순화하고 보호하는 `responses-api-proxy` 구성 요소를 추가한다.",
+    "`CODEX_SECURE_MODE=1` 안전 모드로 프로세스 관찰 가능성을 제한한다.",
+    "`codex exec` 이벤트를 더 명확히 하고 `item.started` 이벤트와 개선된 출력 표시를 제공한다.",
+    "핵심 코드에 위험 명령 검사를 추가하고 Windows 전용 안전 검사도 제공한다.",
+    "`/status` 표시를 명확하게 개선하고, 페이지 없는 세션 목록, `ListSelectionView` 기반 승인, 개선된 MCP 도구 호출 스타일을 적용하며 스트리밍 중 상태 표시기를 숨긴다.",
+    "압축 토큰 사용량, SSE 마운트 안정성, 이전 대화 편집 관련 문제를 수정한다.",
+    "`.codex` 디렉터리가 없어도 IDE 확장에서 API 키 로그인이 되도록 수정한다.",
+    "상태, 푸터 로직 및 미사용 코드의 내부 정리와 리팩터링을 진행한다.",
+    "`/status` 후속 변경을 반영한다.",
+    "프레임 카운트와 상태 기반 렌더링 도우미 등 사용하지 않는 코드를 제거한다.",
+    "실험적인 공식 Rust SDK 기반 MCP 클라이언트를 도입한다.",
+    "할 일 목록 도구 지원을 추가한다.",
+    "`responses-api-proxy`를 도입한다.",
+    "압축 시 토큰 사용량을 수정한다.",
+    "성공한 `codex exec` 출력을 잘라 표시한다.",
+    "승인 UI를 `ListSelectionView` 기반으로 변경한다.",
+    "푸터 로직을 새 파일로 리팩터링한다.",
+    "상태 구조를 리팩터링한다.",
+    "잠재적으로 위험한 명령 검사를 핵심 코드에 추가한다.",
+    "SSE를 한 번만 마운트하도록 수정한다.",
+    "`codex exec` 테스트 도우미를 추가한다.",
+    "`.codex` 디렉터리가 없는 경우 IDE 확장의 API 키 로그인 실패를 수정한다.",
+    "샌드박스 문서의 오타를 수정한다.",
+    "`codex exec`에 `item.started` 이벤트를 추가하고 명령 실행에서도 지원한다.",
+    "수정 사항을 반영한다.",
+    "더 좁은 너비로 크기를 조정할 때 발생하는 버그를 수정한다.",
+    "샌드박스에서 테스트가 정상 통과하도록 수정한다.",
+    "오류 메시지를 수정한다.",
+    "명시적인 `codex exec` 이벤트를 추가한다.",
+    "`attempt_stream_responses()`를 `stream_responses()`에서 분리한다.",
+    "대기 중인 메시지가 있을 때 `ESC`가 작성 중인 내용을 덮어쓰는 문제를 수정한다.",
+    "`CODEX_SECURE_MODE=1`로 프로세스 관찰 가능성을 제한하는 지원을 추가한다.",
+    "`/status`를 개편한다.",
+    "전체 상태 구조를 리팩터링한다.",
+    "GitHub Actions의 codespell을 v2.1로 업데이트한다.",
+    "gpt-5가 아닌 모델에 `text` 매개변수를 보낸다.",
+    "`env_flags`에서 사용하지 않는 값을 제거한다.",
+    "명령 안전성을 검사하는 Windows 전용 메서드를 추가한다.",
+    "페이지 없는 세션 목록을 추가한다.",
+    "MCP 도구 호출 스타일을 개선한다.",
+    "답변 스트림이 시작되면 상태 표시기를 숨긴다.",
+    "도구 구현을 간소화한다."
+   ],
+   "features": [
+    {
+     "index": 7,
+     "title": "IDE 확장 API 키 로그인 수정",
+     "what": "`.codex` 디렉터리가 없는 경우 IDE 확장에서 API 키로 로그인할 때 발생하던 실패를 수정한다. 원문에는 추가 설정이나 사용 단계가 제시되지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 22,
+     "title": "IDE 확장 API 키 로그인 수정",
+     "what": "`.codex` 디렉터리가 없는 경우 IDE 확장에서 API 키로 로그인할 때 발생하던 실패를 수정한다. 원문에는 추가 설정이나 사용 단계가 제시되지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.41.0": {
+  "hash": "ef6e18d0fcc4",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "요청 제한의 초기화 시점과 제한 도달 시 사용량을 확인할 수 있다. `exec` 모드의 출력 스키마 지정과 `npm` 릴리스의 `rg` 포함도 추가됐다.",
+   "items": [
+    "요청 제한 초기화 시점을 확인하고, 제한에 걸리면 사용량을 볼 수 있다.",
+    "`exec` 모드에서 `output-schema`로 출력 스키마를 지정할 수 있다.",
+    "`npm` 릴리스에 `rg`가 포함돼 `codex` 설치 중 `@vscode/ripgrep`의 `postinstall`이 가끔 실패하던 문제를 해결할 것으로 예상된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "요청 제한 정보 표시",
+     "what": "요청 제한이 언제 초기화되는지 확인할 수 있다. 요청 제한에 걸렸을 때 사용량도 볼 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "`exec` 출력 스키마 지정",
+     "what": "`exec` 모드에서 출력 스키마를 지정할 수 있다. 스키마 지정에 `output-schema`를 사용한다.",
+     "steps": [
+      "`exec` 모드를 사용한다.",
+      "`output-schema`로 출력 스키마를 지정한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "`npm` 릴리스에 `rg` 포함",
+     "what": "`rg`가 `npm` 릴리스에 포함됐다. `npm`으로 `codex`를 설치할 때 `@vscode/ripgrep`의 `postinstall` 단계가 가끔 실패하던 #3842 같은 문제를 해결할 것으로 예상된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.40.0": {
+  "hash": "93ba94506681",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "기본 모델을 `gpt-5-codex`로 변경하고 자동 압축 및 사용량 한도 표시를 도입했다. `/review`와 MCP 도구 시간 제한 설정도 추가했다.",
+   "items": [
+    "기본 모델을 `gpt-5-codex`로 변경한다.",
+    "`gpt-5-codex`에서 토큰 220k에 도달하면 자동 압축을 시작한다.",
+    "`/status`에서 사용량 한도를 확인할 수 있다.",
+    "특정 커밋, 기준 브랜치 또는 사용자 지정 지침을 대상으로 하는 `/review` 명령을 추가한다.",
+    "MCP 도구 호출의 기본 시간 제한은 `60s`이며, `config.toml`에서 개별 MCP 서버의 `tool_timeout_sec`로 바꿀 수 있다.",
+    "`try_parse_word_only_commands_sequence()`가 명령을 순서대로 반환하도록 수정한다.",
+    "캐시가 깨지지 않도록 통합 셸 호출 방식을 사용한다.",
+    "Responses 모킹 도우미를 공유 라이브러리로 옮긴다.",
+    "픽스처 대신 도우미를 사용한다.",
+    "슬래시 명령 팝업의 정렬을 수정한다.",
+    "시작 시 화면을 지우지 않는다.",
+    "이벤트 스트림 전에 키보드 확장 기능 감지를 캐시한다.",
+    "사용량 한도를 UI에 전달한다.",
+    "TUI에 사용량 한도 표시를 추가한다.",
+    "`/review` 옵션을 추가한다.",
+    "`non_sandbox_test` 도우미를 추가한다.",
+    "Cargo 버전을 통일한다.",
+    "Clippy 규칙을 추가한다.",
+    "MCP 도구 호출 시간 제한을 추가한다.",
+    "`/status`에 한도 정보를 추가한다.",
+    "`StreamController`를 간소화한다.",
+    "TUI의 역방향 이동 문제를 수정한다.",
+    "한도 정보가 `/status`로 이동함에 따라 `/limits`를 제거한다.",
+    "`BottomPane`에 뷰 스택을 추가한다.",
+    "사용량 한도 경고 문구를 변경한다.",
+    "중복 클로저 관련 Clippy 규칙을 적용한다.",
+    "`/review`의 브랜치 모드 프롬프트를 수정한다.",
+    "사용량 한도 헤더와 구조를 변경한다.",
+    "페이지 간 페이저 오버레이가 지워지지 않는 문제를 수정한다.",
+    "세션 종료 시 Codex 재개 메시지를 수정한다.",
+    "압축 메시지에서 너무 긴 사용자 메시지를 잘라낸다.",
+    "기본값을 업데이트한다.",
+    "알림 기능 테스트를 추가한다.",
+    "`gpt-5-codex`에 자동 압축을 활성화한다.",
+    "스트림 재시도 테스트에서 `TestCodex` 빌더를 사용한다.",
+    "실행 취소를 위한 Git 도구를 추가한다.",
+    "사용량 데이터 처리를 조정한다.",
+    "사용량 한도 경고를 추가한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.39.0": {
+  "hash": "435a7f817336",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 0.39.0에 `/review` 명령을 추가하고, 터미널 UI의 알림·입력 처리와 턴 알림을 개선했다.",
+   "items": [
+    "새 `/review` 명령을 도입한다.",
+    "대화 작업 디렉터리와 샌드박스 작업 디렉터리를 별개로 처리한다.",
+    "`/review` 기능을 추가한다.",
+    "기록 화면이 `HistoryCells`를 처리하도록 리팩터링을 되살린다.",
+    "`[tui]`에서 알림이 없을 때 발생하는 오류를 수정한다.",
+    "작업자 스레드 차단을 막기 위해 Tokio 뮤텍스와 비동기 함수를 사용한다.",
+    "Rust 참조 관련 사소한 문제를 수정한다.",
+    "TUI 종료 시 Codex 재개 안내를 표시한다.",
+    "자동 압축 중에도 `ESC` 버튼이 작동하도록 수정한다.",
+    "애니메이션을 통일한다.",
+    "`uuid_v7`로 전환하고 `ConversationId` 사용을 엄격히 한다.",
+    "테스트를 일단 무시한다.",
+    "Codex CLI 하네스, 샌드박싱, 승인 관련 문서를 갱신한다.",
+    "턴 알림에 에이전트 응답 텍스트를 사용한다.",
+    "누락된 명령을 설치하라는 지침을 `AGENTS.md`에 추가한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "`/review` 명령",
+     "what": "새 `/review` 명령을 도입한다. 제공된 원문에는 자세한 사용 방법이나 세부 동작이 나와 있지 않다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/review"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.37.0": {
+  "hash": "10a524066b54",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Codex 0.37.0에서는 승인 및 턴 종료 알림을 추가하고, CLI의 권한 처리와 검토 기능 및 실행 흐름을 다듬었다.",
+   "items": [
+    "승인 요청과 턴 종료 시 알림을 보낸다.",
+    "`rust-release.yml`의 프리릴리스 로직을 복구한다.",
+    "`/codex-rs`의 `serde_json`을 1.0.143에서 1.0.145로 업데이트한다.",
+    "`Cargo.toml`에서 `serde` 의존성 표기를 간소화한다.",
+    "`/codex-rs`의 `serde`를 1.0.219에서 1.0.223으로 업데이트한다.",
+    "`/codex-rs`의 `wildmatch`를 2.4.0에서 2.5.0으로 업데이트한다.",
+    "권한 정렬 문제를 수정한다.",
+    "읽기 전용 권한 상승 처리를 수정한다.",
+    "Azure 모델 제공자 예시를 업데이트한다.",
+    "검색 항목을 저장한다.",
+    "`SendUserTurn`에서 `EnvironmentContext`를 기록한다.",
+    "검토 모드 핵심 기능을 업데이트한다.",
+    "사고 출력 스타일을 변경한다.",
+    "검토 종료 시 개발자 메시지를 추가한다.",
+    "GitHub Actions가 신뢰할 수 있는 게시를 사용해 npm에 게시하도록 수정한다.",
+    "`npm install` 실행 전에 `pnpm`이 설치되도록 수정한다.",
+    "`publish-npm`을 별도 작업으로 분리하고 필요한 권한을 지정한다.",
+    "`gh`를 호출할 때 `--repo`를 지정한다."
+   ],
+   "features": []
+  }
  }
 }
