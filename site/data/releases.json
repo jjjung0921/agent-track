@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T07:09:35.800Z",
+ "generatedAt": "2026-10-23T07:12:37.319Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -148400,7 +148400,14 @@
     }
    ],
    "hash": "3e29de4f1cbe",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "MCP 도구 오류가 올바르게 파싱되지 않던 버그를 수정했다.",
+    "items": [
+     "MCP 도구 오류를 올바르게 파싱하지 못하던 버그를 수정했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.1",
@@ -148433,7 +148440,39 @@
     }
    ],
    "hash": "4c7bdf11567c",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`DISABLE_INTERLEAVED_THINKING` 환경 변수로 interleaved thinking을 사용하지 않도록 선택할 수 있다. 모델 참조 이름과 문서 링크 및 OAuth 설명도 업데이트했다.",
+    "items": [
+     "`DISABLE_INTERLEAVED_THINKING`을 추가해 interleaved thinking을 사용하지 않도록 선택할 수 있다.",
+     "모델 참조에 공급자별 이름을 표시하도록 개선했다(Bedrock은 Sonnet 3.7, Console은 Sonnet 4).",
+     "문서 링크와 OAuth 절차 설명을 업데이트했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Interleaved thinking 설정",
+      "what": "`DISABLE_INTERLEAVED_THINKING` 환경 변수를 추가해 interleaved thinking을 사용하지 않도록 선택할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "`DISABLE_INTERLEAVED_THINKING` 환경 변수로 선택적으로 사용을 중지한다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.0",
@@ -148459,7 +148498,15 @@
     }
    ],
    "hash": "1c23c3eaddcc",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Claude Code가 정식 출시됐다. Sonnet 4와 Opus 4 모델을 도입했다.",
+    "items": [
+     "Claude Code를 정식 출시했다.",
+     "Sonnet 4와 Opus 4 모델을 도입했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@changelog:codex-2025-05-22",
@@ -148609,7 +148656,101 @@
     }
    ],
    "hash": "b3958c467340",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "코드 실행 설정이 더 쉽고 빨라졌다. 실패한 작업 재시도, 설정 후 네트워크 접근 없이 실행됨을 알리는 표시, PR 푸시 후 Git 패치 복사 옵션 등이 추가됐다.",
+    "items": [
+     "코드 실행 설정이 더 쉽고 빨라졌다.",
+     "실패한 작업을 재시도하는 버튼이 추가됐다.",
+     "설정 후 에이전트가 네트워크 접근 없이 실행됨을 알리는 표시가 추가됐다.",
+     "PR을 푸시한 뒤 Git 패치를 복사하는 옵션이 추가됐다.",
+     "유니코드 브랜치 이름을 지원한다.",
+     "설정 스크립트에 시크릿이 전달되지 않던 버그를 수정했다.",
+     "브랜치 이름이 충돌할 때 브랜치를 만들지 못하던 문제를 수정했다.",
+     "여러 문자인 이모지가 포함된 diff 렌더링 문제를 수정했다.",
+     "작업 시작, 설정 스크립트 실행, PR 푸시, GitHub 연결 해제 시 오류 메시지를 더 구체적으로 표시하고 해결 방법을 안내한다.",
+     "팀 온보딩을 개선했다.",
+     "로딩 중인 새 작업의 표시를 다듬었다.",
+     "후속 작업 작성기를 다듬었다.",
+     "GitHub 연결 해제가 90% 줄었다.",
+     "PR 생성 지연 시간이 35% 줄었다.",
+     "도구 호출 지연 시간이 50% 줄었다.",
+     "작업 완료 지연 시간이 20% 줄었다.",
+     "Codex 탭을 구분하기 쉽도록 페이지 제목을 작업 이름으로 설정하기 시작했다.",
+     "에이전트가 네트워크를 사용할 수 없는 상태를 알고, 사용자가 의존성을 설정하도록 제안할 수 있게 시스템 프롬프트를 조정했다.",
+     "문서를 업데이트했다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "실패한 작업 재시도",
+      "what": "실패한 작업을 다시 시도하는 버튼이 추가됐다. 원문은 버튼의 위치나 재시도 절차를 설명하지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 2,
+      "title": "네트워크 접근 없는 실행 표시",
+      "what": "설정이 끝난 뒤 에이전트가 네트워크 접근 없이 실행된다는 점을 보여주는 표시가 추가됐다. 표시의 모양이나 확인 위치는 원문에 없다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "PR 푸시 후 Git 패치 복사",
+      "what": "PR을 푸시한 뒤 Git 패치를 복사하는 옵션이 추가됐다. 원문은 옵션을 사용하는 구체적인 단계나 패치 형식을 밝히지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "유니코드 브랜치 이름 지원",
+      "what": "브랜치 이름에 유니코드 문자를 사용할 수 있도록 지원한다. 지원 범위나 사용 절차는 원문에 명시되지 않았다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@0.2.125",
@@ -148635,7 +148776,15 @@
     }
    ],
    "hash": "150cb90678ab",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Bedrock ARN의 슬래시 표기 규칙이 변경됐다. 모든 요청을 기록하는 설정도 `DEBUG=true`에서 `ANTHROPIC_LOG=debug`로 바뀌었다.",
+    "items": [
+     "`ANTHROPIC_MODEL` 또는 `ANTHROPIC_SMALL_FAST_MODEL`에 전달하는 Bedrock ARN에는 이스케이프된 슬래시를 넣지 않아야 한다. `%2F` 대신 `/`를 지정한다.",
+     "모든 요청을 기록하는 설정에서 `DEBUG=true`를 제거하고 `ANTHROPIC_LOG=debug`를 사용하도록 변경했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@changelog:codex-2025-05-19",
@@ -148659,7 +148808,48 @@
     }
    ],
    "hash": "6fdbf82c4e74",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "ChatGPT iOS 앱에서 자리를 비운 동안 작업을 시작하고, diff를 확인하고, PR을 푸시할 수 있다.",
+    "items": [
+     "자리를 비운 동안 작업을 시작하고, diff를 확인하고, PR을 푸시할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "ChatGPT iOS 앱에서 원격 작업",
+      "what": "자리를 비운 동안 작업을 시작하고 diff를 확인할 수 있다. PR도 푸시할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "작업 시작",
+         "note": "자리를 비운 동안 작업을 시작한다.",
+         "changed": true
+        },
+        {
+         "title": "diff 확인",
+         "note": "자리를 비운 동안 diff를 확인한다.",
+         "changed": true
+        },
+        {
+         "title": "PR 푸시",
+         "note": "자리를 비운 동안 PR을 푸시한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@0.2.117",
@@ -148699,7 +148889,17 @@
     }
    ],
    "hash": "6b5a9143e813",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`--print`의 JSON 출력 형식이 중첩된 메시지 객체를 반환하도록 바뀌었다. 정리 기간 설정, API 키 헬퍼 TTL 환경 변수, 디버그 모드도 추가됐다.",
+    "items": [
+     "호환성을 위해 `--print`의 JSON 출력이 이제 중첩된 메시지 객체를 반환하며, 새 메타데이터 필드를 도입할 수 있도록 변경했다.",
+     "`settings.cleanupPeriodDays` 설정을 추가했다.",
+     "`CLAUDE_CODE_API_KEY_HELPER_TTL_MS` 환경 변수를 추가했다.",
+     "`--debug` 모드를 추가했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@0.2.108",
@@ -148753,7 +148953,19 @@
     }
    ],
    "hash": "2642ae90d912",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "실시간으로 작업을 조정하는 메시지 전송과 Bash 타임아웃 환경 변수가 추가됐다. 여러 버그 수정과 개선도 포함됐다.",
+    "items": [
+     "Claude가 작업하는 동안 메시지를 보내 실시간으로 작업을 조정할 수 있다.",
+     "`BASH_DEFAULT_TIMEOUT_MS`와 `BASH_MAX_TIMEOUT_MS` 환경 변수를 추가했다.",
+     "`-p` 모드에서 thinking이 작동하지 않던 버그를 수정했다.",
+     "`/cost` 보고의 회귀 문제를 수정했다.",
+     "MCP wizard 인터페이스를 더 이상 권장하지 않고 다른 MCP 명령을 사용하도록 변경했다.",
+     "그 밖에 여러 버그 수정과 개선을 포함했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@0.2.107",
