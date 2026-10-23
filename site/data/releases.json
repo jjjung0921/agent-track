@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T06:47:09.149Z",
+ "generatedAt": "2026-10-23T06:49:57.136Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -145609,7 +145609,16 @@
     }
    ],
    "hash": "4d22dac38aed",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "일부 Node.js 버전의 터미널 VT 모드에서 Windows 모드 전환에 `shift+tab`을 사용할 수 있다. WSL IDE 감지와 AWS 헬퍼 변경 감지 문제도 수정한다.",
+    "items": [
+     "터미널 VT 모드를 지원하는 Node.js 버전에서 Windows 모드 전환에 `shift+tab`을 사용할 수 있다.",
+     "WSL의 IDE 감지 문제를 수정했다.",
+     "`.aws` 디렉터리의 `awsRefreshHelper` 변경 사항을 감지하지 못하던 문제를 수정했다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.55",
@@ -145649,7 +145658,57 @@
     }
    ],
    "hash": "e07bd3997033",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SDK의 오류 로깅 캡처 기능과 print 모드의 시스템 프롬프트 파일 재정의 옵션을 추가한다.",
+    "items": [
+     "Opus 4 및 Sonnet 4 모델의 지식 기준 시점을 명확히 한다.",
+     "Windows에서 Ctrl+Z를 누를 때 발생하던 충돌을 수정한다.",
+     "SDK에서 오류 로그를 캡처하는 기능을 추가한다.",
+     "print 모드에서 시스템 프롬프트를 재정의하는 --system-prompt-file 옵션을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "SDK 오류 로깅 캡처",
+      "what": "SDK에서 오류 로깅을 캡처하는 기능을 추가한다. 구체적인 사용 방법은 원문에 제시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "시스템 프롬프트 파일 옵션",
+      "what": "print 모드에서 --system-prompt-file 옵션으로 시스템 프롬프트를 재정의할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "옵션",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "print 모드 옵션: --system-prompt-file"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.54",
@@ -145696,7 +145755,55 @@
     }
    ],
    "hash": "240ad4e678ef",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "훅 입력에 `UserPromptSubmit` 이벤트와 현재 작업 디렉터리를 추가한다. 사용자 지정 슬래시 명령의 frontmatter에 인자 힌트를 지정할 수 있다.",
+    "items": [
+     "훅 입력에 `UserPromptSubmit` 훅과 현재 작업 디렉터리를 추가했다.",
+     "사용자 지정 슬래시 명령의 frontmatter에 `argument-hint`를 추가했다.",
+     "Windows에서 OAuth가 포트 45454를 사용하고 브라우저 URL을 올바르게 구성한다.",
+     "Windows에서 모드 전환 키를 `alt + m`으로 변경하고 계획 모드를 올바르게 렌더링한다.",
+     "파일 관련 오류를 해결하기 위해 셸 스냅샷을 메모리 내 방식으로 전환했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "훅 입력 정보 추가",
+      "what": "`UserPromptSubmit` 훅을 추가하고, 훅 입력에 현재 작업 디렉터리를 포함한다. 원문에는 훅 설정이나 사용 절차가 나와 있지 않다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "슬래시 명령 인자 힌트",
+      "what": "사용자 지정 슬래시 명령의 frontmatter에 `argument-hint`를 추가할 수 있다. 원문에는 힌트 작성 형식이나 표시 방식이 제시되지 않았다.",
+      "steps": [
+       "사용자 지정 슬래시 명령의 frontmatter에 `argument-hint`를 추가한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.53",
@@ -145722,7 +145829,38 @@
     }
    ],
    "hash": "91fbd4be1f0d",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "AWS 토큰 갱신을 위한 헬퍼 스크립트 설정을 추가한다. `@` 멘션 파일의 잘라내기 한도를 100줄에서 2,000줄로 늘렸다.",
+    "items": [
+     "`@` 멘션 파일의 잘라내기 한도를 100줄에서 2,000줄로 늘렸다.",
+     "AWS 토큰 갱신용 헬퍼 스크립트 설정으로, 포그라운드 작업(예: `aws sso login`)을 위한 `awsAuthRefresh`와 STS와 유사한 응답을 사용하는 백그라운드 작업용 `awsCredentialExport`를 추가했다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "AWS 토큰 갱신 헬퍼 설정",
+      "what": "AWS 토큰 갱신에 사용할 헬퍼 스크립트 설정 두 가지를 추가한다. `awsAuthRefresh`는 `aws sso login` 같은 포그라운드 작업에, `awsCredentialExport`는 STS와 유사한 응답을 사용하는 백그라운드 작업에 쓰인다.",
+      "steps": [],
+      "terminal": {
+       "title": "포그라운드 작업 예시",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ aws sso login"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@1.0.52",
@@ -145741,7 +145879,32 @@
     }
    ],
    "hash": "64ca974944d3",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "MCP 서버 지침 지원을 추가한다.",
+    "items": [
+     "MCP 서버 지침을 지원한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "MCP 서버 지침",
+      "what": "MCP 서버 지침 지원을 추가한다. 지침의 형식이나 적용 방식은 원문에 설명되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.7.0",
@@ -145840,7 +146003,62 @@
     }
    ],
    "hash": "68b42e53a3dc",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Windows 네이티브 실행과 Bedrock API 키 인증을 지원한다. 설정 진단과 프롬프트 옵션의 사용 범위도 개선한다.",
+    "items": [
+     "Git for Windows가 필요한 네이티브 Windows 실행을 지원한다.",
+     "환경 변수 `AWS_BEARER_TOKEN_BEDROCK`을 통한 Bedrock API 키 사용을 지원한다.",
+     "`/doctor`에서 유효하지 않은 설정 파일을 찾아 수정하도록 도울 수 있다.",
+     "`--append-system-prompt`를 `--print`/`-p` 모드뿐 아니라 대화형 모드에서도 사용할 수 있다.",
+     "자동 압축 경고 기준을 60%에서 80%로 높였다.",
+     "셸 스냅샷에서 경로에 공백이 있는 사용자 디렉터리를 처리하지 못하던 문제를 수정했다.",
+     "OTEL 리소스에 `os.type`, `os.version`, `host.arch`를 포함하고, WSL 실행 시 `wsl.version`도 포함한다.",
+     "하위 디렉터리에 있는 사용자 수준 사용자 지정 슬래시 명령이 동작하지 않던 문제를 수정했다.",
+     "하위 작업에서 거부된 계획이 버려지던 계획 모드 문제를 수정했다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "네이티브 Windows 지원",
+      "what": "Git for Windows가 설치된 환경에서 네이티브 Windows 실행을 지원한다. 구체적인 설정이나 실행 절차는 원문에 제시되지 않았다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Bedrock API 키 인증",
+      "what": "환경 변수 `AWS_BEARER_TOKEN_BEDROCK`을 통해 Bedrock API 키를 사용할 수 있다. 원문은 환경 변수 값이나 설정 절차를 제시하지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "환경 변수",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "Bedrock API 키 인증에 사용하는 환경 변수: `AWS_BEARER_TOKEN_BEDROCK`"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.5.0",
@@ -145913,7 +146131,106 @@
     }
    ],
    "hash": "30528220b808",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Bash 도구에 출력 기반 진행 메시지를 추가하고 MCP 서버 설정에서 변수 확장을 지원한다. PreCompact 훅과 Vim 모드 키도 추가하고, WSL에서 IDE 확장 경로 처리를 개선한다.",
+    "items": [
+     "v1.0.45에서 앱이 시작할 때 간헐적으로 멈추던 버그를 수정한다.",
+     "명령 출력의 마지막 5줄을 바탕으로 Bash 도구에 진행 메시지를 추가한다.",
+     "MCP 서버 설정에서 변수 확장을 지원한다.",
+     "Bash 도구 호출의 안정성을 높이기 위해 셸 스냅샷을 /tmp에서 ~/.claude로 옮긴다.",
+     "Claude Code가 WSL에서 실행될 때 IDE 확장 경로 처리를 개선한다.",
+     "PreCompact 훅을 추가한다.",
+     "Vim 모드에 c, f/F, t/T를 추가한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "Bash 진행 메시지",
+      "what": "Bash 도구가 명령 출력의 마지막 5줄을 바탕으로 진행 메시지를 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "MCP 설정 변수 확장",
+      "what": "MCP 서버 설정에서 변수 확장을 지원한다. 원문에는 지원되는 변수 형식이나 설정 예시는 제시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 4,
+      "title": "WSL의 IDE 확장 경로 처리",
+      "what": "Claude Code가 WSL에서 실행될 때 IDE 확장 경로 처리를 개선한다. 구체적인 변경 동작은 원문에 제시되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "PreCompact 훅",
+      "what": "PreCompact 훅을 추가한다. 원문에는 훅의 실행 시점 외에 동작이나 설정 방법이 설명되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 6,
+      "title": "Vim 모드 키",
+      "what": "Vim 모드에 c, f/F, t/T 키를 추가한다. 각 키의 세부 동작은 원문에 설명되지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.4.0",
@@ -145979,7 +146296,19 @@
     }
    ],
    "hash": "ef14bfd484a6",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "검색 도구를 재설계하고, 설정 파일을 원자적으로 기록해 손상을 방지한다. 입력 undo 단축키와 사용자 정의 슬래시 명령의 이름 규칙도 조정한다.",
+    "items": [
+     "새 입력 매개변수와 기능을 포함하도록 Search (Grep) 도구를 재설계한다.",
+     "노트북 파일의 IDE diff를 비활성화해 ‘Timeout waiting after 1000ms’ 오류를 해결한다.",
+     "원자적 쓰기를 적용해 설정 파일 손상 문제를 해결한다.",
+     "기존 Ctrl+U 동작을 유지하도록 입력 undo를 Ctrl+\\_로 변경하고, zsh의 undo 단축키와 맞춘다.",
+     "/clear 이후 Stop Hooks의 transcript 경로를 수정하고, 도구 호출로 루프가 끝날 때도 훅이 실행되도록 수정한다.",
+     "하위 디렉터리 기반 사용자 정의 슬래시 명령의 네임스페이스를 복원한다. 예를 들어 .claude/commands/frontend/component.md는 /component가 아니라 /frontend:component가 된다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.3.0",
