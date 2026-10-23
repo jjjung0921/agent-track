@@ -63137,5 +63137,353 @@
    ],
    "features": []
   }
+ },
+ "claude-code@1.0.18": {
+  "hash": "34df1d277be7",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "추가 작업 디렉터리 지정, 스트리밍 입력, MCP 도구 정보 표시와 SSE 자동 재연결을 추가한다.",
+   "items": [
+    "추가 작업 디렉터리를 지정하는 `--add-dir` CLI 인수를 추가했다.",
+    "`-p` 플래그 없이 스트리밍 입력을 지원한다.",
+    "시작 및 세션 저장 성능을 개선했다.",
+    "Bash 명령의 작업 디렉터리를 고정하는 `CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` 환경 변수를 추가했다.",
+    "MCP 서버 도구의 상세 표시(`/mcp`)를 추가했다.",
+    "MCP 인증 및 권한 처리를 개선했다.",
+    "연결이 끊어지면 MCP SSE 연결을 자동으로 다시 연결한다.",
+    "대화상자가 나타날 때 붙여 넣은 내용이 사라지던 문제를 수정했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "추가 작업 디렉터리",
+     "what": "`--add-dir` CLI 인수로 추가 작업 디렉터리를 지정할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ claude --add-dir <directory>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "스트리밍 입력",
+     "what": "`-p` 플래그 없이 스트리밍 입력을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "Bash 작업 디렉터리 고정",
+     "what": "`CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR` 환경 변수를 추가해 Bash 명령의 작업 디렉터리를 고정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "환경 변수의 구체적인 값은 원문에 제시되지 않았다."
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "MCP 도구 상세 표시",
+     "what": "`/mcp`에서 MCP 서버 도구의 상세 정보를 표시한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /mcp"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "MCP SSE 자동 재연결",
+     "what": "연결이 끊어지면 MCP SSE 연결을 자동으로 다시 연결한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.17": {
+  "hash": "d7c3001dda24",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`-p` 모드에서 하위 작업 메시지를 내보낸다. VS Code diff 도구의 빠른 연속 호출로 발생하던 충돌을 수정한다.",
+   "items": [
+    "`-p` 모드에서 하위 작업의 메시지를 내보낸다. `parent_tool_use_id` 속성에서 확인할 수 있다.",
+    "VS Code diff 도구를 빠르게 여러 번 호출할 때 발생하던 충돌을 수정한다.",
+    "MCP 서버 목록 UI를 개선한다.",
+    "프로세스 제목에 `node` 대신 `claude`를 표시한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.11": {
+  "hash": "cf4c9cb0b9e2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude Pro 구독으로 Claude Code를 사용할 수 있다. Claude Max 요금제로 전환하는 과정을 간소화하는 `/upgrade`를 추가한다.",
+   "items": [
+    "Claude Pro 구독으로도 Claude Code를 사용할 수 있다.",
+    "Claude Max 요금제로 더 쉽게 전환하도록 `/upgrade`를 추가한다.",
+    "API 키와 Bedrock·Vertex·외부 인증 토큰을 사용하는 인증 UI를 개선한다.",
+    "셸 설정 오류 처리를 개선한다.",
+    "압축 과정에서 todo 목록 처리를 개선한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "Claude Max 요금제 전환",
+     "what": "Claude Max 요금제로 더 쉽게 전환할 수 있도록 `/upgrade`를 추가한다.",
+     "steps": [
+      "Claude Max 요금제로 전환할 때 `/upgrade`를 사용한다."
+     ],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /upgrade"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.10": {
+  "hash": "0b9ca0ca0945",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Markdown 표를 지원하고 스트리밍 성능을 개선한다.",
+   "items": [
+    "Markdown 표를 지원한다.",
+    "스트리밍 성능을 개선했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Markdown 표 지원",
+     "what": "Markdown 표를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2025-06-03": {
+  "hash": "9f77faf28b4d",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "작업 중 인터넷을 사용할 수 있고, 기존 PR을 후속 작업으로 업데이트할 수 있다. 바이너리 파일 패치 지원을 추가했으며 PR에서는 현재 삭제와 이름 변경만 지원한다.",
+   "items": [
+    "작업 중 의존성 설치, 패키지 업그레이드, 외부 리소스가 필요한 테스트 등에 인터넷을 사용할 수 있다.",
+    "인터넷 접근은 기본적으로 꺼져 있다. Plus, Pro, Business 사용자는 환경별로 켤 수 있고 접근 가능한 도메인과 HTTP 메서드를 세밀하게 제어할 수 있다. Enterprise 지원은 추후 제공된다.",
+    "사용 방법과 위험에 관한 자세한 내용은 문서를 참고할 수 있다.",
+    "후속 작업에서 기존 pull request를 업데이트할 수 있다.",
+    "Codex에 작업을 음성으로 입력할 수 있다.",
+    "프로필 메뉴에서 이 변경 기록으로 이동하는 링크를 추가한다.",
+    "바이너리 파일을 지원한다. 패치를 적용할 때는 모든 파일 작업을 지원하며, PR에서는 현재 바이너리 파일 삭제와 이름 변경만 지원한다.",
+    "iOS 작업 목록에서 후속 작업이 중복 표시되던 문제를 수정한다.",
+    "iOS에서 pull request 상태가 최신 정보로 표시되지 않던 문제를 수정한다.",
+    "후속 작업 환경이 가장 최근 상태 대신 첫 번째 턴의 상태로 시작되던 문제를 수정한다.",
+    "작업 이벤트와 로그의 국제화 문제를 수정한다.",
+    "설정 스크립트의 오류 메시지를 개선한다.",
+    "작업 diff 제한을 1 MB에서 5 MB로 높인다.",
+    "설정 스크립트 실행 시간 제한을 5분에서 10분으로 높인다.",
+    "GitHub 연결 흐름을 다듬는다.",
+    "알림 누락 문제를 해결한 뒤 iOS Live Activities를 다시 활성화한다.",
+    "SSO 또는 소셜 로그인을 사용하는 사용자에게 의무화했던 2단계 인증 요구 사항을 제거한다."
+   ],
+   "features": [
+    {
+     "index": 5,
+     "title": "변경 기록 링크",
+     "what": "프로필 메뉴에 이 변경 기록으로 이동하는 링크를 추가한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "바이너리 파일 지원",
+     "what": "패치를 적용할 때 바이너리 파일의 모든 파일 작업을 지원한다. PR에서는 현재 바이너리 파일을 삭제하거나 이름을 변경하는 작업만 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.8": {
+  "hash": "13f542058d73",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "영어가 아닌 언어로 사고를 유도하는 기능을 추가하고, Vertex AI 및 MCP 시간 제한 관련 오류를 수정한다.",
+   "items": [
+    "`CLOUD_ML_REGION` 사용 시 Vertex AI 리전 대체 처리를 수정했다.",
+    "기본 otel 간격을 1초에서 5초로 늘렸다.",
+    "`MCP_TIMEOUT` 및 `MCP_TOOL_TIMEOUT`이 적용되지 않던 일부 경우를 수정했다.",
+    "검색 도구가 불필요하게 권한을 요청하던 회귀 문제를 수정했다.",
+    "영어가 아닌 언어로 사고를 유도하는 기능을 추가했다.",
+    "압축 UI를 개선했다."
+   ],
+   "features": [
+    {
+     "index": 4,
+     "title": "비영어 사고 유도",
+     "what": "영어가 아닌 언어로 사고를 유도할 수 있도록 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.7": {
+  "hash": "b2da65f41b0f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "권한 명령과 설정 항목의 이름 및 저장 위치를 변경하고, 기존 `claude config` 명령을 사용 중단한다.",
+   "items": [
+    "`/allowed-tools`를 `/permissions`로 이름을 바꿨다.",
+    "`allowedTools`와 `ignorePatterns`를 `.claude.json`에서 `settings.json`으로 옮겼다.",
+    "`claude config` 명령을 사용 중단하고 `settings.json` 직접 편집을 권장한다.",
+    "`--print` 모드에서 `--dangerously-skip-permissions`가 간헐적으로 작동하지 않던 버그를 수정했다.",
+    "`/install-github-app`의 오류 처리를 개선했다.",
+    "버그 수정, UI 다듬기, 도구 신뢰성 개선을 포함한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.6": {
+  "hash": "00f8d00e7c6c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "심볼릭 링크를 `@file` 자동완성에서 지원한다.",
+   "items": [
+    "탭으로 들여쓴 파일의 편집 신뢰성을 높였다.",
+    "`CLAUDE_CONFIG_DIR`을 모든 곳에서 준수한다.",
+    "불필요한 도구 권한 요청을 줄였다.",
+    "`@file` 자동완성에서 심볼릭 링크를 지원한다.",
+    "버그 수정, UI 다듬기, 도구 신뢰성 개선을 포함한다."
+   ],
+   "features": [
+    {
+     "index": 3,
+     "title": "@file 심볼릭 링크 지원",
+     "what": "`@file` 입력 자동완성에서 심볼릭 링크를 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
