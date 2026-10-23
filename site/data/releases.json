@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-23T06:38:36.184Z",
+ "generatedAt": "2026-10-23T06:41:19.098Z",
  "releases": [
   {
    "id": "codex@rust-v0.164.0",
@@ -144347,7 +144347,60 @@
     }
    ],
    "hash": "bd8d111a7a0e",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SDK에 세션 지원과 권한 거부 추적이 추가되고, `/model`에서 Opus를 계획 모드에만 사용하도록 설정할 수 있다.",
+    "items": [
+     "Bash 도구의 heredoc 및 여러 줄 문자열 이스케이프와 stderr 리디렉션 처리를 개선한다.",
+     "SDK에 세션 지원과 권한 거부 추적을 추가한다.",
+     "대화 요약 중 토큰 한도 오류를 수정한다.",
+     "`/model`에 계획 모드에서만 Opus를 사용하고 그 외에는 Sonnet을 사용하는 새 설정을 추가한다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "SDK 세션 및 권한 거부 추적",
+      "what": "SDK에 세션 지원과 권한 거부 추적 기능을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "계획 모드 전용 Opus 설정",
+      "what": "`/model`에 계획 모드에서만 Opus를 사용하도록 하는 새 설정을 추가한다. 다른 모드에서는 Sonnet을 사용한다.",
+      "steps": [
+       "`/model`을 연다.",
+       "계획 모드에서만 Opus를 사용하는 설정을 선택한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /model"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.21.0",
@@ -144406,7 +144459,36 @@
     }
    ],
    "hash": "c3d7551709a1",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Alpine 및 musl 기반 Linux 배포판 지원이 추가되며, 별도의 `ripgrep` 설치가 필요하다.",
+    "items": [
+     "여러 설정 파일을 `--mcp-config file1.json file2.json`으로 지정하는 기능을 지원한다.",
+     "OAuth 인증 흐름 중 Esc 키를 눌러 취소할 수 있다.",
+     "Bash 명령 검증을 개선하고 잘못된 보안 경고를 줄인다.",
+     "스피너 애니메이션과 상태 표시줄의 시각적 계층을 개선한다.",
+     "Alpine 및 musl 기반 Linux 배포판을 지원한다. 별도의 `ripgrep` 설치가 필요하다."
+    ],
+    "features": [
+     {
+      "index": 4,
+      "title": "Alpine 및 musl 기반 Linux 지원",
+      "what": "Alpine 및 musl 기반 배포판에서 Claude Code를 지원한다. 사용하려면 `ripgrep`을 별도로 설치해야 한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.20.0",
@@ -144437,7 +144519,14 @@
     }
    ],
    "hash": "75bf7c01bd64",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`/permissions`으로 특정 도구를 사용할 때마다 확인을 요청하도록 설정할 수 있다.",
+    "items": [
+     "`/permissions`으로 특정 도구를 사용할 때마다 확인을 요청하도록 설정할 수 있다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.19.0",
@@ -144475,7 +144564,41 @@
     }
    ],
    "hash": "1f8981b5f0a1",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "`Ctrl-b`를 눌러 Bash 명령을 백그라운드에서 실행하면서 Claude가 계속 작업할 수 있다. `/statusline`으로 상태 표시줄을 사용자 지정할 수 있다.",
+    "items": [
+     "`Ctrl-b`를 눌러 Bash 명령을 백그라운드에서 실행하면 Claude가 계속 작업할 수 있다. 개발 서버 실행이나 로그 확인 등에 유용하다.",
+     "`/statusline`으로 터미널 프롬프트를 Claude Code에 표시하는 상태 표시줄을 사용자 지정할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 1,
+      "title": "사용자 지정 상태 표시줄",
+      "what": "`/statusline`으로 터미널 프롬프트를 Claude Code에 추가할 수 있다.",
+      "steps": [
+       "`/statusline`을 입력한다.",
+       "터미널 프롬프트를 Claude Code 상태 표시줄에 추가한다."
+      ],
+      "terminal": {
+       "title": "상태 표시줄 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /statusline"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.16.0",
@@ -144532,7 +144655,34 @@
     }
    ],
    "hash": "8e59c6d6ee51",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "슬래시 명령 인수에서 `@` 멘션을 지원한다.",
+    "items": [
+     "대규모 컨텍스트에서 메시지 렌더링 성능을 최적화한다.",
+     "Windows의 기본 파일 검색, ripgrep, 하위 에이전트 기능을 수정한다.",
+     "슬래시 명령 인수에서 `@` 멘션을 지원한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "슬래시 명령 인수의 멘션",
+      "what": "슬래시 명령의 인수에서 `@` 멘션을 사용할 수 있도록 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.14.0",
@@ -144575,7 +144725,14 @@
     }
    ],
    "hash": "796fbb2035a0",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Opus가 버전 4.1로 업그레이드된다.",
+    "items": [
+     "Opus를 버전 4.1로 업그레이드한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "codex@rust-v0.12.0",
@@ -144648,7 +144805,55 @@
     }
    ],
    "hash": "de9316eaf909",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "SDK에서 도구 확인용 `canUseTool` 콜백을 지원한다. 모든 훅을 끄는 `disableAllHooks` 설정도 추가한다.",
+    "items": [
+     "`/pr-comments` 같은 일부 명령에서 잘못 사용되던 모델 이름을 수정한다.",
+     "Windows에서 허용·거부 도구와 프로젝트 신뢰 권한 확인을 개선한다. `.claude.json`에 새 프로젝트 항목이 생길 수 있으며, 원하면 `history` 필드를 직접 병합한다.",
+     "Windows에서 하위 프로세스 실행을 개선해 `pnpm` 같은 명령 실행 시 발생하던 ‘No such file or directory’ 오류를 없앤다.",
+     "자가 디버깅을 위해 `/doctor` 명령에 `CLAUDE.md`와 MCP 도구 맥락을 추가한다.",
+     "SDK에 도구 확인용 `canUseTool` 콜백 지원을 추가한다.",
+     "`disableAllHooks` 설정을 추가한다.",
+     "대규모 저장소에서 파일 제안 성능을 개선한다."
+    ],
+    "features": [
+     {
+      "index": 4,
+      "title": "SDK 도구 확인 콜백",
+      "what": "SDK에서 도구 사용 확인을 위한 `canUseTool` 콜백을 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 5,
+      "title": "모든 훅 비활성화 설정",
+      "what": "모든 훅을 비활성화하는 `disableAllHooks` 설정을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.11.0",
@@ -144686,7 +144891,15 @@
     }
    ],
    "hash": "5735a3c6aa03",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "IDE 연결 안정성과 진단 오류 처리가 개선되고, Windows에서 `.bashrc`가 없는 사용자의 셸 환경 설정 문제가 수정된다.",
+    "items": [
+     "IDE 연결 안정성 문제와 진단 오류 처리를 수정한다.",
+     "Windows에서 `.bashrc`가 없는 사용자의 셸 환경 설정을 수정한다."
+    ],
+    "features": []
+   }
   },
   {
    "id": "claude-code@1.0.64",
