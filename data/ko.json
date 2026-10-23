@@ -59292,5 +59292,479 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.58.0": {
+  "hash": "e56e5f46c62f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "gpt-5.1 모델 계열을 지원하고 앱 서버 이벤트 및 JSON 스키마 생성을 확장했다. TUI, 문서, 인증 상태 출력과 여러 플랫폼의 안정성도 개선했다.",
+   "items": [
+    "gpt-5.1 모델 계열을 지원한다.",
+    "앱 서버에 JSON 스키마 생성 명령과 항목 시작·완료 이벤트를 추가하고 매크로 및 중복 코드 관리를 개선했다.",
+    "문서를 갱신하고 TUI 단축키를 인라인으로 표시하며 여러 플랫폼·기능의 문제를 수정했다. 경고와 인증 상태 출력을 개선하고 OTEL 테스트를 안정화했다.",
+    "world-writable 검사를 개선했다.",
+    "승인 옵션에 키보드 단축키를 인라인으로 표시한다.",
+    "world-writable 경고를 추가로 개선했다.",
+    "SDK 문서에서 “file diffs”를 “file change notifications”로 바로잡았다.",
+    "seatbelt에서 `hw.physicalcpu` 읽기를 허용한다.",
+    "cloud-tasks가 `cli_auth_credentials_store` 설정을 따르도록 수정했다.",
+    "Windows의 npm 업그레이드에서 경로 탐색이 작동하도록 `cmd.exe`를 거치게 했다.",
+    "codespell 액션 의존성을 2.1에서 2.2로 갱신했다.",
+    "taiki-e/install-action 의존성을 2.60.0에서 2.62.49로 갱신했다.",
+    "`/codex-rs`의 askama 의존성을 0.12.1에서 0.14.0으로 갱신했다.",
+    "`/codex-rs`의 zeroize 의존성을 1.8.1에서 1.8.2로 갱신했다.",
+    "경고 메시지 표현을 수정했다.",
+    "TOML 파싱 설명을 바로잡아 설정 문서를 수정했다.",
+    "compact 명령을 이동했다.",
+    "`web_search` 설정의 최근 변경 사항을 반영해 문서를 갱신했다.",
+    "앱 서버 프로토콜의 `generate_ts`를 사용하도록 수정했다.",
+    "로그인 메뉴에서 나갈 수 있도록 지원한다.",
+    "병합 없이 닫힌 PR을 잠그지 않도록 수정했다.",
+    "앱 서버에 JSON 스키마 생성 명령을 추가했다.",
+    "Homebrew 자동 업데이트 버전 검사를 수정했다.",
+    "rate limit 모델 안내를 끌 수 있는 옵션을 추가했다.",
+    "사용자 명령 이벤트 타입을 추가했다.",
+    "unified_exec에 작업 디렉터리를 추가했다.",
+    "deprecated API 섹션 밖으로 initialize를 옮겼다.",
+    "Wayland 이미지 붙여넣기 오류를 수정했다.",
+    "`codex debug seatbelt --log-denials`를 추가했다.",
+    "Ctrl-Z 처리를 위한 TUI job control을 리팩터링했다.",
+    "메서드 이름 변경 시 반복 코드를 줄이도록 앱 서버 매크로를 갱신했다.",
+    "CLI 릴리스에 Windows `.exe` 파일 아티팩트를 업로드한다.",
+    "rate limit 상태 표시줄을 뒤집었다.",
+    "unified exec에서 codex-linux-sandbox를 사용한다.",
+    "bash 파싱 코드를 한곳에 더 모았다.",
+    "앱 서버 turn API의 중복 코드를 헬퍼 함수로 정리했다.",
+    "ghost_commit 기능을 기본 활성화했다.",
+    "로그를 trace 수준으로 조정했다.",
+    "unified exec의 권한 상승 처리를 추가하고 테스트했다.",
+    "턴 항목의 시작·완료 이벤트를 앱 서버에 추가했다.",
+    "full-auto 설명에 on-request를 반영했다.",
+    "generate-ts에서 prettier의 `log-level=warn`을 다시 추가했다.",
+    "재개 시 모델 전환 경고를 추가했다.",
+    "shell_command 도구를 추가했다.",
+    "불리언 값을 설정 오버라이드로 파싱할 수 있는지 확인한다.",
+    "OTEL 테스트를 수정했다.",
+    "ghost commit에서 변경 작업을 수행하는 도구만 기다리도록 했다.",
+    "상태 출력이 AuthManager의 인증 정보를 사용하도록 수정했다.",
+    "gpt-5.1 모델 정의를 추가했다.",
+    "로깅 시 요청 본문을 중복 인코딩하지 않도록 수정했다.",
+    "thread/resume에서 기록, 경로 및 오버라이드를 지원한다.",
+    "gpt-5.1의 초기 사용자 경험을 추가했다.",
+    "5.1의 verbosity를 low로 설정했다.",
+    "초기 사용자 경험의 모델 선택기 부제를 갱신했다.",
+    "모델 선택기에 gpt-5.1을 포함한다.",
+    "도구 프로세스가 stdout/stderr를 공유하는 자식 프로세스를 생성할 때 멈추는 문제를 방지한다.",
+    "porcupine 모델 slug를 제거했다.",
+    "gpt mini를 표시한다.",
+    "모델 마이그레이션 안내 문구를 추가했다.",
+    "추론 수준을 갱신했다.",
+    "5.1의 추론 수준을 명시적인 medium으로 기본 설정한다.",
+    "gpt-5.1용 프롬프트를 갱신했다.",
+    "압축 후 남은 컨텍스트를 전달한다.",
+    "모델 선택기 줄바꿈을 수정했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "gpt-5.1 모델 지원",
+     "what": "gpt-5.1 모델 계열을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "앱 서버 개선",
+     "what": "앱 서버에 JSON 스키마 생성 명령과 항목 시작·완료 이벤트를 추가했다. 매크로를 정리하고 반복 코드를 줄였으며 중복 코드 관리도 개선했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "사용성 및 안정성 개선",
+     "what": "문서를 갱신하고 TUI 단축키를 인라인으로 표시한다. seatbelt, Wayland, Homebrew, 압축 및 cloud-tasks 문제를 수정하고 경고와 인증 상태 출력을 개선했으며 OTEL 테스트를 안정화했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.57.0": {
+  "hash": "28963b835820",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "슬래시 명령 목록 탐색과 긴 명령의 시간 초과 처리를 개선한다.",
+   "items": [
+    "TUI에서 `ctrl-n`/`ctrl-p`로 슬래시 명령 목록을 이동할 수 있고, 이전 항목으로 돌아갈 때 `/status` 잡음 항목을 건너뛴다.",
+    "오래 실행되는 명령의 시간 초과 처리를 개선한다.",
+    "통합 exec의 자유 형식 출력을 포맷한다.",
+    "`generate_ts`의 prettier 출력 문제를 경고만 하도록 바꾼다.",
+    "TUI에서 `/status`를 지나 이전 항목으로 돌아가는 동작을 수정한다.",
+    "슬래시 명령, 파일, 기록 탐색에 CTRL-n/CTRL-p를 활성화한다.",
+    "`insufficient_quota` 오류에서는 재시도하지 않는다.",
+    "통합 exec가 활성화되면 셸 도구를 제거한다.",
+    "AI 라벨러 규칙을 이슈 트래커 라벨에 맞게 갱신한다.",
+    "`wait_for_event_with_timeout` 대신 `wait_for_event`를 우선 사용하도록 변경을 시작한다.",
+    "`apply_patch`의 이름 변경 및 이동 경로 해석을 수정한다.",
+    "`wait_for_event_with_timeout` 대신 `wait_for_event`를 우선 사용하도록 후속 변경한다.",
+    "App-server에 `account/read` 엔드포인트를 구현한다.",
+    "`Thread`에 추가 필드를 노출한다.",
+    "인증 v2 문서를 추가하고 Codex MCP 인터페이스 절을 갱신한다.",
+    "threads와 turns 관련 README를 갱신한다.",
+    "셸 설정 도구를 모델 패밀리 설정으로 승격한다.",
+    "`tui.rs`에 인라인 주석을 추가한다.",
+    "`create_github_release` 스크립트에 `--promote-alpha` 옵션을 추가한다.",
+    "TypeScript SDK에 `network_access`와 `web_search` 옵션을 추가한다.",
+    "업데이트 중 WSL 경로를 정규화한다.",
+    "App-server 문서에 초기화 절을 추가한다.",
+    "사용 중단된 flush 로직을 제거하도록 터미널을 리팩터링한다.",
+    "Cloudflare 403 HTML 대신 이해하기 쉬운 메시지를 표시한다.",
+    "통합 exec에서 안전한 명령은 승인 없이 실행할 수 있게 한다.",
+    "시간 초과 시 셸 도구 프로세스 그룹을 종료한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "슬래시 명령 목록 키보드 탐색",
+     "what": "TUI에서 `ctrl-n`과 `ctrl-p`로 슬래시 명령 목록을 이동한다. 이전 항목으로 돌아갈 때 `/status` 잡음 항목은 건너뛴다.",
+     "steps": [
+      "TUI에서 슬래시 명령 목록을 연다.",
+      "`ctrl-n` 또는 `ctrl-p`로 목록을 이동한다.",
+      "이전 항목으로 돌아가면 `/status`가 건너뛰어지는지 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "긴 명령 시간 초과 개선",
+     "what": "오래 실행되는 명령의 시간 초과 처리를 개선한다. 입력에 구체적인 시간 값이나 사용 단계는 제시되지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.55.0": {
+  "hash": "9ec80a573752",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "musl 버전 고정을 되돌리고 codex_delegate의 델타를 무시한다.",
+   "items": [
+    "DNS 수정을 위해 musl 1.2.5를 고정한 변경을 되돌린다.",
+    "`codex_delegate`의 델타를 무시한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.54.0": {
+  "hash": "3e022d0a0745",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "검색, 샌드박싱, 대화 압축과 API 호환성 관련 수정이 포함된다.",
+   "items": [
+    "DNS 문제 해결을 위해 musl 1.2.5를 고정한다.",
+    "턴 항목과 함께 전송되는 reasoning 델타를 무시한다.",
+    "account/updated와 account/logout에 App-server v2를 적용한다.",
+    "reasoning 메시지를 API 메시지에서 올바르게 제외하도록 is_api_message를 수정한다.",
+    "파일 검색에서 심볼릭 링크를 따라간다.",
+    "config.toml 예시를 문서에 추가한다.",
+    "`--search`에서 사용 중단 안내를 표시하지 않도록 수정한다.",
+    "notify 처리기가 올바른 `input_messages` 정보를 전달하도록 수정한다.",
+    "샌드박스 명령 로그를 현재 디렉터리 대신 `$CODEX_HOME`에 기록한다.",
+    "중단 후 경과 시간을 추가한다.",
+    "TUI 텍스트 영역의 단어 구분 처리를 개선한다.",
+    "샌드박스가 활성화된 Windows에서도 신뢰 확인을 건너뛰지 않는다.",
+    "responses-api-proxy에 Azure 지원 옵션을 추가한다.",
+    "컨텍스트 창 계산에 reasoning 토큰을 포함한다.",
+    "rmcp 클라이언트 기능 플래그 참조를 수정한다.",
+    "OAuth 로그인 오류 메시지의 오타를 수정한다.",
+    "슬래시 명령 문서를 추가한다.",
+    "상태 카드와 스냅샷의 사용량 URL을 개선한다.",
+    "Windows에서 대화 보관 기능을 수정한다.",
+    "upload-artifact 액션을 4에서 5로 올린다.",
+    "API 키 붙여넣기 때 추가 문자가 들어가는 문제를 수정한다.",
+    "실험적 설정 키의 잘못된 사용 중단 안내를 수정한다.",
+    "초기 실험 피드백을 반영해 샌드박스 명령 평가 기능을 변경한다.",
+    "Azure OpenAI 속도 제한 메시지를 파싱한다.",
+    "고급 가이드의 링크 앵커와 Markdown 형식을 수정한다.",
+    "문서의 작은 오타를 수정한다.",
+    "색상 조회 개선을 위해 crossterm을 패치한다.",
+    "App-server 클라이언트 요청의 오류 응답을 개선한다.",
+    "기여 가이드의 깨진 링크를 수정한다.",
+    "compactor 2를 추가한다.",
+    "압축 시 경고를 추가한다.",
+    "JSON용 셸 직렬화 테스트를 추가한다.",
+    "도구 호출 텍스트의 전체 길이를 자른다.",
+    "Configuration을 Getting started에서 분리한다.",
+    "indexmap을 2.10.0에서 2.11.4로 올린다.",
+    "anyhow를 1.0.99에서 1.0.100으로 올린다.",
+    "checkout 액션을 4에서 5로 올린다.",
+    "github-script 액션을 7에서 8로 올린다.",
+    "brew upgrade 링크를 수정한다.",
+    "테스트 변경을 되돌린다.",
+    "thiserror를 2.0.16에서 2.0.17로 올린다.",
+    "사용자 지침 메시지 형식을 업데이트한다.",
+    "insert_history_lines_to_writer에서 오류를 전파하도록 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "codex@rust-v0.53.0": {
+  "hash": "1d19a8807fc0",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "오류 400 문제를 수정하고 Java 샌드박싱을 개선한다.",
+   "items": [
+    "오류 400 관련 문제를 수정한다.",
+    "Java 샌드박싱을 개선한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "오류 400 수정",
+     "what": "오류 400이 발생하는 문제를 수정한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "Java 샌드박싱 개선",
+     "what": "Java를 위한 샌드박싱을 개선한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.52.0": {
+  "hash": "e45f31197b6f",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "TUI 사용성을 다듬고 이미지 처리 안정성을 높였다. `!<cmd>`로 명령을 직접 실행하고 추가 사용 크레딧을 구매할 수 있다.",
+   "items": [
+    "스트리밍 중 대기 중인 메시지를 표시하고, Windows 자동 모드 안내와 실행 취소 기능을 추가했으며, 압축 프롬프트를 설정할 수 있게 했다.",
+    "클라이언트에서 이미지 크기를 조정하고 MIME을 확인해 충돌을 방지한다. SDK 이미지 전달 테스트를 다시 활성화했다.",
+    "`!<cmd>` 형식으로 명령을 직접 실행할 수 있다.",
+    "더 많은 사용량을 위해 크레딧을 구매할 수 있다.",
+    "키링 지원 및 설정 가능한 백엔드를 포함하는 새 CLI 인증 저장소 추상화를 추가했다.",
+    "앱 서버에 대화 요약 RPC를 추가해 ID로 요약을 가져오거나 대화를 재개할 수 있으며, 계정 및 프로토콜 타입을 다듬었다.",
+    "항목 스트리밍 이벤트와 ghost commit을 추가하고, 폐기 경고, 토큰 갱신 처리 및 로그를 개선했다.",
+    "모든 도구 출력의 자르기를 중앙화하고 이전 턴의 추론을 제외하며, 대화에 `model_provider`를 기록한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "TUI 개선",
+     "what": "스트리밍 중 대기 중인 메시지가 보이도록 했다. Windows 자동 모드 안내와 실행 취소 기능을 추가하고 압축 프롬프트를 설정할 수 있게 했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "이미지 처리 개선",
+     "what": "클라이언트에서 이미지 크기를 조정하며 MIME 확인으로 충돌을 방지한다. SDK 이미지 전달 테스트를 다시 활성화했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 2,
+     "title": "명령 직접 실행",
+     "what": "`!<cmd>` 형식으로 명령을 직접 실행할 수 있다.",
+     "steps": [
+      "`!<cmd>` 형식으로 실행할 명령을 입력한다."
+     ],
+     "terminal": {
+      "title": "명령 직접 실행",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "`<cmd>`는 실행할 명령을 나타내는 자리표시자다."
+       },
+       {
+        "kind": "cmd",
+        "text": "> !<cmd>"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 3,
+     "title": "사용 크레딧 구매",
+     "what": "더 많은 사용량을 위해 크레딧을 구매할 수 있다. 자세한 정보는 안내 링크에서 확인할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.50.0": {
+  "hash": "6e2be635e127",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`/feedback`의 진단 정보를 개선해 문제를 더 잘 파악하고 보고할 수 있다.",
+   "items": [
+    "`/feedback`의 진단 정보를 개선했다. 문제를 보고할 때 사용해 달라고 안내한다. 그 밖에 MCP 시작 오류와 환경 변수 값 표시, 요청 로그 및 앱 서버 이벤트 등을 개선했다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "개선된 피드백 진단",
+     "what": "`/feedback`에서 더 나은 진단 정보를 얻도록 개선했다. 문제를 보고할 때 이 기능을 사용하도록 안내한다.",
+     "steps": [],
+     "terminal": {
+      "title": "피드백 명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> /feedback"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "codex@rust-v0.49.0": {
+  "hash": "1b69ca00d4c2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "v0.49.0은 v0.48.0과 비교해 주요 변경 사항이 없다. Homebrew 업그레이드 스크립트를 테스트하는 데 사용된다.",
+   "items": [
+    "v0.48.0 대비 주요 변경 사항은 없으며, Homebrew 업그레이드 스크립트 테스트에 사용된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "Homebrew 업그레이드 스크립트 테스트",
+     "what": "이 릴리스는 Homebrew 업그레이드 스크립트를 테스트하는 데 사용된다. v0.48.0과 비교해 주요 변경 사항은 없다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
