@@ -63729,5 +63729,119 @@
    ],
    "features": []
   }
+ },
+ "claude-code@0.2.107": {
+  "hash": "39644d52ddfc",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`CLAUDE.md`에서 다른 파일을 가져올 수 있다. 시작할 때 추가 파일을 불러오려면 `./CLAUDE.md`에 `@path/to/file.md`를 추가한다.",
+   "items": [
+    "`CLAUDE.md`에서 다른 파일을 가져올 수 있다. 시작할 때 추가 파일을 불러오려면 `./CLAUDE.md`에 `@path/to/file.md`를 추가한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.106": {
+  "hash": "2c90a83bf188",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MCP SSE 서버 설정에서 사용자 지정 헤더를 지정할 수 있게 된다. MCP 권한 프롬프트가 올바르게 표시되지 않던 문제가 수정된다.",
+   "items": [
+    "MCP SSE 서버 설정에 사용자 지정 헤더를 지정할 수 있다.",
+    "MCP 권한 프롬프트가 항상 올바르게 표시되지 않던 버그를 수정했다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.105": {
+  "hash": "f014364412d3",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "웹 검색을 지원하고 `/status`에서 시스템 및 계정 상태를 확인하도록 바뀐다. Vim 단어 이동 키 바인딩이 추가되고 시작, todo 도구, 파일 편집의 지연 시간이 개선된다.",
+   "items": [
+    "Claude가 이제 웹을 검색할 수 있다.",
+    "시스템 및 계정 상태 확인 위치가 `/status`로 이동했다.",
+    "Vim 단어 이동 키 바인딩이 추가됐다.",
+    "시작, todo 도구, 파일 편집의 지연 시간이 개선됐다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "Vim 단어 이동 키 바인딩",
+     "what": "Vim에서 단어 단위로 이동하는 키 바인딩이 추가된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@0.2.102": {
+  "hash": "1c3004f48d46",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "생각 모드 실행과 이미지·폴더 `@mention`의 안정성을 개선한다. 하나의 프롬프트에 여러 개의 큰 텍스트를 붙여넣을 수 있다.",
+   "items": [
+    "생각 모드가 안정적으로 실행되도록 개선한다.",
+    "이미지와 폴더의 `@mention` 안정성을 개선한다.",
+    "하나의 프롬프트에 여러 개의 큰 텍스트를 붙여넣을 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.100": {
+  "hash": "e171b1dae611",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "스택 오버플로로 인한 충돌을 수정한다. DB 저장소를 선택 사항으로 변경하며, DB 지원이 없으면 `--continue`와 `--resume`을 사용할 수 없다.",
+   "items": [
+    "스택 오버플로 오류로 발생하던 충돌을 수정한다.",
+    "DB 저장소를 선택 사항으로 변경한다. DB 지원이 없으면 `--continue`와 `--resume`을 사용할 수 없다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.98": {
+  "hash": "0932769bc77e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "자동 압축이 두 번 실행되던 문제를 수정한다.",
+   "items": [
+    "자동 압축이 두 번 실행되던 문제를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.96": {
+  "hash": "721e362d53d9",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Claude Code를 이제 Claude Max 구독으로도 사용할 수 있다.",
+   "items": [
+    "Claude Code를 이제 Claude Max 구독으로도 사용할 수 있다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@0.2.93": {
+  "hash": "d7d95d56acb8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "`claude --continue`와 `claude --resume`으로 대화를 이어갈 수 있다. 작업을 정리하는 데 도움이 되는 할 일 목록도 제공한다.",
+   "items": [
+    "`claude --continue`와 `claude --resume`으로 이전 대화를 이어갈 수 있다.",
+    "Claude가 작업을 체계적으로 진행하도록 할 일 목록을 제공한다."
+   ],
+   "features": []
+  }
  }
 }
