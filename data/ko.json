@@ -62736,5 +62736,181 @@
    ],
    "features": []
   }
+ },
+ "claude-code@1.0.36": {
+  "hash": "375dc1afd9f2",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "웹 검색이 오늘 날짜를 맥락에 반영하고, 종료 시 stdio MCP 서버가 제대로 종료되지 않던 문제를 수정한다.",
+   "items": [
+    "웹 검색이 오늘 날짜를 맥락에 반영한다.",
+    "종료 시 stdio MCP 서버가 제대로 종료되지 않던 버그를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.35": {
+  "hash": "b7344e3bd014",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MCP OAuth Authorization Server 검색을 지원한다.",
+   "items": [
+    "MCP OAuth Authorization Server 검색을 지원한다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "MCP OAuth Authorization Server 검색",
+     "what": "MCP OAuth Authorization Server 검색을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.34": {
+  "hash": "041a163a0434",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "MaxListenersExceededWarning 메시지가 나타나게 하던 메모리 누수를 수정한다.",
+   "items": [
+    "MaxListenersExceededWarning 메시지가 나타나게 하던 메모리 누수를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.33": {
+  "hash": "30cd7ffeeec8",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "프롬프트 입력을 되돌리는 기능을 추가하고 로깅과 계획 모드를 개선한다.",
+   "items": [
+    "세션 ID를 지원하도록 로깅 기능을 개선한다.",
+    "프롬프트 입력을 되돌리는 기능을 추가한다(Ctrl+Z 및 vim의 'u' 명령).",
+    "계획 모드를 개선한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "프롬프트 입력 되돌리기",
+     "what": "프롬프트 입력을 되돌릴 수 있다. Ctrl+Z와 vim의 'u' 명령을 지원한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "Ctrl+Z"
+       },
+       {
+        "kind": "cmd",
+        "text": "u"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.32": {
+  "hash": "63283540216c",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "로그인 선택 화면을 건너뛰도록 로그인 방식을 지정하는 설정을 추가한다.",
+   "items": [
+    "litellm의 loopback 설정을 업데이트한다.",
+    "로그인 선택 화면을 건너뛰도록 forceLoginMethod 설정을 추가한다."
+   ],
+   "features": [
+    {
+     "index": 1,
+     "title": "로그인 방식 고정 설정",
+     "what": "forceLoginMethod 설정으로 로그인 선택 화면을 건너뛸 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.31": {
+  "hash": "4fbdd8655347",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "잘못된 JSON이 들어 있는 설정 파일이 초기화되던 버그를 수정한다.",
+   "items": [
+    "파일에 잘못된 JSON이 있을 때 `~/.claude.json`이 초기화되던 버그를 수정한다."
+   ],
+   "features": []
+  }
+ },
+ "claude-code@1.0.30": {
+  "hash": "abefcded7e23",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "Ctrl-r 모드에 타임스탬프가 추가되고 Ctrl-c 처리가 수정된다.",
+   "items": [
+    "사용자 지정 슬래시 명령에서 bash 출력을 실행하고 파일을 @로 언급하며 thinking 키워드로 thinking을 활성화한다.",
+    "파일 이름 일치 기능으로 파일 경로 자동 완성이 개선된다.",
+    "Ctrl-r 모드에 타임스탬프가 추가되고 Ctrl-c 처리가 수정된다.",
+    "파이프와 select를 포함한 복잡한 필터에서 jq 정규식 지원이 강화된다."
+   ],
+   "features": [
+    {
+     "index": 2,
+     "title": "Ctrl-r 모드 타임스탬프와 Ctrl-c 처리",
+     "what": "Ctrl-r 모드에 타임스탬프가 표시된다. Ctrl-c 처리도 수정된다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "claude-code@1.0.29": {
+  "hash": "19e2d00ad344",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "CJK 문자 탐색과 렌더링 지원을 개선한다.",
+   "items": [
+    "커서 이동과 렌더링에서 CJK 문자 지원을 개선한다."
+   ],
+   "features": []
+  }
  }
 }
