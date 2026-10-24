@@ -1,6 +1,292 @@
 {
- "generatedAt": "2026-10-23T21:29:32.107Z",
+ "generatedAt": "2026-10-24T03:32:36.213Z",
  "releases": [
+  {
+   "id": "claude-code@2.1.310",
+   "tool": "claude-code",
+   "version": "2.1.310",
+   "date": "2026-10-23T21:20:46.540Z",
+   "prerelease": false,
+   "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21310",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added the Monitor tool and plugin monitors on Bedrock, Vertex, and Foundry, and when telemetry or nonessential traffic is disabled; long foreground sleeps are now blocked there too",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed requests failing behind some gateways and compatible servers that reject the `effort-2025-11-24` beta value or mid-conversation system messages; Claude Code now retries without them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed background cleanup deleting some recent files, such as pasted images, when `cleanupPeriodDays` is set to a very large value",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed compaction after a \"Prompt is too long\" error keeping too much of a conversation with dense text, such as base64 or SVG, so the next request could fail again",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed file read permission prompts not showing where a symbolic link leads",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a question's auto-continue timeout firing the moment the external editor closed after a long edit",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Windows: Fixed PreToolUse and PermissionRequest hooks letting a tool call through when Git Bash is missing and the hook's command is only quoted strings, such as a quoted path",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved auto mode's prompt before the first read outside the working directories: it now says when blocking those reads makes shell commands ask for permission",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved memory use of non-interactive sessions (`-p`, Agent SDK) during compaction when the transcript file is very large",
+     "surfaces": [
+      "sdk"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved a mod's `Image` to draw inside tmux with `allow-passthrough` and `focus-events` on, in kitty, Ghostty, and iTerm2 3.5+ with fullscreen rendering, where it showed only its `alt` text",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Linux: Improved `/sandbox` and the sandbox startup warning to name Ubuntu's AppArmor restriction on user namespaces, and how to lift it, when it keeps bubblewrap from starting the sandbox",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the error for an MCP tool call that times out in a non-interactive session while the server's elicitation is unanswered: it now tells Claude that no answer came and not to repeat the call",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed pressing Enter on the plan review card's \"Send feedback and keep planning\" button approving the plan instead of sending your comments back",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the panel showing \"Something went wrong\" after \"Switch branch & continue\" on a cloud session opened from Session history's Web tab",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Added Claude Code cloud sessions and Remote Control permissions to Enterprise custom roles, so Owners can control access to each by role",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Added a Choose file button to load a cloud environment's setup script from a file",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Fixed failed saves and archives in the cloud environment edit dialog showing no error inside the dialog",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Fixed failed routine API token actions showing only a toast; the error now appears in the routine edit dialog",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Improved the session start checklist to show a cloud environment's setup script output in a scrolling box",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Changed turning on Cloud sessions or Remote Control in admin settings to ask for confirmation and list the custom roles that have that permission",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Cloud sessions] Changed the cloud environment dialog to open network access, setup script and environment variables from rows instead of listing every editor at once",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed Claude Tag treating `!` commands such as `!restart` and `!help` as ordinary messages when sent in bold, italic or strikethrough",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed Claude Tag admin channel and workspace pages being replaced by a load error when a background refresh of the bundle list fails",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed Claude Tag's spend limits page in admin settings reporting that no channels match a filter while channel names are still loading",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Code Review] Fixed the Code Review admin section hiding its repositories and switches after a failed refresh of the repository list",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Code Review] Improved the Code Review admin section to retry the first load and show one Try again banner when it still fails",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "b9e3e26174a0",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Bedrock·Vertex·Foundry 및 telemetry나 비필수 트래픽을 끈 환경에서도 Monitor 도구와 플러그인 모니터를 사용할 수 있게 된다. VS Code의 계획 검토 동작과 클라우드 세션 전환 오류도 수정된다.",
+    "items": [
+     "Bedrock·Vertex·Foundry와 telemetry 또는 비필수 트래픽을 끈 환경에서 Monitor 도구와 플러그인 모니터를 사용할 수 있게 된다. 이 환경에서 긴 포그라운드 대기도 차단된다.",
+     "일부 게이트웨이와 호환 서버가 `effort-2025-11-24` 베타 값이나 대화 중간의 시스템 메시지를 거부할 때 요청이 실패하던 문제를 수정한다. 이제 해당 값과 메시지 없이 재시도한다.",
+     "`cleanupPeriodDays`가 매우 큰 값일 때 붙여넣은 이미지 같은 최근 파일을 백그라운드 정리가 삭제하던 문제를 수정한다.",
+     "텍스트가 빽빽한 대화에서 ‘Prompt is too long’ 오류 뒤 압축이 대화를 충분히 줄이지 못해 다음 요청도 실패하던 문제를 수정한다. base64나 SVG 같은 텍스트가 해당된다.",
+     "파일 읽기 권한 요청에 심볼릭 링크의 대상 경로가 표시되지 않던 문제를 수정한다.",
+     "외부 편집기에서 오래 편집한 뒤 닫는 순간 질문의 자동 계속 시간 초과가 발생하던 문제를 수정한다.",
+     "Windows에서 Git Bash가 없고 훅 명령이 인용된 문자열만 포함할 때 PreToolUse 및 PermissionRequest 훅이 도구 호출을 허용하던 문제를 수정한다.",
+     "자동 모드에서 작업 디렉터리 밖을 처음 읽기 전에 표시하는 안내를 개선한다. 해당 읽기를 막으면 셸 명령이 권한을 요청하게 된다는 점을 알린다.",
+     "대화 기록 파일이 매우 큰 경우 압축 중 비대화형 세션(`-p`, Agent SDK)의 메모리 사용을 개선한다.",
+     "kitty, Ghostty, iTerm2 3.5 이상에서 전체 화면 렌더링을 사용할 때 tmux의 `allow-passthrough`와 `focus-events`가 켜져 있어도 모드의 `Image`가 대체 텍스트만 표시되던 문제를 수정한다.",
+     "Linux의 `/sandbox`와 샌드박스 시작 경고가 bubblewrap 실행을 막는 Ubuntu의 AppArmor 사용자 네임스페이스 제한과 해제 방법을 안내하도록 개선한다.",
+     "비대화형 세션에서 서버의 미응답 elicitation 때문에 MCP 도구 호출 시간이 초과되면, 응답을 받지 못했으며 호출을 반복하지 말라고 Claude에 알리도록 오류 문구를 변경한다.",
+     "[VSCode] 계획 검토 카드에서 ‘Send feedback and keep planning’ 버튼을 Enter로 눌렀을 때 의견을 보내는 대신 계획을 승인하던 문제를 수정한다.",
+     "[VSCode] Session history의 Web 탭에서 연 클라우드 세션에서 ‘Switch branch & continue’를 실행한 뒤 패널에 ‘Something went wrong’이 표시되던 문제를 수정한다.",
+     "[Cloud sessions] Enterprise 사용자 지정 역할에 Claude Code 클라우드 세션 및 Remote Control 권한을 추가한다. 소유자는 역할별 접근을 제어할 수 있다.",
+     "[Cloud sessions] 파일에서 클라우드 환경 설정 스크립트를 불러오는 Choose file 버튼을 추가한다.",
+     "[Cloud sessions] 클라우드 환경 편집 대화상자에서 저장이나 보관에 실패해도 오류가 대화상자 안에 표시되지 않던 문제를 수정한다.",
+     "[Cloud sessions] 루틴 API 토큰 작업 실패 시 토스트에만 표시되던 오류를 루틴 편집 대화상자에도 표시한다.",
+     "[Cloud sessions] 세션 시작 체크리스트에서 클라우드 환경 설정 스크립트 출력을 스크롤 가능한 상자로 보여주도록 개선한다.",
+     "[Cloud sessions] 관리자 설정에서 Cloud sessions 또는 Remote Control을 켤 때 확인을 요청하고 해당 권한이 있는 사용자 지정 역할을 나열하도록 변경한다.",
+     "[Cloud sessions] 클라우드 환경 대화상자에서 네트워크 접근, 설정 스크립트, 환경 변수를 한꺼번에 나열하지 않고 각 행에서 열도록 변경한다.",
+     "[Claude Tag] `!restart`, `!help` 같은 `!` 명령을 굵게, 기울임 또는 취소선으로 보내면 일반 메시지로 처리하던 문제를 수정한다.",
+     "[Claude Tag] 번들 목록의 백그라운드 새로고침이 실패할 때 관리자 채널 및 작업공간 페이지가 로드 오류 화면으로 대체되던 문제를 수정한다.",
+     "[Claude Tag] 채널 이름을 불러오는 중 지출 한도 페이지가 필터와 일치하는 채널이 없다고 표시하던 문제를 수정한다.",
+     "[Code Review] 저장소 목록 새로고침이 실패하면 관리자 섹션에서 저장소와 스위치가 숨겨지던 문제를 수정한다.",
+     "[Code Review] 관리자 섹션에서 첫 로드를 재시도하고, 계속 실패하면 ‘Try again’ 배너 하나를 표시하도록 개선한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Monitor 및 플러그인 모니터 지원 확대",
+      "what": "Bedrock, Vertex, Foundry에서 Monitor 도구와 플러그인 모니터를 사용할 수 있게 된다. telemetry 또는 비필수 트래픽을 비활성화한 환경도 지원하며, 이 환경에서는 긴 포그라운드 대기도 차단된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 12,
+      "title": "VS Code 계획 검토 의견 전송 수정",
+      "what": "계획 검토 카드의 ‘Send feedback and keep planning’ 버튼에서 Enter를 눌렀을 때 계획을 승인하던 동작을 수정한다. 의견을 보내고 계획을 계속 검토하는 버튼의 동작이 의도대로 처리된다.",
+      "steps": [
+       "계획 검토 카드를 연다.",
+       "‘Send feedback and keep planning’ 버튼에서 Enter를 누른다.",
+       "계획 승인 대신 의견을 보내고 계획 검토를 계속한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 13,
+      "title": "VS Code 클라우드 세션 브랜치 전환 오류 수정",
+      "what": "Session history의 Web 탭에서 연 클라우드 세션에서 ‘Switch branch & continue’를 실행한 뒤 패널에 오류가 표시되던 문제를 수정한다. 이 전환 흐름에서 패널 오류가 발생하지 않도록 한다.",
+      "steps": [
+       "Session history의 Web 탭에서 클라우드 세션을 연다.",
+       "‘Switch branch & continue’를 실행한다.",
+       "패널에서 계속 진행한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
   {
    "id": "codex@rust-v0.164.0",
    "tool": "codex",
