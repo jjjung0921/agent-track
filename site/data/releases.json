@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T04:56:55.304Z",
+ "generatedAt": "2026-10-26T13:15:05.116Z",
  "releases": [
   {
    "id": "claude-code@2.1.310",
@@ -1423,6 +1423,107 @@
     ],
     "features": []
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-22-mobile",
+   "tool": "codex",
+   "version": "ChatGPT for iOS 1.2026.286",
+   "date": "2026-10-22T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-22-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "View and stop background commands from a new pill above the composer on supported remote hosts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Mention chats from other connected hosts with @.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "A loading indicator now shows when saved messages are refreshing.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Activity groups are cleaner, and you can open images inspected by Codex on demand.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Unanswered questions remain available after a turn finishes and when reopening a chat.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "More reliable replies to questions while another prompt is starting or finishing.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Autocomplete suggestions appear as each source loads, without waiting for slower sources.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Usage-limit explanations and reset times now appear directly in the chat.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed prompts incorrectly appearing to fail after a response timeout.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Corrected extra diff lines after repeated edits to the same file.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Images in responses open in the full-screen gallery, and attachment removal targets the correct image.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "The voice button returns after a call ends, so you can start another without reopening the chat.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "0222f1172be3",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.307",
@@ -8037,6 +8138,121 @@
     ],
     "features": []
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-13-mobile",
+   "tool": "codex",
+   "version": "ChatGPT for iOS 1.2026.279",
+   "date": "2026-10-13T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-13-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "File citations now open directly in the file viewer.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Collapse the entire Projects section to reach recent tasks faster.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Faster task and thread loading, with saved task names and recent messages visible while reconnecting.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Markdown now renders in sent prompts, with questions quoted above your replies.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Queued messages appear immediately, with more reliable handling during turn interruptions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Markdown files open in rendered view by default.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Clearer skill names and improved autocomplete after punctuation.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed missing Rename prompts and usage percentages on iPad.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Plan mode stays selected when returning to the task list.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Custom permission mode now respects project-defined permissions.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved task widget reliability, including when local authentication is enabled for Codex.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Usage widgets adapt to accounts with only a weekly limit.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Connection errors offer a Retry action without hiding saved messages.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed raw image URLs appearing in image-only messages.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "94ecfebdd759",
+   "ko": null
   },
   {
    "id": "codex@rust-v0.162.1",
