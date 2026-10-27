@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T05:14:38.440Z",
+ "generatedAt": "2026-10-27T07:04:22.004Z",
  "releases": [
   {
    "id": "claude-code@2.1.311",
@@ -655,7 +655,296 @@
     }
    ],
    "hash": "0114f5328498",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "self-hosted-runner의 유휴 세션 유지 옵션을 추가하고 Claude 설명 요청 시 Explanatory 팁을 표시한다. VS Code에서는 코드 구문 색상과 느린 훅 안내를 더하고 세션 및 편집기 동작을 개선한다.",
+    "items": [
+     "`self-hosted-runner`에 `--hold-idle-file`과 `--max-hold-min`을 추가해 호스트가 남은 프로세스를 보고하는 동안 유휴 세션을 유지한다.",
+     "Claude에게 설명을 요청하면 Explanatory 출력 스타일 팁을 표시한다.",
+     "`CLAUDE.md`에 매우 긴 목록 항목이 있을 때 시작, 파일 읽기 및 편집 중 발생하던 장시간 멈춤을 수정한다.",
+     "MCP 서버의 리소스 읽기 응답을 기다리거나 스킬을 다운로드하는 동안 중단 요청이 시간 초과까지 적용되지 않던 문제를 수정한다.",
+     "요청이 20만 토큰을 넘을 때 표준 컨텍스트 세션이 크레딧 오류로 중단되던 문제를 수정했다. 이제 대화를 압축하고 계속 진행한다.",
+     "수천 줄을 변경할 때 Write와 Edit 실행 후 최대 5초 멈추고 변경 줄 수를 0으로 보고하던 문제를 수정한다.",
+     "하위 에이전트가 시작된 뒤 연결을 마친 서버의 MCP 도구를 사용할 수 없던 문제를 수정한다.",
+     "세션 중 수정한 `MEMORY.md`와 `CLAUDE.md` 내용이 자동 압축 직후 오래된 상태로 보이던 문제를 수정한다.",
+     "`claude -p` 및 SDK 세션에서 대화 기록 순서가 뒤바뀌거나 철회한 메시지가 남던 문제를 수정한다.",
+     "`SubagentStop` 훅이 실행 중인 하위 에이전트마다 완료 시 한 번이 아니라 약 30초마다 실행되던 문제를 수정한다.",
+     "@ 파일 선택기가 Git 무시 파일을 다시 포함하는 `.ignore`/`.rgignore` 부정 규칙을 무시하던 문제를 수정한다.",
+     "하위 에이전트가 시작한 백그라운드 하위 에이전트가 작업 중인데 격리 worktree가 삭제되던 문제를 수정한다.",
+     "자동 모드 백그라운드 에이전트가 자체 셸을 기다릴 때 깨어날 때마다 새 기본 대화 턴을 시작하던 문제를 수정한다.",
+     "작업 디렉터리가 호출 사이에 항상 유지된다고 Bash 도구 설명에 잘못 안내하던 문제를 수정한다.",
+     "Bash 도구가 zsh를 사용하는데 fish처럼 명령이 실행되지 않는 셸을 환경 블록에 표시하던 문제를 수정한다.",
+     "저장소 루트 아래에서 실행할 때 로컬 범위 서버가 있는 `~/.claude.json`의 프로젝트 항목 대신 현재 폴더를 표시하던 `claude mcp add`, `claude mcp remove`, `/mcp` 문제를 수정한다.",
+     "연결 실패 행에서 `claude mcp list`와 `claude mcp get`이 오류 코드를 두 번 표시하던 문제를 수정한다.",
+     "네트워크 프록시가 시작 요청을 막으면 Remote Control 세션이 약 2분 동안 연결 중에 머물던 문제를 수정한다.",
+     "Claude가 클라우드 또는 Remote Control 세션에 보낸 메시지가 Claude 모바일 앱에서 사용자 메시지로 보이던 문제를 수정한다.",
+     "디스크 공간 부족으로 첨부 파일을 저장하지 못한 이유나 첫 20개 이후 첨부가 제외된 사실을 Claude에 알리지 않던 문제를 수정한다.",
+     "Cowork 클라우드 세션에서 WebFetch와 WebSearch가 응답 정체 시 멈추던 문제를 수정했다. 미완료 요청은 이제 300초 후 실패한다.",
+     "턴 사이에 충돌한 백그라운드 세션이 연결, 고정, 예약 작업 또는 깨우기 설정이 있어도 재시작되지 않던 문제를 수정한다.",
+     "응답하지 않는 백그라운드 서비스 오류가 비활성화된 `claude daemon restart`를 안내하던 문제를 수정했다. 이제 백그라운드 세션을 종료하는 `claude daemon stop --any`를 안내한다.",
+     "일치하는 백그라운드 세션이 없다고 알리기 전에 `claude respawn <id>`가 백그라운드 서비스를 시작하던 문제를 수정한다.",
+     "계획 모델이 세션 모델과 다를 때 계획 모드의 `/effort`가 프롬프트 캐시 누락을 경고하지 않던 문제를 수정한다.",
+     "설치가 끝나기 전이나 실패했는데도 `/ide`가 VS Code 확장 설치 완료를 알리던 문제를 수정한다.",
+     "터미널보다 긴 줄이 파일 미리보기에서 행을 건너뛰고 숨겨진 줄 수를 잘못 세던 문제를 수정한다.",
+     "에이전트 채팅 탭의 ↑ 키가 아직 전달 대기 중인 메시지를 불러와 재전송 시 중복 전송하던 문제를 수정한다.",
+     "플러그인이나 설정에서 `agent`를 지정한 경우 재시작 후 Cowork 클라우드 세션의 커넥터와 대부분 도구가 사라지던 문제를 수정했다. 해당 세션은 이제 그 설정을 무시한다.",
+     "`--resume`, `--continue`, `/resume`, `--session-id`로 돌아올 때 에이전트 팀 작업 목록이 비고 `/branch`가 원래 세션 목록에 쓰던 문제를 수정했다. `/clear` 또는 충돌 뒤에도 수정 사항이 적용된다.",
+     "붙여넣은 텍스트가 이미지 파일을 언급하면 이미지가 첨부되고 경로가 프롬프트에서 빠지던 문제를 수정한다.",
+     "프롬프트에 텍스트가 있을 때 피드백 초안 카드가 실제로는 프롬프트에 적용되는 키의 단축키를 표시하던 문제를 수정한다.",
+     "따옴표나 괄호 안의 단독 백슬래시가 Claude 응답에서 사라지던 문제를 수정한다.",
+     "`DISABLE_COMPACT`가 설정된 경우 에이전트 팀원이 대화 기록을 압축하던 문제를 수정한다.",
+     "`DISABLE_COMPACT`가 설정된 경우 되감기 메뉴에 요약 옵션이 표시되던 문제를 수정한다.",
+     "완료된 `/code-review` 또는 하위 에이전트에서 실행되는 다른 스킬이 클라우드나 백그라운드 세션 재시작 시 다시 실행되던 문제를 수정한다.",
+     "생각 진행 업데이트를 보내는 Google Vertex AI, Microsoft Foundry, AWS Claude Platform에서 긴 숨은 사고가 유휴 상태로 잘리던 문제를 수정한다.",
+     "아무것도 설치되지 않았는데 `/ide`가 JetBrains 플러그인을 설치했다고 알리던 문제를 수정한다.",
+     "구독을 사용할 수 없을 때 Claude Pro 및 Max 사용자에게 관리자에게 문의하라고 안내하던 메시지를 결제 설정 안내로 수정한다.",
+     "편집 후 표시할 내용이 없는데도 넓은 전체 화면 터미널에서 diff 창이 저절로 열리던 문제를 수정한다.",
+     "로그인 없이 작동하는 원격 서버에서 인증 정보를 지운 뒤 `/mcp`가 서버를 실패로 표시하던 문제를 수정한다.",
+     "Claude Code가 자격 증명을 보내지 않는 원격 서버를 `/mcp`가 인증 완료로 표시하던 문제를 수정한다.",
+     "최상위에 빈 `.mcp.json`이 있으면 `--plugin-dir` 폴더의 플러그인을 하나로 불러오던 문제를 수정한다.",
+     "`/usage`의 사용량 제한 기여 항목에 큰 프롬프트 캐시 누락이 표시되지 않던 문제를 수정한다.",
+     "링크 지원 터미널에서 연 뒤 백그라운드 세션의 상태 표시줄 링크가 일반 텍스트로 남던 문제를 수정한다.",
+     "나중 메시지를 대화에서 제거하는 `/rewind` 확인 문구가 대화가 분기된다고 잘못 안내하던 문제를 수정한다.",
+     "코드 복원으로 수동 편집과 Bash 편집은 영향을 받지 않는다고 `/rewind`가 잘못 경고하던 문제를 수정한다.",
+     "화면 읽기 모드에서 Escape로 닫은 피드백이 계획 승인 때 전송되던 문제를 수정한다.",
+     "재시도하지 말라는 API 요청을 Claude Code가 재시도해 턴이 몇 분 또는 비대기 재시도 모드에서 무기한 지연될 수 있던 문제를 수정한다.",
+     "Linux에서 `--plugin-dir` 폴더가 추가 디렉터리이기도 하고 `permissions.blockReadsOutsideWorkingDirectories`가 켜져 있을 때 샌드박스 Bash 명령이 실패하던 문제를 수정한다.",
+     "추가된 읽기 전용 저장소가 속도 제한(HTTP 429 또는 종료 코드 75의 Git 래퍼)에 막히면 세션 시작이 실패하던 self-hosted runner 문제를 수정했다. 이제 해당 저장소 없이 시작한다.",
+     "Pro 및 Max 계정은 마지막 확인 후 한 시간 안에 실행할 때 네트워크 요청 두 건을 건너뛰어 시작 속도를 개선한다.",
+     "압축된 클라우드 세션을 마지막 압축 시점부터 불러오면 요약된 메시지가 로컬 사본에 없다는 경고를 `/teleport`와 `claude --teleport`에 추가했다.",
+     "백그라운드 세션 프로세스 종료 메시지가 실제로 재시작되지 않을 세션의 재시작을 약속하지 않고 세션 재개 방법을 안내한다.",
+     "여러 보기가 있는 아티팩트에서 각 보기를 링크의 `#name`으로 연결한다. 보기 전환 중 주소 표시줄이 그대로라는 안내도 제거한다.",
+     "시간 제한에 도달한 셸 명령 결과에 지금까지의 출력과 명령이 백그라운드에서 계속 실행 중이라는 안내를 표시한다.",
+     "모델 응답에 요약이 없으면 대화를 대체하기 전에 요약을 한 번 더 요청하도록 압축 동작을 개선한다.",
+     "설명 자료와 시각적·대화형 작업은 아티팩트 페이지로, 계속 편집하거나 공유할 문서는 문서로 선택하도록 Artifact 도구의 선택을 개선한다.",
+     "`claude --model opus`처럼 인수에 옵션과 값만 있는 실행의 시작 속도를 개선한다.",
+     "연결 끊김 API 오류에서 먼저 프록시 또는 게이트웨이, 다음으로 VPN 또는 방화벽을 확인하도록 안내한다. Anthropic API에만 적용되며 Bedrock, Vertex, Foundry 동작은 바뀌지 않는다.",
+     "화면 읽기 모드에서 `/permissions` 규칙 삭제 시 “허용 규칙 삭제” 안내를 즉시 읽어준다.",
+     "붙여넣은 로그인 코드가 거부되면 만료되었거나 이미 사용되었을 수 있으니 다시 로그인하라는 이유를 표시한다.",
+     "이름을 지정하지 않은 채널에 메시지를 보내기 전에 Slack 커넥터가 채널 주제의 게시 규칙을 확인한다.",
+     "화면 읽기 모드에서 Claude의 질문을 화살표나 기호 없이 질문 목록으로 표시한다.",
+     "대화형 터미널에서 `ultrathink`를 사용하면 Anthropic API의 Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.1에서 해당 턴을 xhigh effort로 실행한다. Claude가 작업 중 입력하면 그 턴의 남은 부분에 적용된다.",
+     "`ultrathink`의 무지개 강조는 키워드가 effort를 높일 수 있는 경우에만 표시하며, 인용문이나 파일 경로 속 단어에는 표시하지 않는다.",
+     "에이전트 보기에서 입력이 비어 있을 때 Ctrl+D를 두 번 누르면 종료되도록 프롬프트와 동작을 맞췄다.",
+     "`--output-format json` 및 `stream-json` 문자열의 DEL, C1 제어 문자와 Unicode 형식 문자를 `\\uXXXX` 이스케이프로 출력한다. 파싱한 값은 동일하다.",
+     "접미사가 효과가 없는 모델의 이름과 ID에서 `[1m]` 접미사와 레이블을 제거했다. 접미사 입력은 계속 허용한다.",
+     "설정 파일의 권한 규칙 시작 경고를 사용자별로 한 번만 표시하고, 규칙이 바뀌면 다시 표시한다.",
+     "`/code-review`가 effort 수준을 먼저 제시하고 요청받은 경우에만 max를 사용하도록 Claude에 지시한다.",
+     "설정 파일과 모드의 `$.env.set`에서 `DISABLE_COMPACT`는 대화 압축을 끌 수만 있고 다시 켤 수 없게 변경했다.",
+     "Bedrock, Mantle, Vertex, Foundry에서 모델 설정을 downloads.claude.ai의 서명된 파일에서 불러온다. `CLAUDE_CODE_MODEL_CATALOG=off`로 끌 수 있다.",
+     "기능 플래그 조회가 꺼진 상태에서 `CLAUDE_CODE_SYNC_SKILLS`를 설정한 세션은 같은 컴퓨터의 다른 세션이 가져온 claude.ai 스킬 목록을 최대 10분간 재사용한다.",
+     "전체 화면 목록의 스크롤 막대 화살표와 막대 클릭을 마우스 버튼을 놓을 때 처리한다. 놓기 전에 막대 밖으로 이동하면 클릭이 취소된다.",
+     "`claude purge`가 Anthropic에 저장된 데이터가 아니라 이 컴퓨터의 데이터만 삭제한다고 안내한다.",
+     "[VS Code] Claude 응답 코드 블록에 밝은 테마, 어두운 테마, 고대비 어두운 테마용 구문 색상을 추가했다.",
+     "[VS Code] UserPromptSubmit 훅이 느릴 때 “UserPromptSubmit 훅 실행 중” 스피너 상태와 화면 읽기 안내를 추가했다.",
+     "[VS Code] VS Code 또는 JetBrains 패널에서 보낸 사용자 지정 스킬 및 슬래시 명령에도 일반 메시지처럼 열린 파일이나 선택한 줄이 포함되도록 수정했다.",
+     "[VS Code] macOS와 Linux에서 PATH를 읽기 위해 로그인 셸 시작 파일을 실행하는 동안 확장 호스트가 멈추던 문제를 수정했다.",
+     "[VS Code] 도구 결과의 이미지를 클릭하거나 미리보기를 닫을 때 결과 텍스트까지 편집기 탭으로 열리던 문제를 수정했다.",
+     "[VS Code] 보내기 버튼으로 메시지를 전송한 뒤에도 음성 받아쓰기가 계속 녹음되던 문제를 수정했다. 이제 Enter를 누를 때처럼 먼저 받아쓰기를 중지한다.",
+     "[VS Code] VS Code 원격 분석 설정이 꺼져 있으면 Claude Code 세션에 `DISABLE_TELEMETRY`를 설정한다. 사용 지표와 오류 보고를 보내지 않고 기능 플래그도 가져오지 않는다.",
+     "[VS Code] 세션 목록 사이드바가 시작 시 Web 세션을 불러오지 않고 Web 탭을 처음 열 때 불러오도록 변경했다.",
+     "[클라우드 세션] Anthropic 호스팅 환경에서 조직을 나갔다 돌아온 소유자의 루틴이 잠긴 채 남던 문제를 수정해 소유자가 다시 켤 수 있게 했다.",
+     "[클라우드 세션] 편집 대화상자를 닫은 뒤 루틴 API 토큰 삭제나 재생성이 실패해도 아무 표시가 없던 문제를 수정해 오류 토스트를 표시한다.",
+     "[클라우드 세션] 관리자 대화상자를 포함한 클라우드 환경 대화상자가 중복 이름을 허용하던 문제를 수정해 이미 등록된 이름을 거부한다.",
+     "[Claude Tag] 분석에 Slack 채널별 첨부 스킬 실행 빈도와 미사용 스킬을 보여주는 Skills 보기를 추가하고 관리자 설정에 Usage 링크를 추가했다.",
+     "[Claude Tag] 새 세션에서 실행한 루틴에 보고할 내용이 없으면 채널에 불필요한 메시지를 게시하지 않고 종료할 수 있다.",
+     "[Claude Tag] 본인 Slack 계정에서 볼 수 있는 비공개 채널을 Claude Tag 관리자 설정에서 # 대신 자물쇠로 표시한다.",
+     "[코드 리뷰] 자동 재시도 후에도 모델이 변경 사항을 분석하지 못하면 추가 자동 리뷰가 시작되지 않는다고 체크 실행에 표시한다.",
+     "[코드 리뷰] 일시적인 서버 오류로 리뷰 세션 시작에 실패하면 한 번 자동 재시도하고, 체크 실행에 재시도 사실을 알린다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "self-hosted-runner 유휴 세션 유지",
+      "what": "`self-hosted-runner`에 `--hold-idle-file`과 `--max-hold-min` 옵션을 추가한다. 호스트가 남겨 둔 프로세스를 보고하는 동안 유휴 세션을 유지하는 데 사용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "실행 옵션",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "옵션 이름만 원문에 제시되어 있어 값은 예시로 표시한다."
+        },
+        {
+         "kind": "cmd",
+         "text": "$ self-hosted-runner --hold-idle-file <file> --max-hold-min <minutes>"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "Explanatory 출력 스타일 팁",
+      "what": "Claude에게 설명을 요청할 때 Explanatory 출력 스타일에 관한 팁을 표시한다. 팁의 문구나 조작 단계는 원문에 제시되지 않았다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 76,
+      "title": "VS Code 코드 블록 구문 색상",
+      "what": "Claude 응답의 코드 블록에 구문 색상을 추가한다. 밝은 테마, 어두운 테마, 고대비 어두운 테마를 지원한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 77,
+      "title": "느린 UserPromptSubmit 훅 상태",
+      "what": "UserPromptSubmit 훅이 느리게 실행될 때 스피너 상태와 화면 읽기 안내를 표시한다. 원문은 구체적인 지연 기준을 정하지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 78,
+      "title": "사용자 지정 스킬과 명령의 파일 문맥",
+      "what": "VS Code 또는 JetBrains 패널에서 보낸 사용자 지정 스킬과 슬래시 명령에 열린 파일이나 선택한 줄이 포함되지 않던 문제를 수정한다. 이제 일반 메시지에 포함되는 파일 문맥을 함께 보낸다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 79,
+      "title": "로그인 셸 실행 중 확장 호스트 멈춤",
+      "what": "macOS와 Linux에서 PATH를 읽으려고 로그인 셸 시작 파일을 실행하는 동안 확장 호스트가 멈추던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 80,
+      "title": "도구 결과 이미지 미리보기",
+      "what": "도구 결과의 이미지를 클릭하거나 미리보기를 닫을 때 결과 텍스트가 편집기 탭에 함께 열리던 문제를 수정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 81,
+      "title": "전송 시 음성 받아쓰기 중지",
+      "what": "보내기 버튼으로 메시지를 전송할 때 음성 받아쓰기가 계속 녹음되던 문제를 수정한다. 이제 메시지를 보내기 전에 받아쓰기를 중지하며, Enter 전송과 같은 동작이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 82,
+      "title": "VS Code 원격 분석 설정 반영",
+      "what": "VS Code 원격 분석 설정이 꺼진 경우 확장이 시작하는 Claude Code 세션에 `DISABLE_TELEMETRY`를 설정한다. 해당 세션은 사용 지표와 오류 보고를 보내지 않고 기능 플래그도 가져오지 않는다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 83,
+      "title": "Web 세션 지연 로드",
+      "what": "세션 목록 사이드바가 시작할 때 Web 세션을 불러오던 동작을 바꾼다. 이제 Web 탭을 처음 열 때 세션을 불러온다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "세션 목록 사이드바 열기",
+         "note": "Web 세션은 아직 불러오지 않는다.",
+         "changed": true
+        },
+        {
+         "title": "Web 탭 처음 열기",
+         "note": "Web 세션을 불러온다.",
+         "changed": true
+        }
+       ],
+       "before": "시작할 때 Web 세션을 불러온다.",
+       "after": "Web 탭을 처음 열 때 Web 세션을 불러온다."
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@changelog:codex-2026-10-26-gpt-61-terra",
@@ -701,7 +990,49 @@
     }
    ],
    "hash": "d2542b1ef6c8",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "GPT-6.1 Terra를 ChatGPT Work와 Codex에서 사용할 수 있다. 이미지 이해와 정밀한 컴퓨터 사용을 결합한 빠르고 효율적인 모델이다.",
+    "items": [
+     "GPT-6.1 Terra를 Plus, Pro, Business, Enterprise, Edu 요금제의 ChatGPT Work와 Codex에서 사용할 수 있다. 전문 작업에 적합하며 이미지 이해와 정밀한 컴퓨터 사용을 결합한다.",
+     "브라우저, 데스크톱, 앱의 이미지와 화면을 살펴보고 확인한 내용에 따라 작업한다. 결과를 먼저 제시하고 근거를 쉬운 말로 설명한다.",
+     "ChatGPT 데스크톱 앱 또는 웹의 ChatGPT Work에서 Advanced의 모델 목록으로 GPT-6.1 Terra를 선택한다. Work는 모바일에서도 지원한다. Chat에서는 사용할 수 없고 UAE 추론 데이터 거주성을 지원하지 않는다. Enterprise 사용 가능 여부는 워크스페이스 제공 상태와 관리자 제어에 따라 달라진다.",
+     "안내는 Models에서, 도구 설정과 접근 요건은 browser use 및 computer use에서 확인한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "GPT-6.1 Terra 선택",
+      "what": "ChatGPT 데스크톱 앱의 Advanced 또는 웹 ChatGPT Work의 Advanced에서 모델 목록을 열어 GPT-6.1 Terra를 선택한다. Work는 모바일에서도 지원한다. Chat에서는 사용할 수 없고 UAE 추론 데이터 거주성을 지원하지 않으며, Enterprise 접근은 워크스페이스 제공 상태와 관리자 제어에 달려 있다.",
+      "steps": [
+       "ChatGPT 데스크톱 앱 또는 웹의 ChatGPT Work를 사용한다.",
+       "Advanced의 모델 목록에서 GPT-6.1 Terra를 선택한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [
+        {
+         "title": "앱 또는 웹에서 Advanced 열기",
+         "note": "ChatGPT 데스크톱 앱 또는 웹의 ChatGPT Work에서 사용한다.",
+         "changed": false
+        },
+        {
+         "title": "모델 목록에서 GPT-6.1 Terra 선택",
+         "note": "Advanced의 모델 목록에서 선택한다.",
+         "changed": true
+        }
+       ],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.310",
