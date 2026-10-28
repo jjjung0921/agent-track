@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T22:22:25.443Z",
+ "generatedAt": "2026-10-28T05:04:05.382Z",
  "releases": [
   {
    "id": "codex@rust-v0.165.0",
@@ -96,7 +96,128 @@
     }
    ],
    "hash": "878f834c2744",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Google Cloud Vertex AI 공급자와 GPT-6.1 Terra를 추가한다. 세션 탐색, 대화 중 추론 노력 변경, 메모리 v2의 기본 활성화와 외부 에이전트 메모리 가져오기를 지원한다.",
+    "items": [
+     "`model_provider = \"gcp\"`로 설정하는 Google Cloud Vertex AI 기본 공급자를 추가한다.",
+     "모델 카탈로그에 GPT-6.1 Terra를 추가한다.",
+     "세션 선택기에 저장소 필터를, 에이전트 커맨드 센터에 디렉터리 그룹화를 추가해 연결된 worktree 사이에서 세션을 쉽게 탐색하게 한다.",
+     "app-server API에 실험적 연결 스레드 포크를 추가한다.",
+     "지원 모델에서 대화 중 추론 노력 변경을 기본 활성화한다.",
+     "새 프로필에서 메모리 v2를 기본 활성화하고 외부 에이전트 메모리 가져오기를 지원한다.",
+     "명시적 재정의가 없을 때 새 TUI 세션이 서버의 기본 승인 검토자를 따르도록 수정한다.",
+     "실행 설정이 유효하지 않아도 TUI 환경설정을 편집하고 즉시 적용할 수 있도록 수정한다.",
+     "로컬 응답 future가 폐기되면 원격 MCP 도구 요청을 취소하도록 수정한다.",
+     "중단하거나 Plan 모드로 전환한 뒤 대기 중인 에이전트 메시지가 작업을 다시 시작하지 않도록 수정한다.",
+     "공급자가 모델을 찾을 수 없다고 응답하면 재시도하지 않고 오류 메시지를 보존하도록 수정한다.",
+     "허용 패턴을 검사한 호스트와 Git이 실제 연결하는 호스트가 달라질 수 있던 마켓플레이스 URL 검증 허점을 수정한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "Google Cloud Vertex AI 공급자",
+      "what": "Google Cloud Vertex AI 기본 공급자를 추가한다. 설정값은 `model_provider = \"gcp\"`이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "GPT-6.1 Terra",
+      "what": "GPT-6.1 Terra를 모델 카탈로그에 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "세션 탐색 개선",
+      "what": "세션 선택기에 저장소 필터를 추가하고 에이전트 커맨드 센터에서 디렉터리별로 그룹화한다. 연결된 worktree 사이의 세션을 더 쉽게 탐색할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "연결 스레드 포크",
+      "what": "app-server API에 연결 스레드 포크 기능을 추가한다. 이 기능은 실험적이다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "대화 중 추론 노력 변경",
+      "what": "지원되는 모델에서 대화 도중 추론 노력을 변경할 수 있도록 기본 활성화한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "메모리 v2 기본 활성화와 가져오기",
+      "what": "새 프로필에서 메모리 v2를 기본 활성화한다. 외부 에이전트의 메모리를 메모리 v2로 가져오는 기능도 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.312",
@@ -381,7 +502,104 @@
     }
    ],
    "hash": "71ba62bde996",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "Claude apps 게이트웨이에서 `id_token`의 `sub` 외 클레임으로 사용자를 식별할 수 있다. VS Code 확장에서는 조직 설정 로드 실패 이유와 재시도·재로그인 방법을 확인할 수 있고, 사용량 제한 재설정 시각도 표시된다.",
+    "items": [
+     "Claude apps 게이트웨이에 `oidc.user_id_claim`을 추가해 `sub` 대신 Microsoft Entra ID의 `oid` 같은 `id_token` 클레임으로 사용자를 식별한다.",
+     "전체 화면에서 대기열 메시지 아래의 ‘지금 전송’ 안내를 클릭해도 해당 키를 눌렀을 때처럼 바로 전송된다.",
+     "VS Code 확장으로 로그인한 뒤 남은 세션 동안 관리 설정과 조직 정책을 가져오지 못하던 문제를 수정한다.",
+     "매우 큰 `CLAUDE.md`, 규칙 파일 또는 하위 디렉터리의 `@` 포함 파일을 시작 부분만 읽고 덮어쓰던 문제를 수정한다. 이제 Write는 파일 전체를 읽거나 제자리에서 편집하도록 요청한다.",
+     "Git 저장소 안에서 Bash `cd`로 더 깊이 이동한 뒤 디렉터리별 스킬과 `paths:` 스킬을 찾지 못하던 문제를 수정한다.",
+     "터미널에서 세션을 재개한 뒤 첫 응답이 다음 세션 재개 시 사라질 수 있던 드문 문제를 수정한다.",
+     "이름이 잘못된 명령 하나 때문에 모든 명령 로드가 중단되어 `claude -p`에 출력이 없을 수 있던 문제를 수정한다.",
+     "이전 세션 파일 정리와 동시에 실행될 때 PDF 페이지에서 Read 도구가 `pdftoppm failed: Could not write image` 오류로 실패할 수 있던 문제를 수정한다.",
+     "작업 중 모델이 적용하기 전 새로 선택한 effort 수준을 스피너, OpenTelemetry `effort` 값, 전사에 표시하던 문제를 수정한다. 이제 실제 적용 중인 수준을 표시한다.",
+     "`/model` 및 `/effort` 캐시 경고가 다시 읽기는 다음 메시지까지 기다린다고 안내하던 문제를 수정한다. Claude가 작업 중일 때 변경하면 더 일찍 다시 읽을 수 있다.",
+     "마지막 메시지의 문장 중간에 ‘사용자를 기다리는 항목’이 언급된 것만으로 일부 세션이 사용자를 기다리는 상태로 표시되던 문제를 수정한다.",
+     "종료 직전 Ctrl+C로 지운 입력이 다음 실행의 에이전트 화면에 복원되던 문제를 수정한다.",
+     "빈 `!` 입력에서 Ctrl+D로 종료한 뒤 에이전트 화면이 셸 모드로 다시 열리던 문제를 수정한다.",
+     "`gj` 또는 `gk` 횟수가 남은 줄 수보다 클 때 Vim 모드의 `d`, `c`, `y`가 텍스트를 삭제하거나 복사하던 문제를 수정한다. 이제 Vim처럼 커서만 이동한다.",
+     "`/verify`의 긴 설명이 `/help`와 `/` 명령 메뉴에 표시되던 문제를 수정하고 짧은 설명을 사용한다.",
+     "작업 중 변경한 경우 다음 메시지까지 기다릴 수 있음을 프롬프트의 effort 표시기에 안내한다. 해당 안내가 더 이상 적용되지 않으면 지운다.",
+     "클라우드 세션의 WebFetch 오류에서 호스트를 확인할 수 없으면 허용된 네트워크 도메인 밖일 수 있다고 설명하고, Claude가 허용할 호스트 이름을 말하도록 개선한다.",
+     "Bedrock, Vertex, Foundry, Mantle에서 Claude Code가 인식하지 못하는 모델 이름은 Sonnet이나 Haiku를 제공하더라도 짧은 시스템 프롬프트를 사용한다. 전체 프롬프트를 유지하려면 `CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT=0`을 설정한다.",
+     "표시된 메시지 뒤 자동 모델 전환이 사용자 지정 배포 이름처럼 Claude Code가 인식하지 못하는 모델 이름에도 적용된다. 끄려면 `CLAUDE_CODE_DISABLE_REFUSAL_FALLBACK=1`을 설정한다.",
+     "사용량 제한 메시지에서 5시간 창을 ‘세션 제한’ 대신 ‘5시간 제한’이라고 부른다.",
+     "CLI에서 시작한 클라우드 세션의 이름과 브랜치 이름을 서버에서 가져온다.",
+     "프롬프트 및 에이전트 훅은 하위 에이전트를 포함해 세션당 동시에 최대 24개 실행된다. 이벤트 제한 시간을 넘겨 기다린 훅은 최대 12개이며, 1초 미만의 `timeout`은 1초로 계산한다.",
+     "하위 에이전트의 `autoCompactWindow`가 이전에는 효과가 없던 `CLAUDE_CODE_AUTO_COMPACT_WINDOW` 설정 창보다 낮게 설정되도록 변경한다. 설정 창을 높이지는 않는다.",
+     "공식 Anthropic 마켓플레이스 플러그인에 선언된 고정 URL 원격 MCP 서버의 OpenTelemetry `mcp_server.name`에 `custom` 대신 실제 이름을 보고한다.",
+     "Claude Code가 `claude_code.safety_event` OpenTelemetry 이벤트 전송을 중단한다.",
+     "조직 설정을 시작할 때 불러오지 못하거나 거부되어 VS Code 세션이 종료 코드만 표시하던 문제를 수정한다. 이제 탭에 이유와 재시도 또는 다시 로그인 옵션을 표시한다.",
+     "VS Code의 사용량 제한 재설정 안내를 시각 표시(‘오후 3:10에 재설정’)로 바꾸고 ‘5시간 제한’이라고 표시한다.",
+     "클라우드에서 실행되는 루틴을 만들거나 편집할 때 모델 선택기에 effort 수준을 추가한다.",
+     "클라우드 환경 설정의 설정 스크립트 상자에 색상, 줄 번호, 복사 버튼이 있는 Bash 편집기를 추가한다.",
+     "Claude가 클라우드 세션에 저장소를 추가한 단계를 열면 원시 JSON 대신 처리 내용을 간단한 표로 보여준다.",
+     "클라우드 세션에서 전송 실패 후 변경하지 않은 메시지를 다시 보내면 간혹 두 번 실행되던 문제를 수정한다.",
+     "클라우드 환경 생성 실패 오류가 열린 대화상자 바깥의 토스트에만 표시되던 문제를 수정해 대화상자 안에 표시한다.",
+     "Routines 페이지에서 루틴 메뉴의 Edit를 눌러도 편집 대화상자 없이 루틴 페이지로 이동하던 문제를 수정한다.",
+     "보관되지 않은 Remote Control 세션이 컴퓨터 재연결 전까지 작업 중으로 표시되던 문제를 수정해 유휴 상태로 표시한다.",
+     "Slack의 Claude Tag 재시도 안내에 일반 API 오류 대신 사용 중인 모델 이름 또는 발생한 속도 제한을 표시한다.",
+     "오래된 비공개 Slack 채널이 공개로 바뀌어 새 ID를 받으면 Claude Tag 채널 켜기/끄기와 에이전트 설정이 워크스페이스 기본값으로 돌아가던 문제를 수정한다.",
+     "환경의 네트워크 접근이 None으로 설정된 채널에서 Slack의 Claude가 답변하지 않던 문제를 수정한다.",
+     "같은 채널의 다른 스레드에 답변할 때 Claude in Slack이 파일을 잘못된 스레드에 올릴 수 있던 문제를 수정한다.",
+     "GitHub의 push 이벤트가 늦게 전달되면 Code Review가 오래된 커밋이나 커밋 없이 검토하던 문제를 수정한다. 이제 풀 리퀘스트의 현재 커밋을 검토한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "OIDC 사용자 식별 클레임 지정",
+      "what": "Claude apps 게이트웨이에 `oidc.user_id_claim`을 추가한다. 이를 통해 `sub` 외의 `id_token` 클레임으로 사용자를 식별할 수 있으며, 예로 Microsoft Entra ID의 `oid`를 들고 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 25,
+      "title": "VS Code 조직 설정 오류 안내",
+      "what": "조직 설정을 불러오지 못하거나 시작 시 거부되어 세션이 종료 코드만 표시하던 문제를 수정한다. 탭에서 종료 이유를 설명하고 Retry 또는 Sign in again을 제공한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 26,
+      "title": "VS Code 사용량 제한 재설정 시각",
+      "what": "사용량 제한 재설정 안내를 시각 표시로 보여준다. 예시 문구는 ‘오후 3:10에 재설정’이며 제한 이름은 ‘5시간 제한’으로 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.311",
