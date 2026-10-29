@@ -1,6 +1,131 @@
 {
- "generatedAt": "2026-10-29T13:14:56.097Z",
+ "generatedAt": "2026-10-29T22:49:57.256Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.166.0",
+   "tool": "codex",
+   "version": "0.166.0",
+   "date": "2026-10-29T19:47:53Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.166.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added keyboard-driven transcript selection with word, line, and page motions, integrated search, and configurable shortcuts.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Rendered Markdown consistently in async questions, choices, answers, and transcript replies.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added GPT-6.1 Terra to the bundled, Vertex AI, and Amazon Bedrock model catalogs.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `codex queue --resume` to resume unloaded threads after queueing a message.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added clearer safety-block explanations and selectable safer follow-up prompts in the TUI.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `codex doctor --network-only` for focused configuration, connectivity, and WebSocket diagnostics.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserved acknowledged approval and permission settings when resuming or forking threads.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserved local image attachments when restoring killed composer text.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed standalone release cleanup on macOS when installations are in use or paths contain non-ASCII characters.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Restored spawned descendant threads when unarchiving their parent.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed app-server thread startup and shutdown races and released completed runtimes promptly.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Improved TUI reconnection recovery, including offline `/quit` and `/exit` handling.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Preserved reasoning-token accounting across resume and fork to avoid premature compaction.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Switched Bazel to source-built V8 with target-matched Rust bindings and native Windows MSVC archive support.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Shipped the standalone executor in canonical CLI and app-server release packages.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Standardized development and release builds on Node.js 24.22.1 and Rust 1.95.0.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "f57bb120f643",
+   "ko": null
+  },
   {
    "id": "codex@rust-v0.165.0",
    "tool": "codex",
