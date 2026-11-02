@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-02T06:21:37.459Z",
+ "generatedAt": "2026-11-02T21:45:49.647Z",
  "releases": [
   {
    "id": "claude-code@2.1.316",
@@ -2694,6 +2694,93 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-27-mobile",
+   "tool": "codex",
+   "version": "ChatGPT for iOS 1.2026.293",
+   "date": "2026-10-27T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-27-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Play audio and video directly in responses.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Tap a sub-agent’s name in task activity to open its conversation.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Draft attachments and annotations are now restored when you reopen a task or restart the app.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Reference autocomplete supports chat and skill names containing spaces. Plugin skill names are also easier to read.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Plan mode preserves your selected reasoning effort when using the same model.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Loaded activity stays visible if loading older work times out, with an option to retry.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Queue-loading failures now offer a Retry action.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved support for Windows file links and Markdown images.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed worktree creation on Linux hosts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed crashes when steering queued messages or editing pairing codes, and iPad freezes when switching or resizing tasks.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "d0a2afb6db8e",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.311",
