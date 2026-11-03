@@ -65763,5 +65763,465 @@
     }
    ]
   }
+ },
+ "claude-code@2.1.317": {
+  "hash": "5217b9416420",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "이 릴리스는 예약 작업의 커넥터 경고와 민감한 이메일 전송 확인을 추가한다. Agent SDK 훅 실패 제어와 Claude 앱 게이트웨이 비용·IdP 그룹 보고도 제공한다.",
+   "items": [
+    "새 클라우드 예약 작업에 요청하지 않은 커넥터가 포함되면 `/schedule`에서 경고하고 제거 방법을 안내한다.",
+    "웹 또는 셸 도구 호출로 계정 이메일 주소가 네트워크에 전송되기 전에 확인을 요청한다.",
+    "Agent SDK 훅 콜백에 `onFailure: \"block\"`을 추가했다. 콜백 실패 시 작업을 계속하지 않고 차단한다.",
+    "세션에서 조직의 원격 관리 설정을 불러오지 못한 경우와 불러온 경우를 Claude Desktop Code 탭에 각각 알린다.",
+    "자동 모드가 하위 에이전트 도구 호출을 판정하지 못하면 메인 화면에 알림을 표시한다.",
+    "`anthropic.plan`, `anthropic.seat_type`, `anthropic.provider`, `anthropic.custom_base_url`을 OTel 메트릭·이벤트·스팬에 추가했다.",
+    "Claude 앱 게이트웨이 관리자 API에 기간별 총액, 개발자별·일별·IdP 그룹별 과거 지출을 조회하는 `GET /v1/organizations/analytics/cost`를 추가했다.",
+    "`admin:`이 설정된 Claude 앱 게이트웨이에서 개발자의 IdP 그룹을 매일 기록한다. 기록은 `admin.identity_retention_days` 동안 보관되며 비용 보고서의 그룹별 집계에 사용된다.",
+    "자체 호스팅 러너에서 `CLAUDE_CODE_DISABLE_NESTED_SESSION_ID`를 `1`로 설정하면 세션 안의 `claude -p`가 이전 버전처럼 해당 세션 ID와 전사록을 사용한다.",
+    "일부 Claude Desktop 세션에서 첫 턴 이후 프로젝트 및 로컬 MCP 서버 연결이 끊기던 문제를 수정했다.",
+    "기본 URL로 지정한 LLM 게이트웨이가 서버 측 안전성 검사에 403 또는 422로 응답할 때 자동 모드가 매 턴 실패하던 문제를 수정했다. `apiKeyHelper`를 사용하는 403 동작은 바뀌지 않는다.",
+    "토큰 새로 고침 저장이 느릴 때 `claude auth status`가 먼저 종료되어 다음 실행에서 로그아웃될 수 있던 문제를 수정했다.",
+    "앱이 미리 시작한 뒤 프로젝트에서 여는 세션(예: Desktop Code 탭의 새 세션)에서 프로젝트 `effortLevel` 설정을 무시하던 문제를 수정했다.",
+    "연결된 세션이 첫 페이지보다 오래된 경우 세션이 많은 프로젝트에서 `claude --from-pr`가 대화를 찾지 못하던 문제를 수정했다.",
+    "claude.ai와 모바일 앱에서 동시에 표시된 두 권한 요청 중 두 번째 요청에 파일 경로나 명령이 표시되지 않던 문제를 수정했다.",
+    "Remote Control과 SDK 호스트가 모드 도구 호출에 \"다시 묻지 않기\"를 제공하던 문제를 수정했다.",
+    "제목 생성 중 새 메시지나 Stop이 도착하면 클라우드 및 SDK 세션의 제목이 사라지던 문제를 수정했다.",
+    "Claude가 요청 필드를 빠뜨리면 자체 진행 `/loop` 깨우기 예약이 누락되던 문제를 수정했다.",
+    "클라우드 세션의 Artifact 도구가 업로드, 데이터베이스 쓰기 또는 outputs 폴더에 파일 저장을 할 때 자동 모드가 승인을 요구하며 멈추던 문제를 수정했다.",
+    "디스크에 쓸 수 없어 claude.ai에서 동기화된 스킬을 저장하지 못할 때 스킬이 사라지거나 10분마다 다시 다운로드되던 문제를 수정했다.",
+    "클라우드 예약 작업을 만들거나 수정한 뒤 `/schedule` 결과에 다음 실행 시간과 링크가 빠지던 문제를 수정했다.",
+    "스크린 리더 모드에서 실행 중인 하위 에이전트의 경과 시간과 토큰 수를 바뀔 때마다 읽던 문제를 수정했다.",
+    "지역 또는 네트워크 차단(HTTP 403)을 로그인 실패로 표시하던 오류를 수정해 차단 사유를 설명한다.",
+    "동기화 플러그인에 같은 서버가 포함되어 있을 때 클라우드 세션에서 정상 작동하는 claude.ai 커넥터에 권한이 필요하거나 실패했다고 잘못 알리던 문제를 수정했다.",
+    "디스크 공간이나 할당량 부족으로 전사록 또는 ~/.claude.json 저장에 실패해도 `claude -p`가 종료 코드 0을 반환하던 문제를 수정했다. 이제 오류를 출력하고 텍스트·JSON 출력에서 종료 코드 1을 반환한다. 전체 NFS 내보내기는 감지하지 못할 수 있다.",
+    "시작 후 첫 1초 안팎에 설정 파일을 수정하면 다른 설정 변경 전까지 반영되지 않던 문제를 수정했다.",
+    "일부 실행에서 정리 작업을 건너뛰는 컴퓨터(예: `--setting-sources` 사용)에서 오래된 전사록이 삭제되지 않던 문제를 수정했다.",
+    "팀원이 늦게 보낸 메시지로 삭제한 에이전트 팀 받은 편지함이 다시 생성되던 문제를 수정했다.",
+    "다시 생성된 에이전트 팀원이 이전 종료 승인으로 팀에서 제거되던 문제를 수정했다.",
+    "예약 작업 기능을 꺼도 저장된 예약 작업을 목록에서 보거나 삭제할 수 없던 문제를 수정했다.",
+    "삭제할 `/team-onboarding` 가이드를 지정하지 않았을 때 가장 최근에 수정한 가이드를 삭제하던 문제를 수정했다.",
+    "서버가 `/team-onboarding` 가이드 삭제를 거부해도 삭제했다고 알리던 문제를 수정했다.",
+    "Claude 앱 게이트웨이가 Amazon Bedrock의 \"Input is too long.\" 오류를 숨겨 세션이 \"upstream rejected the request\"로 매 턴 실패하고 압축하지 못하던 문제를 수정했다.",
+    "승인을 기다리는 계획이 있는 동안 자체 호스팅 러너 세션을 재시작하면 최근 턴이나 대화 전체가 사라지던 문제를 수정했다.",
+    "매우 큰 `CLAUDE.md`가 마지막 전송 후 변경된 세션에서 자동 압축 뒤 \"Prompt is too long\" 오류가 나던 문제를 수정했다.",
+    "명령을 등록하는 플러그인이 많은 헤드리스 세션에서 메모리 사용량이 높고 시작이 느리던 문제를 수정했다.",
+    "환경 설정에서 `AWS_BEARER_TOKEN_BEDROCK`을 빈 값으로 둔 stdio MCP 서버에 빈 변수가 전달되던 문제를 수정했다. 이제 변수를 해제해 서버가 컴퓨터 자체 AWS 자격 증명을 사용할 수 있다.",
+    "루트 인증서 갱신 후 TLS 검사 프록시를 통과하는 일부 환경에서 \"unable to get local issuer certificate\"로 API 요청이 실패하던 문제를 수정했다.",
+    "긴 대화에서 압축 요청 자체를 줄여야 할 때 이전 요약이 사라지던 문제를 수정했다.",
+    "PDF 자체 메타데이터 때문에 Read와 @ 멘션이 페이지 수를 적게 세던 문제를 수정했다.",
+    "`DISABLE_PROMPT_CACHING_OPUS`와 `DISABLE_PROMPT_CACHING_SONNET`이 기본 모델의 `[1m]`, 다른 지역 및 날짜 없는 표기에 적용되지 않던 문제를 수정했다.",
+    "자신의 공유 아티팩트가 200개 이상이면 `/artifacts`와 Artifact 도구의 공유 목록에 공유 아티팩트가 표시되지 않던 문제를 수정했다.",
+    "검색이 시간 제한에 걸렸을 때 부분 Grep 및 Glob 결과를 완전한 결과로 취급하던 문제를 수정했다.",
+    "다른 내보내기가 진행 중일 때 시작된 프록시 경유 `https://` OpenTelemetry 전송이 보내지지 않던 문제를 수정했다.",
+    "프록시가 `http://` OpenTelemetry 전송을 HTTP 403으로 차단할 때 연결 시도가 폭증하던 문제를 수정했다.",
+    "응답하지 않는 프록시 뒤에서 OpenTelemetry 전송이 무기한 멈추던 문제를 수정했다. 이제 기본 10초, `OTEL_EXPORTER_OTLP_TIMEOUT` 설정 시 최대 30초 후 시간 초과된다.",
+    "재개한 세션에서 이미 알고 있던 파일 변경을 Claude에 다시 알리던 문제를 수정했다.",
+    "이전 호출이 도구 비활성화로 실패한 재개 세션에서 Claude가 내장 도구를 사용하지 않던 문제를 수정했다.",
+    "`disableRemoteControl` 설정으로 Remote Control이 꺼진 경우 `/remote-control`이 \"Unknown command\" 대신 꺼진 상태를 안내하도록 수정했다.",
+    "팀 대표 세션이 수동 모드일 때 tmux 또는 iTerm2 패널의 팀원이 자동 모드로 시작하던 문제를 수정했다.",
+    "백그라운드 세션이 업그레이드 또는 종료될 때 방금 바뀐 권한 모드를 잃던 문제를 수정했다.",
+    "프롬프트에서 입력한 텍스트를 지우려고 Ctrl+C를 누르면 실행 중인 백그라운드 에이전트가 모두 중단되던 문제를 수정했다.",
+    "보고서를 전송 중인데도 `/feedback`이 \"Enter to confirm\"을 표시하던 문제를 수정했다.",
+    "중지된 셸 명령의 자식 프로세스에 SIGTERM이 두 번 전달되어 일부 프로그램이 정리 작업을 건너뛸 수 있던 문제를 수정했다.",
+    "클라우드 또는 자체 호스팅 러너 세션 안에서 실행한 `claude -p`가 해당 세션 ID를 공유해 전사록을 덮어쓰고, 재시작 시 잘못된 대화를 재개할 수 있던 문제를 수정했다.",
+    "클라우드 또는 자체 호스팅 러너 세션 안에서 실행한 `claude -p`가 자체 제목을 생성해 해당 세션으로 보내던 문제를 수정했다.",
+    "Microsoft Foundry에서 Azure 자격 증명을 불러오지 못할 때 오류에 확인 또는 갱신 안내를 추가하고 `cloud_credential_error`로 보고한다.",
+    "디자인 시스템이 Claude로 이동한 경우 `/design-sync`가 이를 먼저 알리고 업로드 단계에서 실패하기 전에 중단하도록 개선했다.",
+    "필수 Claude 앱 게이트웨이에 연결할 수 없을 때 시작 오류가 로그인 대신 네트워크 문제를 안내하며, 게이트웨이 TLS 인증서를 확인할 수 없는 경우도 알리도록 개선했다.",
+    "종료 시 표시되는 \"Resume this session with\" 안내에서 `--resume` 앞에 시작할 때 사용한 플래그(예: `--chrome --debug`)를 반복하도록 개선했다.",
+    "자체 호스팅 러너는 501 또는 529가 아닌 5xx 오류 뒤 다음 폴링에서 실패한 연결을 재사용하지 않고 새 연결을 연다.",
+    "자체 호스팅 러너 세션은 501 또는 529가 아닌 5xx 오류 뒤 실패한 연결을 재사용하지 않고 새 연결을 연다.",
+    "자체 호스팅 러너 세션은 하트비트가 응답을 받지 못하면 유휴 연결을 차례로 시도하는 대신 새 연결을 연다.",
+    "실행 중인 백그라운드 에이전트에 메시지가 더 빨리 도착하도록 SendMessage 동작을 변경했다. 실행 중인 명령은 중단하지 않고 백그라운드로 옮긴다.",
+    "메인 대화와 다른 모델을 사용하는 하위 에이전트와 팀원은 세션의 노력 수준 대신 해당 모델에 저장된 노력 수준 또는 기본값을 사용한다.",
+    "플러그인 모니터가 실행 중일 때 종료 시 \"Background work is running\" 확인을 건너뛴다.",
+    "내장 `plugin-authoring` 스킬은 만든 모드가 작동한 뒤 한 번 공유를 도울지 제안하도록 바뀌었다.",
+    "Read 도구에서 \"file unchanged since your last Read\" 안내용 빈 결과를 제거했다. 변경되지 않은 파일을 다시 읽어도 내용이 반환된다.",
+    "Windows: 일부 볼륨에서 기본 경로 조회가 실패해 모든 도구 호출이 거부되던 문제를 수정했다. 작업 디렉터리 확인은 이제 폴더의 정체성을 비교한다.",
+    "Windows: Claude Desktop에서 시작하지 않은 세션에서 프로젝트 경로 길이에 따라 임시 경로가 길어져 복제한 저장소가 260자 경로 제한에 걸리던 문제를 수정했다.",
+    "Gateway: 그룹 공유 예산이 소진되면 개발자 개인 지출 한도가 100% 사용된 것으로 상태 표시줄과 `/usage`에 나오던 문제를 수정했다.",
+    "자체 호스팅 러너: 세션이 새 러너로 이동할 때 턴이 `CLAUDE_CODE_RESUME_INTERRUPTED_TURN_MAX_AGE_MS`보다 오래되면 중단된 도구 호출을 Claude가 보지 못하던 문제를 수정했다.",
+    "자체 호스팅 러너: 세션 서비스가 비활성화 저장을 거부한 MCP 서버가 세션의 새 컴퓨터 이동 후 다시 켜지던 문제를 수정했다.",
+    "Remote Control: 앱이 이름을 지정하지 않았을 때 포크 이름 개선. 긴 이름은 \"(fork)\" 끝부분을 유지하고, `claude remote-control` 세션에서 \"Name (fork)\"를 포크하면 \"Name (fork 2)\"가 된다.",
+    "[VSCode] 포크한 대화에서 병렬 도구 호출 중 하나만 보존되고 압축 후 남은 마지막 메시지가 유실되어 질문 없이 답변할 수 있던 문제를 수정했다.",
+    "[VSCode] Claude 시작이 제시간에 끝나지 않아 메시지가 유실되던 문제를 수정했다. 오류를 표시하기 전에 확장을 통해 Claude를 한 번 더 시작한다.",
+    "[VSCode] 지역 또는 네트워크 요청 차단으로 로그인 화면이 열리던 문제를 수정했다.",
+    "[VSCode] Account 패널에서 요금제 이름의 두 번째 단어가 소문자로 표시되던 문제를 수정했다.",
+    "[VSCode] Claude 탭의 파일 링크가 별도 편집기 그룹 대신 채팅 위에 열리던 문제를 수정했다.",
+    "[VSCode] `chat.fontSize`를 높여도 Claude 패널의 첨부 칩, 메뉴, 배너, 대화상자 크기가 작게 유지되던 문제를 수정했다.",
+    "[VSCode] 원격 측정이 꺼져 있을 때 `ultrathink`가 해당 턴의 노력 수준을 높이거나 무지개 표시를 보여주지 않던 문제를 수정했다.",
+    "[Cloud sessions] MCP 서버가 방문을 요청한 링크를 놓치지 않도록 링크 카드를 추가했다. 링크를 열거나 거절할 수 있다.",
+    "[Cloud sessions] 관리자 설정의 조직 환경 대화상자를 개인 대화상자의 간결한 레이아웃으로 변경했다. 각 섹션은 행에서 열리며 저장하지 않은 입력을 두고 닫으려면 확인을 요청한다.",
+    "[Cloud sessions] 이미 비밀 값이 있는 호스트에 네트워크 비밀을 추가하면 기존 값을 조용히 덮어쓰던 문제를 수정했다. Add secret 양식은 추가를 거부하고 기존 비밀을 안내한다.",
+    "[Cloud sessions] 새 예약 작업이 조직의 기본 환경을 무시하던 문제를 수정했다. 양식은 이제 Anthropic 호스팅 기본값 대신 관리자가 선택한 환경으로 시작한다.",
+    "[Remote Control] `claude remote-control` 재시작 후 1분 안에 메시지를 보낸 경우, 유휴 세션이 다음 메시지에 응답하지 않던 문제를 수정했다.",
+    "[Claude Tag] Slack에 새로 붙여넣은 아티팩트 링크를 간단한 카드와 Open 버튼으로 표시한다. 버튼은 Slack 사이드 패널 대신 Claude에서 아티팩트를 연다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "예약 작업 커넥터 경고",
+     "what": "새 클라우드 예약 작업에 요청하지 않은 커넥터가 있으면 `/schedule`에서 경고한다. 제거 방법도 함께 안내한다.",
+     "steps": [],
+     "terminal": {
+      "title": "명령",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "/schedule"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "이메일 전송 확인",
+     "what": "웹 또는 셸 도구 호출이 계정 이메일 주소를 네트워크로 보내려 할 때 확인을 요청한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "Agent SDK 훅 실패 차단",
+     "what": "Agent SDK 훅 콜백의 실패 처리에 `onFailure: \"block\"`을 추가했다. 이 값을 사용하면 콜백이 실패할 때 작업을 차단한다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 예시",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "콜백 실패 시 작업을 차단하도록 설정한다."
+       },
+       {
+        "kind": "hl",
+        "text": "onFailure: \"block\""
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "조직 관리 설정 로드 알림",
+     "what": "세션에서 조직의 원격 관리 설정이 아직 로드되지 않았다는 알림과 로드 완료 알림을 Claude Desktop Code 탭에 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 4,
+     "title": "자동 모드 판정 알림",
+     "what": "자동 모드가 하위 에이전트의 도구 호출을 판정할 답을 얻지 못하면 알림을 표시한다. 이전에는 메인 화면에 아무것도 나타나지 않았다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "OTel 속성 추가",
+     "what": "`anthropic.plan`, `anthropic.seat_type`, `anthropic.provider`, `anthropic.custom_base_url`을 OTel 메트릭, 이벤트 및 스팬에 추가했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 6,
+     "title": "게이트웨이 비용 보고서",
+     "what": "Claude 앱 게이트웨이 관리자 API에 과거 지출 보고서를 추가했다. 날짜 범위별 총액, 개발자별, 일별 또는 IdP 그룹별로 조회한다.",
+     "steps": [],
+     "terminal": {
+      "title": "API",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "$ GET /v1/organizations/analytics/cost"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 7,
+     "title": "IdP 그룹 기록",
+     "what": "`admin:`이 설정된 Claude 앱 게이트웨이에서 개발자의 IdP 그룹을 매일 기록한다. `admin.identity_retention_days` 동안 보관하며 비용 보고서가 그룹별 집계에 사용한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 8,
+     "title": "중첩 세션 ID 호환 설정",
+     "what": "자체 호스팅 러너에서 `CLAUDE_CODE_DISABLE_NESTED_SESSION_ID`를 `1`로 설정하면 세션 안의 `claude -p`가 해당 세션의 ID와 전사록을 사용한다. 이는 이전 버전의 동작이다.",
+     "steps": [],
+     "terminal": {
+      "title": "설정 예시",
+      "lines": [
+       {
+        "kind": "comment",
+        "text": "환경 변수 값은 원문에 명시된 설정값이다."
+       },
+       {
+        "kind": "hl",
+        "text": "CLAUDE_CODE_DISABLE_NESTED_SESSION_ID=1"
+       },
+       {
+        "kind": "cmd",
+        "text": "$ claude -p"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 74,
+     "title": "VSCode 포크 대화 메시지 보존",
+     "what": "포크 대화에서 병렬 도구 호출 일부와 압축 뒤 마지막 메시지가 유실될 수 있던 문제를 수정했다. 이로 인해 Claude가 답변한 질문이 대화에서 빠질 수 있었다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 75,
+     "title": "VSCode Claude 시작 재시도",
+     "what": "Claude 시작이 제시간에 완료되지 않아 메시지가 유실되던 문제를 수정했다. 확장은 오류를 보여주기 전에 Claude 시작을 한 번 더 시도한다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 76,
+     "title": "VSCode 지역 차단 로그인 화면 수정",
+     "what": "지역 또는 네트워크 차단 요청에 로그인 화면이 열리던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 77,
+     "title": "VSCode 요금제 이름 표시 수정",
+     "what": "Account 패널의 요금제 이름에서 두 번째 단어가 소문자로 표시되던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 78,
+     "title": "VSCode 파일 링크 열기 수정",
+     "what": "Claude 탭의 파일 링크가 별도 편집기 그룹 대신 채팅 위에 열리던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 79,
+     "title": "VSCode 글꼴 크기 반영 수정",
+     "what": "`chat.fontSize`를 높여도 첨부 칩, 메뉴, 배너 및 대화상자가 작게 유지되던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 80,
+     "title": "VSCode ultrathink 수정",
+     "what": "원격 측정이 꺼져 있을 때 `ultrathink`가 해당 턴의 노력 수준을 높이지 않고 무지개 표시도 하지 않던 문제를 수정했다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
+ },
+ "codex@changelog:codex-2026-10-27-mobile": {
+  "hash": "d0a2afb6db8e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "응답에서 오디오와 비디오를 바로 재생할 수 있다. 작업 활동에서 하위 에이전트의 대화를 열 수 있다.",
+   "items": [
+    "응답에서 오디오와 비디오를 바로 재생할 수 있다.",
+    "작업 활동에서 하위 에이전트 이름을 탭하면 해당 대화를 열 수 있다.",
+    "작업을 다시 열거나 앱을 재시작해도 초안 첨부 파일과 주석이 복원된다.",
+    "참조 자동 완성에서 공백이 포함된 채팅·스킬 이름을 지원하며, 플러그인 스킬 이름도 더 읽기 쉬워진다.",
+    "같은 모델을 사용할 때 계획 모드가 선택한 추론 강도를 유지한다.",
+    "이전 작업을 불러오다 시간 초과가 발생해도 이미 불러온 활동이 계속 표시되며, 다시 시도할 수 있다.",
+    "대기열을 불러오지 못하면 다시 시도할 수 있다.",
+    "Windows 파일 링크와 Markdown 이미지 지원이 개선된다.",
+    "Linux 호스트에서 작업 트리를 만들 때 발생하던 문제가 수정된다.",
+    "대기 중인 메시지를 조정하거나 페어링 코드를 편집할 때 발생하는 충돌, 그리고 작업 전환 또는 크기 조정 중 iPad가 멈추는 문제가 수정된다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "응답에서 오디오·비디오 재생",
+     "what": "응답 안에서 오디오와 비디오를 직접 재생할 수 있다.",
+     "steps": [],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 1,
+     "title": "하위 에이전트 대화 열기",
+     "what": "작업 활동에 표시된 하위 에이전트의 이름을 탭하면 해당 에이전트의 대화를 열 수 있다.",
+     "steps": [
+      "작업 활동에서 하위 에이전트의 이름을 탭한다.",
+      "열린 대화에서 해당 에이전트의 대화를 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    }
+   ]
+  }
  }
 }
