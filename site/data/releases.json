@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-05T06:57:54.953Z",
+ "generatedAt": "2026-11-05T20:03:50.771Z",
  "releases": [
   {
    "id": "claude-code@2.1.318",
@@ -1956,6 +1956,121 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-11-02-mobile",
+   "tool": "codex",
+   "version": "ChatGPT for iOS 1.2026.300",
+   "date": "2026-11-02T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-mobile"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-11-02-mobile",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Add, preview, and remove attachments without leaving the full-screen composer.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Task read status now syncs with supported hosts, helping clear stale unread indicators across devices.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Follow-ups steer the running task by default unless you have saved a different preference.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved response annotations: add and edit notes on selected text, and tap numbered references to revisit the selected text and its note.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Custom-provider tasks keep their model and reasoning effort when you send a follow-up from iOS.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "When you reopen a task, prompts that failed to send retain their attachments, and you can retry sending them.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved keyboard behavior when opening tasks, scrolling long drafts, and returning to an open editor.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Drafts, text selection, and undo history survive changes between compact and split layouts.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved iPhone Duo layouts, including full-width editing and controls that stay above the keyboard.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Linked files open directly, and closing the preview takes you back to the task. Absolute file links outside the workspace also open correctly.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Images with relative file paths load from the directory where the original turn ran.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed invisible chart labels and bars in inline visualizations.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Reconnect errors show a single Retry control, with better alignment on iPad.",
+     "surfaces": [
+      "mobile"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Archiving a task can reconnect to its host when the computer appears offline.",
+     "surfaces": [
+      "mobile"
+     ]
+    }
+   ],
+   "hash": "a7e846e765a7",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.316",
@@ -7263,7 +7378,7 @@
    "items": [
     {
      "cat": "new",
-     "text": "View and stop background commands from a new pill above the composer on supported remote hosts.",
+     "text": "View and stop background commands using the new pill above the composer on supported remote hosts.",
      "surfaces": [
       "mobile"
      ]
@@ -7325,8 +7440,8 @@
      ]
     },
     {
-     "cat": "improved",
-     "text": "Corrected extra diff lines after repeated edits to the same file.",
+     "cat": "fixed",
+     "text": "Fixed extra lines in diffs after repeated edits to the same file.",
      "surfaces": [
       "mobile"
      ]
@@ -7346,61 +7461,8 @@
      ]
     }
    ],
-   "hash": "0222f1172be3",
-   "ko": {
-    "model": "codex-cli",
-    "summary": "지원되는 원격 호스트에서 컴포저 위의 새 pill로 백그라운드 명령을 확인하고 중지할 수 있다. `@`로 다른 연결된 호스트의 채팅을 멘션할 수 있다.",
-    "items": [
-     "지원되는 원격 호스트에서 컴포저 위의 새 pill로 백그라운드 명령을 확인하고 중지할 수 있다.",
-     "`@`로 다른 연결된 호스트의 채팅을 멘션할 수 있다.",
-     "저장된 메시지를 새로 고칠 때 로딩 표시가 나타난다.",
-     "활동 그룹이 더 깔끔해지고, Codex가 검사한 이미지를 필요할 때 열 수 있다.",
-     "응답하지 않은 질문은 턴이 끝난 뒤에도, 채팅을 다시 열 때도 유지된다.",
-     "다른 프롬프트가 시작되거나 끝나는 동안 질문에 더 안정적으로 답한다.",
-     "자동 완성 제안이 각 소스의 로딩이 끝나는 대로 나타나며, 더 느린 소스를 기다리지 않는다.",
-     "사용량 제한 설명과 초기화 시간이 채팅에 바로 표시된다.",
-     "응답 시간 초과 뒤 프롬프트가 실패한 것처럼 잘못 표시되던 문제를 수정했다.",
-     "같은 파일을 반복 수정한 뒤 diff에 추가 행이 나타나던 문제를 수정했다.",
-     "응답의 이미지는 전체 화면 갤러리에서 열리고, 첨부 파일을 제거할 때 올바른 이미지가 선택된다.",
-     "통화가 끝나면 음성 버튼이 돌아와 채팅을 다시 열지 않고 새 통화를 시작할 수 있다."
-    ],
-    "features": [
-     {
-      "index": 0,
-      "title": "백그라운드 명령 제어",
-      "what": "지원되는 원격 호스트에서는 컴포저 위에 새 pill이 나타난다. 이 pill에서 백그라운드 명령을 확인하고 중지할 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     },
-     {
-      "index": 1,
-      "title": "다른 호스트의 채팅 멘션",
-      "what": "`@`를 사용해 다른 연결된 호스트의 채팅을 멘션할 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     }
-    ]
-   }
+   "hash": "dca4586d37a8",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.307",
