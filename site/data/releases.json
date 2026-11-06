@@ -1,6 +1,292 @@
 {
- "generatedAt": "2026-11-05T20:03:50.771Z",
+ "generatedAt": "2026-11-06T05:33:11.955Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.167.0",
+   "tool": "codex",
+   "version": "0.167.0",
+   "date": "2026-11-06T01:40:00Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Open the agent command center with `codex agents --no-daemon`. The command center and session picker now mark unread results (#58238, #58239, #58263, #58264).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Switch between connected backends from the terminal session picker and keep your drafts when switching (#58280, #58457).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Preview local image attachments while composing on supported terminals, and open viewed local images from clickable transcript paths (#58261, #58446).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Find API key and cloud provider options under “Sign in another way.” Enable `gcp_setup_wizard` to set up Google Cloud Vertex AI with Application Default Credentials or a credential file (#57857, #58427).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Opt into macOS or Windows system proxy settings from `/experimental` (#58157).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Expand patch details directly in the transcript while an approval prompt is open (#58281).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Saved chats stay visible after you switch model providers. If a chat can’t resume, you can read its transcript and prepare an editable prompt to continue in a new chat (#58202).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "`Ctrl+L` clears the terminal display while keeping earlier messages available through `Ctrl+T` (#58266).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Deleting text that exposes a leading `!` keeps an ordinary draft in chat mode (#58412).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Network approval prompts close when their requests end. Concurrent requests to the same endpoint prompt one at a time (#58350, #58351).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Long realtime V3 conversations save completed speech to chat history as the transcript grows (#58221).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Automatic context compaction now accounts for retained output from failed responses and responses with missing token usage data (#58404).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The app-server README covers managed network constraints under `[permissions.network]` and `prompt-user` command rules that require fresh human approval (#58045, #58182).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The `openai-docs` skill recommends the documented replacement when migrating away from a deprecated model (#58134).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "DotSlash manifests now reference the Cargo packages shipped with the release (#58717, #58757).",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Linux musl builds use fewer allocator arenas to reduce idle memory after conversations unload (#58399).",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "bc23de63c1bb",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "에이전트 명령 센터와 세션 선택기에서 읽지 않은 결과를 확인하고, 연결된 백엔드 전환과 로컬 이미지 미리보기를 사용할 수 있다. Google Cloud Vertex AI 인증 설정과 시스템 프록시 사용 선택도 추가된다.",
+    "items": [
+     "`codex agents --no-daemon`으로 에이전트 명령 센터를 연다. 명령 센터와 세션 선택기에서 읽지 않은 결과를 표시한다.",
+     "터미널 세션 선택기에서 연결된 백엔드 사이를 전환해도 작성 중인 초안을 유지한다.",
+     "지원되는 터미널에서 작성 중인 로컬 이미지 첨부 파일을 미리 볼 수 있다. 열어 본 로컬 이미지는 클릭 가능한 대화 기록 경로에서 다시 연다.",
+     "API 키 및 클라우드 제공자 옵션을 “다른 방법으로 로그인”에서 찾는다. `gcp_setup_wizard`를 활성화하면 Application Default Credentials 또는 자격 증명 파일로 Google Cloud Vertex AI를 설정할 수 있다.",
+     "`/experimental`에서 macOS 또는 Windows 시스템 프록시 설정 사용을 선택할 수 있다.",
+     "승인 프롬프트가 열려 있는 동안 대화 기록에서 패치 세부 정보를 펼쳐 볼 수 있다.",
+     "모델 제공자를 전환한 뒤에도 저장된 채팅을 계속 볼 수 있다. 채팅을 재개할 수 없는 경우 대화 기록을 읽고 새 채팅에서 이어갈 편집 가능한 프롬프트를 준비할 수 있다.",
+     "`Ctrl+L`로 터미널 화면을 지워도 이전 메시지는 `Ctrl+T`로 다시 확인할 수 있다.",
+     "텍스트를 지운 결과 맨 앞에 `!`가 드러나도 일반 초안은 채팅 모드로 유지된다.",
+     "네트워크 요청이 끝나면 해당 승인 프롬프트를 닫는다. 같은 엔드포인트에 대한 동시 요청은 한 번에 하나씩 승인 프롬프트를 표시한다.",
+     "긴 realtime V3 대화에서 전사가 늘어남에 따라 완료된 음성을 채팅 기록에 저장한다.",
+     "자동 컨텍스트 압축이 실패한 응답에서 유지된 출력과 토큰 사용량 데이터가 없는 응답도 고려한다.",
+     "app-server README에서 `[permissions.network]`의 관리형 네트워크 제약과 새 사람의 승인이 필요한 `prompt-user` 명령 규칙을 다룬다.",
+     "`openai-docs` 스킬이 더 이상 사용되지 않는 모델에서 이전할 때 문서에 명시된 대체 모델을 안내한다.",
+     "DotSlash 매니페스트가 이제 릴리스에 포함된 Cargo 패키지를 참조한다.",
+     "Linux musl 빌드에서 할당자 아레나 수를 줄여 대화 언로드 후의 유휴 메모리를 낮춘다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "에이전트 명령 센터의 읽지 않은 결과 표시",
+      "what": "`codex agents --no-daemon`으로 에이전트 명령 센터를 연다. 명령 센터와 세션 선택기에서 읽지 않은 결과를 표시한다.",
+      "steps": [
+       "`codex agents --no-daemon`을 실행한다.",
+       "명령 센터 또는 세션 선택기에서 읽지 않은 결과 표시를 확인한다."
+      ],
+      "terminal": {
+       "title": "명령",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ codex agents --no-daemon"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "백엔드 전환 중 초안 유지",
+      "what": "터미널 세션 선택기에서 연결된 백엔드 사이를 전환할 수 있다. 전환할 때 작성 중인 초안을 유지한다.",
+      "steps": [
+       "터미널 세션 선택기를 연다.",
+       "연결된 다른 백엔드로 전환한다.",
+       "작성 중인 초안이 유지되는지 확인한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "로컬 이미지 미리보기",
+      "what": "지원되는 터미널에서 작성 중인 로컬 이미지 첨부 파일을 미리 볼 수 있다. 열어 본 로컬 이미지는 클릭 가능한 대화 기록 경로에서 다시 연다.",
+      "steps": [
+       "지원되는 터미널에서 로컬 이미지를 첨부한다.",
+       "작성 중 첨부 이미지를 미리 본다.",
+       "대화 기록의 클릭 가능한 경로에서 열어 본 로컬 이미지를 연다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "Google Cloud Vertex AI 설정",
+      "what": "API 키 및 클라우드 제공자 옵션을 “다른 방법으로 로그인”에서 찾는다. `gcp_setup_wizard`를 활성화하면 Application Default Credentials 또는 자격 증명 파일을 사용해 Google Cloud Vertex AI를 설정할 수 있다.",
+      "steps": [
+       "“다른 방법으로 로그인”에서 클라우드 제공자 옵션을 찾는다.",
+       "`gcp_setup_wizard`를 활성화한다.",
+       "Application Default Credentials 또는 자격 증명 파일로 Google Cloud Vertex AI를 설정한다."
+      ],
+      "terminal": {
+       "title": "설정 키",
+       "lines": [
+        {
+         "kind": "comment",
+         "text": "`gcp_setup_wizard`를 활성화한다. 원문에는 설정 방법이나 값이 제시되지 않는다."
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "시스템 프록시 설정 사용",
+      "what": "`/experimental`에서 macOS 또는 Windows 시스템 프록시 설정을 사용하도록 선택할 수 있다.",
+      "steps": [
+       "`/experimental`을 연다.",
+       "macOS 또는 Windows 시스템 프록시 설정 사용을 선택한다."
+      ],
+      "terminal": {
+       "title": "세션 입력",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /experimental"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "승인 중 패치 세부 정보 펼치기",
+      "what": "승인 프롬프트가 열려 있는 동안 대화 기록에서 패치 세부 정보를 바로 펼쳐 볼 수 있다.",
+      "steps": [
+       "승인 프롬프트를 연다.",
+       "대화 기록에서 패치 세부 정보를 펼친다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
   {
    "id": "claude-code@2.1.318",
    "tool": "claude-code",
@@ -2070,7 +2356,67 @@
     }
    ],
    "hash": "a7e846e765a7",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "전체 화면 작성기를 벗어나지 않고 첨부 파일을 추가·미리 보기·삭제할 수 있다. 작업 읽음 상태가 지원되는 호스트와 동기화되어 기기 간 오래된 읽지 않음 표시를 정리한다.",
+    "items": [
+     "전체 화면 작성기를 벗어나지 않고 첨부 파일을 추가하고 미리 보거나 삭제할 수 있다.",
+     "작업 읽음 상태가 지원되는 호스트와 동기화되어 기기 간 오래된 읽지 않음 표시를 정리한다.",
+     "다른 설정을 저장하지 않았다면 후속 입력은 기본적으로 실행 중인 작업의 방향을 조정한다.",
+     "선택한 텍스트에 주석을 추가·수정하고, 번호가 매겨진 참조를 눌러 해당 텍스트와 주석을 다시 확인할 수 있다.",
+     "iOS에서 후속 입력을 보내도 사용자 지정 제공자의 모델과 추론 수준이 유지된다.",
+     "작업을 다시 열면 전송에 실패한 프롬프트의 첨부 파일이 유지되며 다시 보낼 수 있다.",
+     "작업 열기, 긴 초안 스크롤, 열린 편집기로 돌아올 때의 키보드 동작을 개선한다.",
+     "컴팩트 레이아웃과 분할 레이아웃 사이를 전환해도 초안, 텍스트 선택, 실행 취소 기록이 유지된다.",
+     "전체 너비 편집과 키보드 위에 유지되는 컨트롤을 포함해 iPhone Duo 레이아웃을 개선한다.",
+     "연결된 파일을 바로 열 수 있고 미리 보기를 닫으면 작업으로 돌아간다. 작업공간 밖의 절대 파일 링크도 올바르게 열린다.",
+     "상대 파일 경로의 이미지를 원래 턴이 실행된 디렉터리에서 불러온다.",
+     "인라인 시각화에서 보이지 않던 차트 레이블과 막대를 수정한다.",
+     "재연결 오류에 다시 시도 컨트롤 하나만 표시하고 iPad에서 정렬을 개선한다.",
+     "컴퓨터가 오프라인으로 표시될 때 작업을 보관하면 호스트에 다시 연결할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "전체 화면 작성기에서 첨부 파일 관리",
+      "what": "전체 화면 작성기를 벗어나지 않고 첨부 파일을 추가하고 미리 볼 수 있다. 첨부 파일도 같은 작성기에서 제거할 수 있다.",
+      "steps": [
+       "전체 화면 작성기를 연다.",
+       "첨부 파일을 추가한다.",
+       "첨부 파일을 미리 본다.",
+       "필요하면 첨부 파일을 제거한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "작업 읽음 상태 동기화",
+      "what": "작업의 읽음 상태가 지원되는 호스트와 동기화된다. 이를 통해 기기 간 오래된 읽지 않음 표시를 정리하는 데 도움이 된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.316",
@@ -7462,7 +7808,67 @@
     }
    ],
    "hash": "dca4586d37a8",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "지원되는 원격 호스트에서 작성기 위의 새 표시를 사용해 백그라운드 명령을 확인하고 중지할 수 있다. 연결된 다른 호스트의 채팅을 @로 멘션할 수 있다.",
+    "items": [
+     "지원되는 원격 호스트에서 작성기 위의 새 표시를 통해 백그라운드 명령을 확인하고 중지할 수 있다.",
+     "@를 사용해 연결된 다른 호스트의 채팅을 멘션할 수 있다.",
+     "저장된 메시지를 새로 고치는 동안 로딩 표시를 보여준다.",
+     "활동 그룹을 더 깔끔하게 정리하고 Codex가 확인한 이미지를 요청할 때 열 수 있다.",
+     "답변하지 않은 질문이 턴이 끝난 뒤에도, 채팅을 다시 열어도 계속 표시된다.",
+     "다른 프롬프트가 시작되거나 끝나는 중에도 질문에 더 안정적으로 답한다.",
+     "느린 소스를 기다리지 않고 각 소스가 불러와지는 대로 자동 완성 제안을 표시한다.",
+     "사용량 한도 설명과 초기화 시각을 채팅에 바로 표시한다.",
+     "응답 시간 초과 뒤 프롬프트가 잘못 실패한 것으로 표시되던 문제를 수정한다.",
+     "같은 파일을 반복 수정한 뒤 diff에 추가 줄이 생기던 문제를 수정한다.",
+     "응답의 이미지를 전체 화면 갤러리에서 열고 올바른 이미지를 첨부 파일에서 제거할 수 있다.",
+     "통화가 끝나면 음성 버튼이 돌아와 채팅을 다시 열지 않고도 새 통화를 시작할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "백그라운드 명령 확인 및 중지",
+      "what": "지원되는 원격 호스트에서 작성기 위에 새 표시가 나타난다. 이 표시를 사용해 백그라운드 명령을 확인하고 중지할 수 있다.",
+      "steps": [
+       "지원되는 원격 호스트에서 채팅을 연다.",
+       "작성기 위의 새 표시를 확인한다.",
+       "백그라운드 명령을 확인하거나 중지한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "다른 호스트의 채팅 멘션",
+      "what": "연결된 다른 호스트의 채팅을 @로 멘션할 수 있다.",
+      "steps": [
+       "@를 입력한다.",
+       "연결된 다른 호스트의 채팅을 멘션한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.307",
