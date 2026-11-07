@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T19:29:37.770Z",
+ "generatedAt": "2026-11-07T03:23:07.730Z",
  "releases": [
   {
    "id": "codex@rust-v0.167.0",
@@ -1319,7 +1319,712 @@
     }
    ],
    "hash": "a597c2b84897",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "이번 릴리스는 MCP task의 백그라운드 처리와 권한·자동 모드 동작을 보강하고, Claude 앱 게이트웨이와 VSCode의 관리·사용 흐름을 개선한다. 다수의 세션 복구, 권한 검사, 파일 저장 문제도 수정한다.",
+    "items": [
+     "텔레메트리·기능 플래그를 끈 경우와 LLM 게이트웨이에서도 자동 모드의 서버 확인이 불가능한 호출은 사용자에게 묻거나 거부하며 내장 분류기로 대체하지 않는다. Bedrock·Vertex·Foundry는 그대로다. `CLAUDE_CODE_AUTO_MODE_SERVER=0`으로 이전 동작을 유지한다.",
+     "LLM 게이트웨이에서 `CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS`가 설정돼도 `CLAUDE_CODE_AUTO_MODE_SERVER=1`이면 서버 확인을 사용한다. 관리 설정에서 전자를 설정하면 후자도 설정해야 한다.",
+     "MCP 서버가 도구 호출을 task로 실행하면 터미널에서 즉시 백그라운드로 옮기고, 완료 결과를 Claude에 전달한다.",
+     "`CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND` 환경 변수로 MCP task를 백그라운드로 옮기지 않고 도구 호출 안에서 기다리게 할 수 있다.",
+     "`permissions.denyInsteadOfPrompting` 설정은 권한 확인이 필요한 도구 호출을 거부하고 턴을 계속한다. 터미널 세션, 서브에이전트, 팀원에 적용된다.",
+     "`/claude-api latency-optimize`가 Claude API 코드의 대기 지점을 찾고 평가에 맞춰 빠른 설정을 시험한다.",
+     "`CLAUDE_CODE_DISABLE_FEATURE_FLAGS`는 텔레메트리는 유지하면서 기능 플래그 가져오기를 중단한다. 각 플래그는 내장 기본값을 사용한다.",
+     "버전이 이 릴리스 이상인 Claude 앱 게이트웨이를 쓰고 지출 한도가 없는 개발자는 `/usage`에서 오늘·이번 주·이번 달 지출을 확인할 수 있다.",
+     "Claude 앱 게이트웨이에 `admin.pooled_conflict_rule`과 `admin.pooled_priority_order`가 추가돼 여러 그룹에 속한 개발자의 비용을 어느 그룹 예산에서 먼저 지불할지 정한다.",
+     "Claude 앱 게이트웨이의 선택 설정 `login_notice`는 운영자가 정한 메시지를 브라우저 인증 페이지와 Claude Code 로그인 화면에 표시한다.",
+     "Claude 앱 게이트웨이에서 `CLAUDE_GATEWAY_LOG_FORMAT=json`을 설정하면 운영 로그를 `severity`, `time`, `message` 필드가 있는 JSON으로 출력한다.",
+     "다른 정책의 `availableModels`가 한 정책에서 이름으로 지정한 사용자 지정 모델 ID도 허용하는 경우, Claude 앱 게이트웨이가 시작할 때 경고한다.",
+     "`desktopHome`이 없는 정책이 `coworkTabEnabled: false` 또는 `chatSessionRetentionDays`에 의존하면 Claude 앱 게이트웨이가 시작 시 경고한다. Claude Desktop의 11월 10일 변경에 앞서 알려준다.",
+     "claude.ai 로그인이 끝난 뒤에도 `ant auth login` 인증으로 계속 실행하면 Claude Console 조직에 비용이 청구된다는 경고를 추가했다.",
+     "`ant auth login` 인증을 사용해 청구되는 경우 시작 시 비용이 청구될 Claude Console 조직명을 표시한다.",
+     "`/tasks`에 “Earlier in this session” 행을 추가해 완료된 서브에이전트를 보여준다. 목록에서 사라지거나 재시작한 뒤에도 다시 열고 메시지를 보낼 수 있다.",
+     "클라우드 세션의 `/loop` 확인 메시지에 타이머가 컨테이너와 함께 종료된다는 안내와 계속 실행되는 loop 제안을 추가한다.",
+     "이전 핸드셰이크를 쓰는 MCP 서버에 최신 서버 전용 확장을 알리면서 연결이 실패하거나 빈 결과를 반환하던 문제를 수정했다.",
+     "`--resume` 뒤 claude.ai 커넥터의 장시간 MCP 도구 호출 결과가 보고되지 않을 수 있던 문제를 수정했다.",
+     "Claude Code 실행 폴더에 `HEAD` 파일 또는 폴더가 있으면 claude.ai와 모바일 앱에서 세션 diff를 불러오지 못하던 문제를 수정했다.",
+     "Git 저장소 최상위에 `HEAD` 파일 또는 폴더가 있으면 `/diff`에 “Diff unavailable”이 표시되던 문제를 수정했다.",
+     "파일을 수정한 턴이 64회 이상인 세션에서 `/diff` 창이 비어 있던 문제를 수정했다.",
+     "앞에 공백·탭·개행이 있는 슬래시 명령이 실행되지 않고 일반 텍스트로 전송되던 문제를 수정했다.",
+     "401이 계속되는 요청이 재시도마다 로그인을 갱신해 다른 세션에도 401을 일으키던 문제를 수정했다.",
+     "`/context`가 이후 모든 턴에 전체 시각 그리드를 보내던 문제를 수정해 이제 표만 읽는다.",
+     "안전 확인을 사용할 수 없어 자동 모드 작업이 거부됐을 때 `claude -p`가 0으로 종료되던 문제를 수정했다. 텍스트·JSON 출력 모두 이제 1로 종료한다.",
+     "Linux에서 네트워크 파일 시스템(NFS, SMB, Lustre 등)의 프로젝트를 열 때 시작 시 모든 파일을 나열하던 문제를 수정했다.",
+     "클라이언트가 모델 변경과 자동 모드 복귀 요청을 연이어 보낼 때 자동 모드가 잘못 거부되던 문제를 수정했다.",
+     "서버 측 검토가 세션에 도달하지 않는 경우에도 `/status`에 “Auto mode server: Enabled”로 표시되던 문제를 수정했다.",
+     "조직에서 피드백을 거부한 뒤에도 Claude가 작성한 피드백·설문과 `/feedback`이 계속 표시되던 문제를 수정했다.",
+     "전송할 수 없는 타사 게이트웨이에서 Claude가 피드백을 작성하던 문제를 수정했다.",
+     "권한 규칙이나 `autoMode` 설정이 매우 클 때 자동 모드가 이유 없이 작업을 거부하던 문제를 수정했다. 이제 설명하고 `autoMode` 거부 규칙이 없으면 터미널에서 사용자에게 묻는다.",
+     "인용된 단어가 포함된 명령에서 Bash 거부·확인 규칙이 적용되지 않던 문제를 수정했다.",
+     "상세 모드 밖에서 펼친 서브에이전트 인계 보고서에 내부 표시와 출처 메모가 나타나던 문제를 수정했다.",
+     "MCP 서버가 없을 때 `claude -p --resume`이 프롬프트와 함께 보류된 도구 호출을 잃던 문제를 수정했다. 이제 1로 종료하고 호출을 보존하며 이후 입력을 거부한다.",
+     "SDK 클라이언트에 보내는 안내 메시지에서 텍스트가 누락되던 문제를 수정했다.",
+     "디스크가 꽉 찼을 때 Agent SDK 호스트에 실패한 실행 자체의 오류 대신 일반 종료 코드 오류를 전달하던 문제를 수정했다.",
+     "`CLAUDE_CODE_RESUME_INTERRUPTED_TURN`이 다른 권한 모드에서 세션을 재개할 때 계획 모드에서 중단된 턴을 다시 실행하던 문제를 수정했다.",
+     "Claude Code가 설정 파일을 쓴 직후 몇 초 안에 변경한 내용이 무시되던 문제를 수정했다.",
+     "이전 이름의 설정 파일이 경고 없이 설정을 가리던 문제를 수정했다. 홈에 설정 파일이 둘이면 사용 중인 파일을 stderr에 알린다.",
+     "읽기 전용 폴더나 bind mount 파일에 저장하는 동안 디스크가 가득 차 `~/.claude.json`, 설정 및 편집 파일이 비거나 잘리던 문제를 수정했다. 한 세션씩 저장한다.",
+     "덮어쓸 파일을 읽지 못하면 Write가 턴을 거부로 끝내던 문제를 수정했다.",
+     "매우 빨리 끝나는 백그라운드 Bash 명령이 완료로 보고되면서 출력은 사라지던 문제를 수정했다.",
+     "명령 종료 직전에 쓴 파일이 Bash 도구의 변경 파일 diff에서 빠지던 문제를 수정했다.",
+     "`opus-5-5` 같은 모델명 오타에 업데이트를 권하는 대신 의도한 모델을 제안한다.",
+     "권한 확인이 열린 동안 노트북이 바뀌면 `NotebookEdit`이 다른 셀을 수정하던 문제를 수정했다.",
+     "`/login` 성공 화면에서 Enter를 누른 뒤 약 0.5초 멈추던 문제를 수정했다. 대화상자를 즉시 닫고 로그인 후 새로고침은 백그라운드에서 실행한다.",
+     "스크린 리더 모드에서 질문의 “Other” 답변을 입력할 때 Ctrl+G로 외부 편집기가 열리지 않던 문제를 수정했다.",
+     "자체 DNS가 없는 컴퓨터에서 `CLAUDE_CODE_PROXY_RESOLVES_HOSTS` 설정 후 프록시를 통한 Monitor WebSocket 감시가 실패하던 문제를 수정했다.",
+     "호출하면 안 되는 도구에 통과 불가능한 `max: 0`을 제안하던 `claude plugin eval` 경고를 수정했다.",
+     "백그라운드 플러그인 자동 업데이트가 새 버전에서 추가한 의존성을 설치하지 않던 문제를 수정했다.",
+     "에이전트 보기에서 연 세션의 Ghostty/tmux 환경에서 Cmd+클릭으로 링크가 열리지 않던 문제를 수정했다.",
+     "`.claude/skills` 모드의 핫 리로드가 나타난 직후 삭제된 파일과 반환값을 놓치던 문제를 수정했다.",
+     "`/branch` 이전 체크포인트로 코드를 복원할 때 `/rewind`가 “No files were restored”를 표시하던 문제를 수정했다.",
+     "`/claude-api` 스킬의 Console 웹 설정 및 Managed Agents 세션 설명을 바로잡고 자격 증명·권한 예시를 개선했다.",
+     "`timeout 30 rg foo`처럼 읽기 전용 명령을 일반 `timeout DURATION`으로 감싼 경우 불필요한 권한 확인을 하던 문제를 수정했다.",
+     "WebFetch가 claude.ai 공유 채팅 링크를 빈 페이지라고 설명하던 문제를 수정했다. 공유 대화는 읽을 수 없으므로 내용을 붙여넣으라고 안내한다.",
+     "Artifact 데이터베이스가 없는 곳으로 데이터베이스 호출을 다시 보내던 문제를 수정하고, 오류에 재게시가 도움이 되는지 표시한다.",
+     "`out_dir` 폴더에 저장하는 Artifact 데이터베이스 읽기를 거부하던 문제를 수정했다.",
+     "상세 베타 추적이 클라이언트 인증서를 요구하는 수집기에 `CLAUDE_CODE_CLIENT_CERT`를 제공하지 않던 문제를 수정했다.",
+     "OpenTelemetry `claude_code.session.count`가 점유되지 않은 Agent SDK `prewarm()` 프로세스를 세던 문제를 수정했다. 사전 시작 프로세스는 점유 시 한 번 센다.",
+     "`/clear`가 계속 실행 중인 백그라운드 에이전트·팀원·워크플로와 그들의 포그라운드 서브에이전트 명령을 종료하던 문제를 수정했다.",
+     "Claude 앱 게이트웨이 로그인이 만료된 터미널이 거부되는 텔레메트리·관리 설정 요청을 보내 `invalid_token`으로 기록되던 문제를 수정했다.",
+     "권한 확인을 기다리는 백그라운드 세션에 에이전트 보기에서 답장을 보내는 것처럼 보이던 문제를 수정했다. 답장은 입력란에 남고 세션에서 답하라는 안내가 표시된다.",
+     "종료할 때 같은 디렉터리의 다른 에이전트 보기가 저장한 초안을 삭제하던 문제를 수정했다.",
+     "업데이트를 위해 재시작한 에이전트 보기가 다른 보기의 입력 텍스트를 표시하던 문제를 수정했다.",
+     "에이전트 보기 미리보기에서 긴 명령·결과·상태가 줄임표 없이 잘리고 승인 대기 명령의 서식이 사라지던 문제를 수정했다.",
+     "Claude in Chrome 연결이 작업 중 끊겼을 때 확장 연결 상태를 잘못 보고하던 문제를 수정했다. 작업을 반복하기 전에 페이지를 확인한다.",
+     "세션 밖에서 사용량 한도를 해제한 뒤에도 다른 기기의 Remote Control 세션에 “Limit reached”가 남던 문제를 수정했다.",
+     "Claude가 단일 파일을 보냈을 때 iOS 앱에서 파일 카드가 빠질 수 있던 문제를 수정했다.",
+     "서버가 모델 접근 갱신을 계속 거부할 때 자체 호스팅 runner 세션이 설명 없이 실패하던 문제를 수정했다. runner가 더 빨리 재시도하고 세션에 경고를 올린다.",
+     "클라우드 세션의 `/permissions`가 사용할 수 없다는 말만 하던 문제를 수정했다. 규칙 위치와 변경 방법을 안내한다.",
+     "세션이 새 worker로 이동할 때 PermissionRequest hook 등이 추가한 세션 범위 거부·확인 규칙을 잃던 문제를 수정했다.",
+     "클라우드 세션에서 질문에 답하지 않고 메시지 세 개를 입력하면 모드 핫 리로드가 꺼지던 문제를 수정했다.",
+     "`/clear` 이후에도 실행 중인 백그라운드 작업이 다른 작업이 시작·종료될 때까지 웹 Claude Code의 작업 목록에서 사라지던 문제를 수정했다.",
+     "클라우드 세션의 숨긴 명령이 모바일·웹 슬래시 명령 메뉴에 나타나던 문제를 수정했다.",
+     "`/rewind`가 디렉터리 심볼릭 링크를 통해 파일을 복원하거나 삭제할 수 있던 문제를 수정했다.",
+     "accept-edits 및 자동 모드에서 `sed` 명령이 권한 확인을 건너뛸 수 있던 문제를 수정했다.",
+     "게이트웨이 URL만 관리 설정에 있어 서버 관리 설정을 가져올 수 없는 LLM 게이트웨이에서 `CLAUDE_CODE_AUTO_MODE_SERVER=1`이 무시되던 문제를 수정했다.",
+     "조작된 환경 변수 접두사가 권한 확인에서 명령 일부를 숨길 수 있던 Bash 권한 우회를 수정했다.",
+     "커넥터 터미널 이름(`mcp__claude_ai_Slack`)으로 쓴 규칙·hook matcher·`disallowedTools`가 Claude Desktop에서 무시되던 문제를 수정했다. Desktop에 이 버전이 포함된 뒤 적용된다.",
+     "worktree 생성 시 발생할 수 있던 샌드박스 탈출을 수정했다.",
+     "자체 호스팅 runner에서 `--trust-workspace false`가 저장소 설정의 hook과 스킬 실행도 막도록 수정했다.",
+     "셸에서 내보낸 LLM 게이트웨이로 시작한 유휴 백그라운드 세션이 업데이트 후 게이트웨이를 벗어나던 문제를 수정했다.",
+     "줄바꿈된 `/status` 도움말 링크와 자동 모드 청구 안내 링크가 주소 일부만 열리던 문제를 수정했다.",
+     "`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` 설정 시 TLS 검사 프록시의 인증서 오류가 지속되던 문제를 수정했다. 인증서 실패 뒤 설정된 API 호스트와 TLS 핸드셰이크를 수행하며, http:// 프록시가 있으면 통과하지만 API 요청은 보내지 않는다.",
+     "첫 실행 질문에 답이 없을 때 `claude remote-control`이 상태 0으로 조용히 종료하던 문제를 수정했다. 이제 이유를 알리고 1로 종료한다.",
+     "첫 실행 질문에 개행 없는 파이프 입력 `y`를 무시하던 문제를 수정했다. 이제 동의로 처리한다.",
+     "새 이름을 세션 기록에 저장하지 못했을 때 `/rename`이 성공만 알리던 문제를 수정했다. 이름이 유지되지 않을 수 있다고 경고한다.",
+     "플러그인 `subagentStatusLine` 명령에서 `${CLAUDE_PLUGIN_ROOT}`가 치환되지 않던 문제를 수정해 플러그인 자체 스크립트를 참조할 수 있다.",
+     "`claude plugin update`와 `/plugin`의 “Update now”가 새 플러그인 버전의 의존성을 설치하지 않던 문제를 수정했다.",
+     "압축 후 서브에이전트가 시작하거나 넘겨받지 않은 백그라운드 에이전트의 완료 알림을 기다리도록 안내되던 문제를 수정했다.",
+     "백그라운드 에이전트의 후속 보고가 조용히 사라지던 문제를 수정했다. 알림에 거부 사실과 요청 방법을 표시한다.",
+     "Windows에서 다른 프로그램이 연 설정 파일을 더 오래 기다려 저장한다. 저장 중 종료돼 `~/.claude.json`이 비는 가능성을 줄인다.",
+     "Claude in Chrome 연결이 잠시 끊기면 다른 브라우저를 선택하기 전에 해당 세션의 브라우저가 돌아오는지 최대 6초 기다린다.",
+     "Claude in Chrome의 `javascript_tool` 결과는 최대 60,000자까지 파일로 저장하지 않고 대화에 남긴다.",
+     "`claude purge`와 오래된 세션 정리가 완전히 삭제하지 못한 폴더를 재시도하고, 남아 있으면 오류로 보고한다.",
+     "macOS·Windows에서 작업 디렉터리 밖 경로가 안의 경로와 대소문자만 다를 때 거부 메시지에 해당 표기를 표시한다.",
+     "힌트, `/stats`·`/model`·`/sandbox` 세부 정보, 거부된 작업 메시지 등 옅은 회색 보조 텍스트의 대비를 높였다.",
+     "존재하지 않는 문서 업데이트와 반복 거부 쓰기 일시 중단 시 Artifact 데이터베이스 오류 메시지를 개선했다.",
+     "Claude 앱 게이트웨이의 상위 호출 실패 경고가 제공자뿐 아니라 상위 대상 이름도 표시한다.",
+     "게이트웨이 지출 한도 오류에 “spend limit reached · resets Dec 1”을 표시하고, 설정된 경우 `admin.blocked_message`를 뒤에 표시한다.",
+     "`/model` 선택기에서 이전 모델을 현재 모델 목록 뒤에 나열하지 않고 “More models” 행 아래 묶는다.",
+     "터미널 `/context` 표는 각 목록에서 가장 큰 10개 행만 유지한다. 호출 전 MCP 도구는 서버마다 한 행으로 묶는다.",
+     "클라우드 세션에서 요금제 한도를 표시할 수 없으면 `/usage`가 claude.ai의 Settings → Usage로 연결한다.",
+     "[VSCode] 플러그인 마켓플레이스 삭제 확인 시점에 설치된 플러그인을 확인하도록 개선했다.",
+     "MCP task가 기능 플래그 조회 없이 터미널에서 작동한다(Bedrock, Vertex, Foundry, LLM 게이트웨이, `DISABLE_TELEMETRY`). `CLAUDE_CODE_DISABLE_MCP_TASKS=1`로 끌 수 있다.",
+     "프로젝트 외부에서 자동 모드 서버 확인을 끄면 프로젝트 설정 파일이나 플러그인이 다시 켤 수 없도록 변경했다.",
+     "Monitor WebSocket 감시가 모든 Bash 명령의 규칙을 따른다. 거부 규칙은 실행을 막고, 확인 규칙에서는 Monitor 허용·우회·자동 모드도 확인을 건너뛰지 않는다.",
+     "호스트가 네트워크를 관리하는 환경에서는 설정 파일로 `CLAUDE_CODE_PROXY_RESOLVES_HOSTS`를 지정할 수 없다. 프로세스 환경에 설정해야 한다.",
+     "더 넓은 거부 규칙이 명령을 포함하면 세션의 정확한 Bash·PowerShell 확인 규칙도 질문 대신 거부한다.",
+     "조회·표시용 집합 밖의 플래그로 `which`를 실행하기 전에 Bash 도구가 권한을 묻는다.",
+     "`--add-dir` 디렉터리의 자체 신뢰 대화상자를 승인한 뒤에만 그 디렉터리의 플러그인 마켓플레이스를 등록한다.",
+     "Bash 샌드박스가 켜졌을 때 시작 폴더 아래 `.claude/skills`는 그 위치에서 Claude Code를 시작하거나 `/cd`로 이동한 경우에만 불러온다.",
+     "자율 `/loop`는 턴 종료 후 재예약 없이 끝난다. 이전 동작은 `CLAUDE_CODE_LOOP_KEEPALIVE=1`로 유지한다.",
+     "새 메시지가 턴을 중단시킨 뒤 도구 호출이 끝나도 PostToolUse hook을 실행하며, 최대 10초 동안 완료를 기다린다.",
+     "안전장치가 서브에이전트를 중단하면 Claude가 대신 작업하지 않고 더 좁은 프롬프트로 재시도하거나 사용자에게 알리도록 지시한다.",
+     "클라우드 세션이 새 worker로 이동할 때 거부·확인 규칙을 모두 보존할 수 없다면 세션 범위 허용 규칙을 제거한다. 다시 확인받을 수 있다.",
+     "TLS 검사 프록시에서 `ALL_PROXY`만 설정된 경우 자동 인증서 복구를 실행하지 않는다. 대신 프록시의 http:// 주소를 `HTTPS_PROXY`에 설정한다.",
+     "다른 사용자가 썼을 수 있는 Artifact 데이터베이스 행을 저장할 때 파일마다 숨은 표시 파일을 만든다. 이전 버전 내보내기 등 표시 파일이 없는 기존 파일은 보존하고 보고한다.",
+     "`/claude-api managed-agents-onboard` 템플릿을 Claude Console에 맞췄다. Performance tuner를 제거하고 두 항목명을 바꾸며, 프롬프트에서 쓰지 않는 다섯 항목의 웹 검색·가져오기를 끈다.",
+     "확장 프로그램에 저장된 바로가기를 나열·실행하는 `shortcuts_list`, `shortcuts_execute`를 기본 Claude in Chrome 도구에서 제거했다.",
+     "Gateway가 AWS GovCloud와 다른 upstream을 혼합하거나 환경에 기본 URL 변수가 있으면 시작 경고를 표시한다.",
+     "관리 설정이 전달되지 않는 Amazon Bedrock guardrail을 헤더에 지정했지만 `bedrock` upstream에 `guardrail`이 없으면 시작 로그에 경고한다.",
+     "모든 upstream이 Amazon Bedrock일 때 항상 실패하는 웹 검색 도구를 Claude Desktop이 제공하던 문제를 수정했다.",
+     "자체 호스팅 runner가 `--use-anthropic-git-proxy` 또는 `--configure-git`로 시작할 때 검사 실패 전에 등록되던 문제를 수정해 먼저 종료한다.",
+     "자체 호스팅 runner의 `CLAUDE_RUNNER_CHECKOUT_PATH`에서 세션 내 저장소마다 별도 폴더를 쓴다. 이름이 겹치면 끝에 `-2`, `-3` 등을 붙인다.",
+     "세션 종료 시 디버그 로그 업로드를 제거했다. 실패한 세션 로그는 runner 호스트에 남으며 `--remove-session-state` 설정 시 예외다.",
+     "[VSCode] 50,000자를 넘는 프롬프트가 조용히 잘리던 문제를 수정했다. 프롬프트는 채팅 입력란에 남고 알림을 표시하며, 제한 초과 붙여넣기는 알림과 함께 거부한다.",
+     "[VSCode] 설문 또는 “Report a problem” 버튼 클릭이 미완성 프롬프트를 보내던 문제를 수정했다.",
+     "[VSCode] 확장 Web 탭에서 연 클라우드 세션이 `/clear`나 입력 프롬프트의 Retry·Edit로 제거된 턴을 되살리던 문제를 수정했다.",
+     "[VSCode] 확장에서 세션 이름을 바꾸면 삭제된 세션 파일이 다시 생기던 문제를 수정했다.",
+     "[VSCode] 창을 다시 불러온 뒤 승인되지 않은 계획을 수행하던 문제를 수정했다. 다른 권한 모드로 세션을 복귀하면 계획 모드에서 중단된 단계가 알림과 함께 멈춘다.",
+     "[VSCode] Claude 앱 게이트웨이에서 “not signed in” 메시지가 오류처럼 보이고 Sign in 링크를 제공하도록 개선했다.",
+     "[VSCode] Claude 답변의 로그인·커넥터·API 주소 링크는 브라우저를 열지 않고 주소가 포함된 텍스트로 표시한다.",
+     "[VSCode] 드롭한 항목 경로에 `/`가 매우 길게 반복되면 채팅 패널이 멈출 수 있던 문제를 수정했다.",
+     "[VSCode] `claude-vscode.toggleDictation`은 현재 사용하는 보기에서만 받아쓰기를 시작하며, 다시 누르면 중지한다.",
+     "[VSCode] 닫히지 않은 `$$` 수식 구분자가 점점 짧아지는 답변을 스트리밍할 때 채팅 패널이 느려지던 문제를 수정했다.",
+     "[VSCode] 대규모 작업공간의 진단 도구는 문제가 없는 파일을 제외하고 간결한 JSON을 반환하며, 선택적 최소 심각도를 받는다.",
+     "[Cloud sessions] 예약 작업에서 memory 커넥터가 빠지던 문제를 수정했다. 이제 이름 뒤에 짧은 접미사를 붙여 마운트한다.",
+     "[Cloud sessions] 대기 메시지에서 Send now를 눌러도 실행 중인 백그라운드 에이전트가 계속 실행된다.",
+     "[Cloud sessions] 자체 호스팅 환경의 설정 지연 경고 링크가 조직 기본 환경 또는 실행 중인 runner가 있는 환경을 우선 선택하고 이름을 표시한다.",
+     "[Code Review] GitHub 조직 연결을 해제하면 Code Review의 All repositories 설정도 끈다. 다시 연결해도 직접 켜기 전까지 꺼진 상태다.",
+     "[Claude Tag] 채널 목록을 완전히 불러오지 못해도 관리자가 채널 선택 없이 시작할 수 있도록 설정 실행 차단 문제를 수정했다.",
+     "[Claude Tag] Claude Tag가 연결된 Enterprise 조직의 Models 관리 페이지에 모델 기본값 관리 위치로 연결되는 Claude Tag 행을 추가했다.",
+     "[Claude Tag] 관리자 설정에서 자동 모드 허용 규칙을 저장할 때 다른 관리자의 변경을 덮어쓰던 문제를 수정했다. 이제 메시지와 함께 저장을 거부한다."
+    ],
+    "features": [
+     {
+      "index": 2,
+      "title": "MCP 서버가 도구 호출을 task로 실행하면 터미널에서 즉시 백그라운드로 옮기고, 완료 결과를 ",
+      "what": "MCP 서버가 도구 호출을 task로 실행하면 터미널에서 즉시 백그라운드로 옮기고, 완료 결과를 Claude에 전달한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 3,
+      "title": "`CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND` 환경 변수로 MCP t",
+      "what": "`CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND` 환경 변수로 MCP task를 백그라운드로 옮기지 않고 도구 호출 안에서 기다리게 할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ CLAUDE_CODE_DISABLE_MCP_TASK_BACKGROUND"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 4,
+      "title": "`permissions",
+      "what": "`permissions.denyInsteadOfPrompting` 설정은 권한 확인이 필요한 도구 호출을 거부하고 턴을 계속한다. 터미널 세션, 서브에이전트, 팀원에 적용된다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ permissions.denyInsteadOfPrompting"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "`/claude-api latency-optimize`가 Claude API 코드의 대기 지점을 ",
+      "what": "`/claude-api latency-optimize`가 Claude API 코드의 대기 지점을 찾고 평가에 맞춰 빠른 설정을 시험한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /claude-api latency-optimize"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 6,
+      "title": "`CLAUDE_CODE_DISABLE_FEATURE_FLAGS`는 텔레메트리는 유지하면서 기능 플",
+      "what": "`CLAUDE_CODE_DISABLE_FEATURE_FLAGS`는 텔레메트리는 유지하면서 기능 플래그 가져오기를 중단한다. 각 플래그는 내장 기본값을 사용한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ CLAUDE_CODE_DISABLE_FEATURE_FLAGS"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 7,
+      "title": "버전이 이 릴리스 이상인 Claude 앱 게이트웨이를 쓰고 지출 한도가 없는 개발자는 `/usag",
+      "what": "버전이 이 릴리스 이상인 Claude 앱 게이트웨이를 쓰고 지출 한도가 없는 개발자는 `/usage`에서 오늘·이번 주·이번 달 지출을 확인할 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /usage"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 8,
+      "title": "Claude 앱 게이트웨이에 `admin",
+      "what": "Claude 앱 게이트웨이에 `admin.pooled_conflict_rule`과 `admin.pooled_priority_order`가 추가돼 여러 그룹에 속한 개발자의 비용을 어느 그룹 예산에서 먼저 지불할지 정한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ admin.pooled_conflict_rule"
+        },
+        {
+         "kind": "cmd",
+         "text": "$ admin.pooled_priority_order"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 9,
+      "title": "Claude 앱 게이트웨이의 선택 설정 `login_notice`는 운영자가 정한 메시지를 브라우",
+      "what": "Claude 앱 게이트웨이의 선택 설정 `login_notice`는 운영자가 정한 메시지를 브라우저 인증 페이지와 Claude Code 로그인 화면에 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 10,
+      "title": "Claude 앱 게이트웨이에서 `CLAUDE_GATEWAY_LOG_FORMAT=json`을 설정하",
+      "what": "Claude 앱 게이트웨이에서 `CLAUDE_GATEWAY_LOG_FORMAT=json`을 설정하면 운영 로그를 `severity`, `time`, `message` 필드가 있는 JSON으로 출력한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ CLAUDE_GATEWAY_LOG_FORMAT=json"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 11,
+      "title": "다른 정책의 `availableModels`가 한 정책에서 이름으로 지정한 사용자 지정 모델 ID",
+      "what": "다른 정책의 `availableModels`가 한 정책에서 이름으로 지정한 사용자 지정 모델 ID도 허용하는 경우, Claude 앱 게이트웨이가 시작할 때 경고한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 12,
+      "title": "`desktopHome`이 없는 정책이 `coworkTabEnabled: false` 또는 `ch",
+      "what": "`desktopHome`이 없는 정책이 `coworkTabEnabled: false` 또는 `chatSessionRetentionDays`에 의존하면 Claude 앱 게이트웨이가 시작 시 경고한다. Claude Desktop의 11월 10일 변경에 앞서 알려준다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 13,
+      "title": "claude",
+      "what": "claude.ai 로그인이 끝난 뒤에도 `ant auth login` 인증으로 계속 실행하면 Claude Console 조직에 비용이 청구된다는 경고를 추가했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 14,
+      "title": "`ant auth login` 인증을 사용해 청구되는 경우 시작 시 비용이 청구될 Claude C",
+      "what": "`ant auth login` 인증을 사용해 청구되는 경우 시작 시 비용이 청구될 Claude Console 조직명을 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 15,
+      "title": "`/tasks`에 “Earlier in this session” 행을 추가해 완료된 서브에이전트를",
+      "what": "`/tasks`에 “Earlier in this session” 행을 추가해 완료된 서브에이전트를 보여준다. 목록에서 사라지거나 재시작한 뒤에도 다시 열고 메시지를 보낼 수 있다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /tasks"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 16,
+      "title": "클라우드 세션의 `/loop` 확인 메시지에 타이머가 컨테이너와 함께 종료된다는 안내와 계속 실행",
+      "what": "클라우드 세션의 `/loop` 확인 메시지에 타이머가 컨테이너와 함께 종료된다는 안내와 계속 실행되는 loop 제안을 추가한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /loop"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 105,
+      "title": "[VSCode] 플러그인 마켓플레이스 삭제 확인 시점에 설치된 플러그인을 확인하도록 개선했다",
+      "what": "[VSCode] 플러그인 마켓플레이스 삭제 확인 시점에 설치된 플러그인을 확인하도록 개선했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 122,
+      "title": "Gateway가 AWS GovCloud와 다른 upstream을 혼합하거나 환경에 기본 URL 변",
+      "what": "Gateway가 AWS GovCloud와 다른 upstream을 혼합하거나 환경에 기본 URL 변수가 있으면 시작 경고를 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 123,
+      "title": "관리 설정이 전달되지 않는 Amazon Bedrock guardrail을 헤더에 지정했지만 `be",
+      "what": "관리 설정이 전달되지 않는 Amazon Bedrock guardrail을 헤더에 지정했지만 `bedrock` upstream에 `guardrail`이 없으면 시작 로그에 경고한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 128,
+      "title": "[VSCode] 50,000자를 넘는 프롬프트가 조용히 잘리던 문제를 수정했다",
+      "what": "[VSCode] 50,000자를 넘는 프롬프트가 조용히 잘리던 문제를 수정했다. 프롬프트는 채팅 입력란에 남고 알림을 표시하며, 제한 초과 붙여넣기는 알림과 함께 거부한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 129,
+      "title": "[VSCode] 설문 또는 “Report a problem” 버튼 클릭이 미완성 프롬프트를 보내던",
+      "what": "[VSCode] 설문 또는 “Report a problem” 버튼 클릭이 미완성 프롬프트를 보내던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 130,
+      "title": "[VSCode] 확장 Web 탭에서 연 클라우드 세션이 `/clear`나 입력 프롬프트의 Retr",
+      "what": "[VSCode] 확장 Web 탭에서 연 클라우드 세션이 `/clear`나 입력 프롬프트의 Retry·Edit로 제거된 턴을 되살리던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> /clear"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 131,
+      "title": "[VSCode] 확장에서 세션 이름을 바꾸면 삭제된 세션 파일이 다시 생기던 문제를 수정했다",
+      "what": "[VSCode] 확장에서 세션 이름을 바꾸면 삭제된 세션 파일이 다시 생기던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 132,
+      "title": "[VSCode] 창을 다시 불러온 뒤 승인되지 않은 계획을 수행하던 문제를 수정했다",
+      "what": "[VSCode] 창을 다시 불러온 뒤 승인되지 않은 계획을 수행하던 문제를 수정했다. 다른 권한 모드로 세션을 복귀하면 계획 모드에서 중단된 단계가 알림과 함께 멈춘다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 133,
+      "title": "[VSCode] Claude 앱 게이트웨이에서 “not signed in” 메시지가 오류처럼 보이",
+      "what": "[VSCode] Claude 앱 게이트웨이에서 “not signed in” 메시지가 오류처럼 보이고 Sign in 링크를 제공하도록 개선했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 134,
+      "title": "[VSCode] Claude 답변의 로그인·커넥터·API 주소 링크는 브라우저를 열지 않고 주소가",
+      "what": "[VSCode] Claude 답변의 로그인·커넥터·API 주소 링크는 브라우저를 열지 않고 주소가 포함된 텍스트로 표시한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 135,
+      "title": "[VSCode] 드롭한 항목 경로에 `/`가 매우 길게 반복되면 채팅 패널이 멈출 수 있던 문제를",
+      "what": "[VSCode] 드롭한 항목 경로에 `/`가 매우 길게 반복되면 채팅 패널이 멈출 수 있던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 136,
+      "title": "[VSCode] `claude-vscode",
+      "what": "[VSCode] `claude-vscode.toggleDictation`은 현재 사용하는 보기에서만 받아쓰기를 시작하며, 다시 누르면 중지한다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "$ claude-vscode.toggleDictation"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 137,
+      "title": "[VSCode] 닫히지 않은 `$$` 수식 구분자가 점점 짧아지는 답변을 스트리밍할 때 채팅 패널",
+      "what": "[VSCode] 닫히지 않은 `$$` 수식 구분자가 점점 짧아지는 답변을 스트리밍할 때 채팅 패널이 느려지던 문제를 수정했다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 138,
+      "title": "[VSCode] 대규모 작업공간의 진단 도구는 문제가 없는 파일을 제외하고 간결한 JSON을 반환",
+      "what": "[VSCode] 대규모 작업공간의 진단 도구는 문제가 없는 파일을 제외하고 간결한 JSON을 반환하며, 선택적 최소 심각도를 받는다.",
+      "steps": [],
+      "terminal": {
+       "title": "관련 명령 및 설정",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "claude-code@2.1.318",
