@@ -1,6 +1,18 @@
 {
- "generatedAt": "2026-11-10T19:49:56.061Z",
+ "generatedAt": "2026-11-11T06:40:04.445Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.167.1",
+   "tool": "codex",
+   "version": "0.167.1",
+   "date": "2026-11-10T21:32:01Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.167.1",
+   "source": "github-releases",
+   "items": [],
+   "hash": "97d170e1550e",
+   "ko": null
+  },
   {
    "id": "claude-code@2.1.322",
    "tool": "claude-code",
