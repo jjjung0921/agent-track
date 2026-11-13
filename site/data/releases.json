@@ -1,6 +1,2347 @@
 {
- "generatedAt": "2026-11-12T20:03:51.826Z",
+ "generatedAt": "2026-11-13T05:46:16.871Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.168.0",
+   "tool": "codex",
+   "version": "0.168.0",
+   "date": "2026-11-13T03:54:29Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.168.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Browse model providers under Sessions → Model providers and choose the default for new chats.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Enable `features.tui_workspace` to view a side conversation beside the main chat. Drag the divider to resize the panes or press `leader z` to zoom the focused pane.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Attach recordings when using an audio-capable model. Codex skips confirmed rejected recordings on later turns and uses clip duration to keep more short recordings in context.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Enable `features.image_generation_animation` to generate or edit animated GIFs with optional frame count and timing controls.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Fullscreen Codex displays image previews and pets in tmux on Ghostty and Kitty with `allow-passthrough all`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Set `tui.notification_method = \"osc777\"` for terminal notifications. Approval notifications show longer command previews and distinguish terminal input from network access requests.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Local TUI history and resume pickers filter newly created threads by the signed-in ChatGPT account.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Open and resumed chats use their saved model provider after you change the default for new chats.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "The TUI renders replies interrupted by tool calls as a single Markdown message and restores reasoning summaries when replaying a conversation.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Steering messages reach running turns when sent during the final transcript save or after switching back to a long-running chat.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fuzzy file search gives filename matches more weight so matching parent directories are less likely to crowd them out.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Idle local MCP servers on Windows leave filesystem I/O available to the rest of Codex.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The app-server reference covers listing model providers, creating custom gateways, and updating gateway, Bedrock, and GCP settings.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Codex warns when `features.multi_agent` is explicitly configured and points to `agents.enabled` for disabling subagent tools.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Contributors can run Bazel CI jobs locally without BuildBuddy credentials.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "858bce26cd4e",
+   "ko": {
+    "model": "codex-cli",
+    "summary": "새 대화의 모델 제공자를 선택하고, 나란히 보기·녹음 첨부·애니메이션 GIF 생성 등 Codex CLI 기능을 추가한다. 터미널 알림과 전체 화면 미리보기도 지원한다.",
+    "items": [
+     "Sessions → Model providers에서 모델 제공자를 살펴보고 새 대화의 기본값을 선택한다.",
+     "`features.tui_workspace`를 켜면 메인 대화 옆에 보조 대화를 표시한다. 구분선을 드래그해 창 크기를 조절하거나 `leader z`를 눌러 포커스된 창을 확대한다.",
+     "오디오 지원 모델을 사용할 때 녹음을 첨부한다. Codex는 거부가 확인된 녹음을 이후 턴에서 건너뛰고, 클립 길이를 고려해 짧은 녹음을 더 많이 문맥에 유지한다.",
+     "`features.image_generation_animation`을 켜면 프레임 수와 타이밍을 선택적으로 조절해 애니메이션 GIF를 생성하거나 편집한다.",
+     "`allow-passthrough all`을 설정한 Ghostty와 Kitty의 tmux에서 전체 화면 Codex가 이미지 미리보기와 펫을 표시한다.",
+     "터미널 알림은 `tui.notification_method = \"osc777\"`로 설정한다. 승인 알림은 더 긴 명령 미리보기를 보여주고 터미널 입력 요청과 네트워크 접근 요청을 구분한다.",
+     "로컬 TUI 기록 및 재개 선택기에서 새로 만든 스레드는 로그인한 ChatGPT 계정 기준으로 필터링된다.",
+     "새 대화의 기본 모델 제공자를 바꿔도 열려 있거나 재개한 대화는 저장된 제공자를 사용한다.",
+     "TUI가 도구 호출로 끊긴 응답을 하나의 Markdown 메시지로 표시하고, 대화를 재생할 때 추론 요약을 복원한다.",
+     "최종 기록을 저장하는 중이거나 오래 실행 중인 대화로 돌아온 뒤에도 실행 중인 턴에 방향 지시 메시지가 전달된다.",
+     "퍼지 파일 검색에서 파일명 일치의 비중을 높여 상위 디렉터리 일치가 파일명을 밀어내는 일을 줄인다.",
+     "Windows에서 유휴 상태인 로컬 MCP 서버가 Codex의 다른 기능을 위한 파일시스템 I/O를 막지 않는다.",
+     "app-server 참조 문서가 모델 제공자 목록 조회, 사용자 지정 게이트웨이 생성, 게이트웨이·Bedrock·GCP 설정 업데이트를 다룬다.",
+     "`features.multi_agent`를 명시적으로 설정하면 Codex가 경고하고, 서브에이전트 도구를 비활성화하려면 `agents.enabled`를 사용하도록 안내한다.",
+     "기여자는 BuildBuddy 자격 증명 없이 로컬에서 Bazel CI 작업을 실행할 수 있다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "새 대화의 모델 제공자 선택",
+      "what": "모델 제공자 목록을 확인하고 새 대화에 사용할 기본 제공자를 선택한다. 기존 대화는 저장된 제공자를 계속 사용한다.",
+      "steps": [
+       "Sessions → Model providers를 연다.",
+       "모델 제공자를 살펴본다.",
+       "새 대화의 기본 제공자를 선택한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 1,
+      "title": "보조 대화를 나란히 표시",
+      "what": "`features.tui_workspace`를 켜면 메인 대화 옆에 보조 대화를 표시한다. 구분선을 드래그해 두 창의 크기를 조절하고, `leader z`를 눌러 포커스된 창을 확대할 수 있다.",
+      "steps": [
+       "`features.tui_workspace`를 켠다.",
+       "메인 대화 옆의 보조 대화를 본다.",
+       "구분선을 드래그해 창 크기를 조절하거나 `leader z`를 눌러 포커스된 창을 확대한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": [
+        {
+         "kind": "cmd",
+         "text": "> leader z"
+        }
+       ]
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "오디오 녹음 첨부",
+      "what": "오디오 지원 모델을 사용할 때 녹음을 첨부할 수 있다. 거부가 확인된 녹음은 이후 턴에서 건너뛰며, 클립 길이를 고려해 짧은 녹음을 더 많이 문맥에 유지한다.",
+      "steps": [
+       "오디오 지원 모델을 사용한다.",
+       "녹음을 첨부한다.",
+       "이후 턴에서 확인된 거부 녹음은 건너뛰고 짧은 녹음은 더 많이 문맥에 유지한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 3,
+      "title": "애니메이션 GIF 생성 및 편집",
+      "what": "`features.image_generation_animation`을 켜면 애니메이션 GIF를 생성하거나 편집한다. 프레임 수와 타이밍은 선택적으로 조절할 수 있다.",
+      "steps": [
+       "`features.image_generation_animation`을 켠다.",
+       "애니메이션 GIF를 생성하거나 편집한다.",
+       "필요하면 프레임 수와 타이밍을 조절한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 4,
+      "title": "tmux 전체 화면 미리보기",
+      "what": "Ghostty와 Kitty에서 `allow-passthrough all`을 설정하면 tmux 안의 전체 화면 Codex가 이미지 미리보기와 펫을 표시한다. 이 동작은 해당 터미널 설정 조건에 한정된다.",
+      "steps": [
+       "Ghostty 또는 Kitty에서 `allow-passthrough all`을 설정한다.",
+       "tmux에서 Codex를 전체 화면으로 연다.",
+       "이미지 미리보기와 펫을 표시한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     },
+     {
+      "index": 5,
+      "title": "터미널 알림 설정",
+      "what": "`tui.notification_method = \"osc777\"`로 터미널 알림을 설정한다. 승인 알림은 더 긴 명령 미리보기를 보여주고 터미널 입력 요청과 네트워크 접근 요청을 구분한다.",
+      "steps": [
+       "`tui.notification_method = \"osc777\"`로 설정한다.",
+       "터미널 알림을 받는다.",
+       "승인 알림에서 명령 미리보기와 요청 종류를 확인한다."
+      ],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "claude-code@2.1.323",
+   "tool": "claude-code",
+   "version": "2.1.323",
+   "date": "2026-11-12T20:29:28.626Z",
+   "prerelease": false,
+   "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21323",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added Code Mode, an experimental opt-in in which Claude writes JavaScript to call its tools; see https://code.claude.com/docs/en/code-mode to turn it on, or to turn it off for an organization",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `engines[\"claude-code\"]` to `plugin.json`: plugins outside their stated Claude Code version range are not installed, updated or loaded, and install and update pick the newest version that fits",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added type checking of a plugin's TypeScript hooks module to `claude plugin validate`; each finding is a warning, and `--strict` fails on it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added to `claude plugin validate` the `$` nouns a mod's `engine.create` hook adds, withholds or replaces",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added support for `CLAUDE_CODE_AUTO_MODE_MODEL` in managed settings for Claude Desktop sessions on third-party providers (takes effect once Claude Desktop includes this version)",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added an options menu (stop, switch to usage credits, upgrade) when a model needs usage credits that are turned off or used up",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a progress heartbeat every 30 seconds while hooks run long in `claude -p` and SDK sessions, so a host such as Claude Desktop won't end the turn as hung (once it includes this version)",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `.docx` support to Artifact tool asset uploads",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a `/diff to close` hint to the diff panel, and the keys that focus and close a panel to the `?` shortcut guide",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a start-up warning for Bash allow rules with a `*` in a variable's value, such as `Bash(PORT=* npm run dev)`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a warning when a plugin's language server can't start, naming the server and what to check",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added a one-time startup notice naming `CLAUDE_CODE_PERFORCE_MODE` when Perforce settings are found and the mode is off",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `CLAUDE_CODE_DISABLE_AGENT_PROGRESS_SUMMARIES` (available since 2.1.318): set it to `1` to turn off subagent progress summaries and the requests that write them (anthropics/claude-code#86879)",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `CLAUDE_CODE_RESUME_HINT_COMMAND`, which a program that starts Claude Code can set to have the exit hint name its own resume command",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `unsetOptionCount` to the `claude plugin install --json` result: how many `userConfig` options are not yet set",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added `isPromptCovered` to the props a mod's pane is drawn with, telling it when a dialog or a field above the prompt covers the prompt",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed running `/compact` again, or after a command such as `/context`, summarizing away a message that Claude had not answered yet",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a resumed session joining your next message to an old interrupted message that was not resumed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a memory spike at the next prompt after Claude changed a very large file",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a setting saved in a running session undoing a hand edit made to `settings.json` moments earlier; a settings file you delete during a session now stays deleted",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude plugin` commands and `claude mcp list` signing you out of a Console profile when they ended while the token was being renewed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Edit and Bash running out of memory on certain `/proc` files, and Edit hanging or running out of memory on devices and named pipes",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Claude Code failing to start, or to clear stored credentials at sign-out, when saving its configuration file failed with \"Out of memory\"",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed requests sent without streaming failing on errors that streamed requests recover from, such as a rejected image, thinking block or beta header",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `ExitWorktree`, the worktree exit dialog and `/resume` leaving the session in the wrong folder when the folder the shell was in before entering the worktree had been deleted",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed accents and other combining marks sometimes landing left of the text, leaving stale copies on screen, or silently disappearing when text wraps",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the last key of a key chord, such as Enter in ctrl+x enter, acting on a dialog's text field when the chord's own action isn't available there",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `ps` processes piling up when the process listing Claude Code runs before stopping a command takes too long",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed subagent transcripts and large tool results being saved apart from the session's transcript after entering a worktree created by a `WorktreeCreate` hook or belonging to a nested repository",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a session on a named Anthropic profile moving to another sign-in when `/fork`, the Left arrow or `--bg` continued it in the background; reopen any session that was open during the update",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a background session sending a conversation under another sign-in when its named Anthropic profile is missing, changed or overridden; it now stops and says so",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a session on an API key, auth token or workload identity from its shell (not a setup token) moving to another sign-in in the background; it now stops and says so",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed MCP tool calls ending in the sign-in server's error, such as `TOKEN_EXPIRED`, instead of asking you to sign in again",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an expired claude.ai login showing \"Credit balance too low\" when a saved Console key or `ant auth login` profile without credit was used instead",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a session on a named Anthropic profile being handed to an older background service that could not keep its sign-in; it now says to restart the service",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a background session's sign-in leaving the previous account's login or other credentials in place; it now clears them for every session on the computer, and a refused sign-in can leave no login",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed background sessions moving between a profile and the stored login when an update restarted them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed sessions opened before a sign-in keeping signed-out feature flags after the sign-in",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed sessions that kept failing after a Claude apps gateway sign-in expired: once you sign in again with `/login` in another terminal, they carry on at the next message",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the billing notice naming your `ant auth login` organization when a custom `X-Api-Key` header is set",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "macOS: Fixed \"Not logged in · Please run /login\" coming back right after a successful `/login` or a token refresh when the keychain was slow to answer",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed turns failing in Claude Desktop when an organization's gateway answers an expired token with 403: Claude Code now asks Desktop for a fresh token and retries",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the error shown when Amazon Bedrock refuses your account a model: it no longer says to refresh your AWS credentials, it says to enable the model",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the `awsAuthRefresh` or `gcpAuthRefresh` command sometimes running twice for one request when three or more sessions needed a fresh sign-in at once",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the `claude -p` warning about an ended claude.ai login to say that `claude auth logout` also removes saved MCP server logins and plugin secrets",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Bash permission prompts offering \"don't ask again\" for commands that write to sensitive paths such as `.git` or `.claude`, where the saved rule did not stop the next prompt",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where some `lsof` commands ran without a permission prompt",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Bash commands that write a file with `cat > file <<EOF` being shown as \"Read 1 file\"",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where Bash permission checks judged an `rm` from the wrong folder and skipped the dangerous-removal prompt under bypass permissions or a Bash allow rule",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `--permission-mode auto` or a settings `defaultMode: auto` starting in a mode that could allow more when auto mode was unavailable. It now starts in Manual mode, which asks first",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed plan files sometimes being written outside the project when `plansDirectory` is set; a write that can't be shown to stay inside the project is now refused",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a permission prompt when Claude read the output of its own background command or agent after entering a worktree",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where Bash permission checks missed part of a command",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where the Bash sandbox could switch off during a session",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Bash allow rules with an attached wildcard, such as `Bash(ls*)`, skipping the permission prompt in some cases; a rule that names a variable, such as `Bash(NODE_ENV*)`, now asks",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed auto mode running behind a gateway at `ANTHROPIC_BASE_URL` on a model whose gateway name contains \"haiku\"; such a model, other than `claude-haiku-5-5`, is now refused, as Haiku 4.5 is",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Bash deny and ask rules missing some commands run through `sudo`, `env` and similar wrappers",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Bash allow rules written with combined `sudo` flags skipping the permission prompt in some cases",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `sandbox.excludedCommands` letting a command that it does not name run outside the sandbox in some cases",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where the Write and Edit tools could write to a path covered by a `Read` deny rule",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where a Bash command ran without a permission prompt for zsh users with certain non-default shell options set",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the Bash sandbox not fully protecting Claude Code's own config on installs still using the legacy config file",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a permission prompt from a mod's `tool.check` hook naming every plugin hooked on the tool instead of the one that asked",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed sandboxed commands being able to read Claude Code's file checkpoint copies under the config directory",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a rewind sometimes changing your permission mode",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed project settings sometimes being read through a symbolic link that leads to a different folder than the one Claude Code checked",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed HTTP hooks failing with HTTP 500 on Linux when `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB` is set and `sandbox.enabled` is off",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude -p` and the Agent SDK running Bash unsandboxed when `--settings` or SDK settings that turn the sandbox on fail validation; Claude Code now stops at start-up and names the invalid setting",
+     "surfaces": [
+      "sdk"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/export` silently stopping early after a long run of calls to an MCP tool that is no longer loaded",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed earlier MCP tool calls missing from a resumed conversation, and lines repeating in scrollback, when the server connects late",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude mcp add --help` splitting long example commands across lines in narrow terminals and pipes, so a pasted example ran without its header",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed plugins with `defaultEnabled: false` staying off in a claude.ai chat's cloud session after you turn them on in claude.ai",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/fast on` and `/fast off` on Vertex not asking a plugin's `config.set` hook, as the `/fast` menu does",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed documents created through the Claude Docs connector not opening in your browser when you work in a terminal",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the misleading \"not cached\" error for a plugin only a repository's settings enable: it now says it isn't installed, gives the install command, and shows in text and stream-json `-p` runs",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed mods being able to reword Claude Code's own confirmation questions",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a mod's hot reload sometimes ignoring a file created just after a failed reload",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed marketplaces named `npm`, `pip`, `uv`, `cargo`, `github` or `gh` being refused as reserved names",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a stopped MCP call, or a stopped shell command in fullscreen, reading as \"Called\" or \"Ran\" in a collapsed tool group: it now says no result was recorded and shows its input",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed load errors of plugins enabled by managed settings going only to the debug log in SDK and Desktop sessions: `init.plugin_errors` now lists them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed plugin installs hiding what a plugin's install command wrote to stderr when that command succeeded, such as a note that the plugin has no skills yet",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed one malformed entry in a plugin marketplace's `renames` map making Claude Code ignore the marketplace's other renames",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude --bg --safe-mode` sessions stopping at startup to ask about project MCP servers that safe mode never starts",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed MCP link prompts offering Accept for non-http links without saying the link wouldn't open",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/mcp` and `/plugins` opening an MCP server's page with the cursor on \"Disable\" when the server needs authentication but still holds its sign-in; the page now offers \"Reconnect\" and opens on it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed plugins with a version list in `enabledPlugins` staying off with no message: `/plugin` and `claude plugin list` now say why",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed plugins and marketplaces failing to install on Windows when the path of a cloned file reaches 260 characters",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a Stop pressed right after sending a message showing as an error in remote and SDK sessions while a `UserPromptSubmit` or plugin prompt hook was still running",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an MCP server staying disconnected with no tools after an Agent SDK app or `claude -p` caller removed and re-added it, when a tool call had tried to reach it in between",
+     "surfaces": [
+      "sdk"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed text-output `claude -p` runs printing nothing to stderr when a `--plugin-dir` mod's hook hangs or crashes the hooks worker",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed SDK sessions giving an MCP server named by `--allowedTools` or an `mcp_tool` hook less than 2s before the first turn when settings lowered `CLAUDE_CODE_MCP_STARTUP_WAIT_MS` after start-up",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed headless sessions ending when an SDK host sent a null entry in an MCP server's tools list",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed WebFetch dropping empty table cells and shifting later values a column left",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed temporary files of a session that had changed directory being left behind when the session expired under `cleanupPeriodDays`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed managed settings (`managed-settings.json`, `managed-settings.d`) sometimes being missed at start-up while another program was rewriting the file: start-up now reads such a file a second time",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `.claude/settings.local.json` not being ignored globally when the folder became a git repository later, or on a new machine",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/diff` waiting for Claude to finish before closing the diff panel in fullscreen",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/memory` showing wrong or roundabout paths for folders whose names start with the working directory's or home folder's name, and losing slashes in the file path on Windows",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a broken emoji character in a tool call's parameter name being resent with later requests, which strict JSON parsers reject",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a collapsed tool call looking as if it ran after you rejected it with a reason: it now shows \"Not run · rejected\"",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where part of a saved session could be lost on NFS or FUSE file systems when Claude Code discarded a reply",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed WebFetch not rechecking organization policy and `CLAUDE_CODE_DISABLE_WEB_FETCH` at each call",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed file titles, app names and session names in @-mentions from claude.ai and the desktop app sometimes being treated as text you typed",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a multi-row status line being pushed off screen by a long prompt in the fullscreen renderer",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where certificate errors behind a TLS-inspecting proxy persisted when the proxy itself is reached over `https://`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Pro and Max accounts being offered feedback drafts that their organization would refuse",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Claude in Chrome's policy message telling people to contact their admin when no admin setting can turn it on",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the artifact preview sometimes opening a different artifact than the one Claude just published",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed certificate name-constraint errors being retried for minutes; they now fail at once with a message that says what to fix",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude --teleport` opening an empty session when the server could not find the session's history, and `claude -p --teleport` exiting without an error when the resume failed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a misspelled keybinding modifier, such as `ctl+k`, binding the bare key; the binding is now ignored",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/btw` answers and recaps sometimes including earlier replies from the conversation",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed start-up requests switching from an organization's managed proxy and CA settings to user-set ones when a read of the managed settings file failed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Claude giving a wrong reason when a new message interrupted a file it was sending you",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `CLAUDE_CODE_RESUME_INTERRUPTED_TURN` re-running a turn that a hook's `continue: false` had stopped",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Claude being told that automatic model switching is off when safeguards stopped a subagent whose model had no other model to switch to",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the changed-files list of remote sessions leaving out files added with `git add -N` before the first commit",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed some Claude in Chrome tool calls, such as `browser_batch`, not showing the tool's name in the fullscreen transcript (ctrl+o) or in a subagent's progress",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed subagent progress summaries skipping an update when the reply took between 10 and 20 seconds",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude doctor` and `/status` saying a linked managed settings file is still read when it could not be read",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an interactive `--chrome` session giving no reason for starting without Claude in Chrome when your organization's policy turns it off: a line now says so",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the `/rewind` list on network paths and hung folders: it named every tracked file as changed, was slow to show labels, and showed none at all when a file read never returned",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `--debug` and `--debug-file` replacing a file named `latest` in the debug log's folder",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a timed-out feedback send being reported as too large; it now says the request timed out",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed screen reader mode cutting off an announcement when the system clock moved forward while it was being read",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed screen reader mode dropping dictated or pasted text, and emoji, typed into an answer to a question or permission prompt",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the name label under permission and plan dialogs hiding part of some agent names",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a case where pressing Ctrl+C just as `claude update` finished removed the `claude` command",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the fullscreen header naming the session's effort level for a viewed subagent on a different model, which that subagent doesn't use",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the model picker and `/model` showing a picked effort level that `CLAUDE_CODE_EFFORT_LEVEL` overrides",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the tip after a slow worktree creation suggesting a `sparsePaths` list without `.claude`, which left worktrees without your project settings and rules",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the newest model's highlight missing from the `/model` picker",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/upgrade` and Ctrl+clicked links in fullscreen failing silently when no browser can open: the address is now shown",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the Claude apps gateway's JSON logs escaping newlines and other control characters in a message twice",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed terminal control sequences in a subagent's message taking effect instead of showing as plain text when the message is expanded",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Claude in Chrome setup saying `/chrome` finishes the connection; it now tells you to restart with `claude --chrome`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the Option-key hint appearing while typing ø or π inside words on Danish, Norwegian, Faroese and Greek keyboard layouts",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a Claude Desktop session getting stuck as busy after another of your sessions sent it the same message twice or many messages at once",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed long tool results staying on disk after a session run with `--no-session-persistence`; they are now removed on normal exit, Ctrl+C or SIGTERM",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `PreCompact`, `PostCompact` and post-compaction `SessionStart` hooks not receiving `agent_id` and `agent_type` when a subagent compacts",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` dropping messages from the saved transcript when another process rewrote the file while it was being trimmed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the \"Now using usage credits\" notice repeating or not showing past the weekly Fable limit when Claude Code made a quick side request on a smaller model, such as naming the session",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Fable's weekly limit showing no reset time and no options menu in the terminal",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a wait chosen in the usage limit menu silently moving to a later reset when its request was refused; the menu now opens",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the spend limit menu offering a lower limit when your current limit couldn't be loaded",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/usage` hiding limit bars for setup tokens and `CLAUDE_CODE_OAUTH_TOKEN`: it keeps the session and weekly bars and says why the rest are missing",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `/usage` showing a whole-session percentage beside a subagent type's name, and saying sessions ran 8 hours when it only counts hours with requests",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed sessions showing as disconnected for a minute or more after a network change such as switching Wi-Fi or reconnecting a VPN",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Remote Control showing nothing while Claude Code asks whether to use usage credits: the question now also shows in the Claude app",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Remote Control showing a session as running while it waited on a permission prompt that can only be answered in the terminal",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed `claude remote-control` reconnecting as a new computer when restarted in the same folder more than 4 hours after it stopped; it now keeps its identity for up to 30 days",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed sessions left running at shutdown, and finished sessions holding their slot, when the disk stops responding",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed other devices and phone notifications not showing what Claude is asking permission for when `DISABLE_TELEMETRY` or `DO_NOT_TRACK` is set",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed the host exiting, or stopping reading a session's output, in verbose or debug mode when a tool call's `command` was a number, boolean or object",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed a host that could stall after sessions failed to start in folders on a filesystem that had stopped responding",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote Control: Fixed sessions from the desktop app showing as idle on your phone while background subagents were still running",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the Agent SDK's `managedSettings` ignoring the Remote Control, agent view, Workflows and Artifact off switches",
+     "surfaces": [
+      "sdk"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed OpenTelemetry export failing silently when an `otlp` exporter had an endpoint but no `OTEL_EXPORTER_OTLP_PROTOCOL`: it now defaults to `http/protobuf`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed OpenTelemetry export to the default `localhost:4318` endpoint going through a configured proxy",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed one malformed `OTEL_RESOURCE_ATTRIBUTES` entry dropping all of that variable's attributes from the OpenTelemetry resource; the others are now kept, and `/status` names the one left off",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed OpenTelemetry `user_prompt` events and interaction spans recording a background agent's reply when `OTEL_LOG_ASSISTANT_RESPONSES=0`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed OpenTelemetry exports failing when a proxy took over 10 seconds to reach the collector; it now has 25 seconds, also the most that `OTEL_EXPORTER_OTLP_TIMEOUT` can allow (previously 30)",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed OpenTelemetry `agent.name` showing a user-defined subagent's name instead of `custom` when an official plugin's skill launched it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude agents` showing a status from an earlier turn after a session resumes",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed read-only git commands needing approval, or being refused under `claude -p`, when `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB` is set on Linux",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude agents` losing a typed prompt: Esc now needs a second press to clear it, and ctrl+y restores it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed the move-to-background key doing nothing in `claude attach` and `claude agents` sessions; to detach with Ctrl+B d, press d within 800 ms of Ctrl+B",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed background sessions ignoring a `DISABLE_ERROR_REPORTING` set only in your shell when the background service started without it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed false \"needs input\" notifications in `claude agents` after replying to a blocked session, and repeated ones after a background turn ended with no text and only basic tools such as Bash or Read",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude -p` silently using another model in text output when settings block the requested one; it now warns on stderr",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed `claude -p` printing notes about `deniedModels` and `availableModels` entries on every run; `/status` and `claude doctor` still list them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Windows: Fixed some file-reading Bash commands running without a permission prompt when given a wildcard or a list of files",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Windows: Fixed Claude Code running a `.cmd` or `.bat` wrapper found beside a program's `.exe` in the same PATH folder (a `git.cmd` next to `git.exe`, say); it now runs the `.exe`, as `cmd.exe` would",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Windows: Fixed shell commands failing with \"Working directory was deleted\" on drives where a folder's real path can't be resolved",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a cloud session's history becoming unreadable if its machine stopped just after the history was rewritten",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed scheduled tasks from an ended session sometimes not running after another session in the same folder used `/clear`, `/resume` or `/branch`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an approved plan being answered with \"You are not in plan mode\" when the approval arrived after the session's process had restarted, in cloud, self-hosted runner and SDK sessions",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Cloud sessions: Fixed an answer to Claude's question being lost after a restart in a long conversation",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a message dropping out of a cloud session's conversation when the session restarted before Claude replied",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Cloud sessions: Fixed Claude saying an attached image is missing when the message names its file",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed a resumed cloud session making a model call nobody asked for when files arrived right after a chat's first reply",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed streamed replies in cloud sessions missing text from the middle when the session's container shut down partway through a reply",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed skill files sent from Cowork cloud sessions sometimes failing to upload on the first try",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Self-hosted runner: Reverted the exit code of an on-demand runner whose work order was superseded to 1; 2.1.321 and 2.1.322 had changed it to 0",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved sign-in errors in `/login` and `claude setup-token` for a rejected, unreachable or timed-out request: they now say what happened and what to check",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved Bash permission checks so the same command more reliably gets the same answer on a slow or busy machine",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Improved Bash permission checks: some commands that could run differently from how they were checked now ask for permission",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved `/mcp` to show how many of a server's tools were left out because the API would reject their input schema, and why",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the \"Not now\" choice when Claude Code asks to turn on the mods it writes in a session: it now says when they load",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the error for an MCP tool call whose connector ID is mistyped by a character or two: for a server that the host application registered, it now names the tool to call",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved Claude Desktop and cloud sessions for claude.ai accounts with more than 2,000 plugins turned on: a shorter wait at startup, and Claude can now say why plugins are missing",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved memory use with many subagents: a finished subagent's transcript is freed sooner instead of staying in memory while later subagents run",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved installing with the install script: the latest version is no longer downloaded twice",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved WebFetch speed and memory use on deeply nested pages",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the `cleanupPeriodDays` cleanup to count folders it can't read as errors",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the Claude apps gateway's `/v1/models` to state `max_input_tokens` for models whose context window is certain on every upstream",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved `ToolSearch` to say when a tool Claude searched for by its short name is already available, instead of only reporting no match",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved start-up on Linux when `/home` is an autofs map: Claude Code no longer looks up files in `/home` itself. Set `CLAUDE_CODE_AUTOMOUNT_ROOTS` for a map root deeper than one folder below `/`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Improved the Fable limit message in `-p`, SDK, IDE and cloud sessions: it now says when the limit resets, along with how to continue",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `/security-review` to ask before Claude runs it, and skills' inline git commands to stop in bare-repository worktrees and similar folders until you allow them, outside auto mode and bypass",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed how many messages each of your sessions on the same machine can send the others without a prompt from you, from about 20 to 100,000",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the number of messages a Claude Desktop Code tab session can send to your other sessions before it waits for you to type again from 20 to 100,000",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed organization settings and policy requests to no longer use a proxy set only by `ALL_PROXY`; set `HTTPS_PROXY` if your network needs a proxy for them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the context window assumed for a model ID that Claude Code doesn't recognize from 200K to 1M; use `/autocompact` to compact earlier, or `CLAUDE_CODE_DISABLE_1M_CONTEXT=1` to keep 200K",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed sessions on other vendors' models with a smaller window: once full, they can fail every turn until `/clear`, so set `CLAUDE_CODE_DISABLE_1M_CONTEXT=1` before they fill",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed Claude Code's own ripgrep and most internal git commands to run without most of its sign-in tokens and API keys, so a credential helper or hook under such a git command no longer finds them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `MCP_SDK_GENERATION=v1` to run the v2 MCP client in a compatibility mode (earlier handshake, relaxed OAuth sign-in checks), because the v1 MCP client is removed",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the tool Claude uses to finish an MCP server sign-in so that it asks you to confirm, even in bypass and auto modes; where nobody can be asked, such as in `dontAsk` mode, use `/mcp`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Self-hosted runner: Changed a session at a connector's approval prompt or sign-in inside a running tool to be released as paused at the idle or lifetime limit; a late answer resumes from a fresh clone",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed artifact updates to ask first, even under an allow rule, when people outside your organization can see the artifact or Claude can't check who can",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `glab config set` without `--global` or `--host`, and `glab config edit --local`, to fail read-only inside the Bash sandbox; run them outside it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the Bash sandbox on macOS, Linux and WSL to ignore write access granted through a symlink in a writable folder that leads elsewhere or to a missing path; grant the real path instead",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed \"don't ask again\" so an allow rule that looks like it holds a secret, or would be saved to a `settings.local.json` that git tracks, lasts for the session only and isn't saved",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the sandbox on macOS and Linux: `git worktree add`, `move` and `remove` now fail read-only, as do commits in a worktree the session wasn't started in or given, even one inside the project",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed start-up to stop when a `--settings` file isn't valid JSON and has a `sandbox` key, even one that turns the sandbox off",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed what happens when a tool's permission check fails with an error after a `PreToolUse` hook returned \"allow\": Claude Code now decides the call as if no hook had answered",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed what happens when a tool's permission check fails on input that a `PermissionRequest` hook rewrote: Claude Code now asks again, or refuses the call where nobody can answer",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the GitLab merge request badge to show only for the repository a sandboxed session opened in",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the `claude mcp add --help` example to a local command",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed mods: a `*`, namespace or negated hook on `engine.create` now only observes. To add or withhold a `$` noun, hook `engine.create` by name",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `claude plugin validate` to fail a mod whose `engine.create` hook isn't written in the one accepted form; installed mods keep loading",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed marketplace and plugin installs to fail when a git submodule isn't on the commit its repository records",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed project (`.mcp.json`) MCP server approvals to match the server's exact name; an approval entry written in another spelling now asks again",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed self-hosted runners under `--trust-workspace false` and VS Code sessions in an untrusted folder: the repository's settings can no longer disable your hooks or turn plugins on or off",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `tool.list` plugin hooks so the tools they add or remove apply to the model and every agent",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `claude plugin install` and `/plugin` to show a warning instead of success when a plugin's install command writes to stderr",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed claude.ai chats and Cowork tasks to check a plugin file for secret keys before sending it, and to ask first if it may hold one",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `claude rm` and the agents view to say a session is removed from the list, not deleted; `claude rm` help says the conversation is kept and `claude --resume` lists it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `/stickers` to say that the sticker pack is all claimed for now, instead of opening a page in the browser",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed a managed settings `policyHelper` to no longer take environment variables from user or `--settings` files; set what it needs in managed `env` or the launching shell",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed a `/skill` or `@file` typed between two files picked in claude.ai or the desktop app, or after a picked file and a link, to no longer take effect",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed split-pane agent teammates to check that requests come from their team lead: one that outlives its lead has its asks refused, and plan approvals must be re-sent after `/clear` or `/resume`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed worktree creation to refuse checkouts whose `.git` folders are links or hold hard links, such as git-new-workdir layouts and `cp -al` copies; use a plain clone",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed what Claude is told after safeguards stop a forked skill or a workflow agent: retry with a narrower prompt or tell you, instead of doing the work itself",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed browser tool calls (Claude in Chrome, the desktop browser pane) to refuse some escaped or JSON-text inputs and tell Claude how to respell them",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed workflows so that a prompt an app marks as not typed no longer reaches their agents as your request",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed computer use on macOS to refuse key chords that hold Space with Control or Option, and more system shortcuts that need your grant",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed first-run setup in Terminal.app to name the \"Use Option as Meta key\" setting, what Option stops typing, and how to undo it before you agree",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the maximum of `CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS` from 64000 to 300000",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed workflows in the desktop app's Code tab to pause at a usage limit and continue after it resets",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed the spend limit and 1M context errors, and `/usage-credits`, in cloud sessions and under Remote Control: they no longer give a web address",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed which MCP servers are reported by name in OpenTelemetry exports to follow the current connector directory",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `/logout` in a background session, which had no effect: it now signs out every session on the computer, deletes stored MCP logins and plugin secrets, and ends the session, as in a terminal",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "macOS: Changed the Bash sandbox so `lsof` and similar tools may show less about processes a command did not start",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed cloud scheduled tasks: a `PostToolUse` hook from your own settings can no longer replace the plan in `ExitPlanMode`'s result",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Changed `CLAUDE_AUTOCOMPACT_PCT_OVERRIDE` in Anthropic-hosted cloud sessions to stop applying to auto-memory extraction and, in some sessions, to `/btw`; the main conversation still follows it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Removed the `subagentStatusLine` setting: subagent rows always use the default look, and settings files that still hold the key load as before",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Deprecated a plugin's `agent` setting: it still applies, and now warns at startup, in `claude plugin list` and in `claude plugin validate`",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Added a Claude Code trust prompt before the first session in a folder you haven't trusted; declining leaves the folder's settings and MCP servers unused",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Added the live output of a running Bash or PowerShell command to the chat, under the command's card",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed a response that was discarded because its tool call could not be parsed still showing after Claude retried",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed a queued message missing from a conversation or fork when it directly followed a compaction summary",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the \"Buy usage credits on claude.ai\" button counting as agreement to pay for Fable while usage credits were off",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the \"extensions want to relaunch the terminal\" warning coming back on open terminals after every window reload or restart",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed \"Couldn't load this conversation's saved history\" appearing in a new chat whose Claude process had restarted before the first prompt",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the sign-in screen showing the login choices again after a pasted code; it now shows \"Signing in…\" until the sign-in finishes",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the \"You've hit your Fable limit\" line staying in the VS Code and JetBrains panels after you pick another model",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the Fable usage warning in the VS Code and JetBrains panels naming usage credits when they're off or used up",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed the diff tab not opening for multi-line edits on files with CRLF line endings",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Fixed dictation continuing to record after switching sessions",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Improved sign-in errors behind TLS-inspecting proxies: a certificate failure now says what to do, as the terminal does",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[VSCode] Changed opening a Claude Code on the web session in a folder where Claude Code's sandbox is on: the extension no longer switches to the session's branch for you, and the dialog says why",
+     "surfaces": [
+      "vscode"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Improved the message when a file fails to upload to a cloud or Remote Control session: it now gives the reason, such as too many pages, a password or a time-out",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Improved adding a repository Claude can't access to a cloud session: a short message and a Reconnect GitHub button replace the long error",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed self-hosted sessions staying on \"Starting Claude Code\" after it had started, when you reopened a paused session without sending a message",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed a paused session in a self-hosted environment sometimes still showing \"Sending\" and a Stop button under the \"Session paused\" banner",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed pull request updates from GitHub Enterprise Server linking to github.com in cloud sessions; new updates link to your own server",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Improved the message when some network secrets can't be added to a new cloud environment: it lists each host, says why where it can, and stays until you dismiss it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed very large GitHub Actions job logs and run log archives failing to download or being cut off in cloud sessions",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Improved the new-session repository picker when GitHub single sign-on hides organizations: it now says so even with other repositories listed, and links to reconnect GitHub",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed new cloud sessions started from the iOS app with a repository not getting a branch of their own",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed an open cloud or Remote Control session's page staying \"Disconnected\" after a few minutes of failed connections; it now tries to reconnect by itself",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed Try again on an open cloud or Remote Control session's \"Connection lost\" card sending \"Try again\" as your message; it now tries to reconnect instead",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed the Stop button disappearing from a cloud session five minutes into a reply that had shown nothing yet while Claude was still working",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed an approval prompt sometimes disappearing from a tab left open after a self-hosted runner released the session while it waited for your answer",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Added a failure notification when a scheduled task's run can't start because its settings require a sandbox that isn't available where it runs",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Improved the Git providers page when your GitHub sign-in has expired: it now asks you to reconnect instead of silently hiding organizations you can link",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed removing a repository from a scheduled task silently moving its GitHub trigger to another repository; Save now waits until you pick one",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Fixed git clones and fetches that take longer than ten minutes in a cloud session sometimes being cut off at the very end",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Added the No repository option to the repository picker for new sessions on a self-hosted environment",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Code on the web] Added a warning to a cloud session's Delete dialog when deleting it will pause scheduled tasks that run in that session",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Remote Control] Fixed your own session saying its environment was deleted when you deleted nothing; it now says your computer is no longer connected",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Remote Control] Fixed some sessions still showing as running in the session list after the computer disconnected before Claude started; they now show an error mark or as idle",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Remote Control] Added a Try again button to the error shown when the computer running your session is signed out of Claude Code",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Added Claude Tag sessions started in Slack to the Compliance API on Enterprise plans, in beta: list the sessions and read their transcripts",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Added a confirmation step when an admin turns off Claude Tag for the organization, with a dialog that says what stops",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed scheduled tasks in a Slack channel moved between Enterprise Grid workspaces failing to use Slack until someone posted there",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed the Approve and post card in a DM with Claude appearing for private or Slack Connect channels, where Claude can't post; Claude now gets the reason and shows no card",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Added a Retry button to a Slack channel's Configure page for when its settings fail to load",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Added a Scope filter to the Network events tab of Claude Tag's Activity page, so admins can download one scope's events instead of the whole organization's",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed Remove connector in Claude Tag admin settings being refused when access bundles also held its credentials; it now removes those set on the connector and leaves the bundles' own",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed the Channels tab in Claude Tag admin settings splitting a workspace from its channels across pages; channels now appear right under their workspace",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Claude Tag] Fixed the Set for Claude Tag link on the Cloud environments admin page not leading to the environment setting; it now opens the Slack page's Advanced tab, where you set it",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "[Code Review] Added a Download CSV button to Code Review admin settings: export review costs per repository by month, week or day, for one repository, one GitHub organization or all",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "a9acf6fd7ff8",
+   "ko": null
+  },
   {
    "id": "codex@rust-v0.167.2",
    "tool": "codex",
@@ -69273,7 +71614,7 @@
     },
     {
      "cat": "fixed",
-     "text": "Fixed a crash when a GrowthBook feature evaluates to null, and a bug where a malformed flag payload could wipe the cached feature flags",
+     "text": "Fixed a crash when a feature flag evaluates to null, and a bug where a malformed flag payload could wipe the cached feature flags",
      "surfaces": [
       "cli"
      ]
@@ -69503,174 +71844,8 @@
      ]
     }
    ],
-   "hash": "c9759e83532e",
-   "ko": {
-    "model": "codex-cli",
-    "summary": "오래 실행되는 도구 호출의 진행 신호와 OpenTelemetry 관측 정보가 추가된다. 명령 권한 검사와 Windows PowerShell, 백그라운드 세션 관련 오류를 다수 수정한다.",
-    "items": [
-     "`Edit(src/**)` 같은 단일 경로 `dir/**` 허용 규칙이 `<cwd>/dir` 외의 중첩 디렉터리 쓰기까지 자동 승인하던 문제를 수정한다.",
-     "Windows PowerShell 5.1 세션의 명령 실행에서 권한 검사를 우회할 수 있던 문제를 수정한다.",
-     "Bash가 권한 분석기와 다르게 해석하는 파일 디스크립터 리다이렉션은 권한 검사에서 안전하게 거부한다.",
-     "1만 자를 넘는 Bash 명령은 자동 실행하지 않고 항상 승인을 요청한다.",
-     "`[[ ]]` 비교식의 zsh 변수 첨자와 수정자를 무해한 문자로 취급하던 권한 검사를 고쳐 승인을 요청한다.",
-     "위험한 옵션, 명령 치환, 백슬래시 경로를 사용할 수 있는 일부 `help`·`man` 명령의 자동 승인을 중단한다.",
-     "원격 세션의 권한 요청이 로컬 확인 창보다 먼저 진행되던 문제를 수정한다.",
-     "매우 심한 학대나 탈옥 시도 시 Claude가 세션을 끝낼 수 있는 `EndConversation` 도구를 추가한다.",
-     "오래 실행되는 도구 호출에 주기적인 진행 신호를 추가한다.",
-     "메모리 파일 frontmatter에 ISO `modified` 타임스탬프를 추가한다.",
-     "메시지 단위 연관 관계와 도구 출처를 위해 OpenTelemetry 로그 이벤트에 `message.uuid`, `client_request_id`, `tool_source`를 추가한다.",
-     "OpenTelemetry 콘텐츠 속성의 60 KB 잘림 한계를 설정하는 `CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH`를 추가한다.",
-     "`subagentStatusLine` 데이터에 추론 강도를 추가해 사용자 정의 에이전트 행에서 모델과 강도를 표시할 수 있다.",
-     "데몬 리디렉션 플래그를 쓰는 `docker` 명령과 Podman `docker` 호환 명령에 권한 요청을 추가한다.",
-     "GrowthBook 기능 값이 null일 때의 충돌과 잘못된 플래그 데이터가 캐시된 기능 플래그를 지우던 문제를 수정한다.",
-     "Linux에서 `pkill -f` 패턴이 CLI 자체 프로세스와 일치할 때 Bash 도구가 Claude 세션을 종료하던 문제를 수정한다.",
-     "`--settings`가 장치 파일이나 수 GB 파일을 가리킬 때의 무제한 메모리 증가를 수정하고, 2 MiB 초과 설정 파일은 시작 시 오류를 낸다.",
-     "Windows 기업 프록시 뒤에서 스트리밍 턴이 `Socket is closed`로 실패하던 문제를 수정한다.",
-     "읽기가 느린 SDK·파이프라인에서 종료 시 stream-json 출력이 잘리던 문제를 수정해 대기 중인 바이트 수에 맞춰 출력을 비운다.",
-     "예약 작업의 설정된 프롬프트를 신뢰할 수 없는 입력으로 거부하던 문제를 수정하고 세션의 할당 작업으로 전달한다.",
-     "Windows에서 자식 프로세스가 표준 입력을 기다릴 때 PowerShell 도구 명령이 시간 초과까지 멈추던 문제를 수정한다.",
-     "Windows PowerShell 도구의 Python 스크립트가 UTF-8이 아닌 표준 입력을 읽을 때 `UnicodeDecodeError`가 나던 문제를 수정한다.",
-     "Windows PowerShell 도구의 Python 비 ASCII 출력 오류와 PowerShell 7 오류 메시지의 원시 ANSI 이스케이프 시퀀스를 수정한다.",
-     "Windows PowerShell 도구에서 `where.exe`, `fc.exe`, `diff.exe`의 정상적인 부정 결과를 오류로 보고하던 문제를 수정한다.",
-     "Windows PowerShell 5.1에서 `>`와 `>>`가 다른 도구에서 UTF-8로 읽을 수 없는 UTF-16LE 파일을 쓰던 문제를 수정한다.",
-     "교체된 백그라운드 데몬이 종료하며 후속 데몬의 제어 소켓을 지워 다음 클라이언트가 정상 데몬을 종료시키던 문제를 수정한다.",
-     "`←` 또는 `/background`로 보낸 유휴 세션이 백그라운드 데몬과 작업 프로세스를 무기한 유지하던 문제를 수정한다.",
-     "백그라운드 서비스가 유휴 상태가 된 뒤에도 완료된 세션을 `claude rm`이나 에이전트 보기에서 제거할 수 있게 한다.",
-     "Git 저장소가 아닌 폴더에서 시작한 백그라운드 세션을 에이전트 보기에서 삭제할 수 있게 한다.",
-     "세션 저장소에 읽을 수 없는 폴더가 있어도 중지된 백그라운드 세션을 다시 열 때 저장된 대화를 복원한다.",
-     "Remote Control을 명시적으로 켜지 않은 세션에 “session ready” 푸시 알림이 가던 문제를 수정한다.",
-     "에이전트 보기 세션에서 `/install-github-app`과 `/mcp` 설정 메뉴를 사용할 수 있게 하고, 터미널 없는 백그라운드 세션에서만 거부한다.",
-     "`--settings` CLI 플래그로 활성화한 플러그인이 로드되지 않던 v2.1.181 이후 회귀를 수정한다.",
-     "장기 실행 세션에서 OAuth 토큰 교체 후 기능 플래그가 오래된 상태로 남던 문제를 수정한다.",
-     "병합 기준점이 없는 저장소에서도 `/ultrareview`가 모든 추적 파일의 검토를 제안한다.",
-     "셸 설정 경로가 디렉터리일 때 `claude update`·`claude doctor`가 멈추고 `/status` 시스템 진단이 비던 문제를 수정한다.",
-     "메모리 파일 저장 시 frontmatter 값이 인라인 `#`에서 잘리던 문제를 수정한다.",
-     "여러 누적 `message_delta` 프레임이 있는 스트림의 세션 비용과 토큰 계측 중복 집계를 수정한다.",
-     "조언자가 생각하는 동안 잘못 표시되던 “check your network” 경고를 수정한다.",
-     "훅의 stdout JSON이 스키마 검사에 실패해도 종료 코드 2가 문서대로 차단하지 않던 문제를 수정한다.",
-     "턴의 비동기 컨텍스트 밖에서 나온 OTel 로그 이벤트에도 상호작용 span의 trace context를 포함한다.",
-     "MCP 프롬프트·리소스 새로고침 중 일시적 오류가 서버의 슬래시 명령과 리소스를 지우던 문제를 수정한다.",
-     "홈 디렉터리의 `claude rc` 작업공간 신뢰 오류에 신뢰가 저장되지 않음을 밝히고 프로젝트 디렉터리에서 실행하도록 안내한다.",
-     "훅 `if:` 조건의 단일 경로 `dir/**`는 `<cwd>/dir`만 일치하며, 모든 깊이는 `**/dir/**`로 지정한다. `deny`·`ask` 규칙은 계속 모든 깊이에 일치한다.",
-     "`file` 명령에 `-m`·`--magic-file` 또는 `-f`·`--files-from`을 쓰면 읽기 전용 자동 허용 대신 권한을 요청한다.",
-     "오래된 연결 오류가 나면 keep-alive 연결 풀링을 끄고 재시도 시 새 소켓을 연다.",
-     "분기된 세션의 SessionStart 훅은 출처를 `\"resume\"` 대신 `\"fork\"`로 보고한다."
-    ],
-    "features": [
-     {
-      "index": 8,
-      "title": "장기 도구 호출 진행 신호",
-      "what": "오래 실행되는 도구 호출에 주기적인 진행 신호가 추가된다. 이전에는 진행 중에도 별도 신호가 없었다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     },
-     {
-      "index": 9,
-      "title": "메모리 수정 시각",
-      "what": "메모리 파일 frontmatter에 `modified` 타임스탬프가 추가된다. 타임스탬프 형식은 ISO다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 10,
-      "title": "OpenTelemetry 로그 연관 정보",
-      "what": "OpenTelemetry 로그 이벤트에 `message.uuid`, `client_request_id`, `tool_source` 속성이 추가된다. 메시지 단위의 연관 관계와 도구 출처를 나타낸다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 11,
-      "title": "OpenTelemetry 콘텐츠 길이 설정",
-      "what": "`CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH`가 추가된다. OpenTelemetry 콘텐츠 속성의 기존 60 KB 잘림 한계를 설정한다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": [
-        {
-         "kind": "comment",
-         "text": "`CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH`: OpenTelemetry 콘텐츠 속성의 60 KB 잘림 한계를 설정한다."
-        }
-       ]
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 12,
-      "title": "하위 에이전트 추론 강도 표시",
-      "what": "`subagentStatusLine` 데이터에 추론 강도가 추가된다. 사용자 정의 에이전트 행에서 모델과 추론 강도를 표시할 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 13,
-      "title": "원격 데몬 지정 명령 권한 요청",
-      "what": "데몬 리디렉션 플래그가 있는 `docker` 명령에 권한 요청이 추가된다. Podman의 `docker` 호환 명령과 원격 모드도 포함하며, 이전에는 이런 명령이 요청 없이 실행됐다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": [
-        {
-         "kind": "comment",
-         "text": "`docker`의 `--url`, `--connection`, `--identity`와 Podman 원격 모드가 권한 요청 대상이다."
-        }
-       ]
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     }
-    ]
-   }
+   "hash": "d7df2ace9866",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.212",
@@ -117042,7 +119217,7 @@
     },
     {
      "cat": "fixed",
-     "text": "Fixed voice space bar getting stuck after a failed voice activation (module loading race, cold GrowthBook)",
+     "text": "Fixed voice space bar getting stuck after a failed voice activation (module loading race, feature flags not yet fetched)",
      "surfaces": [
       "cli"
      ]
@@ -117454,543 +119629,8 @@
      ]
     }
    ],
-   "hash": "8ce6591f10c8",
-   "ko": {
-    "model": "codex-cli",
-    "summary": "Claude Code 2.1.69는 Claude API 개발 스킬과 Remote Control 세션 이름 지정 기능을 추가한다. 보안·메모리·성능·VSCode 표시 문제도 다수 수정한다.",
-    "items": [
-     "Claude API와 Anthropic SDK로 앱을 만들기 위한 `/claude-api` 스킬이 추가된다.",
-     "빈 bash 프롬프트(`!`)에서 Ctrl+U로 bash 모드를 종료할 수 있다. `escape`, `backspace`와 같은 동작이다.",
-     "Claude의 인터뷰 질문에서 숫자 키패드로 선택지를 고를 수 있다. 이전에는 QWERTY 상단 숫자열만 작동했다.",
-     "`/remote-control`과 `claude remote-control`에 선택적 이름 인수가 추가된다. 지정한 세션 제목은 claude.ai/code에 표시된다.",
-     "음성 STT가 러시아어, 폴란드어, 터키어, 네덜란드어, 우크라이나어, 그리스어, 체코어, 덴마크어, 스웨덴어, 노르웨이어를 추가 지원해 총 20개 언어가 된다.",
-     "로고와 스피너에 활성 effort 수준이 표시된다.",
-     "`claude --agent` 사용 시 터미널 제목에 에이전트 이름이 표시된다.",
-     "macOS에서 사용자 지정 MITM 프록시와 `httpProxyPort`를 쓸 때 Go 프로그램의 TLS 인증서 검증을 돕는 `sandbox.enableWeakerNetworkIsolation` 설정이 추가된다.",
-     "내장 커밋 및 PR 워크플로 지침을 시스템 프롬프트에서 제거하는 `includeGitInstructions` 설정과 `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` 환경 변수가 추가된다.",
-     "재시작 없이 대기 중인 플러그인 변경을 활성화하는 `/reload-plugins` 명령이 추가된다.",
-     "macOS와 Windows에서 Claude Code Desktop을 제안하는 시작 안내가 추가된다. 최대 3회 표시되며 닫을 수 있다.",
-     "스킬이 SKILL.md에서 자체 디렉터리를 참조할 수 있는 `${CLAUDE_SKILL_DIR}` 변수가 추가된다.",
-     "CLAUDE.md 또는 `.claude/rules/*.md`가 컨텍스트에 로드될 때 발생하는 `InstructionsLoaded` 훅 이벤트가 추가된다.",
-     "훅 이벤트에 하위 에이전트용 `agent_id`와 하위 에이전트 및 `--agent`용 `agent_type`이 추가된다.",
-     "`--worktree` 세션의 상태 표시줄 훅 명령에 이름, 경로, 브랜치, 원본 저장소 디렉터리를 담은 `worktree` 필드가 추가된다.",
-     "설치 전 플러그인 신뢰 경고에 조직별 설명을 덧붙이는 관리 설정 `pluginTrustMessage`가 추가된다.",
-     "Enterprise뿐 아니라 Team 요금제 OAuth 사용자에게도 원격 제어 제한 등의 정책 한도를 가져온다.",
-     "`strictKnownMarketplaces`에 파일·디렉터리 마켓플레이스 소스를 정규식으로 검사하는 `pathPattern`이 추가된다. `hostPattern` 제한과 함께 사용할 수 있다.",
-     "Git 저장소 안의 하위 디렉터리를 가리키는 플러그인 소스 유형 `git-subdir`가 추가된다.",
-     "표준 탐색에 실패할 때 MCP 서버의 사용자 지정 OAuth 메타데이터 탐색 URL을 지정하는 `oauth.authServerMetadataUrl` 옵션이 추가된다.",
-     "중첩 스킬 탐색이 `node_modules` 같은 Git 무시 디렉터리의 스킬을 로드하던 보안 문제가 수정된다.",
-     "첫 실행 시 신뢰 대화상자가 모든 `.mcp.json` 서버를 조용히 활성화하던 문제가 수정된다. 이제 서버별 승인 대화상자가 표시된다.",
-     "npm 설치 환경에서 `claude remote-control`이 \"bad option: --sdk-url\" 오류로 즉시 종료되던 문제가 수정된다.",
-     "`--model claude-opus-4-0`과 `--model claude-opus-4-1`이 현재 버전 대신 사용 중단된 Opus 버전을 가리키던 문제가 수정된다.",
-     "여러 OAuth MCP 서버를 사용할 때 큰 메타데이터가 `security -i` 입력 버퍼를 넘쳐 macOS 키체인 자격 증명이 오래된 상태로 남고 `/login`이 반복되던 문제가 수정된다.",
-     "토큰 갱신 중 프로필 엔드포인트가 일시적으로 실패하면 `.credentials.json`의 `subscriptionType`이 사라지던 문제가 수정된다.",
-     "Linux에서 샌드박스 Bash 명령 후 `.bashrc`, `HEAD` 같은 유령 파일이 추적되지 않은 파일로 나타나던 문제가 수정된다.",
-     "SSH로 연결한 Ghostty에서 Shift+Enter가 줄바꿈 대신 `[27;2;13~`를 출력하던 문제가 수정된다.",
-     "Claude가 작업 중일 때 메시지를 제출하면 Ctrl+S 보관 내용이 지워지던 문제가 수정된다.",
-     "파일 편집이 많은 긴 세션에서 ctrl+o로 대화 기록을 전환할 때 여러 초 동안 멈추던 문제가 수정된다.",
-     "계획 모드 피드백 입력에서 backslash+Enter와 Shift+Enter로 줄바꿈을 넣을 수 있다.",
-     "입력창 상단의 빈 줄로 커서가 내려가지 않던 문제가 수정된다.",
-     "대화 기록에 타임스탬프가 없거나 잘못된 항목이 있을 때 `/stats`가 종료되던 문제가 수정된다.",
-     "긴 세션에서 스트리밍 오류 뒤 잠시 멈추던 문제가 수정된다. 한 줄을 제거할 때 대화 기록을 전체 재작성하는 대신 제자리에서 잘라낸다.",
-     "`--setting-sources user`가 동적으로 발견된 프로젝트 스킬을 차단하지 못하던 문제가 수정된다.",
-     "기본 저장소 안에 중첩된 worktree에서 실행할 때 CLAUDE.md, 슬래시 명령, 에이전트, 규칙이 중복되던 문제가 수정된다.",
-     "`/plugin` 작업 후 플러그인의 Stop, SessionEnd 등의 훅이 실행되지 않던 문제가 수정된다.",
-     "두 플러그인이 같은 `${CLAUDE_PLUGIN_ROOT}/...` 명령 템플릿을 쓸 때 훅이 조용히 누락되던 문제가 수정된다.",
-     "긴 SDK/CCR 세션에서 대화 메시지가 불필요하게 보관되던 메모리 누수가 수정된다.",
-     "도구 배치 중 중단된 세션을 재개할 때 분기 에이전트의 자동 압축·요약에서 API 400 오류가 나던 문제가 수정된다.",
-     "고아 도구 결과로 시작하는 대화를 재개할 때 \"unexpected tool_use_id found in tool_result blocks\" 오류가 나던 문제가 수정된다.",
-     "동료 에이전트가 Agent 도구의 `name` 매개변수로 중첩 동료 에이전트를 실수로 만들던 문제가 수정된다.",
-     "대화 압축 중 `CLAUDE_CODE_MAX_OUTPUT_TOKENS`가 무시되던 문제가 수정된다.",
-     "SDK 사용 화면인 Claude Code Remote 웹 UI와 VSCode 확장에서 `/compact` 요약이 사용자 말풍선으로 보이던 문제가 수정된다.",
-     "음성 활성화에 실패한 뒤 스페이스바가 눌린 상태로 남던 문제가 수정된다.",
-     "Windows에서 worktree 파일 복사가 수정된다.",
-     "Windows에서 전역 `.claude` 폴더 탐지가 수정된다.",
-     "`acceptEdits` 모드에서 심볼릭 링크된 상위 디렉터리를 통해 작업 디렉터리 밖에 새 파일을 쓸 수 있던 우회가 수정된다.",
-     "관리 설정에서 `allowManagedDomainsOnly`가 켜지면 허용되지 않은 도메인은 승인 요청 없이 자동 차단된다.",
-     "스킬의 allowed-tools에 있는 `AskUserQuestion` 같은 대화형 도구가 승인 없이 빈 답변으로 실행되던 문제가 수정된다.",
-     "큰 미추적 바이너리 파일이 있는 작업 트리에서 커밋할 때 메모리가 수 GB 급증하던 문제가 수정된다.",
-     "입력창에 초안이 있어도 Escape로 실행 중인 턴을 중단할 수 있다. 대기 메시지 편집에는 Up, 입력 줄 지우기에는 Ctrl+U를 사용한다.",
-     "Remote Control 세션의 Android 앱에서 `/voice`, `/cost` 같은 로컬 슬래시 명령을 실행하면 종료되던 문제가 수정된다.",
-     "긴 세션에서 이전 메시지 배열이 React Compiler `memoCache`에 쌓이던 메모리 누수가 수정된다.",
-     "긴 세션에서 REPL 렌더 범위가 쌓이던 메모리 누수가 수정된다. 1000턴에 약 35MB 규모였다.",
-     "프로세스 내부 동료 에이전트가 부모 대화 기록 전체를 계속 붙잡아 `/clear`나 자동 압축 후에도 GC를 막던 문제가 수정된다.",
-     "긴 대화형 세션에서 훅 이벤트가 제한 없이 쌓이던 메모리 누수가 수정된다.",
-     "`--mcp-config`가 손상된 파일을 가리킬 때 멈추던 문제가 수정된다.",
-     "스킬과 플러그인이 많이 설치됐을 때 시작이 느리던 문제가 수정된다.",
-     "`cd <outside-dir> && <cmd>` 권한 요청에 디렉터리 읽기 허용만이 아니라 연결된 명령도 표시된다.",
-     "인쇄 모드(`claude -p`)에서 `paths:` frontmatter가 있는 `.claude/rules/*.md`와 중첩 CLAUDE.md가 로드되지 않던 문제가 수정된다.",
-     "`/clear`가 세션 캐시를 모두 비우지 않던 문제가 수정돼 긴 세션의 메모리 보관이 줄어든다.",
-     "스크롤백 경계의 애니메이션 요소로 터미널이 깜박이던 문제가 수정된다.",
-     "OAuth MCP 서버 사용 시 macOS UI 프레임이 떨어지던 2.1.x 회귀가 수정된다.",
-     "동기식 디버그 로그 기록으로 입력 중 가끔 프레임이 멈추던 문제가 수정된다.",
-     "`TeammateIdle`과 `TaskCompleted` 훅이 `{\"continue\": false, \"stopReason\": \"...\"}`로 동료 에이전트를 중지할 수 있다. `Stop` 훅과 같은 동작이다.",
-     "`WorktreeCreate`와 `WorktreeRemove` 플러그인 훅이 조용히 무시되던 문제가 수정된다.",
-     "콜론이 있는 스킬 설명이 SKILL.md frontmatter에서 로드되지 않던 문제가 수정된다.",
-     "`description:` frontmatter가 없는 프로젝트 스킬이 사용 가능한 스킬 목록에 나타나지 않던 문제가 수정된다.",
-     "`/context`가 같은 서버의 모든 MCP 도구에 동일한 토큰 수를 표시하던 문제가 수정된다.",
-     "Windows Git Bash에서 모델이 CMD 방식 `2>nul` 리디렉션을 쓸 때 실제 `nul` 파일이 생성되던 문제가 수정된다.",
-     "확장된 하위 에이전트 대화 기록(Ctrl+O)의 각 도구 호출 아래에 빈 줄이 더 생기던 문제가 수정된다.",
-     "`/config` 검색창이 비어 있지만 포커스가 있을 때 Tab·방향키로 설정 탭을 순환하지 못하던 문제가 수정된다.",
-     "서비스 키 OAuth 세션(CCR 컨테이너)에서 프로필 범위 엔드포인트의 403으로 `[ERROR]` 로그가 반복되던 문제가 수정된다.",
-     "\"Remote Control active\" 상태 표시의 색이 일정하지 않던 문제가 수정된다.",
-     "입력 중간에 음성을 받아 적을 때 음성 파형 커서가 뒤따르는 첫 글자를 가리던 문제가 수정된다.",
-     "음성 준비 중 공백 5개가 모두 표시되던 문제가 수정돼 약 2개까지만 표시된다.",
-     "50ms 스피너 애니메이션 루프를 주변 셸과 분리해 턴 중 렌더링 및 CPU 부담을 줄인다.",
-     "네이티브 바이너리의 UI 렌더링 성능을 React Compiler로 개선한다.",
-     "시작 경로의 Git 하위 프로세스를 없애 `--worktree` 시작을 개선한다.",
-     "관리 설정 처리 시 불필요한 설정 파일 재로드를 없애 macOS 시작을 개선한다.",
-     "Claude.ai Enterprise·Team 사용자의 불필요한 키체인 조회를 건너뛰어 macOS 시작을 개선한다.",
-     "claude.ai 설정 가져오기와 로컬 연결을 파이프라인으로 처리하고 순차 배치 대신 동시성 풀을 써 MCP `-p` 시작을 개선한다.",
-     "눈에 띄지 않는 준비 애니메이션을 제거해 음성 시작 시 재렌더링 끊김을 줄인다.",
-     "MCP 도구가 반환한 PDF, Office 문서, 오디오를 원시 base64 대신 디코딩된 파일로 올바른 확장자와 함께 저장한다. WebFetch도 요약과 함께 바이너리 응답을 저장한다.",
-     "메시지 갱신 사이에 `onSubmit`을 안정화해 긴 세션의 메모리 사용을 개선한다.",
-     "LSP 도구 렌더링과 메모리 컨텍스트 구성에서 파일 전체를 읽지 않도록 개선한다.",
-     "세션 업로드와 메모리 동기화에서 크기·바이너리 검사 전에 큰 파일을 메모리로 읽지 않도록 개선한다.",
-     "존재 여부 검사 6곳에서 파일 내용을 읽지 않아 파일 작업 성능을 개선한다.",
-     "`--append-system-prompt-file`과 `--system-prompt-file`이 대화형 모드에서도 작동함을 문서에 명확히 한다.",
-     "Yoga WASM 사전 로드를 미뤄 기본 메모리 사용량을 약 16MB 줄인다.",
-     "stream-json 출력을 사용하는 SDK·CCR 세션의 메모리 사용량을 줄인다.",
-     "압축된 기록을 포함해 큰 세션 재개 시 메모리 사용량을 줄인다.",
-     "하위 에이전트 최종 보고를 간결하게 해 다중 에이전트 작업의 토큰 사용량을 줄인다.",
-     "Pro·Max·Team Premium의 Sonnet 4.5 사용자를 Sonnet 4.6으로 자동 이전한다.",
-     "`/resume` 선택기에 첫 프롬프트 대신 가장 최근 프롬프트를 표시한다. 일부 제목이 `(session)`으로 보이던 문제도 해결된다.",
-     "claude.ai MCP 커넥터 실패가 도구 목록에서 조용히 사라지는 대신 알림으로 표시된다.",
-     "예시 명령 제안이 Haiku 호출 대신 결정적으로 생성된다.",
-     "압축 후 세션 재개 시 진행 전에 요약 서문을 출력하지 않는다.",
-     "[SDK] 작업 생성에 `activeForm` 필드가 필수가 아니게 된다. 스피너는 작업 제목을 대신 사용한다.",
-     "[VSCode] 압축된 대화가 요약을 담은 접을 수 있는 \"Compacted chat\" 카드로 표시된다.",
-     "[VSCode] 권한 모드 선택기가 관리·정책 설정을 포함한 유효 `permissions.disableBypassPermissionsMode` 값을 따른다. `disable`이면 권한 우회 모드가 숨겨진다.",
-     "[VSCode] 채팅 패널에서 아랍어·히브리어·페르시아어 RTL 텍스트가 거꾸로 표시되던 v2.1.63 회귀가 수정된다."
-    ],
-    "features": [
-     {
-      "index": 0,
-      "title": "Claude API 스킬",
-      "what": "Claude API와 Anthropic SDK로 애플리케이션을 만드는 `/claude-api` 스킬이 추가된다. 이 스킬의 대상은 해당 API와 SDK를 사용하는 개발이다.",
-      "steps": [
-       "`/claude-api` 스킬을 호출한다.",
-       "Claude API와 Anthropic SDK를 사용하는 애플리케이션 개발에 활용한다."
-      ],
-      "terminal": {
-       "title": "사용 예",
-       "lines": [
-        {
-         "kind": "cmd",
-         "text": "> /claude-api"
-        }
-       ]
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     },
-     {
-      "index": 1,
-      "title": "빈 bash 프롬프트 종료",
-      "what": "빈 bash 프롬프트(`!`)에서 Ctrl+U를 누르면 bash 모드가 종료된다. `escape`와 `backspace`도 같은 동작을 한다.",
-      "steps": [
-       "빈 bash 프롬프트(`!`)를 연다.",
-       "Ctrl+U를 눌러 bash 모드를 종료한다."
-      ],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 2,
-      "title": "숫자 키패드 선택",
-      "what": "Claude의 인터뷰 질문에서 숫자 키패드로 선택지를 고를 수 있다. 이전에는 QWERTY 위 숫자열만 작동했다.",
-      "steps": [
-       "Claude의 인터뷰 질문에서 선택지를 확인한다.",
-       "숫자 키패드로 원하는 번호를 입력한다."
-      ],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 3,
-      "title": "Remote Control 세션 이름",
-      "what": "`/remote-control`과 `claude remote-control`에 선택적인 이름 인수가 추가된다. 지정한 사용자 지정 세션 제목은 claude.ai/code에 표시된다.",
-      "steps": [
-       "`/remote-control My Project` 또는 `claude remote-control --name \"My Project\"`로 이름을 지정한다.",
-       "claude.ai/code에서 지정한 세션 제목을 확인한다."
-      ],
-      "terminal": {
-       "title": "사용 예",
-       "lines": [
-        {
-         "kind": "cmd",
-         "text": "> /remote-control My Project"
-        },
-        {
-         "kind": "cmd",
-         "text": "$ claude remote-control --name \"My Project\""
-        }
-       ]
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     },
-     {
-      "index": 4,
-      "title": "음성 STT 언어 확대",
-      "what": "음성 STT에 10개 언어가 추가돼 총 20개 언어를 지원한다. 새 언어는 러시아어, 폴란드어, 터키어, 네덜란드어, 우크라이나어, 그리스어, 체코어, 덴마크어, 스웨덴어, 노르웨이어다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 5,
-      "title": "Effort 수준 표시",
-      "what": "로고와 스피너에 현재 활성화된 effort 수준이 표시된다. 예시 표시는 \"with low effort\"다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 6,
-      "title": "터미널 제목의 에이전트 이름",
-      "what": "`claude --agent`를 사용할 때 터미널 제목에 에이전트 이름이 표시된다. 표시 범위는 해당 옵션으로 실행한 세션이다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 7,
-      "title": "macOS 프록시 TLS 설정",
-      "what": "macOS 전용 `sandbox.enableWeakerNetworkIsolation` 설정이 추가된다. `httpProxyPort`로 사용자 지정 MITM 프록시를 사용할 때 `gh`, `gcloud`, `terraform` 같은 Go 프로그램이 TLS 인증서를 검증할 수 있게 한다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 8,
-      "title": "내장 Git 지침 제거 설정",
-      "what": "`includeGitInstructions` 설정과 `CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS` 환경 변수가 추가된다. Claude 시스템 프롬프트의 내장 커밋 및 PR 워크플로 지침을 제거하는 용도다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 9,
-      "title": "플러그인 변경 재로드",
-      "what": "`/reload-plugins` 명령이 추가된다. 재시작하지 않고 대기 중인 플러그인 변경을 활성화한다.",
-      "steps": [
-       "플러그인 변경이 대기 중일 때 `/reload-plugins`를 입력한다.",
-       "재시작 없이 변경을 활성화한다."
-      ],
-      "terminal": {
-       "title": "사용 예",
-       "lines": [
-        {
-         "kind": "cmd",
-         "text": "> /reload-plugins"
-        }
-       ]
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 10,
-      "title": "Desktop 시작 안내",
-      "what": "macOS와 Windows에서 시작 시 Claude Code Desktop을 제안하는 일회성 안내가 추가된다. 안내는 최대 3회 표시되고 닫을 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 11,
-      "title": "스킬 디렉터리 변수",
-      "what": "`${CLAUDE_SKILL_DIR}` 변수가 추가된다. 스킬은 SKILL.md 내용에서 이 변수로 자체 디렉터리를 참조할 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 12,
-      "title": "지침 로드 훅",
-      "what": "`InstructionsLoaded` 훅 이벤트가 추가된다. CLAUDE.md 또는 `.claude/rules/*.md` 파일이 컨텍스트에 로드될 때 발생한다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 13,
-      "title": "훅의 에이전트 식별 정보",
-      "what": "훅 이벤트에 `agent_id`와 `agent_type`이 추가된다. `agent_id`는 하위 에이전트용이며 `agent_type`은 하위 에이전트와 `--agent`에 적용된다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 14,
-      "title": "상태 표시줄 worktree 정보",
-      "what": "`--worktree` 세션의 상태 표시줄 훅 명령에 `worktree` 필드가 추가된다. 필드에는 이름, 경로, 브랜치, 원본 저장소 디렉터리가 포함된다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 15,
-      "title": "플러그인 신뢰 문구",
-      "what": "관리 설정에 `pluginTrustMessage`가 추가된다. 플러그인 설치 전에 보이는 신뢰 경고에 조직별 설명을 덧붙인다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 16,
-      "title": "Team 정책 한도",
-      "what": "Team 요금제 OAuth 사용자에게도 정책 한도를 가져온다. 이전에는 Enterprise에만 적용됐으며 원격 제어 제한이 한도 예시다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 17,
-      "title": "마켓플레이스 경로 제한",
-      "what": "`strictKnownMarketplaces`에 `pathPattern`이 추가된다. `hostPattern` 제한과 함께 파일·디렉터리 마켓플레이스 소스를 정규식으로 검사한다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 18,
-      "title": "Git 하위 디렉터리 플러그인 소스",
-      "what": "플러그인 소스 유형 `git-subdir`가 추가된다. Git 저장소의 하위 디렉터리를 가리킬 수 있다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 19,
-      "title": "MCP OAuth 메타데이터 URL",
-      "what": "MCP 서버용 `oauth.authServerMetadataUrl` 설정 옵션이 추가된다. 표준 탐색이 실패할 때 사용자 지정 OAuth 메타데이터 탐색 URL을 지정한다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 100,
-      "title": "VSCode 압축 대화 카드",
-      "what": "VSCode에서 압축된 대화가 접을 수 있는 \"Compacted chat\" 카드로 표시된다. 요약은 카드 안에 들어간다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 101,
-      "title": "VSCode 권한 모드 선택기",
-      "what": "VSCode 권한 모드 선택기가 유효 Claude Code 설정의 `permissions.disableBypassPermissionsMode`를 따른다. 관리·정책 설정도 포함되며 값이 `disable`이면 권한 우회 모드가 선택기에서 숨겨진다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 102,
-      "title": "VSCode RTL 텍스트 표시",
-      "what": "VSCode 채팅 패널에서 아랍어, 히브리어, 페르시아어 RTL 텍스트가 거꾸로 표시되던 문제가 수정된다. 이 문제는 v2.1.63에서 발생한 회귀다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     }
-    ]
-   }
+   "hash": "24534b4e8cd2",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.68",

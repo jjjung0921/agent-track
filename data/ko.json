@@ -67830,5 +67830,162 @@
     }
    ]
   }
+ },
+ "codex@rust-v0.168.0": {
+  "hash": "858bce26cd4e",
+  "ko": {
+   "model": "codex-cli",
+   "summary": "새 대화의 모델 제공자를 선택하고, 나란히 보기·녹음 첨부·애니메이션 GIF 생성 등 Codex CLI 기능을 추가한다. 터미널 알림과 전체 화면 미리보기도 지원한다.",
+   "items": [
+    "Sessions → Model providers에서 모델 제공자를 살펴보고 새 대화의 기본값을 선택한다.",
+    "`features.tui_workspace`를 켜면 메인 대화 옆에 보조 대화를 표시한다. 구분선을 드래그해 창 크기를 조절하거나 `leader z`를 눌러 포커스된 창을 확대한다.",
+    "오디오 지원 모델을 사용할 때 녹음을 첨부한다. Codex는 거부가 확인된 녹음을 이후 턴에서 건너뛰고, 클립 길이를 고려해 짧은 녹음을 더 많이 문맥에 유지한다.",
+    "`features.image_generation_animation`을 켜면 프레임 수와 타이밍을 선택적으로 조절해 애니메이션 GIF를 생성하거나 편집한다.",
+    "`allow-passthrough all`을 설정한 Ghostty와 Kitty의 tmux에서 전체 화면 Codex가 이미지 미리보기와 펫을 표시한다.",
+    "터미널 알림은 `tui.notification_method = \"osc777\"`로 설정한다. 승인 알림은 더 긴 명령 미리보기를 보여주고 터미널 입력 요청과 네트워크 접근 요청을 구분한다.",
+    "로컬 TUI 기록 및 재개 선택기에서 새로 만든 스레드는 로그인한 ChatGPT 계정 기준으로 필터링된다.",
+    "새 대화의 기본 모델 제공자를 바꿔도 열려 있거나 재개한 대화는 저장된 제공자를 사용한다.",
+    "TUI가 도구 호출로 끊긴 응답을 하나의 Markdown 메시지로 표시하고, 대화를 재생할 때 추론 요약을 복원한다.",
+    "최종 기록을 저장하는 중이거나 오래 실행 중인 대화로 돌아온 뒤에도 실행 중인 턴에 방향 지시 메시지가 전달된다.",
+    "퍼지 파일 검색에서 파일명 일치의 비중을 높여 상위 디렉터리 일치가 파일명을 밀어내는 일을 줄인다.",
+    "Windows에서 유휴 상태인 로컬 MCP 서버가 Codex의 다른 기능을 위한 파일시스템 I/O를 막지 않는다.",
+    "app-server 참조 문서가 모델 제공자 목록 조회, 사용자 지정 게이트웨이 생성, 게이트웨이·Bedrock·GCP 설정 업데이트를 다룬다.",
+    "`features.multi_agent`를 명시적으로 설정하면 Codex가 경고하고, 서브에이전트 도구를 비활성화하려면 `agents.enabled`를 사용하도록 안내한다.",
+    "기여자는 BuildBuddy 자격 증명 없이 로컬에서 Bazel CI 작업을 실행할 수 있다."
+   ],
+   "features": [
+    {
+     "index": 0,
+     "title": "새 대화의 모델 제공자 선택",
+     "what": "모델 제공자 목록을 확인하고 새 대화에 사용할 기본 제공자를 선택한다. 기존 대화는 저장된 제공자를 계속 사용한다.",
+     "steps": [
+      "Sessions → Model providers를 연다.",
+      "모델 제공자를 살펴본다.",
+      "새 대화의 기본 제공자를 선택한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 1,
+     "title": "보조 대화를 나란히 표시",
+     "what": "`features.tui_workspace`를 켜면 메인 대화 옆에 보조 대화를 표시한다. 구분선을 드래그해 두 창의 크기를 조절하고, `leader z`를 눌러 포커스된 창을 확대할 수 있다.",
+     "steps": [
+      "`features.tui_workspace`를 켠다.",
+      "메인 대화 옆의 보조 대화를 본다.",
+      "구분선을 드래그해 창 크기를 조절하거나 `leader z`를 눌러 포커스된 창을 확대한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": [
+       {
+        "kind": "cmd",
+        "text": "> leader z"
+       }
+      ]
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 2,
+     "title": "오디오 녹음 첨부",
+     "what": "오디오 지원 모델을 사용할 때 녹음을 첨부할 수 있다. 거부가 확인된 녹음은 이후 턴에서 건너뛰며, 클립 길이를 고려해 짧은 녹음을 더 많이 문맥에 유지한다.",
+     "steps": [
+      "오디오 지원 모델을 사용한다.",
+      "녹음을 첨부한다.",
+      "이후 턴에서 확인된 거부 녹음은 건너뛰고 짧은 녹음은 더 많이 문맥에 유지한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 3,
+     "title": "애니메이션 GIF 생성 및 편집",
+     "what": "`features.image_generation_animation`을 켜면 애니메이션 GIF를 생성하거나 편집한다. 프레임 수와 타이밍은 선택적으로 조절할 수 있다.",
+     "steps": [
+      "`features.image_generation_animation`을 켠다.",
+      "애니메이션 GIF를 생성하거나 편집한다.",
+      "필요하면 프레임 수와 타이밍을 조절한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": true
+    },
+    {
+     "index": 4,
+     "title": "tmux 전체 화면 미리보기",
+     "what": "Ghostty와 Kitty에서 `allow-passthrough all`을 설정하면 tmux 안의 전체 화면 Codex가 이미지 미리보기와 펫을 표시한다. 이 동작은 해당 터미널 설정 조건에 한정된다.",
+     "steps": [
+      "Ghostty 또는 Kitty에서 `allow-passthrough all`을 설정한다.",
+      "tmux에서 Codex를 전체 화면으로 연다.",
+      "이미지 미리보기와 펫을 표시한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    },
+    {
+     "index": 5,
+     "title": "터미널 알림 설정",
+     "what": "`tui.notification_method = \"osc777\"`로 터미널 알림을 설정한다. 승인 알림은 더 긴 명령 미리보기를 보여주고 터미널 입력 요청과 네트워크 접근 요청을 구분한다.",
+     "steps": [
+      "`tui.notification_method = \"osc777\"`로 설정한다.",
+      "터미널 알림을 받는다.",
+      "승인 알림에서 명령 미리보기와 요청 종류를 확인한다."
+     ],
+     "terminal": {
+      "title": "",
+      "lines": []
+     },
+     "desktop": {
+      "steps": [],
+      "before": "",
+      "after": ""
+     },
+     "screenshot_id": "",
+     "notable": false
+    }
+   ]
+  }
  }
 }
