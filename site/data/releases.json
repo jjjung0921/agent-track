@@ -1,6 +1,131 @@
 {
- "generatedAt": "2026-11-13T06:54:10.225Z",
+ "generatedAt": "2026-11-13T19:49:57.903Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.169.0",
+   "tool": "codex",
+   "version": "0.169.0",
+   "date": "2026-11-13T08:37:05Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.169.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "The opt-in terminal workspace supports multiple side-chat tabs. Switch between them with the keyboard or mouse, and reopen saved local side chats after restarting Codex.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Search older tasks from the agent command center by name, prompt preview, or working directory.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Turn on **Collapse turn details** in the full-screen transcript to fold completed activity beneath each prompt while keeping answers visible and tool output searchable.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Add or edit custom model providers from the terminal. With custom gateway onboarding enabled, you can create a provider during sign-in and use a device code for supported gateways over SSH or without a local browser.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Press `Ctrl+S` in the terminal report editor to save a diagnostic ZIP locally, even when uploads are disabled.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "With the opt-in Cloud connection on macOS and Linux, send images, choose a model and reasoning effort, and archive or restore Cloud conversations from the terminal.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "`codex exec` keeps project configuration and MCP servers disabled in untrusted directories, even with `--sandbox workspace-write`. Use `--trust` with `codex exec` or `codex review` to explicitly save project trust.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "**Yes, clear context and implement** now hands the full approved plan to the fresh session and keeps the current session open if the handoff fails.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Windows sandbox handling for quoted `cmd.exe` paths and for PowerShell sessions whose working directory has an unreadable parent.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Pasted images on macOS retain their intended orientation and use native PNG or JPEG clipboard data when available.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "The terminal no longer stays busy waiting for MCP servers that a shared app server did not report.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Interrupted turns now close cleanly, and delayed aborts or file approval cancellations no longer interrupt a later turn.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Updated the `openai-docs` skill to focus on Codex and ChatGPT Work questions and first-time API setup, with dedicated guidance for configuring Codex across a team.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Documented how app-server clients can list models or authorize a gateway for a configured provider without changing the default provider.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Updated bundled SQLite to 3.54 to pick up write-ahead log fixes.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Plugin marketplace upgrades can reuse Git objects already on disk, reducing repeat downloads.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "6e48bed38ea3",
+   "ko": null
+  },
   {
    "id": "codex@rust-v0.168.0",
    "tool": "codex",
