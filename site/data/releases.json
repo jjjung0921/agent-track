@@ -1,6 +1,37 @@
 {
- "generatedAt": "2026-11-17T08:03:57.455Z",
+ "generatedAt": "2026-11-17T21:02:10.159Z",
  "releases": [
+  {
+   "id": "codex@changelog:codex-gpt-62-astra",
+   "tool": "codex",
+   "version": "GPT-6.2 Astra and GPT-6.2 Sol in Work and Codex",
+   "date": "2026-11-17T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "general"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-gpt-62-astra",
+   "items": [
+    {
+     "cat": "changed",
+     "text": "GPT-6.2 Astra and GPT-6.2 Sol are now available in ChatGPT Work and Codex. Choose Astra for your hardest projects, such as implementing and testing a change across an existing codebase or turning a report into slides that follow your template. Choose Sol for everyday coding, writing, and multistep workflows. With GPT-6.2 Sol, you can complete more tasks on the same paid plan than with GPT-6.1 Sol.",
+     "surfaces": [
+      "general"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Pro $200 subscribers can use GPT-6.2 Sol in Ultrafast mode. Pro $500 subscribers can use Ultrafast with both GPT-6.2 Sol and GPT-6.2 Astra. See Models for help choosing a model and Speed for plan and workspace requirements. Read the release announcement for more details.",
+     "surfaces": [
+      "general"
+     ]
+    }
+   ],
+   "hash": "ff527c19ce7e",
+   "ko": null
+  },
   {
    "id": "claude-code@2.1.326",
    "tool": "claude-code",
@@ -8524,6 +8555,44 @@
    }
   },
   {
+   "id": "codex@changelog:codex-2026-11-12-app",
+   "tool": "codex",
+   "version": "Codex app 26.1111",
+   "date": "2026-11-12T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-11-12-app",
+   "items": [
+    {
+     "cat": "fixed",
+     "text": "Fixed a formatting issue where a price such as $5/month and part of a later link could appear as math if the link contained a dollar sign.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Copying part of a formatted response now preserves links, list numbering, and checked boxes when you paste it into a rich-text editor.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Restored Edit plugin when you reopen an installed private workspace plugin from Personal > Created by you.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "e0c7bb206694",
+   "ko": null
+  },
+  {
    "id": "codex@rust-v0.167.2",
    "tool": "codex",
    "version": "0.167.2",
@@ -8635,6 +8704,51 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-11-10-app",
+   "tool": "codex",
+   "version": "Codex app 26.1106",
+   "date": "2026-11-10T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-11-10-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "When you reopen the app after a quit or crash, Codex now automatically resumes eligible local chats. The chat must still be interrupted, have been active in the past 24 hours, and belong to the same ChatGPT account you’re using.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an issue where switching accounts could make local projects, remote projects, and pinned tasks disappear from the sidebar.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "When you comment on a passage in Pages, the comment box now keeps focus as you type and attaches your comment to the selected text.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Replies now render inline equations enclosed in single dollar signs, such as $x + y$, and keep prices such as $5 each as text next to an equation.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "023bc8af55a5",
+   "ko": null
   },
   {
    "id": "codex@changelog:codex-2026-11-10-mobile",
@@ -11961,6 +12075,44 @@
    }
   },
   {
+   "id": "codex@changelog:codex-2026-11-05-app",
+   "tool": "codex",
+   "version": "Codex app 26.1103",
+   "date": "2026-11-05T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-11-05-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "On macOS and Windows, the home screen loads faster, the first response in an existing chat appears sooner, and PDF previews and code reviews open faster.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an issue on macOS where the integrated terminal could display non-ASCII characters incorrectly when the app started without a language setting.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "The November 8 update made the Send, Queue, and Steer buttons appear dimmed when they’re unavailable.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "5c7a6d5296f2",
+   "ko": null
+  },
+  {
    "id": "claude-code@2.1.318",
    "tool": "claude-code",
    "version": "2.1.318",
@@ -12896,6 +13048,37 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-11-03-app",
+   "tool": "codex",
+   "version": "Codex app 26.1029",
+   "date": "2026-11-03T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-11-03-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Codex can now use controls in the in-app browser that require holding down a key.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "When you search a chat or PDF, the Find bar now waits for the search to finish before reporting zero results.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "bacdf54a2f26",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.317",
@@ -16186,6 +16369,44 @@
    }
   },
   {
+   "id": "codex@changelog:codex-2026-10-29-app",
+   "tool": "codex",
+   "version": "Codex app 26.1027",
+   "date": "2026-10-29T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-29-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "On Windows, shortcuts to %LOCALAPPDATA%\\Microsoft\\WindowsApps\\chatgpt-desktop.exe now keep working after an app update.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "In the October 31 update, Codex offered Resume or Keep paused when you reopened the app after a quit or crash. The prompt covered interrupted local chats active in the past 24 hours if you were signed in with the same ChatGPT account.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "If switching Git branches fails, Codex now restores which changes were staged and which were unstaged.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "22baf800dfe0",
+   "ko": null
+  },
+  {
    "id": "codex@rust-v0.165.0",
    "tool": "codex",
    "version": "0.165.0",
@@ -16784,6 +17005,37 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-27-app",
+   "tool": "codex",
+   "version": "Codex app 26.1023",
+   "date": "2026-10-27T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-27-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "When you steer Codex while it’s responding, the chat now keeps the interrupted reply above your message and shows the revised reply below it.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Selecting a code review finding now takes you to the correct line and keeps it in view as the diff loads.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "b080f966c984",
+   "ko": null
   },
   {
    "id": "codex@changelog:codex-2026-10-27-mobile",
@@ -18488,6 +18740,44 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-23-app",
+   "tool": "codex",
+   "version": "Codex app 26.1021",
+   "date": "2026-10-23T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-23-app",
+   "items": [
+    {
+     "cat": "new",
+     "text": "The October 23 patch (26.1021.31345) added Ask before deleting worktrees in Settings > Worktrees. Turn it off to skip confirmation when you manually delete a worktree.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Staging a file type change in the Changes panel now leaves unrelated edits unstaged.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "The October 23 patch also restored enterprise browser policies in the in-app browser.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "f937f44a30af",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.309",
@@ -20562,6 +20852,37 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-20-app",
+   "tool": "codex",
+   "version": "Codex app 26.1016",
+   "date": "2026-10-20T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-20-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "On case-sensitive file systems, dragging files such as Report.txt and report.txt into a chat now attaches both in the order you dropped them.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "The October 21 update fixed an issue that could prevent a chat from starting in a new worktree.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "18a18565cdf0",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.304",
@@ -23076,6 +23397,37 @@
      }
     ]
    }
+  },
+  {
+   "id": "codex@changelog:codex-2026-10-15-app",
+   "tool": "codex",
+   "version": "Codex app 26.1013",
+   "date": "2026-10-15T00:00:00Z",
+   "datePrecision": "day",
+   "prerelease": false,
+   "source": "official-changelog",
+   "topics": [
+    "codex-app"
+   ],
+   "url": "https://developers.openai.com/codex/changelog#codex-2026-10-15-app",
+   "items": [
+    {
+     "cat": "improved",
+     "text": "If you select Steer while Codex is compacting a conversation, a notice now tells you that your message will run automatically when compaction finishes.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Queued messages that start with indented code now show a plain-text preview. Open the preview to see the original indentation.",
+     "surfaces": [
+      "desktop"
+     ]
+    }
+   ],
+   "hash": "2547446090b1",
+   "ko": null
   },
   {
    "id": "claude-code@2.1.300",
@@ -29147,6 +29499,13 @@
    "url": "https://developers.openai.com/codex/changelog#codex-2026-10-08-app",
    "items": [
     {
+     "cat": "changed",
+     "text": "Includes updates through October 13, 2026.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
      "cat": "fixed",
      "text": "Fixed queued messages getting stuck on Sending and restored Steer in secondary app windows.",
      "surfaces": [
@@ -29166,76 +29525,24 @@
      "surfaces": [
       "desktop"
      ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed an issue on Windows where Codex could leave a background process running in WSL after checking startup policies.",
+     "surfaces": [
+      "desktop"
+     ]
+    },
+    {
+     "cat": "improved",
+     "text": "Automations scheduled for multiple times within an hour, such as at 9:00 and 9:30, can start up to two minutes early or late.",
+     "surfaces": [
+      "desktop"
+     ]
     }
    ],
-   "hash": "c30e8ac94690",
-   "ko": {
-    "model": "codex-cli",
-    "summary": "Codex 앱의 변경 사항 패널에서 파일 간 스크롤과 이동이 개선된다. 승인 요청이 권한 설정 때문에 불가능할 때 복구 안내가 더 명확해진다.",
-    "items": [
-     "대기 중인 메시지가 `Sending`에 멈추던 문제를 수정하고 보조 앱 창에서 `Steer`를 복구한다.",
-     "`Changes` 패널에서 파일 간 스크롤과 이동을 개선한다.",
-     "채팅 권한 때문에 도구 호출의 승인을 요청할 수 없으면 복구 안내와, 가능한 경우 해당 권한으로 가는 링크를 제공한다."
-    ],
-    "features": [
-     {
-      "index": 1,
-      "title": "변경 사항 패널 이동 개선",
-      "what": "`Changes` 패널에서 파일 사이를 스크롤하고 이동하는 동작이 개선된다. 여러 파일의 변경 사항을 살펴볼 때 적용된다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [
-        {
-         "title": "변경 사항 확인",
-         "note": "`Changes` 패널에서 파일을 확인한다.",
-         "changed": false
-        },
-        {
-         "title": "파일 간 이동",
-         "note": "파일 사이를 스크롤하고 이동한다.",
-         "changed": true
-        }
-       ],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": false
-     },
-     {
-      "index": 2,
-      "title": "승인 제한 복구 안내",
-      "what": "도구 호출에 승인이 필요하지만 채팅 권한 때문에 승인 요청을 보낼 수 없는 경우 복구 안내가 더 명확해진다. 가능한 경우 해당 권한으로 이동하는 링크도 제공된다.",
-      "steps": [],
-      "terminal": {
-       "title": "",
-       "lines": []
-      },
-      "desktop": {
-       "steps": [
-        {
-         "title": "승인이 필요한 도구 호출",
-         "note": "채팅 권한 때문에 승인 요청을 보낼 수 없는 상황이 발생한다.",
-         "changed": false
-        },
-        {
-         "title": "복구 안내 확인",
-         "note": "복구 안내와, 제공되는 경우 권한 링크를 확인한다.",
-         "changed": true
-        }
-       ],
-       "before": "",
-       "after": ""
-      },
-      "screenshot_id": "",
-      "notable": true
-     }
-    ]
-   }
+   "hash": "ea2c495311c4",
+   "ko": null
   },
   {
    "id": "codex@changelog:codex-2026-10-08-gpt-61-sol-ultrafast",
