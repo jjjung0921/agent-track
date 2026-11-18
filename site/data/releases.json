@@ -1,6 +1,89 @@
 {
- "generatedAt": "2026-11-17T23:41:37.320Z",
+ "generatedAt": "2026-11-18T07:39:49.604Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.170.0",
+   "tool": "codex",
+   "version": "0.170.0",
+   "date": "2026-11-18T03:40:48Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.170.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Added WebRTC negotiation for realtime voice calls in the TUI.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added automatically refreshed authentication headers for OpenTelemetry HTTP exporters.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Added experimental support for using identically named MCP servers across environments.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Oversized WebSocket requests now fall back to HTTP without unnecessary retries.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed MCP OAuth credential races during cancellation, login, and logout.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Improved automatic reconnection for Cloud conversations and preserved active recovery turns when clients reconnect.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed Windows file replacement, sandbox permission preservation, and runtime registration recovery.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Fixed permission updates and child threads losing existing sandbox restrictions.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Removed duplicate file search results and fixed thread search snippets for queries containing whitespace.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Updated sandbox documentation to explain permission profiles and filesystem rules.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "b8197d955799",
+   "ko": null
+  },
   {
    "id": "codex@rust-v0.169.1",
    "tool": "codex",
