@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T07:39:49.604Z",
+ "generatedAt": "2026-11-18T10:21:46.690Z",
  "releases": [
   {
    "id": "codex@rust-v0.170.0",
@@ -82,7 +82,75 @@
     }
    ],
    "hash": "b8197d955799",
-   "ko": null
+   "ko": {
+    "model": "codex-cli",
+    "summary": "TUI 실시간 음성 통화에 WebRTC 협상이 추가되고, OpenTelemetry HTTP 내보내기 인증 헤더가 자동으로 갱신된다. 환경별로 이름이 같은 MCP 서버를 사용하는 실험적 지원도 추가된다.",
+    "items": [
+     "TUI 실시간 음성 통화에 WebRTC 협상이 추가된다.",
+     "OpenTelemetry HTTP 내보내기의 인증 헤더가 자동으로 갱신된다.",
+     "환경별로 이름이 같은 MCP 서버를 사용하는 실험적 지원이 추가된다.",
+     "지나치게 큰 WebSocket 요청은 불필요한 재시도 없이 HTTP로 전환된다.",
+     "취소, 로그인, 로그아웃 중 발생하는 MCP OAuth 자격 증명 경합을 수정한다.",
+     "Cloud 대화의 자동 재연결을 개선하고, 클라이언트 재연결 시 진행 중인 복구 턴을 보존한다.",
+     "Windows 파일 교체, 샌드박스 권한 보존, 런타임 등록 복구 문제를 수정한다.",
+     "권한 업데이트 문제와 하위 스레드에서 기존 샌드박스 제한이 사라지는 문제를 수정한다.",
+     "중복 파일 검색 결과를 제거하고, 공백이 포함된 검색어의 스레드 검색 스니펫 문제를 수정한다.",
+     "권한 프로필과 파일 시스템 규칙을 설명하도록 샌드박스 문서를 업데이트한다."
+    ],
+    "features": [
+     {
+      "index": 0,
+      "title": "TUI 실시간 음성 통화의 WebRTC 협상",
+      "what": "TUI의 실시간 음성 통화에 WebRTC 협상이 추가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 1,
+      "title": "OpenTelemetry HTTP 내보내기 인증 헤더 자동 갱신",
+      "what": "OpenTelemetry HTTP 내보내기에 인증 헤더 자동 갱신 기능이 추가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": true
+     },
+     {
+      "index": 2,
+      "title": "환경별 동일 이름 MCP 서버 지원",
+      "what": "환경별로 이름이 같은 MCP 서버를 사용하는 실험적 지원이 추가된다.",
+      "steps": [],
+      "terminal": {
+       "title": "",
+       "lines": []
+      },
+      "desktop": {
+       "steps": [],
+       "before": "",
+       "after": ""
+      },
+      "screenshot_id": "",
+      "notable": false
+     }
+    ]
+   }
   },
   {
    "id": "codex@rust-v0.169.1",
