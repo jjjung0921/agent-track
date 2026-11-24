@@ -1,6 +1,124 @@
 {
- "generatedAt": "2026-11-23T23:59:58.424Z",
+ "generatedAt": "2026-11-24T10:02:11.184Z",
  "releases": [
+  {
+   "id": "codex@rust-v0.172.0",
+   "tool": "codex",
+   "version": "0.172.0",
+   "date": "2026-11-24T00:03:55Z",
+   "prerelease": false,
+   "url": "https://github.com/openai/codex/releases/tag/rust-v0.172.0",
+   "source": "github-releases",
+   "items": [
+    {
+     "cat": "new",
+     "text": "Follow thread links from search results and transcripts to open saved conversations and nested agents in the terminal.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Press `Tab` to complete arguments for supported slash commands. For example, `/mcp lo` completes to `/mcp login`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Jump between task groups in the agent command center with `Shift+Up` and `Shift+Down`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Optional stdio MCP servers with cached tool lists now start on their first tool call by default.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "Set an approval reviewer for individual connected app tools in `config.toml`.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "new",
+     "text": "App-server clients can select Amazon Bedrock Runtime during setup or sign-in.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "`codex exec resume` restores saved sandbox permissions, the working directory, and workspace roots unless explicitly overridden.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Remote sessions preserve working directories, workspace roots, and writable paths when the client and server run on different operating systems.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Codex reports provider errors as soon as they arrive in a response stream and identifies which API spend limit was reached.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Interrupting a parent turn preserves queued replies from child agents for the next turn.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Use `PageUp` and `PageDown` to read and submit answer choices that are taller than the terminal’s answer area.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "fixed",
+     "text": "Cloud replies that finish after history loads now update in place, keeping the terminal transcript in order.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "The bundled `openai-docs` skill now covers migration to GPT-6.2 Astra and Sol, including endpoint choices and tool-calling requirements.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Code Mode now uses gRPC for all host connections. The `code_mode_host_grpc` setting is deprecated.",
+     "surfaces": [
+      "cli"
+     ]
+    },
+    {
+     "cat": "changed",
+     "text": "Python formatting and SDK type generation now verify dependency hashes against the repository lockfile.",
+     "surfaces": [
+      "cli"
+     ]
+    }
+   ],
+   "hash": "ee1cca0ddc1d",
+   "ko": null
+  },
   {
    "id": "claude-code@2.1.331",
    "tool": "claude-code",
